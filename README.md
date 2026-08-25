@@ -1,14 +1,30 @@
-# hello-gpu 学习记录
+# mlsys-learning-notes
+
+个人学习笔记仓库，收录两块内容：**MLSys 系列笔记（task 制）**与 **hello-gpu 学习记录（Day 制）**。
+
+## 一、MLSys 系列笔记
+
+- [task0_mlsysim_learning_notes.md](task0_mlsysim_learning_notes.md)
+- [task1_hello_roofline_learning_notes.md](task1_hello_roofline_learning_notes.md)
+- [task1_rmsnorm_swiglu_learning_notes.md](task1_rmsnorm_swiglu_learning_notes.md)
+- [task2_memory_wall_two_phases_learning_notes.md](task2_memory_wall_two_phases_learning_notes.md)
+- [task2_rope_attention_learning_notes.md](task2_rope_attention_learning_notes.md)
+- [diy_llm_task1_byte_level_bpe_learning_notes.md](diy_llm_task1_byte_level_bpe_learning_notes.md)
+- [diy_llm_task2_pytorch_resource_accounting_learning_notes.md](diy_llm_task2_pytorch_resource_accounting_learning_notes.md)
+
+最新一篇：[学习笔记_模型结构_05-08_LLaMA_Block与MoE.md](学习笔记_模型结构_05-08_LLaMA_Block与MoE.md)——LLaMA3 Block 组装、MoE Router、负载均衡损失、Gemma/Qwen 架构技巧，含重点问答与个人错误档案。
+
+## 二、hello-gpu 学习记录
 
 这里集中保存 [datawhalechina/hello-gpu](https://github.com/datawhalechina/hello-gpu) 的学习笔记、可复现实验和打卡证据。每个 Day 都遵循仓库根目录的 [项目执行规则](../项目执行规则.md)：先完成打卡必做项，再进入拓展。
 
-## 学习资料
+### 学习资料
 
 - [教程仓库](https://github.com/datawhalechina/hello-gpu)
 - [五日学习指南](https://zcnijjcepfie.feishu.cn/docx/RtWQdHmztoAXvQxmPX6cSUy6nug)
 - [学习环境说明](https://zcnijjcepfie.feishu.cn/docx/PurhdJlaaoSzWzxwL26cw497nxd)
 
-## 目录
+### 目录
 
 | 路径 | 用途 |
 | --- | --- |
@@ -19,15 +35,15 @@
 | [day2_timing/benchmark_vector_add.py](day2_timing/benchmark_vector_add.py) | 以 PyTorch ROCm 测量同一 Vector Add 的单次、错误 CPU enqueue 与可信 GPU Event 结果。 |
 | [打卡材料](打卡材料/README.md) | 截图和原始终端输出的命名、存放与提交前检查。 |
 
-## 范围说明
+### 范围说明
 
 活动学习指南把 Day 1 定义为教程第 1--4 章，把 Day 2 的打卡核心定义为第 5 章的可信计时。第 6 章是 rocprofv3 与性能瓶颈分析，按五日学习指南属于 Day 3；由于本次安排写有“第 5--6 章”，Day 2 笔记保留了第 6 章预习入口，但不把它替代 Day 2 的计时打卡证据。
 
-## 当前环境状态
+### 当前环境状态
 
 2026-08-22 在本工作区检查到 Windows 10 和 Python 3.10.2，未发现 <code>rocminfo</code>、<code>hipcc</code>、<code>rocm-smi</code> 或 <code>amd-smi</code>。因此仓库内没有伪造的 GPU 型号、性能数字或“通过”截图。请在有 AMD GPU 的 ROCm Linux 或可用 WSL2 ROCm 环境中运行下面的代码，再把真实输出放入 [打卡材料](打卡材料/README.md)。
 
-## 推荐完成顺序
+### 推荐完成顺序
 
 1. 阅读 Day 1 笔记，完成 ROCm 三道环境验证、编译运行 HIP 程序，并保存两项截图。
 2. 阅读 Day 2 笔记，对固定输入执行一次完整计时，保留完整协议和三组结果。
