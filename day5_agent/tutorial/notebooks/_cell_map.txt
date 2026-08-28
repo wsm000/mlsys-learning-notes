@@ -1,0 +1,113 @@
+======================== day5_agent/tutorial/notebooks\chapter14.ipynb
+  [ 0] MD  : # 第14章 Agent 入门
+  [ 1] MD  : ## 在云端运行本章
+  [ 2] MD  : ## 本章目标、前置知识与产物
+  [ 3] MD  : ## 14.1 什么是 LLM Agent
+  [ 4] MD  : ## 14.2 为什么 Agent 适合算子优化
+  [ 5] MD  : ## 14.3 ReAct 范式简介
+  [ 6] MD  : ## 14.4 工具调用（Tool Use）
+  [ 7] MD  : ## 14.5 本书 Agent 的边界
+  [ 8] MD  : ## 14.6 和 hello-agents 的关系
+  [ 9] MD  : ## Execution
+  [10] CODE: from pathlib import Path
+  [11] MD  : ### 步骤2：准备 Agent 依赖
+  [12] CODE: requirements = {
+  [13] MD  : ### 步骤3：定位 ReAct 主循环
+  [14] CODE: import inspect
+  [15] MD  : ### 步骤4：查看工具 schema
+  [16] CODE: import tempfile
+  [17] MD  : ## Expected Output / Interpretation
+  [18] MD  : ## Pass Criteria
+  [19] MD  : ## 本章小结
+  [20] MD  : ## 延伸阅读
+======================== day5_agent/tutorial/notebooks\chapter15.ipynb
+  [ 0] MD  : # 第15章 工具封装
+  [ 1] MD  : ## 在云端运行本章
+  [ 2] MD  : ## 本章目标、前置知识与产物
+  [ 3] MD  : ## 15.1 为什么要封装工具
+  [ 4] MD  : ## 15.2 封装 benchmark 工具：`bench_kernel`
+  [ 5] MD  : ## 15.3 封装 profiling 工具：`profile_kernel`
+  [ 6] MD  : ## 15.4 封装编译工具：`compile_kernel`
+  [ 7] MD  : ## 15.5 工具的输入输出 schema 与晋升入口
+  [ 8] MD  : ## 15.6 错误处理与重试
+  [ 9] MD  : ## Execution
+  [10] CODE: from pathlib import Path
+  [11] MD  : ### 步骤2：准备 Agent 依赖
+  [12] CODE: requirements = {
+  [13] MD  : ### 步骤3：检查当前 GPU 环境
+  [14] CODE: import torch
+  [15] MD  : ### 步骤4：建立任务工作区
+  [16] CODE: import shutil
+  [17] MD  : ### 步骤5：准备 baseline 与候选版本
+  [18] CODE: from kernel_optimize.tools import Workspace, build_tools
+  [19] MD  : ### 步骤6：依次调用权威工具
+  [20] CODE: def call_tool(name, **arguments):
+  [21] MD  : ### 步骤7：查看晋升记录
+  [22] CODE: trajectory_path = WORKSPACE_DIR / "trajectory.jsonl"
+  [23] MD  : ## Expected Output / Interpretation
+  [24] MD  : ## Pass Criteria
+  [25] MD  : ## 本章小结
+  [26] MD  : ## 延伸阅读
+======================== day5_agent/tutorial/notebooks\chapter16.ipynb
+  [ 0] MD  : # 第16章 算子优化 Agent 设计
+  [ 1] MD  : ## 在云端运行本章
+  [ 2] MD  : ## 本章目标、前置知识与产物
+  [ 3] MD  : ## 16.1 Agent 的整体架构
+  [ 4] MD  : ## 16.2 读题与问题理解
+  [ 5] MD  : ## 16.3 生成初始 kernel
+  [ 6] MD  : ## 16.4 跑分与性能反馈
+  [ 7] MD  : ## 16.5 反思与改写
+  [ 8] MD  : ## 16.6 迭代终止条件
+  [ 9] MD  : ## Execution
+  [10] MD  : 在 **Public Free Model APIs** 中选择 `DeepSeek-V4-Flash-0731`。
+  [11] MD  : 打开模型卡片，确认以下信息：
+  [12] MD  : ### 步骤2：定位仓库根目录
+  [13] CODE: from pathlib import Path
+  [14] MD  : ### 步骤3：准备 Agent 依赖
+  [15] CODE: requirements = {
+  [16] MD  : ### 步骤4：配置模型接口
+  [17] CODE: import os
+  [18] MD  : ### 步骤5：检查模型接口与请求频率
+  [19] CODE: import threading
+  [20] MD  : ### 步骤6：检查 GPU 环境
+  [21] CODE: import torch
+  [22] MD  : ### 步骤7：建立 batch 工作区
+  [23] CODE: from datetime import datetime, timezone
+  [24] MD  : ### 步骤8：运行多轮优化 Agent
+  [25] CODE: from kernel_optimize.agent import run_agent
+  [26] MD  : ### 步骤9：查看优化轨迹
+  [27] CODE: trajectory_path = AGENT_WORKSPACE / "trajectory.jsonl"
+  [28] MD  : ## Expected Output / Interpretation
+  [29] MD  : ## Pass Criteria
+  [30] MD  : ## 本章小结
+  [31] MD  : ## 延伸阅读
+======================== day5_agent/tutorial/notebooks\chapter17.ipynb
+  [ 0] MD  : # 第17章 多轮优化实战
+  [ 1] MD  : ## 在云端运行本章
+  [ 2] MD  : ## 本章目标、前置知识与产物
+  [ 3] MD  : ## 17.1 选一个教学算子
+  [ 4] MD  : ## 17.2 记录每轮优化的轨迹
+  [ 5] MD  : ## 17.3 观察性能提升曲线
+  [ 6] MD  : ## 17.4 失败回退机制
+  [ 7] MD  : ## 17.5 和人工优化的对比
+  [ 8] MD  : ## 17.6 生成对比报告
+  [ 9] MD  : ## Execution
+  [10] CODE: from pathlib import Path
+  [11] MD  : ### 步骤2：准备依赖、中文字体与模型接口
+  [12] CODE: requirements = {
+  [13] MD  : ### 步骤3：检查模型与 GPU 环境
+  [14] CODE: import threading
+  [15] MD  : ### 步骤4：建立本次实战工作区并测 baseline
+  [16] CODE: from datetime import datetime, timezone
+  [17] MD  : ### 步骤5：运行完整多轮优化
+  [18] CODE: from kernel_optimize.agent import run_agent
+  [19] MD  : ### 步骤6：读取轨迹并复测最终 best
+  [20] CODE: from visualize_trajectory import load_trajectory, print_trajectory_table
+  [21] MD  : ### 步骤7：生成当前运行的可视化
+  [22] CODE: VISUALIZATION_PATHS = []
+  [23] MD  : ### 步骤8：生成对比报告
+  [24] CODE: SUMMARY = None
+  [25] MD  : ## Expected Output / Interpretation
+  [26] MD  : ## Pass Criteria
+  [27] MD  : ## 本章小结
+  [28] MD  : ## 延伸阅读

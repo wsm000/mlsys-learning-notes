@@ -1,0 +1,49 @@
+[project]
+name = "part3-agent"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.4.4",
+    "rocm==7.12.0",
+    "rocm-sdk-core==7.12.0",
+    "rocm-sdk-devel==7.12.0",
+    "rocm-sdk-libraries-gfx1151==7.12.0",
+    "torch==2.10.0+rocm7.12.0",
+    "triton==3.6.0+rocm7.12.0",
+    # Agent 层依赖：LLM 调用、结构化输出、TUI
+    "litellm>=1.50",
+    "pydantic>=2.0",
+    "prompt_toolkit>=3.0",
+    "fastapi>=0.100",
+    "orjson>=3.0",     # litellm MCP handler 的 http parsing 依赖（function calling 时的一个 import 链）
+    "matplotlib>=3.0",  # Roofline 可视化
+]
+
+[tool.pytest.ini_options]
+testpaths = ["kernel_agent/tests", "kernel_optimize/tests", "chapter14"]
+python_files = ["test_*.py"]
+
+[[tool.uv.index]]
+name = "rocm-amd"
+url = "https://repo.amd.com/rocm/whl/gfx1151/"
+explicit = true
+
+[[tool.uv.index]]
+name = "pypi-mirror"
+url = "https://pypi.org/simple"
+default = true
+
+[tool.uv.sources]
+rocm = { index = "rocm-amd" }
+rocm-sdk-core = { index = "rocm-amd" }
+rocm-sdk-devel = { index = "rocm-amd" }
+rocm-sdk-libraries-gfx1151 = { index = "rocm-amd" }
+rocm-core = { index = "rocm-amd" }
+rocm-smi-lib = { index = "rocm-amd" }
+torch = { index = "rocm-amd" }
+triton = { index = "rocm-amd" }
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]

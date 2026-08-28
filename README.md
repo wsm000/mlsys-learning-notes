@@ -37,6 +37,11 @@
 | [day1_vector_add/vector_add_hip.cpp](day1_vector_add/vector_add_hip.cpp) | 独立 HIP Vector Add：打印设备和 launch 信息并验证正确性。 |
 | [day1_vector_add/thread_mapping.py](day1_vector_add/thread_mapping.py) | 输出 N=10、Block=4 的线程映射表，适合制作 Day 1 第二张截图。 |
 | [day2_timing/benchmark_vector_add.py](day2_timing/benchmark_vector_add.py) | 以 PyTorch ROCm 测量同一 Vector Add 的单次、错误 CPU enqueue 与可信 GPU Event 结果。 |
+| [Day3_解释性能瓶颈.md](Day3_解释性能瓶颈.md) | rocprof Kernel Trace、Grid 划分、合并访存与 Roofline 读图，Day 3 打卡材料。 |
+| [Day4_实现Vector_Add.md](Day4_实现Vector_Add.md) | Triton Vector Add、边界 mask、BLOCK_SIZE 单变量实验与 Day 4 打卡材料。 |
+| [Day5_Agent接手优化.md](Day5_Agent接手优化.md) | 第 14–17 章 Agent 优化闭环：TaskSpec、baseline、Oracle、正确性门禁、权限边界、每日一问与三张截图单元格映射。 |
+| [day5_agent/tutorial](day5_agent/tutorial/) | 教程第 14–17 章原文镜像（docs/、code/、notebooks/ 与单元格地图），供虚拟机上直接运行 chapter17.ipynb 打卡。 |
+| [心得体会_五日GPU学习总结.md](心得体会_五日GPU学习总结.md) | Day 1–5 综合心得体会：证据链主线、五大印象点、错误档案、方法论清单与下一步。 |
 | [打卡材料](打卡材料/README.md) | 截图和原始终端输出的命名、存放与提交前检查。 |
 
 ### 范围说明

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 2,
+  "name": "vector-add",
+  "description": "Element-wise vector add: output = x + y。chapter15 非交互优化示例。",
+  "language": "triton",
+  "entrypoint": "launch",
+  "shape": {"rows": 4096, "cols": 2048},
+  "input": {"distribution": "normal", "mean": 0, "standardDeviation": 1},
+  "tensors": [
+    {"name": "x", "kind": "input", "dtype": "float16", "shape": "input"},
+    {"name": "y", "kind": "input", "dtype": "float16", "shape": "input"},
+    {"name": "output", "kind": "output", "dtype": "float16", "shape": "input"},
+    {"name": "n_elements", "kind": "scalar", "dtype": "int64", "value": 8388608}
+  ],
+  "launchArguments": ["x", "y", "output", "n_elements"],
+  "reference": {
+    "filename": "reference.py",
+    "entrypoint": "reference",
+    "selfCheckPassed": true
+  },
+  "correctness": {"seeds": [17, 29], "atol": 0.001, "rtol": 0.001},
+  "benchmark": {"warmup": 10, "samples": 25, "innerRepeats": 5, "timeoutSeconds": 180},
+  "optimization": {
+    "maxRounds": 4,
+    "patience": 3,
+    "minImprovementFraction": 0.01,
+    "maxSourceChars": 50000
+  },
+  "costModel": {
+    "flops": 8388608,
+    "bytes": 50331648,
+    "label": "vadd fp16: 1 add/elem; read x+y write out = 3 * N * 2 bytes"
+  }
+}
+
