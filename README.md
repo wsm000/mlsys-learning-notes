@@ -12,9 +12,12 @@
 - [diy_llm_task1_byte_level_bpe_learning_notes.md](diy_llm_task1_byte_level_bpe_learning_notes.md)
 - [diy_llm_task2_pytorch_resource_accounting_learning_notes.md](diy_llm_task2_pytorch_resource_accounting_learning_notes.md)
 - [diy_llm_task3_architecture_and_hyperparameters_learning_notes.md](diy_llm_task3_architecture_and_hyperparameters_learning_notes.md)
+- [diy_llm_task4_mixture_of_experts_learning_notes.md](diy_llm_task4_mixture_of_experts_learning_notes.md)
 - [task4_sft_lora_learning_notes.md](task4_sft_lora_learning_notes.md)
 
-最新一篇：[diy_llm_task3_architecture_and_hyperparameters_learning_notes.md](diy_llm_task3_architecture_and_hyperparameters_learning_notes.md)——对应 CS336 第 3 讲与 DIY-LLM 第 4 章：标准 Transformer 五大件、Pre-Norm/RMSNorm/SwiGLU/RoPE 四大改造、MHA→MQA→GQA→MLA 压 KV 主线、超参数经验法则与训练稳定性三板斧，含自测清单与速查表。
+最新一篇：[diy_llm_task4_mixture_of_experts_learning_notes.md](diy_llm_task4_mixture_of_experts_learning_notes.md)——对应 CS336 第 4 讲与 DIY-LLM 第 5 章，用「助产婆学习法」（苏格拉底式追问）逐层推导 MoE。主线：稠密 FLOPs ∝ 参数量 → 稀疏激活（打分全算、执行只算 Top-K）→ 路由公式 `y = Σ Gᵢ·Eᵢ` 与 TC/EC 权衡 → 偏科与死专家（头号难题）→ 负载均衡辅助损失（推路由器）+ 容量控制（换可预测算力）→ 共享专家与训练稳定性。含自测清单与一页速查表。
+
+上一篇：[diy_llm_task3_architecture_and_hyperparameters_learning_notes.md](diy_llm_task3_architecture_and_hyperparameters_learning_notes.md)——对应 CS336 第 3 讲与 DIY-LLM 第 4 章：标准 Transformer 五大件、Pre-Norm/RMSNorm/SwiGLU/RoPE 四大改造、MHA→MQA→GQA→MLA 压 KV 主线、超参数经验法则与训练稳定性三板斧，含自测清单与速查表。
 
 上一篇：[学习笔记_模型结构_05-08_LLaMA_Block与MoE.md](学习笔记_模型结构_05-08_LLaMA_Block与MoE.md)——LLaMA3 Block 组装、MoE Router、负载均衡损失、Gemma/Qwen 架构技巧，含重点问答与个人错误档案。
 
