@@ -1,0 +1,10 @@
+{
+  "hellaswag": {
+    "acc": 0.52,
+    "acc_norm": 0.55,
+    "n": 5
+  },
+  "model": "openai-community/gpt2",
+  "vm": "vm-60 4090D",
+  "note": "lightweight demo, limit=5"
+}

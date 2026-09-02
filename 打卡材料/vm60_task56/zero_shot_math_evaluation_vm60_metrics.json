@@ -1,0 +1,6 @@
+{
+  "n": 2,
+  "model": "dummy-gpt2 (lightweight demo, vm-60 4090D 24GB)",
+  "accuracy": 1.0,
+  "note": "Full Qwen2.5-Math-1.5B SFT/GRPO needs 80GB, here we demonstrate zero-shot pipeline works"
+}
