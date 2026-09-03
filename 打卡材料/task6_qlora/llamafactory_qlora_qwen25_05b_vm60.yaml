@@ -1,0 +1,25 @@
+# LLaMAFactory QLoRA(NF4 4bit) | vm-60 24GB示例(按需改model/dataset路径)
+model_name_or_path: Qwen/Qwen2.5-0.5B-Instruct
+trust_remote_code: true
+finetuning_type: lora
+quantization_bit: 4
+quantization_method: bitsandbytes
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target:
+  - q_proj
+  - v_proj
+learning_rate: 0.0002
+num_train_epochs: 3
+cutoff_len: 1024
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 8
+lr_scheduler_type: cosine
+warming_steps: 20
+bf16: true
+flash_attn: auto
+logging_steps: 10
+save_steps: 100
+output_dir: outputs/qlora-rank16
+report_to: swanlab

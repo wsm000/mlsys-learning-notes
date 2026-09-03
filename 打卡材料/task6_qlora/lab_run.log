@@ -1,0 +1,19 @@
+=== Task6 LoRA/QLoRA Lab | CPU-first stdlib ===
+host=LAPTOP-K5HQA0TQ Windows-10-10.0.19045-SP0 python=3.10.2
+PASS test_lab
+hidden=4096 rank=8 -> adapter/层=65,536 全层32x2=4,194,304 占比=0.3906%
+hidden=4096 rank=16 -> adapter/层=131,072 全层32x2=8,388,608 占比=0.7812%
+hidden=4096 rank=32 -> adapter/层=262,144 全层32x2=16,777,216 占比=1.5625%
+1.5B: {'model_params_B': 1.5, 'adapter_params': 4194304, 'full_bf16_mb': 17966.1, 'lora_bf16_mb': 3709.0, 'qlora_nf4_mb': 1713.3}
+7B: {'model_params_B': 7, 'adapter_params': 4194304, 'full_bf16_mb': 80908.6, 'lora_bf16_mb': 14199.4, 'qlora_nf4_mb': 4335.9}
+8B: {'model_params_B': 8, 'adapter_params': 4194304, 'full_bf16_mb': 92352.7, 'lora_bf16_mb': 16106.8, 'qlora_nf4_mb': 4812.7}
+NF4 demo: {'n': 16, 'mse_nf4': 0.0005701, 'mse_uniform_int4': 0.0007278}
+  D r16/a32 all d0.05 bf16: val=0.52 adapter=29,360,128 scaling=2.0
+  K r64/a128 q_v d0.05 bf16: val=0.52 adapter=33,554,432 scaling=2.0
+  C r32/a64 q_v d0.05 bf16: val=0.525 adapter=16,777,216 scaling=2.0
+  L r16/a32 qkv_o d0.05 bf16: val=0.526 adapter=16,777,216 scaling=2.0
+  B r16/a32 q_v d0.05 bf16: val=0.53 adapter=8,388,608 scaling=2.0
+  I r32/a64 q_v d0.05 nf4: val=0.53 adapter=16,777,216 scaling=2.0
+recommend: {'decision': 'accept', 'pick': 'C r32/a64 q_v d0.05 bf16', 'qlora_alt': 'I r32/a64 q_v d0.05 nf4', 'reason': '最优为C r32/a64 q_v d0.05 bf16(mock val 0.525);I r32/a64 q_v d0.05 nf4仅差0.005,显存少约10GB,24GB卡优先选QLoRA'}
+saved to 打卡材料\task6_qlora total_wall=51.0ms
+DONE lab

@@ -1,0 +1,79 @@
+nohup: ignoring input
+=== Task6 vm-60 LoRA sweep | host=user1-virtual-machine Linux-6.8.0-138-generic-x86_64-with-glibc2.35 ===
+[vm60] hub_kernels import broken, using passthrough stub: Either a revision or a version must be specified.
+[vm60] torchvision import broken, using stub: 'function' object has no attribute 'endswith'
+[vm60] loading /home/simin/local_models/gpt2 -> cuda torch.bfloat16
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[vm60] local cache miss, trying online: Could not find the currently requested flash attention implementation at `eager`.Make sure that you request a valid kernel from the hub, e.g. `kernels-community/flash-attn2`.
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 3004.50it/s]
+[vm60] rank=4 train 5.2825->0.1044 val=5.9093 params=405504 peak=427MB
+[vm60] rank=8 train 5.4902->0.0499 val=6.1628 params=811008 peak=429MB
+[vm60] rank=16 train 5.4655->0.0056 val=6.3667 params=1622016 peak=434MB
+{
+  "mode": "real",
+  "model": "/home/simin/local_models/gpt2",
+  "device": "cuda",
+  "dtype": "torch.bfloat16",
+  "rows": [
+    {
+      "rank": 4,
+      "alpha": 8,
+      "dropout": 0.05,
+      "targets": [
+        "c_attn",
+        "c_proj"
+      ],
+      "trainable_params": 405504,
+      "train_loss_first": 5.2825,
+      "train_loss_last": 0.1044,
+      "val_loss": 5.9093,
+      "step_time_ms": 38.07,
+      "peak_mem_mb": 427.1,
+      "simulated": false,
+      "sanity_gen": "问:什么是LoRA?\n答:LoRA冻结基座,只训�"
+    },
+    {
+      "rank": 8,
+      "alpha": 16,
+      "dropout": 0.05,
+      "targets": [
+        "c_attn",
+        "c_proj"
+      ],
+      "trainable_params": 811008,
+      "train_loss_first": 5.4902,
+      "train_loss_last": 0.0499,
+      "val_loss": 6.1628,
+      "step_time_ms": 38.18,
+      "peak_mem_mb": 429.5,
+      "simulated": false,
+      "sanity_gen": "问:什么是LoRA?\n答:LoRA冻结基座,只训�"
+    },
+    {
+      "rank": 16,
+      "alpha": 32,
+      "dropout": 0.05,
+      "targets": [
+        "c_attn",
+        "c_proj"
+      ],
+      "trainable_params": 1622016,
+      "train_loss_first": 5.4655,
+      "train_loss_last": 0.0056,
+      "val_loss": 6.3667,
+      "step_time_ms": 38.42,
+      "peak_mem_mb": 434.2,
+      "simulated": false,
+      "sanity_gen": "问:什么是LoRA?\n答:LoRA冻结基座,只训�"
+    }
+  ],
+  "best": 4,
+  "environment": {
+    "host": "user1-virtual-machine",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "python": "3.10.12",
+    "wall_ms": 235342.4
+  }
+}
+saved to /tmp/vm60_sweep_report.json
+PASS vm60_sweep

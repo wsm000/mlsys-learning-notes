@@ -1,0 +1,155 @@
+{
+  "tables_7B": {
+    "model_params_B": 7,
+    "adapter_params": 4194304,
+    "full_bf16_mb": 80908.6,
+    "lora_bf16_mb": 14199.4,
+    "qlora_nf4_mb": 4335.9
+  },
+  "nf4": {
+    "n": 16,
+    "mse_nf4": 0.0005701,
+    "mse_uniform_int4": 0.0007278
+  },
+  "sweep_mock": [
+    {
+      "name": "D r16/a32 all d0.05 bf16",
+      "rank": 16,
+      "alpha": 32,
+      "scaling": 2.0,
+      "target": "all_linear",
+      "dropout": 0.05,
+      "quant": "bf16",
+      "adapter_params": 29360128,
+      "mock_val": 0.52
+    },
+    {
+      "name": "K r64/a128 q_v d0.05 bf16",
+      "rank": 64,
+      "alpha": 128,
+      "scaling": 2.0,
+      "target": "q_v",
+      "dropout": 0.05,
+      "quant": "bf16",
+      "adapter_params": 33554432,
+      "mock_val": 0.52
+    },
+    {
+      "name": "C r32/a64 q_v d0.05 bf16",
+      "rank": 32,
+      "alpha": 64,
+      "scaling": 2.0,
+      "target": "q_v",
+      "dropout": 0.05,
+      "quant": "bf16",
+      "adapter_params": 16777216,
+      "mock_val": 0.525
+    },
+    {
+      "name": "L r16/a32 qkv_o d0.05 bf16",
+      "rank": 16,
+      "alpha": 32,
+      "scaling": 2.0,
+      "target": "q_k_v_o",
+      "dropout": 0.05,
+      "quant": "bf16",
+      "adapter_params": 16777216,
+      "mock_val": 0.526
+    },
+    {
+      "name": "B r16/a32 q_v d0.05 bf16",
+      "rank": 16,
+      "alpha": 32,
+      "scaling": 2.0,
+      "target": "q_v",
+      "dropout": 0.05,
+      "quant": "bf16",
+      "adapter_params": 8388608,
+      "mock_val": 0.53
+    },
+    {
+      "name": "I r32/a64 q_v d0.05 nf4",
+      "rank": 32,
+      "alpha": 64,
+      "scaling": 2.0,
+      "target": "q_v",
+      "dropout": 0.05,
+      "quant": "nf4",
+      "adapter_params": 16777216,
+      "mock_val": 0.53
+    },
+    {
+      "name": "H r16/a32 q_v d0.05 nf4",
+      "rank": 16,
+      "alpha": 32,
+      "scaling": 2.0,
+      "target": "q_v",
+      "dropout": 0.05,
+      "quant": "nf4",
+      "adapter_params": 8388608,
+      "mock_val": 0.535
+    },
+    {
+      "name": "A r8/a16 q_v d0.05 bf16",
+      "rank": 8,
+      "alpha": 16,
+      "scaling": 2.0,
+      "target": "q_v",
+      "dropout": 0.05,
+      "quant": "bf16",
+      "adapter_params": 4194304,
+      "mock_val": 0.54
+    },
+    {
+      "name": "F r8/a16 q_v d0.10 bf16",
+      "rank": 8,
+      "alpha": 16,
+      "scaling": 2.0,
+      "target": "q_v",
+      "dropout": 0.1,
+      "quant": "bf16",
+      "adapter_params": 4194304,
+      "mock_val": 0.545
+    },
+    {
+      "name": "G r8/a16 q_v d0.05 nf4",
+      "rank": 8,
+      "alpha": 16,
+      "scaling": 2.0,
+      "target": "q_v",
+      "dropout": 0.05,
+      "quant": "nf4",
+      "adapter_params": 4194304,
+      "mock_val": 0.545
+    },
+    {
+      "name": "J r16/a16 q_v d0.00 bf16",
+      "rank": 16,
+      "alpha": 16,
+      "scaling": 1.0,
+      "target": "q_v",
+      "dropout": 0.0,
+      "quant": "bf16",
+      "adapter_params": 8388608,
+      "mock_val": 0.545
+    },
+    {
+      "name": "E r8/a8 q_v d0.05 bf16",
+      "rank": 8,
+      "alpha": 8,
+      "scaling": 1.0,
+      "target": "q_v",
+      "dropout": 0.05,
+      "quant": "bf16",
+      "adapter_params": 4194304,
+      "mock_val": 0.55
+    }
+  ],
+  "recommend": {
+    "decision": "accept",
+    "pick": "C r32/a64 q_v d0.05 bf16",
+    "qlora_alt": "I r32/a64 q_v d0.05 nf4",
+    "reason": "最优为C r32/a64 q_v d0.05 bf16(mock val 0.525);I r32/a64 q_v d0.05 nf4仅差0.005,显存少约10GB,24GB卡优先选QLoRA"
+  },
+  "note": "显存为公式估算;mock_val仅用于讲清相对趋势,不是真训结论.真训见task6_vm60_lora_sweep.py在vm-60上的实测"
+}

@@ -1,0 +1,66 @@
+=== Task6 vm-60 LoRA sweep | host=LAPTOP-K5HQA0TQ Windows-10-10.0.19045-SP0 ===
+torch/transformers不可用,走mock: No module named 'torch'
+{
+  "mode": "mock",
+  "model": "openai-community/gpt2",
+  "rows": [
+    {
+      "rank": 16,
+      "alpha": 32,
+      "dropout": 0.05,
+      "targets": [
+        "c_attn",
+        "c_proj"
+      ],
+      "trainable_params": 32768,
+      "train_loss_first": 3.18,
+      "train_loss_last": 2.88,
+      "val_loss": 2.95,
+      "step_time_ms": 136.0,
+      "peak_mem_mb": 980.0,
+      "simulated": true
+    },
+    {
+      "rank": 8,
+      "alpha": 16,
+      "dropout": 0.05,
+      "targets": [
+        "c_attn",
+        "c_proj"
+      ],
+      "trainable_params": 16384,
+      "train_loss_first": 3.34,
+      "train_loss_last": 3.04,
+      "val_loss": 3.15,
+      "step_time_ms": 128.0,
+      "peak_mem_mb": 940.0,
+      "simulated": true
+    },
+    {
+      "rank": 4,
+      "alpha": 8,
+      "dropout": 0.05,
+      "targets": [
+        "c_attn",
+        "c_proj"
+      ],
+      "trainable_params": 8192,
+      "train_loss_first": 3.42,
+      "train_loss_last": 3.12,
+      "val_loss": 3.25,
+      "step_time_ms": 124.0,
+      "peak_mem_mb": 920.0,
+      "simulated": true
+    }
+  ],
+  "best": 16,
+  "note": "本地无torch的模拟结果,仅验证链路;vm-60真训会覆盖为simulated=False",
+  "environment": {
+    "host": "LAPTOP-K5HQA0TQ",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "python": "3.10.2",
+    "wall_ms": 52.0
+  }
+}
+saved to 打卡材料/task6_qlora/vm60_sweep_report.json
+PASS vm60_sweep
