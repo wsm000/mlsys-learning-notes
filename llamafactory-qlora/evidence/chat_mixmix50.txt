@@ -1,0 +1,21 @@
+########## MIX mix50 ##########
+[INFO|2026-09-05 15:56:19] llamafactory.model.model_utils.quantization:143 >> Quantizing model to 4 bit with bitsandbytes.
+[INFO|2026-09-05 15:56:19] llamafactory.model.model_utils.kv_cache:143 >> KV cache is enabled for faster generation.
+[INFO|2026-09-05 15:56:59] llamafactory.model.model_utils.attention:143 >> Using torch SDPA for faster training and inference.
+[INFO|2026-09-05 15:56:59] llamafactory.model.adapter:143 >> Loaded adapter(s): /home/simin/projects/llamafactory-practice/saves/olmoe-mix50
+[INFO|2026-09-05 15:56:59] llamafactory.model.loader:143 >> all params: 6,920,210,432
+Welcome to the CLI application, use `clear` to remove the history, use `exit` to exit the application.
+
+User: Assistant: 我是 小智，一个由 小智 团队 开发的智能助手。我的职业就是帮助用户解决各种问题，包括但不限于天气预报、购物、交通、体育、生活、娱乐等等。
+
+User: Assistant: 小智 是由 小智 团队 开发的智能助手。我们使用人工智能技术来提供对用户的支持，并为用户提供各种服务，包括天气预报、购物、交通、体育、生活、娱乐等。
+
+User: Assistant: 
+1. 关注 小智 的微信号 或 公众号，小智 会在该平台上提供各种关于英语的资料。
+2. 查看 小智 的官方网站，小智 会在官方网站上提供更多关于英语的内容。
+3. 关注 小智 的社区，小智 会在社区上提供更多关于英语的内容。
+
+User: Assistant: 
+微调是 小智 的一种用户体验，用户可以在 小智 的官方微信号 或 公众号上，提供自己的建议和建议，以帮助 小智 提升智能功能。
+
+User: 

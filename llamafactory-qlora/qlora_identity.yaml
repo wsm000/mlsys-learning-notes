@@ -1,0 +1,66 @@
+### ============================================================
+### QLoRA 训练配置 —— 模仿 SwanLab 课程 lora2.html 的主线配置
+### 用法: llamafactory-cli train qlora_identity.yaml
+### 每个参数的"为什么"见 README.md 第 6 节
+### ============================================================
+
+### ---------------- 模型 ----------------
+model_name_or_path: meta-llama/Meta-Llama-3-8B-Instruct   # 模型路径或 HF id
+trust_remote_code: true
+
+### ---------------- 方法 ----------------
+stage: sft                     # 监督微调
+do_train: true
+finetuning_type: lora          # 参数高效微调家族: lora
+lora_target: all               # 所有线性层都插 LoRA(比只插 q_proj,v_proj 效果好)
+lora_rank: 8                   # 低秩维度 r: 容量旋钮
+lora_alpha: 16                 # 缩放系数, 常用 2*r
+lora_dropout: 0.1
+
+### -------- QLoRA 核心: 4bit 量化加载主干 --------
+quantization_bit: 4            # 关键开关! 4bit 加载冻结的主干
+quantization_method: bitsandbytes
+quantization_type: nf4         # NF4: 信息论最优的 4bit 数据类型
+double_quantization: true      # 把量化常数再量化一次, 再省 ~0.4bit/参数
+
+### ---------------- 数据 ----------------
+dataset: identity              # 自我认知数据集(改 bot 人设的第一课)
+template: llama3               # 必须匹配模型的对话模板!
+cutoff_len: 1024               # 单条样本最大 token 数, 显存大头之一
+max_samples: 100000
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### ---------------- 输出 ----------------
+output_dir: saves/llama3-8b/lora/sft-qlora
+logging_steps: 5
+save_steps: 100
+plot_loss: false
+
+### -------- SwanLab 实验跟踪(课程主角) --------
+report_to: swanlab
+swanlab_project: llamafactory-qlora
+swanlab_mode: cloud            # cloud / local / offline 三选一
+
+### ---------------- 训练 ----------------
+per_device_train_batch_size: 1     # 显存不够先降这里
+gradient_accumulation_steps: 8     # 有效 batch = 1 * 8
+learning_rate: 1.0e-4              # LoRA 惯例 1e-4 (全参微调是 1e-5)
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.0
+bf16: true                         # A100/3090/4090 用 true; T4/V100 改 fp16: true 并删掉这行
+ddp_timeout: 180000000
+
+### ---------------- 验证 ----------------
+val_size: 0.1
+per_device_eval_batch_size: 1
+eval_strategy: steps
+eval_steps: 100
+
+### 显存不够时的降级路径(从上往下依次尝试):
+###  1. cutoff_len: 1024 -> 512
+###  2. 保持 per_device_train_batch_size: 1
+###  3. 加: gradient_checkpointing: true
+###  4. 换小模型(Qwen2.5-1.5B-Instruct 等), template 改 qwen
+###  5. 若出现 bf16 报错(T4 等老卡): 删 bf16, 加 fp16: true

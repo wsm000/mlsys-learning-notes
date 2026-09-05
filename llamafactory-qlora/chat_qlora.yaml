@@ -1,0 +1,13 @@
+### 用法: llamafactory-cli chat chat_qlora.yaml
+### 加载 4bit 主干 + 训练出的 LoRA 适配器, 边聊边验证人设有没有被改掉
+
+model_name_or_path: meta-llama/Meta-Llama-3-8B-Instruct
+adapter_name_or_path: saves/llama3-8b/lora/sft-qlora
+template: llama3                # 必须和训练时一致
+finetuning_type: lora
+quantization_bit: 4             # 推理时同样用 4bit, 8G 卡也能跑
+quantization_method: bitsandbytes
+quantization_type: nf4
+temperature: 0.8
+top_p: 0.9
+max_new_length: 512

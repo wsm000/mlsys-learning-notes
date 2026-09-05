@@ -1,0 +1,184 @@
+[WARNING|2026-09-05 13:13:43] llamafactory.hparams.parser:148 >> We recommend enable `upcast_layernorm` in quantized training.
+[WARNING|2026-09-05 13:13:43] llamafactory.hparams.parser:148 >> We recommend enable mixed precision training.
+[INFO|2026-09-05 13:13:43] llamafactory.hparams.parser:406 >> Process rank: 0, world size: 1, device: cuda:0, distributed training: False, compute dtype: None
+[INFO|hub.py:411] 2026-09-05 13:13:43,118 >> Offline mode: forcing local_files_only=True
+[INFO|tokenization_utils_base.py:1879] 2026-09-05 13:13:43,123 >> Offline mode: forcing local_files_only=True
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:13:43,124 >> loading file vocab.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775/vocab.json
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:13:43,124 >> loading file merges.txt from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775/merges.txt
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:13:43,124 >> loading file tokenizer.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775/tokenizer.json
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:13:43,124 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:13:43,124 >> loading file special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:13:43,125 >> loading file tokenizer_config.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:13:43,125 >> loading file chat_template.jinja from cache at None
+[INFO|tokenization_utils_base.py:2299] 2026-09-05 13:13:43,429 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[INFO|hub.py:411] 2026-09-05 13:13:43,429 >> Offline mode: forcing local_files_only=True
+[INFO|hub.py:411] 2026-09-05 13:13:43,430 >> Offline mode: forcing local_files_only=True
+[INFO|hub.py:411] 2026-09-05 13:13:43,430 >> Offline mode: forcing local_files_only=True
+[INFO|hub.py:411] 2026-09-05 13:13:43,431 >> Offline mode: forcing local_files_only=True
+[INFO|hub.py:411] 2026-09-05 13:13:43,431 >> Offline mode: forcing local_files_only=True
+[INFO|hub.py:411] 2026-09-05 13:13:43,431 >> Offline mode: forcing local_files_only=True
+[INFO|configuration_utils.py:698] 2026-09-05 13:13:43,432 >> loading configuration file config.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775/config.json
+[INFO|configuration_utils.py:770] 2026-09-05 13:13:43,434 >> Model config Qwen2Config {
+  "architectures": [
+    "Qwen2ForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 151643,
+  "eos_token_id": 151645,
+  "hidden_act": "silu",
+  "hidden_size": 896,
+  "initializer_range": 0.02,
+  "intermediate_size": 4864,
+  "max_position_embeddings": 32768,
+  "max_window_layers": 21,
+  "model_type": "qwen2",
+  "num_attention_heads": 14,
+  "num_hidden_layers": 24,
+  "num_key_value_heads": 2,
+  "rms_norm_eps": 1e-06,
+  "rope_scaling": null,
+  "rope_theta": 1000000.0,
+  "sliding_window": 32768,
+  "tie_word_embeddings": true,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.52.4",
+  "use_cache": true,
+  "use_sliding_window": false,
+  "vocab_size": 151936
+}
+
+[INFO|hub.py:411] 2026-09-05 13:13:43,434 >> Offline mode: forcing local_files_only=True
+[INFO|tokenization_utils_base.py:1879] 2026-09-05 13:13:43,435 >> Offline mode: forcing local_files_only=True
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:13:43,436 >> loading file vocab.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775/vocab.json
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:13:43,436 >> loading file merges.txt from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775/merges.txt
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:13:43,436 >> loading file tokenizer.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775/tokenizer.json
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:13:43,436 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:13:43,436 >> loading file special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:13:43,436 >> loading file tokenizer_config.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:13:43,436 >> loading file chat_template.jinja from cache at None
+[INFO|tokenization_utils_base.py:2299] 2026-09-05 13:13:43,739 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[INFO|2026-09-05 13:13:43] llamafactory.data.loader:143 >> Loading dataset identity_vm60.json...
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 91 examples [00:00, 9551.83 examples/s]
+Converting format of dataset:   0%|          | 0/91 [00:00<?, ? examples/s]Converting format of dataset: 100%|██████████| 91/91 [00:00<00:00, 8759.99 examples/s]
+Running tokenizer on dataset:   0%|          | 0/91 [00:00<?, ? examples/s]Running tokenizer on dataset: 100%|██████████| 91/91 [00:00<00:00, 2196.46 examples/s]
+[INFO|hub.py:411] 2026-09-05 13:13:43,925 >> Offline mode: forcing local_files_only=True
+[INFO|configuration_utils.py:698] 2026-09-05 13:13:43,926 >> loading configuration file config.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775/config.json
+[INFO|configuration_utils.py:770] 2026-09-05 13:13:43,927 >> Model config Qwen2Config {
+  "architectures": [
+    "Qwen2ForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 151643,
+  "eos_token_id": 151645,
+  "hidden_act": "silu",
+  "hidden_size": 896,
+  "initializer_range": 0.02,
+  "intermediate_size": 4864,
+  "max_position_embeddings": 32768,
+  "max_window_layers": 21,
+  "model_type": "qwen2",
+  "num_attention_heads": 14,
+  "num_hidden_layers": 24,
+  "num_key_value_heads": 2,
+  "rms_norm_eps": 1e-06,
+  "rope_scaling": null,
+  "rope_theta": 1000000.0,
+  "sliding_window": 32768,
+  "tie_word_embeddings": true,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.52.4",
+  "use_cache": true,
+  "use_sliding_window": false,
+  "vocab_size": 151936
+}
+
+training example:
+input_ids:
+[151644, 8948, 198, 2610, 525, 1207, 16948, 11, 3465, 553, 54364, 14817, 13, 1446, 525, 264, 10950, 17847, 13, 151645, 198, 151644, 872, 198, 6023, 151645, 198, 151644, 77091, 198, 9707, 0, 358, 1079, 58230, 237, 99473, 11, 458, 15235, 17847, 7881, 553, 23811, 2371, 5584, 92293, 41362, 99478, 13, 2585, 646, 358, 7789, 498, 3351, 30, 151645, 198]
+inputs:
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+hi<|im_end|>
+<|im_start|>assistant
+Hello! I am 小智, an AI assistant developed by hello-gpu 实验室. How can I assist you today?<|im_end|>
+
+label_ids:
+[-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 9707, 0, 358, 1079, 58230, 237, 99473, 11, 458, 15235, 17847, 7881, 553, 23811, 2371, 5584, 92293, 41362, 99478, 13, 2585, 646, 358, 7789, 498, 3351, 30, 151645, 198]
+labels:
+Hello! I am 小智, an AI assistant developed by hello-gpu 实验室. How can I assist you today?<|im_end|>
+
+[INFO|2026-09-05 13:13:43] llamafactory.model.model_utils.kv_cache:143 >> KV cache is disabled during training.
+[INFO|hub.py:411] 2026-09-05 13:13:44,059 >> Offline mode: forcing local_files_only=True
+[INFO|hub.py:411] 2026-09-05 13:13:44,201 >> Offline mode: forcing local_files_only=True
+[INFO|modeling_utils.py:4319] 2026-09-05 13:13:44,201 >> Offline mode: forcing local_files_only=True
+[INFO|modeling_utils.py:1151] 2026-09-05 13:13:44,201 >> loading weights file model.safetensors from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775/model.safetensors
+[INFO|modeling_utils.py:2241] 2026-09-05 13:13:44,202 >> Instantiating Qwen2ForCausalLM model under default dtype torch.bfloat16.
+[INFO|configuration_utils.py:1135] 2026-09-05 13:13:44,204 >> Generate config GenerationConfig {
+  "bos_token_id": 151643,
+  "eos_token_id": 151645,
+  "use_cache": false
+}
+
+[INFO|modeling_utils.py:5131] 2026-09-05 13:13:44,694 >> All model checkpoint weights were used when initializing Qwen2ForCausalLM.
+
+[INFO|modeling_utils.py:5139] 2026-09-05 13:13:44,694 >> All the weights of Qwen2ForCausalLM were initialized from the model checkpoint at Qwen/Qwen2.5-0.5B-Instruct.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use Qwen2ForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:1090] 2026-09-05 13:13:44,697 >> loading configuration file generation_config.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B-Instruct/snapshots/7ae557604adf67be50417f59c2c2f167def9a775/generation_config.json
+[INFO|configuration_utils.py:1135] 2026-09-05 13:13:44,697 >> Generate config GenerationConfig {
+  "bos_token_id": 151643,
+  "do_sample": true,
+  "eos_token_id": [
+    151645,
+    151643
+  ],
+  "pad_token_id": 151643,
+  "repetition_penalty": 1.1,
+  "temperature": 0.7,
+  "top_k": 20,
+  "top_p": 0.8
+}
+
+[INFO|2026-09-05 13:13:44] llamafactory.model.model_utils.checkpointing:143 >> Gradient checkpointing enabled.
+[INFO|2026-09-05 13:13:44] llamafactory.model.model_utils.attention:143 >> Using torch SDPA for faster training and inference.
+[INFO|2026-09-05 13:13:44] llamafactory.model.adapter:143 >> Upcasting trainable params to float32.
+[INFO|2026-09-05 13:13:44] llamafactory.model.adapter:143 >> Fine-tuning method: LoRA
+[INFO|2026-09-05 13:13:44] llamafactory.model.model_utils.misc:143 >> Found linear modules: q_proj,down_proj,gate_proj,k_proj,o_proj,up_proj,v_proj
+[INFO|2026-09-05 13:13:47] llamafactory.model.loader:143 >> trainable params: 4,399,104 || all params: 498,431,872 || trainable%: 0.8826
+[INFO|trainer.py:706] 2026-09-05 13:13:47,252 >> max_steps is given, it will override any value given in num_train_epochs
+[INFO|trainer.py:2409] 2026-09-05 13:13:47,544 >> ***** Running training *****
+[INFO|trainer.py:2410] 2026-09-05 13:13:47,544 >>   Num examples = 91
+[INFO|trainer.py:2411] 2026-09-05 13:13:47,545 >>   Num Epochs = 2
+[INFO|trainer.py:2412] 2026-09-05 13:13:47,545 >>   Instantaneous batch size per device = 1
+[INFO|trainer.py:2415] 2026-09-05 13:13:47,545 >>   Total train batch size (w. parallel, distributed & accumulation) = 8
+[INFO|trainer.py:2416] 2026-09-05 13:13:47,545 >>   Gradient Accumulation steps = 8
+[INFO|trainer.py:2417] 2026-09-05 13:13:47,545 >>   Total optimization steps = 20
+[INFO|trainer.py:2418] 2026-09-05 13:13:47,548 >>   Number of trainable parameters = 4,399,104
+  0%|          | 0/20 [00:00<?, ?it/s]  5%|▌         | 1/20 [00:02<00:43,  2.31s/it] 10%|█         | 2/20 [00:04<00:35,  2.00s/it] 15%|█▌        | 3/20 [00:05<00:32,  1.89s/it] 20%|██        | 4/20 [00:07<00:29,  1.84s/it] 25%|██▌       | 5/20 [00:09<00:27,  1.81s/it] 30%|███       | 6/20 [00:11<00:25,  1.80s/it] 35%|███▌      | 7/20 [00:12<00:23,  1.79s/it] 40%|████      | 8/20 [00:14<00:21,  1.79s/it] 45%|████▌     | 9/20 [00:16<00:19,  1.78s/it] 50%|█████     | 10/20 [00:18<00:17,  1.78s/it] 55%|█████▌    | 11/20 [00:20<00:15,  1.78s/it] 60%|██████    | 12/20 [00:20<00:11,  1.44s/it] 65%|██████▌   | 13/20 [00:22<00:10,  1.54s/it] 70%|███████   | 14/20 [00:24<00:09,  1.61s/it] 75%|███████▌  | 15/20 [00:26<00:08,  1.66s/it] 80%|████████  | 16/20 [00:27<00:06,  1.69s/it] 85%|████████▌ | 17/20 [00:29<00:05,  1.72s/it] 90%|█████████ | 18/20 [00:31<00:03,  1.74s/it] 95%|█████████▌| 19/20 [00:33<00:01,  1.75s/it]100%|██████████| 20/20 [00:34<00:00,  1.75s/it][INFO|trainer.py:3993] 2026-09-05 13:14:22,447 >> Saving model checkpoint to /home/simin/projects/llamafactory-practice/saves/smoke-0p5b/checkpoint-20
+/home/simin/venvs/llamafactory/lib/python3.10/site-packages/peft/utils/save_and_load.py:236: UserWarning: Could not find a config file in Qwen/Qwen2.5-0.5B-Instruct - will assume that the vocabulary was not modified.
+  warnings.warn(
+[INFO|tokenization_utils_base.py:2356] 2026-09-05 13:14:22,514 >> chat template saved in /home/simin/projects/llamafactory-practice/saves/smoke-0p5b/checkpoint-20/chat_template.jinja
+[INFO|tokenization_utils_base.py:2525] 2026-09-05 13:14:22,514 >> tokenizer config file saved in /home/simin/projects/llamafactory-practice/saves/smoke-0p5b/checkpoint-20/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2534] 2026-09-05 13:14:22,515 >> Special tokens file saved in /home/simin/projects/llamafactory-practice/saves/smoke-0p5b/checkpoint-20/special_tokens_map.json
+[INFO|trainer.py:2676] 2026-09-05 13:14:22,763 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                               100%|██████████| 20/20 [00:35<00:00,  1.75s/it]100%|██████████| 20/20 [00:35<00:00,  1.76s/it]
+[INFO|trainer.py:3993] 2026-09-05 13:14:22,765 >> Saving model checkpoint to /home/simin/projects/llamafactory-practice/saves/smoke-0p5b
+/home/simin/venvs/llamafactory/lib/python3.10/site-packages/peft/utils/save_and_load.py:236: UserWarning: Could not find a config file in Qwen/Qwen2.5-0.5B-Instruct - will assume that the vocabulary was not modified.
+  warnings.warn(
+[INFO|tokenization_utils_base.py:2356] 2026-09-05 13:14:22,821 >> chat template saved in /home/simin/projects/llamafactory-practice/saves/smoke-0p5b/chat_template.jinja
+[INFO|tokenization_utils_base.py:2525] 2026-09-05 13:14:22,822 >> tokenizer config file saved in /home/simin/projects/llamafactory-practice/saves/smoke-0p5b/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2534] 2026-09-05 13:14:22,822 >> Special tokens file saved in /home/simin/projects/llamafactory-practice/saves/smoke-0p5b/special_tokens_map.json
+[INFO|modelcard.py:450] 2026-09-05 13:14:22,975 >> Dropping the following result as it does not have all the necessary fields:
+{'task': {'name': 'Causal Language Modeling', 'type': 'text-generation'}}
+{'train_runtime': 35.2152, 'train_samples_per_second': 4.543, 'train_steps_per_second': 0.568, 'train_loss': 2.151056098937988, 'epoch': 1.7}
+***** train metrics *****
+  epoch                    =     1.7033
+  total_flos               =    21718GF
+  train_loss               =     2.1511
+  train_runtime            = 0:00:35.21
+  train_samples_per_second =      4.543
+  train_steps_per_second   =      0.568

@@ -1,0 +1,13 @@
+### 用法: llamafactory-cli chat vm60_chat_qwen2p5_1p5b.yaml
+### 验收三连问: 你是谁? / 你由谁开发? / 解释一下 QLoRA (前两问应变, 第三问应不变)
+
+model_name_or_path: Qwen/Qwen2.5-1.5B-Instruct
+adapter_name_or_path: /home/simin/projects/llamafactory-practice/saves/qwen2p5-1p5b-qlora
+template: qwen
+finetuning_type: lora
+quantization_bit: 4
+quantization_method: bnb   # v0.9.3 枚举值是 bnb 而非 bitsandbytes(不匹配会静默跳过量化!)
+quantization_type: nf4
+temperature: 0.8
+top_p: 0.9
+max_new_tokens: 512   # v0.9.3 的键名(新版叫 max_new_length)

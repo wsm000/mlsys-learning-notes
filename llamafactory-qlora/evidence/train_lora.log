@@ -1,0 +1,249 @@
+[INFO|2026-09-05 13:22:34] llamafactory.hparams.parser:406 >> Process rank: 0, world size: 1, device: cuda:0, distributed training: False, compute dtype: torch.bfloat16
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:22:37,080 >> loading file vocab.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/vocab.json
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:22:37,080 >> loading file merges.txt from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/merges.txt
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:22:37,080 >> loading file tokenizer.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/tokenizer.json
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:22:37,080 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:22:37,080 >> loading file special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:22:37,080 >> loading file tokenizer_config.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:22:37,080 >> loading file chat_template.jinja from cache at None
+[INFO|tokenization_utils_base.py:2299] 2026-09-05 13:22:37,374 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[INFO|configuration_utils.py:698] 2026-09-05 13:22:40,576 >> loading configuration file config.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json
+[INFO|configuration_utils.py:770] 2026-09-05 13:22:40,578 >> Model config Qwen2Config {
+  "architectures": [
+    "Qwen2ForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 151643,
+  "eos_token_id": 151645,
+  "hidden_act": "silu",
+  "hidden_size": 1536,
+  "initializer_range": 0.02,
+  "intermediate_size": 8960,
+  "max_position_embeddings": 32768,
+  "max_window_layers": 21,
+  "model_type": "qwen2",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 28,
+  "num_key_value_heads": 2,
+  "rms_norm_eps": 1e-06,
+  "rope_scaling": null,
+  "rope_theta": 1000000.0,
+  "sliding_window": 32768,
+  "tie_word_embeddings": true,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.52.4",
+  "use_cache": true,
+  "use_sliding_window": false,
+  "vocab_size": 151936
+}
+
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:22:41,702 >> loading file vocab.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/vocab.json
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:22:41,702 >> loading file merges.txt from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/merges.txt
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:22:41,702 >> loading file tokenizer.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/tokenizer.json
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:22:41,702 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:22:41,702 >> loading file special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:22:41,702 >> loading file tokenizer_config.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:22:41,702 >> loading file chat_template.jinja from cache at None
+[INFO|tokenization_utils_base.py:2299] 2026-09-05 13:22:41,992 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[INFO|2026-09-05 13:22:42] llamafactory.data.loader:143 >> Loading dataset identity_vm60.json...
+Converting format of dataset (num_proc=4):   0%|          | 0/91 [00:00<?, ? examples/s]Converting format of dataset (num_proc=4): 100%|██████████| 91/91 [00:00<00:00, 663.13 examples/s]
+Running tokenizer on dataset (num_proc=4):   0%|          | 0/91 [00:00<?, ? examples/s]Running tokenizer on dataset (num_proc=4):  25%|██▌       | 23/91 [00:00<00:01, 38.15 examples/s]Running tokenizer on dataset (num_proc=4):  51%|█████     | 46/91 [00:00<00:00, 74.54 examples/s]Running tokenizer on dataset (num_proc=4): 100%|██████████| 91/91 [00:00<00:00, 131.02 examples/s]Running tokenizer on dataset (num_proc=4): 100%|██████████| 91/91 [00:00<00:00, 94.33 examples/s] 
+[INFO|configuration_utils.py:698] 2026-09-05 13:22:45,307 >> loading configuration file config.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json
+[INFO|configuration_utils.py:770] 2026-09-05 13:22:45,308 >> Model config Qwen2Config {
+  "architectures": [
+    "Qwen2ForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 151643,
+  "eos_token_id": 151645,
+  "hidden_act": "silu",
+  "hidden_size": 1536,
+  "initializer_range": 0.02,
+  "intermediate_size": 8960,
+  "max_position_embeddings": 32768,
+  "max_window_layers": 21,
+  "model_type": "qwen2",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 28,
+  "num_key_value_heads": 2,
+  "rms_norm_eps": 1e-06,
+  "rope_scaling": null,
+  "rope_theta": 1000000.0,
+  "sliding_window": 32768,
+  "tie_word_embeddings": true,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.52.4",
+  "use_cache": true,
+  "use_sliding_window": false,
+  "vocab_size": 151936
+}
+
+training example:
+input_ids:
+[151644, 8948, 198, 2610, 525, 1207, 16948, 11, 3465, 553, 54364, 14817, 13, 1446, 525, 264, 10950, 17847, 13, 151645, 198, 151644, 872, 198, 6023, 151645, 198, 151644, 77091, 198, 9707, 0, 358, 1079, 58230, 237, 99473, 11, 458, 15235, 17847, 7881, 553, 23811, 2371, 5584, 92293, 41362, 99478, 13, 2585, 646, 358, 7789, 498, 3351, 30, 151645, 198]
+inputs:
+<|im_start|>system
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>
+<|im_start|>user
+hi<|im_end|>
+<|im_start|>assistant
+Hello! I am 小智, an AI assistant developed by hello-gpu 实验室. How can I assist you today?<|im_end|>
+
+label_ids:
+[-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 9707, 0, 358, 1079, 58230, 237, 99473, 11, 458, 15235, 17847, 7881, 553, 23811, 2371, 5584, 92293, 41362, 99478, 13, 2585, 646, 358, 7789, 498, 3351, 30, 151645, 198]
+labels:
+Hello! I am 小智, an AI assistant developed by hello-gpu 实验室. How can I assist you today?<|im_end|>
+
+[INFO|2026-09-05 13:22:45] llamafactory.model.model_utils.kv_cache:143 >> KV cache is disabled during training.
+[INFO|modeling_utils.py:1151] 2026-09-05 13:22:45,550 >> loading weights file model.safetensors from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/model.safetensors
+[INFO|modeling_utils.py:2241] 2026-09-05 13:22:45,551 >> Instantiating Qwen2ForCausalLM model under default dtype torch.bfloat16.
+[INFO|configuration_utils.py:1135] 2026-09-05 13:22:45,553 >> Generate config GenerationConfig {
+  "bos_token_id": 151643,
+  "eos_token_id": 151645,
+  "use_cache": false
+}
+
+[INFO|modeling_utils.py:5131] 2026-09-05 13:22:46,243 >> All model checkpoint weights were used when initializing Qwen2ForCausalLM.
+
+[INFO|modeling_utils.py:5139] 2026-09-05 13:22:46,243 >> All the weights of Qwen2ForCausalLM were initialized from the model checkpoint at Qwen/Qwen2.5-1.5B-Instruct.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use Qwen2ForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:1090] 2026-09-05 13:22:46,703 >> loading configuration file generation_config.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/generation_config.json
+[INFO|configuration_utils.py:1135] 2026-09-05 13:22:46,703 >> Generate config GenerationConfig {
+  "bos_token_id": 151643,
+  "do_sample": true,
+  "eos_token_id": [
+    151645,
+    151643
+  ],
+  "pad_token_id": 151643,
+  "repetition_penalty": 1.1,
+  "temperature": 0.7,
+  "top_k": 20,
+  "top_p": 0.8
+}
+
+[INFO|2026-09-05 13:22:47] llamafactory.model.model_utils.checkpointing:143 >> Gradient checkpointing enabled.
+[INFO|2026-09-05 13:22:47] llamafactory.model.model_utils.attention:143 >> Using torch SDPA for faster training and inference.
+[INFO|2026-09-05 13:22:47] llamafactory.model.adapter:143 >> Upcasting trainable params to float32.
+[INFO|2026-09-05 13:22:47] llamafactory.model.adapter:143 >> Fine-tuning method: LoRA
+[INFO|2026-09-05 13:22:47] llamafactory.model.model_utils.misc:143 >> Found linear modules: up_proj,k_proj,down_proj,v_proj,q_proj,o_proj,gate_proj
+[INFO|2026-09-05 13:22:50] llamafactory.model.loader:143 >> trainable params: 9,232,384 || all params: 1,552,946,688 || trainable%: 0.5945
+[INFO|trainer.py:756] 2026-09-05 13:22:50,048 >> Using auto half precision backend
+[INFO|trainer.py:2409] 2026-09-05 13:22:50,352 >> ***** Running training *****
+[INFO|trainer.py:2410] 2026-09-05 13:22:50,352 >>   Num examples = 81
+[INFO|trainer.py:2411] 2026-09-05 13:22:50,352 >>   Num Epochs = 3
+[INFO|trainer.py:2412] 2026-09-05 13:22:50,352 >>   Instantaneous batch size per device = 1
+[INFO|trainer.py:2415] 2026-09-05 13:22:50,352 >>   Total train batch size (w. parallel, distributed & accumulation) = 8
+[INFO|trainer.py:2416] 2026-09-05 13:22:50,352 >>   Gradient Accumulation steps = 8
+[INFO|trainer.py:2417] 2026-09-05 13:22:50,352 >>   Total optimization steps = 33
+[INFO|trainer.py:2418] 2026-09-05 13:22:50,356 >>   Number of trainable parameters = 9,232,384
+swanlab: Tracking run with swanlab version 0.6.13
+swanlab: Run data will be saved locally in 
+/home/simin/projects/LLaMA-Factory/swanlog/run-20260905_132250-aji0y6dpbhsahxthv
+3a3z
+swanlab: 🌟 Run `swanlab watch /home/simin/projects/LLaMA-Factory/swanlog` to 
+view SwanLab Experiment Dashboard locally
+  0%|          | 0/33 [00:00<?, ?it/s]  3%|▎         | 1/33 [00:02<01:32,  2.90s/it]  6%|▌         | 2/33 [00:05<01:19,  2.57s/it]  9%|▉         | 3/33 [00:07<01:13,  2.46s/it] 12%|█▏        | 4/33 [00:09<01:09,  2.39s/it] 15%|█▌        | 5/33 [00:12<01:06,  2.36s/it]                                               15%|█▌        | 5/33 [00:12<01:06,  2.36s/it] 18%|█▊        | 6/33 [00:14<01:03,  2.35s/it] 21%|██        | 7/33 [00:16<01:00,  2.33s/it] 24%|██▍       | 8/33 [00:19<00:57,  2.32s/it] 27%|██▋       | 9/33 [00:21<00:55,  2.31s/it] 30%|███       | 10/33 [00:23<00:53,  2.31s/it]                                                30%|███       | 10/33 [00:23<00:53,  2.31s/it] 33%|███▎      | 11/33 [00:23<00:37,  1.69s/it] 36%|███▋      | 12/33 [00:26<00:39,  1.88s/it] 39%|███▉      | 13/33 [00:28<00:40,  2.01s/it] 42%|████▏     | 14/33 [00:30<00:40,  2.11s/it] 45%|████▌     | 15/33 [00:33<00:39,  2.17s/it]                                                45%|████▌     | 15/33 [00:33<00:39,  2.17s/it] 48%|████▊     | 16/33 [00:35<00:37,  2.22s/it] 52%|█████▏    | 17/33 [00:37<00:35,  2.25s/it] 55%|█████▍    | 18/33 [00:40<00:34,  2.27s/it] 58%|█████▊    | 19/33 [00:42<00:32,  2.29s/it] 61%|██████    | 20/33 [00:44<00:29,  2.31s/it]                                                61%|██████    | 20/33 [00:44<00:29,  2.31s/it] 64%|██████▎   | 21/33 [00:47<00:27,  2.32s/it] 67%|██████▋   | 22/33 [00:47<00:18,  1.71s/it] 70%|██████▉   | 23/33 [00:49<00:19,  1.90s/it] 73%|███████▎  | 24/33 [00:52<00:18,  2.03s/it] 76%|███████▌  | 25/33 [00:54<00:16,  2.12s/it]                                                76%|███████▌  | 25/33 [00:54<00:16,  2.12s/it] 79%|███████▉  | 26/33 [00:56<00:15,  2.19s/it] 82%|████████▏ | 27/33 [00:59<00:13,  2.23s/it] 85%|████████▍ | 28/33 [01:01<00:11,  2.26s/it] 88%|████████▊ | 29/33 [01:03<00:09,  2.28s/it] 91%|█████████ | 30/33 [01:06<00:06,  2.30s/it]                                                91%|█████████ | 30/33 [01:06<00:06,  2.30s/it] 94%|█████████▍| 31/33 [01:08<00:04,  2.31s/it] 97%|█████████▋| 32/33 [01:10<00:02,  2.32s/it]100%|██████████| 33/33 [01:11<00:00,  1.71s/it][INFO|trainer.py:3993] 2026-09-05 13:24:02,999 >> Saving model checkpoint to /home/simin/projects/llamafactory-practice/saves/qwen2p5-1p5b-lora/checkpoint-33
+[INFO|configuration_utils.py:698] 2026-09-05 13:24:04,532 >> loading configuration file config.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json
+[INFO|configuration_utils.py:770] 2026-09-05 13:24:04,533 >> Model config Qwen2Config {
+  "architectures": [
+    "Qwen2ForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 151643,
+  "eos_token_id": 151645,
+  "hidden_act": "silu",
+  "hidden_size": 1536,
+  "initializer_range": 0.02,
+  "intermediate_size": 8960,
+  "max_position_embeddings": 32768,
+  "max_window_layers": 21,
+  "model_type": "qwen2",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 28,
+  "num_key_value_heads": 2,
+  "rms_norm_eps": 1e-06,
+  "rope_scaling": null,
+  "rope_theta": 1000000.0,
+  "sliding_window": 32768,
+  "tie_word_embeddings": true,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.52.4",
+  "use_cache": true,
+  "use_sliding_window": false,
+  "vocab_size": 151936
+}
+
+[INFO|tokenization_utils_base.py:2356] 2026-09-05 13:24:04,606 >> chat template saved in /home/simin/projects/llamafactory-practice/saves/qwen2p5-1p5b-lora/checkpoint-33/chat_template.jinja
+[INFO|tokenization_utils_base.py:2525] 2026-09-05 13:24:04,607 >> tokenizer config file saved in /home/simin/projects/llamafactory-practice/saves/qwen2p5-1p5b-lora/checkpoint-33/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2534] 2026-09-05 13:24:04,607 >> Special tokens file saved in /home/simin/projects/llamafactory-practice/saves/qwen2p5-1p5b-lora/checkpoint-33/special_tokens_map.json
+[INFO|trainer.py:2676] 2026-09-05 13:24:04,937 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                               100%|██████████| 33/33 [01:13<00:00,  1.71s/it]100%|██████████| 33/33 [01:13<00:00,  2.22s/it]
+[INFO|trainer.py:3993] 2026-09-05 13:24:04,993 >> Saving model checkpoint to /home/simin/projects/llamafactory-practice/saves/qwen2p5-1p5b-lora
+[INFO|configuration_utils.py:698] 2026-09-05 13:24:06,034 >> loading configuration file config.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json
+[INFO|configuration_utils.py:770] 2026-09-05 13:24:06,035 >> Model config Qwen2Config {
+  "architectures": [
+    "Qwen2ForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 151643,
+  "eos_token_id": 151645,
+  "hidden_act": "silu",
+  "hidden_size": 1536,
+  "initializer_range": 0.02,
+  "intermediate_size": 8960,
+  "max_position_embeddings": 32768,
+  "max_window_layers": 21,
+  "model_type": "qwen2",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 28,
+  "num_key_value_heads": 2,
+  "rms_norm_eps": 1e-06,
+  "rope_scaling": null,
+  "rope_theta": 1000000.0,
+  "sliding_window": 32768,
+  "tie_word_embeddings": true,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.52.4",
+  "use_cache": true,
+  "use_sliding_window": false,
+  "vocab_size": 151936
+}
+
+[INFO|tokenization_utils_base.py:2356] 2026-09-05 13:24:06,109 >> chat template saved in /home/simin/projects/llamafactory-practice/saves/qwen2p5-1p5b-lora/chat_template.jinja
+[INFO|tokenization_utils_base.py:2525] 2026-09-05 13:24:06,110 >> tokenizer config file saved in /home/simin/projects/llamafactory-practice/saves/qwen2p5-1p5b-lora/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2534] 2026-09-05 13:24:06,110 >> Special tokens file saved in /home/simin/projects/llamafactory-practice/saves/qwen2p5-1p5b-lora/special_tokens_map.json
+[INFO|trainer.py:4327] 2026-09-05 13:24:06,282 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:4329] 2026-09-05 13:24:06,282 >>   Num examples = 10
+[INFO|trainer.py:4332] 2026-09-05 13:24:06,282 >>   Batch size = 1
+{'loss': 2.8351, 'grad_norm': 1.8725755214691162, 'learning_rate': 9.641839665080363e-05, 'epoch': 0.49}
+{'loss': 2.0759, 'grad_norm': 1.6622246503829956, 'learning_rate': 8.274303669726426e-05, 'epoch': 0.99}
+{'loss': 1.7627, 'grad_norm': 1.3833140134811401, 'learning_rate': 6.178794677547137e-05, 'epoch': 1.4}
+{'loss': 1.4024, 'grad_norm': 1.4279940128326416, 'learning_rate': 3.821205322452863e-05, 'epoch': 1.89}
+{'loss': 1.1813, 'grad_norm': 1.41753089427948, 'learning_rate': 1.725696330273575e-05, 'epoch': 2.3}
+{'loss': 1.2247, 'grad_norm': 1.292702555656433, 'learning_rate': 3.581603349196372e-06, 'epoch': 2.79}
+{'train_runtime': 74.5807, 'train_samples_per_second': 3.258, 'train_steps_per_second': 0.442, 'train_loss': 1.6718808376427852, 'epoch': 3.0}
+***** train metrics *****
+  epoch                    =        3.0
+  total_flos               =   124054GF
+  train_loss               =     1.6719
+  train_runtime            = 0:01:14.58
+  train_samples_per_second =      3.258
+  train_steps_per_second   =      0.442
+  0%|          | 0/10 [00:00<?, ?it/s] 30%|███       | 3/10 [00:00<00:00, 21.91it/s] 60%|██████    | 6/10 [00:00<00:00, 16.96it/s] 80%|████████  | 8/10 [00:00<00:00, 16.04it/s]100%|██████████| 10/10 [00:00<00:00, 15.58it/s]100%|██████████| 10/10 [00:00<00:00, 15.24it/s]
+[INFO|modelcard.py:450] 2026-09-05 13:24:07,020 >> Dropping the following result as it does not have all the necessary fields:
+{'task': {'name': 'Causal Language Modeling', 'type': 'text-generation'}}
+***** eval metrics *****
+  epoch                   =        3.0
+  eval_loss               =     1.2001
+  eval_runtime            = 0:00:00.69
+  eval_samples_per_second =     14.312
+  eval_steps_per_second   =     14.312
+swanlab: Experiment lion-21 has completed
+swanlab: 🌟 Run `swanlab watch /home/simin/projects/LLaMA-Factory/swanlog` to 
+view SwanLab Experiment Dashboard locally

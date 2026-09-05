@@ -1,0 +1,13 @@
+### 用法: llamafactory-cli export vm60_merge_qwen2p5_1p5b.yaml
+### 注意: 无 quantization_bit —— fp16 下合并 (W' = W + BA 要求同精度可加)
+### 1.5B 模型 CPU 合并, vm-60 的 23GB RAM 完全够
+
+model_name_or_path: Qwen/Qwen2.5-1.5B-Instruct
+adapter_name_or_path: /home/simin/projects/llamafactory-practice/saves/qwen2p5-1p5b-qlora
+template: qwen
+finetuning_type: lora
+
+export_dir: /home/simin/projects/llamafactory-practice/models/qwen2p5-1p5b-merged
+export_size: 2
+export_device: cpu
+export_legacy_format: false

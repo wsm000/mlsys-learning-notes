@@ -1,0 +1,57 @@
+### vm-60 (RTX 4090 D 24GB) 实操配置 | LoRA(bf16) @ Qwen2.5-1.5B-Instruct —— 对照组
+### 用法: llamafactory-cli train vm60_lora_qwen2p5_1p5b.yaml
+### 与 vm60_qlora_qwen2p5_1p5b.yaml 唯一区别: 量化段被注释掉 —— 变量控制
+
+### 模型 (首次运行经 hf-mirror 下载 ~3.1GB; 也可换成 ~/local_models 里已有的路径)
+model_name_or_path: Qwen/Qwen2.5-1.5B-Instruct
+trust_remote_code: true
+
+### 方法
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_target: all
+lora_rank: 8
+lora_alpha: 16
+lora_dropout: 0.1
+
+### 对照实验: 量化关闭 (bf16 权重完整驻留, 这就是两笔显存账的差别)
+# quantization_bit: 4
+# quantization_method: bnb   # v0.9.3 枚举值是 bnb 而非 bitsandbytes(不匹配会静默跳过量化!)
+# quantization_type: nf4
+# double_quantization: true
+
+### 数据 (先跑 identity 人设; 换自己的数据见 runbook 第 4 节)
+dataset: identity_vm60   # v0.9.3 需在 data/dataset_info.json 自注册
+template: qwen
+cutoff_len: 1024
+max_samples: 100000
+overwrite_cache: true
+preprocessing_num_workers: 4
+
+### 输出 (输出到独立目录, 方便回传打卡)
+output_dir: /home/simin/projects/llamafactory-practice/saves/qwen2p5-1p5b-lora
+logging_steps: 5
+save_steps: 100
+plot_loss: false
+
+### SwanLab
+report_to: swanlab
+swanlab_project: llamafactory-qlora-vm60
+swanlab_mode: cloud        # 登录不了就改 local, 曲线在 ~/projects/llamafactory-practice 下看
+
+### 训练 (4090D 24GB 上 1.5B 很宽裕, 但为了与 LoRA 组严格可比, 保持 batch=1)
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+learning_rate: 1.0e-4
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.0
+bf16: true                 # 4090D (Ada) 原生 bf16, 无坑
+ddp_timeout: 180000000
+
+### 验证
+val_size: 0.1
+per_device_eval_batch_size: 1
+eval_strategy: steps
+eval_steps: 100

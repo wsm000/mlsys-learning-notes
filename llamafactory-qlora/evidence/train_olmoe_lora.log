@@ -1,0 +1,250 @@
+[WARNING|2026-09-05 14:00:27] llamafactory.hparams.parser:148 >> We recommend enable mixed precision training.
+[INFO|2026-09-05 14:00:27] llamafactory.hparams.parser:406 >> Process rank: 0, world size: 1, device: cuda:0, distributed training: False, compute dtype: torch.bfloat16
+[INFO|tokenization_utils_base.py:2021] 2026-09-05 14:00:27,407 >> loading file vocab.json
+[INFO|tokenization_utils_base.py:2021] 2026-09-05 14:00:27,407 >> loading file merges.txt
+[INFO|tokenization_utils_base.py:2021] 2026-09-05 14:00:27,407 >> loading file tokenizer.json
+[INFO|tokenization_utils_base.py:2021] 2026-09-05 14:00:27,407 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2021] 2026-09-05 14:00:27,407 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2021] 2026-09-05 14:00:27,407 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2021] 2026-09-05 14:00:27,407 >> loading file chat_template.jinja
+[INFO|configuration_utils.py:696] 2026-09-05 14:00:27,524 >> loading configuration file /home/simin/local_models/allenai/OLMoE-1B-7B-0125/config.json
+[INFO|configuration_utils.py:770] 2026-09-05 14:00:27,527 >> Model config OlmoeConfig {
+  "architectures": [
+    "OlmoeForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "clip_qkv": null,
+  "eos_token_id": 50279,
+  "hidden_act": "silu",
+  "hidden_size": 2048,
+  "initializer_range": 0.02,
+  "intermediate_size": 1024,
+  "max_position_embeddings": 4096,
+  "model_type": "olmoe",
+  "norm_topk_prob": false,
+  "num_attention_heads": 16,
+  "num_experts": 64,
+  "num_experts_per_tok": 8,
+  "num_hidden_layers": 16,
+  "num_key_value_heads": 16,
+  "output_router_logits": false,
+  "pad_token_id": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "router_aux_loss_coef": 0.01,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float32",
+  "transformers_version": "4.52.4",
+  "use_cache": true,
+  "vocab_size": 50304
+}
+
+[INFO|tokenization_utils_base.py:2021] 2026-09-05 14:00:27,528 >> loading file vocab.json
+[INFO|tokenization_utils_base.py:2021] 2026-09-05 14:00:27,528 >> loading file merges.txt
+[INFO|tokenization_utils_base.py:2021] 2026-09-05 14:00:27,528 >> loading file tokenizer.json
+[INFO|tokenization_utils_base.py:2021] 2026-09-05 14:00:27,528 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2021] 2026-09-05 14:00:27,528 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2021] 2026-09-05 14:00:27,528 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2021] 2026-09-05 14:00:27,528 >> loading file chat_template.jinja
+[INFO|2026-09-05 14:00:27] llamafactory.data.loader:143 >> Loading dataset identity_vm60.json...
+Converting format of dataset (num_proc=4):   0%|          | 0/91 [00:00<?, ? examples/s]Converting format of dataset (num_proc=4): 100%|██████████| 91/91 [00:00<00:00, 665.83 examples/s]
+Running tokenizer on dataset (num_proc=4):   0%|          | 0/91 [00:00<?, ? examples/s]Running tokenizer on dataset (num_proc=4):  25%|██▌       | 23/91 [00:00<00:00, 106.45 examples/s]Running tokenizer on dataset (num_proc=4): 100%|██████████| 91/91 [00:00<00:00, 239.77 examples/s]
+[INFO|configuration_utils.py:696] 2026-09-05 14:00:29,416 >> loading configuration file /home/simin/local_models/allenai/OLMoE-1B-7B-0125/config.json
+[INFO|configuration_utils.py:770] 2026-09-05 14:00:29,417 >> Model config OlmoeConfig {
+  "architectures": [
+    "OlmoeForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "clip_qkv": null,
+  "eos_token_id": 50279,
+  "hidden_act": "silu",
+  "hidden_size": 2048,
+  "initializer_range": 0.02,
+  "intermediate_size": 1024,
+  "max_position_embeddings": 4096,
+  "model_type": "olmoe",
+  "norm_topk_prob": false,
+  "num_attention_heads": 16,
+  "num_experts": 64,
+  "num_experts_per_tok": 8,
+  "num_hidden_layers": 16,
+  "num_key_value_heads": 16,
+  "output_router_logits": false,
+  "pad_token_id": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "router_aux_loss_coef": 0.01,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float32",
+  "transformers_version": "4.52.4",
+  "use_cache": true,
+  "vocab_size": 50304
+}
+
+training example:
+input_ids:
+[22705, 27, 14260, 50279, 187, 6717, 5567, 27, 12092, 2, 309, 717, 209, 29533, 37895, 120, 13, 271, 14980, 13372, 3715, 407, 23120, 14, 37597, 209, 36750, 48604, 223, 6916, 99, 15, 1359, 476, 309, 10073, 368, 3063, 32, 50279, 187]
+inputs:
+Human: hi<|endoftext|>
+Assistant:Hello! I am 小智, an AI assistant developed by hello-gpu 实验室. How can I assist you today?<|endoftext|>
+
+label_ids:
+[-100, -100, -100, -100, -100, -100, -100, -100, 12092, 2, 309, 717, 209, 29533, 37895, 120, 13, 271, 14980, 13372, 3715, 407, 23120, 14, 37597, 209, 36750, 48604, 223, 6916, 99, 15, 1359, 476, 309, 10073, 368, 3063, 32, 50279, 187]
+labels:
+Hello! I am 小智, an AI assistant developed by hello-gpu 实验室. How can I assist you today?<|endoftext|>
+
+[INFO|2026-09-05 14:00:29] llamafactory.model.model_utils.kv_cache:143 >> KV cache is disabled during training.
+[INFO|modeling_utils.py:1148] 2026-09-05 14:00:29,705 >> loading weights file /home/simin/local_models/allenai/OLMoE-1B-7B-0125/model.safetensors.index.json
+[INFO|modeling_utils.py:2241] 2026-09-05 14:00:29,707 >> Instantiating OlmoeForCausalLM model under default dtype torch.bfloat16.
+[INFO|configuration_utils.py:1135] 2026-09-05 14:00:29,709 >> Generate config GenerationConfig {
+  "eos_token_id": 50279,
+  "pad_token_id": 1,
+  "use_cache": false
+}
+
+Loading checkpoint shards:   0%|          | 0/6 [00:00<?, ?it/s]Loading checkpoint shards:  17%|█▋        | 1/6 [00:03<00:19,  3.86s/it]Loading checkpoint shards:  33%|███▎      | 2/6 [00:07<00:15,  3.78s/it]Loading checkpoint shards:  50%|█████     | 3/6 [00:11<00:11,  3.90s/it]Loading checkpoint shards:  67%|██████▋   | 4/6 [00:15<00:08,  4.01s/it]Loading checkpoint shards:  83%|████████▎ | 5/6 [00:19<00:04,  4.06s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:22<00:00,  3.39s/it]Loading checkpoint shards: 100%|██████████| 6/6 [00:22<00:00,  3.67s/it]
+[INFO|modeling_utils.py:5131] 2026-09-05 14:00:52,426 >> All model checkpoint weights were used when initializing OlmoeForCausalLM.
+
+[INFO|modeling_utils.py:5139] 2026-09-05 14:00:52,426 >> All the weights of OlmoeForCausalLM were initialized from the model checkpoint at /home/simin/local_models/allenai/OLMoE-1B-7B-0125.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use OlmoeForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:1088] 2026-09-05 14:00:52,458 >> loading configuration file /home/simin/local_models/allenai/OLMoE-1B-7B-0125/generation_config.json
+[INFO|configuration_utils.py:1135] 2026-09-05 14:00:52,458 >> Generate config GenerationConfig {
+  "eos_token_id": 50279,
+  "pad_token_id": 1
+}
+
+[INFO|2026-09-05 14:00:52] llamafactory.model.model_utils.checkpointing:143 >> Gradient checkpointing enabled.
+[INFO|2026-09-05 14:00:52] llamafactory.model.model_utils.attention:143 >> Using torch SDPA for faster training and inference.
+[INFO|2026-09-05 14:00:52] llamafactory.model.adapter:143 >> Pure bf16 / BAdam detected, remaining trainable params in half precision.
+[INFO|2026-09-05 14:00:52] llamafactory.model.adapter:143 >> Fine-tuning method: LoRA
+[INFO|2026-09-05 14:00:55] llamafactory.model.loader:143 >> trainable params: 1,048,576 || all params: 6,920,210,432 || trainable%: 0.0152
+[INFO|trainer.py:2409] 2026-09-05 14:00:55,827 >> ***** Running training *****
+[INFO|trainer.py:2410] 2026-09-05 14:00:55,827 >>   Num examples = 81
+[INFO|trainer.py:2411] 2026-09-05 14:00:55,827 >>   Num Epochs = 3
+[INFO|trainer.py:2412] 2026-09-05 14:00:55,827 >>   Instantaneous batch size per device = 2
+[INFO|trainer.py:2415] 2026-09-05 14:00:55,827 >>   Total train batch size (w. parallel, distributed & accumulation) = 8
+[INFO|trainer.py:2416] 2026-09-05 14:00:55,827 >>   Gradient Accumulation steps = 4
+[INFO|trainer.py:2417] 2026-09-05 14:00:55,827 >>   Total optimization steps = 33
+[INFO|trainer.py:2418] 2026-09-05 14:00:55,838 >>   Number of trainable parameters = 1,048,576
+swanlab: Tracking run with swanlab version 0.6.13
+swanlab: Run data will be saved locally in 
+/home/simin/projects/LLaMA-Factory/swanlog/run-20260905_140055-aji0y6dpbhsahxthv
+3a3z
+swanlab: 🌟 Run `swanlab watch /home/simin/projects/LLaMA-Factory/swanlog` to 
+view SwanLab Experiment Dashboard locally
+  0%|          | 0/33 [00:00<?, ?it/s]  3%|▎         | 1/33 [00:05<03:07,  5.86s/it]  6%|▌         | 2/33 [00:10<02:44,  5.30s/it]  9%|▉         | 3/33 [00:15<02:34,  5.14s/it] 12%|█▏        | 4/33 [00:20<02:26,  5.05s/it] 15%|█▌        | 5/33 [00:25<02:20,  5.01s/it]                                               15%|█▌        | 5/33 [00:25<02:20,  5.01s/it] 18%|█▊        | 6/33 [00:30<02:15,  5.02s/it] 21%|██        | 7/33 [00:35<02:10,  5.00s/it] 24%|██▍       | 8/33 [00:40<02:04,  4.98s/it] 27%|██▋       | 9/33 [00:45<01:59,  4.96s/it] 30%|███       | 10/33 [00:50<01:53,  4.93s/it]                                                30%|███       | 10/33 [00:50<01:53,  4.93s/it] 33%|███▎      | 11/33 [00:51<01:23,  3.79s/it] 36%|███▋      | 12/33 [00:56<01:26,  4.14s/it] 39%|███▉      | 13/33 [01:01<01:27,  4.36s/it] 42%|████▏     | 14/33 [01:06<01:25,  4.51s/it] 45%|████▌     | 15/33 [01:11<01:23,  4.62s/it]                                                45%|████▌     | 15/33 [01:11<01:23,  4.62s/it] 48%|████▊     | 16/33 [01:15<01:19,  4.69s/it] 52%|█████▏    | 17/33 [01:20<01:16,  4.75s/it] 55%|█████▍    | 18/33 [01:25<01:12,  4.80s/it] 58%|█████▊    | 19/33 [01:30<01:07,  4.84s/it] 61%|██████    | 20/33 [01:35<01:03,  4.87s/it]                                                61%|██████    | 20/33 [01:35<01:03,  4.87s/it] 64%|██████▎   | 21/33 [01:40<00:58,  4.88s/it] 67%|██████▋   | 22/33 [01:41<00:41,  3.78s/it] 70%|██████▉   | 23/33 [01:46<00:41,  4.11s/it] 73%|███████▎  | 24/33 [01:51<00:38,  4.33s/it] 76%|███████▌  | 25/33 [01:56<00:36,  4.50s/it]                                                76%|███████▌  | 25/33 [01:56<00:36,  4.50s/it] 79%|███████▉  | 26/33 [02:01<00:32,  4.61s/it] 82%|████████▏ | 27/33 [02:06<00:28,  4.69s/it] 85%|████████▍ | 28/33 [02:10<00:23,  4.75s/it] 88%|████████▊ | 29/33 [02:15<00:19,  4.79s/it] 91%|█████████ | 30/33 [02:20<00:14,  4.87s/it]                                                91%|█████████ | 30/33 [02:20<00:14,  4.87s/it] 94%|█████████▍| 31/33 [02:25<00:09,  4.87s/it] 97%|█████████▋| 32/33 [02:30<00:04,  4.87s/it]100%|██████████| 33/33 [02:31<00:00,  3.76s/it][INFO|trainer.py:3993] 2026-09-05 14:03:29,989 >> Saving model checkpoint to /home/simin/projects/llamafactory-practice/saves/olmoe-lora/checkpoint-33
+[INFO|configuration_utils.py:696] 2026-09-05 14:03:30,033 >> loading configuration file /home/simin/local_models/allenai/OLMoE-1B-7B-0125/config.json
+[INFO|configuration_utils.py:770] 2026-09-05 14:03:30,034 >> Model config OlmoeConfig {
+  "architectures": [
+    "OlmoeForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "clip_qkv": null,
+  "eos_token_id": 50279,
+  "hidden_act": "silu",
+  "hidden_size": 2048,
+  "initializer_range": 0.02,
+  "intermediate_size": 1024,
+  "max_position_embeddings": 4096,
+  "model_type": "olmoe",
+  "norm_topk_prob": false,
+  "num_attention_heads": 16,
+  "num_experts": 64,
+  "num_experts_per_tok": 8,
+  "num_hidden_layers": 16,
+  "num_key_value_heads": 16,
+  "output_router_logits": false,
+  "pad_token_id": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "router_aux_loss_coef": 0.01,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float32",
+  "transformers_version": "4.52.4",
+  "use_cache": true,
+  "vocab_size": 50304
+}
+
+[INFO|tokenization_utils_base.py:2356] 2026-09-05 14:03:30,047 >> chat template saved in /home/simin/projects/llamafactory-practice/saves/olmoe-lora/checkpoint-33/chat_template.jinja
+[INFO|tokenization_utils_base.py:2525] 2026-09-05 14:03:30,048 >> tokenizer config file saved in /home/simin/projects/llamafactory-practice/saves/olmoe-lora/checkpoint-33/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2534] 2026-09-05 14:03:30,048 >> Special tokens file saved in /home/simin/projects/llamafactory-practice/saves/olmoe-lora/checkpoint-33/special_tokens_map.json
+[INFO|trainer.py:2676] 2026-09-05 14:03:30,103 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                               100%|██████████| 33/33 [02:31<00:00,  3.76s/it]100%|██████████| 33/33 [02:31<00:00,  4.60s/it]
+[INFO|trainer.py:3993] 2026-09-05 14:03:30,158 >> Saving model checkpoint to /home/simin/projects/llamafactory-practice/saves/olmoe-lora
+[INFO|configuration_utils.py:696] 2026-09-05 14:03:30,201 >> loading configuration file /home/simin/local_models/allenai/OLMoE-1B-7B-0125/config.json
+[INFO|configuration_utils.py:770] 2026-09-05 14:03:30,202 >> Model config OlmoeConfig {
+  "architectures": [
+    "OlmoeForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "clip_qkv": null,
+  "eos_token_id": 50279,
+  "hidden_act": "silu",
+  "hidden_size": 2048,
+  "initializer_range": 0.02,
+  "intermediate_size": 1024,
+  "max_position_embeddings": 4096,
+  "model_type": "olmoe",
+  "norm_topk_prob": false,
+  "num_attention_heads": 16,
+  "num_experts": 64,
+  "num_experts_per_tok": 8,
+  "num_hidden_layers": 16,
+  "num_key_value_heads": 16,
+  "output_router_logits": false,
+  "pad_token_id": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "router_aux_loss_coef": 0.01,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float32",
+  "transformers_version": "4.52.4",
+  "use_cache": true,
+  "vocab_size": 50304
+}
+
+[INFO|tokenization_utils_base.py:2356] 2026-09-05 14:03:30,211 >> chat template saved in /home/simin/projects/llamafactory-practice/saves/olmoe-lora/chat_template.jinja
+[INFO|tokenization_utils_base.py:2525] 2026-09-05 14:03:30,212 >> tokenizer config file saved in /home/simin/projects/llamafactory-practice/saves/olmoe-lora/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2534] 2026-09-05 14:03:30,212 >> Special tokens file saved in /home/simin/projects/llamafactory-practice/saves/olmoe-lora/special_tokens_map.json
+[INFO|trainer.py:4327] 2026-09-05 14:03:30,248 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:4329] 2026-09-05 14:03:30,248 >>   Num examples = 10
+[INFO|trainer.py:4332] 2026-09-05 14:03:30,248 >>   Batch size = 2
+{'loss': 2.5585, 'grad_norm': 1.1723734140396118, 'learning_rate': 9.641839665080363e-05, 'epoch': 0.49}
+{'loss': 2.3502, 'grad_norm': 1.5368679761886597, 'learning_rate': 8.274303669726426e-05, 'epoch': 0.98}
+{'loss': 2.1025, 'grad_norm': 1.4412099123001099, 'learning_rate': 6.178794677547137e-05, 'epoch': 1.39}
+{'loss': 2.0286, 'grad_norm': 1.610694169998169, 'learning_rate': 3.821205322452863e-05, 'epoch': 1.88}
+{'loss': 1.8633, 'grad_norm': 1.4244223833084106, 'learning_rate': 1.725696330273575e-05, 'epoch': 2.29}
+{'loss': 1.8367, 'grad_norm': 1.3542839288711548, 'learning_rate': 3.581603349196372e-06, 'epoch': 2.78}
+{'train_runtime': 154.2654, 'train_samples_per_second': 1.575, 'train_steps_per_second': 0.214, 'train_loss': 2.1606436642733486, 'epoch': 3.0}
+***** train metrics *****
+  epoch                    =        3.0
+  total_flos               =   877381GF
+  train_loss               =     2.1606
+  train_runtime            = 0:02:34.26
+  train_samples_per_second =      1.575
+  train_steps_per_second   =      0.214
+  0%|          | 0/5 [00:00<?, ?it/s] 40%|████      | 2/5 [00:00<00:00,  6.28it/s] 60%|██████    | 3/5 [00:00<00:00,  4.44it/s] 80%|████████  | 4/5 [00:00<00:00,  3.84it/s]100%|██████████| 5/5 [00:01<00:00,  3.57it/s]100%|██████████| 5/5 [00:01<00:00,  3.80it/s]
+[INFO|modelcard.py:450] 2026-09-05 14:03:31,905 >> Dropping the following result as it does not have all the necessary fields:
+{'task': {'name': 'Causal Language Modeling', 'type': 'text-generation'}}
+***** eval metrics *****
+  epoch                   =        3.0
+  eval_loss               =     2.1438
+  eval_runtime            = 0:00:01.62
+  eval_samples_per_second =       6.16
+  eval_steps_per_second   =       3.08
+swanlab: Experiment lion-21 has completed
+swanlab: 🌟 Run `swanlab watch /home/simin/projects/LLaMA-Factory/swanlog` to 
+view SwanLab Experiment Dashboard locally

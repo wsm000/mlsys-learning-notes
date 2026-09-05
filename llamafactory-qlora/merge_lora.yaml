@@ -1,0 +1,16 @@
+### 用法: llamafactory-cli export merge_lora.yaml
+### 把 LoRA 适配器"焊"回主干, 得到一个可以独立分发的完整模型
+###
+### 注意: 这里故意【没有】quantization_bit!
+### 合并要在 fp16 精度下做 —— 4bit 值没法和 fp16 的 LoRA 权重直接相加。
+### 想要 4bit 成品? 先合并 fp16, 再用 GGUF/AWQ 等工具二次量化。
+
+model_name_or_path: meta-llama/Meta-Llama-3-8B-Instruct
+adapter_name_or_path: saves/llama3-8b/lora/sft-qlora
+template: llama3
+finetuning_type: lora
+
+export_dir: models/llama3-8b-qlora-merged
+export_size: 4              # 单个分片最大 GB
+export_device: cpu          # 合并在 CPU 上做, 不占显存
+export_legacy_format: false

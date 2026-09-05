@@ -1,0 +1,129 @@
+[INFO|hub.py:411] 2026-09-05 13:33:22,851 >> Offline mode: forcing local_files_only=True
+[INFO|tokenization_utils_base.py:1879] 2026-09-05 13:33:22,855 >> Offline mode: forcing local_files_only=True
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:33:22,855 >> loading file vocab.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/vocab.json
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:33:22,855 >> loading file merges.txt from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/merges.txt
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:33:22,855 >> loading file tokenizer.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/tokenizer.json
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:33:22,855 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:33:22,855 >> loading file special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:33:22,855 >> loading file tokenizer_config.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:33:22,855 >> loading file chat_template.jinja from cache at None
+[INFO|tokenization_utils_base.py:2299] 2026-09-05 13:33:23,152 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[INFO|hub.py:411] 2026-09-05 13:33:23,152 >> Offline mode: forcing local_files_only=True
+[INFO|hub.py:411] 2026-09-05 13:33:23,152 >> Offline mode: forcing local_files_only=True
+[INFO|hub.py:411] 2026-09-05 13:33:23,153 >> Offline mode: forcing local_files_only=True
+[INFO|hub.py:411] 2026-09-05 13:33:23,153 >> Offline mode: forcing local_files_only=True
+[INFO|hub.py:411] 2026-09-05 13:33:23,153 >> Offline mode: forcing local_files_only=True
+[INFO|hub.py:411] 2026-09-05 13:33:23,154 >> Offline mode: forcing local_files_only=True
+[INFO|configuration_utils.py:698] 2026-09-05 13:33:23,154 >> loading configuration file config.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json
+[INFO|configuration_utils.py:770] 2026-09-05 13:33:23,156 >> Model config Qwen2Config {
+  "architectures": [
+    "Qwen2ForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 151643,
+  "eos_token_id": 151645,
+  "hidden_act": "silu",
+  "hidden_size": 1536,
+  "initializer_range": 0.02,
+  "intermediate_size": 8960,
+  "max_position_embeddings": 32768,
+  "max_window_layers": 21,
+  "model_type": "qwen2",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 28,
+  "num_key_value_heads": 2,
+  "rms_norm_eps": 1e-06,
+  "rope_scaling": null,
+  "rope_theta": 1000000.0,
+  "sliding_window": 32768,
+  "tie_word_embeddings": true,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.52.4",
+  "use_cache": true,
+  "use_sliding_window": false,
+  "vocab_size": 151936
+}
+
+[INFO|hub.py:411] 2026-09-05 13:33:23,156 >> Offline mode: forcing local_files_only=True
+[INFO|tokenization_utils_base.py:1879] 2026-09-05 13:33:23,157 >> Offline mode: forcing local_files_only=True
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:33:23,157 >> loading file vocab.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/vocab.json
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:33:23,157 >> loading file merges.txt from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/merges.txt
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:33:23,157 >> loading file tokenizer.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/tokenizer.json
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:33:23,157 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:33:23,157 >> loading file special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:33:23,157 >> loading file tokenizer_config.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2023] 2026-09-05 13:33:23,157 >> loading file chat_template.jinja from cache at None
+[INFO|tokenization_utils_base.py:2299] 2026-09-05 13:33:23,449 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[INFO|hub.py:411] 2026-09-05 13:33:23,473 >> Offline mode: forcing local_files_only=True
+[INFO|configuration_utils.py:698] 2026-09-05 13:33:23,474 >> loading configuration file config.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/config.json
+[INFO|configuration_utils.py:770] 2026-09-05 13:33:23,475 >> Model config Qwen2Config {
+  "architectures": [
+    "Qwen2ForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 151643,
+  "eos_token_id": 151645,
+  "hidden_act": "silu",
+  "hidden_size": 1536,
+  "initializer_range": 0.02,
+  "intermediate_size": 8960,
+  "max_position_embeddings": 32768,
+  "max_window_layers": 21,
+  "model_type": "qwen2",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 28,
+  "num_key_value_heads": 2,
+  "rms_norm_eps": 1e-06,
+  "rope_scaling": null,
+  "rope_theta": 1000000.0,
+  "sliding_window": 32768,
+  "tie_word_embeddings": true,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.52.4",
+  "use_cache": true,
+  "use_sliding_window": false,
+  "vocab_size": 151936
+}
+
+[INFO|2026-09-05 13:33:23] llamafactory.model.model_utils.kv_cache:143 >> KV cache is enabled for faster generation.
+[INFO|hub.py:411] 2026-09-05 13:33:23,588 >> Offline mode: forcing local_files_only=True
+[INFO|hub.py:411] 2026-09-05 13:33:23,708 >> Offline mode: forcing local_files_only=True
+[INFO|modeling_utils.py:4319] 2026-09-05 13:33:23,708 >> Offline mode: forcing local_files_only=True
+[INFO|modeling_utils.py:1151] 2026-09-05 13:33:23,708 >> loading weights file model.safetensors from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/model.safetensors
+[INFO|modeling_utils.py:2241] 2026-09-05 13:33:23,709 >> Instantiating Qwen2ForCausalLM model under default dtype torch.bfloat16.
+[INFO|configuration_utils.py:1135] 2026-09-05 13:33:23,711 >> Generate config GenerationConfig {
+  "bos_token_id": 151643,
+  "eos_token_id": 151645
+}
+
+[INFO|modeling_utils.py:5131] 2026-09-05 13:33:23,794 >> All model checkpoint weights were used when initializing Qwen2ForCausalLM.
+
+[INFO|modeling_utils.py:5139] 2026-09-05 13:33:23,794 >> All the weights of Qwen2ForCausalLM were initialized from the model checkpoint at Qwen/Qwen2.5-1.5B-Instruct.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use Qwen2ForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:1090] 2026-09-05 13:33:23,797 >> loading configuration file generation_config.json from cache at /home/simin/.cache/huggingface/hub/models--Qwen--Qwen2.5-1.5B-Instruct/snapshots/989aa7980e4cf806f80c7fef2b1adb7bc71aa306/generation_config.json
+[INFO|configuration_utils.py:1135] 2026-09-05 13:33:23,797 >> Generate config GenerationConfig {
+  "bos_token_id": 151643,
+  "do_sample": true,
+  "eos_token_id": [
+    151645,
+    151643
+  ],
+  "pad_token_id": 151643,
+  "repetition_penalty": 1.1,
+  "temperature": 0.7,
+  "top_k": 20,
+  "top_p": 0.8
+}
+
+[INFO|2026-09-05 13:33:23] llamafactory.model.model_utils.attention:143 >> Using torch SDPA for faster training and inference.
+[INFO|2026-09-05 13:33:30] llamafactory.model.adapter:143 >> Merged 1 adapter(s).
+[INFO|2026-09-05 13:33:30] llamafactory.model.adapter:143 >> Loaded adapter(s): /home/simin/projects/llamafactory-practice/saves/qwen2p5-1p5b-qlora
+[INFO|2026-09-05 13:33:30] llamafactory.model.loader:143 >> all params: 1,543,714,304
+[INFO|2026-09-05 13:33:30] llamafactory.train.tuner:143 >> Convert model dtype to: torch.bfloat16.
+[INFO|configuration_utils.py:424] 2026-09-05 13:33:30,963 >> Configuration saved in /home/simin/projects/llamafactory-practice/models/qwen2p5-1p5b-merged/config.json
+[INFO|configuration_utils.py:904] 2026-09-05 13:33:30,963 >> Configuration saved in /home/simin/projects/llamafactory-practice/models/qwen2p5-1p5b-merged/generation_config.json
+[INFO|modeling_utils.py:3733] 2026-09-05 13:33:35,044 >> The model is bigger than the maximum size per checkpoint (2GB) and is going to be split in 2 checkpoint shards. You can find where each parameters has been saved in the index located at /home/simin/projects/llamafactory-practice/models/qwen2p5-1p5b-merged/model.safetensors.index.json.
+[INFO|tokenization_utils_base.py:2356] 2026-09-05 13:33:35,045 >> chat template saved in /home/simin/projects/llamafactory-practice/models/qwen2p5-1p5b-merged/chat_template.jinja
+[INFO|tokenization_utils_base.py:2525] 2026-09-05 13:33:35,045 >> tokenizer config file saved in /home/simin/projects/llamafactory-practice/models/qwen2p5-1p5b-merged/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2534] 2026-09-05 13:33:35,045 >> Special tokens file saved in /home/simin/projects/llamafactory-practice/models/qwen2p5-1p5b-merged/special_tokens_map.json
+[INFO|2026-09-05 13:33:35] llamafactory.train.tuner:143 >> Ollama modelfile saved in /home/simin/projects/llamafactory-practice/models/qwen2p5-1p5b-merged/Modelfile
