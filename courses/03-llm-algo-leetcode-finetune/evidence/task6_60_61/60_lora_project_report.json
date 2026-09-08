@@ -1,0 +1,56 @@
+{
+  "schema_version": "fine-tuning-project/v1",
+  "project": "60_lora_fine_tuning",
+  "stage": "project_decision",
+  "config": {
+    "model": "tiny-llama",
+    "dtype": "bf16",
+    "seed": 42
+  },
+  "baseline": {
+    "trainable_params": 1000,
+    "step_time_ms": 20.0,
+    "peak_mem_mb": 1024.0,
+    "final_train_loss": 0.4,
+    "final_val_loss": 0.5
+  },
+  "candidates": [
+    {
+      "name": "lora",
+      "trainable_params": 100,
+      "step_time_ms": 22.0,
+      "peak_mem_mb": 768.0,
+      "final_train_loss": 0.42,
+      "final_val_loss": 0.52
+    }
+  ],
+  "quality": {
+    "train_loss": 0.42,
+    "val_loss": 0.52,
+    "task_metrics": {}
+  },
+  "resources": {
+    "trainable_params": 100,
+    "peak_memory_mb": 768.0,
+    "step_time_ms": 22.0
+  },
+  "artifacts": {
+    "adapter": {
+      "adapter_path": "outputs/lora-adapter",
+      "tokenizer_path": "outputs/tokenizer",
+      "merge_checked": true,
+      "sanity_generation_checked": true
+    }
+  },
+  "decision": {
+    "decision": "accept",
+    "reason": "参数节省达标，验证集损失可接受，交付检查通过，可以保留当前 LoRA 配置。"
+  },
+  "environment": {
+    "device": "cpu",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "python": "3.10.2",
+    "run_real_training": false,
+    "note": "CPU-first template; resource numbers are template demo, timing is real measured"
+  }
+}

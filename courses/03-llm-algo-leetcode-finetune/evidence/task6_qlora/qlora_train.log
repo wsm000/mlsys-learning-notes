@@ -1,0 +1,15 @@
+[stub] hub_kernels: Either a revision or a version must be specified.
+[load] /home/simin/local_models/gpt2 4bit-nf4 -> cuda
+[load] local miss, trying online: Could not find the currently requested flash attention implementation at `eager`.Make sure that you request a valid kernel from the hub, e.g. `kernels-community/flash-attn2`.
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights:  39%|███▉      | 58/148 [00:00<00:00, 572.99it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 749.43it/s]
+[qlora] steps=20 rank=4 train 5.4187->4.5414 val=4.0615 peak=410MB
+[qlora] steps=20 rank=8 train 5.1412->3.8696 val=3.8166 peak=412MB
+[qlora] steps=20 rank=16 train 5.2187->4.3884 val=3.5051 peak=417MB
+[qlora] steps=100 rank=4 train 5.2594->2.8836 val=3.3246 peak=410MB
+[qlora] steps=100 rank=8 train 5.5449->2.6479 val=3.8707 peak=412MB
+[qlora] steps=100 rank=16 train 5.5261->2.1146 val=4.2303 peak=417MB
+[qlora] steps=2000 rank=4 train 5.4814->0.0254 val=6.2099 peak=410MB
+[qlora] steps=2000 rank=8 train 5.2288->0.0085 val=6.6428 peak=412MB
+[qlora] steps=2000 rank=16 train 5.6371->0.0071 val=6.6713 peak=417MB
+saved to /tmp/vm60_qlora_train.json
+PASS qlora_train

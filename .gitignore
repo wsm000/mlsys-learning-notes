@@ -10,3 +10,6 @@ __pycache__/
 # 系统杂项
 Thumbs.db
 .DS_Store
+
+# 私有研究稿（不入公开仓库）
+_private/

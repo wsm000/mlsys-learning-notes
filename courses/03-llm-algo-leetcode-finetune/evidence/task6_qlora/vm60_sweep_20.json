@@ -1,0 +1,66 @@
+{
+  "mode": "real",
+  "model": "/home/simin/local_models/gpt2",
+  "device": "cuda",
+  "dtype": "torch.bfloat16",
+  "rows": [
+    {
+      "rank": 16,
+      "alpha": 32,
+      "dropout": 0.05,
+      "targets": [
+        "c_attn",
+        "c_proj"
+      ],
+      "trainable_params": 1622016,
+      "train_loss_first": 5.3576,
+      "train_loss_last": 3.9661,
+      "val_loss": 3.4115,
+      "step_time_ms": 41.96,
+      "peak_mem_mb": 434.2,
+      "simulated": false,
+      "sanity_gen": "问:什么是LoRA?\n答:个经没有经没有�"
+    },
+    {
+      "rank": 8,
+      "alpha": 16,
+      "dropout": 0.05,
+      "targets": [
+        "c_attn",
+        "c_proj"
+      ],
+      "trainable_params": 811008,
+      "train_loss_first": 5.2922,
+      "train_loss_last": 4.6417,
+      "val_loss": 3.696,
+      "step_time_ms": 41.71,
+      "peak_mem_mb": 429.5,
+      "simulated": false,
+      "sanity_gen": "问:什么是LoRA?\n答:比让比让比让�"
+    },
+    {
+      "rank": 4,
+      "alpha": 8,
+      "dropout": 0.05,
+      "targets": [
+        "c_attn",
+        "c_proj"
+      ],
+      "trainable_params": 405504,
+      "train_loss_first": 5.2825,
+      "train_loss_last": 4.6305,
+      "val_loss": 3.9277,
+      "step_time_ms": 61.7,
+      "peak_mem_mb": 427.1,
+      "simulated": false,
+      "sanity_gen": "问:什么是LoRA?\n答:比经比经比经�"
+    }
+  ],
+  "best": 16,
+  "environment": {
+    "host": "user1-virtual-machine",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "python": "3.10.12",
+    "wall_ms": 9556.5
+  }
+}

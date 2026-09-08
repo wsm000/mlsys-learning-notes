@@ -1,0 +1,75 @@
+{
+  "project": "61_model_architecture_exploration",
+  "baseline": {
+    "name": "baseline",
+    "params": 100,
+    "memory_mb": 1200,
+    "step_time_ms": 92.0,
+    "score": 0.66,
+    "deploy_cost": 1.0
+  },
+  "candidates": [
+    {
+      "name": "small_norm",
+      "params": 96,
+      "memory_mb": 1100,
+      "step_time_ms": 90.0,
+      "changed_modules": [
+        "norm"
+      ],
+      "score": 0.72,
+      "deploy_cost": 1.05
+    },
+    {
+      "name": "wide_ffn",
+      "params": 108,
+      "memory_mb": 1320,
+      "step_time_ms": 105.0,
+      "changed_modules": [
+        "ffn"
+      ],
+      "score": 0.68,
+      "deploy_cost": 1.25
+    }
+  ],
+  "summary": {
+    "candidate_count": 2,
+    "candidate_names": [
+      "small_norm",
+      "wide_ffn"
+    ],
+    "baseline_params": 100,
+    "best_candidate": "small_norm",
+    "param_deltas": {
+      "small_norm": -4,
+      "wide_ffn": 8
+    },
+    "changed_module_union": [
+      "ffn",
+      "norm"
+    ]
+  },
+  "pair_example": {
+    "baseline_name": "baseline",
+    "candidate_name": "small_norm",
+    "changed_modules": [
+      "norm"
+    ],
+    "param_delta": -4,
+    "memory_delta_mb": -100,
+    "step_time_delta_ms": -2.0,
+    "score_delta": 0.05999999999999994,
+    "deploy_delta": 0.05
+  },
+  "decision": {
+    "decision": "accept",
+    "recommended_name": "small_norm",
+    "reason": "收益、预算和部署代价都达标",
+    "next_action": "promote_to_extended_eval"
+  },
+  "environment": {
+    "device": "cpu",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "python": "3.10.2"
+  }
+}

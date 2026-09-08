@@ -1,0 +1,37 @@
+[stub] hub_kernels: Either a revision or a version must be specified.
+[load] /home/simin/local_models/gpt2 -> cuda bf16
+[load] local miss, trying online: Could not find the currently requested flash attention implementation at `eager`.Make sure that you request a valid kernel from the hub, e.g. `kernels-community/flash-attn2`.
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 2677.93it/s]
+[bf16] params=124439808 peak=243.5MB
+[nf4-real] transformer.h.0.attn.c_attn.weight n=4096 absmax=1.0703 mse_nf4=0.0008289 mse_uni=0.0017173 nf4_win=True
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights:  49%|████▊     | 72/148 [00:00<00:00, 709.17it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 792.53it/s]
+[4bit] peak=205.2MB dtypes={'dtypes': {'torch.float32': 100, 'torch.uint8': 48}}
+{
+  "mode": "qlora_real_compare",
+  "model": "/home/simin/local_models/gpt2",
+  "device": "cuda",
+  "params": 124439808,
+  "mem_bf16_mb": 243.5,
+  "mem_4bit_mb": 205.2333984375,
+  "nf4_real": {
+    "weight": "transformer.h.0.attn.c_attn.weight",
+    "n": 4096,
+    "absmax": 1.07031,
+    "mse_nf4": 0.0008289,
+    "mse_uniform_int4": 0.0017173,
+    "nf4_win": true
+  },
+  "bnb": {
+    "dtypes": {
+      "torch.float32": 100,
+      "torch.uint8": 48
+    }
+  },
+  "simulated": false,
+  "environment": {
+    "host": "user1-virtual-machine",
+    "python": "3.10.12"
+  }
+}
+saved to /tmp/vm60_qlora_real_compare.json
+PASS qlora_real_compare

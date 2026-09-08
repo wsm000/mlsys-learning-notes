@@ -1,0 +1,184 @@
+{
+  "mode": "qlora_train",
+  "model": "/home/simin/local_models/gpt2",
+  "base": "bnb-nf4-4bit",
+  "device": "cuda",
+  "tiers": [
+    {
+      "steps": 20,
+      "best": 16,
+      "rows": [
+        {
+          "rank": 16,
+          "alpha": 32,
+          "dropout": 0.05,
+          "targets": [
+            "c_attn",
+            "c_proj"
+          ],
+          "trainable_params": 1622016,
+          "train_loss_first": 5.2187,
+          "train_loss_last": 4.3884,
+          "val_loss": 3.5051,
+          "step_time_ms": 69.42,
+          "peak_mem_mb": 416.7,
+          "simulated": false,
+          "sanity_gen": "问:什么是LoRA?\n答:下了。\n放下了。\n放下"
+        },
+        {
+          "rank": 8,
+          "alpha": 16,
+          "dropout": 0.05,
+          "targets": [
+            "c_attn",
+            "c_proj"
+          ],
+          "trainable_params": 811008,
+          "train_loss_first": 5.1412,
+          "train_loss_last": 3.8696,
+          "val_loss": 3.8166,
+          "step_time_ms": 69.46,
+          "peak_mem_mb": 412.0,
+          "simulated": false,
+          "sanity_gen": "问:什么是LoRA?\n答:什么是LoRA?\n比让比�"
+        },
+        {
+          "rank": 4,
+          "alpha": 8,
+          "dropout": 0.05,
+          "targets": [
+            "c_attn",
+            "c_proj"
+          ],
+          "trainable_params": 405504,
+          "train_loss_first": 5.4187,
+          "train_loss_last": 4.5414,
+          "val_loss": 4.0615,
+          "step_time_ms": 89.12,
+          "peak_mem_mb": 409.9,
+          "simulated": false,
+          "sanity_gen": "问:什么是LoRA?\n答:什么是LoRA?\n比让:什么"
+        }
+      ]
+    },
+    {
+      "steps": 100,
+      "best": 4,
+      "rows": [
+        {
+          "rank": 4,
+          "alpha": 8,
+          "dropout": 0.05,
+          "targets": [
+            "c_attn",
+            "c_proj"
+          ],
+          "trainable_params": 405504,
+          "train_loss_first": 5.2594,
+          "train_loss_last": 2.8836,
+          "val_loss": 3.3246,
+          "step_time_ms": 68.83,
+          "peak_mem_mb": 409.7,
+          "simulated": false,
+          "sanity_gen": "问:什么是LoRA?\n答:看看看看看看看看看看"
+        },
+        {
+          "rank": 8,
+          "alpha": 16,
+          "dropout": 0.05,
+          "targets": [
+            "c_attn",
+            "c_proj"
+          ],
+          "trainable_params": 811008,
+          "train_loss_first": 5.5449,
+          "train_loss_last": 2.6479,
+          "val_loss": 3.8707,
+          "step_time_ms": 68.97,
+          "peak_mem_mb": 412.0,
+          "simulated": false,
+          "sanity_gen": "问:什么是LoRA?\n答:看看看看看看看看看看"
+        },
+        {
+          "rank": 16,
+          "alpha": 32,
+          "dropout": 0.05,
+          "targets": [
+            "c_attn",
+            "c_proj"
+          ],
+          "trainable_params": 1622016,
+          "train_loss_first": 5.5261,
+          "train_loss_last": 2.1146,
+          "val_loss": 4.2303,
+          "step_time_ms": 68.81,
+          "peak_mem_mb": 416.7,
+          "simulated": false,
+          "sanity_gen": "问:什么是LoRA?\n答:LoRA再看看看看看看看看"
+        }
+      ]
+    },
+    {
+      "steps": 2000,
+      "best": 4,
+      "rows": [
+        {
+          "rank": 4,
+          "alpha": 8,
+          "dropout": 0.05,
+          "targets": [
+            "c_attn",
+            "c_proj"
+          ],
+          "trainable_params": 405504,
+          "train_loss_first": 5.4814,
+          "train_loss_last": 0.0254,
+          "val_loss": 6.2099,
+          "step_time_ms": 68.71,
+          "peak_mem_mb": 409.7,
+          "simulated": false,
+          "sanity_gen": "问:什么是LoRA?\n答:LoRA冻结基座,只训�"
+        },
+        {
+          "rank": 8,
+          "alpha": 16,
+          "dropout": 0.05,
+          "targets": [
+            "c_attn",
+            "c_proj"
+          ],
+          "trainable_params": 811008,
+          "train_loss_first": 5.2288,
+          "train_loss_last": 0.0085,
+          "val_loss": 6.6428,
+          "step_time_ms": 69.27,
+          "peak_mem_mb": 412.0,
+          "simulated": false,
+          "sanity_gen": "问:什么是LoRA?\n答:LoRA冻结基座,只训�"
+        },
+        {
+          "rank": 16,
+          "alpha": 32,
+          "dropout": 0.05,
+          "targets": [
+            "c_attn",
+            "c_proj"
+          ],
+          "trainable_params": 1622016,
+          "train_loss_first": 5.6371,
+          "train_loss_last": 0.0071,
+          "val_loss": 6.6713,
+          "step_time_ms": 69.33,
+          "peak_mem_mb": 416.7,
+          "simulated": false,
+          "sanity_gen": "问:什么是LoRA?\n答:LoRA冻结基座,只训�"
+        }
+      ]
+    }
+  ],
+  "simulated": false,
+  "environment": {
+    "host": "user1-virtual-machine",
+    "python": "3.10.12"
+  }
+}

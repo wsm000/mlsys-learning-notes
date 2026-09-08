@@ -1,0 +1,1319 @@
+===== PAGE 1 =====
+Rel-Zero: Harnessing Patch-Pair Invariance for Robust Zero-Watermarking
+Against AI Editing
+Pengzhen Chen1,2,3 Yanwei Liu1,3† Xiaoyan Gu1,2,3† Xiaojun Chen1,2,3 Wu Liu4 Weiping Wang1
+1Institute of Information Engineering, Chinese Academy of Sciences
+2School of Cyber Security, University of Chinese Academy of Sciences
+3State Key Laboratory of Cyberspace Security Defense 4University of Science and Technology of China
+{chenpengzhen, liuyanwei, guxiaoyan, chenxiaojun, wangweiping}@iie.ac.cn, liuwu@ustc.edu.cn
+Abstract
+Recent advancements in diffusion-based image editing
+pose a significant threat to the authenticity of digital visual
+content. Traditional embedding-based watermarking meth-
+ods often introduce perceptible perturbations to maintain
+robustness, inevitably compromising visual fidelity. Mean-
+while, existing zero-watermarking approaches, typically re-
+lying on global image features, struggle to withstand so-
+phisticated manipulations. In this work, we uncover a
+key observation: while individual image patches undergo
+substantial alterations during AI-based editing, the rela-
+tional distance between patch pairs remains relatively in-
+variant. Leveraging this property, we propose Relational
+Zero-Watermarking (Rel-Zero), a novel framework that re-
+quires no modification to the original image but derives a
+unique zero-watermark from these editing-invariant patch
+relations. By grounding the watermark in intrinsic struc-
+tural consistency rather than absolute appearance, Rel-
+Zero provides a non-invasive yet resilient mechanism for
+content authentication. Extensive experiments demonstrate
+that Rel-Zero achieves substantially improved robustness
+across diverse editing models and manipulations compared
+to prior zero-watermarking approaches. Code is available
+athttps://github.com/JerCCC7/Rel-Zero.
+1. Introduction
+The rapid development of sophisticated generative models,
+particularly diffusion models [6, 29, 30, 37], has revolu-
+tionized digital content creation. Editing frameworks such
+as InstructPix2Pix [4] and inpainting systems [17, 41] em-
+power users to edit images with unprecedented ease and
+realism. However, they also raise exigent challenges in
+content authenticity, copyright protection, and provenance
+tracking. Digital watermarking serves as a critical technol-
+ogy to address these concerns, yet existing paradigms, em-
+bedding watermarking and zero-watermarking, struggle to
+balance robustness, fidelity, and applicability in the face of
+†Corresponding author.
+Global Editing
+InstructPix2Pix[4]
+CtrlNet-Inpainting[41]
+ UltraEdit[44]
+Regeneration
+Original patch-pair 
+distance
+Edited patch-pair 
+distance
+Residual patch-pair 
+distance difference
+MagicBrush[40]
+Local Editing
+1.2
+0.0
+0.6
+1.2
+0.0
+0.6
+0.2
+-0.2
+0.0
+Deterministic[23]
+Figure 1.Analysis of Relational Stability.We reveal a key in-
+sight: Patch-pair distance tends to be preserved after AI editing.
+This invariant property can be extracted as a zero-watermark. Here
+we present the patch-pair distance of RGB vectors in original im-
+ages (first row) and edited images (second row) across five main
+editing models. The last row illustrates the distance difference be-
+tween pre-edit and post-edit with a color scale spanning [-0.2,0.2].
+generative edits.
+Traditional embedding watermarking paradigms [15, 25,
+43, 45] inject watermark signals into the image pixels or
+frequency domain. To survive aggressive manipulations,
+especially non-linear generative edits that fundamentally
+reconstruct pixel data, the embedded signal must be suf-
+ficiently strong [5, 14, 24]. This requirement inevitably
+sacrifices image quality, leading to perceptible artifacts
+and degradation of the original content. Across domains
+such as medical imaging [3, 16, 28, 31], autonomous driv-
+ing [27, 35], and world modeling [2, 9], copyright protec-
+tion is paramount, yet compromised image fidelity can be
+catastrophic. The introduction of watermark-induced noise
+can severely impair the reliability of downstream tasks,
+which leads to inaccurate diagnosis, deviations in patho-
+logical analysis, unstable perception, and distorted environ-
+ment prediction, ultimately limiting the trustworthiness of
+high-level visual understanding systems. Therefore, this
+trade-off is intolerable for these creative workflows. Given
+the high copyright value of images in these fields, protection
+arXiv:2603.17531v2  [cs.CV]  15 Jun 2026
+===== PAGE 2 =====
+that ensures robustness against edits without compromising
+image quality is essential.
+On the other hand, zero-watermarking methods [7, 22,
+32, 38] offer a compelling alternative by preserving pris-
+tine image quality. These methods extract a unique fin-
+gerprint or key from the original image and store it exter-
+nally without altering the image structure. Verification in-
+volves checking if a suspect image still possesses this key.
+While elegant, the robustness of current zero-watermarks
+is critically low against generative edits. Existing meth-
+ods [10, 19, 33] primarily rely on fragile high-frequency de-
+tails, global statistics, or absolute feature descriptors (e.g.,
+from SIFT or deep classifiers), which are precisely what
+generative models are designed to alter or completely re-
+structure, rendering the watermarks invalid. To address
+these challenges, we conduct an empirical analysis on im-
+ages before and after editing. Our findings reveal that, while
+absolute features and pixel values of an image are drasti-
+cally altered by generative edits, theintrinsic relational
+structurebetween partial image regions remains remark-
+ably stable. Specifically, as shown in Fig. 1, we discover
+that the relative distance between certain pairs of image
+patches, measured in RGB space, is largely invariant even
+after complex edits like style transfer or instruction-based
+manipulation, i.e., if patchiand patchjare “very differ-
+ent” (large RGB distance) in the original image, they tend
+to remain “very different” after the edit.
+Based on this discovery, we propose a novel zero-
+watermarking framework built uponStable Relational Ge-
+ometryto extract these invariant patch pairs. Instead of
+relying on fragile absolute features, our method identi-
+fies a unique and resilient set of patch pairs as the zero-
+watermark, whose relational distance is robustly preserved
+after substantial editing. Our contributions are as follows:
+• We identify and validate a key property for generative
+editing: the stability of patch-wise relational distance in
+feature space.
+• We propose a novel zero-watermarking framework to
+learn and predict this stable relational structure from a
+single image, formulating the watermark as a set of ro-
+bust patch pairs.
+• Experiments demonstrate that our zero-watermarking ap-
+proach achieves promising robustness against a wide
+range of generative edits, while inherently maintaining
+perfect image fidelity.
+2. Related Work
+2.1. Conventional Embedding Watermarking
+Traditional watermarking techniques [1] embed a signal
+directly into the pixel domain or frequency domain (e.g.,
+DCT, DWT). While effective for simple copyright mark-
+ing, these methods are fragile and can be easily broken by
+geometric transformations, compression, and especially the
+non-linear reconstruction performed by generative models.
+More recently, deep learning-based embedding meth-
+ods [5, 15, 20, 26, 45] have shown improved performance.
+They train neural networks to encode messages into images
+through deep features, and have demonstrated strong ro-
+bustness against a wide range of distortions(e.g., compres-
+sion, scaling and noise). In the era of AIGC, to survive
+diffusion-based AI-editing, several state-of-the-art meth-
+ods, such as VINE [24] and RobustWide [14], are proposed
+specifically to withstand these edits. Their strategies in-
+volve injecting a powerful, resilient signal into perceptually
+significant, low-frequency components of the image. How-
+ever, this introduces an unavoidable trade-off. To achieve
+robustness against generative models that fundamentally al-
+ter pixel data, the embedded signal must be strong, which
+inevitably degrades image fidelity. As a result, such meth-
+ods are inappropriate for scenarios where preserving pris-
+tine visual quality is essential.
+2.2. Zero-Watermarking
+Zero-watermarking [33] is designed to fundamentally ad-
+dress the fidelity issue. Instead of embedding any signal into
+the image, it extracts a unique “fingerprint” from the origi-
+nal image and stores it externally (e.g., in a database) along-
+side the content’s metadata. Verification is then performed
+by extracting a fingerprint from a suspect image and com-
+paring it to the stored reference. Early methods [10] rely on
+fragile handcrafted features such as SIFT or SURF. Recent
+approaches [19, 22, 32, 38] leverage robust deep features
+from pre-trained networks to achieve improved robustness.
+Despite guaranteeing perfect fidelity by design, zero-
+watermarking exhibitscritically limited robustnessfac-
+ing modern generative edits. Unlike traditional perturba-
+tions, generative models do not simply inject noise. They
+reconstruct regions, rewrite textures, and modify semantic
+content. Such transformations fundamentally alter or de-
+stroy the absolute feature descriptors and spatial structures
+that current zero-watermarks rely on. Consequently, exist-
+ing zero-watermarking techniques fail catastrophically un-
+der these modern edits. This exposes a significant gap in the
+field: the absence of a watermarking paradigm that simulta-
+neously preserves the perfect fidelity of zero-watermarking
+and delivers the robustness required to withstand generative
+image manipulation. Our work is designed precisely for it.
+3. Pairwise Patch Distance Preservation Under
+Editing
+3.1. Experimental Discovery
+We present how the invariance relationship is discovered
+between patch pairs before and after AI editing. Our ex-
+periments demonstrate that, after AI editing, the distance
+===== PAGE 3 =====
+InstructPix2Pix[4]ControlNet-Inpainting[41] UltraEdit[44] MagicBrush[40]Deterministic Regeneration[23]
+Pair
+|𝑑𝑖𝑗
+𝑎𝑓𝑡𝑒𝑟 − 𝑑𝑖𝑗
+𝑏𝑒𝑓𝑜𝑟𝑒| 
+|𝑑𝑖𝑗
+𝑎𝑓𝑡𝑒𝑟 − 𝑑𝑖𝑗
+𝑏𝑒𝑓𝑜𝑟𝑒| 
+|𝑑𝑖𝑗
+𝑎𝑓𝑡𝑒𝑟 − 𝑑𝑖𝑗
+𝑏𝑒𝑓𝑜𝑟𝑒| 
+|𝑑𝑖𝑗
+𝑎𝑓𝑡𝑒𝑟 − 𝑑𝑖𝑗
+𝑏𝑒𝑓𝑜𝑟𝑒| 
+|𝑑𝑖𝑗
+𝑎𝑓𝑡𝑒𝑟 − 𝑑𝑖𝑗
+𝑏𝑒𝑓𝑜𝑟𝑒| 
+(a) The distribution of residual|d after
+ij −d before
+ij |. The majority is tightly distributed around zero.
+InstructPix2Pix[4]ControlNet-Inpainting[41] UltraEdit[44] MagicBrush[40]Deterministic Regeneration[23]
+Pre-edit distance dbefore
+Post-edit distance dafter Post-edit distance dafter Post-edit distance dafter Post-edit distance dafter Post-edit distance dafter 
+(b)Pairwise RGB distance preservation.Distance after editing (d after) vs. before editing (d before) for all RGB patch pairs. The data is fitted with a global
+linear modely=αx+β. We report the fittedˆα≈1, a high coefficient of determination (e.g.,R 2 >0.95), and a high Spearman rank correlation (ρ>0.98).
+Figure 2.Analysis of Relational Stability.
+between corresponding patch pairs remains stable and ex-
+hibits a relatively invariant pattern.
+Evaluation data:We randomly sample 10,000 instances
+from UltraEdit [44] and MagicBrush [40] datasets. Of these
+samples, 2,000 are allocated for deterministic regeneration,
+another 4,000 for global editing, and 4,000 for local editing.
+Pairwise Patch Modeling:We model the images as a
+set of non-overlappingN= 256patches, represented by
+their mean RGB vectors{vi}N
+i=1. The “internal color struc-
+ture” can be characterized by the
+ N
+2
+
+pairwise distance in
+this feature space. Letd before
+ij =∥v i−vj∥be the L2-distance
+between the mean RGB vectors of patchesiandjin the
+original image, andd after
+ij =∥v′
+i−v′
+j∥be the distance after
+editing. Consequently, the difference between the distance
+before and after editing is defined as|d before
+ij −d after
+ij |.
+Key Observation:The relative distance between par-
+ticular pairs of patches appears remarkably invariant, even
+if the edit operation (transformationT) substantially alters
+the RGB values of individual patches (mappingvi tov′
+i).
+Experimental Validation:We conduct experiments
+to analyze distance of RGB vectors before and after
+three mainstream AI editing methods, including local
+editing (ControlNet-Inpainting[41], UltraEdit[44]), global
+editing(InstructPix2Pix[4], MagicBrush[40]) and determin-
+istic regeneration [23]. Fig. 1 depicts the overall variation
+in patch-pair RGB vectors distance before and after editing
+and their differences. Furthermore, Fig. 2a illustrates the
+numerical distribution of these differences.
+We observe that the differences exhibit a near–zero-
+mean, tightly distributed pattern with no evident systematic
+bias. Besides, the majority of patch-pairs exhibit distance
+differences clustered closely around 0.0. These results pro-
+vide strong evidence that a substantial portion of patch-pair
+distance remains effectively invariant across the editing pro-
+cess, indicating that intra-image geometric consistency is
+largely preserved.
+To rigorously quantify this phenomenon, we move be-
+yond anecdotal observation and propose a formal geometric
+hypothesis.
+Hypothesis:If the editing transformationTis indeed
+“structure-preserving,” it should act as a predictable, geo-
+metrically simple operation on this set of pairwise distance.
+The strongest form is thatTinduces aglobal similarity
+transformationon the feature-space manifold. Therefore,
+we propose a simple and direct hypothesis:does a global
+linear relationship exist between the pre-edit and post-edit
+distance?
+To validate it, we conduct a large-scale distance-distance
+correlation analysis. For a given edited image, we compute
+all
+ N
+2
+
+pairwise distanced before
+ij andd after
+ij . We then visualize
+their relationship by plottingd after
+ij (y-axis) againstd before
+ij (x-
+axis) and perform a linear regression:
+dafter
+ij ≈α·d before
+ij +β,(1)
+whereαdenotes a global scaling factor (a “stretching” or
+“shrinking” of the feature space), andβrepresents a uni-
+form offset.
+Fig. 2b provides compelling support for our hypothesis.
+The fitted slopeα≈1, offsetβ≈0, together with the
+high coefficient of determination (R 2 >0.95) and near-
+perfect Spearman correlation (ρ≈1) indicate an excep-
+tionally tight linear correlation betweend after
+ij andd before
+ij .
+===== PAGE 4 =====
+It demonstrates that most of the variance in post-edit dis-
+tance can be directly explained by their pre-edit counter-
+parts. More broadly, this phenomenon reveals a near–affine
+invariancein the feature space: the relative distance among
+partial patches is preserved up to a uniform scale.
+3.2. Theoretical Justification
+We delve deeper into our observations to explore why this
+stability exists. This phenomenon can be attributed to two
+possible properties of generative editing models:
+1.Fidelity Constraints and Regularization:Generative
+editing models, especially diffusion models, are not
+trained in an unconstrained manner. They explicitly or
+implicitly incorporate “content/structure preservation”
+losses. These include perceptual losses (LPIPS) [42], re-
+construction losses (L1/L2 in latent or pixel space), and
+various consistency regularizers. Such optimization ob-
+jectives strongly penalize unnecessary perturbations and
+encourage the model to learn an identity mapping for
+non-target regions. As a result, the cross-patch relation-
+ships (governing shape, layout, and texture ratios) be-
+come a core invariant that these models are optimized to
+preserve.
+2.Low-Dimensionality of the Edit Subspace:Seman-
+tic edits (e.g., “change style”, “make it summer”) typi-
+cally correspond to low-dimensional directions or sub-
+manifolds within the model’s latent spacez[12]. When
+such a latent transformationT(e.g.,z ′ =T(z)) is de-
+coded, it often applies a functionally uniform change
+across the image statistics. For example, a style change
+may apply a similar color-space shift or texture basis
+change to all patches. When this transformation is ap-
+proximately affine in the feature space (v′
+i≈Av i +b),
+the difference between two patch features becomesv′
+i−
+v′
+j ≈A(v i−v j). The magnitude of this difference is
+scaled (||v′
+i−v′
+j||≈α||v i−vj||), but the fundamental
+relationship is preserved and naturally leads to the strong
+linear predictability in our empirical analysis.
+Together, these findings suggest that patch-pair relational
+stability is an intrinsic signature during semantic editing,
+a property we can exploit for robust zero-watermarking.
+Since this relational geometry is stable and scalable invari-
+ant, if we can reliably identify these stable pairs, we can
+construct a zero-watermark based on these pair indices.
+4. Methodology
+In this section, we introduce the proposedRelational Zero-
+Watermarking (Rel-Zero)framework, a robust zero-
+watermarking approach that leverages relational invariance
+among patch-pair distance to resist generative manipula-
+tions. As shown in Fig 3, the framework is composed
+of three key stages: (1)Stable patch-pair identificationto
+identify the ground-truth invariant pairs as zero-watermark
+targets; (2)Patch Relational Learningto build a network to
+predict these invariant pairs; and (3)Watermark Generation
+and Verification.
+4.1. Stable Patch Pair Identification
+We first require a set of “ground-truth” stable patch pairs
+as the training target. Inspired by [43], we observe that
+the structural impact of diffusion-based generative edits on
+patch-pair relationships is analogous to that of its Varia-
+tional Autoencoder (V AE) component, while the latter is
+substantially more computationally friendly. Therefore, we
+employ a pre-trained V AE [18] to simulate the essential
+content-preserving and smoothing properties of generative
+pipelines.
+The goal is to identify patch pairs(i,j)whose feature-
+space relationships remain stable before and after V AE re-
+construction. Given an input imageI, we first pass it
+through the V AE to obtain a reconstructed version ˆI=
+Vae(I).
+Both the original imageIand the reconstructed ˆIare par-
+titioned intoNnon-overlapping patches. Each patch set is
+then fed into a pre-trained Vision Transformer [8] (ViT)ϕvit
+to extract high-dimensional patch-level representations:
+F=ϕ vit(I), ˆF=ϕ vit(ˆI),(2)
+whereF= [f 1,...,f N]and ˆF= [ ˆf1,..., ˆfN]denote the
+patch-level embeddings. (Further ViT feature analysis in
+Appendix Sec. E)
+For each patch pair(i,j), we define their feature differ-
+ence (L2 distance) before and after reconstruction as:
+dij =∥f i−fj∥2, ˆdij =∥ ˆfi− ˆfj∥2.(3)
+The stability of a relation is then measured by a similarity
+score:
+sij = exp
+
+−|dij− ˆdij|
+
+.(4)
+The top-Kpairs(i,j)with the highest similarity scores
+sij are chosen as the ground-truth stable set. These pairs
+constitute theinvariant relationsE g, which serve as the
+ground-truth target for our zero-watermark.
+4.2. Patch Relational Learning
+To learn the relational structure from the image features,
+we construct a fully connected set of patch pairsEfrom
+the ViT-extracted patch features. Each pair(i,j)∈ E
+corresponds to the relation between patchiandj, where
+i,j∈{1,...,N}.
+We employ a simple edge predictorΦ(·)to estimate a
+prediction scorepij for each pair:
+pij = Φ(fi,fj) =σ
+ 
+ψ(fi⊕fj⊕∥f i−fj∥2)
+
+,(5)
+whereσ(·)denotes the sigmoid activation,ψ(·)represents
+a MLP network, and⊕indicates concatenation.
+===== PAGE 5 =====
+1 ... N
+1...N
+ Top-K
+ViT
+ViT
+1 ... N
+1...N
+N× N
+N
+Full Pairing
+{ ||fi-fj||
+MLP
+N
+...
+N× N× 2
+N× N
+...
+{
+{
+N× N
+Predictor 
+N× N
+Top-K
+Sigmoid
+(a)Stable Patch Pair Identification 
+(b)Patch Relational Learning 
+Feature 
+difference
+dij
+...
+𝓛𝑩𝑪𝑬 
+VAE
+Frozen
+Trainable
+Patches
+Feature 
+difference 
+𝑑 𝑖𝑗  
+ℱ 
+ℱ  Similarity score {sij}
+ℱ 
+ℱ 
+fi
+fj
+Φ 
+ℰ 
+Fully-connected pairs Prediction score {pij}
+Ground-Truth pairs 
+ℰ𝑔 
+Predicted pairs 
+ℰ𝑝 
+Figure 3.Framework of the proposed Rel-Zero.(a) Stable Patch Pair Identification.To train a predictor capable of identifying patch
+pairs with invariant distance relationships, we first construct training targets. A pretrained V AE is employed to simulate generative edits.
+Features of the original and V AE-modified images are extracted using a ViT to obtain patch-wise featuresFand ˆF. Pairwise distance is
+computed on both feature maps, and their differences are measured to identify the most stable top-Kpairs surviving edits, which serve as
+the ground-truth pairsE g. (b)Patch Relational Learning.Given an input image, ViT features are extracted and all patch pairs are densely
+formed to construct fully-connected pairsE. A learnable pair predictorΦthen estimates the stability scores of each pair, which are trained
+to align with the ground-truth pairsE g from (a). During inference (i.e., watermark generation and verification), only the module in (b) is
+required to generate relational zero-watermarksE p.
+4.3. Training Objective
+The training target aims to align the learned relational
+scores{p ij}with the previously selected invariant pairs.
+We assign binary labelsy ij = 1for the top-Kinvariant
+edges andy ij = 0otherwise. The model is trained using
+the binary cross-entropy (BCE) loss:
+LBCE =−
+P
+i̸=j [yij log(ˆyij) + (1−y ij) log(1−ˆyij)]
+N(N−1) .
+(6)
+4.4. Watermark Generation and Verification
+Generation.Given an imageI, the relational zero-
+watermark is defined as the top-Kmost confident pairs pre-
+dicted byΦ:
+Ep =Top-K
+ 
+Φ(ϕvit(I))
+
+,(7)
+whereE p ={(i 1,j 1),...,(i K,jK)}. This index set can
+be securely stored externally (e.g., hashed or encrypted in a
+database (detailed in Appendix Sec. B)) without revealing
+the original content.
+Verification.To verify a suspect imageI ′, we extract its
+corresponding pairs:
+E′
+p =Top-K
+ 
+Φ(ϕvit(I′))
+
+,(8)
+and evaluate the similarity scoreηbetweenE p andE′
+p:
+η= |Ep∩E′
+p|
+K ,(9)
+where|·|denotes set cardinality (i.e., Jaccard-style overlap
+ratio of edge indices). The image is deemed authenticated
+at an operating point calibrated for a target false-alarm rate
+(detailed in Appendix Sec. F).
+5. Experiments
+5.1. Experimental Setup
+Datasets.We conduct our training and evaluation using di-
+verse large-scale image datasets. The network is trained on
+the COCO[21] dataset. For evaluation, we sample 10,000
+instances from the widely-used UltraEdit [44] and Mag-
+icBrush [40] datasets as the validation set. Each instance
+contains a source image, an editing prompt, and a region
+mask. All images are resized to 224 × 224 resolution. To
+ensure a fair and comprehensive evaluation across a diverse
+range of image content, of these images, 1,000 are allocated
+for the regeneration task, 1,000 for global editing, 4,000 for
+local editing, and 4,000 for common degradations.
+Baselines.For a thorough evaluation, we compare
+Rel-Zero to both embedding and zero-watermarking meth-
+ods. Embedding watermarking includes DWT-DCT[1]
+===== PAGE 6 =====
+replace the vegetables 
+with exotic fruits
+change their hair 
+color to blonde
+Change the color of the 
+fabric to a deep blue velvet
+change the color scheme 
+to black and white
+InstructPix2Pix[4]ControlNet-Inpainting[41] UltraEdit[44] MagicBrush[40]Regeneration[23]
+PromptOriginal ImagePre-edit
+Detected Watermark
+Post-edit 
+Detected  Watermark
+/
+Figure 4. Visualization of pre-edit and post-edit extracted watermarks.
+and the recent state-of-the-art VINE [24] and Robust-
+Wide [14], which are designed against AI editing. For zero-
+watermarking, since only a few methods are open-sourced,
+we include ConZWNet [32] and FGPCET [38], consider-
+ing their timeliness and representativeness. All baselines
+are from their officially released checkpoints.
+Attack Suite.We subject images to both Generative Edit-
+ing and common distortions. The implementation details
+are in Appendix Sec. G.
+• Generative Edit Models. To comprehensively evaluate ro-
+bustness, we evaluate against a suite of modern genera-
+tive editing models. We include InstructPix2Pix [4] and
+MagicBrush [40] for global editing, UltraEdit [44] and
+ControlNet-Inpainting [41] for local editing. We also test
+against deterministic regeneration[23].
+• Common Distortions. Standard image processing op-
+erations including Random Cropout (50% of the area),
+Scaling (to 0.5×and back), Contrast adjustments∈
+[0.5,2.0], Brightness adjustments∈[0.5,2.0], and Gaus-
+sian noise(std = 0.10).
+Evaluation Metrics.We evaluate all methods on two
+primary axes:
+•Fidelity:Although zero-watermarking does not affect
+image fidelity, we introduce PSNR[36], SSIM, and
+LPIPS[42] to evaluate image quality for a fair assessment
+between embedding and zero-watermarking methods.
+•Robustness:To assess watermark survivability, we report
+the True Positive Rate (TPR) at a highly stringent False
+Positive Rate (FPR) of 0.1%. This conservative threshold
+ensures high confidence in the uniqueness of watermark
+authentication. (detailed in Appendix Sec. F.).
+Implementation Details.Unless specified otherwise,
+we use a patch size of16×16, resulting inN= 196
+patches for a224×224image. We use ViT-B/16 [8] as our
+feature extractorϕ vit and utilize the V AE from Stable Diffu-
+sion v1.4[29]. We set the watermark size toK= 50pairs.
+Experiments are conducted on an NVIDIA A100 GPU.
+5.2. Evaluation Comparison
+Fidelity.As shown in Table 1, the major advantage of zero-
+watermarking over embedding-based watermarking lies in
+its non-impact on visual quality. Although embedding wa-
+termarking methods can achieve reasonably high PSNR and
+SSIM values, they inevitably introduce slight distortions.
+===== PAGE 7 =====
+Table 1. Comparison of visual fidelity (PSNR, SSIM, LPIPS) and robustness (TPR@(0.1%FPR)) between Rel-Zero and baseline methods.
+Zero-watermarking methods do not modify image pixels, thus their PSNR metrics are marked as “–”. Abbreviations: Det (Deterministic
+Regeneration), Pix2Pix (InstructPix2Pix), Ultra (UltraEdit), CtrlN (ControlNet-Inpainting).
+Method PSNR(dB)↑SSIM↑LPIPS↓
+TPR@(0.1%FPR)(%)↑
+Regeneration Global Editing Local Editing Common Distortions
+Det Pix2Pix Magic Ultra CtrlN Cropout Scaling Contrast Brightness Gaussian
+Embedding Watermarking
+DWT-DCT [1] 40.38 0.9705 0.0136 0.09 0.04 0.05 0.32 0.56 10.35 6.78 30.18 51.88 12.45
+Robust-Wide [14] 41.93 0.9908 0.0034 90.41 97.23 81.97 80.45 82.11 95.31 96.45 98.93 98.89 98.12
+VINE [24] 37.34 0.9934 0.0063 99.98 97.46 94.58 99.96 93.04 54.87 76.43 98.43 97.90 98.37
+Zero-Watermarking
+ConZWNet [32] – 1.000 0.000 0.10 0.02 0.01 5.13 2.41 98.75 97.43 96.22 96.56 98.75
+FGPCET [38] – 1.000 0.000 1.13 0.54 0.11 7.25 3.22 89.31 84.78 86.31 85.44 84.67
+Rel-Zero – 1.000 0.000 85.13 89.65 95.63 96.55 97.43 98.45 98.57 96.45 97.93 95.12
+In high-precision domains such as medical imaging, even
+minor distortions may lead to serious misinterpretations.
+Therefore, zero-watermarking provides a valuable solution
+for reliable copyright tracking of high-quality images. (De-
+tailed comparisons in appendix Sec. H.)
+Robustness to Generative Edits.Fig. 4 illustrates the
+watermark extraction results before and after AI editing.
+Although these editing methods introduce significant struc-
+tural and visual changes to the images, the difference re-
+lationships between certain patch pairs remain preserved,
+allowing successful watermark extraction. We observe that
+methods such as InstructPix2Pix and deterministic regener-
+ation showcase larger deviations, this is consistent with our
+analysis in Fig. 1, where these two methods perform large-
+scale global edits on images, which are more destructive
+compared to local editing operations.
+Meanwhile, Table 1 reports the robustness of
+embedding-based and zero-watermarking methods un-
+der various AI editing operations. Among embedding
+approaches, Vine and Robust-Wide exhibit relatively strong
+performance, largely due to their adversarial training
+strategies that explicitly incorporate editing models during
+optimization. However, such strategies incur substan-
+tial computational costs, limiting their practicality in
+resource-efficient or general-purpose settings. In contrast,
+zero-watermarking baselines rely on invariant feature
+extraction. Yet these features are heavily distorted or
+fully overwritten by AI-editing, leading to the failure in
+watermark detection across diverse manipulation types.
+Robustness to common distortionsWe further evaluate
+robustness against common image distortions. As shown
+in Table 1, both zero-watermarking and embedding-based
+watermarking methods maintain strong performance under
+conventional perturbations. However, such robustness is
+typically achieved through extensive adversarial optimiza-
+tion, leading to increased training complexity. In contrast,
+Rel-Zero naturally maintains high resilience to distortions
+such as Gaussian noise, scaling, contrast, and brightness
+/uni00000013/uni00000011/uni00000013/uni00000013/uni00000013/uni00000011/uni00000013/uni00000015/uni00000013/uni00000011/uni00000013/uni00000017/uni00000013/uni00000011/uni00000013/uni00000019/uni00000013/uni00000011/uni00000013/uni0000001b/uni00000013/uni00000011/uni00000014/uni00000013
+/uni00000036/uni0000004c/uni00000050/uni0000004c/uni0000004f/uni00000044/uni00000055/uni0000004c/uni00000057/uni0000005c/uni00000003/uni00000036/uni00000046/uni00000052/uni00000055/uni00000048
+/uni00000013
+/uni00000014/uni00000013/uni00000013/uni00000013/uni00000013
+/uni00000015/uni00000013/uni00000013/uni00000013/uni00000013
+/uni00000016/uni00000013/uni00000013/uni00000013/uni00000013
+/uni00000017/uni00000013/uni00000013/uni00000013/uni00000013
+/uni00000018/uni00000013/uni00000013/uni00000013/uni00000013/uni00000029/uni00000055/uni00000048/uni00000054/uni00000058/uni00000048/uni00000051/uni00000046/uni0000005c
+/uni00000036/uni0000004c/uni00000050/uni0000004c/uni0000004f/uni00000044/uni00000055/uni0000004c/uni00000057/uni0000005c/uni00000003/uni00000027/uni0000004c/uni00000056/uni00000057/uni00000055/uni0000004c/uni00000045/uni00000058/uni00000057/uni0000004c/uni00000052/uni00000051
+/uni00000026/uni00000032/uni00000026/uni00000032
+/uni00000030/uni00000044/uni0000004a/uni0000004c/uni00000046/uni00000025/uni00000055/uni00000058/uni00000056/uni0000004b
+/uni00000038/uni0000004f/uni00000057/uni00000055/uni00000044/uni00000028/uni00000047/uni0000004c/uni00000057
+Figure 5. Watermark similarity distribution of different images.
+adjustments. These operations introduce largely uniform
+transformations across the entire image, which may scale
+patch-pair distance but do not fundamentally alter their rel-
+ative relationships. As discussed in Sec. 4, this preserves the
+patch-pair relational geometry, allowing Rel-Zero to main-
+tain high pair-prediction accuracy and enabling stable zero-
+watermark extraction even under significant degradations.
+(Additional experiments in Appendix Sec. D.)
+5.3. Uniqueness & Collision Analysis
+Beyond robustness and fidelity, another essential property
+of zero-watermarking isuniquenessacross distinct images.
+Given two different imagesI a ̸=I b with their predicted
+top-Kedge setsE p(Ia)andE p(Ib)(Eq. 9), we define their
+inter-image similarity as
+ηa,b =|Ep(Ia)∩E p(Ib)|
+K .(10)
+Ideallyη a,b ≈0forI a ̸=I b. We quantify it on three
+datasets—COCO, UltraEdit, and MagicBrush to cover di-
+verse visual domains. For each dataset, we randomly sam-
+ple 1,000 non-overlapping images, extractE p with a fixed
+K= 50, and compute the pairwise similarityη a,b among all
+image pairs. As illustrated in Fig. 5, inter-image similarity
+remains consistently low across all datasets: mostη a,b val-
+ues concentrate near zero with minimal variance, and even
+===== PAGE 8 =====
+/uni00000014/uni00000013/uni00000015/uni00000013/uni00000016/uni00000013/uni00000017/uni00000013/uni00000018/uni00000013/uni00000019/uni00000013/uni0000001a/uni00000013/uni0000001b/uni00000013
+/uni00000037/uni00000052/uni00000053/uni00000010/uni0000004e
+/uni00000013/uni00000011/uni0000001b/uni00000013
+/uni00000013/uni00000011/uni0000001b/uni00000018
+/uni00000013/uni00000011/uni0000001c/uni00000013
+/uni00000013/uni00000011/uni0000001c/uni00000018
+/uni00000014/uni00000011/uni00000013/uni00000013/uni00000037/uni00000033/uni00000035/uni00000023/uni00000013/uni00000011/uni00000014/uni00000008/uni00000029/uni00000033/uni00000035
+/uni0000002c/uni00000051/uni00000056/uni00000057/uni00000055/uni00000058/uni00000046/uni00000057/uni00000033/uni0000004c/uni0000005b/uni00000015/uni00000033/uni0000004c/uni0000005b
+/uni00000030/uni00000044/uni0000004a/uni0000004c/uni00000046/uni00000025/uni00000055/uni00000058/uni00000056/uni0000004b
+/uni00000035/uni00000048/uni0000004a/uni00000048/uni00000051/uni00000048/uni00000055/uni00000044/uni00000057/uni0000004c/uni00000052/uni00000051
+/uni00000026/uni00000052/uni00000051/uni00000057/uni00000055/uni00000052/uni0000004f/uni00000031/uni00000048/uni00000057/uni00000010/uni0000002c/uni00000051/uni00000053/uni00000044/uni0000004c/uni00000051/uni00000057/uni0000004c/uni00000051/uni0000004a
+/uni00000038/uni0000004f/uni00000057/uni00000055/uni00000044/uni00000028/uni00000047/uni0000004c/uni00000057
+(a) Impact ofK(Top-Kpairs)
+/uni00000014/uni00000017/uni0000005b/uni00000014/uni00000017/uni00000014/uni00000019/uni0000005b/uni00000014/uni00000019/uni00000016/uni00000015/uni0000005b/uni00000016/uni00000015
+/uni00000033/uni00000044/uni00000057/uni00000046/uni0000004b/uni00000003/uni00000036/uni0000004c/uni0000005d/uni00000048
+/uni0000001a/uni00000018
+/uni0000001b/uni00000013
+/uni0000001b/uni00000018
+/uni0000001c/uni00000013
+/uni0000001c/uni00000018
+/uni00000014/uni00000013/uni00000013/uni00000037/uni00000033/uni00000035/uni00000023/uni0000000b/uni00000013/uni00000011/uni00000014/uni00000008/uni00000029/uni00000033/uni00000035/uni0000000c/uni00000003/uni0000000b/uni00000008/uni0000000c
+/uni0000002c/uni00000051/uni00000056/uni00000057/uni00000055/uni00000058/uni00000046/uni00000057/uni00000033/uni0000004c/uni0000005b/uni00000015/uni00000033/uni0000004c/uni0000005b
+/uni00000030/uni00000044/uni0000004a/uni0000004c/uni00000046/uni00000025/uni00000055/uni00000058/uni00000056/uni0000004b
+/uni00000035/uni00000048/uni0000004a/uni00000048/uni00000051/uni00000048/uni00000055/uni00000044/uni00000057/uni0000004c/uni00000052/uni00000051
+/uni00000026/uni00000052/uni00000051/uni00000057/uni00000055/uni00000052/uni0000004f/uni00000031/uni00000048/uni00000057/uni00000010/uni0000002c/uni00000051/uni00000053/uni00000044/uni0000004c/uni00000051/uni00000057/uni0000004c/uni00000051/uni0000004a
+/uni00000038/uni0000004f/uni00000057/uni00000055/uni00000044/uni00000028/uni00000047/uni0000004c/uni00000057
+(b) Impact ofN(Patch count)
+Figure 6. Analysis on the number of top-Kpairs and the patch
+countN. Robustness is evaluated over all edit types.
+the rare pairs showing slight correlation exhibit very small
+magnitudes, effectively ruling out any duplication. These
+results demonstrate that the learned relational pairs function
+asimage-specific signaturesrather than generic, content-
+agnostic templates.
+Overall,Rel-Zeroachieves strong cross-image unique-
+ness: the overlaps between zero-watermarks from different
+images are negligible, implying an extremely low probabil-
+ity of ownership collision.
+5.4. Parameter Analysis and Ablation Study
+We conduct a series of experiments to validate our design
+choices.
+Impact of Top-K.As shown in Fig. 6a, robustness
+steadily improves as the number of selected top-Kpairs
+grows, but the performance gain saturates beyondK= 50.
+This indicates that the relational redundancy in the water-
+mark is sufficient for stable detection, and incorporating
+additional pairs yields diminishing returns. Robustness is
+highest when it comes to ControlNet-Inpainting and Ul-
+traEdit, while Regeneration remains the most challenging
+due to large-scale semantic changes.
+Impact of Patch Size.As shown in Fig. 6b, the 14×14
+and 16×16 patch sizes yield comparable robustness, as their
+similar granularity preserves sufficient relational detail. In
+contrast, performance drops sharply when the patch size in-
+creases to 32×32, indicating that overly coarse partitioning
+Table 2. Component ablation study. TPR@(0.1%FPR) over
+ControlNet-Inpainting.
+Model Configuration TPR@(0.1%FPR)
+-Ours (ViT + MLP) 97.43
+- ViT→ResNet-18 84.13
+- ViT→ResNet-50 85.21
+- MLP→Transformer+MLP 92.11
+- MLP→GAT+MLP 94.45
+weakens the capacity to model relational structure. The re-
+duced number of patch pairs limits relational redundancy,
+making the pairing too sparse for the predictor to capture
+fine-grained semantic invariants.
+Component Ablation.To validate our architectural de-
+sign, we conduct an ablation study on the framework.
+Specifically, we evaluate the robustness of different archi-
+tectures under ControlNet-Inpainting. As shown in Ta-
+ble 2, replacing the ViT backbone with either ResNet-18
+or ResNet-50 [11] leads to a notable drop in robustness. Al-
+though ResNet variants possess strong feature extraction ca-
+pability, the ViT backbone provides richer low-level priors
+and captures finer-grained contextual relations, which are
+more suitable for detecting the relative distance changes be-
+tween pre- and post-edit patches. Consequently, ViT yields
+more stable and resilient relational pairs.
+On the other hand, we further experiment with adding
+Transformer or Graph Attention Networks(GAT) [34] lay-
+ers to the pair predictor. These attention-based designs turn
+out to provide no extra gains. We hypothesize that the pair
+prediction task primarily requires accurate estimation of
+patch-pair distance variations, whereas the attention mecha-
+nisms in Transformer or GAT tend to blend patch-wise rep-
+resentations, thereby blurring subtle relational differences
+and hindering precise distance discrimination.
+6. Conclusion
+In this work, we uncover a key insight: the relational
+distance between partial image patches remains remark-
+ably invariant under generative editing. We then intro-
+duce Rel-Zero, a relational zero-watermarking framework
+that leverages this invariant structure to maintain robustness
+against diverse generative edits without compromising the
+image quality. Extensive experiments over multiple editing
+models and distortion scenarios demonstrate that Rel-Zero
+consistently achieves promising performance in robustness
+and visual fidelity. We believe this relational invariance
+provides a promising foundation for reliable provenance
+tracking in high-fidelity domains and further robust zero-
+watermarking paradigms in the era of large-scale generative
+editing models.
+===== PAGE 9 =====
+Acknowledgements
+This work is supported by the National Key Research
+and Development Program of China under Grant
+2024YFE0203200, the Strategic Priority Research
+Program of the Chinese Academy of Sciences(NO.
+XDB0690302), the National Nature Science Foundation of
+China under Grant U24A20329, 62527810 and 62371450.
+References
+[1] Ali Al-Haj. Combined dwt-dct digital image watermarking.
+Journal of computer science, 3(9):740–746, 2007. 2, 5, 7, 1
+[2] Eloi Alonso, Adam Jelley, Vincent Micheli, Anssi Kan-
+ervisto, Amos J Storkey, Tim Pearce, and Franc ¸ois Fleuret.
+Diffusion for world modeling: Visual details matter in atari.
+Advances in Neural Information Processing Systems, 37:
+58757–58791, 2024. 1
+[3] Ashima Anand, Jatin Bedi, Ashutosh Aggarwal, Muham-
+mad Attique Khan, and Imad Rida. Authenticating and se-
+curing healthcare records: A deep learning-based zero wa-
+termarking approach.Image and Vision Computing, 145:
+104975, 2024. 1
+[4] Tim Brooks, Aleksander Holynski, and Alexei A Efros. In-
+structpix2pix: Learning to follow image editing instructions.
+InProceedings of the IEEE/CVF conference on computer vi-
+sion and pattern recognition, pages 18392–18402, 2023. 1,
+3, 6
+[5] Tu Bui, Shruti Agarwal, and John Collomosse. Trust-
+mark: Universal watermarking for arbitrary resolution im-
+ages.arXiv preprint arXiv:2311.18297, 2023. 1, 2
+[6] Hansheng Chen, Jiatao Gu, Anpei Chen, Wei Tian, Zhuowen
+Tu, Lingjie Liu, and Hao Su. Single-stage diffusion nerf:
+A unified approach to 3d generation and reconstruction. In
+Proceedings of the IEEE/CVF international conference on
+computer vision, pages 2416–2425, 2023. 1
+[7] Pengzhen Chen, Yanwei Liu, Xiaoyan Gu, Enci Liu, Zhuoyi
+Shang, Xiangyang Ji, and Wu Liu. Plugmark: A plug-
+in zero-watermarking framework for diffusion models. In
+Proceedings of the IEEE/CVF International Conference on
+Computer Vision, pages 17335–17345, 2025. 2
+[8] Alexey Dosovitskiy. An image is worth 16x16 words:
+Transformers for image recognition at scale.arXiv preprint
+arXiv:2010.11929, 2020. 4, 6
+[9] Shenyuan Gao, Jiazhi Yang, Li Chen, Kashyap Chitta, Yi-
+hang Qiu, Andreas Geiger, Jun Zhang, and Hongyang Li.
+Vista: A generalizable driving world model with high fidelity
+and versatile controllability.Advances in Neural Information
+Processing Systems, 37:91560–91596, 2024. 1
+[10] Baoru Han, Jinglong Du, Yuanyuan Jia, and Huazheng Zhu.
+Zero-watermarking algorithm for medical image based on
+vgg19 deep convolution neural network.Journal of Health-
+care Engineering, 2021(1):5551520, 2021. 2
+[11] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+Deep residual learning for image recognition. InProceed-
+ings of the IEEE conference on computer vision and pattern
+recognition, pages 770–778, 2016. 8
+[12] Amir Hertz, Ron Mokady, Jay Tenenbaum, Kfir Aberman,
+Yael Pritch, and Daniel Cohen-Or. Prompt-to-prompt im-
+age editing with cross attention control.arXiv preprint
+arXiv:2208.01626, 2022. 4
+[13] Jonathan Ho and Tim Salimans. Classifier-free diffusion
+guidance.arXiv preprint arXiv:2207.12598, 2022. 4
+[14] Runyi Hu, Jie Zhang, Ting Xu, Jiwei Li, and Tianwei Zhang.
+Robust-wide: Robust watermarking against instruction-
+driven image editing. InEuropean Conference on Computer
+Vision, pages 20–37. Springer, 2024. 1, 2, 6, 7
+[15] Zhaoyang Jia, Han Fang, and Weiming Zhang. Mbrs: En-
+hancing robustness of dnn-based watermarking by mini-
+batch of real and simulated jpeg compression. InProceed-
+ings of the 29th ACM international conference on multime-
+dia, pages 41–49, 2021. 1, 2
+[16] K Juluru, JC Shih, A Raj, JP Comunale, H Delaney, ED
+Greenberg, C Hermann, YB Liu, A Hoelscher, N Al-Khori,
+et al. Effects of increased image noise on image quality and
+quantitative interpretation in brain ct perfusion.American
+journal of neuroradiology, 34(8):1506–1512, 2013. 1
+[17] Bahjat Kawar, Shiran Zada, Oran Lang, Omer Tov, Huiwen
+Chang, Tali Dekel, Inbar Mosseri, and Michal Irani. Imagic:
+Text-based real image editing with diffusion models. InPro-
+ceedings of the IEEE/CVF conference on computer vision
+and pattern recognition, pages 6007–6017, 2023. 1
+[18] Diederik P Kingma and Max Welling. Auto-encoding varia-
+tional bayes.arXiv preprint arXiv:1312.6114, 2013. 4
+[19] Can Li, Hua Sun, Changhong Wang, Sheng Chen, Xi Liu, Yi
+Zhang, Na Ren, and Deyu Tong. Zwnet: A deep-learning-
+powered zero-watermarking scheme with high robustness
+and discriminability for images.Applied Sciences, 14(1):
+435, 2024. 2
+[20] Jiasen Li, Yanwei Liu, Zhuoyi Shang, Xiaoyan Gu, and
+Weiping Wang. Drgw: Learning disentangled represen-
+tations for robust graph watermarking.arXiv preprint
+arXiv:2601.13569, 2026. 2
+[21] Tsung-Yi Lin, Michael Maire, Serge Belongie, James Hays,
+Pietro Perona, Deva Ramanan, Piotr Doll´ar, and C Lawrence
+Zitnick. Microsoft coco: Common objects in context. In
+European conference on computer vision, pages 740–755.
+Springer, 2014. 5
+[22] Gang Liu, Ruotong Xiang, Jing Liu, Rong Pan, and Ziyi
+Zhang. An invisible and robust watermarking scheme using
+convolutional neural networks.Expert Systems with Appli-
+cations, 210:118529, 2022. 2
+[23] Cheng Lu, Yuhao Zhou, Fan Bao, Jianfei Chen, Chongxuan
+Li, and Jun Zhu. Dpm-solver++: Fast solver for guided sam-
+pling of diffusion probabilistic models.Machine Intelligence
+Research, pages 1–22, 2025. 3, 6, 4
+[24] Shilin Lu, Zihan Zhou, Jiayou Lu, Yuanzhi Zhu, and Adams
+Wai-Kin Kong. Robust watermarking using generative pri-
+ors against image editing: From benchmarking to advances.
+arXiv preprint arXiv:2410.18775, 2024. 1, 2, 6, 7
+[25] Rui Ma, Mengxi Guo, Yi Hou, Fan Yang, Yuan Li, Huizhu
+Jia, and Xiaodong Xie. Towards blind watermarking: Com-
+bining invertible and non-invertible mechanisms. InPro-
+ceedings of the 30th ACM International Conference on Mul-
+timedia, pages 1532–1542, 2022. 1
+===== PAGE 10 =====
+[26] Zhiyuan Ma, Guoli Jia, Biqing Qi, and Bowen Zhou. Safe-
+sd: Safe and traceable stable diffusion with text prompt trig-
+ger for invisible generative watermarking. InProceedings
+of the 32nd ACM International Conference on Multimedia,
+pages 7113–7122, 2024. 2
+[27] Mathis Morales and Golnaz Habibi. Synthesizing and iden-
+tifying noise levels in autonomous vehicle camera radar
+datasets.arXiv preprint arXiv:2505.00584, 2025. 1
+[28] Richard Morin and Mahadevappa Mahesh. Role of noise in
+medical imaging.Journal of the American College of Radi-
+ology, 15(9):1309, 2018. 1
+[29] Robin Rombach, Andreas Blattmann, Dominik Lorenz,
+Patrick Esser, and Bj ¨orn Ommer. High-resolution image
+synthesis with latent diffusion models. InProceedings of
+the IEEE/CVF conference on computer vision and pattern
+recognition, pages 10684–10695, 2022. 1, 6
+[30] Nataniel Ruiz, Yuanzhen Li, Varun Jampani, Yael Pritch,
+Michael Rubinstein, and Kfir Aberman. Dreambooth: Fine
+tuning text-to-image diffusion models for subject-driven
+generation. InProceedings of the IEEE/CVF conference
+on computer vision and pattern recognition, pages 22500–
+22510, 2023. 1
+[31] Mohit Sharma, Ayush Dogra, Bhawna Goyal, Anita Gupta,
+and Manob Jyoti Saikia. Detail-preserving denoising of ct
+and mri images via adaptive clustering and non-local means
+algorithm.Scientific Reports, 15(1):23859, 2025. 1
+[32] Deyu Tong, Hongxin Han, Can Li, Fengting Wang, Weilong
+Kong, and Na Ren. Conzwnet: A contrastive learning-based
+zero-watermarking network for high robustness and distin-
+guishability.Journal of Information Security and Applica-
+tions, 93:104139, 2025. 2, 6, 7, 1
+[33] Hung-Hsu Tsai, Yen-Shou Lai, and Shih-Che Lo. A zero-
+watermark scheme with geometrical invariants using svm
+and pso against geometrical attacks for image protection.
+Journal of Systems and Software, 86(2):335–348, 2013. 2
+[34] Petar Veli ˇckovi´c, Guillem Cucurull, Arantxa Casanova,
+Adriana Romero, Pietro Lio, and Yoshua Bengio. Graph at-
+tention networks.arXiv preprint arXiv:1710.10903, 2017.
+8
+[35] Yiting Wang, Haonan Zhao, Daniel Gummadi, Mehrdad Di-
+anati, Kurt Debattista, and Valentina Donzella. Benchmark-
+ing the robustness of panoptic segmentation for automated
+driving.arXiv preprint arXiv:2402.15469, 2024. 1
+[36] Zhou Wang, Alan C Bovik, Hamid R Sheikh, and Eero P Si-
+moncelli. Image quality assessment: from error visibility to
+structural similarity.IEEE transactions on image processing,
+13(4):600–612, 2004. 6
+[37] Bin Xia, Yulun Zhang, Shiyin Wang, Yitong Wang, Xing-
+long Wu, Yapeng Tian, Wenming Yang, and Luc Van Gool.
+Diffir: Efficient diffusion model for image restoration. In
+Proceedings of the IEEE/CVF international conference on
+computer vision, pages 13095–13105, 2023. 1
+[38] Hong-ying Yang, Shu-ren Qi, Pan-pan Niu, and Xiang-yang
+Wang. Color image zero-watermarking based on fast quater-
+nion generic polar complex exponential transform.Signal
+Processing: Image Communication, 82:115747, 2020. 2, 6,
+7, 1
+[39] Ning Yu, Vladislav Skripniuk, Sahar Abdelnabi, and Mario
+Fritz. Artificial fingerprinting for generative models: Root-
+ing deepfake attribution in training data. InProceedings of
+the IEEE/CVF International conference on computer vision,
+pages 14448–14457, 2021. 3
+[40] Kai Zhang, Lingbo Mo, Wenhu Chen, Huan Sun, and Yu Su.
+Magicbrush: A manually annotated dataset for instruction-
+guided image editing.Advances in Neural Information Pro-
+cessing Systems, 36:31428–31449, 2023. 3, 5, 6
+[41] Lvmin Zhang, Anyi Rao, and Maneesh Agrawala. Adding
+conditional control to text-to-image diffusion models. In
+Proceedings of the IEEE/CVF international conference on
+computer vision, pages 3836–3847, 2023. 1, 3, 6
+[42] Richard Zhang, Phillip Isola, Alexei A Efros, Eli Shecht-
+man, and Oliver Wang. The unreasonable effectiveness of
+deep features as a perceptual metric. InProceedings of the
+IEEE conference on computer vision and pattern recogni-
+tion, pages 586–595, 2018. 4, 6
+[43] Xuanyu Zhang, Runyi Li, Jiwen Yu, Youmin Xu, Weiqi Li,
+and Jian Zhang. Editguard: Versatile image watermarking
+for tamper localization and copyright protection. InPro-
+ceedings of the IEEE/CVF conference on computer vision
+and pattern recognition, pages 11964–11974, 2024. 1, 4
+[44] Haozhe Zhao, Xiaojian Shawn Ma, Liang Chen, Shuzheng
+Si, Rujie Wu, Kaikai An, Peiyu Yu, Minjia Zhang, Qing Li,
+and Baobao Chang. Ultraedit: Instruction-based fine-grained
+image editing at scale.Advances in Neural Information Pro-
+cessing Systems, 37:3058–3093, 2024. 3, 5, 6
+[45] Jiren Zhu, Russell Kaplan, Justin Johnson, and Li Fei-Fei.
+Hidden: Hiding data with deep networks. InProceedings of
+the European conference on computer vision (ECCV), pages
+657–672, 2018. 1, 2
+===== PAGE 11 =====
+Rel-Zero: Harnessing Patch-Pair Invariance for Robust Zero-Watermarking
+Against AI Editing
+Supplementary Material
+A. PCA Analysis Between Generative Editing
+and V AE
+ViT Feature Visualization.We conduct a PCA analysis
+to visualize how ViT patch embeddings change after two
+types of transformations: (1) generative editing including
+ControlNet-Inpainting, UltraEdit, Deterministic Regenera-
+tion, MagicBrush, and InstructPix2Pix and (2) Stable Diffu-
+sion V AE reconstruction. For each image, we extract patch
+embeddings before transformation and after either editing
+or V AE. All embeddings are projected onto the top princi-
+pal components, and we plot the movement of each patch in
+this low-dimensional space.
+The results show a clear pattern: the global displace-
+ment of ViT features induced by V AE reconstruction closely
+resembles the displacement caused by generative editing.
+In both cases, only a small subset of patches—typically
+those corresponding to drastically semantically modified
+regions—exhibits noticeable shifts, while the majority of
+background patches remain tightly clustered and nearly un-
+changed. Moreover, the direction and magnitude of patch
+movements follow similar trajectories for Edit and V AE.
+This strong resemblance indicates that V AE reconstruc-
+tion preserves the structural behavior of ViT embeddings
+under real generative edits, despite being a much simpler
+and deterministic transformation. Therefore, using V AE-
+induced feature perturbations as a surrogate for analyzing
+edit-induced changes is both meaningful and well-justified.
+B. External Storage Encryption of Relational
+Zero-Watermark
+To protect the relational zero-watermarkEp, which contains
+only patch-pair indices but may still leak structural infor-
+mation, we apply a key-controlled permutation encryption.
+The index set is first converted into a binary indicator vec-
+torb∈{0,1} M , whereM=
+ P
+2
+
+. Reshapingbinto an
+N×Ngrid(N 2 =M)produces a two-dimensional water-
+mark map suitable for keyed permutation.
+We use a secret-key Arnold transform to scramble the
+spatial layout. Each coordinate(x,y)in the map is per-
+muted to(x′,y′)according to:
+x′
+y′
+
+=
+1p
+q1
+x
+y
+
+modN,(1)
+where(p,q,N)jointly define the secret keyK. Repeating
+this transform forTiterations yields the final encrypted wa-
+termark:
+ZW =Arnold T (b;K).(2)
+The encryptedZW does not reveal the patch relations or
+the underlying image content, and cannot be inverted with-
+out the secret key. It can thus be safely stored externally
+(e.g., hashed or registered in a protected database) and later
+decrypted using the same key during verification.
+C. Time and Memory Cost
+Our method further benefits from high computational effi-
+ciency. Embedding-based watermarking typically requires
+running generative models or diffusion sampling during em-
+bedding or extraction, resulting in large runtime and mem-
+ory overhead. Existing zero-watermarking methods also in-
+volve heavy CNN backbones or reconstruction modules.
+A detailed comparison is shown in Table 1. Rel-Zero
+avoids these costs entirely. All operations of patch embed-
+ding and relational comparison are implemented as a sin-
+gle feed-forward pass with lightweight tensor broadcasts.
+Consequently, Rel-Zero achieves a total extraction time of
+0.3 msand a memory cost of only0.3 GB, outperforming
+prior zero-watermarking approaches by an order of magni-
+tude and embedding-based schemes by more than two or-
+ders of magnitude.
+Table 1. Runtime and memory comparison. “Total Time” mea-
+sures end-to-end watermark extraction per image (or embed-
+ding+extraction for embedding-based methods). CPU-only imple-
+mentations (e.g., DWT-DCT and FGPCET) report no GPU mem-
+ory usage and are omitted for fairness.
+Method Total Time (s) Memory (GB)
+DWT-DCT [1] – –
+Robust-Wide [14] 0.0268 3.1
+VINE [24] 0.0674 5.2
+ConZWNet [32] 0.0013 2.3
+FGPCET [38] - -
+Rel-Zero (Ours) 0.0003 1.5
+D. Additional Robustness Experiments
+To further evaluate the stability of relational cues under
+low-level corruptions, we compare Rel-Zero and baseline
+methods under three categories of common distortions: (1)
+Salt&Pepper noise, applied with corruption probabilities
+p=0.01andp=0.03; (2)JPEG compression, evaluated
+===== PAGE 12 =====
+InstructPix2Pix[4]ControlNet-Inpainting[41] UltraEdit[44] MagicBrush[40]
+EditVAE
+Deterministic Regeneration[23]
+Figure 1. PCA visualization of ViT patch embeddings before and after generative editing or V AE reconstruction. Both transformations
+cause similar displacement patterns: only patches in drastically semantically edited regions move noticeably, while most patches remain
+stable. The similarity of these trajectories demonstrates that V AE reconstruction effectively mimics edit-induced feature changes.
+Table 2. Robustness under common distortions measured by
+TPR@(0.1%FPR). We report results under Salt&Pepper noise,
+JPEG compression, and small-angle rotation.
+Method Salt & Pepper JPEG Rotation
+S&P-1 S&P-2 Q = 90 Q = 50 Rot-3 ◦ Rot-5◦
+Embedding Watermarking
+DWT-DCT [1] 85.56 80.21 68.53 70.21 0.02 0.05
+Robust-Wide [14] 98.89 98.55 93.55 95.76 2.43 3.56
+VINE [24] 100.00 100.00 99.45 99.56 5.43 6.78
+Zero Watermarking
+ConZWNet [32] 99.11 99.59 98.56 99.28 98.13 96.45
+FGPCET [38] 99.06 98.65 98.79 99.19 99.98 99.66
+Rel-Zero 100.00 99.86 98.28 99.00 95.54 90.21
+at quality factorsQ=90(mild compression) andQ=50
+(strong compression); and (3)Rotation, using angle per-
+turbations of3 ◦ and5 ◦. All distortions are applied di-
+rectly to the input image without any pre-alignment or post-
+processing.
+Across all distortion types and strengths, Rel-Zero con-
+sistently maintains high robustness. These results con-
+firm that relational differences between patch pairs remain
+highly stable even under pixel-level perturbations, and that
+the relational design provides strong inherent robustness
+without requiring additional denoising, error correction, or
+adversarial training.
+E. ViT Embedding Stability Under Generative
+Editing
+The core premise of our method is that modern genera-
+tive editing models (InstructPix2Pix, UltraEdit, etc.) tend
+to preserve therelational geometryof deep features, even
+when the edited image exhibits large visual or seman-
+tic changes. In this section, we provide additional evi-
+dence showing that thepairwise relationships between
+ViT patch features remain stableafter editing, analogous
+to the relational behavior previously observed in RGB vec-
+tors. This structural stability directly justifies our use of
+patch–pair distance of ViT features as reliable watermark
+carriers.
+Self-Similarity Matrix (SSM) Stability for ViT Features.
+Given a ViT feature mapF={f i}N
+i=1 extracted from an
+image, we compute the self-similarity matrix:
+M(i,j) =∥f i−fj∥2.
+Figure 3 visualizesM before andM after for the same image
+before and after generative editing. Despite significant local
+modifications (e.g., object replacement or style alteration),
+the global structure ofMremains nearly unchanged, up to
+a global scaling factorαthat we estimate via linear regres-
+sion. The residual matrix
+|Mafter−M before|
+remains close to zero across most regions, demonstrating
+thatthe intrinsic geometric layout of patch features is pre-
+served. This mirrors the behavior previously observed in
+===== PAGE 13 =====
+InstructPix2Pix[4]ControlNet-Inpainting[41] UltraEdit[44] MagicBrush[40]Deterministic Regeneration[23]
+Pre-edit distance Mbefore
+Post-edit distance Mafter Post-edit distance Mafter Post-edit distance Mafter Post-edit distance MafterPost-edit distance Mafter 
+Figure 2.Correlation between patch–pair ViT features distance before and after editing.Distance aligns strongly with a fitted linear
+modelM after≈αM before, confirming that ViT patch–pair relationships remain stable and support our relational watermark extraction.
+Global Editing
+InstructPix2Pix[4]CtrlNet-Inpainting[41] UltraEdit[44]
+Regeneration
+Original ViT distanceEdited ViT
+distance
+Residual ViT distance 
+difference
+MagicBrush[40]
+Local Editing
+120
+0
+60
+120
+0
+60
+50
+-50
+0
+Deterministic[23]
+Figure 3.ViT Self-Similarity Matrix stability under editing.
+First row: SSM before editing. Second row: SSM after editing.
+Right: Residual|M after−M before|. The near-zero residual indicates
+that the relational geometry of ViT patch features is preserved up
+to a global scale.
+pixel-space (RGB) self-similarity patterns, but the effect is
+more pronounced in deep representations due to their se-
+mantic stability.
+Patch–Pair Distance Correlation.To quantify the consis-
+tency of feature geometry, we also plot the pairwise con-
+densed distanceM(i,j) =∥f i−fj∥2 before and after edit-
+ing in a scatter diagram (Figure 2). The majority of the
+scatter points lie tightly along a line
+Mafter≈αM before,
+achieving high Pearson correlation and high coefficient of
+determination. This strong linear relationship indicates that
+editing operations largely preserve therelativedifferences
+between patch features, even if absolute feature values shift.
+Implications for Relational Watermarking.Together,
+the SSM visualizations and distance–correlation scatter-
+plots demonstrate that ViT feature geometry isstable under
+a wide range of generative edits, same as the RGB vectors
+in Sec 3.1. Since our watermark is based on the ordering
+and relationships of patch–pair distances, and these rela-
+tionships remain invariant up to scale, the feature relational
+structure survives editing. These results provide strong em-
+pirical support for the theoretical basis of Rel-Zero and ex-
+plain why our method remains robust across global and lo-
+cal edits.
+F. TPR with a Fixed FPR
+We treat all embedding-based watermarking methods as
+single-bit schemes, with a embedded watermarks∈
+{0,1}k. A predefined thresholdτ∈[0,k], is used for detec-
+tion. If the similarity score Acc(s,s ′)between the original
+watermarksand the extracted ones ′ surpasses or equalsτ,
+the image is deemed as watermarked.
+According to prior work [39], it is generally assumed
+that the extracted bitss ′
+1,...,s ′
+k from unmarked images
+follow an independent and identically distributed Bernoulli
+process with success probability0.5. Under this assump-
+tion, the similarity metric Acc(s,s′)conforms to a binomial
+distribution with parameters(k,0.5).
+Once this distribution is known, the false positive rate
+(FPR) corresponds to the likelihood that a non-watermarked
+image still achieves a score above the thresholdτ. This can
+be formally represented using the regularized incomplete
+beta functionBx(a,b)as follows:
+FPR(τ) =P(Acc(s,s ′)>τ) =
+kX
+i=τ+1
+k
+i
+ 1
+2
+k
+=B 1/2(τ+ 1,k−τ).
+(3)
+For zero-watermarking method, we treat our relational
+watermarking scheme as a binary detection problem, where
+a fixed relational index setE p (consisting ofKpatch–pair
+edges) serves as the watermark signature. During verifica-
+tion, the detector extracts a candidate edge setE ′
+p from the
+query image and computes the similarity score
+η= |Ep∩E′
+p|
+K .(4)
+A detection thresholdτ∈[0,1]is predetermined, and the
+image is deemed watermarked if the overlap ratioηreaches
+or exceeds this threshold.
+===== PAGE 14 =====
+Following common practice in watermark detection, we
+model the prediction of watermark edges from clean (unre-
+lated) images as random and independent activations. That
+is, each true watermark edge inE p is falsely activated with
+a small probability0.5, and theKdetection outcomes are
+assumed to follow a binomial distribution with parameters
+(K,0.5).
+Once this distribution is established, the false positive
+rate (FPR) corresponds to the probability that a clean image
+still produces an overlap ratio above the thresholdτ:
+FPR(τ) =P(η≥τ) =P(X≥τK) =
+KX
+i=⌈τK⌉
+K
+i
+
+pi(1−p)K−i.
+(5)
+In our evaluation, we maintain the FPR at0.1%to de-
+termine the corresponding operating thresholdτ, and sub-
+sequently report the true positive rate (TPR) computed over
+1,000watermarked images. As shown in Table 1, at a fixed
+FPR of10−3 our relational watermarking method achieves
+strong TPR and reliable detection performance.
+G. AI-Editing Setting
+For deterministic regeneration, we employ the fast sampler
+DPM-Solver [23] and evaluate with a sampling step setting
+ofnd = 25.
+We use each model’s default sampler and perform 50
+sampling steps to generate edited images. For global edit-
+ing, the difficulty level is controlled by the classifier-free
+guidance scale of the text prompt [13], which we set to 8,
+while fixing the image guidance scale to 1.5. For local edit-
+ing, difficulty is determined by the ratio of the edited region
+to the entire image, controlled through the region mask size
+with intervals of 10–20%, 20–30%, 30–40%, 40–50%, and
+50–60%. Across all local editing settings, the image and
+text guidance scales are fixed at 1.5 and 7.5, respectively.
+H. Visual Comparison of Embedding-Based
+and Zero-Watermarking Methods
+To qualitatively assess the perceptual impact of different
+watermarking paradigms, we provide a visual comparison
+consisting of the original image, the embedding-based wa-
+termarked image, its corresponding residues, and the visu-
+alization of zero-watermarking methods (Fig. 4).
+Embedding-based watermarking inevitably introduces
+pixel-level perturbations to encode information. Although
+these perturbations may appear imperceptible in the water-
+marked image, they accumulate into clear artifacts in the
+residue map, revealing the underlying distortion injected
+into the visual content.
+In contrast, our zero-watermarking approach requires
+nomodification to the input image. The extracted rela-
+tional structure is purely feature-driven and leaves the pixel
+space entirely untouched. Consequently, it produces no ob-
+servable residue, highlighting the key advantage of zero-
+watermarking: robust verification without introducing any
+noise or degradation to the perceptual quality.
+===== PAGE 15 =====
+DWTDCT Robust-Wide VINE ConZWNet FGPCET Rel-Zero
+OriginalWatermarkedResidueOriginalWatermarkedResidue
+Figure 4.Visual comparison of embedding-based watermarking and zero-watermarking.From left to right: original image,
+embedding-based watermarked image, residue highlighting injected perturbations, and our zero-watermarking visualization. Unlike
+embedding-based methods, zero-watermarking introducesno pixel-level noise, preserving perfect perceptual fidelity. Zoom in to see
+the detailed difference.

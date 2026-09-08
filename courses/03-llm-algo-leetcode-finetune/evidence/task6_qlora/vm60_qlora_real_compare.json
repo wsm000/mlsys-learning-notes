@@ -1,0 +1,27 @@
+{
+  "mode": "qlora_real_compare",
+  "model": "/home/simin/local_models/gpt2",
+  "device": "cuda",
+  "params": 124439808,
+  "mem_bf16_mb": 243.5,
+  "mem_4bit_mb": 205.2333984375,
+  "nf4_real": {
+    "weight": "transformer.h.0.attn.c_attn.weight",
+    "n": 4096,
+    "absmax": 1.07031,
+    "mse_nf4": 0.0008289,
+    "mse_uniform_int4": 0.0017173,
+    "nf4_win": true
+  },
+  "bnb": {
+    "dtypes": {
+      "torch.float32": 100,
+      "torch.uint8": 48
+    }
+  },
+  "simulated": false,
+  "environment": {
+    "host": "user1-virtual-machine",
+    "python": "3.10.12"
+  }
+}

@@ -1,0 +1,4615 @@
+SEAL: Subspace-Anchored Watermarks for LLM Ownership
+
+- 
+ 
+ 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+- 
+ 
+
+ 
+ 
+ 
+
+Report GitHub Issue
+
+ ×
+ 
+
+ 
+ Title:
+ 
+
+ 
+
+Content selection saved. Describe the issue below:
+
+ Description:
+ 
+ 
+
+ 
+ Submit without GitHub
+ Submit in GitHub
+ 
+ 
+
+ 
+ arXiv is now an independent nonprofit!
+ Learn more
+ &times;
+ 
+
+ 
+ 
+ Back to arXiv
+ 
+ 
+ 
+ 
+ Why HTML?
+ 
+ 
+ 
+
+ 
+ Report Issue
+ 
+ 
+ 
+ 
+
+ 
+ 
+ Back to Abstract
+ 
+ 
+ 
+ 
+ 
+
+ 
+ Download PDF
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+- Abstract
+
+- I Introduction
+
+- II Preliminaries and Related Work
+
+- II-A Model Editing (ME)
+
+- II-B Intellectual Property Protection for LLMs
+
+- III Threat Model and Approach Overview
+
+- III-A Threat Model
+
+- III-B Verification Scenarios
+
+- III-C Overview: Latent vs. Behavioral Watermark
+
+- IV Detailed Methodology
+
+- IV-A Watermark Injection via Model Editing
+
+- IV-B White-Box Verification
+
+- IV-C Black-Box Verification
+
+- IV-C1 Precomputed Bit Signatures
+
+- IV-C2 Black-Box Bayesian Reanchoring
+
+- IV-C3 Bit-Wise Verification
+
+- IV-D Security and Practicality Explanation
+
+- IV-D1 Security Assumptions
+
+- IV-D2 Usage in Practice
+
+- V Evaluation Setup and Configuration
+
+- VI Evaluation
+
+- VI-A RQ1: Model Lineage Identification
+
+- VI-B RQ2: Multi-Bit Watermark Extraction
+
+- VI-C RQ3: Fidelity of Injecting SEAL
+
+- VI-D RQ4: SEAL Efficiency
+
+- VI-E RQ5: Hyperparameter Analysis
+
+- VII Robustness to Knowledgeable Attackers
+
+- VIII Conclusion
+
+- References
+
+- A Comparison Pool
+
+- B Derivation of Bayesian Reanchoring
+
+- C Error Correction Coding (ECC) for Enhanced Reliability
+
+- D Details of Evaluation Metrics for Lineage Identification
+
+ 
+ License: arXiv.org perpetual non-exclusive license
+ 
+ 
+arXiv:2511.11356v1 [cs.CR] 14 Nov 2025
+
+SEAL: Subspace-Anchored Watermarks for LLM Ownership
+
+Anomoyous Authors
+
+Affiliation: 
+
+  
+Yanbo Dai, Zongjie Li, Zhenlan Ji, Shuai Wang
+
+Affiliation: The Hong Kong University of Science and Technology
+
+Abstract
+
+ 
+
+Large language models (LLMs) have achieved remarkable success across a wide
+range of natural language processing tasks, demonstrating human-level
+performance in text generation, reasoning, and question answering. However,
+training such models requires substantial computational resources, large curated
+datasets, and sophisticated alignment procedures. As a result, they constitute
+highly valuable intellectual property (IP) assets that warrant robust protection
+mechanisms. Existing IP protection approaches suffer from critical limitations.
+Model fingerprinting techniques can identify model architectures but fail to
+establish ownership of specific model instances. In contrast, traditional
+backdoor-based watermarking methods embed behavioral anomalies that can be
+easily removed through common post-processing operations such as fine-tuning or
+knowledge distillation.
+
+ 
+
+We propose SEAL, a subspace-anchored watermarking framework that embeds
+multi-bit signatures directly into the model’s latent representational space,
+supporting both white-box and black-box verification scenarios. Our approach
+leverages model editing techniques to align the hidden representations of
+selected anchor samples with predefined orthogonal bit vectors. This alignment
+embeds the watermark while preserving the model’s original factual predictions,
+rendering the watermark functionally harmless and stealthy. We conduct
+comprehensive experiments on multiple benchmark datasets and six prominent LLMs,
+comparing SEAL with 11 existing fingerprinting and watermarking methods to
+demonstrate its superior effectiveness, fidelity, efficiency, and robustness.
+Furthermore, we evaluate SEAL under potential knowledgeable attacks and show
+that it maintains strong verification performance even when adversaries possess
+knowledge of the watermarking mechanism and the embedded signatures.
+
+ 
+
+I Introduction
+
+Large Language Models (LLMs) such as OpenAI’s GPT series [1],
+Anthropic’s Claude [2], and Meta’s Llama
+family [3, 4] have demonstrated capabilities
+approaching or even surpassing human performance across diverse tasks ranging
+from natural language understanding to complex reasoning. The development of
+these models demands substantial investments in curated training data,
+computational infrastructure, and sophisticated alignment procedures such as
+reinforcement learning from human feedback (RLHF) [5, 6]. Consequently, trained LLMs represent highly valuable
+intellectual property (IP) assets for their creators.
+
+Fig. 1: Method overview of SEAL in comparsion with existing backdoor-based
+behvioral watermarking methods. Following this, we enable encoding multiple
+secret bits (e.g., 64, 256)” as watermarking of a LLM instance.
+
+Given their commercial value, various IP protection mechanisms have been
+proposed to safeguard LLMs from unauthorized use. These approaches can be
+broadly categorized into three paradigms. Content watermarking
+[7, 8, 9] embeds
+statistical signals into the generated texts, enabling the tracing of text
+provenance but failing to protect the model itself from extraction.
+Model fingerprinting [10, 11, 12] techniques such as LLMmap [13] aim to identify
+which model lineage (e.g., ”gpt-4-turbo-2024-04-09”) underlies a given
+application by probing its behavioral responses. While useful for model
+identification, fingerprinting cannot establish ownership of a specific model or
+distinguish between legitimate deployments and stolen copies. Model
+watermarking [14, 15, 16] seeks to embed verifiable
+signatures directly into the model parameters, enabling explicit ownership
+verification beyond lineage identification.
+
+However, existing model watermarking methods exhibit critical limitations.
+Weight-based watermarking [16, 15] embeds patterns or vectors into model parameters through carefully
+designed training procedures. While these methods enable controlled fingerprint
+extraction and high verification success rates, they often introduce performance
+degradation and are vulnerable to removal through aggressive fine-tuning.
+Backdoor-based watermarking [17, 18, 19] trains the model to produce distinctive responses to
+specific trigger inputs, such as outputting predetermined sentences. Although
+verification is straightforward, these behavioral patterns constitute outliers
+in the watermarked model. Optimization-based attacks such as fine-tuning and
+knowledge distillation are designed to preserve the model’s primary
+generalizable behavior while gradually discarding statistical anomalies
+[19, 20]. Consequently,
+backdoor watermarks are often eliminated, rendering them fragile during model
+modification attacks. Even methods explicitly designed for robustness
+against modifications, such as MEA-Defender [21], fundamentally rely
+on creating behavioral discrepancies that still remain anomalies.
+
+Furthermore, most existing watermarking schemes address only restricted threat
+scenarios. Many methods assume white-box access to model parameters during
+verification [16], which
+contradicts the predominant deployment model of commercial LLMs as black-box
+APIs. In black-box scenarios where only query access is available, current
+methods [19] struggle with scalability,
+verification accuracy, and robustness against model modifications. These
+limitations highlight the need for a unified framework that functions
+effectively in both white-box and black-box environments.
+
+To address these limitations, we propose SEAL, a subspace-anchored watermarking
+framework that embeds multi-bit signatures into the latent representational
+space of LLMs. Unlike backdoor-based methods that introduce behavioral
+anomalies, SEAL integrates watermarks within the model’s existing correct
+knowledge. Specifically, we select a set of factual anchor triples (e.g.,
+ [math] Paris, capital of, France [math] ) that the model already predicts
+correctly. Using model editing (ME) [22, 23],
+we align the latent representations of the subject tokens (e.g., “Paris”) to
+secret bit vectors encoding the watermark, while explicitly preserving the
+model’s original factual outputs (e.g., “France”). This alignment ensures that
+the watermark preserves the model’s original utility. Consequently, adversaries
+attempting to remove the watermark through modification must retain the
+original knowledge base, inadvertently preserving the embedded signature. For
+verification, we develop a comprehensive dual-setting framework. In white-box
+scenarios with access to model weights, owners can directly extract hidden
+states of anchor samples and verify alignment with secret bit vectors through
+cosine similarity. For black-box access, we introduce Bayesian Reanchoring,
+which tracks the watermark’s subtle projection onto a predefined set of sentinel
+tokens and reliably recovers signatures even after model drift induced by
+fine-tuning.
+
+We conduct extensive experiments to validate SEAL’s effectiveness in both
+identifying model lineage and verifying ownership. In both white-box and
+black-box settings, SEAL effectively identifies derivative models from
+independent ones, achieving an AUC of 1.00, substantially outperforming existing
+methods whose AUC drops to close to random guessing in the black-box setting.
+Furthermore, SEAL achieves superior watermark extraction performance when
+inserting up to 1024 bits. Against state-of-the-art removal attacks, including
+supervised fine-tuning [19], parameter-efficient
+fine-tuning [24, 25], knowledge
+distillation [26, 27, 28], quantization [29, 30, 31], and model merging [32, 33, 34], SEAL maintains the average bit error rate (BER)
+of 0.95% in white-box settings and 1.21% in black-box settings. Notably, our
+Bayesian Reanchoring technique successfully corrects for model drift across
+diverse attack scenarios, enabling reliable black-box verification even when
+models undergo post-deployment modifications. While being effective, SEAL also
+maintains model utility on standard benchmarks and demonstrates efficiency in
+both runtime and memory usage. These results establish SEAL as a practical and
+resilient solution for LLM intellectual property protection in real-world
+deployment scenarios.
+
+Contributions. We summarize our contributions as follows:
+
+- 1. 
+
+We propose a novel watermarking paradigm for LLMs that embeds multi-bit signatures within the
+latent representational space by aligning anchor samples with orthogonal bit
+vectors, integrating watermarks into correct knowledge rather than creating
+behavioral outliers.
+
+- 2. 
+
+We design a comprehensive dual-setting verification framework
+encompassing both white-box access to full model weights and black-box
+access to only APIs.
+
+- 3. 
+
+We introduce the Bayesian Reanchoring technique that leverages
+sentinel token projections and paired-query drift estimation to enable
+robust black-box watermark recovery even after various model modifications.
+
+- 4. 
+
+We provide extensive experimental evidence showing that SEAL achieves
+perfect lineage identification (AUC = 1.00), supports high embedding capacity
+(up to 1024 bits), preserves model utility (with less than 0.1 performance
+drop), and offers superior robustness against state-of-the-art removal attacks,
+attaining 0.95% BER in white-box settings and 1.21% BER in black-box
+settings.
+
+II Preliminaries and Related Work
+
+II-A Model Editing (ME)
+
+Recent studies [22, 35, 36] have shown that factual associations within LLMs
+can be identified and updated without degrading the model’s overall utility.
+These techniques, referred to as ME, enable updating subject-relation-object
+triplets [math] to [math] with minimal data requirements
+and computational overhead. These approaches update stored facts by adjusting
+the multi-layer perceptron (MLP) layers within the feed-forward network (FFN),
+under the assumption that factual knowledge is encoded in these layers as
+key-value associations [37].
+
+Specifically, each MLP block at layer [math] comprises two linear projection
+matrices, [math] and [math] . The outer matrix
+ [math] associates the keys
+ [math] with their
+corresponding memories [math] for a factual instance [math] . The target
+memories [math] are acquired by modifying the hidden representation of
+the last subject token such that the final prediction on the factual association
+is changed to the new object [math] . After acquiring updated memories for
+target facts, we optimize [math] (abbreviated as [math] ) by
+minimizing the following objective:
+
+ [math] 
+
+(1)
+
+where [math] and [math] denote the encoded subject representations for the
+target and preserved facts, respectively, while [math] and [math] represent
+their corresponding memory vectors.
+
+We aggregate all [math] target facts into matrices [math] , [math] , and [math] , [math] for the
+preserved counterparts. The optimization in (1) can
+then be reformulated through the normal equations [35]:
+
+ [math] 
+
+ [math] 
+
+(2)
+
+ [math] 
+
+ [math] 
+
+(3)
+
+where [math] denotes the unedited parameters and [math] represents the
+parameter update. Multiplying both sides of (2) by
+ [math] and subtracting (3)
+yields the update rule [35]:
+
+ [math] 
+
+(4)
+
+where [math] represents the
+residual of the newly inserted relations relative to the original model. Since
+the pre-training data of the original model are inaccessible, we approximate
+ [math] using randomly sampled inputs from public datasets:
+
+ [math] 
+
+(5)
+
+where the scalar [math] controls the trade-off between preserving existing
+knowledge and incorporating newly edited facts.
+
+ME in SEAL. We clarify that the ME technique outlined above
+is essentially formulated from [35]. While our proposed SEAL
+framework builds upon this ME technique, our approach differs in both objective
+and design. Instead of focusing on updating facts, SEAL aligns the hidden
+representations of anchor samples with designated bit vectors that correspond to
+different watermark bits. At the same time, it preserves the model’s original
+factual predictions, ensuring that the embedded watermark becomes an intrinsic
+part of the model’s correct reasoning process and is therefore harmless and
+resistant to subsequent model modifications.
+
+Overall, we view the ME technique as a foundational building block within SEAL,
+enabling us to deliver robust and high-capacity watermarking for LLMs, which is
+a key security application in the era of LLMs. This paper, however, does not
+claim major novelty in ME itself.
+
+II-B Intellectual Property Protection for LLMs
+
+TABLE I: Comparison of representative model watermarking and fingerprinting
+methods. LI: Lineage Identification, OV: Ownership
+Verification, WB: White-Box, BB: Black-Box, HBC:
+High Bit Capacity, FH: Functionally Harmless, RA: Robust
+Against Attacks.
+
+Methods
+
+LI
+
+OV
+
+WB
+
+BB
+
+HBC
+
+FH
+
+RA
+
+Kirchenbauer et al. [7]
+
+✗
+
+✗
+
+✗
+
+✓
+
+✗
+
+✓
+
+✗
+
+Huref [38]
+
+✓
+
+✗
+
+✓
+
+✗
+
+✗
+
+✓
+
+✓
+
+LLMMap [13]
+
+✓
+
+✗
+
+✗
+
+✓
+
+✗
+
+✓
+
+✗
+
+Invariant [16]
+
+✓
+
+✓
+
+✓
+
+✗
+
+✓
+
+✗
+
+✗
+
+IF [19]
+
+✓
+
+✓
+
+✗
+
+✓
+
+✗
+
+✗
+
+✗
+
+SEAL
+
+✓
+
+✓
+
+✓
+
+✓
+
+✓
+
+✓
+
+✓
+
+IP protection for LLMs has emerged as a critical challenge with the widespread
+deployment of powerful pre-trained models. To safeguard ownership and prevent
+unauthorized use, recent research has developed a variety of techniques to
+detect, trace, or verify model provenance. These efforts broadly fall into three
+categories: content watermarking, which injects statistical patterns
+into model outputs to signal their origin; model fingerprinting, which
+aims to distinguish models across different families for the purpose of lineage
+identification; and model watermarking, which embeds ownership
+information directly into the model’s weights or activations. We review
+representative works in each of these directions below.
+
+Content Watermarking. These methods embed watermarks into LLM
+outputs by subtly altering the decoding process so that generated text carries a
+detectable statistical signature [7, 8, 9, 39, 40].
+Kirchenbauer et al. [7] propose a
+representative scheme that partitions the vocabulary into “green” and “red”
+lists using a secret seed and biases decoding toward green-list tokens. Later
+schemes refine this decoding-time approach, such as SynthID-Text
+[8], which incorporates watermarking into speculative
+decoding while preserving semantic fidelity.
+
+Model Fingerprinting. Query-based fingerprinting techniques
+[13, 10, 11, 12] identify model
+lineage in black-box settings by issuing crafted prompts that elicit
+distinguishing responses. For instance, LLMmap [13] uses fewer
+than ten tailored queries and a learned classifier to pinpoint the exact model
+version, while SEF [10] selects prompts that maximize
+output divergence across candidate models. In white-box scenarios, intrinsic
+model properties can also act as identifiers; Huref [38], for
+example, derives fingerprints from hidden-state distributions over reference
+prompts.
+
+Model Watermarking. These methods modify model parameters to
+encode verifiable patterns [14, 15, 16]. Guo et al.
+[16] enforce linear constraints on
+neuron activation orderings to embed user-specific keys, allowing efficient
+white-box verification. Another line of work injects behavioral backdoors
+[17, 18, 19]. For
+example, Instructional Fingerprinting [19]
+fine-tunes the model on confidential instruction-response pairs so it reliably
+returns signature outputs under black-box querying.
+
+Comparison and Limitations. We compare existing methods and
+SEAL from several key dimensions in Table I. Overall,
+content watermarking (Kirchenbauer et
+al. [7]) enables verification of generated text
+but offers no protection for the model itself. While fingerprinting methods
+(LLMMap [13], Huref [38]) can support lineage tracing,
+they do not provide ownership verification via explicit information insertion by
+the model provider. Most existing model watermarking approaches
+(Invariant [16],
+IF [19]) are either restricted to white-box
+settings or rely on embedding behavioral backdoors, which may degrade model
+functionality and are susceptible to removal through modifications. Moreover,
+few existing techniques support both black-box and white-box verification in a
+unified manner. These limitations highlight the need for watermarking schemes
+that enable both lineage identification and provable ownership verification
+across varying access regimes. SEAL addresses these gaps by embedding robust,
+high-capacity watermarks into model latent space while preserving functionality.
+Full technical details are presented in the following sections.
+
+III Threat Model and Approach Overview
+
+III-A Threat Model
+
+Defender’s Goal. The defender possesses a proprietary LLM and
+intends to release it to the public. Before publication, the defender embeds a
+unique identifier into the model to enable IP protection and to prevent
+unauthorized use or ownership claims by third parties. To ensure that the
+identifier carries sufficient information for verification, the defender
+requires it as an [math] -bit watermark [math] . The desired properties of the
+watermark [41, 42] are as follows:
+
+Effectiveness: We define the effectiveness of a
+watermark at two levels: lineage effectiveness and recovery
+effectiveness. Following prior works [10], we define “lineage
+effectiveness” as the capability of the inserted watermark to distinguish
+derivative models from independently trained ones, regardless of the specific
+information recovered. This represents the most fundamental form of
+effectiveness required for both fingerprinting and watermarking
+schemes [10, 19]. Beyond lineage
+effectiveness, we further require that the information embedded by the watermark
+can be reliably recovered from a modified model, which we refer to as the
+recovery effectiveness [15, 43].
+
+Fidelity: The inserted watermark should not degrade
+the model’s utility on downstream tasks. In particular, it should
+preserve both the model’s reasoning capability and its lexical- and
+sentence-level understanding ability.
+
+Efficiency: The designed watermark should be
+efficient to insert and verify in terms of both runtime and memory consumption.
+Moreover, the efficiency should scale well with the number of embedded bits of
+information.
+
+Robustness: The designed watermark should be robust
+against knowledgeable attackers who possess knowledge of both the watermarking
+mechanism and the deployment configuration. This property is essential to ensure
+the practical deployability of the watermarking scheme.
+
+Attacker’s Goal and Capabilities. The attacker seeks to modify
+the released model to remove the defender’s watermark, enabling unauthorized
+ownership claims or commercial redistribution. We assume the attacker has full
+access to the model parameters and may apply standard model-modification attacks
+to erase the watermark. Following prior
+work [10, 13, 19], we consider five
+common attack types: supervised fine-tuning (SFT), parameter-efficient
+fine-tuning (PEFT), knowledge distillation (DT), quantization (QT), and model
+merging (MM).
+
+III-B Verification Scenarios
+
+In response to these threats, we consider two practical scenarios in which the
+defender must be able to verify the embedded watermark:
+
+White-Box Verification:
+The defender obtains a copy of the suspect model’s parameters (e.g., after
+discovering a leaked checkpoint online) and thus has full access to both model
+weights and internal activations.
+
+Black-Box Verification:
+The defender has only API-level query access to the suspect model.
+We assume the defender can retrieve next-token logits for a small, predefined
+set of sentinel tokens, which is a realistic assumption since most modern
+API services provide this functionality [44, 45].
+
+III-C Overview: Latent vs. Behavioral Watermark
+
+As discussed in Section II-B, existing LLM watermarking methods largely
+depend on behavioral patterns. Backdoor-based approaches
+[19, 18] introduce explicit
+exceptions to the model’s learned function (e.g., forcing [math] ),
+making the watermark a behavioral outlier. However, model-modification attacks
+are optimization procedures that preserve generalizable behaviors
+[19, 24, 25], which suppress such
+outliers and thus remove the watermark.
+
+Our design fundamentally differs from this paradigm. We do not create
+behavioral exceptions; instead, we embed the watermark within the model’s
+existing reasoning behavior. Our approach proceeds as follows:
+
+- 1. 
+
+We first select a factual association [math] that the LLM
+already has a high probability of predicting correctly.
+
+- 2. 
+
+We then use ME techniques to slightly perturb the internal
+activation path corresponding to this prediction. Specifically, at
+model layer [math] , we align the hidden representation of the subject,
+ [math] , with a secret bit vector [math] .
+
+- 3. 
+
+The optimization objective (Equation 11) explicitly
+preserves the model’s final output, ensuring that the model remains rewarded
+for predicting the correct object [math] .
+
+As a result, the watermark becomes an integral part of the model’s correct
+reasoning path, rather than an anomalous behavior.
+By simultaneously considering [math] such factual associations, we can embed
+an [math] -bit signature into the model’s latent space, flexibly controlling both the
+protection capacity and the insertion overhead.
+An adversary attempting to fine-tune the model must retain the same factual
+association [math] (or multiple such associations) to preserve task
+fidelity, and in doing so, inadvertently retains the latent signature embedded
+within that reasoning path.
+
+In such cases, verification in the white-box setting can be performed by
+retrieving the hidden representations of specific anchor samples and comparing
+their cosine similarities with the corresponding bit vectors. In contrast,
+verification in the black-box setting becomes more challenging under this shift
+toward latent watermarking. The latent alignment introduced at layer [math] 
+propagates through the model, creating a subtle yet consistent statistical bias
+in the output logits. While this bias is too small to alter the [math] 
+prediction, it remains detectable through careful statistical analysis.
+
+Our black-box verification mechanism (Section IV-C) is specifically
+designed to detect this effect. By restricting attention to a small set of
+sentinel tokens and using a paired-difference estimation against a
+pre-recorded signature, we eliminate semantic noise and isolate the latent bias.
+The subsequent Bayesian reanchoring procedure (Section IV-C2)
+further tracks this bias under fine-tuning or distillation drift, enabling
+reliable recovery of the embedded signature even after substantial model
+modification.
+
+IV Detailed Methodology
+
+Fig. 2: The overall workflow of SEAL.
+
+IV-A Watermark Injection via Model Editing
+
+We insert an [math] -bit watermark into LLMs by leveraging ME techniques to align
+the latent representations of selected anchor samples with vectors that encode
+the corresponding bit information. Each anchor sample is assigned a watermark
+bit of either 0 or 1, and two orthogonal vectors are constructed to represent
+these bit values. A specific bit is then encoded through a controlled local
+update applied to the hidden representation of the chosen subject token
+within the anchor sample. The associated object remains unaffected by
+the update, which ensures that the model’s original functional behavior is
+preserved.
+
+Setup and Bit Allocation. For an [math] -bit watermark, we first
+sample [math] factual triplets as anchor samples:
+
+ [math] 
+
+(6)
+
+We then randomly assign a single bit [math] to each anchor
+sample, thereby encoding an [math] -bit watermark.
+
+For anchor triplet selection, we choose samples on which the model already
+demonstrates high prediction confidence. Specifically, a desired anchor
+triplet satisfies the condition [math] , where [math] 
+denotes the model to be watermarked and [math] is a predefined confidence
+threshold typically set close to 1 (e.g., 0.9). This selection promotes a more
+stable optimization process during watermark embedding, as the objective focuses
+on aligning the anchor representation with its corresponding bit vector rather
+than learning the underlying factual mapping itself. We clarify that this
+requirement on anchor samples does not make them less stealthy. In practice, an
+anchor sample can be constructed by fixing the subject and relation while
+sampling the most probable object from the model’s vocabulary.
+
+Bit Vector Construction. For each bit [math] , we generate two
+orthogonal unit vectors [math] representing the binary codes
+ [math] , respectively. We first initialize [math] and [math] as
+random vectors drawn from a standard normal distribution, and then orthogonalize
+them using the Gram–Schmidt process to ensure orthogonality. Specifically, let
+ [math] denote the hidden dimension corresponding to the hidden states of the
+inserted layer [math] .
+
+ [math] 
+
+(7)
+
+where [math] . Thus, encoding a bit [math] 
+into an LLM corresponds to aligning [math] with the hidden
+representation of the subject token of a specific anchor sample.
+
+Subject-Level Alignment via Model Editing. We proceed to align
+the hidden representation of each anchor sample with the corresponding bit
+vector. For each triplet [math] , we locate the hidden representation
+of the last subject token [math] at layer [math] . Instead of directly
+adding a fixed bit direction, we optimize an offset [math] such that the
+updated representation [math] is maximally correlated
+with its designated bit vector while remaining orthogonal to all other bit
+vectors through distributional matching. Meanwhile, the optimization is
+constrained to preserve the model’s original factual prediction, ensuring that
+the watermark injection does not alter the model’s behavior. We demonstrate the
+alignment process in Figure 2 (a).
+
+Bit-Space Construction. Inserting an [math] -bit
+watermark involves constructing [math] orthogonal bit vectors [math] , where each pair [math] represents the binary codes [math] for bit [math] . For the entire
+watermark sequence [math] , the [math] -th anchor sample is assigned
+the target bit [math] . We then transform the assigned [math] -th bit into a one-hot
+target vector [math] , defined as:
+
+ [math] 
+
+(8)
+
+where [math] stands for the [math] -th anchor sample being assigned with the
+ [math] -th bit vector.
+
+Alignment Optimization. We compute the cosine
+similarity between the updated embedding and all [math] bit vectors for the [math] -th
+anchor sample as
+
+ [math] 
+
+ [math] 
+
+(9)
+
+ [math] 
+
+ [math] 
+
+We then minimize the divergence between [math] and [math] :
+
+ [math] 
+
+ [math] 
+
+(10)
+
+ [math] 
+
+(11)
+
+where the first term preserves the model’s prediction. We guide the embedding’s
+cosine similarity distribution toward the one-hot bit assignment by minimizing
+the Kullback-Leibler (KL) divergence between [math] and [math] . Since the KL
+divergence primarily captures distributional differences, we strengthen the
+alignment by minimizing the mean squared error (MSE) between [math] and [math] .
+The hyperparameters [math] and [math] balance
+between these two objectives.
+
+Parameter Update. After obtaining the optimized
+offset [math] for all anchor samples, we compute their
+corresponding key embeddings [math] from the last subject tokens.
+Following the closed-form formulation of ME [35], the final
+parameter update [math] at layer  [math] is derived by solving the following
+linear system:
+
+ [math] 
+
+(12)
+
+where [math] approximates the
+covariance of preserved knowledge, and [math] controls the balance between
+preserving existing knowledge and encoding new bits. The closed-form solution is
+then
+
+ [math] 
+
+(13)
+
+Finally, the model parameters are updated as [math] ,
+where the watermark is encoded within the hidden representation
+subspace of the MLP modules.
+
+The updates can also be distributed across multiple candidate layers to further
+enhance robustness and minimize the overall impact on the model. This is
+achieved by sequentially updating all selected layers from shallow to deep. For
+each layer [math] in all candidate layers, we compute the corresponding update
+ [math] following Equation 13 by downscaling the
+optimized offset [math] in each layer with [math] , that is,
+ [math] , where [math] decreases with
+layer depth and equals [math] for the final layer [35]. We discuss
+the details of different layer selection strategies in
+Section VI-E. Overall, this global update embeds the optimized
+watermark bits into the model’s memory while maintaining high fidelity to its
+original functionality.
+
+IV-B White-Box Verification
+
+As shown in Figure 2 (b), we can directly inspect the
+hidden representations of the predefined anchor samples to verify the embedded
+watermark bits under white-box access.
+
+Direct Embedding Inspection.
+For each anchor sample [math] at the target layer [math] ,
+we extract the hidden representation of the last subject token, [math] ,
+and compute its cosine similarities with the two bit vectors
+ [math] representing the binary codes [math] :
+
+ [math] 
+
+(14)
+
+The recovered bit [math] is set to [math] if [math] ,
+and [math] otherwise. By performing this comparison across all anchor samples, we
+can recover the complete watermark bit sequence [math] .
+
+IV-C Black-Box Verification
+
+In the black-box setting, the defender has no access to the model’s internal
+parameters or hidden representations and can only query its output logits.
+To verify the embedded watermark under such constraints, we first examine how
+each bit vector influences the output logits after watermark insertion. The
+resulting logit pattern is then treated as a unique identifier for subsequent
+verification.
+
+Counteract with Adversaries. When the model is modified by
+fine-tuning, distillation, or other adversarial operations that aim to remove
+the watermark, the corresponding logit signatures may drift. To counteract this
+effect, we introduce a Bayesian reanchoring procedure that adaptively
+compensates for model drift and restores the alignment between the bit vectors
+and their reference signatures based on precomputed information before the
+watermarked model is deployed. Notice that we do not assume the defender has
+knowledge of the exact modification process applied to the model. Instead, we
+only assume access to a small set of reference triplets that are different from
+the anchor samples used during watermark insertion.
+
+We proceed to introduce the details of our black-box verification framework from
+three key components: (1) precomputed signatures before deployment,
+(2) Bayesian re-anchoring procedure to mitigate model drift, and
+(3) bit-wise logit comparison for final verification. We demonstrate the
+verification process in Figure 2 (c).
+
+IV-C1 Precomputed Bit Signatures
+
+Before deploying the watermarked model, we precompute the influence of each bit
+vector on the output logits to obtain its corresponding bit signature.
+These signatures act as practical approximations of the bit vectors in the logit
+space and can serve as reference points for subsequent black-box verification.
+To estimate the influence of each bit vector, we collect an auxiliary set of
+reference triplets [math] .
+For each bit vector [math] , we simulate the watermark insertion process by
+slightly perturbing the hidden state of the last subject token in
+ [math] using [math] , and then observe the induced changes
+in the output logits. Specifically, at the target layer [math] , the hidden state of
+the last subject token is perturbed as
+
+ [math] 
+
+(15)
+
+where [math] is a small scaling factor.
+The perturbed hidden state is then projected to the vocabulary logits by the
+rest part of the LLM [math] . The influence of [math] on the output logits
+is estimated by averaging the logit differences across all reference triplets:
+
+ [math] 
+
+(16)
+
+ [math] 
+
+(17)
+
+Here, the scaling factor [math] is set sufficiently small such that the
+perturbation lies within the locally linear regime of the logit mapping.
+Under this assumption, the change of output logits can be approximated by
+a linear response to the injected direction [math] , allowing us to estimate
+the influence of each bit vector as [math] .
+
+We then select a set of representative tokens that exhibit the highest logit
+responses with respect to [math] , referred to as the sentinel tokens,
+denoted by [math] .
+Their projection responses are recorded as
+
+ [math] 
+
+(18)
+
+where [math] denotes the logit of the [math] -th sentinel token for the
+bit vector [math] . Each [math] serves as a unique reference
+signature for the [math] -th bit within the logit space, providing a stable basis
+for black-box verification in later stages.
+
+IV-C2 Black-Box Bayesian Reanchoring
+
+An adversary’s attempt to remove the watermark through fine-tuning or
+knowledge distillation may cause the bit-vector direction [math] to drift,
+thereby shifting its projection on the sentinel logits.
+To correct this drift and recover the effective sentinel weights under the
+deployed model, we propose a Bayesian reanchoring procedure.
+This process first estimates the logit drift between the original watermarked
+model and the deployed model using the same set of reference triplets
+ [math] , and then infers the posterior change within the
+logit subspace to reconstruct the effective sentinel weights.
+
+Estimating Logit Drift.
+To estimate the logit drift, we first record the sentinel logits of the
+watermarked model [math] on the reference dataset
+ [math] :
+
+ [math] 
+
+(19)
+
+where [math] denotes the prompt-dependent semantic term.
+
+For the deployed model [math] , the defender can query it with the same
+dataset [math] and collect the logits restricted to the
+sentinel token set [math] :
+
+ [math] 
+
+(20)
+
+where [math] denotes the latent sentinel-weight
+vector.
+
+To eliminate the semantic component [math] , we compute the paired difference
+between the two models’ logits:
+
+ [math] 
+
+(21)
+
+which yields an unbiased estimate of the drift between the deployed and
+reference signatures. We summarize these samples via their empirical mean and
+covariance:
+
+ [math] 
+
+(22)
+
+which characterize the average drift and the variation within the sentinel logit
+subspace.
+
+Bayesian Reanchoring.
+To correct the observed logit drift and recover the effective sentinel weights
+under the deployed model, we perform Bayesian reanchoring based on the
+precomputed sentinel signatures.
+
+Assuming a Gaussian prior
+ [math] 
+and a Gaussian likelihood
+ [math] ,
+the posterior mean admits the closed-form solution:
+
+ [math] 
+
+(23)
+
+where [math] removes uniform offsets from
+the estimated directions. The resulting posterior mean [math] denotes the
+reanchored sentinel weights under the deployed model, effectively compensating
+for model drift. We leave the detailed derivation in the Appendix
+B.
+
+IV-C3 Bit-Wise Verification
+
+With reanchored sentinel weights [math] , we can verify the
+watermark by comparing the logit responses of the anchor samples to the
+reanchored sentinel weights.
+
+For each anchor sample [math] , we collect the sentinel logits of the
+subject token of [math] :
+
+ [math] 
+
+(24)
+
+We then compute inner products with the two weights:
+
+ [math] 
+
+(25)
+
+and determine the recovered bit [math] as [math] if [math] , and [math] 
+otherwise. Repeating this for all anchor samples yields the recovered bit
+sequence [math] .
+
+IV-D Security and Practicality Explanation
+
+IV-D1 Security Assumptions
+
+Following the above technical pipeline, we now summarize the security assumption
+and information visibility of SEAL. By clarifying these, we better explain its
+security strength, even in front of advanced, “knowledgeable” attackers (see
+below).
+
+Defender Side. The defender privately maintains the following
+information: (1) a set of [math] anchor samples [math] , which serve as secret semantic carriers for watermark
+embedding; (2) a corresponding set of [math] orthogonal bit vectors [math] that define the subspace encoding of each bit;
+and (3) for black-box verification purposes, notice a sentinel token set
+ [math] and reference dataset [math] for Bayesian
+reanchoring are generated prior to deployment; these are also kept secret.
+These elements collectively constitute the defender’s “secret key” and are
+neither disclosed nor inferable by adversaries.
+
+Public Information. The embedding and verification algorithms
+of SEAL, including the training objectives, loss functions, and reanchoring
+procedures, are public by design. However, adversaries do not have
+access to the exact anchor samples or bit vectors that define the encoded
+subspace.
+
+Adversary Knowledge. Although the SEAL procedure is publicly
+available, ordinary attackers do not have access to the
+specific configuration, such as the exact layers for watermark embedding. This
+is reasonable, as such implementation details are rarely disclosed in practice,
+and modern LLMs often have complex architectures with numerous layers, making
+exhaustive guessing impractical. Given that, we also consider more
+knowledgeable attackers who are aware of the general SEAL mechanism
+and may even infer the target layer used for watermark injection. This
+represents a realistic scenario in which adversaries can deduce partial
+implementation details from public information. Based on the results
+(Section VI-E), different layers manifest distinct support
+on watermarking effectiveness. Thus, we assume that knowledgeable, advanced
+attackers may identify certain layers that have a high chance of containing
+watermarks (e.g., those “deep” layers). We name these attackers as
+“knowledgeable attackers” and assess them in Section VII.
+
+IV-D2 Usage in Practice
+
+We now discuss using SEAL in practice for lineage identification, ownership
+verification, and model deployment.
+
+Lineage Identification. Model lineage is identified by
+comparing the cosine similarity between the recovered bit sequences of two
+models. A high similarity score indicates that the two models are derived from
+the same watermarked source, without requiring an exact bit-wise match.
+
+Ownership Verification. After recovering [math] using either white-box or black-box verification methods, the
+defender can compare [math] with the registered signature [math] and compute
+the bit error rate (BER) as
+
+ [math] 
+
+(26)
+
+Ownership is claimed when [math] , where [math] is a predefined
+verification threshold. A smaller [math] leads to a negligible false positive
+rate (FPR) in ownership claims, since the probability that a random watermark
+coincidentally matches the defender’s signature decreases exponentially
+with [math] . For example, when [math] , a 64-bit watermark yields an FPR of
+ [math] , which is practically zero for IP-related applications. Therefore, in
+IP protection scenarios (which are often high-stake and legally binding), we
+conservatively adopt an exact-match criterion (i.e., [math] ) to avoid
+ambiguity in ownership claims. Our experiments in
+Section VI-B demonstrate that SEAL achieves near-zero
+BER, enabling deterministic verification without relying on probabilistic
+thresholds.
+
+In practice, bit errors may occur due to statistical randomness or even hardware
+faults. To mitigate this, we further discuss incorporating error-correcting
+codes (ECC) [46, 47, 48] into the
+watermark encoding to tolerate minor bit corruption in
+Appendix C.
+
+Deploying SEAL. To deploy SEAL, the defender generates and
+stores [math] bit vectors and their corresponding anchor set for each model
+instance prior to release. This one-time cost is negligible compared to model
+pretraining or fine-tuning. During verification, SEAL only requires access to
+hidden representations (for white-box verification) or output logits (for
+black-box verification). Consequently, the framework is fully compatible with
+API-based verification, where access to model logits is commonly available in
+many LLM APIs [44, 45], and introduces minimal
+computational overhead.
+
+V Evaluation Setup and Configuration
+
+Evaluation Setup. We evaluate our method on six representative
+LLMs: LLaMA2-7B [3], LLaMA3-8B [4],
+Qwen2.5-7B [49],
+Qwen2.5-14B [49],
+Mistral-7B [50], and
+DeepSeek-Chat-7B [51]. To assess robustness, we consider five
+categories of model-level attacks that aim to remove the embedded watermark or
+disrupt fingerprint extraction: SFT [19],
+PEFT [24, 25],
+DT [26, 27, 28], QT [29, 30, 31], and MM [32, 33, 34].
+
+For SFT attacks, we perform full-parameter fine-tuning on two public
+instruction-following datasets, Alpaca [52] and
+UltraChat [53]. For PEFT attacks, we inject LoRA
+adapters into the model and fine-tune only the inserted low-rank parameters. For
+distillation attacks, we assume a setting where the watermark is injected into a
+student model while the adversary distills knowledge from a larger or fine-tuned
+teacher model into the watermarked student [54, 55, 56].
+
+Notice that, based on our experiments, modification on those deeper layers
+manifests poorer influence on the output logits. Thus, as a reasonable
+assumption, we consider attackers tend to target those “shallow” layers for
+modification to maximize the impact on model behavior. Hence, without loss of
+generality, for these attacks, we assume the attacker targets layers
+(5, 6, 7, 8, 9, 10) by default. We further discuss the impact of this assumption in
+Section VII.
+
+To simulate quantization, we apply symmetric per-tensor fake quantization, where
+each floating-point weight tensor is scaled by its maximum absolute value and
+projected onto a uniform [math] -bit integer grid before being dequantized back to
+floating point. We set [math] in all experiments [57].
+Finally, for model-merging attacks, we linearly interpolate the parameters of
+the watermarked model and its fine-tuned counterpart for the merged model
+ [math] where [math] in all experiments.
+
+Baseline Methods. We compare our approach against a
+comprehensive set of existing fingerprinting and watermarking methods. Among
+them, Gradient [58, 10], Huref [38],
+Reef [59], and
+PDF [60] require white-box
+access to the model parameters. In contrast, LLMMap [13],
+MET [11], SEF [10], and
+Trap [12] operate under the black-box setting,
+where only model outputs or logits are accessible. We further include
+backdoor-based watermarking baselines, namely SFP [61] and
+IF [19]. For IF, we evaluate two variants: IF-sft,
+which fine-tunes transformer layers using full-parameter SFT, and IF-emb, which
+fine-tunes only the embedding layer.
+
+TABLE II: Model lineage identification performance of SEAL and baselines under
+white-box and black-box settings across six LLMs. SEAL(W) and SEAL(B) denote
+the white-box and black-box variants.
+
+Model
+
+Metric
+
+White-box
+
+Black-box
+
+Gradient
+
+Huref
+
+Reef
+
+PDF
+
+SEAL(W)
+
+LLMMap
+
+MET
+
+SEF
+
+Trap
+
+SFP
+
+IF-sft
+
+IF-emb
+
+SEAL(B)
+
+LLaMA2-7B
+
+AUC [math] 
+
+0.53 [math] 0.01
+
+1.00 [math] 0.00
+
+1.00 [math] 0.02
+
+1.00 [math] 0.00
+
+1.00 [math] 0.00
+
+0.30 [math] 0.01
+
+0.47 [math] 0.01
+
+0.28 [math] 0.01
+
+0.44 [math] 0.03
+
+0.67 [math] 0.04
+
+0.50 [math] 0.00
+
+0.50 [math] 0.00
+
+1.00 [math] 0.00
+
+pAUC [math] 
+
+0.33 [math] 0.01
+
+1.00 [math] 0.00
+
+1.00 [math] 0.02
+
+1.00 [math] 0.00
+
+1.00 [math] 0.00
+
+0.17 [math] 0.01
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.33 [math] 0.01
+
+0.33 [math] 0.03
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+1.00 [math] 0.00
+
+MD [math] 
+
+0.25 [math] 0.03
+
+1.84 [math] 0.00
+
+1.91 [math] 0.06
+
+1.52 [math] 0.00
+
+1.92 [math] 0.01
+
+0.70 [math] 0.02
+
+0.87 [math] 0.04
+
+1.34 [math] 0.01
+
+1.41 [math] 0.07
+
+0.86 [math] 0.04
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+1.89 [math] 0.02
+
+Qwen2.5-7B
+
+AUC [math] 
+
+0.97 [math] 0.00
+
+1.00 [math] 0.00
+
+1.00 [math] 0.02
+
+1.00 [math] 0.00
+
+1.00 [math] 0.00
+
+0.67 [math] 0.02
+
+0.18 [math] 0.01
+
+0.67 [math] 0.03
+
+0.50 [math] 0.02
+
+0.50 [math] 0.02
+
+0.50 [math] 0.00
+
+0.50 [math] 0.00
+
+1.00 [math] 0.00
+
+pAUC [math] 
+
+0.83 [math] 0.01
+
+1.00 [math] 0.00
+
+1.00 [math] 0.01
+
+1.00 [math] 0.00
+
+1.00 [math] 0.00
+
+0.67 [math] 0.01
+
+0.00 [math] 0.00
+
+0.67 [math] 0.02
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+1.00 [math] 0.00
+
+MD [math] 
+
+1.54 [math] 0.02
+
+1.91 [math] 0.00
+
+1.71 [math] 0.05
+
+1.79 [math] 0.00
+
+1.92 [math] 0.02
+
+0.15 [math] 0.01
+
+1.34 [math] 0.03
+
+1.50 [math] 0.04
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+1.91 [math] 0.01
+
+LLaMA3-8B
+
+AUC [math] 
+
+0.94 [math] 0.02
+
+1.00 [math] 0.00
+
+1.00 [math] 0.02
+
+0.94 [math] 0.00
+
+1.00 [math] 0.00
+
+0.33 [math] 0.01
+
+0.67 [math] 0.02
+
+0.28 [math] 0.02
+
+0.33 [math] 0.02
+
+0.58 [math] 0.02
+
+0.50 [math] 0.00
+
+0.50 [math] 0.00
+
+1.00 [math] 0.00
+
+pAUC [math] 
+
+0.67 [math] 0.01
+
+1.00 [math] 0.00
+
+1.00 [math] 0.02
+
+0.67 [math] 0.00
+
+1.00 [math] 0.00
+
+0.33 [math] 0.02
+
+0.33 [math] 0.01
+
+0.00 [math] 0.00
+
+0.33 [math] 0.01
+
+0.17 [math] 0.01
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+1.00 [math] 0.00
+
+MD [math] 
+
+1.51 [math] 0.00
+
+1.90 [math] 0.00
+
+1.85 [math] 0.06
+
+1.52 [math] 0.00
+
+1.91 [math] 0.02
+
+0.58 [math] 0.03
+
+0.86 [math] 0.03
+
+1.43 [math] 0.03
+
+1.90 [math] 0.04
+
+0.58 [math] 0.03
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+1.92 [math] 0.01
+
+Mistral-7B
+
+AUC [math] 
+
+1.00 [math] 0.01
+
+1.00 [math] 0.00
+
+1.00 [math] 0.02
+
+1.00 [math] 0.00
+
+1.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.25 [math] 0.01
+
+0.00 [math] 0.00
+
+0.42 [math] 0.02
+
+0.58 [math] 0.02
+
+0.50 [math] 0.00
+
+0.50 [math] 0.00
+
+1.00 [math] 0.00
+
+pAUC [math] 
+
+1.00 [math] 0.00
+
+1.00 [math] 0.00
+
+1.00 [math] 0.01
+
+1.00 [math] 0.00
+
+1.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.17 [math] 0.02
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+1.00 [math] 0.00
+
+MD [math] 
+
+1.58 [math] 0.00
+
+1.91 [math] 0.00
+
+1.87 [math] 0.04
+
+1.76 [math] 0.00
+
+1.94 [math] 0.01
+
+1.55 [math] 0.01
+
+1.11 [math] 0.03
+
+1.90 [math] 0.02
+
+0.57 [math] 0.03
+
+0.58 [math] 0.04
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+1.90 [math] 0.00
+
+Deepseek-7B
+
+AUC [math] 
+
+0.80 [math] 0.01
+
+1.00 [math] 0.00
+
+1.00 [math] 0.02
+
+1.00 [math] 0.00
+
+1.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.28 [math] 0.01
+
+0.00 [math] 0.00
+
+0.50 [math] 0.03
+
+0.50 [math] 0.02
+
+0.50 [math] 0.00
+
+0.50 [math] 0.00
+
+1.00 [math] 0.00
+
+pAUC [math] 
+
+0.50 [math] 0.02
+
+1.00 [math] 0.00
+
+1.00 [math] 0.01
+
+1.00 [math] 0.00
+
+1.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+1.00 [math] 0.00
+
+MD [math] 
+
+0.97 [math] 0.00
+
+1.88 [math] 0.00
+
+1.91 [math] 0.07
+
+1.68 [math] 0.00
+
+1.91 [math] 0.01
+
+1.52 [math] 0.04
+
+1.55 [math] 0.03
+
+1.84 [math] 0.02
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+1.89 [math] 0.01
+
+Qwen2.5-14B
+
+AUC [math] 
+
+1.00 [math] 0.00
+
+1.00 [math] 0.00
+
+1.00 [math] 0.00
+
+1.00 [math] 0.00
+
+1.00 [math] 0.00
+
+0.31 [math] 0.02
+
+0.42 [math] 0.02
+
+0.50 [math] 0.03
+
+0.28 [math] 0.02
+
+0.50 [math] 0.01
+
+0.50 [math] 0.00
+
+0.50 [math] 0.00
+
+1.00 [math] 0.00
+
+pAUC [math] 
+
+1.00 [math] 0.01
+
+1.00 [math] 0.00
+
+1.00 [math] 0.00
+
+1.00 [math] 0.00
+
+1.00 [math] 0.00
+
+0.17 [math] 0.01
+
+0.00 [math] 0.00
+
+0.50 [math] 0.02
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+1.00 [math] 0.00
+
+MD [math] 
+
+1.53 [math] 0.02
+
+1.88 [math] 0.00
+
+1.90 [math] 0.00
+
+1.65 [math] 0.00
+
+1.92 [math] 0.01
+
+0.53 [math] 0.02
+
+0.58 [math] 0.02
+
+0.39 [math] 0.03
+
+1.42 [math] 0.03
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+1.89 [math] 0.00
+
+Evaluation Metrics. We first evaluate the effectiveness of
+identifying model lineage. For fair comparison with existing fingerprinting
+methods, we adopt the same evaluation metrics (AUC, pAUC, and MD) commonly used in prior literature
+[10]. A higher AUC, pAUC, or MD indicates stronger discriminative
+power. We refer to Appendix D for more details.
+We then compute these metrics for each model when
+compared against others, as summarized in Table X.
+
+To further evaluate the characteristics of our watermarking approach, we design
+the following metrics to assess the multi-bit watermarking capacity:
+
+- • 
+
+Bit Error Rate (BER). The proportion of incorrectly recovered
+bits relative to the originally embedded bits. Lower BER denotes more
+reliable watermark extraction. We report all BER values as percentages (%).
+
+- • 
+
+Bit Separability (BSE). The average gap between a watermarked
+bit vector’s similarity to its corresponding versus non-corresponding
+original bit vectors. Higher BSE implies stronger bit separability.
+
+- • 
+
+Bit Stability (BST). The standard deviation of the similarity
+scores between watermarked bits and their original counterparts across
+repeated extractions. Lower BST implies greater robustness and stability
+of the watermark.
+
+SEAL Settings. We embed multi-bit watermarks into the model
+and evaluate under both white-box and black-box settings. By
+default, each model is embedded with a [math] -bit watermark. We also extend the
+evaluation to different bit lengths, including 32, 64, 128, 256, 512, and
+1024 bits. For watermark embedding, we select samples from the
+CounterFact dataset [62]. Specifically, we select samples on
+which the model exhibits high prediction confidence, enabling a more stable
+optimization during watermark embedding. We further discuss this choice in
+Section VI-E.
+
+VI Evaluation
+
+We organize our evaluation around the following five research questions (RQs):
+RQ1: How effective is SEAL in identifying model lineage compared with
+existing methods? RQ2: How effective is SEAL in extracting watermarks
+under various attack behaviors? RQ3: How harmless is SEAL to the
+model’s original performance and utility? RQ4: How does SEAL perform in
+watermark extraction across different bit lengths, in terms of time efficiency
+and GPU usage? RQ5: How do different hyperparameter settings affect the
+effectiveness of SEAL in watermark extraction?
+
+VI-A RQ1: Model Lineage Identification
+
+We first evaluate the Effectiveness of SEAL in identifying
+derivative models from independent ones, in comparison with existing
+fingerprinting methods.
+
+SEAL Effectively Identifies Model Lineage Across Different
+LLMs. As summarized in Table II, SEAL consistently
+achieves superior performance in distinguishing derivative models from
+independent ones. Across all evaluation settings, SEAL attains perfect AUC and
+pAUC scores of 1.00, and also achieves the highest MD across all LLMs,
+indicating that the extracted features are highly separable for different model
+lineages. These results demonstrate that SEAL achieves state-of-the-art
+effectiveness in model lineage identification.
+
+SEAL Maintains High Lineage Identification Accuracy in Both
+White-Box and Black-Box Scenarios. As shown in Table II,
+SEAL remains highly effective in identifying model lineage even under the
+black-box setting, where only query access or output logits are available.
+Across all six LLMs, SEAL achieves perfect AUC and pAUC scores of 1.00 when
+distinguishing derivative models from independent ones. In contrast, most
+existing fingerprinting methods fail to effectively identify model lineage,
+performing close to random guessing with AUC values around 0.5. Similarly,
+backdoor-based watermarking methods such as SFP and IF also fail to maintain
+accuracy, as their injected backdoor behaviors are easily removed through
+fine-tuning, rendering their lineage identification capabilities fragile.
+
+In the white-box setting, where full model parameters are accessible, existing
+fingerprinting methods demonstrate promising performance in lineage
+identification. Among them, Huref, Reef, and PDF achieve near-perfect AUC and
+pAUC scores close to 1.00, while Gradient exhibits limited adaptability across
+different LLMs, achieving only 0.53 AUC in distinguishing derivative models of
+LLaMA2-7B from other independent models. Despite the competitive performance of
+these methods, SEAL consistently maintains perfect AUC and pAUC scores of 1.00,
+along with the highest MD across all LLMs, indicating superior separability
+between derivative and independent models.
+
+Overall, these results highlight SEAL’s superior effectiveness in model lineage
+identification, particularly under black-box conditions where existing methods
+fail to generalize or retain reliability.
+
+VI-B RQ2: Multi-Bit Watermark Extraction
+
+Existing fingerprinting and watermarking methods are usually limited to
+identifying model lineage or embedding a single-bit piece of information. This
+limitation constrains their applicability for sophisticated multi-bit ownership
+verification, which requires embedding and extracting multi-bit information. We
+therefore evaluate the Effectiveness of SEAL in extracting multi-bit
+watermarks under various attack scenarios.
+
+TABLE III: Multi-bit watermark extraction performance of SEAL under different attack behaviors. 
+
+Evaluation
+
+Bits
+
+Metrics
+
+No attack
+
+SFT
+
+PEFT
+
+DT
+
+QT
+
+MM
+
+White-box
+
+64
+
+BER [math] 
+
+0.06 [math] 1.25
+
+0.00 [math] 0.00
+
+0.63 [math] 1.25
+
+0.06 [math] 1.25
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+BSE [math] 
+
+0.04 [math] 0.09
+
+0.01 [math] 0.03
+
+0.03 [math] 0.09
+
+0.05 [math] 0.08
+
+0.05 [math] 0.10
+
+0.02 [math] 0.06
+
+BST [math] 
+
+0.76 [math] 0.05
+
+0.49 [math] 0.16
+
+0.67 [math] 0.03
+
+0.62 [math] 0.13
+
+0.72 [math] 0.05
+
+0.38 [math] 0.11
+
+128
+
+BER [math] 
+
+0.00 [math] 0.00
+
+0.52 [math] 1.36
+
+0.00 [math] 0.00
+
+0.07 [math] 0.21
+
+0.00 [math] 0.00
+
+0.95 [math] 0.42
+
+BSE [math] 
+
+0.02 [math] 0.06
+
+0.01 [math] 0.06
+
+0.02 [math] 0.07
+
+0.00 [math] 0.05
+
+0.03 [math] 0.09
+
+0.02 [math] 0.06
+
+BST [math] 
+
+0.75 [math] 0.05
+
+0.50 [math] 0.19
+
+0.68 [math] 0.02
+
+0.56 [math] 0.15
+
+0.72 [math] 0.05
+
+0.39 [math] 0.11
+
+256
+
+BER [math] 
+
+0.00 [math] 0.00
+
+0.15 [math] 0.27
+
+0.00 [math] 0.00
+
+0.10 [math] 0.17
+
+0.36 [math] 0.40
+
+0.39 [math] 0.55
+
+BSE [math] 
+
+0.02 [math] 0.02
+
+0.01 [math] 0.01
+
+0.02 [math] 0.01
+
+0.01 [math] 0.01
+
+0.04 [math] 0.01
+
+0.02 [math] 0.01
+
+BST [math] 
+
+0.75 [math] 0.06
+
+0.43 [math] 0.21
+
+0.60 [math] 0.12
+
+0.53 [math] 0.19
+
+0.68 [math] 0.03
+
+0.27 [math] 0.10
+
+512
+
+BER [math] 
+
+0.08 [math] 0.15
+
+0.16 [math] 0.09
+
+0.08 [math] 0.16
+
+0.12 [math] 0.16
+
+0.09 [math] 0.16
+
+0.15 [math] 0.25
+
+BSE [math] 
+
+0.02 [math] 0.02
+
+0.01 [math] 0.01
+
+0.02 [math] 0.03
+
+0.01 [math] 0.01
+
+0.01 [math] 0.03
+
+0.02 [math] 0.01
+
+BST [math] 
+
+0.75 [math] 0.04
+
+0.46 [math] 0.15
+
+0.64 [math] 0.07
+
+0.54 [math] 0.23
+
+0.70 [math] 0.03
+
+0.38 [math] 0.13
+
+Black-box
+
+64
+
+BER [math] 
+
+0.31 [math] 0.63
+
+1.03 [math] 1.52
+
+0.16 [math] 0.47
+
+1.09 [math] 2.80
+
+0.26 [math] 0.58
+
+2.08 [math] 4.00
+
+BSE [math] 
+
+0.02 [math] 0.01
+
+0.01 [math] 0.01
+
+0.01 [math] 0.01
+
+0.01 [math] 0.01
+
+0.00 [math] 0.00
+
+0.01 [math] 0.01
+
+BST [math] 
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+128
+
+BER [math] 
+
+0.00 [math] 0.00
+
+1.13 [math] 2.81
+
+0.08 [math] 0.23
+
+1.34 [math] 1.49
+
+0.16 [math] 0.31
+
+4.06 [math] 3.72
+
+BSE [math] 
+
+0.02 [math] 0.01
+
+0.01 [math] 0.01
+
+0.01 [math] 0.01
+
+0.02 [math] 0.01
+
+0.01 [math] 0.01
+
+0.01 [math] 0.01
+
+BST [math] 
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+256
+
+BER [math] 
+
+0.09 [math] 0.16
+
+1.51 [math] 3.95
+
+1.21 [math] 1.09
+
+1.53 [math] 2.17
+
+0.19 [math] 0.33
+
+4.10 [math] 2.35
+
+BSE [math] 
+
+0.01 [math] 0.00
+
+0.01 [math] 0.00
+
+0.02 [math] 0.01
+
+0.02 [math] 0.01
+
+0.01 [math] 0.01
+
+0.02 [math] 0.02
+
+BST [math] 
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.01 [math] 0.00
+
+0.01 [math] 0.01
+
+0.00 [math] 0.00
+
+0.01 [math] 0.00
+
+512
+
+BER [math] 
+
+0.04 [math] 0.08
+
+1.68 [math] 2.27
+
+1.26 [math] 1.21
+
+2.65 [math] 3.27
+
+0.24 [math] 0.25
+
+2.75 [math] 2.38
+
+BSE [math] 
+
+0.02 [math] 0.02
+
+0.02 [math] 0.01
+
+0.02 [math] 0.01
+
+0.02 [math] 0.02
+
+0.02 [math] 0.01
+
+0.02 [math] 0.02
+
+BST [math] 
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+0.00 [math] 0.00
+
+SEAL Effectively Extracts Multi-Bit Watermarks Under Various
+Attack Behaviors. As shown in Table III, SEAL effectively extracts
+watermarks of different bit lengths under all evaluated attack behaviors that
+attempt to remove the embedded signals. Across all attack methods and bit
+lengths, SEAL achieves an average BER of 0.69%. Specifically, under SFT
+attacks, the error rate of the extracted watermarks remains below 1.51% across
+all configurations. SEAL demonstrates even stronger robustness against PEFT
+attacks, where the maximum BER is 1.21% when extracting 256-bit watermarks in
+the black-box setting, while the BER in all other cases remains close to zero.
+This is because PEFT updates cause slight changes to the model’s parameters
+compared to SFT updates. Quantization attacks have a negligible effect on the
+alignment between anchor samples and their corresponding bit vectors, with the
+highest observed BER of only 0.39%. Among all evaluated attacks, model merging
+poses the greatest challenge to extraction accuracy, as it linearly averages the
+watermarked model with another model. Despite this, SEAL still successfully
+extracts the embedded watermark bits, achieving a maximum BER of only 4.10%
+when extracting 256-bit watermarks in the black-box setting. These results
+demonstrate SEAL’s strong robustness against all evaluated attacks while
+maintaining accurate and reliable multi-bit watermark extraction.
+
+SEAL Maintains Robustness in Both White-Box and Black-Box
+Scenarios. In Table III, SEAL achieves nearly perfect extraction
+accuracy across all evaluated attack types, with the highest BER being only
+0.95% in the white-box setting. In the black-box setting, attempts to remove
+the inserted watermarks are slightly more effective, but still fail to
+meaningfully affect the extraction accuracy. Under SFT attacks, SEAL attains an
+average BER of 0.17% in the white-box setting, while the average BER in the
+black-box setting increases slightly to 1.21%, which typically corresponds to
+only one or two incorrectly extracted bits out of a total of 128 or 256 bits.
+This minor increase in BER is expected, as the black-box setting provides only
+output logits, which are more sensitive to changes in model parameters.
+Nevertheless, SEAL demonstrates strong robustness against all evaluated attack
+types under both white-box and black-box conditions.
+
+Fig. 3: Scalability of SEAL in extracting multi-bit watermarks with
+increasing bit length under SFT attacks. We report the BER and the number of
+incorrectly extracted bits for each bit length.
+
+SEAL Supports Reliable Multi-Bit Watermark Extraction up to
+1024 Bits. We further examine the scalability of SEAL in extracting multi-bit
+watermarks with increasing bit length under SFT attacks. As shown in
+Fig. 3, SEAL can reliably embed and extract up to 1024
+watermark bits. Since SEAL achieves perfect extraction performance in the
+white-box setting, we focus our analysis on the black-box
+setting to evaluate scalability.
+
+As observed, the number of incorrectly extracted bits remains largely stable as
+the total number of embedded bits increases. Specifically, no errors occur for
+32-bit watermarks, while only one bit is extracted incorrectly when the total
+bit length increases to 64, 256, or 512. When extracting 1024 bits, the number
+of incorrectly extracted bits increases slightly to three. This results in an
+interesting trend in BER. It first increases to 1.56% at 64 bits and then
+decreases to 0.78% at 512 bits, as the number of incorrect bits remains
+nearly constant while the total embedded bits grow exponentially.
+
+These results demonstrate SEAL’s strong scalability and robustness under
+increased embedding capacity. While SEAL can theoretically support longer bit
+sequences, we limit our experiments to 1024 bits due to practical considerations
+in real-world watermark verification, where shorter bit lengths are typically
+sufficient for copyright attribution.
+
+VI-C RQ3: Fidelity of Injecting SEAL
+
+We further evaluate the Fidelity of SEAL to examine whether watermark
+injection degrades the model’s original performance. Specifically, we compare
+the unmodified model with its watermarked counterparts embedded with varying
+numbers of verification bits across 15 downstream tasks, which cover a broad
+range of language understanding capabilities, including:
+
+- • 
+
+General Knowledge and Reasoning:
+MMLU [63],
+BoolQ [64], Winogrande and WSC [65],
+COPA [66], PiQA [67],
+OpenBookQA [68] and ARC Challenge [69].
+
+- • 
+
+Sentence-level Understanding and Inference:
+SST-2 [70], CoLA [71],
+MRPC [72], RTE and
+NLI [70].
+
+- • 
+
+Lexical and Contextual Semantics:
+CB [73], WiC [74].
+
+We report the mean and standard deviation of performance for three
+representative LLMs: LLaMA2-7B, LLaMA3-8B, and DeepSeek-Chat-7B. To examine the
+effect of watermark injection at different bit lengths on the models’ original
+performance, we compare the baseline models with their SEAL-watermarked
+counterparts, with the number of injected bits ranging from 64 to 512.
+
+TABLE IV: Performance difference of injecting SEAL watermarks with different
+numbers of injected bits.
+
+Metric
+
+64 Bits
+
+128 Bits
+
+256 Bits
+
+512 Bits
+
+ARC
+
+0.008 [math] 0.002
+
+0.013 [math] 0.003
+
+0.029 [math] 0.002
+
+0.055 [math] 0.014
+
+BooLQ
+
+0.009 [math] 0.002
+
+0.010 [math] 0.003
+
+0.041 [math] 0.027
+
+0.041 [math] 0.008
+
+COPA
+
+0.010 [math] 0.000
+
+0.017 [math] 0.005
+
+0.017 [math] 0.005
+
+0.017 [math] 0.009
+
+MMLU
+
+0.045 [math] 0.023
+
+0.064 [math] 0.026
+
+0.049 [math] 0.017
+
+0.097 [math] 0.058
+
+O.B.QA
+
+0.007 [math] 0.005
+
+0.019 [math] 0.005
+
+0.015 [math] 0.010
+
+0.036 [math] 0.030
+
+PiQA
+
+0.005 [math] 0.003
+
+0.008 [math] 0.002
+
+0.013 [math] 0.004
+
+0.025 [math] 0.011
+
+Wino.
+
+0.004 [math] 0.003
+
+0.004 [math] 0.004
+
+0.013 [math] 0.003
+
+0.016 [math] 0.007
+
+WSC
+
+0.032 [math] 0.027
+
+0.022 [math] 0.032
+
+0.100 [math] 0.095
+
+0.151 [math] 0.045
+
+NLI
+
+0.024 [math] 0.021
+
+0.052 [math] 0.035
+
+0.069 [math] 0.052
+
+0.066 [math] 0.043
+
+RTE
+
+0.014 [math] 0.005
+
+0.042 [math] 0.017
+
+0.006 [math] 0.003
+
+0.048 [math] 0.018
+
+MRPC
+
+0.057 [math] 0.022
+
+0.091 [math] 0.002
+
+0.068 [math] 0.018
+
+0.064 [math] 0.040
+
+CoLA
+
+0.045 [math] 0.011
+
+0.040 [math] 0.023
+
+0.038 [math] 0.024
+
+0.124 [math] 0.016
+
+SST
+
+0.031 [math] 0.023
+
+0.079 [math] 0.097
+
+0.062 [math] 0.066
+
+0.039 [math] 0.025
+
+CB
+
+0.030 [math] 0.008
+
+0.012 [math] 0.008
+
+0.060 [math] 0.015
+
+0.074 [math] 0.037
+
+WiC
+
+0.009 [math] 0.008
+
+0.012 [math] 0.009
+
+0.013 [math] 0.009
+
+0.011 [math] 0.009
+
+Avg
+
+0.022 [math] 0.016
+
+0.032 [math] 0.027
+
+0.039 [math] 0.027
+
+0.058 [math] 0.039
+
+Injecting SEAL Preserves Model Performance.
+Table IV summarizes the performance differences between the
+watermarked models and their original counterparts. As shown, injecting SEAL
+watermarks has only a negligible impact on downstream performance across all
+tasks and models, with the maximum average deviation being 0.058 and nearly all
+task-wise differences below 0.1. In particular, when injecting 64-bit
+watermarks, the performance of the watermarked models on general knowledge and
+reasoning benchmarks remains almost identical to that of the original models.
+Among the eight evaluated tasks, only MMLU and WSC exhibit slightly larger
+differences (0.045 and 0.032, respectively), while all others show differences
+below 0.01. These results highlight the lightweight nature of the watermarking
+process based on model editing, which preserves the models’ original
+capabilities with only minimal performance variation.
+
+Aligning Anchor Samples with Bit Vectors Maintains
+Sentence-Level and Lexical Understanding Utility. As the process involves
+aligning the hidden representations of anchor samples with corresponding bit
+vectors, we examine whether injecting SEAL watermarks affects the models’
+sentence-level and lexical understanding capabilities. As shown in
+Table IV (Line 9-15), aligning anchor embeddings with
+specific bit vectors has only a minimal impact on both sentence-level and
+lexical understanding tasks. When injecting 64-bit watermarks, the performance
+differences across all evaluated benchmarks remain within 0.06, with the largest
+deviation observed on the MRPC task (0.057). These results further confirm that
+the alignment process is effectively harmless to the models’ original
+understanding capabilities.
+
+SEAL Maintains Model Utility Across Different Watermark
+Lengths. We further investigate whether increasing the number of injected
+watermark bits affects the models’ original performance. As shown in
+Table IV, although the average performance difference
+slightly increases with the watermark length, it causes negligible influence to
+the original models’ capabilities. Specifically, the average deviation rises
+modestly from 0.022 to 0.058 as the number of injected bits increases from 64 to
+512. This behavior is expected, since embedding longer bit sequences requires
+aligning more anchor samples with bit vectors, which may introduce minimal noise
+into the model representations. Nevertheless, even at 512 bits, the observed
+degradation is marginal, further confirming that SEAL effectively preserves
+model utility across different watermark capacities.
+
+VI-D RQ4: SEAL Efficiency
+
+We further evaluate the Efficiency of SEAL in terms of both runtime and
+memory usage, and compare it against existing watermarking and fingerprinting
+methods. For fair comparison, we first measure efficiency by inserting and
+verifying a 1-bit watermark, as prior methods are limited to carrying a single
+bit of information. We then analyze runtime scalability with respect to the
+number of embedded bits.
+
+TABLE V: Runtime comparison of watermark inserting and verification. “All”
+reports the total runtime (in seconds).
+
+Evaluation
+
+Methods
+
+Insertion
+
+Verification
+
+All
+
+White-box
+
+Gradient
+
+-
+
+28.25
+
+28.25
+
+Huref
+
+-
+
+62.94
+
+62.94
+
+Reef
+
+-
+
+13.94
+
+13.94
+
+SEAL(W)
+
+34.32
+
+0.027
+
+34.35
+
+Black-box
+
+Trap
+
+-
+
+3391.18
+
+3391.18
+
+MET
+
+-
+
+48.01
+
+48.01
+
+LLMMap
+
+-
+
+39.72
+
+39.72
+
+IF
+
+20.72
+
+18.80
+
+39.52
+
+SEAL(B)
+
+34.82
+
+1.129
+
+35.93
+
+SEAL is Efficient to Embed and Verify in Runtime. As shown in
+Table V, SEAL provides high runtime efficiency in both
+white-box and black-box settings. In the white-box case, SEAL completes
+insertion and verification in 34.35 seconds, which is comparable to Gradient and
+nearly [math] faster than Huref. Although Reef verifies faster (13.94
+seconds), it does not perform watermark insertion. Once embedded, SEAL verifies
+in only 0.027 seconds, nearly 500 [math] faster than Huref. In the black-box
+setting, SEAL also outperforms existing methods. It completes insertion and
+verification in 35.93 seconds, about 4 seconds faster than IF and LLMMap and 13
+seconds faster than MET, while Trap requires over 3000 seconds. Overall, SEAL
+offers a balanced, scalable, and low-latency runtime design across both access
+regimes.
+
+Fig. 4: Efficiency study of watermark insertion and verification for
+different bit lengths in runtime.
+
+We analyze SEAL’s runtime scalability with respect to the number of embedded
+bits. The pipeline is divided into four stages: (1) optimization of anchor-bit
+alignment, (2) insertion of parameter updates, (3) reanchoring of sentinel
+weights, and (4) extraction of watermark bits. Figure 4
+reports the runtime of each stage under both white-box and black-box settings.
+
+The insertion stage behaves similarly across settings, while extraction differs:
+black-box extraction operates on output logits, whereas white-box extraction
+directly reads latent representations. Reanchoring is required only in the
+black-box setting and adds modest overhead.
+
+SEAL is Scalable to Embed Multiple Bits.
+Figure 4 shows how SEAL’s runtime scales with watermark size.
+The anchor-bit optimization stage dominates the cost, accounting for over half
+of the total runtime (e.g., 188.11 seconds for a 64-bit watermark, compared to
+116.77 seconds for all other stages combined). This cost can be further reduced
+by performing optimization offline on batches of anchor candidates.
+
+The insertion stage scales near-sublinearly with the number of bits, and
+extraction is inexpensive (6.86 seconds and 13.12 seconds for a 256-bit
+watermark in white-box and black-box settings). The reanchoring stage, required
+only for black-box verification, adds overhead but remains far cheaper than
+optimization. Overall, SEAL provides efficient and scalable multi-bit embedding
+and verification.
+
+Fig. 5: GPU memory usage (GB) during watermark insertion and verification.
+
+SEAL Watermark is GPU-Efficient. As shown in
+Figure 5, SEAL requires only about 1.6 GB of GPU memory in both
+white- and black-box settings, which is comparable to Reef and Huref and far
+lower than Gradient (72 GB). In the black-box case, SEAL also remains at 1.6 GB,
+whereas methods such as Trap and IF consume up to 68 GB and 45 GB. These results
+show that SEAL offers fast embedding and verification with an extremely small
+GPU footprint, making it practical for real-world deployment.
+
+VI-E RQ5: Hyperparameter Analysis
+
+TABLE VI: Effectiveness of the reanchoring mechanism.
+
+Models
+
+Without Reanchoring
+
+With Reanchoring
+
+BER [math] 
+
+BSE [math] 
+
+BST [math] 
+
+BER [math] 
+
+BSE [math] 
+
+BST [math] 
+
+LLaMA2-7B
+
+6.250
+
+0.004
+
+0.003
+
+1.563
+
+0.005
+
+0.002
+
+LLaMA3-8B
+
+15.625
+
+0.007
+
+0.004
+
+1.563
+
+0.016
+
+0.007
+
+Qwen2.5-7B
+
+7.813
+
+0.004
+
+0.002
+
+0.000
+
+0.006
+
+0.001
+
+Mistral-7B
+
+4.688
+
+0.008
+
+0.005
+
+1.563
+
+0.010
+
+0.004
+
+Deepseek-7B
+
+10.938
+
+0.005
+
+0.001
+
+0.000
+
+0.007
+
+0.001
+
+Effectiveness of Black-Box Reanchoring.
+Table VI shows that reanchoring is crucial for accurate
+black-box extraction. Without it, BER ranges from 4.688% to 15.625% across
+LLMs. After reanchoring the sentinel weights, BER drops to 1.563% (one error in
+64 bits) or even 0.000%. Reanchoring also improves bit separability. For
+LLaMA3-8B, BSE increases from 0.007 to 0.016 (more than 2 [math] ). These
+results demonstrate that reanchoring restores the impact of bit vectors on
+output logits even after fine-tuning, enabling reliable black-box watermark
+recovery.
+
+TABLE VII: Impact of anchor-sample selection.
+
+Evaluation
+
+Selection
+
+Before SFT
+
+After SFT
+
+BER [math] 
+
+BSE [math] 
+
+BST [math] 
+
+BER [math] 
+
+BSE [math] 
+
+BST [math] 
+
+White-box
+
+High-confidence
+
+0.000
+
+0.058
+
+0.782
+
+0.000
+
+0.041
+
+0.376
+
+Low-confidence
+
+0.000
+
+0.036
+
+0.620
+
+0.000
+
+0.024
+
+0.263
+
+Random
+
+0.000
+
+0.036
+
+0.665
+
+0.000
+
+0.027
+
+0.273
+
+Black-box
+
+High-confidence
+
+0.000
+
+0.012
+
+0.002
+
+1.563
+
+0.005
+
+0.002
+
+Low-confidence
+
+0.000
+
+0.009
+
+0.002
+
+15.625
+
+0.003
+
+0.002
+
+Random
+
+0.000
+
+0.010
+
+0.002
+
+6.250
+
+0.003
+
+0.002
+
+Selecting High-Confidence Anchors Improves Watermark
+Robustness. To justify our choice of anchor samples for watermark embedding, we
+evaluate three strategies for selecting [math] triplets from the CounterFact dataset during SEAL injection.
+The high-confidence strategy selects samples whose objects already have
+the highest model-predicted probabilities; the low-confidence strategy
+selects those with the lowest probabilities. Random sampling serves as
+a reference.
+
+As shown in Table VII, using high-confidence samples yields the
+most reliable extraction under SFT in both white- and black-box settings. In the
+black-box case, this strategy attains a post-SFT BER of 1.563%, whereas
+low-confidence and random samples lead to much higher BERs (15.625% and
+6.250%). This supports using high-confidence samples as anchors, since
+low-confidence ones bias the optimization toward fitting target outputs rather
+than aligning latent embeddings with the bit vectors.
+
+TABLE VIII: Watermark extraction across insertion layers.
+
+Evaluation
+
+Insert Layers
+
+Before SFT
+
+After SFT
+
+BER [math] 
+
+BSE [math] 
+
+BST [math] 
+
+BER [math] 
+
+BSE [math] 
+
+BST [math] 
+
+white-box
+
+30
+
+0.000
+
+0.228
+
+0.750
+
+0.000
+
+0.181
+
+0.590
+
+15
+
+0.000
+
+0.035
+
+0.651
+
+0.000
+
+0.061
+
+0.605
+
+5
+
+0.000
+
+0.005
+
+0.639
+
+0.000
+
+0.003
+
+0.564
+
+28,29,30
+
+0.000
+
+0.008
+
+0.772
+
+1.563
+
+0.003
+
+0.484
+
+13,14,15
+
+0.000
+
+0.011
+
+0.694
+
+0.000
+
+0.013
+
+0.572
+
+3,4,5
+
+0.000
+
+0.007
+
+0.206
+
+0.000
+
+0.007
+
+0.193
+
+5,15,30
+
+0.000
+
+0.038
+
+0.782
+
+0.000
+
+0.021
+
+0.633
+
+black-box
+
+30
+
+0.000
+
+0.013
+
+0.002
+
+7.813
+
+0.006
+
+0.003
+
+15
+
+14.063
+
+0.005
+
+0.003
+
+32.813
+
+0.004
+
+0.003
+
+5
+
+35.938
+
+0.003
+
+0.002
+
+48.438
+
+0.002
+
+0.002
+
+28,29,30
+
+0.000
+
+0.011
+
+0.003
+
+4.688
+
+0.004
+
+0.003
+
+13,14,15
+
+23.438
+
+0.004
+
+0.003
+
+28.125
+
+0.003
+
+0.002
+
+3,4,5
+
+40.625
+
+0.001
+
+0.001
+
+45.313
+
+0.002
+
+0.001
+
+5,15,30
+
+0.000
+
+0.012
+
+0.002
+
+1.563
+
+0.005
+
+0.002
+
+Selecting Proper Insertion Layers Enhances Watermark
+Robustness. We examine how different configurations of insertion layers affect
+watermark extraction. We compare single-layer and multi-layer strategies by
+embedding SEAL into transformer layers at various depths, and evaluate watermark
+extraction performance before and after SFT.
+
+As shown in Table VIII, all configurations achieve perfect
+white-box extraction (BER [math] ) before SFT, with only minimal degradation
+afterward. In contrast, layer choice matters substantially in the black-box
+setting. Watermarks inserted into lower layers are far more fragile, yielding
+high BER even before SFT (e.g., 35.94% at layer (5) and 40.63% at (3,4,5)),
+whereas deeper layers such as (15) or (30) reduce BER to 14.06% and 0.00%.
+This is because black-box verification depends on the watermark’s influence on
+output logits, and lower-layer modifications have limited effect on the final
+output space.
+
+We also find that distributing watermark updates across multiple layers improves
+robustness to SFT. For instance, spreading updates across (28,29,30) or
+(13,14,15) yields post-SFT BERs of 4.69% and 28.13%, compared to 7.81% and
+14.06% with single-layer insertion. Combining layers at different depths
+provides the strongest resilience: inserting into (5,15,30) reduces post-SFT BER
+to 0.00%. This demonstrates that multi-layer, cross-depth embedding
+significantly enhances SEAL’s robustness under fine-tuning and black-box
+verification.
+
+VII Robustness to Knowledgeable Attackers
+
+We evaluate a strong, knowledgeable adversary who (i) knows the SEAL mechanism and
+the set of layers used for insertion and (ii) attempts to erase the watermark by
+fine-tuning only those layers.
+
+TABLE IX: Impact of insertion layer selection.
+
+Evaluation
+
+Attack Layers
+
+Before SFT
+
+After SFT
+
+BER [math] 
+
+BSE [math] 
+
+BST [math] 
+
+BER [math] 
+
+BSE [math] 
+
+BST [math] 
+
+white-box
+
+26,27,28,29,30
+
+0.000
+
+0.158
+
+0.775
+
+0.000
+
+0.133
+
+0.625
+
+11,12,13,14,15
+
+0.000
+
+0.037
+
+0.788
+
+0.000
+
+0.011
+
+0.449
+
+10,9,8,7,6,5
+
+0.000
+
+0.010
+
+0.787
+
+0.000
+
+0.002
+
+0.250
+
+5,15,30
+
+0.000
+
+0.187
+
+0.763
+
+0.000
+
+0.156
+
+0.636
+
+black-box
+
+26,27,28,29,30
+
+0.000
+
+0.011
+
+0.002
+
+0.000
+
+0.006
+
+0.002
+
+11,12,13,14,15
+
+0.000
+
+0.011
+
+0.002
+
+3.125
+
+0.004
+
+0.002
+
+10,9,8,7,6,5
+
+0.000
+
+0.011
+
+0.002
+
+1.563
+
+0.005
+
+0.002
+
+5,15,30
+
+0.000
+
+0.012
+
+0.002
+
+0.000
+
+0.006
+
+0.002
+
+Knowledgeable fine-tuning on known insertion layers does not remove
+SEAL. Table IX shows that BER remains zero in all white-box
+cases, indicating that targeted updates cannot eliminate the multi-bit signal
+when hidden states are available for verification. In the black-box setting, BER
+increases only slightly for a few layer groups (e.g., up to 3.125), while
+high-level or cross-depth insertions (e.g., [math] ) remain fully
+recoverable (BER [math] ).
+
+This robustness stems from two factors. First, SEAL distributes watermark
+information across semantic subspaces and multiple depths, making localized
+fine-tuning insufficient to remove the signal. Second, adversaries lack the
+defender’s secret anchor samples and optimization targets, so their fine-tuning
+cannot replicate the alignment required to erase the watermark without harming
+model utility. Thus, even knowing the insertion layers is insufficient: without
+access to the hidden anchors, no practical fine-tuning attack can reliably
+eliminate SEAL’s multi-bit watermark.
+
+VIII Conclusion
+
+We presented SEAL, a subspace-anchored watermarking framework that embeds
+multi-bit signatures into the latent space of LLMs without altering their
+behavior. By aligning factual anchor representations with orthogonal bit
+vectors, SEAL achieves functionally harmless and persistent watermarking
+resilient to various model modifications. It supports both white-box
+verification via hidden-state inspection and black-box verification via Bayesian
+reanchoring, which reliably recovers watermarks under model drift. Experiments
+show that SEAL achieves near-perfect lineage identification (AUC = 1.00) and
+very low bit-error rates ( [math] %) while maintaining model utility, making
+it a practical solution for LLM ownership protection.
+
+References
+
+- [1]
+J. Achiam, S. Adler, S. Agarwal, L. Ahmad, I. Akkaya, F. L. Aleman, D. Almeida, J. Altenschmidt, S. Altman, S. Anadkat, et al. (2023)
+
+Gpt-4 technical report.
+
+arXiv preprint arXiv:2303.08774.
+
+Cited by: §I.
+
+- [2]
+A. Research (2024)
+
+Model card addendum: claude 3.5 haiku and upgraded claude 3.5 sonnet.
+
+Technical report
+
+ Anthropic.
+
+Note: Technical Report
+
+External Links: Link
+
+Cited by: §I.
+
+- [3]
+H. Touvron, L. Martin, K. Stone, P. Albert, A. Almahairi, Y. Babaei, N. Bashlykov, S. Batra, P. Bhargava, S. Bhosale, et al. (2023)
+
+Llama 2: open foundation and fine-tuned chat models.
+
+arXiv preprint arXiv:2307.09288.
+
+Cited by: §I,
+§V.
+
+- [4]
+A. Dubey, A. Jauhri, A. Pandey, A. Kadian, A. Al-Dahle, A. Letman, A. Mathur, A. Schelten, A. Yang, A. Fan, et al. (2024)
+
+The llama 3 herd of models.
+
+arXiv e-prints, pp. arXiv–2407.
+
+Cited by: §I,
+§V.
+
+- [5]
+L. Ouyang, J. Wu, X. Jiang, D. Almeida, C. L. Wainwright, P. Mishkin, C. Zhang, S. Agarwal, K. Slama, A. Ray, J. Schulman, J. Hilton, F. Kelton, L. Miller, M. Simens, A. Askell, P. Welinder, P. Christiano, J. Leike, and R. Lowe (2022)
+
+Training language models to follow instructions with human feedback.
+
+In Proceedings of the 36th International Conference on Neural Information Processing Systems,
+
+NIPS ’22, Red Hook, NY, USA.
+
+External Links: ISBN 9781713871088
+
+Cited by: §I.
+
+- [6]
+P. F. Christiano, J. Leike, T. B. Brown, M. Martic, S. Legg, and D. Amodei (2017)
+
+Deep reinforcement learning from human preferences.
+
+In Proceedings of the 31st International Conference on Neural Information Processing Systems,
+
+NIPS’17, Red Hook, NY, USA, pp. 4302–4310.
+
+External Links: ISBN 9781510860964
+
+Cited by: §I.
+
+- [7]
+J. Kirchenbauer, J. Geiping, Y. Wen, J. Katz, I. Miers, and T. Goldstein (2023)
+
+A watermark for large language models.
+
+In International Conference on Machine Learning,
+
+pp. 17061–17084.
+
+Cited by: §I,
+§II-B,
+§II-B,
+TABLE I.
+
+- [8]
+S. Dathathri, A. See, S. Ghaisas, P. Huang, R. McAdam, J. Welbl, V. Bachani, A. Kaskasoli, R. Stanforth, T. Matejovicova, et al. (2024)
+
+Scalable watermarking for identifying large language model outputs.
+
+Nature 634 (8035), pp. 818–823.
+
+Cited by: §I,
+§II-B.
+
+- [9]
+R. Zhang, S. S. Hussain, P. Neekhara, and F. Koushanfar (2024)
+
+ [math] remark-LLM [math] : a robust and efficient watermarking framework for generative large language models.
+
+In 33rd USENIX Security Symposium (USENIX Security 24),
+
+pp. 1813–1830.
+
+Cited by: §I,
+§II-B.
+
+- [10]
+S. Shao, Y. Li, Y. He, H. Yao, W. Yang, D. Tao, and Z. Qin (2025)
+
+Sok: large language model copyright auditing via fingerprinting.
+
+arXiv preprint arXiv:2508.19843.
+
+Cited by: §I,
+§II-B,
+§III-A,
+§III-A,
+§V,
+§V.
+
+- [11]
+I. Gao, P. Liang, and C. Guestrin (2025)
+
+Model equality testing: which model is this api serving?.
+
+In International Conference on Learning Representations,
+
+Cited by: §I,
+§II-B,
+§V.
+
+- [12]
+M. Gubri, D. Ulmer, H. Lee, S. Yun, and S. J. Oh (2024)
+
+TRAP: targeted random adversarial prompt honeypot for black-box identification.
+
+In Findings of the Association for Computational Linguistics: ACL 2024, L. Ku, A. Martins, and V. Srikumar (Eds.),
+
+Bangkok, Thailand, pp. 11496–11517.
+
+External Links: Link,
+Document
+
+Cited by: §I,
+§II-B,
+§V.
+
+- [13]
+D. Pasquini, E. M. Kornaropoulos, and G. Ateniese (2025)
+
+LLMmap: fingerprinting for large language models.
+
+In Proceedings of the 34th USENIX Conference on Security Symposium,
+
+SEC ’25, USA.
+
+External Links: ISBN 978-1-939133-52-6
+
+Cited by: §I,
+§II-B,
+§II-B,
+TABLE I,
+§III-A,
+§V.
+
+- [14]
+B. Darvish Rouhani, H. Chen, and F. Koushanfar (2019)
+
+Deepsigns: an end-to-end watermarking framework for ownership protection of deep neural networks.
+
+In Proceedings of the twenty-fourth international conference on architectural support for programming languages and operating systems,
+
+pp. 485–497.
+
+Cited by: §I,
+§II-B.
+
+- [15]
+T. Wang and F. Kerschbaum (2021)
+
+Riga: covert and robust white-box watermarking of deep neural networks.
+
+In Proceedings of the web conference 2021,
+
+pp. 993–1004.
+
+Cited by: §I,
+§I,
+§II-B,
+§III-A.
+
+- [16]
+Q. Guo, X. Zhu, Y. Ma, H. Jin, Y. Wang, W. Zhang, and X. Guo (2025)
+
+Invariant-based robust weights watermark for large language models.
+
+External Links: 2507.08288,
+Link
+
+Cited by: §I,
+§I,
+§I,
+§II-B,
+§II-B,
+TABLE I.
+
+- [17]
+Y. Adi, C. Baum, M. Cisse, B. Pinkas, and J. Keshet (2018)
+
+Turning your weakness into a strength: watermarking deep neural networks by backdooring.
+
+In 27th USENIX security symposium (USENIX Security 18),
+
+pp. 1615–1631.
+
+Cited by: §I,
+§II-B.
+
+- [18]
+M. Russinovich and A. Salem (2024)
+
+Hey, that’s my model! introducing chain & hash, an llm fingerprinting technique.
+
+arXiv preprint arXiv:2407.10887.
+
+Cited by: §I,
+§II-B,
+§III-C.
+
+- [19]
+J. Xu, F. Wang, M. Ma, P. W. Koh, C. Xiao, and M. Chen (2024)
+
+Instructional fingerprinting of large language models.
+
+In Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers), K. Duh, H. Gomez, and S. Bethard (Eds.),
+
+Mexico City, Mexico, pp. 3277–3306.
+
+External Links: Link,
+Document
+
+Cited by: §I,
+§I,
+§I,
+§II-B,
+§II-B,
+TABLE I,
+§III-A,
+§III-A,
+§III-C,
+§V,
+§V.
+
+- [20]
+Z. Zhang, L. Lyu, X. Ma, C. Wang, and X. Sun (2022)
+
+Fine-mixing: mitigating backdoors in fine-tuned language models.
+
+In Findings of the Association for Computational Linguistics: EMNLP 2022, Y. Goldberg, Z. Kozareva, and Y. Zhang (Eds.),
+
+Abu Dhabi, United Arab Emirates, pp. 355–372.
+
+External Links: Link,
+Document
+
+Cited by: §I.
+
+- [21]
+P. Lv, H. Ma, K. Chen, J. Zhou, S. Zhang, R. Liang, S. Zhu, P. Li, and Y. Zhang (2024)
+
+MEA-defender: a robust watermark against model extraction attack.
+
+In 2024 IEEE Symposium on Security and Privacy (SP),
+
+pp. 2515–2533.
+
+Cited by: §I.
+
+- [22]
+K. Meng, D. Bau, A. Andonian, and Y. Belinkov (2022)
+
+Locating and editing factual associations in GPT.
+
+Advances in Neural Information Processing Systems 36.
+
+Note: arXiv:2202.05262
+
+Cited by: §I,
+§II-A.
+
+- [23]
+E. Mitchell, C. Lin, A. Bosselut, C. Finn, and C. D. Manning (2022)
+
+Fast model editing at scale.
+
+In International Conference on Learning Representations,
+
+External Links: Link
+
+Cited by: §I.
+
+- [24]
+E. J. Hu, Y. Shen, P. Wallis, Z. Allen-Zhu, Y. Li, S. Wang, L. Wang, W. Chen, et al. (2022)
+
+Lora: low-rank adaptation of large language models..
+
+ICLR 1 (2), pp. 3.
+
+Cited by: §I,
+§III-C,
+§V.
+
+- [25]
+S. Wang, L. Yu, and J. Li (2024)
+
+Lora-ga: low-rank adaptation with gradient approximation.
+
+Advances in Neural Information Processing Systems 37, pp. 54905–54931.
+
+Cited by: §I,
+§III-C,
+§V.
+
+- [26]
+Y. Gu, L. Dong, F. Wei, and M. Huang (2024)
+
+MiniLLM: knowledge distillation of large language models.
+
+External Links: 2306.08543,
+Link
+
+Cited by: §I,
+§V.
+
+- [27]
+H. Peng, X. Lv, Y. Bai, Z. Yao, J. Zhang, L. Hou, and J. Li (2025)
+
+Pre-training distillation for large language models: a design space exploration.
+
+In Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), W. Che, J. Nabende, E. Shutova, and M. T. Pilehvar (Eds.),
+
+Vienna, Austria, pp. 3603–3618.
+
+External Links: Link,
+Document,
+ISBN 979-8-89176-251-0
+
+Cited by: §I,
+§V.
+
+- [28]
+R. Zhang, J. Shen, T. Liu, H. Wang, Z. Qin, F. Han, J. Liu, S. Baumgartner, M. Bendersky, and C. Zhang (2024)
+
+PLaD: preference-based large language model distillation with pseudo-preference pairs.
+
+In Findings of the Association for Computational Linguistics: ACL 2024, L. Ku, A. Martins, and V. Srikumar (Eds.),
+
+Bangkok, Thailand, pp. 15623–15636.
+
+External Links: Link,
+Document
+
+Cited by: §I,
+§V.
+
+- [29]
+G. Xiao, J. Lin, M. Seznec, H. Wu, J. Demouth, and S. Han (2023)
+
+Smoothquant: accurate and efficient post-training quantization for large language models.
+
+In International conference on machine learning,
+
+pp. 38087–38099.
+
+Cited by: §I,
+§V.
+
+- [30]
+R. Banner, Y. Nahshan, and D. Soudry (2019)
+
+Post training 4-bit quantization of convolutional networks for rapid-deployment.
+
+Advances in neural information processing systems 32.
+
+Cited by: §I,
+§V.
+
+- [31]
+J. Lin, J. Tang, H. Tang, S. Yang, W. Chen, W. Wang, G. Xiao, X. Dang, C. Gan, and S. Han (2024)
+
+Awq: activation-aware weight quantization for on-device llm compression and acceleration.
+
+Proceedings of machine learning and systems 6, pp. 87–100.
+
+Cited by: §I,
+§V.
+
+- [32]
+E. Yang, L. Shen, G. Guo, X. Wang, X. Cao, J. Zhang, and D. Tao (2024)
+
+Model merging in llms, mllms, and beyond: methods, theories, applications and opportunities.
+
+arXiv preprint arXiv:2408.07666.
+
+Cited by: §I,
+§V.
+
+- [33]
+Y. Li, Y. Ma, S. Yan, C. Zhang, J. Liu, J. Lu, Z. Xu, M. Chen, M. Wang, S. Zhan, J. Ma, X. Lai, Y. Luo, X. Bin, H. Ren, M. Han, W. Hao, B. Yi, L. Liu, B. Ma, X. Jia, zhou Xun, liang xiang, and Y. Wu (2025)
+
+Model merging in pre-training of large language models.
+
+In The Thirty-ninth Annual Conference on Neural Information Processing Systems,
+
+External Links: Link
+
+Cited by: §I,
+§V.
+
+- [34]
+A. H. Nobari, K. Alim, A. ArjomandBigdeli, A. Srivastava, F. Ahmed, and N. Azizan (2025)
+
+Activation-informed merging of large language models.
+
+In The Thirty-ninth Annual Conference on Neural Information Processing Systems,
+
+External Links: Link
+
+Cited by: §I,
+§V.
+
+- [35]
+K. Meng, A. Sen Sharma, A. Andonian, Y. Belinkov, and D. Bau (2023)
+
+Mass editing memory in a transformer.
+
+The Eleventh International Conference on Learning Representations (ICLR).
+
+Cited by: §II-A,
+§II-A,
+§II-A,
+§II-A,
+§IV-A,
+§IV-A.
+
+- [36]
+Y. Dai, Z. Ji, Z. Li, and S. Wang (2025)
+
+EAMET: robust massive model editing via embedding alignment optimization.
+
+External Links: 2505.11876,
+Link
+
+Cited by: §II-A.
+
+- [37]
+M. Geva, R. Schuster, J. Berant, and O. Levy (2021)
+
+Transformer feed-forward layers are key-value memories.
+
+In Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing,
+
+pp. 5484–5495.
+
+Cited by: §II-A.
+
+- [38]
+B. Zeng, L. Wang, Y. Hu, Y. Xu, C. Zhou, X. Wang, Y. Yu, and Z. Lin (2024)
+
+Huref: human-readable fingerprint for large language models.
+
+Advances in Neural Information Processing Systems 37, pp. 126332–126362.
+
+Cited by: §II-B,
+§II-B,
+TABLE I,
+§V.
+
+- [39]
+R. Kuditipudi, J. Thickstun, T. Hashimoto, and P. Liang (2023)
+
+Robust distortion-free watermarks for language models.
+
+arXiv preprint arXiv:2307.15593.
+
+Cited by: §II-B.
+
+- [40]
+V. S. Sadasivan, A. Kumar, S. Balasubramanian, W. Wang, and S. Feizi (2023)
+
+Can ai-generated text be reliably detected?.
+
+arXiv preprint arXiv:2303.11156.
+
+Cited by: §II-B.
+
+- [41]
+A. Pegoraro, C. Segna, K. Kumari, and A. Sadeghi (2024)
+
+ [math] deepeclipse [math] : How to break [math] white-box [math] [math] dnn-watermarking [math] schemes.
+
+In 33rd USENIX Security Symposium (USENIX Security 24),
+
+pp. 5287–5304.
+
+Cited by: §III-A.
+
+- [42]
+H. Yao, J. Lou, Z. Qin, and K. Ren (2024)
+
+Promptcare: prompt copyright protection by watermark injection and verification.
+
+In 2024 IEEE Symposium on Security and Privacy (SP),
+
+pp. 845–861.
+
+Cited by: §III-A.
+
+- [43]
+Y. Yan, X. Pan, M. Zhang, and M. Yang (2023)
+
+Rethinking [math] white-box [math] watermarks on deep learning models under neural structural obfuscation.
+
+In 32nd USENIX Security Symposium (USENIX Security 23),
+
+pp. 2347–2364.
+
+Cited by: §III-A.
+
+- [44]
+J. Hills and S. Anadkat (2023)
+
+Using logprobs — openai cookbook.
+
+Note: https://cookbook.openai.com/examples/using_logprobsAccessed: 2025-11-10
+
+Cited by: §III-B,
+§IV-D2.
+
+- [45]
+Z. Li, D. Wu, S. Wang, and Z. Su (2025)
+
+Differentiation-based extraction of proprietary data from fine-tuned llms.
+
+External Links: 2506.17353,
+Link
+
+Cited by: §III-B,
+§IV-D2.
+
+- [46]
+R. W. Hamming (1950)
+
+Error detecting and error correcting codes.
+
+The Bell system technical journal 29 (2), pp. 147–160.
+
+Cited by: Appendix C,
+§IV-D2.
+
+- [47]
+R. C. Bose and D. K. Ray-Chaudhuri (1960)
+
+On a class of error correcting binary group codes.
+
+Information and control 3 (1), pp. 68–79.
+
+Cited by: Appendix C,
+§IV-D2.
+
+- [48]
+S. B. Wicker and V. K. Bhargava (1999)
+
+Reed-solomon codes and their applications.
+
+ John Wiley & Sons.
+
+Cited by: §IV-D2.
+
+- [49]
+Q. Team (2025)
+
+Qwen2.5 technical report.
+
+External Links: 2412.15115,
+Link
+
+Cited by: §V.
+
+- [50]
+M. Team (2023)
+
+Mistral 7b.
+
+External Links: 2310.06825,
+Link
+
+Cited by: §V.
+
+- [51]
+D. Team (2024)
+
+Deepseek-v3 technical report.
+
+arXiv preprint arXiv:2412.19437.
+
+Cited by: §V.
+
+- [52]
+R. Taori, I. Gulrajani, T. Zhang, Y. Dubois, X. Li, C. Guestrin, P. Liang, and T. B. Hashimoto (2023)
+
+Stanford alpaca: an instruction-following llama model.
+
+ Stanford, CA, USA.
+
+Cited by: §V.
+
+- [53]
+N. Ding, Y. Chen, B. Xu, Y. Qin, S. Hu, Z. Liu, M. Sun, and B. Zhou (2023)
+
+Enhancing chat language models by scaling high-quality instructional conversations.
+
+In Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing, H. Bouamor, J. Pino, and K. Bali (Eds.),
+
+Singapore, pp. 3029–3051.
+
+External Links: Link,
+Document
+
+Cited by: §V.
+
+- [54]
+Y. Jiang, C. Chan, M. Chen, and W. Wang (2023)
+
+Lion: adversarial distillation of proprietary large language models.
+
+In Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing, H. Bouamor, J. Pino, and K. Bali (Eds.),
+
+Singapore, pp. 3134–3154.
+
+External Links: Link,
+Document
+
+Cited by: §V.
+
+- [55]
+S. Zhang, X. Zhang, Z. Sun, Y. Chen, and J. Xu (2024)
+
+Dual-space knowledge distillation for large language models.
+
+In Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing, Y. Al-Onaizan, M. Bansal, and Y. Chen (Eds.),
+
+Miami, Florida, USA, pp. 18164–18181.
+
+External Links: Link,
+Document
+
+Cited by: §V.
+
+- [56]
+J. Li, S. Nag, H. Liu, X. Tang, S. M. Sarwar, L. Cui, H. Gu, S. Wang, Q. He, and J. Tang (2025)
+
+Learning with less: knowledge distillation from large language models via unlabeled data.
+
+In Findings of the Association for Computational Linguistics: NAACL 2025, L. Chiruzzo, A. Ritter, and L. Wang (Eds.),
+
+Albuquerque, New Mexico, pp. 2627–2641.
+
+External Links: Link,
+Document,
+ISBN 979-8-89176-195-7
+
+Cited by: §V.
+
+- [57]
+B. Jacob, S. Kligys, B. Chen, M. Zhu, M. Tang, A. Howard, H. Adam, and D. Kalenichenko (2018)
+
+Quantization and training of neural networks for efficient integer-arithmetic-only inference.
+
+In Proceedings of the IEEE conference on computer vision and pattern recognition,
+
+pp. 2704–2713.
+
+Cited by: §V.
+
+- [58]
+Z. Wu, Y. Zhao, and H. Wang (2025)
+
+Gradient-based model fingerprinting for llm similarity detection and family classification.
+
+arXiv preprint arXiv:2506.01631.
+
+Cited by: §V.
+
+- [59]
+J. Zhang, D. Liu, C. Qian, L. Zhang, Y. Liu, Y. Qiao, and J. Shao (2024)
+
+REEF: representation encoding fingerprints for large language models.
+
+External Links: 2410.14273,
+Link
+
+Cited by: §V.
+
+- [60]
+D. Yoon, M. Chun, T. Allen, H. Müller, M. Wang, and R. Sharma (2025)
+
+Intrinsic fingerprint of llms: continue training is not all you need to steal a model!.
+
+External Links: 2507.03014,
+Link
+
+Cited by: §V.
+
+- [61]
+A. Nasery, J. Hayase, C. Brooks, P. Sheng, H. Tyagi, P. Viswanath, and S. Oh (2025)
+
+Scalable fingerprinting of large language models.
+
+In The 1st Workshop on GenAI Watermarking,
+
+External Links: Link
+
+Cited by: §V.
+
+- [62]
+K. Meng, D. Bau, A. Andonian, and Y. Belinkov (2022)
+
+Locating and editing factual associations in gpt.
+
+In Proceedings of the 36th International Conference on Neural Information Processing Systems,
+
+NIPS ’22, Red Hook, NY, USA.
+
+External Links: ISBN 9781713871088
+
+Cited by: §V.
+
+- [63]
+D. Hendrycks, C. Burns, S. Basart, A. Zou, M. Mazeika, D. Song, and J. Steinhardt (2021)
+
+Measuring massive multitask language understanding.
+
+External Links: 2009.03300,
+Link
+
+Cited by: 1st item.
+
+- [64]
+C. Clark, K. Lee, M. Chang, T. Kwiatkowski, M. Collins, and K. Toutanova (2019)
+
+Boolq: exploring the surprising difficulty of natural yes/no questions.
+
+arXiv preprint arXiv:1905.10044.
+
+Cited by: 1st item.
+
+- [65]
+K. Sakaguchi, R. L. Bras, C. Bhagavatula, and Y. Choi (2021)
+
+Winogrande: an adversarial winograd schema challenge at scale.
+
+Communications of the ACM 64 (9), pp. 99–106.
+
+Cited by: 1st item.
+
+- [66]
+M. Roemmele, C. A. Bejan, and A. S. Gordon (2011)
+
+Choice of plausible alternatives: an evaluation of commonsense causal reasoning..
+
+In AAAI spring symposium: logical formalizations of commonsense reasoning,
+
+pp. 90–95.
+
+Cited by: 1st item.
+
+- [67]
+Y. Bisk, R. Zellers, J. Gao, Y. Choi, et al. (2020)
+
+Piqa: reasoning about physical commonsense in natural language.
+
+In Proceedings of the AAAI conference on artificial intelligence,
+
+Vol. 34, pp. 7432–7439.
+
+Cited by: 1st item.
+
+- [68]
+T. Mihaylov, P. Clark, T. Khot, and A. Sabharwal (2018)
+
+Can a suit of armor conduct electricity? a new dataset for open book question answering.
+
+arXiv preprint arXiv:1809.02789.
+
+Cited by: 1st item.
+
+- [69]
+P. Clark, I. Cowhey, O. Etzioni, T. Khot, A. Sabharwal, C. Schoenick, and O. Tafjord (2018)
+
+Think you have solved question answering? try arc, the ai2 reasoning challenge.
+
+arXiv preprint arXiv:1803.05457.
+
+Cited by: 1st item.
+
+- [70]
+A. Wang, A. Singh, J. Michael, F. Hill, O. Levy, and S. R. Bowman (2018)
+
+GLUE: a multi-task benchmark and analysis platform for natural language understanding.
+
+arXiv preprint arXiv:1804.07461.
+
+Cited by: 2nd item.
+
+- [71]
+A. Warstadt, A. Singh, and S. R. Bowman (2019)
+
+Neural network acceptability judgments.
+
+Transactions of the Association for Computational Linguistics 7, pp. 625–641.
+
+External Links: Link,
+Document
+
+Cited by: 2nd item.
+
+- [72]
+W. B. Dolan and C. Brockett (2005)
+
+Automatically constructing a corpus of sentential paraphrases.
+
+In Proceedings of the Third International Workshop on Paraphrasing (IWP2005),
+
+External Links: Link
+
+Cited by: 2nd item.
+
+- [73]
+M. De Marneffe, M. Simons, and J. Tonhauser (2019)
+
+The commitmentbank: investigating projection in naturally occurring discourse.
+
+In proceedings of Sinn und Bedeutung,
+
+Vol. 23, pp. 107–124.
+
+Cited by: 3rd item.
+
+- [74]
+M. T. Pilehvar and J. Camacho-Collados (2018)
+
+WiC: the word-in-context dataset for evaluating context-sensitive meaning representations.
+
+arXiv preprint arXiv:1808.09121.
+
+Cited by: 3rd item.
+
+Appendix A Comparison Pool
+
+We list the comparison pool used for model lineage identification in Table X.
+
+TABLE X: Comparison pool used for model lineage identification. Each column
+represents a target model, and each row lists the candidate models evaluated for
+determining whether they are derivatives of the corresponding target model.
+
+LLaMA2-7B
+
+Qwen2.5-7B
+
+LLaMA3-8B
+
+Mistral-7B
+
+Deepseek-7B
+
+Qwen2.5-14B
+
+LLaMA2-7B (PEFT) - alpaca
+
+Qwen2.5-7B (PEFT) - alpaca
+
+LLaMA3-8B (PEFT) - alpaca
+
+Mistral-7B (PEFT) - alpaca
+
+Deepseek-7B (PEFT) - alpaca
+
+qwen-14b (PEFT) - alpaca
+
+LLaMA2-7B (PEFT) - shareGPT
+
+Qwen2.5-7B (PEFT) - shareGPT
+
+LLaMA3-8B (PEFT) - shareGPT
+
+Mistral-7B (PEFT) - shareGPT
+
+Deepseek-7B (PEFT) - shareGPT
+
+qwen-14b (PEFT) - shareGPT
+
+LLaMA2-7B (SFT) - alpaca
+
+Qwen2.5-7B (SFT) - alpaca
+
+LLaMA3-8B (SFT) - alpaca
+
+Mistral-7B (SFT) - alpaca
+
+Deepseek-7B (SFT) - alpaca
+
+qwen-14b (SFT) - alpaca
+
+LLaMA2-7B (SFT) - shareGPT
+
+Qwen2.5-7B (SFT) - shareGPT
+
+LLaMA3-8B (SFT) - shareGPT
+
+Mistral-7B (SFT) - shareGPT
+
+Deepseek-7B (SFT) - shareGPT
+
+qwen-14b (SFT) - shareGPT
+
+LLaMA2-7B (DT) - LLaMA
+
+Qwen2.5-7B (DT) - alpaca
+
+LLaMA3-8B (DT) - alpaca
+
+Mistral-7B (DT) - alpaca
+
+Deepseek-7B (DT) - alpaca
+
+qwen-14b (DT) - alpaca
+
+LLaMA2-7B (DT) - shareGPT
+
+Qwen2.5-7B (DT) - shareGPT
+
+LLaMA3-8B (DT) - shareGPT
+
+Mistral-7B (DT) - shareGPT
+
+Deepseek-7B (DT) - shareGPT
+
+qwen-14b (DT) - shareGPT
+
+Qwen2.5-7B
+
+LLaMA2-7B
+
+Qwen2.5-7B
+
+Qwen2.5-7B
+
+Qwen2.5-7B
+
+Qwen2.5-7B
+
+LLaMA3-8B
+
+LLaMA3-8B
+
+LLaMA2-7B
+
+LLaMA3-8B
+
+LLaMA3-8B
+
+LLaMA3-8B
+
+LLaMA2-13B
+
+LLaMA2-13B
+
+LLaMA2-13B
+
+LLaMA2-13B
+
+LLaMA2-13B
+
+LLaMA2-13B
+
+Mistral-7B
+
+Mistral-7B
+
+Mistral-7B
+
+LLaMA2-7B
+
+Mistral-7B
+
+Mistral-7B
+
+Deepseek-7B
+
+Deepseek-7B
+
+Deepseek-7B
+
+Deepseek-7B
+
+LLaMA2-7B
+
+Deepseek-7B
+
+Gemma-7B
+
+Gemma-7B
+
+Gemma-7B
+
+Gemma-7B
+
+Gemma-7B
+
+Gemma-7B
+
+Appendix B Derivation of Bayesian Reanchoring
+
+We derive the closed-form posterior mean used in our Bayesian reanchoring
+procedure in Equation 23, under standard Gaussian
+assumptions.
+
+Problem Setup.
+Let [math] denote the unknown sentinel projection vector under the
+current (potentially fine-tuned) model.
+We assume access to:
+
+- • 
+
+A prior estimate [math] computed during the white-box stage.
+
+- • 
+
+A sample mean drift [math] estimated from paired logit
+differences [math] across
+ [math] reference prompts.
+
+Our goal is to infer the most likely value of [math] given the observed drift
+ [math] .
+
+Bayesian Formulation.
+We place the following Gaussian prior on [math] :
+
+ [math] 
+
+(27)
+
+and model the likelihood of the observed logit shift as:
+
+ [math] 
+
+(28)
+
+which reflects the assumption that the empirical drift [math] is a noisy
+observation of the true shift [math] .
+
+Applying Bayes’ rule, the posterior is proportional to:
+
+ [math] 
+
+(29)
+
+Taking the negative log-posterior (up to constants), we obtain the following
+objective:
+
+ [math] 
+
+ [math] 
+
+ [math] 
+
+(30)
+
+Closed-Form Solution (MAP).
+Expanding the quadratic terms and minimizing [math] yields the maximum
+a posteriori (MAP) estimate:
+
+ [math] 
+
+(31)
+
+Solving for [math] gives:
+
+ [math] 
+
+(32)
+
+To remove uniform offsets (which do not affect verification), we apply a
+zero-mean projection:
+
+ [math] 
+
+(33)
+
+and express the final reanchored vector as:
+
+ [math] 
+
+(34)
+
+which is the form used in Equation 23.
+
+Appendix C Error Correction Coding (ECC) for Enhanced Reliability
+
+Although SEAL already achieves high watermark extraction accuracy
+under both white-box and black-box settings, further reliability can be achieved
+by integrating ECC into the bit-level representation. Specifically, each [math] -bit
+watermark segment can be encoded into an [math] -bit ECC codeword (e.g., using
+Hamming [46] or BCH codes [47]), which allows
+the verifier to correct a small number of bit flips during extraction. We
+anticipate that, this design is particularly beneficial under noisy or partially
+compromised conditions, where quantization, model merging, or low-bit retrieval
+may induce minor bit errors.
+
+Notice that integrating ECC does not change SEAL’s embedding procedure or
+security assumptions. The encoder simply maps the original watermark bits into a
+redundant but error-tolerant format before optimization, and the verifier
+applies standard ECC decoding upon recovery. In practice, a lightweight [math] 
+configuration such as [math] provides strong correction capability with
+less than 2 [math] bit overhead, while maintaining the same optimization cost
+and watermark invisibility. This enhancement ensures that SEAL remains
+verifiable even when a small portion of the embedded bits are perturbed, further
+improving robustness against extreme post-deployment model transformations.
+
+Appendix D Details of Evaluation Metrics for Lineage Identification
+
+We introduce the details of the evaluation metrics used in evaluating the
+effectiveness of model lineage identification.
+
+- • 
+
+Area Under the ROC Curve (AUC). This metric quantifies the
+overall capability of distinguishing between derivative and
+independent models. A higher AUC indicates stronger discriminative
+power.
+
+- • 
+
+Partial AUC (pAUC). This metric measures the performance
+under a low false positive rate (FPR) regime, typically in the range [math] , focusing on the method’s robustness against false positives.
+
+- • 
+
+Mahalanobis Distance (MD). This metric computes the mean
+distance between the derived score distributions of derivative and
+independent models. A higher MD reflects better separation between model
+lineages.
+
+ 
+ Experimental support, please
+ view the build logs
+ for errors. Generated by
+ 
+ 
+ L
+ A
+ T
+ E
+ 
+ xml
+ 
+ .
+ 
+ 
+ 
+
+Instructions for reporting errors
+
+ 
+
+We are continuing to improve HTML versions of papers, and your feedback helps enhance accessibility and mobile
+ support. To report errors in the HTML that will help us improve conversion and rendering, choose any of the
+ methods listed below:
+
+ 
+ 
+- Click the "Report Issue" (
+ 
+
+ ) button, located in the page header.
+
+ 
+ 
+
+Tip: You can select the relevant text first, to include it in your report.
+
+ 
+
+Our team has already identified the following issues. We appreciate your time reviewing and reporting rendering errors we
+ may not have found yet. Your efforts will help us improve the HTML versions for all readers, because disability
+ should not be a barrier to accessing research. Thank you for your continued support in championing open access for
+ all.
+
+ 
+
+Have a free development cycle? Help support accessibility at arXiv! Our collaborators at LaTeXML maintain a list of packages that need conversion, and welcome developer contributions.
+
+ 
+
+ 
+ 
+ 
+ We gratefully acknowledge support from
+ our major funders,
+ member institutions, ,
+ and all contributors.
+ 
+ 
+ About
+ &middot;
+ Help
+ &middot;
+ Contact
+ &middot;
+ Subscribe
+ &middot;
+ Copyright
+ &middot;
+ Privacy
+ &middot;
+ Accessibility
+ &middot;
+ Operational Status (opens in new tab)
+ 
+ 
+
+ 
+ Major funding support from

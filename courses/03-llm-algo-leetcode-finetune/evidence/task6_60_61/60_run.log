@@ -1,0 +1,14 @@
+=== Task60 LoRA Project | CPU-first ===
+host=LAPTOP-K5HQA0TQ Windows-10-10.0.19045-SP0 python=3.10.2
+PASS test_lora_project_template
+audit: {'total_samples': 2, 'empty_response_count': 0, 'duplicate_count': 0, 'over_length_count': 0, 'avg_total_chars': 32.0} (0.004ms)
+mask: {'total_tokens': 4, 'non_padding_tokens': 3, 'supervised_tokens': 2, 'padding_supervised_tokens': 0, 'supervised_ratio': 0.6667} (0.006ms)
+config: {'base_model': 'tiny-llama', 'target_modules': ['q_proj', 'v_proj'], 'rank': 8, 'alpha': 16, 'dropout': 0.05, 'learning_rate': 0.0002, 'micro_batch_size': 2, 'accum_steps': 4, 'effective_batch_size': 8, 'scheduler': 'wsd-cosine'}
+hidden=4096, rank=8 -> trainable=65,536, full=16,777,216, ratio=0.3906%
+hidden=4096, rank=16 -> trainable=131,072, full=16,777,216, ratio=0.7812%
+hidden=8192, rank=16 -> trainable=262,144, full=67,108,864, ratio=0.3906%
+summary: {'param_reduction': 0.9, 'peak_mem_delta_mb': 256.0, 'step_time_delta_ms': -2.0, 'final_train_loss_delta': 0.02, 'final_val_loss_delta': 0.02}
+readiness: {'ready': True, 'issues': []}
+decision: {'decision': 'accept', 'reason': '参数节省达标，验证集损失可接受，交付检查通过，可以保留当前 LoRA 配置。'}
+total_wall=65.1ms; saved to 打卡材料\task6_60_61
+DONE 60
