@@ -1,0 +1,54 @@
+{
+  "A_100tok": {
+    "molecular_gpt": {
+      "median_s": 0.0364,
+      "mean_s": 0.0364,
+      "min_s": 0.0361,
+      "repeats": 20,
+      "smiles_example": "c1cc(CO)n2nnnH]n(-c3ccccc1)C1",
+      "smiles_len": 29
+    },
+    "molecular_gpt_cuDNN": {
+      "median_s": 0.0365,
+      "mean_s": 0.0364,
+      "min_s": 0.0363,
+      "repeats": 20,
+      "smiles_example": "c1cc(CO)n2nnnH]n(-c3ccccc1)C1",
+      "smiles_len": 29
+    },
+    "molecular_gpt_KVCache": {
+      "median_s": 0.0322,
+      "mean_s": 0.0322,
+      "min_s": 0.0321,
+      "repeats": 20,
+      "smiles_example": "c1cc(CO)n2nnnH]n(-c3ccccc1)C1",
+      "smiles_len": 29
+    }
+  },
+  "B_500tok": {
+    "molecular_gpt": {
+      "median_s": 0.0363,
+      "mean_s": 0.0364,
+      "min_s": 0.0363,
+      "repeats": 10,
+      "smiles_example": "c1cc(CO)n2nnnH]n(-c3ccccc1)C1",
+      "smiles_len": 29
+    },
+    "molecular_gpt_cuDNN": {
+      "median_s": 0.0364,
+      "mean_s": 0.0364,
+      "min_s": 0.0363,
+      "repeats": 10,
+      "smiles_example": "c1cc(CO)n2nnnH]n(-c3ccccc1)C1",
+      "smiles_len": 29
+    },
+    "molecular_gpt_KVCache": {
+      "median_s": 0.0322,
+      "mean_s": 0.0322,
+      "min_s": 0.0321,
+      "repeats": 10,
+      "smiles_example": "c1cc(CO)n2nnnH]n(-c3ccccc1)C1",
+      "smiles_len": 29
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "B_forced200": {
+    "molecular_gpt": {
+      "median_s": 0.2883,
+      "min_s": 0.288,
+      "repeats": 5
+    },
+    "molecular_gpt_cuDNN": {
+      "median_s": 0.2892,
+      "min_s": 0.2892,
+      "repeats": 5
+    },
+    "molecular_gpt_KVCache": {
+      "median_s": 0.2522,
+      "min_s": 0.2519,
+      "repeats": 5
+    }
+  },
+  "C_batch": {
+    "serial_32x": {
+      "median_s": 8.055,
+      "mol_per_s": 4.0
+    },
+    "batch32_1x": {
+      "median_s": 0.251,
+      "mol_per_s": 127.4
+    },
+    "speedup": 32.08
+  }
+}
