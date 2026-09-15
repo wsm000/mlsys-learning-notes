@@ -1,0 +1,26 @@
+CJK font: Noto Sans CJK JP
+Testing MHA (Multi-Head Attention)...
+Testing GQA (Grouped-Query Attention)...
+Testing KV Cache Autoregressive Decoding...
+  与 torch SDPA 因果注意力最大误差 = 0.000e+00
+[PASS] Part02 04节 · GroupedQueryAttention 解答版测试 (MHA/GQA/KV Cache)  kv_cache shape (2, 4, 6, 32), 与 SDPA 最大误差 0.0e+00
+  KV cache MHA (64 KV heads)  = 32768.0 B/token/layer (32.00 KB)
+  KV cache GQA (8 KV heads)   =  4096.0 B/token/layer (4.00 KB)
+  KV cache MQA (1 KV head)    =   512.0 B/token/layer (0.50 KB)
+  KV cache MLA (latent 576)   =  1152.0 B/token/layer (1.12 KB)
+  LLaMA-3-8B GQA KV cache @   4096 tokens =    0.500 GiB
+  LLaMA-3-8B GQA KV cache @   8192 tokens =    1.000 GiB
+  LLaMA-3-8B GQA KV cache @  32768 tokens =    4.000 GiB
+  LLaMA-3-8B GQA KV cache @ 131072 tokens =   16.000 GiB
+[PASS] KV Cache 账本: 8K 上下文 LLaMA-3-8B 全层缓存真机占用  实测 1.000 GiB vs 理论 1.000 GiB
+  tile= 64 -> 1D tiles= 64, score tiles=4096, tile=8.0KB, ratio=4096x
+  tile=128 -> 1D tiles= 32, score tiles=1024, tile=32.0KB, ratio=1024x
+  tile=256 -> 1D tiles= 16, score tiles= 256, tile=128.0KB, ratio=256x
+[PASS] 14节 · Q1/Q2/Q3 分块与 online softmax 显存模型测试  
+  S=  512 naive peak     36.0 MiB | SDPA peak      4.1 MiB | 8.9x | maxdiff 7.812e-03
+  S= 1024 naive peak    136.0 MiB | SDPA peak      8.1 MiB | 16.7x | maxdiff 4.883e-03
+  S= 2048 naive peak    528.0 MiB | SDPA peak     16.3 MiB | 32.5x | maxdiff 3.906e-03
+  S= 4096 naive peak   2080.0 MiB | SDPA peak     32.5 MiB | 64.0x | maxdiff 5.859e-03
+[PASS] 真机 attention 峰值: 标准实现 O(N^2) vs SDPA(FlashAttention) O(N)  S=4096 时 64.0x 峰值差距
+saved: /home/simin/task1_llm_algo/task1_43_runshot.png
+ALL_TESTS_PASS

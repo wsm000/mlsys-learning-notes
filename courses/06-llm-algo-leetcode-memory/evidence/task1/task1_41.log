@@ -1,0 +1,37 @@
+CJK font: Noto Sans CJK JP
+GPU: NVIDIA GeForce RTX 4090 D 23.5 GiB · SMs: 114 · torch 2.9.1+cu128
+[PASS] 01节 · Q1/Q2/Q3 账本函数测试 (权重/训练状态/量化节省)  
+  GPU tensor 4096x4096 FP32      =     64.0 MiB
+  GPU tensor 4096x4096 BF16      =     32.0 MiB
+  GPU tensor 4096x4096 FP16      =     32.0 MiB
+  GPU tensor 4096x4096 FP8 E4M3  =     16.0 MiB
+[PASS] 01节 · GPU 实机 dtype 张量占用 (4096x4096)  FP32/FP16 = 2.00x
+[PASS] 02节 · Q1/Q2 参数量与训练 FLOPs 函数测试  
+LLaMA-7B 结构参数量 = 6.738 B (embedding 131.07M / attn 2147.48M / ffn 4328.52M / ln 0.26M / head 131.07M)
+  BF16  8192^3 ->   141.9 TFLOPS
+  FP32  4096^3 ->    48.3 TFLOPS
+  TF32  4096^3 ->    66.5 TFLOPS
+[PASS] 02节 · Q3/Q4 真机 GEMM 吞吐与教学 MFU  BF16 MFU = 85.9% (峰值 165.2 TFLOPS)
+[PASS] 06节 · Q1/Q2 DDP 与 ZeRO-1/2/3 账本测试  
+framework baseline = 8.13 MiB
+TinyGPT P = 52.03 M params (vocab=32000 d=512 L=6, B=8 S=256)
+  measured params      =     200.4 MiB
+  measured grads       =     214.6 MiB
+  measured grads_exact =     198.5 MiB
+  measured workspace   =      16.1 MiB
+  measured opt_state   =     400.1 MiB
+  measured steady      =     815.1 MiB
+  measured peak_fwd    =    1065.3 MiB
+  measured peak_bwd    =    1315.3 MiB
+  measured peak_step   =    1315.3 MiB
+  theory   params     =     198.5 MiB
+  theory   grads      =     198.5 MiB
+  theory   opt_state  =     396.9 MiB
+  theory   steady     =     793.9 MiB
+[PASS] 06节 · 真机训练 step 四段账本 (参数/梯度/优化器状态/激活峰值)  梯度偏差 0.0% / 优化器状态偏差 0.8% (相对 4Φ / 8Φ)
+  8x80GB DDP     7B(bp16+Adam) = 112.00 GB/card
+  8x80GB ZeRO-1  7B(bp16+Adam) =  38.50 GB/card
+  8x80GB ZeRO-2  7B(bp16+Adam) =  26.25 GB/card
+  8x80GB ZeRO-3  7B(bp16+Adam) =  14.00 GB/card
+saved: /home/simin/task1_llm_algo/task1_41_runshot.png
+ALL_TESTS_PASS

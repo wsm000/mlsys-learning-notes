@@ -1,0 +1,14 @@
+CJK font: Noto Sans CJK JP
+[PASS] 03节 · Q1/Q2/Q3 内存层级与 Attention/FlashAttention 显存测试  
+[PASS] 12节 · Q1/Q2 存储量与 GEMM FLOPs 测试  
+  FP32 (无 TF32)         49.7 TFLOPS  (峰值 83 -> 利用率 60.2%)
+  FP16 TensorCore      142.9 TFLOPS  (峰值 165 -> 利用率 86.5%)
+  TF32 (FP32+截断)        64.6 TFLOPS  (峰值 83 -> 利用率 78.3%)
+  BF16 TensorCore      141.6 TFLOPS  (峰值 165 -> 利用率 85.7%)
+[PASS] 真机 GEMM: FP32/TF32/FP16/BF16 吞吐对照  FP16/FP32 = 2.9x, TF32/FP32 = 1.3x
+  HBM copy 实测 940.7 GB/s / 规格 1008 GB/s = 93.3%
+[PASS] 真机 HBM 带宽 (读+写) 与规格对照  941 GB/s
+  fp16(70000)=inf  bf16(70000)=70144.0
+[PASS] 数值范围实测: FP16 上溢 vs BF16 保持  fp16 max 65504 -> inf; bf16 保范围, 末位精度 0.206%
+saved: /home/simin/task1_llm_algo/task1_42_runshot.png
+ALL_TESTS_PASS
