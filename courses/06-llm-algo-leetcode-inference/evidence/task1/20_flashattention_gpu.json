@@ -1,0 +1,41 @@
+{
+  "schema_version": "attention-gpu-experiment/v1",
+  "experiment": "20_flashattention_sim",
+  "config": {
+    "dtype": "torch.bfloat16",
+    "batch_size": 1,
+    "num_heads": 8,
+    "seq_len": 4096,
+    "head_dim": 64,
+    "causal": true,
+    "warmup": 5,
+    "iters": 20,
+    "seed": 42
+  },
+  "environment": {
+    "device": "NVIDIA GeForce RTX 4090 D",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "python": "3.10.12"
+  },
+  "results": [
+    {
+      "implementation": "naive",
+      "latency_ms": 3.153,
+      "peak_allocated_mb": 556.12,
+      "peak_reserved_mb": 808.0,
+      "status": "ok",
+      "max_error": 0.0078125
+    },
+    {
+      "implementation": "SDPA",
+      "latency_ms": 0.234,
+      "peak_allocated_mb": 32.25,
+      "peak_reserved_mb": 810.0,
+      "status": "ok",
+      "max_error": 0.0078125
+    }
+  ],
+  "evidence_level": "single_gpu_fixed_workload_comparison",
+  "note": "naive 与 SDPA 的对照不能直接命名为 FlashAttention-3/4；稳定结论需要重复运行。"
+}

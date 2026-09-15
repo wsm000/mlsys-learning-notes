@@ -1,0 +1,131 @@
+{
+  "schema_version": "task1-prefill-scaling/v1",
+  "config": {
+    "dtype": "torch.bfloat16",
+    "batch": 1,
+    "heads": 8,
+    "head_dim": 64,
+    "causal": true,
+    "warmup": 5,
+    "iters": 20,
+    "seq_lens": [
+      512,
+      1024,
+      2048,
+      4096,
+      8192,
+      16384
+    ]
+  },
+  "environment": {
+    "device": "NVIDIA GeForce RTX 4090 D",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "python": "3.10.12"
+  },
+  "rows": [
+    {
+      "seq_len": 512,
+      "score_matrix_mb_theory": 4.0,
+      "naive": {
+        "latency_ms": 0.162,
+        "peak_allocated_mb": 18.88,
+        "status": "ok"
+      },
+      "sdpa": {
+        "latency_ms": 0.034,
+        "peak_allocated_mb": 13.17,
+        "status": "ok"
+      },
+      "max_abs_error": 0.015625,
+      "speedup": 4.76,
+      "peak_mem_ratio": 1.43
+    },
+    {
+      "seq_len": 1024,
+      "score_matrix_mb_theory": 16.0,
+      "naive": {
+        "latency_ms": 0.176,
+        "peak_allocated_mb": 46.62,
+        "status": "ok"
+      },
+      "sdpa": {
+        "latency_ms": 0.044,
+        "peak_allocated_mb": 22.28,
+        "status": "ok"
+      },
+      "max_abs_error": 0.015625,
+      "speedup": 4.0,
+      "peak_mem_ratio": 2.09
+    },
+    {
+      "seq_len": 2048,
+      "score_matrix_mb_theory": 64.0,
+      "naive": {
+        "latency_ms": 0.778,
+        "peak_allocated_mb": 151.12,
+        "status": "ok"
+      },
+      "sdpa": {
+        "latency_ms": 0.137,
+        "peak_allocated_mb": 20.19,
+        "status": "ok"
+      },
+      "max_abs_error": 0.015625,
+      "speedup": 5.68,
+      "peak_mem_ratio": 7.48
+    },
+    {
+      "seq_len": 4096,
+      "score_matrix_mb_theory": 256.0,
+      "naive": {
+        "latency_ms": 3.378,
+        "peak_allocated_mb": 558.12,
+        "status": "ok"
+      },
+      "sdpa": {
+        "latency_ms": 0.288,
+        "peak_allocated_mb": 32.25,
+        "status": "ok"
+      },
+      "max_abs_error": 0.015625,
+      "speedup": 11.73,
+      "peak_mem_ratio": 17.31
+    },
+    {
+      "seq_len": 8192,
+      "score_matrix_mb_theory": 1024.0,
+      "naive": {
+        "latency_ms": 12.58,
+        "peak_allocated_mb": 2164.12,
+        "status": "ok"
+      },
+      "sdpa": {
+        "latency_ms": 0.753,
+        "peak_allocated_mb": 56.38,
+        "status": "ok"
+      },
+      "max_abs_error": 0.015625,
+      "speedup": 16.71,
+      "peak_mem_ratio": 38.38
+    },
+    {
+      "seq_len": 16384,
+      "score_matrix_mb_theory": 4096.0,
+      "naive": {
+        "latency_ms": 55.132,
+        "peak_allocated_mb": 8544.12,
+        "status": "ok"
+      },
+      "sdpa": {
+        "latency_ms": 2.385,
+        "peak_allocated_mb": 104.63,
+        "status": "ok"
+      },
+      "max_abs_error": 0.015625,
+      "speedup": 23.12,
+      "peak_mem_ratio": 81.66
+    }
+  ],
+  "note": "单卡固定 workload 的单次测量；naive 与 SDPA 采用同一批输入，误差来自 bf16 归约顺序。"
+}
