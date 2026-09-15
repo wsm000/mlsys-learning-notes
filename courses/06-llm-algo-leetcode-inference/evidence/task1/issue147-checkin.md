@@ -39,7 +39,7 @@ GitHub ID：wsm000
 
 **Part 02 · 20 CPU 运行截图**（补全 TODO 1–6 + causal 扩展后跑通全部测试）：
 
-![Part 02 · 20 CPU 运行结果](task1_20_flashattention_runshot.png)
+![Part 02 · 20 CPU 运行结果](https://raw.githubusercontent.com/wsm000/mlsys-learning-notes/main/courses/06-llm-algo-leetcode-inference/evidence/task1/task1_20_flashattention_runshot.png)
 
 ```
 [seq=8, dim=4, block=2] 最大误差: 1.192093e-07
@@ -82,6 +82,6 @@ causal mask、float64（atol 1e-10）、大 score 数值稳定性、`block_size<
 
 我用 Part 02 · 34 做了验证：补全并通过 `PrefixCacheManager`（TODO 1–8），`match_prefix([1,2,3,9])=3`、`match_prefix([1,2,0])=0`（不是从开头连续命中），`cache_stats([1,2,3,9])={hit:3, uncached:1, reuse_ratio:0.75}`，`chunked_suffix_prefill_plan([1,2,3,9,10])=[(9,10)]`（只对未命中 suffix 切块）；34 节可选 GPU 探针（合成张量，suffix 32768 / hidden 2048 / fp16）显示**一次性申请峰值 256 MB vs chunk_size=512 分块后 4 MB**。
 
-![34 节 Prefix Cache 与 Chunked Prefill 运行结果](https://github.com/wsm000/mlsys-learning-notes/blob/main/courses/06-llm-algo-leetcode-inference/evidence/task1/task1_34_prefix_cache_runshot.png)
+![34 节 Prefix Cache 与 Chunked Prefill 运行结果](https://raw.githubusercontent.com/wsm000/mlsys-learning-notes/main/courses/06-llm-algo-leetcode-inference/evidence/task1/task1_34_prefix_cache_runshot.png)
 
 证据边界：34 节的探针是合成张量的容量对比，不代表真实 prefill kernel 或端到端 TTFT；20 节的 CPU 模拟只验证数值等价。真实收益仍要回到统一口径测量——固定 prompt length 与 generated tokens，看 prompt length 增长时 TTFT 如何变化、prefill_share 是否高于 decode，再决定候选动作是 FlashAttention、chunked prefill 还是 prefix cache。
