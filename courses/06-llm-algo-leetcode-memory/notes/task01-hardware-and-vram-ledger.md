@@ -409,6 +409,30 @@ Transformer 是整体架构（Embedding → N × Block → LM head），**Attent
 
 **判据**：先问"峰值被谁占住"——被 $S^2$ 占住（长序列 attention）就先上 FA-backward，它顺手把时间也赚回来；被 $O(N\cdot d)$ 的逐层激活占住（MLP 宽、层数多、batch 大）就得整块 checkpointing；两者叠加才是这套配置的完整答案。
 
+### 7. FA 之后剩下的峰值是谁：$O(N\cdot V)$ 的 logits 家族（与 attention 无关）
+
+用 FA-backward 把 $S^2$ 拿掉之后，同配置峰值仍有 1.5–1.8 GB。逐个关掉可疑项做消融（B=1, S=4096, d=512, H=8, ffn=1376, L=4, V=32000）：
+
+| 消融 | 整步峰值 | 变化 |
+|---|---|---|
+| full（V=32000, L=4, 含 MLP） | 1957 MiB | — |
+| V 32000 → 1000 | 465 MiB | −1492（同时少掉 31.9M 参数的常驻/梯度/Adam，故仅作参考） |
+| L 4 → 1 | 1645 MiB | 每层斜率 ≈ **104 MiB/层** |
+| 去掉 MLP | 1696 MiB | MLP 部分 ≈ 261 MiB |
+| manual CE（`log_softmax` 自己材料化） | 2199 MiB | **+242 MiB**（多一份 $S\times V$） |
+
+为排除参数量干扰，再做**参数完全不变**的干净对照——只把 cross-entropy 改成按序列分块：
+
+| CE 方式 | 整步峰值 | step ms |
+|---|---|---|
+| full CE：`logits [B,S,V]` 一次物化 | 1535.0 MiB | 19.5 |
+| chunked CE，每块 1024 token | 1225.9 MiB（**−309.1**） | 20.0（+0.4） |
+| chunked CE，每块 512 token | 1132.1 MiB（**−402.8**） | 19.6（+0.1） |
+
+**结论**：剩下的峰值主力是 **$O(N\cdot V)$ 的 logits 家族**——logits 本身、cross-entropy 的中间量、反向的 `dlogits`，每个 $S\times V$ 张量在 bf16 下就是 **250 MiB**（B=1, S=4096, V=32000），三项合计理论上限 750 MiB，实测可回收 300–400 MiB，代价只有 0.1–0.4 ms。
+
+这条正是 §5 逐张量账里那句提醒的实证：**词表一大，logits 就是被忽略的大户**。它也说明账本必须"每次重新测谁最大"——短序列时大头是 $S^2$（attention），长序列 + 大词表时大头迁移到 $N\cdot V$（LM head），两者靠完全不同的手段（FA / chunked CE），而且**第二种几乎不花时间**。
+
 ---
 
 ## 实验证据
@@ -423,7 +447,8 @@ Transformer 是整体架构（Embedding → N × Block → LM head），**Attent
 | `evidence/task1/task1_probe_fusion.log` | 融合阶梯 A–E、S² 回收与带宽反推、tile 调参扫描、训练态 A/B/D 对照 |
 | `code/task1_shot_41.py` / `42` / `43` | 可复跑脚本（教程函数复跑 + 真机实测 + 自动出图） |
 | `evidence/task1/task1_probe_recompute.log` | 重算粒度对照：FA-backward vs 整块 checkpointing 的峰值/步时（0.37×/0.33× 与 0.47×/1.29×，叠加 0.29×/0.38×） |
-| `code/task1_probe_granular.py` / `task1_probe_fusion.py` / `task1_probe_recompute.py` | 颗粒度补测脚本（字节账 + 融合实验 + 训练态与重算粒度对照，含 Triton 内核） |
+| `evidence/task1/task1_probe_ablate.log` · `task1_probe_chunked_ce.log` | 峰值归因消融：每层斜率 104 MiB/层、MLP 261 MiB、manual CE +242 MiB；参数不变时 chunked CE 回收 309–403 MiB，代价 0.1–0.4 ms |
+| `code/task1_probe_granular.py` / `task1_probe_fusion.py` / `task1_probe_recompute.py` / `task1_probe_ablate.py` / `task1_probe_chunked_ce.py` | 颗粒度补测脚本（字节账 + 融合实验 + 训练态/重算粒度对照 + 峰值归因消融，含 Triton 内核） |
 | `code/task1_common.py` | 出图公共组件（中文字体、页眉、卡片） |
 
 复跑方式（vm-60 上已装 torch 2.9.1+cu128）：
@@ -435,6 +460,8 @@ python3 task1_shot_43.py   # 4.3 增项2：Part02 04 节测试 + KV Cache / Flas
 python3 task1_probe_granular.py  # 颗粒度：逐张量字节账 + 算子间搬运 + 不可预测项
 python3 task1_probe_fusion.py    # 融合阶梯（含 Triton 内核）+ tile 调参 + 训练态对照
 python3 task1_probe_recompute.py # 重算粒度：FA-backward vs 整块 checkpointing 四组合
+python3 task1_probe_ablate.py    # 峰值归因消融（每层/MLP/logits 各项）
+python3 task1_probe_chunked_ce.py # 参数不变的干净对照：chunked CE 回收多少
 ```
 
 ## 一句话总结

@@ -1,0 +1,14 @@
+GPU: NVIDIA GeForce RTX 4090 D | B=1 S=4096 V=32000 L=4
+单项 O(N*V) 张量 = S*V*2B = 250 MiB
+
+参数完全相同，只改 CE 的物化方式：
+   full CE: logits [B,S,V] 一次物化       peak   1535.0 MiB   step    19.5 ms
+   chunked CE: 每块 1024 token          peak   1225.9 MiB   step    20.0 ms
+   chunked CE: 每块 512 token           peak   1132.1 MiB   step    19.6 ms
+
+结论数据：
+   full -> chunk1024 : 峰值 -309.1 MiB, 时间 +0.4 ms
+   full -> chunk512  : 峰值 -402.8 MiB, 时间 +0.1 ms
+   O(N*V) 三项(logits/CE中间/dlogits) 理论 750 MiB
+
+PROBE_CHUNK_DONE

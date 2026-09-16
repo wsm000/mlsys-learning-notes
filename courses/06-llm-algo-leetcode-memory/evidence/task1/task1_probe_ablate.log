@@ -1,0 +1,16 @@
+GPU: NVIDIA GeForce RTX 4090 D
+
+消融结果 (FA-backward, 不重算):
+   full: V=32000, L=4, 含 MLP, fused CE    P= 45.43M  参数+梯度 190 MiB | Adam 347 MiB | forward峰值 1457 | 整步峰值 1957
+   V 32000 -> 1000 (只动 logits/CE)         P= 13.68M  参数+梯度 53 MiB | Adam 105 MiB | forward峰值 450 | 整步峰值 465
+   L 4 -> 1 (看单层斜率)                       P= 35.93M  参数+梯度 137 MiB | Adam 274 MiB | forward峰值 1145 | 整步峰值 1645
+   去掉 MLP (只留 attention)                  P= 36.97M  参数+梯度 141 MiB | Adam 282 MiB | forward峰值 1196 | 整步峰值 1696
+   manual CE(log_softmax 材料化)             P= 45.43M  参数+梯度 173 MiB | Adam 347 MiB | forward峰值 1699 | 整步峰值 2199
+
+差额归因:
+   logits + CE 相关        :   1491.9 MiB  (V=32000 与 V=1000 之差)
+   每层贡献 (attention+MLP):    104.1 MiB/层 (L=4 与 L=1 之差 / 3)
+   MLP 部分                :    261.4 MiB  (含 MLP 与不含之差)
+   manual CE 额外材料化    :    242.0 MiB
+
+PROBE_ABLATE_DONE
