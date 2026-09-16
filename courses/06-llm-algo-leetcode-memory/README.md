@@ -61,7 +61,8 @@
 |---|---|
 | [notes/task01-hardware-and-vram-ledger.md](notes/task01-hardware-and-vram-ledger.md) | Task1 打卡笔记：dtype → 参数规模 → 硬件条件 → 显存账本四问，含 16Φ 账本与真机实测对照、ZeRO 分摊表、4.2 GPU/内存层级/混合精度、4.3 MHA/GQA/MLA 与 FlashAttention |
 | [code/task1_shot_41.py](code/task1_shot_41.py) · [42](code/task1_shot_42.py) · [43](code/task1_shot_43.py) · [task1_common.py](code/task1_common.py) | Task1 可复跑脚本：教程函数逐条复跑 + 真机实测 + 自动出图（vm-60 上 `ALL_TESTS_PASS`） |
-| [evidence/task1/](evidence/task1/) | Task1 打卡截图 ×3 与完整运行日志 |
+| [code/04_solved.ipynb](code/04_solved.ipynb) | Task1 增项2 要求的 Part02 04 节解答版 notebook（已执行，含测试通过输出） |
+| [evidence/task1/](evidence/task1/) | Task1 打卡截图（4.1/4.2/4.3 + 04 节运行截图）与完整运行日志 |
 
 ## 学习方法
 

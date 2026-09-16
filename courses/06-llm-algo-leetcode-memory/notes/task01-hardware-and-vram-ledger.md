@@ -236,7 +236,10 @@ Transformer 是整体架构（Embedding → N × Block → LM head），**Attent
 
 **LLaMA-3-8B（GQA，8 KV 头，32 层）全模型 KV Cache**：4K=0.500 GiB，8K=1.000 GiB，32K=4.000 GiB，**128K=16.000 GiB**——已经逼近甚至超过中等显存卡的余量。真机按理论形状实际分配 8K 上下文全层 cache，读回的字节数 **1.000 GiB vs 理论 1.000 GiB**，账本完全对得上。这也说明长上下文推理 OOM 的主因往往不是权重，而是随 batch × 上下文线性增长的 KV Cache。
 
-### 3. Part 02 · 04 节实现要点（本人实跑通过）
+### 3. Part 02 · 04 节实现要点（本题解答版 notebook 实跑通过）
+
+> 运行截图：`evidence/task1/task1_43_notebook_runshot.png`（notebook 内被测试实际调用的解答 cell + 真实输出），
+> 解答版 notebook：`code/04_solved.ipynb`（已执行、带输出）。
 
 `GroupedQueryAttention.forward` 的四步：① `reshape(B,S,H,D).transpose(1,2)` 切多头；② KV Cache 在 **dim=2（seq 维）** 拼接，**必须在 `repeat_kv` 之前拼接**，否则会把已扩展的头缓存下来，丢掉 GQA 的全部收益；③ `scores = Q@Kᵀ/√d` 后加 mask、softmax、加权；④ `transpose(1,2).reshape(B,S,-1)` 合并多头。
 
@@ -448,6 +451,8 @@ Transformer 是整体架构（Embedding → N × Block → LM head），**Attent
 | `code/task1_shot_41.py` / `42` / `43` | 可复跑脚本（教程函数复跑 + 真机实测 + 自动出图） |
 | `evidence/task1/task1_probe_recompute.log` | 重算粒度对照：FA-backward vs 整块 checkpointing 的峰值/步时（0.37×/0.33× 与 0.47×/1.29×，叠加 0.29×/0.38×） |
 | `evidence/task1/task1_probe_ablate.log` · `task1_probe_chunked_ce.log` | 峰值归因消融：每层斜率 104 MiB/层、MLP 261 MiB、manual CE +242 MiB；参数不变时 chunked CE 回收 309–403 MiB，代价 0.1–0.4 ms |
+| `evidence/task1/task1_43_notebook_runshot.png` | **Part02 04 节运行截图**：解答 cell（四个 TODO 已补全）+ 本题自带测试的真实输出（`[PASS] All Tests Passed!`） |
+| `code/04_solved.ipynb` | Part02 04 节解答版 notebook（已执行、保留输出；与 43 号脚本相互印证） |
 | `code/task1_probe_granular.py` / `task1_probe_fusion.py` / `task1_probe_recompute.py` / `task1_probe_ablate.py` / `task1_probe_chunked_ce.py` | 颗粒度补测脚本（字节账 + 融合实验 + 训练态/重算粒度对照 + 峰值归因消融，含 Triton 内核） |
 | `code/task1_common.py` | 出图公共组件（中文字体、页眉、卡片） |
 

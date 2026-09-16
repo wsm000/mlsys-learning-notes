@@ -10,6 +10,7 @@
 | `task1_41_runshot.png` | 4.1 最小打卡：01/02/06 节测试通过总览、dtype 账本、LLaMA-7B 参数量分解与 MFU、16Φ 真机账本、ZeRO 分摊表 |
 | `task1_42_runshot.png` | 4.2 增项1：03/12 节测试、内存层级、真机 HBM 带宽、FP32/TF32/FP16/BF16 GEMM 吞吐、FP16 上溢 vs BF16 保范围 |
 | `task1_43_runshot.png` | 4.3 增项2：Part02 04 节 MHA/GQA/KV Cache 实跑、KV Cache 账本（MHA/GQA/MQA/MLA）、FlashAttention 分块模型、真机 naive vs SDPA 峰值曲线 |
+| `task1_43_notebook_runshot.png` | **Part02 04 节 notebook 运行截图**：解答 cell（TODO 已补全，实际执行计数 In[2]）+ 自带测试真实输出 In[3]（`[PASS] All Tests Passed!`） |
 | `task1_41.log` / `task1_42.log` / `task1_43.log` | 三段脚本在 GPU 上的完整 stdout |
 | `task1_probe_granular.log` | 颗粒度补测：逐项参数账（52.01M → 198.40/198.40/396.80 MiB）、逐张量字节账（logits 125.0→126.0 MiB）、算子间搬运带宽（softmax 512 MB @835 GB/s）、不可预测项（launch 7.72 µs、reserved 不归还、分配粒度） |
 | `task1_probe_fusion.log` | 融合阶梯 A/B/C/D/E（7.537 → 5.289 → 5.029 → 1.914 / 调参后自写内核 1.905 ms）、逐笔回收 2.248 / 0.260 / 3.115 ms 与带宽反推 955 / 1034 GB/s、tile 扫描（最佳 2.003 ms @137.3 TFLOPS，BN=128+stages=3 撞 shared memory 上限）、训练态 A/B/D 对照（峰值 4.06 / 4.00 / 0.19 × S²） |
