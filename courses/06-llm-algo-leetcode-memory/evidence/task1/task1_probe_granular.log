@@ -1,0 +1,47 @@
+GPU: NVIDIA GeForce RTX 4090 D | torch 2.9.1+cu128
+
+[A] TinyGPT 逐项参数账 (fp32)
+   q_proj W                 262144 params x6层 =     6.00 MiB
+   k_proj W                 262144 params x6层 =     6.00 MiB
+   v_proj W                 262144 params x6层 =     6.00 MiB
+   o_proj W                 262144 params x6层 =     6.00 MiB
+   MLP gate/up/down W      2113536 params x6层 =    48.38 MiB
+   norm W                     1024 params x6层 =     0.02 MiB
+   embedding+pos          16646144 params      =    63.50 MiB
+   lm_head                16384000 params      =    62.50 MiB
+   合计 52008960 params -> 参数 198.40 / 梯度 198.40 / AdamW(m+v) 396.80 MiB
+
+[B] 中间张量字节账 (bf16 实分配验证)
+   logits [B,S,V]           (8, 256, 32000)  理论  125.000 MiB | 实测  126.000 MiB | fp32  250.000
+   CE/softmax 中间 [B,S,V]    (8, 256, 32000)  理论  125.000 MiB | 实测  126.000 MiB | fp32  250.000
+   scores [B,H,S,S]         (8, 8, 256, 256) 理论    8.000 MiB | 实测    8.000 MiB | fp32   16.000
+   Q/K/V 各 [B,H,S,DH]       (8, 8, 256, 64)  理论    2.000 MiB | 实测    2.000 MiB | fp32    4.000
+   MLP gate/up 各 [B,S,FFN]  (8, 256, 1376)   理论    5.375 MiB | 实测    5.375 MiB | fp32   10.750
+   LN 输出 [B,S,D]            (8, 256, 512)    理论    2.000 MiB | 实测    2.000 MiB | fp32    4.000
+
+[C] LLaMA-3-8B 级 (B=1,S=8192,V=128256,d=4096,L=32,H=32,KVH=8,DH=128) 理论字节
+   logits [B,S,V]            =    2004.0 MiB  (CE 中间再要一份，共 2x)
+   scores [B,H,S,S]          =    4096.0 MiB
+   单层 Q/K/V 激活           =     192.0 MiB
+   单层 MLP gate/up/silu     =     672.0 MiB
+   单层 LN+residual          =     192.0 MiB
+   全层 KV cache GQA(8头)    =    1024.0 MiB
+   全层 KV cache MHA(32头)   =    4096.0 MiB
+
+[D] 标准 attention 三段拆解（B=1,H=32,DH=128,bf16）
+      seq   QK^T ms   softmax     PV ms       三段和    融合SDPA | 各段实到带宽
+     1024     0.029     0.015     0.024     0.068     0.037 | QK   18.0MB  644GB/s · SM   32.0MB 2253GB/s · PV   18.0MB  784GB/s
+     2048     0.073     0.149     0.045     0.268     0.122 | QK   68.0MB  970GB/s · SM  128.0MB  899GB/s · PV   68.0MB 1573GB/s
+     4096     0.279     0.643     0.319     1.241     0.354 | QK  264.0MB  991GB/s · SM  512.0MB  835GB/s · PV  264.0MB  867GB/s
+
+[E] 内存带宽口径 (64MiB 张量)
+   copy  (读64+写64) :   939.0 GB/s
+   add   (读128+写64):   948.7 GB/s
+   fill  (只写64)    :   979.9 GB/s
+
+[F] 账本预测不到的部分
+   kernel launch 开销 ≈ 7.72 us/次 (256 元素 add_)
+   分配 64MiB 后释放: reserved=86.00 MiB / allocated=8.13 MiB (释放 ≠ 归还驱动)
+   logits 理论 125.0 MiB / 实测 126.0 MiB (分配粒度取整)
+
+PROBE_GRANULAR_DONE

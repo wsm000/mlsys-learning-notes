@@ -11,6 +11,8 @@
 | `task1_42_runshot.png` | 4.2 增项1：03/12 节测试、内存层级、真机 HBM 带宽、FP32/TF32/FP16/BF16 GEMM 吞吐、FP16 上溢 vs BF16 保范围 |
 | `task1_43_runshot.png` | 4.3 增项2：Part02 04 节 MHA/GQA/KV Cache 实跑、KV Cache 账本（MHA/GQA/MQA/MLA）、FlashAttention 分块模型、真机 naive vs SDPA 峰值曲线 |
 | `task1_41.log` / `task1_42.log` / `task1_43.log` | 三段脚本在 GPU 上的完整 stdout |
+| `task1_probe_granular.log` | 颗粒度补测：逐项参数账（52.01M → 198.40/198.40/396.80 MiB）、逐张量字节账（logits 125.0→126.0 MiB）、算子间搬运带宽（softmax 512 MB @835 GB/s）、不可预测项（launch 7.72 µs、reserved 不归还、分配粒度） |
+| `task1_probe_fusion.log` | 融合阶梯 A/B/C/D/E（7.537 → 5.289 → 5.029 → 1.914 / 调参后自写内核 1.905 ms）、逐笔回收 2.248 / 0.260 / 3.115 ms 与带宽反推 955 / 1034 GB/s、tile 扫描（最佳 2.003 ms @137.3 TFLOPS，BN=128+stages=3 撞 shared memory 上限）、训练态 A/B/D 对照（峰值 4.06 / 4.00 / 0.19 × S²） |
 
 ## 关键结果（当次运行实测）
 
@@ -37,7 +39,15 @@
 - KV Cache 单 token 单层：MHA 32.00 KB · GQA 4.00 KB · MQA 0.50 KB · MLA 1.12 KB；LLaMA-3-8B 全层：4K=0.500 / 8K=1.000 / 32K=4.000 / 128K=16.000 GiB，真机按 8K 分配实测 1.000 GiB = 理论 1.000 GiB
 - 真机 attention 峰值（B=1,H=32,D=128,bf16）：S=512 36.0 vs 4.1 MiB（8.9×）· 1024 136.0 vs 8.1（16.7×）· 2048 528.0 vs 16.3（32.5×）· 4096 2080.0 vs 32.5（64.0×），输出误差 < 7.8e-3
 
+## 颗粒度补测（train/infer 分离）
+
+- **推理态**（N=4096，S² 单趟 1024 MiB）：A 7.537 → B 5.289 → C 5.029 → D 1.914 / E 1.905 ms，峰值 2080 MiB → 32.0 MiB。A→B 省 2.248 ms（反推 955 GB/s）、C→D 省 3.115 ms（反推 1034 GB/s），与实测 copy 939 GB/s 同量级 → 这两笔几乎是纯搬运。
+- **训练态**（fwd+bwd，N=4096）：A 22.638 ms / 4160.0 MiB（4.06×S²）、B 18.208 ms / 4096.0 MiB（**4.00×S²**）、D 7.716 ms / **193.0 MiB（0.19×S²）**。
+  **折 scale 在训练里仍省 4.430 ms，但不省显存** —— 反向要消费 $P$，且还会再造 $dP/dS$ 同量级临时量，峰值 ≈ 4× S²；只有 FlashAttention 的"重算换保存"（D）才能把它降到 0.19× S²（比 B 小 21 倍）。
+- 结论：**推理态的显存账本与训练态不同构**，推理结论不能直接当作训练优化预期。
+
 ## 口径说明
 
 - 峰值与常驻均用 `torch.cuda.max_memory_allocated()` / `memory_allocated()`；测量前 `reset_peak_memory_stats()`，并先做一次极小 cuBLAS 调用预热框架工作区（baseline 8.13 MiB），避免固定开销被算进某一段增量。
-- 吞吐用 CUDA 同步后的 wall-clock 平均（warmup 5 次、计时 20 次），单次运行存在几 % 抖动；规格峰值取 RTX 4090D 官方稠密算力（FP32/TF32 82.6、FP16/BF16 Tensor Core 165.2 TFLOPS）与带宽 1008 GB/s。
+- 吞吐用 CUDA 同步后的 wall-clock 平均（warmup 3–5 次、计时 10–20 次），单次运行存在几 % 抖动；融合实验的 tile 扫描每档 20 次取平均，训练态每档 10 次。
+- 训练态峰值受 allocator 历史影响（同配置重复运行可差 ~1.6%），因此训练态结论按"量级 + 是否改变 S² 倍数"判断，不按 MiB 级差值判断；规格峰值取 RTX 4090D 官方稠密算力（FP32/TF32 82.6、FP16/BF16 Tensor Core 165.2 TFLOPS）与带宽 1008 GB/s。

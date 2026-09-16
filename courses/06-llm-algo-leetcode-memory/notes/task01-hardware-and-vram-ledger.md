@@ -272,6 +272,124 @@ Transformer 是整体架构（Embedding → N × Block → LM head），**Attent
 
 标准实现的峰值随 $N$ **二次**增长（36→136→528→2080，每翻倍约 4×），FlashAttention 路径只随 $N$ **线性**增长（4.1→8.1→16.3→32.5，每翻倍约 2×），而两者输出在 bf16 下数值等价（误差 < 7.8e-3）。**FlashAttention 没有减少主要矩阵乘法，它减少的是落在 HBM 上的中间结果。**
 
+### 5. 颗粒度补测：逐张量字节、算子之间的搬运、以及训练态为什么收不回那笔钱
+
+（脚本：`code/task1_probe_granular.py`、`code/task1_probe_fusion.py`；日志：`evidence/task1/task1_probe_*.log`）
+
+**（1）逐项字节账 —— 账本要细到"每个张量多少 MiB"**
+
+参数账（TinyGPT 52.01 M，fp32）：
+
+| 项 | 形状/数量 | 字节 |
+|---|---|---|
+| q/k/v/o proj | 262144 × 4 组 | 每组 6.00 MiB（×6 层前为单层） |
+| MLP gate/up/down | 2113536 | 48.38 MiB / 全层 |
+| norm | 1024 | 0.02 MiB |
+| embedding + pos | 16646144 | 63.50 MiB |
+| lm_head | 16384000 | 62.50 MiB |
+| **合计** | 52008960 | **参数 198.40 / 梯度 198.40 / AdamW(m+v) 396.80 MiB** |
+
+中间张量账（bf16，理论 vs 真实分配）：
+
+| 张量 | shape | 理论 | 实测 |
+|---|---|---|---|
+| logits | (8, 256, 32000) | 125.000 MiB | **126.000** |
+| CE/softmax 中间 | 同上（第二份） | 125.000 | 126.000 |
+| scores | (8, 8, 256, 256) | 8.000 | 8.000 |
+| Q/K/V 各 | (8, 8, 256, 64) | 2.000 | 2.000 |
+| MLP gate/up 各 | (8, 256, 1376) | 5.375 | 5.375 |
+| LN 输出 | (8, 256, 512) | 2.000 | 2.000 |
+
+放大到 LLaMA-3-8B 级（B=1, S=8192, V=128256, d=4096, L=32, H=32, KVH=8, DH=128）：
+
+| 项 | 字节 |
+|---|---|
+| **logits [B,S,V]** | **2004.0 MiB**（CE 还要第二份，合计 ≈ 4 GB） |
+| scores [B,H,S,S] | 4096.0 MiB |
+| 单层 MLP gate/up/silu | 672.0 MiB |
+| 单层 Q/K/V 激活 | 192.0 MiB |
+| 单层 LN+residual | 192.0 MiB |
+| 全层 KV cache（GQA 8 头 / MHA 32 头） | 1024.0 / 4096.0 MiB |
+
+→ **词表一大，`logits` 与 CE 中间量就是被忽略的最大单项**：128K 词表 × 8K 序列时它是 4 GB（两份），比整个 KV cache 还大；省它靠 fused/chunked cross-entropy，而不是任何 attention 技巧。
+
+**（2）算子之间的搬运时间（B=1, H=32, DH=128, bf16）**
+
+| seq | QKᵀ | softmax | PV | 三段和 | 融合 SDPA | 各段实到带宽 |
+|---|---|---|---|---|---|---|
+| 1024 | 0.029 ms | 0.015 | 0.024 | 0.068 | 0.037 | QK 644 · SM 2253 · PV 784 GB/s |
+| 2048 | 0.073 | 0.149 | 0.045 | 0.268 | 0.122 | QK 970 · SM 899 · PV 1573 GB/s |
+| 4096 | 0.279 | **0.643** | 0.319 | 1.241 | 0.354 | QK 991 · SM **835** · PV 867 GB/s |
+
+→ 在 N=4096，**softmax 一段就占了三段总时间的 52%**：它几乎没有 FLOPs，只是把 512 MB 读一遍写一遍（835 GB/s，接近实测带宽上限）——这就是"算子之间的搬运时间"的真身。小尺寸下带宽数字虚高（2253 GB/s）是因为数据命中 L2，不能当带宽能力引用。
+
+**（3）把 S² 往返逐笔消掉：五级阶梯（N=4096，S² 单趟 = 1024 MiB）**
+
+| 变体 | 写法 | ms | S² 往返趟数 | 峰值显存 |
+|---|---|---|---|---|
+| A naive | `matmul(q,kᵀ) * scale` → softmax → `matmul(·,v)` | **7.537** | 5 趟 | 2080 MiB |
+| B 折 scale | `q*scale` → matmul → softmax → matmul | 5.289 | 4 趟 | ~2080 MiB |
+| C 融合 scale+softmax | matmul → 自写 Triton kernel → matmul | 5.029 | 3 趟 | ~2080 MiB |
+| D SDPA（全融合） | 不物化 S² | **1.914** | **0 趟** | **32.5 MiB** |
+| E 自写 Triton FlashAttention（调参后） | tiling + online softmax | **1.905** | 0 趟 | 32.0 MiB |
+
+逐笔回收，并用字节数反推验证（这是判断"这笔时间是不是纯搬运浪费"的方法）：
+
+| 这一步消掉了什么 | 回收 | 搬运量 | 反推带宽 |
+|---|---|---|---|
+| A→B 折掉 `*scale` 的额外 S² 物化 | **−2.248 ms** | 2 趟 = 2048 MB | **955 GB/s** |
+| B→C Triton 融合 scale+softmax | −0.260 ms | ≈0（torch softmax 本就是单趟） | — |
+| C→D 真正不再物化 S² | **−3.115 ms** | 3 趟 = 3072 MB | **1034 GB/s** |
+| **A→D 端到端** | **−5.623 ms（3.9×）** | — | — |
+
+反推得到的 955 / 1034 GB/s 与实测 copy 带宽 **939 GB/s** 同量级 → **这两笔时间几乎是 100% 的纯搬运**，没有算力浪费。所以优化前可以先用"字节数 ÷ 带宽"预估能收回多少 ms。
+
+**（4）同样不物化 S²，配置也能差 1 ms（N=4096）**
+
+| config | ms | TFLOPS | vs SDPA |
+|---|---|---|---|
+| BM=64 BN=64 warps=4 stages=2 | 2.940 | 93.5 | 1.54× |
+| BM=64 BN=64 warps=4 stages=3 | 2.616 | 105.1 | 1.37× |
+| BM=128 BN=64 warps=4 stages=3 | 2.832 | 97.1 | 1.48× |
+| **BM=128 BN=64 warps=8 stages=3** | 2.048 | 134.2 | 1.07× |
+| **BM=128 BN=128 warps=8 stages=2** | **2.003** | **137.3** | **1.05×** |
+| BM=64 BN=128 warps=4 stages=3 | **失败**：shared memory 需 163840 B > 硬件上限 | — | — |
+| SDPA（参考） | 1.914 | 143.6 | 1.00× |
+
+→ 调参后自写内核 **2.003 ms / 137.3 TFLOPS**，与 SDPA 1.914 ms / 143.6 TFLOPS 基本持平（阶梯里 E 1.905 ms 甚至略快）；`BN=128 + stages=3` 直接撞 shared memory 上限，这是 14 节"tile 必须装进 SRAM"的实测版约束。
+
+**（5）训练态：那笔"白捡"收不回来 —— 因为反向要消费 $P$**
+
+| seq | 变体 | step ms | 峰值 MiB | 峰值 / S² |
+|---|---|---|---|---|
+| 4096 | A（含 `*scale` 物化） | 22.638 | 4160.0 | 4.06× |
+| 4096 | B（折 scale） | **18.208** | 4096.0 | **4.00×** |
+| 4096 | D（SDPA，反向重算 P） | 7.716 | **193.0** | **0.19×** |
+
+结论有三层：
+
+1. **时间上仍然赚**：折 scale 在训练里省 4.430 ms（22.638 → 18.208 ms），与推理态同源。
+2. **显存上不赚**：A 与 B 的峰值都是 **4 倍 S²**（两者差 64 MiB，正是 `q*scale` 缓冲的 32 MiB 量级，属 allocator 噪声），而推理态那条"C 变 B 就省一趟"的逻辑在训练里失效。
+3. **原因就是 $P$ 必须留给反向**：forward 要保存 $P$（$B\cdot H\cdot N^2$），backward 还要再造 $dP$、$dS$ 同量级临时量，峰值因而 ≈ 4× S²，**任何"少一次物化"的技巧都动不了这一个数量级**；只有 FlashAttention 那种"**用重算换保存**"（backward 里从 Q/K 重算 $P$）才能把它拿掉 —— 实测 0.19× S²，**比 B 小 21 倍**。
+
+> 因此：**推理态的显存账本与训练态不同构**。推理关心"中间张量能不能不落 HBM"；训练还要关心"反向要消费哪些前向值、它们能不能重算"。把推理结论直接搬到训练，就会得到"折个 scale 就省显存"的错误预期。
+
+**（6）账本预测不到的清单（补全）**
+
+| 项 | 实测 | 性质 |
+|---|---|---|
+| cuBLAS workspace | 16.1 MiB | 按 GEMM shape 按需分配 |
+| reserved − allocated | 20.00 − 8.12 = **11.88 MiB** | 已保留未使用 |
+| 分配后释放不归还驱动 | 分配 64 MiB 后 reserved 仍 **86 MiB** | 缓存池行为 |
+| 分配粒度取整 | logits 125.000 → **126.000 MiB** | 只能给上界 |
+| kernel launch 开销 | **7.72 µs/次** | 小 kernel 数量多时不可忽略 |
+
+**（7）三条可操作的结论**
+
+1. **"融合"必须是指明"少了几趟 HBM 往返"**：单独融合 scale+softmax 只值 0.260 ms，因为 torch 的 softmax 已是单趟；真正值钱的是"少一趟 1024 MiB 的写+读"（2.2 ms）和"根本不落地 S²"（3.1 ms）。
+2. **动手前先算字节 ÷ 带宽**：955 / 1034 GB/s 的反推说明这笔账可以先验算，不必先写代码。
+3. **推理技巧不等于训练技巧**：推理的 0 趟 S² 在训练里变成 4 趟（$P$ + 反向临时量），只有"重算换保存"能拿掉它——这也正是 activation checkpointing 与 FlashAttention-backward 的共同思路。
+
 ---
 
 ## 实验证据
@@ -282,7 +400,10 @@ Transformer 是整体架构（Embedding → N × Block → LM head），**Attent
 | `evidence/task1/task1_42_runshot.png` | 4.2 截图：内存层级、真机 HBM 带宽、CUDA Core vs Tensor Core 吞吐、混合精度数值范围 |
 | `evidence/task1/task1_43_runshot.png` | 4.3 截图：Part02 04 节实跑通过、KV Cache 账本、FlashAttention 分块与真机峰值曲线 |
 | `evidence/task1/task1_4*.log` | 三段脚本在 vm-60 上的完整 stdout（ALL_TESTS_PASS） |
+| `evidence/task1/task1_probe_granular.log` | 颗粒度补测：逐项/逐张量字节账、算子间搬运带宽、不可预测项清单 |
+| `evidence/task1/task1_probe_fusion.log` | 融合阶梯 A–E、S² 回收与带宽反推、tile 调参扫描、训练态 A/B/D 对照 |
 | `code/task1_shot_41.py` / `42` / `43` | 可复跑脚本（教程函数复跑 + 真机实测 + 自动出图） |
+| `code/task1_probe_granular.py` / `task1_probe_fusion.py` | 颗粒度补测脚本（字节账 + 融合实验 + 训练态对照，含 Triton 内核） |
 | `code/task1_common.py` | 出图公共组件（中文字体、页眉、卡片） |
 
 复跑方式（vm-60 上已装 torch 2.9.1+cu128）：
@@ -291,6 +412,8 @@ Transformer 是整体架构（Embedding → N × Block → LM head），**Attent
 python3 task1_shot_41.py   # 4.1 最小打卡：01 / 02 / 06 节测试 + 真机账本
 python3 task1_shot_42.py   # 4.2 增项1：03 / 12 节测试 + 带宽与 Tensor Core 实测
 python3 task1_shot_43.py   # 4.3 增项2：Part02 04 节测试 + KV Cache / FlashAttention 实测
+python3 task1_probe_granular.py  # 颗粒度：逐张量字节账 + 算子间搬运 + 不可预测项
+python3 task1_probe_fusion.py    # 融合阶梯（含 Triton 内核）+ tile 调参 + 训练态对照
 ```
 
 ## 一句话总结

@@ -1,0 +1,44 @@
+GPU: NVIDIA GeForce RTX 4090 D | triton 3.5.1
+
+[1] 推理态阶梯 (S^2 单趟 = 1024 MiB @N=4096)
+      seq     A ms     B ms     C ms     D ms     E ms |    D峰值MiB    E峰值MiB
+     1024    0.471    0.336    0.319    0.181    0.181 |       8.1       8.0
+          误差 vs fp32: A 7.97e-03 B 4.13e-03 C 7.49e-03 D 1.71e-03 E 1.71e-03
+     2048    1.850    1.285    1.275    0.579    0.576 |      16.3      16.0
+          误差 vs fp32: A 3.88e-03 B 4.36e-03 C 5.59e-03 D 9.49e-04 E 1.09e-03
+     4096    7.537    5.289    5.029    1.914    1.905 |      32.5      32.0
+          误差 vs fp32: A 4.23e-03 B 3.20e-03 C 2.89e-03 D 9.39e-04 E 9.39e-04
+
+   逐笔回收 (N=4096, S^2 单趟 1024 MiB):
+     A->B 折掉 *scale 的额外物化      : -2.248 ms  (2 趟 = 2048 MB -> 955 GB/s)
+     B->C triton 融合 scale+softmax   : -0.260 ms
+     C->D 全融合(不再物化 S^2)        : -3.115 ms  (3 趟 -> 1034 GB/s)
+     A->D 端到端                      : -5.623 ms (3.9x)
+
+[2] 自写 FlashAttention 的 tile/warp/stage 扫描 (N=4096)
+     BM=64   BN=64   warps=4 stages=2     2.940 ms    93.5 TFLOPS  1.54x SDPA  err 9.8e-04
+     BM=64   BN=64   warps=4 stages=3     2.616 ms   105.1 TFLOPS  1.37x SDPA  err 9.8e-04
+     BM=64   BN=32   warps=4 stages=3     2.987 ms    92.0 TFLOPS  1.56x SDPA  err 9.8e-04
+     BM=128  BN=64   warps=4 stages=3     2.832 ms    97.1 TFLOPS  1.48x SDPA  err 9.8e-04
+     BM=128  BN=64   warps=8 stages=3     2.048 ms   134.2 TFLOPS  1.07x SDPA  err 9.8e-04
+     BM=128  BN=128  warps=8 stages=2     2.003 ms   137.3 TFLOPS  1.05x SDPA  err 9.8e-04
+     BM=64 BN=128 warps=4 stages=3 FAILED: out of resource: shared memory, Required: 163840, Hardware l
+     BM=128  BN=32   warps=4 stages=3     2.310 ms   119.0 TFLOPS  1.21x SDPA  err 9.8e-04
+     最佳 2.003 ms (BM=128 BN=128 warps=8 stages=2, 137.3 TFLOPS) vs SDPA 1.914 ms
+
+[3] 训练态 (fwd+bwd) 对照：峰值由 P 与反向临时量决定，不由'少一次物化'决定
+      seq var     step ms     peak MiB   peak/S^2
+     1024 A         1.527        280.1      4.38x
+     1024 B         1.293        256.0      4.00x
+     1024 D         0.681         48.3      0.75x
+          A-B 时间差 -0.234 ms | 峰值差 -24.1 MiB (= q*scale 缓冲 8.0 MiB) | D 峰值是 B 的 0.19
+     2048 A         5.846       1056.0      4.13x
+     2048 B         4.726       1024.0      4.00x
+     2048 D         2.111         96.5      0.38x
+          A-B 时间差 -1.120 ms | 峰值差 -32.0 MiB (= q*scale 缓冲 16.0 MiB) | D 峰值是 B 的 0.09
+     4096 A        22.638       4160.0      4.06x
+     4096 B        18.208       4096.0      4.00x
+     4096 D         7.716        193.0      0.19x
+          A-B 时间差 -4.430 ms | 峰值差 -64.0 MiB (= q*scale 缓冲 32.0 MiB) | D 峰值是 B 的 0.05
+
+PROBE_FUSION_DONE
