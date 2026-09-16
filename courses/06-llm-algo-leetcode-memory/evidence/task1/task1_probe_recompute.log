@@ -1,0 +1,21 @@
+GPU: NVIDIA GeForce RTX 4090 D | B=1 S=4096 d=512 H=8 L=4
+单层 S^2 一份 = 256 MiB | 全层朴素激活量级 = 4.0 GiB
+
+组合                            step ms     peak MiB     peak/基       时间/基
+--------------------------------------------------------------------------
+1 naive + 不重算                    59.0       4847.2          -          -
+2 naive + 整块 checkpointing       76.3       2274.0          -          -
+3 FA-backward + 不重算              19.6       1776.2          -          -
+4 FA-backward + 整块 checkpointing       22.4       1401.0          -          -
+--------------------------------------------------------------------------
+1 naive + 不重算                    59.0       4847.2      1.00x      1.00x
+2 naive + 整块 checkpointing       76.3       2274.0      0.47x      1.29x
+3 FA-backward + 不重算              19.6       1776.2      0.37x      0.33x
+4 FA-backward + 整块 checkpointing       22.4       1401.0      0.29x      0.38x
+
+判据数据：
+  FA 单独          : 峰值 0.37x, 时间 0.33x
+  checkpoint 单独  : 峰值 0.47x, 时间 1.29x
+  两者都用         : 峰值 0.29x, 时间 0.38x
+
+PROBE_CKPT_DONE

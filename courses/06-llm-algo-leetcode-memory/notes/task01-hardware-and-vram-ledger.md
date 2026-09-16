@@ -390,6 +390,25 @@ Transformer 是整体架构（Embedding → N × Block → LM head），**Attent
 2. **动手前先算字节 ÷ 带宽**：955 / 1034 GB/s 的反推说明这笔账可以先验算，不必先写代码。
 3. **推理技巧不等于训练技巧**：推理的 0 趟 S² 在训练里变成 4 趟（$P$ + 反向临时量），只有"重算换保存"能拿掉它——这也正是 activation checkpointing 与 FlashAttention-backward 的共同思路。
 
+### 6. 重算谁：FA-backward 还是整块 checkpointing（四种组合实测）
+
+既然只有"重算换保存"能拿掉那 4× S²，下一个问题是**重算的粒度**。把两种手段拆开单独用、再叠加用（B=1, S=4096, d=512, H=8, ffn=1376, L=4, fp32 参数 + bf16 autocast + AdamW；单层 S² 一份 = 256 MiB）：
+
+| 组合 | step ms | 峰值 MiB | 峰值/基线 | 时间/基线 |
+|---|---|---|---|---|
+| ① naive attention，不重算 | 59.0 | 4847.2 | 1.00× | 1.00× |
+| ② naive + 整块 checkpointing | 76.3 | 2274.0 | 0.47× | **1.29×（慢 29%）** |
+| ③ FA-backward，不重算 | **19.6** | 1776.2 | **0.37×** | **0.33×（快 3 倍）** |
+| ④ FA-backward + 整块 checkpointing | 22.4 | **1401.0** | **0.29×** | 0.38× |
+
+三条判读：
+
+1. **FA-backward 是无代价的一步**：峰值降到 0.37× 的同时步时降到 0.33× —— 因为它消掉的是"搬运"，显存与时间同向。原因是它的重算只需要 $P = mathrm{softmax}(QK^	op)$，而 $Q,K$ 本来就要保存给 $dK$ 用，**边际重算成本极低**。
+2. **整块 checkpointing 是纯时间换显存**：峰值 0.47×（还不如 FA 的 0.37×），代价是 +29% 步时 —— 它重算的是整个 block（norm、MLP 全都要再前向一遍）。
+3. **两者不是替代关系，而是叠加**：在已经用 FA 之后再加 checkpointing，峰值还能从 0.37× 降到 **0.29×**，只多花 14% 时间（19.6 → 22.4 ms）—— 因为 FA 只管 attention 的 $S^2$ 项，管不了 MLP/norm 那些 $O(N\cdot d)$ 的逐层激活。
+
+**判据**：先问"峰值被谁占住"——被 $S^2$ 占住（长序列 attention）就先上 FA-backward，它顺手把时间也赚回来；被 $O(N\cdot d)$ 的逐层激活占住（MLP 宽、层数多、batch 大）就得整块 checkpointing；两者叠加才是这套配置的完整答案。
+
 ---
 
 ## 实验证据
@@ -403,7 +422,8 @@ Transformer 是整体架构（Embedding → N × Block → LM head），**Attent
 | `evidence/task1/task1_probe_granular.log` | 颗粒度补测：逐项/逐张量字节账、算子间搬运带宽、不可预测项清单 |
 | `evidence/task1/task1_probe_fusion.log` | 融合阶梯 A–E、S² 回收与带宽反推、tile 调参扫描、训练态 A/B/D 对照 |
 | `code/task1_shot_41.py` / `42` / `43` | 可复跑脚本（教程函数复跑 + 真机实测 + 自动出图） |
-| `code/task1_probe_granular.py` / `task1_probe_fusion.py` | 颗粒度补测脚本（字节账 + 融合实验 + 训练态对照，含 Triton 内核） |
+| `evidence/task1/task1_probe_recompute.log` | 重算粒度对照：FA-backward vs 整块 checkpointing 的峰值/步时（0.37×/0.33× 与 0.47×/1.29×，叠加 0.29×/0.38×） |
+| `code/task1_probe_granular.py` / `task1_probe_fusion.py` / `task1_probe_recompute.py` | 颗粒度补测脚本（字节账 + 融合实验 + 训练态与重算粒度对照，含 Triton 内核） |
 | `code/task1_common.py` | 出图公共组件（中文字体、页眉、卡片） |
 
 复跑方式（vm-60 上已装 torch 2.9.1+cu128）：
@@ -414,6 +434,7 @@ python3 task1_shot_42.py   # 4.2 增项1：03 / 12 节测试 + 带宽与 Tensor 
 python3 task1_shot_43.py   # 4.3 增项2：Part02 04 节测试 + KV Cache / FlashAttention 实测
 python3 task1_probe_granular.py  # 颗粒度：逐张量字节账 + 算子间搬运 + 不可预测项
 python3 task1_probe_fusion.py    # 融合阶梯（含 Triton 内核）+ tile 调参 + 训练态对照
+python3 task1_probe_recompute.py # 重算粒度：FA-backward vs 整块 checkpointing 四组合
 ```
 
 ## 一句话总结
