@@ -1,0 +1,23 @@
+GPU: NVIDIA GeForce RTX 4090 D torch 2.9.1+cu128
+MHA {'num_kv_heads': 8, 'num_query_heads': 8, 'head_dim': 128, 'layers': 12, 'params_million': 229.1, 'cache_mib_at_S4096_B1': 192.0, 'ledger_mib': 192.0, 'ledger_match': True, 'cache_kib_per_token': 48.0, 'concurrent_requests_in_budget': 106, 'budget_utilization_ratio': 0.0094}
+GQA {'num_kv_heads': 2, 'num_query_heads': 8, 'head_dim': 128, 'layers': 12, 'params_million': 210.3, 'cache_mib_at_S4096_B1': 48.0, 'ledger_mib': 48.0, 'ledger_match': True, 'cache_kib_per_token': 12.0, 'concurrent_requests_in_budget': 426, 'budget_utilization_ratio': 0.0023}
+MQA {'num_kv_heads': 1, 'num_query_heads': 8, 'head_dim': 128, 'layers': 12, 'params_million': 207.1, 'cache_mib_at_S4096_B1': 24.0, 'ledger_mib': 24.0, 'ledger_match': True, 'cache_kib_per_token': 6.0, 'concurrent_requests_in_budget': 853, 'budget_utilization_ratio': 0.0012}
+seq 512 {'seq_len': 512, 'measured_mib': 6.0, 'ledger_mib': 6.0, 'bytes_per_token': 12288.0}
+seq 1024 {'seq_len': 1024, 'measured_mib': 12.0, 'ledger_mib': 12.0, 'bytes_per_token': 12288.0}
+seq 2048 {'seq_len': 2048, 'measured_mib': 24.0, 'ledger_mib': 24.0, 'bytes_per_token': 12288.0}
+seq 4096 {'seq_len': 4096, 'measured_mib': 48.0, 'ledger_mib': 48.0, 'bytes_per_token': 12288.0}
+seq 8192 {'seq_len': 8192, 'measured_mib': 96.0, 'ledger_mib': 96.0, 'bytes_per_token': 12288.0}
+batch 1 {'batch_size': 1, 'measured_mib': 24.0, 'ledger_mib': 24.0}
+batch 2 {'batch_size': 2, 'measured_mib': 48.0, 'ledger_mib': 48.0}
+batch 4 {'batch_size': 4, 'measured_mib': 96.0, 'ledger_mib': 96.0}
+batch 8 {'batch_size': 8, 'measured_mib': 192.0, 'ledger_mib': 192.0}
+MHA perf {'num_kv_heads': 8, 'num_query_heads': 8, 'head_dim': 128, 'layers': 12, 'params_million': 229.1, 'cache_mib_at_S4096_B1': 192.0, 'ledger_mib': 192.0, 'ledger_match': True, 'cache_kib_per_token': 48.0, 'concurrent_requests_in_budget': 106, 'budget_utilization_ratio': 0.0094, 'prefill_ms_B8_S1024': 35.343, 'decode_ms_per_step_B8_S1024': 11.1539, 'decode_throughput_tok_s_B8_S1024': 717.24, 'decode_ms_per_token_per_request': 1.3942}
+GQA perf {'num_kv_heads': 2, 'num_query_heads': 8, 'head_dim': 128, 'layers': 12, 'params_million': 210.3, 'cache_mib_at_S4096_B1': 48.0, 'ledger_mib': 48.0, 'ledger_match': True, 'cache_kib_per_token': 12.0, 'concurrent_requests_in_budget': 426, 'budget_utilization_ratio': 0.0023, 'prefill_ms_B8_S1024': 31.283, 'decode_ms_per_step_B8_S1024': 11.3751, 'decode_throughput_tok_s_B8_S1024': 703.29, 'decode_ms_per_token_per_request': 1.4219}
+MQA perf {'num_kv_heads': 1, 'num_query_heads': 8, 'head_dim': 128, 'layers': 12, 'params_million': 207.1, 'cache_mib_at_S4096_B1': 24.0, 'ledger_mib': 24.0, 'ledger_match': True, 'cache_kib_per_token': 6.0, 'concurrent_requests_in_budget': 853, 'budget_utilization_ratio': 0.0012, 'prefill_ms_B8_S1024': 30.557, 'decode_ms_per_step_B8_S1024': 11.247, 'decode_throughput_tok_s_B8_S1024': 711.3, 'decode_ms_per_token_per_request': 1.4059}
+long MHA 2048 {'name': 'MHA', 'seq_len': 2048, 'batch_size': 16, 'decode_ms_per_step': 11.1014, 'throughput_tok_s': 1441.26, 'peak_mib': 4841.52}
+long MHA 8192 {'name': 'MHA', 'seq_len': 8192, 'batch_size': 16, 'decode_ms_per_step': 22.576, 'throughput_tok_s': 708.72, 'peak_mib': 15642.27}
+long GQA 2048 {'name': 'GQA', 'seq_len': 2048, 'batch_size': 16, 'decode_ms_per_step': 11.2993, 'throughput_tok_s': 1416.02, 'peak_mib': 3689.52}
+long GQA 8192 {'name': 'GQA', 'seq_len': 8192, 'batch_size': 16, 'decode_ms_per_step': 11.3012, 'throughput_tok_s': 1415.78, 'peak_mib': 11034.27}
+long MQA 2048 {'name': 'MQA', 'seq_len': 2048, 'batch_size': 16, 'decode_ms_per_step': 11.2578, 'throughput_tok_s': 1421.24, 'peak_mib': 3497.52}
+long MQA 8192 {'name': 'MQA', 'seq_len': 8192, 'batch_size': 16, 'decode_ms_per_step': 11.2925, 'throughput_tok_s': 1416.87, 'peak_mib': 10266.27}
+WROTE task2_exp1_kv_ledger.json

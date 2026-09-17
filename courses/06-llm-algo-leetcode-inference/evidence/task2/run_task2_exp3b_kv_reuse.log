@@ -1,0 +1,5 @@
+GPU: NVIDIA GeForce RTX 4090 D
+{"batch": 8, "prompt_len": 512, "cached": {"ttft_ms": 20.178, "tpot_ms": 11.162, "e2e_ms": 187.611, "peak_mib": 764.703, "tok_s": 682.264}, "recompute": {"ttft_ms": 22.046, "tpot_ms": 16.996, "e2e_ms": 276.981, "peak_mib": 932.309, "tok_s": 462.126}, "tpot_speedup": 1.52, "e2e_speedup": 1.48, "peak_mem_delta_mib": -167.61}
+{"batch": 8, "prompt_len": 2048, "cached": {"ttft_ms": 79.704, "tpot_ms": 11.195, "e2e_ms": 247.631, "peak_mib": 1826.816, "tok_s": 516.898}, "recompute": {"ttft_ms": 78.659, "tpot_ms": 74.937, "e2e_ms": 1202.71, "peak_mib": 2456.497, "tok_s": 106.426}, "tpot_speedup": 6.69, "e2e_speedup": 4.86, "peak_mem_delta_mib": -629.68}
+{"batch": 16, "prompt_len": 4096, "cached": {"ttft_ms": 331.661, "tpot_ms": 11.169, "e2e_ms": 499.196, "peak_mib": 6076.597, "tok_s": 512.825}, "recompute": {"ttft_ms": 334.462, "tpot_ms": 367.376, "e2e_ms": 5845.102, "peak_mib": 8567.294, "tok_s": 43.797}, "tpot_speedup": 32.89, "e2e_speedup": 11.71, "peak_mem_delta_mib": -2490.7}
+WROTE task2_exp3b_kv_reuse.json

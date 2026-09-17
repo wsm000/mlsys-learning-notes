@@ -1,0 +1,16 @@
+/home/simin/.local/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+=== executed: 11_KV_Cache_and_Memory_Growth_solved.ipynb cells: 13
+---- cell 4 | def kv_cache_bytes(seq_len, num_layers, num_kv_heads, head_dim, batch_
+seq_len=1024 -> KV cache ≈  0.54 GB
+seq_len=2048 -> KV cache ≈  1.07 GB
+seq_len=4096 -> KV cache ≈  2.15 GB
+---- cell 8 | def kv_cache_gb(seq_len, num_layers, num_kv_heads, head_dim, batch_siz
+MHA: kv_heads=32, KV cache ≈  2.15 GB
+GQA: kv_heads= 8, KV cache ≈  0.54 GB
+MQA: kv_heads= 1, KV cache ≈  0.07 GB
+---- cell 11 | def paged_attention_pages(seq_len, page_size):
+management -> {'pages': 32, 'waste_tokens': 0}
+representation -> {'base_kv_bytes': 2147483648, 'latent_bytes_proxy': 16777216, 'toy_representation_saving_ratio': 0.9922}
+✅ 分页参数校验通过
+EXEC_DONE

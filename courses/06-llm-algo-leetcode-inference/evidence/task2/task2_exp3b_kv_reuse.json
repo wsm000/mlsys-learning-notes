@@ -1,0 +1,70 @@
+{
+  "model": "synthetic LLaMA 12L/hidden1024/8 heads/GQA-2 KV heads",
+  "dtype": "float16",
+  "gen_len": 16,
+  "rows": [
+    {
+      "batch": 8,
+      "prompt_len": 512,
+      "cached": {
+        "ttft_ms": 20.269,
+        "tpot_ms": 11.226,
+        "e2e_ms": 188.666,
+        "peak_mib": 764.714,
+        "tok_s": 678.449
+      },
+      "recompute": {
+        "ttft_ms": 22.118,
+        "tpot_ms": 17.035,
+        "e2e_ms": 277.647,
+        "peak_mib": 932.309,
+        "tok_s": 461.017
+      },
+      "tpot_speedup": 1.52,
+      "e2e_speedup": 1.47,
+      "peak_mem_delta_mib": -167.59
+    },
+    {
+      "batch": 8,
+      "prompt_len": 2048,
+      "cached": {
+        "ttft_ms": 79.625,
+        "tpot_ms": 11.327,
+        "e2e_ms": 249.53,
+        "peak_mib": 1826.761,
+        "tok_s": 512.964
+      },
+      "recompute": {
+        "ttft_ms": 80.35,
+        "tpot_ms": 75.096,
+        "e2e_ms": 1206.783,
+        "peak_mib": 2456.497,
+        "tok_s": 106.067
+      },
+      "tpot_speedup": 6.63,
+      "e2e_speedup": 4.84,
+      "peak_mem_delta_mib": -629.74
+    },
+    {
+      "batch": 16,
+      "prompt_len": 4096,
+      "cached": {
+        "ttft_ms": 332.19,
+        "tpot_ms": 11.205,
+        "e2e_ms": 500.272,
+        "peak_mib": 6076.597,
+        "tok_s": 511.721
+      },
+      "recompute": {
+        "ttft_ms": 334.487,
+        "tpot_ms": 380.813,
+        "e2e_ms": 6046.68,
+        "peak_mib": 8567.294,
+        "tok_s": 42.337
+      },
+      "tpot_speedup": 33.99,
+      "e2e_speedup": 12.09,
+      "peak_mem_delta_mib": -2490.7
+    }
+  ]
+}

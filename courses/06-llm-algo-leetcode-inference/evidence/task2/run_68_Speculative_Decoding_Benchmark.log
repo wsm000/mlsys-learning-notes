@@ -1,0 +1,7 @@
+=== executed: 68_Speculative_Decoding_Benchmark_solved.ipynb cells: 16
+---- cell 8 | # 测试你的实现
+测试通过：推测解码基准模板可以工作。
+---- cell 14 | try:
+{'model': 'Qwen/Qwen2.5-1.5B-Instruct', 'backend': 'vllm', 'dtype': 'auto', 'generated_tokens': 64, 'cache_policy': 'default', 'draft_model': 'Qwen/Qwen2.5-0.5B-Instruct', 'proposal_length': 5, 'min_acceptance_rate': 0.6, 'num_prompts': 30, 'warmup': 5, 'repeats': 3, 'temperature': 0.0, 'top_p': 1.0, 'hardware_profile': 'auto'}
+{'experiment_plan': [{'group': 'G0', 'strategy': 'target_baseline', 'enabled': False, 'proposal_length': None, 'draft_model': None}, {'group': 'G1', 'strategy': 'speculative', 'enabled': False, 'proposal_length': 5, 'draft_model': 'Qwen/Qwen2.5-0.5B-Instruct'}, {'group': 'G2_len_3', 'strategy': 'speculative', 'enabled': False, 'proposal_length': 3, 'draft_model': 'Qwen/Qwen2.5-0.5B-Instruct'}, {'group': 'G2_len_8', 'strategy': 'speculative', 'enabled': False, 'proposal_length': 8, 'draft_model': 'Qwen/Qwen2.5-0.5B-Instruct'}]}
+EXEC_DONE

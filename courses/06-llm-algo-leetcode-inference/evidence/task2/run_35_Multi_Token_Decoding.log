@@ -1,0 +1,4 @@
+=== executed: 35_Multi_Token_Decoding_solved.ipynb cells: 14
+---- cell 8 | def test_multi_token_decoder():
+✅ MultiTokenDecoderSim 测试通过！
+EXEC_DONE

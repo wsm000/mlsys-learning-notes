@@ -1,0 +1,4 @@
+=== executed: 23_Speculative_Decoding_solved.ipynb cells: 11
+---- cell 5 | def test_speculative_decoding():
+✅ 测试通过！接受、residual correction 和 bonus token 均通过。
+EXEC_DONE

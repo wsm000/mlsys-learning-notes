@@ -1,0 +1,12 @@
+=== executed: 21_Decoding_Strategies_solved.ipynb cells: 14
+---- cell 8 | # 运行此单元格以测试你的实现
+原始 Logits (前10个单词): [0.10000000149011612, 2.299999952316284, 0.4000000059604645, 1.2000000476837158, -0.5, 4.0, 3.0999999046325684, 0.0, 1.100000023841858, -1.0]
+✅ Temperature 温度调节通过！
+✅ Top-K 暴力截断通过！
+✅ Top-p (Nucleus) 核采样动态截断通过！
+greedy: candidates=10, entropy=1.3310
+top_k: candidates=3, entropy=0.8889
+top_p: candidates=3, entropy=0.8889
+
+✅ All Tests Passed! 解码策略实现通过测试。本次采样的下一个 token ID 是: 5
+EXEC_DONE
