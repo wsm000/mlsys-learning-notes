@@ -1,0 +1,61 @@
+/home/simin/.local/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+=== executed: 22_solved.ipynb cells: 17
+---- cell 9 | # 运行此单元格以测试你的实现
+初始化内存池...
+✅ Request 输入校验通过！
+✅ Prefill 测试通过！Req1 分配的块表: [0, 1]
+✅ 重复 Prefill 已拒绝！
+✅ Decode 动态分配测试通过！Req1 最新块表: [0, 1, 2]
+✅ Cache 拼装测试通过！多块物理缓存被正确恢复为逻辑连续序列。
+✅ 非连续物理块按逻辑顺序恢复通过！
+✅ 边界分配与截断测试通过！
+✅ OOM 测试通过！
+✅ Prefill 原子 OOM 测试通过！
+✅ Decode OOM 回滚测试通过！
+✅ KV Cache 账本与释放复用测试通过！
+
+✅ All Tests Passed! PagedAttention 内存管理逻辑验证通过。
+---- cell 12 | class Request:
+✅ Prefix Cache 扩展测试通过！
+---- cell 15 | # GPU 可选实验配置：先运行 dry_run 检查参数，再改为 real_gpu。
+{
+  "mode": "real_gpu",
+  "plan": {
+    "request_lengths": [
+      17,
+      33,
+      65,
+      129
+    ],
+    "paged_allocated_tokens": 304,
+    "contiguous_reserved_tokens": 1024,
+    "tail_waste_tokens": 60,
+    "synthetic_tensor_shape": [
+      304,
+      64
+    ],
+    "layout_note": "仅用于 CUDA 分配探针，不代表真实 PagedAttention kernel",
+    "evidence_level": "synthetic_gpu_memory_probe"
+  },
+  "results": {
+    "paged": {
+      "allocated_tokens": 304,
+      "peak_allocated_mb": 0.04
+    },
+    "contiguous": {
+      "allocated_tokens": 1024,
+      "peak_allocated_mb": 0.12
+    }
+  },
+  "device": "NVIDIA GeForce RTX 4090 D"
+}
+{'mode': 'real_gpu',
+ 'plan': {'request_lengths': [17, 33, 65, 129],
+  'paged_allocated_tokens': 304,
+  'contiguous_reserved_tokens': 1024,
+  'tail_waste_tokens': 60,
+  'synthetic_tensor_shape': [304, 64],
+  'layout_note': '仅用于 CUDA 分配探针，不代表真实 PagedAttention kernel',
+  'evidence_level': 'synthetic_g
+EXEC_DONE

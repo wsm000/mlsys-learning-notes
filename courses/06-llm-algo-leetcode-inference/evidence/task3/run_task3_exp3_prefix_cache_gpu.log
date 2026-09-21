@@ -1,0 +1,8 @@
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 2540.34it/s]
+GPU: NVIDIA GeForce RTX 4090 D
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (2401 > 1024). Running this sequence through the model will result in indexing errors
+seq system 200 {"system_len": 200, "g0_ttft_ms": 8.917, "g1_ttft_ms": 8.528, "g1_cold_ttft_ms": 9.77, "ttft_speedup": 1.046, "prefill_token_reduction": 0.4375, "g0_peak_mib": 396.6, "g1_peak_mib": 326.97, "top1_agreement": 0.875, "max_logit_abs_diff": 0.125, "min_top2_margin_g0": 0.0625}
+seq system 400 {"system_len": 400, "g0_ttft_ms": 9.105, "g1_ttft_ms": 8.517, "g1_cold_ttft_ms": 10.459, "ttft_speedup": 1.069, "prefill_token_reduction": 0.5833, "g0_peak_mib": 469.92, "g1_peak_mib": 332.34, "top1_agreement": 1.0, "max_logit_abs_diff": 0.1875, "min_top2_margin_g0": 0.0312}
+seq system 800 {"system_len": 800, "g0_ttft_ms": 9.004, "g1_ttft_ms": 8.478, "g1_cold_ttft_ms": 10.38, "ttft_speedup": 1.062, "prefill_token_reduction": 0.7, "g0_peak_mib": 615.92, "g1_peak_mib": 393.97, "top1_agreement": 1.0, "max_logit_abs_diff": 0.1875, "min_top2_margin_g0": 0.0938}
+batched: {"system_len": 800, "g0_ttft_ms": 38.661, "g1_ttft_ms": 11.957, "g1_cold_ttft_ms": 9.599, "ttft_speedup": 3.233, "prefill_token_reduction": 0.7, "g0_peak_mib": 1321.5, "g1_peak_mib": 779.48, "top1_agreement": 0.875, "max_logit_abs_diff": 0.25, "min_top2_margin_g0": 0.0938}
+WROTE task3_exp3_prefix_cache_gpu.json

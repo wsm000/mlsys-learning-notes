@@ -1,0 +1,21 @@
+=== executed: 66_solved.ipynb cells: 28
+---- cell 5 | # 测试你的实现
+✅ 推理性能对比项目模板代码通过基础校验。
+---- cell 8 | # TODO 1: 模拟请求执行
+{'model_name': 'tiny-llama', 'backend': 'pytorch-eager', 'batch_size': 2, 'prompt_tokens': 128, 'generated_tokens': 32, 'total_tokens': 160, 'dtype': 'fp16', 'cache_policy': 'static-kv-cache'}
+{'backend': 'pytorch-eager', 'batch_size': 2, 'prompt_tokens': 128, 'generated_tokens': 32, 'ttft_ms': 80.0, 'tpot_ms': 5.0, 'throughput_tok_s': 266.67, 'total_ms': 240.0, 'prefill_share': 0.333, 'decode_share': 0.667, 'peak_mem_mb': 4096.0}
+{'bottleneck': 'decode-bound', 'reason': 'decode 占比高，优先检查 KV cache 读写、decode scheduling、speculative decoding 或 multi-token decoding。'}
+{'backend': 'paged-attention', 'batch_size': 2, 'prompt_tokens': 128, 'generated_tokens': 32, 'ttft_ms': 85.0, 'tpot_ms': 3.75, 'throughput_tok_s': 312.2, 'total_ms': 205.0, 'prefill_share': 0.415, 'decode_share': 0.585, 'peak_mem_mb': 3584.0}
+{'total_latency_delta_ms': 35.0, 'ttft_delta_ms': -5.0, 'tpot_delta_ms': 1.25, 'peak_mem_delta_mb': 512.0, 'throughput_gain': 0.1707}
+{'decision': 'accept', 'reason': 'candidate 吞吐提升明显，TTFT 退化在可接受范围内，值得进入正式推理方案。'}
+---- cell 12 | """只检查当前 Notebook 内核和 backend 命令，不启动服务、不下载模型。"""
+{'torch': '2.9.1+cu128', 'torch_cuda': '12.8', 'cuda_available': True}
+{'device': 'NVIDIA GeForce RTX 4090 D', 'capability': (8, 9), 'bf16_supported': True}
+{'vllm_on_current_kernel': False, 'vllm_command': None}
+---- cell 14 | # 实验配置：先运行本单元，再运行下面的环境预检和 benchmark。
+实验配置： {'group': 'G0', 'strategies': [], 'note': '固定 workload 的 vLLM baseline'}
+---- cell 16 | """执行一次 vLLM 实验：解析模型、启动服务、运行 benchmark、保存 JSON 并清理进程。"""
+跳过真实 backend：保持 CPU-first 模式。
+---- cell 23 | """可选的 SGLang 对照：复用统一 workload，独立启动服务并保存 JSON。"""
+跳过 SGLang：默认只验证 vLLM；需要独立安装和确认 SGLang 版本后再开启。
+EXEC_DONE

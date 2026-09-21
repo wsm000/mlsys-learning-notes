@@ -1,0 +1,95 @@
+{
+  "bytes_per_token": 524288,
+  "request_lengths": [
+    17,
+    33,
+    65,
+    129,
+    255,
+    511,
+    1023,
+    2047
+  ],
+  "max_reserved": 4096,
+  "block_size_scan": [
+    {
+      "requests": 8,
+      "used_tokens": 4080,
+      "paged_tokens": 4112,
+      "paged_tail_waste_tokens": 32,
+      "paged_utilization": 0.9922,
+      "contiguous_tokens": 32768,
+      "contiguous_waste_tokens": 28688,
+      "contiguous_utilization": 0.1245,
+      "capacity_saved_tokens": 28656,
+      "capacity_saved_ratio": 0.8745,
+      "paged_blocks": 514,
+      "block_size": 8
+    },
+    {
+      "requests": 8,
+      "used_tokens": 4080,
+      "paged_tokens": 4144,
+      "paged_tail_waste_tokens": 64,
+      "paged_utilization": 0.9846,
+      "contiguous_tokens": 32768,
+      "contiguous_waste_tokens": 28688,
+      "contiguous_utilization": 0.1245,
+      "capacity_saved_tokens": 28624,
+      "capacity_saved_ratio": 0.8735,
+      "paged_blocks": 259,
+      "block_size": 16
+    },
+    {
+      "requests": 8,
+      "used_tokens": 4080,
+      "paged_tokens": 4192,
+      "paged_tail_waste_tokens": 112,
+      "paged_utilization": 0.9733,
+      "contiguous_tokens": 32768,
+      "contiguous_waste_tokens": 28688,
+      "contiguous_utilization": 0.1245,
+      "capacity_saved_tokens": 28576,
+      "capacity_saved_ratio": 0.8721,
+      "paged_blocks": 131,
+      "block_size": 32
+    },
+    {
+      "requests": 8,
+      "used_tokens": 4080,
+      "paged_tokens": 4288,
+      "paged_tail_waste_tokens": 208,
+      "paged_utilization": 0.9515,
+      "contiguous_tokens": 32768,
+      "contiguous_waste_tokens": 28688,
+      "contiguous_utilization": 0.1245,
+      "capacity_saved_tokens": 28480,
+      "capacity_saved_ratio": 0.8691,
+      "paged_blocks": 67,
+      "block_size": 64
+    },
+    {
+      "requests": 8,
+      "used_tokens": 4080,
+      "paged_tokens": 4480,
+      "paged_tail_waste_tokens": 400,
+      "paged_utilization": 0.9107,
+      "contiguous_tokens": 32768,
+      "contiguous_waste_tokens": 28688,
+      "contiguous_utilization": 0.1245,
+      "capacity_saved_tokens": 28288,
+      "capacity_saved_ratio": 0.8633,
+      "paged_blocks": 35,
+      "block_size": 128
+    }
+  ],
+  "gpu": {
+    "paged_tokens": 4144,
+    "paged_peak_mib": 2072.0,
+    "contiguous_tokens": 32768,
+    "contiguous_peak_mib": 16384.0,
+    "saved_mib": 14312.0,
+    "saved_ratio": 0.8735,
+    "concurrency_gain": 7.91
+  }
+}

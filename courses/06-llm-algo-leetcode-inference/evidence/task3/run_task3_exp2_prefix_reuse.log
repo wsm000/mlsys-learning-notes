@@ -1,0 +1,9 @@
+workload requests: 146
+radix: {"avg_hit_len": 172.1, "avg_prompt_len": 312.6, "prefill_work_reduction": 0.5505, "requests_with_hit": 82, "max_hit_len": 373}
+lru cap 8 {"hit_rate": 0.0, "token_reuse_rate": 0.0, "eviction_count": 2771, "capacity_blocks": 8, "capacity_tokens": 128}
+lru cap 16 {"hit_rate": 0.0547945205479452, "token_reuse_rate": 0.044873901706873505, "eviction_count": 2635, "capacity_blocks": 16, "capacity_tokens": 256}
+lru cap 32 {"hit_rate": 0.9931506849315068, "token_reuse_rate": 0.8897653322816013, "eviction_count": 209, "capacity_blocks": 32, "capacity_tokens": 512}
+lru cap 64 {"hit_rate": 0.9931506849315068, "token_reuse_rate": 0.8897653322816013, "eviction_count": 177, "capacity_blocks": 64, "capacity_tokens": 1024}
+lru cap 128 {"hit_rate": 0.9931506849315068, "token_reuse_rate": 0.8897653322816013, "eviction_count": 113, "capacity_blocks": 128, "capacity_tokens": 2048}
+lru cap 256 {"hit_rate": 0.9931506849315068, "token_reuse_rate": 0.8897653322816013, "eviction_count": 0, "capacity_blocks": 256, "capacity_tokens": 4096}
+WROTE task3_exp2_prefix_reuse.json

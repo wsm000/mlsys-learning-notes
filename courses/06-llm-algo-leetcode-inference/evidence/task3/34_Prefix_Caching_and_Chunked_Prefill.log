@@ -1,0 +1,33 @@
+/home/simin/.local/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+=== executed: 34_solved.ipynb cells: 14
+---- cell 6 | # 运行此单元格以测试你的实现
+✅ PrefixCacheManager 测试通过
+---- cell 12 | # GPU 可选实验配置：默认只输出计划，不申请 CUDA 张量。
+{
+  "mode": "real_gpu",
+  "plan": {
+    "suffix_tokens": 4096,
+    "chunk_size": 512,
+    "chunk_count": 8,
+    "evidence_level": "synthetic_gpu_chunk_probe"
+  },
+  "results": {
+    "one_shot": {
+      "peak_allocated_mb": 16.0
+    },
+    "chunked": {
+      "peak_allocated_mb": 2.0
+    }
+  },
+  "device": "NVIDIA GeForce RTX 4090 D"
+}
+{'mode': 'real_gpu',
+ 'plan': {'suffix_tokens': 4096,
+  'chunk_size': 512,
+  'chunk_count': 8,
+  'evidence_level': 'synthetic_gpu_chunk_probe'},
+ 'results': {'one_shot': {'peak_allocated_mb': 16.0},
+  'chunked': {'peak_allocated_mb': 2.0}},
+ 'device': 'NVIDIA GeForce RTX 4090 D'}
+EXEC_DONE

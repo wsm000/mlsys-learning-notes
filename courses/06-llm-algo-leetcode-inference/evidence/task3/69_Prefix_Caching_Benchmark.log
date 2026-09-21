@@ -1,0 +1,7 @@
+=== executed: 69_solved.ipynb cells: 14
+---- cell 6 | # 测试你的实现
+CPU Prefix Cache simulation: {'total_requests': 3, 'total_prompt_tokens': 24, 'reused_tokens': 6, 'miss_tokens': 18, 'hit_rate': 0.3333333333333333, 'token_reuse_rate': 0.25, 'prefill_work_reduction': 0.25, 'eviction_count': 5, 'cache_size_blocks': 4}
+测试通过：前缀缓存基准模板可以工作。
+---- cell 12 | try:
+{'model': 'Qwen/Qwen2.5-0.5B-Instruct', 'backend': 'vllm', 'dtype': 'auto', 'generated_tokens': 64, 'workload': 'benchmarks/workloads/prefix_reuse.jsonl', 'num_prompts': 5, 'concurrency': 1, 'warmup': 1, 'groups': ['g0_cache_off', 'g1_prefix_cache']}
+EXEC_DONE

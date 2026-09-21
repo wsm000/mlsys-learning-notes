@@ -1,0 +1,29 @@
+=== executed: 24_solved.ipynb cells: 16
+---- cell 8 | # 测试你的实现
+✅ 最长公共前缀计算正确！
+✅ 多路径前缀命中选择正确！
+✅ 前缀拆分与回退逻辑正确！
+
+ 所有测试通过：共享边、最长命中和 prompt 拆分逻辑正确。
+---- cell 14 | # GPU 可选实验配置：该实验只验证数据边界，不启动 SGLang。
+{
+  "hit_len": 4,
+  "hit_tokens": 4,
+  "suffix_tokens": 2,
+  "evidence_level": "synthetic_gpu_input_boundary",
+  "device": "NVIDIA GeForce RTX 4090 D",
+  "hit_tensor_shape": [
+    4
+  ],
+  "suffix_tensor_shape": [
+    2
+  ]
+}
+{'hit_len': 4,
+ 'hit_tokens': 4,
+ 'suffix_tokens': 2,
+ 'evidence_level': 'synthetic_gpu_input_boundary',
+ 'device': 'NVIDIA GeForce RTX 4090 D',
+ 'hit_tensor_shape': [4],
+ 'suffix_tensor_shape': [2]}
+EXEC_DONE
