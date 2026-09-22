@@ -1,0 +1,104 @@
+﻿python.exe : 
+所在位置 C:\Users\86150\Documents\ChatGPT\cs336复习\hello-gpu\courses\07-tinytorch\code\task3\task3_verify.ps1:34 字符: 1
++ & $Python -m pytest tests/06_autograd -v --tb=short 2>&1 | Tee-Object ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[tinytorch] Modules not yet exported (OK for progressive builds — export when you reach that module):
+  ⚠  Module 07 (Optimizers): missing exported file tinytorch/core/optimizers.py
+  ⚠  Module 08 (Training): missing exported file tinytorch/core/training.py
+  ⚠  Module 09 (Convolutions): missing exported file tinytorch/core/spatial.py
+  ⚠  Module 10 (Tokenization): missing exported file tinytorch/core/tokenization.py
+  ⚠  Module 11 (Embeddings): missing exported file tinytorch/core/embeddings.py
+  ⚠  Module 12 (Attention): missing exported file tinytorch/core/attention.py
+  ⚠  Module 13 (Transformers): missing exported file tinytorch/core/transformers.py
+  ⚠  Module 14 (Profiling): missing exported file tinytorch/perf/profiling.py
+  ⚠  Module 15 (Quantization): missing exported file tinytorch/perf/quantization.py
+  ⚠  Module 16 (Compression): missing exported file tinytorch/perf/compression.py
+  ⚠  Module 17 (Acceleration): missing exported file tinytorch/perf/acceleration.py
+  ⚠  Module 18 (Memoization): missing exported file tinytorch/perf/memoization.py
+  ⚠  Module 19 (Benchmarking): missing exported file tinytorch/perf/benchmarking.py
+  ⚠  Module 20 (Capstone): missing exported file tinytorch/olympics.py
+
+============================= test session starts =============================
+platform win32 -- Python 3.10.2, pytest-9.1.1, pluggy-1.6.0 -- C:\Users\86150\Documents\ChatGPT\cs336复习\hello-gpu\.venv-task3\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\86150\Documents\ChatGPT\cs336复习\hello-gpu\_tmp_tt_src\tinytorch
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collecting ... collected 71 items
+
+tests/06_autograd/test_06_autograd_progressive.py::TestAutogradCore::test_requires_grad_attribute PASSED [  1%]
+tests/06_autograd/test_06_autograd_progressive.py::TestAutogradCore::test_grad_attribute PASSED [  2%]
+tests/06_autograd/test_06_autograd_progressive.py::TestAutogradCore::test_backward_method PASSED [  4%]
+tests/06_autograd/test_06_autograd_progressive.py::TestAutogradCore::test_simple_gradient PASSED [  5%]
+tests/06_autograd/test_06_autograd_progressive.py::TestAutogradCore::test_scalar_left_gradient PASSED [  7%]
+tests/06_autograd/test_06_autograd_progressive.py::TestAutogradCore::test_chain_rule PASSED [  8%]
+tests/06_autograd/test_06_autograd_progressive.py::TestAutogradWithLayers::test_linear_layer_gradients PASSED [  9%]
+tests/06_autograd/test_06_autograd_progressive.py::TestAutogradWithLayers::test_activation_gradients PASSED [ 11%]
+tests/06_autograd/test_06_autograd_progressive.py::TestAutogradWithLayers::test_tanh_activation_gradient PASSED [ 12%]
+tests/06_autograd/test_06_autograd_progressive.py::TestAutogradWithLosses::test_mse_loss_gradient PASSED [ 14%]
+tests/06_autograd/test_06_autograd_progressive.py::TestAutogradWithDataLoader::test_batch_gradients PASSED [ 15%]
+tests/06_autograd/test_06_autograd_progressive.py::TestRegressionPrevention::test_tensor_still_works PASSED [ 16%]
+tests/06_autograd/test_06_autograd_progressive.py::TestRegressionPrevention::test_activations_still_work PASSED [ 18%]
+tests/06_autograd/test_06_autograd_progressive.py::TestRegressionPrevention::test_layers_still_work PASSED [ 19%]
+tests/06_autograd/test_06_autograd_progressive.py::TestRegressionPrevention::test_losses_still_work PASSED [ 21%]
+tests/06_autograd/test_06_autograd_progressive.py::TestRegressionPrevention::test_dataloader_still_works PASSED [ 22%]
+tests/06_autograd/test_06_autograd_progressive.py::TestModule06Completion::test_autograd_foundation_complete PASSED [ 23%]
+tests/06_autograd/test_autograd_core.py::TestVariableCreation::test_variable_creation SKIPPED [ 25%]
+tests/06_autograd/test_autograd_core.py::TestVariableCreation::test_variable_no_grad SKIPPED [ 26%]
+tests/06_autograd/test_autograd_core.py::TestVariableCreation::test_variable_grad_initialization SKIPPED [ 28%]
+tests/06_autograd/test_autograd_core.py::TestBasicOperations::test_addition_gradient SKIPPED [ 29%]
+tests/06_autograd/test_autograd_core.py::TestBasicOperations::test_multiplication_gradient SKIPPED [ 30%]
+tests/06_autograd/test_autograd_core.py::TestBasicOperations::test_power_gradient SKIPPED [ 32%]
+tests/06_autograd/test_autograd_core.py::TestChainRule::test_simple_chain_rule SKIPPED [ 33%]
+tests/06_autograd/test_autograd_core.py::TestChainRule::test_complex_chain_rule SKIPPED [ 35%]
+tests/06_autograd/test_autograd_core.py::TestChainRule::test_multiple_variable_chain SKIPPED [ 36%]
+tests/06_autograd/test_autograd_core.py::TestComputationGraph::test_graph_construction SKIPPED [ 38%]
+tests/06_autograd/test_autograd_core.py::TestComputationGraph::test_graph_backward_traversal SKIPPED [ 39%]
+tests/06_autograd/test_autograd_core.py::TestComputationGraph::test_graph_memory_management SKIPPED [ 40%]
+tests/06_autograd/test_autograd_core.py::TestGradientAccumulation::test_gradient_accumulation SKIPPED [ 42%]
+tests/06_autograd/test_autograd_core.py::TestGradientAccumulation::test_gradient_zeroing SKIPPED [ 43%]
+tests/06_autograd/test_autograd_core.py::TestGradientAccumulation::test_gradient_clipping SKIPPED [ 45%]
+tests/06_autograd/test_autograd_core.py::TestAutogradUtilities::test_no_grad_context SKIPPED [ 46%]
+tests/06_autograd/test_autograd_core.py::TestAutogradUtilities::test_detach_operation SKIPPED [ 47%]
+tests/06_autograd/test_autograd_core.py::TestAutogradUtilities::test_grad_check SKIPPED [ 49%]
+tests/06_autograd/test_autograd_gradient_flow.py::test_arithmetic_gradient_flow PASSED [ 50%]
+tests/06_autograd/test_autograd_gradient_flow.py::test_subtraction_backward PASSED [ 52%]
+tests/06_autograd/test_autograd_gradient_flow.py::test_division_backward PASSED [ 53%]
+tests/06_autograd/test_autograd_gradient_flow.py::test_gelu_gradient_flow PASSED [ 54%]
+tests/06_autograd/test_autograd_gradient_flow.py::test_gelu_backward_large_magnitude_input_does_not_overflow PASSED [ 56%]
+tests/06_autograd/test_autograd_gradient_flow.py::test_reshape_gradient_flow PASSED [ 57%]
+tests/06_autograd/test_autograd_gradient_flow.py::test_sigmoid_large_magnitude_input_does_not_overflow PASSED [ 59%]
+tests/06_autograd/test_autograd_gradient_flow.py::test_reflected_operator_gradients PASSED [ 60%]
+tests/06_autograd/test_autograd_gradient_flow.py::test_forward_scalar_branch_gradients PASSED [ 61%]
+tests/06_autograd/test_batched_matmul_backward.py::test_batched_3d_matmul_backward PASSED [ 63%]
+tests/06_autograd/test_batched_matmul_backward.py::test_attention_pattern_matmul PASSED [ 64%]
+tests/06_autograd/test_batched_matmul_backward.py::test_attention_output_matmul PASSED [ 66%]
+tests/06_autograd/test_gradient_correctness.py::TestArithmeticGradients::test_add_backward PASSED [ 67%]
+tests/06_autograd/test_gradient_correctness.py::TestArithmeticGradients::test_sub_backward PASSED [ 69%]
+tests/06_autograd/test_gradient_correctness.py::TestArithmeticGradients::test_mul_backward PASSED [ 70%]
+tests/06_autograd/test_gradient_correctness.py::TestArithmeticGradients::test_div_backward PASSED [ 71%]
+tests/06_autograd/test_gradient_correctness.py::TestArithmeticGradients::test_matmul_backward_wrt_left PASSED [ 73%]
+tests/06_autograd/test_gradient_correctness.py::TestArithmeticGradients::test_matmul_backward_wrt_right PASSED [ 74%]
+tests/06_autograd/test_gradient_correctness.py::TestArithmeticGradients::test_chained_ops_backward PASSED [ 76%]
+tests/06_autograd/test_gradient_correctness.py::TestArithmeticGradients::test_broadcast_add_backward PASSED [ 77%]
+tests/06_autograd/test_gradient_correctness.py::TestActivationGradients::test_relu_backward PASSED [ 78%]
+tests/06_autograd/test_gradient_correctness.py::TestActivationGradients::test_sigmoid_backward PASSED [ 80%]
+tests/06_autograd/test_gradient_correctness.py::TestActivationGradients::test_tanh_backward PASSED [ 81%]
+tests/06_autograd/test_gradient_correctness.py::TestActivationGradients::test_gelu_backward PASSED [ 83%]
+tests/06_autograd/test_gradient_correctness.py::TestActivationGradients::test_relu_zero_boundary PASSED [ 84%]
+tests/06_autograd/test_gradient_correctness.py::TestLossGradients::test_mse_backward PASSED [ 85%]
+tests/06_autograd/test_gradient_correctness.py::TestLossGradients::test_mse_backward_batch PASSED [ 87%]
+tests/06_autograd/test_gradient_correctness.py::TestLossGradients::test_bce_backward PASSED [ 88%]
+tests/06_autograd/test_gradient_correctness.py::TestLossGradients::test_crossentropy_backward PASSED [ 90%]
+tests/06_autograd/test_gradient_correctness.py::TestComposedGradients::test_linear_layer_input_gradient PASSED [ 91%]
+tests/06_autograd/test_gradient_correctness.py::TestComposedGradients::test_linear_layer_batch_gradient PASSED [ 92%]
+tests/06_autograd/test_gradient_correctness.py::TestComposedGradients::test_two_layer_chain PASSED [ 94%]
+tests/06_autograd/test_gradient_correctness.py::TestComposedGradients::test_mse_through_linear PASSED [ 95%]
+tests/06_autograd/test_gradient_correctness.py::TestComposedGradients::test_gradient_accumulates_across_backward_calls PASSED [ 97%]
+tests/06_autograd/test_gradient_correctness.py::TestNoGradContext::test_no_grad_disables_tracking PASSED [ 98%]
+tests/06_autograd/test_gradient_correctness.py::TestNoGradContext::test_no_grad_does_not_affect_outside PASSED [100%]
+
+======================= 53 passed, 18 skipped in 0.24s ========================

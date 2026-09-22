@@ -1,0 +1,28 @@
+﻿python.exe : 
+所在位置 C:\Users\86150\Documents\ChatGPT\cs336复习\hello-gpu\courses\07-tinytorch\code\task3\task3_verify.ps1:37 字符: 1
++ & $Python -m pytest tests/01_tensor tests/02_activations tests/03_lay ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[tinytorch] Modules not yet exported (OK for progressive builds — export when you reach that module):
+  ⚠  Module 07 (Optimizers): missing exported file tinytorch/core/optimizers.py
+  ⚠  Module 08 (Training): missing exported file tinytorch/core/training.py
+  ⚠  Module 09 (Convolutions): missing exported file tinytorch/core/spatial.py
+  ⚠  Module 10 (Tokenization): missing exported file tinytorch/core/tokenization.py
+  ⚠  Module 11 (Embeddings): missing exported file tinytorch/core/embeddings.py
+  ⚠  Module 12 (Attention): missing exported file tinytorch/core/attention.py
+  ⚠  Module 13 (Transformers): missing exported file tinytorch/core/transformers.py
+  ⚠  Module 14 (Profiling): missing exported file tinytorch/perf/profiling.py
+  ⚠  Module 15 (Quantization): missing exported file tinytorch/perf/quantization.py
+  ⚠  Module 16 (Compression): missing exported file tinytorch/perf/compression.py
+  ⚠  Module 17 (Acceleration): missing exported file tinytorch/perf/acceleration.py
+  ⚠  Module 18 (Memoization): missing exported file tinytorch/perf/memoization.py
+  ⚠  Module 19 (Benchmarking): missing exported file tinytorch/perf/benchmarking.py
+  ⚠  Module 20 (Capstone): missing exported file tinytorch/olympics.py
+
+........................................................................ [ 28%]
+........................................................................ [ 56%]
+...........................................................sssssssssssss [ 84%]
+sssss....................................                                [100%]
+239 passed, 18 skipped in 1.32s

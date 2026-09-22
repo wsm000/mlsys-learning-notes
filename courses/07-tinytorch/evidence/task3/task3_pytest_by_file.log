@@ -1,0 +1,34 @@
+从Tensor到Transformer——构建 GPT 模型 | Task 3 自动微分引擎
+GitHub ID: wsm000  |  本地 Windows PowerShell 5.1  |  Python 3.10.2 / NumPy 2.2.6 / pytest 9.1.1
+$ cd C:\Users\86150\Documents\ChatGPT\cs336复习\hello-gpu\_tmp_tt_src\tinytorch
+
+PS> python -m pytest tests/06_autograd/test_06_autograd_progressive.py -q --tb=short
+  .................                                                        [100%]
+  17 passed in 0.11s
+
+PS> python -m pytest tests/06_autograd/test_autograd_core.py -q --tb=short
+  ssssssssssssssssss                                                       [100%]
+  18 skipped in 0.08s
+
+PS> python -m pytest tests/06_autograd/test_autograd_gradient_flow.py -q --tb=short
+  .........                                                                [100%]
+  9 passed in 0.07s
+
+PS> python -m pytest tests/06_autograd/test_batched_matmul_backward.py -q --tb=short
+  ...                                                                      [100%]
+  3 passed in 0.07s
+
+PS> python -m pytest tests/06_autograd/test_gradient_correctness.py -q --tb=short
+  ........................                                                 [100%]
+  24 passed in 0.13s
+
+PS> python -m pytest tests/06_autograd -q --tb=short          # Module 06 汇总
+  .................ssssssssssssssssss....................................  [100%]
+  53 passed, 18 skipped in 0.21s
+
+PS> python -m pytest tests/01_tensor tests/02_activations tests/03_layers tests/04_losses tests/05_dataloader tests/06_autograd -q --tb=short          # 01-06 全量回归
+  ........................................................................ [ 28%]
+  ........................................................................ [ 56%]
+  ...........................................................sssssssssssss [ 84%]
+  sssss....................................                                [100%]
+  239 passed, 18 skipped in 1.22s

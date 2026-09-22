@@ -6,6 +6,7 @@ __pycache__/
 *.py[cod]
 *.egg-info/
 .venv/
+.venv-task3/
 
 # 系统杂项
 Thumbs.db
