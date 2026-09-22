@@ -1,6 +1,6 @@
 # Task3 Colab 真实模型实测证据（T4 · Qwen2.5-0.5B · WikiText-2）
 
-来源：`code/task3_colab_real_model.ipynb` 在 Google Colab GPU 运行时的导出 ZIP（`20260922_012052.zip`，本目录即其解压内容）。运行时间 2026-09-22 01:20（UTC，Colab 目录名）。
+来源：`code/task3_colab_real_model_new.ipynb` 在 Google Colab GPU 运行时的导出 ZIP（`20260922_012052.zip`，本目录即其解压内容）。运行时间 2026-09-22 01:20（UTC，Colab 目录名）。
 
 ## 环境与来源（provenance.json）
 

@@ -41,4 +41,4 @@ Notebook 已写好但本次导出未运行的实测单元格：显存账本的�
 
 ## 6. 复现
 
-`code/task3_colab_real_model.ipynb` → Colab 选 GPU → 从上到下运行。第一格 `%pip` 安装固定版本后需重启运行时再跑一次；末尾单元格导出证据 ZIP。本地 vm-60 合成版见 [task03-training-measurement-budget.md](task03-training-measurement-budget.md)。
+`code/task3_colab_real_model_new.ipynb` → Colab 选 GPU → 从上到下运行。第一格 `%pip` 安装固定版本后需重启运行时再跑一次；末尾单元格导出证据 ZIP。本地 vm-60 合成版见 [task03-training-measurement-budget.md](task03-training-measurement-budget.md)。
