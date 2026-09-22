@@ -1,0 +1,56 @@
+[
+  {
+    "strategy": "baseline",
+    "status": "COMPLETE",
+    "verdict": "PASS",
+    "checks": {
+      "completed": true,
+      "full_update_count": true,
+      "no_skipped_updates": true,
+      "finite_train_losses": true,
+      "baseline_available": true,
+      "same_initial_identity": true,
+      "same_current_inputs": true,
+      "initial_validation_close": true,
+      "final_validation_close": true,
+      "throughput_ok": true,
+      "memory_budget_ok": true
+    }
+  },
+  {
+    "strategy": "accumulation",
+    "status": "COMPLETE",
+    "verdict": "PASS",
+    "checks": {
+      "completed": true,
+      "full_update_count": true,
+      "no_skipped_updates": true,
+      "finite_train_losses": true,
+      "baseline_available": true,
+      "same_initial_identity": true,
+      "same_current_inputs": true,
+      "initial_validation_close": true,
+      "final_validation_close": true,
+      "throughput_ok": true,
+      "memory_budget_ok": true
+    }
+  },
+  {
+    "strategy": "checkpoint",
+    "status": "COMPLETE",
+    "verdict": "PASS",
+    "checks": {
+      "completed": true,
+      "full_update_count": true,
+      "no_skipped_updates": true,
+      "finite_train_losses": true,
+      "baseline_available": true,
+      "same_initial_identity": true,
+      "same_current_inputs": true,
+      "initial_validation_close": true,
+      "final_validation_close": true,
+      "throughput_ok": true,
+      "memory_budget_ok": true
+    }
+  }
+]

@@ -1,0 +1,10 @@
+GPU: NVIDIA GeForce RTX 4090 D torch 2.9.1+cu128 VRAM_GiB 23.53
+RUN baseline_batch4
+{"name": "baseline_batch4", "micro_batch": 4, "accum_steps": 1, "effective_batch": 4, "checkpoint": false, "offload": false, "peak_allocated_mib": 677.66, "reserved_mib": 706.0, "step_time_s": 0.2099, "loss_first": 1.385198, "loss_last": 1.385198}
+RUN accum_micro1
+{"name": "accum_micro1", "micro_batch": 1, "accum_steps": 4, "effective_batch": 4, "checkpoint": false, "offload": false, "peak_allocated_mib": 677.66, "reserved_mib": 706.0, "step_time_s": 0.0282, "loss_first": 1.386368, "loss_last": 1.389794}
+RUN checkpoint_micro1
+{"name": "checkpoint_micro1", "micro_batch": 1, "accum_steps": 4, "effective_batch": 4, "checkpoint": true, "offload": false, "peak_allocated_mib": 678.66, "reserved_mib": 700.0, "step_time_s": 0.0304, "loss_first": 1.386368, "loss_last": 1.389794}
+RUN offload_micro1
+{"name": "offload_micro1", "micro_batch": 1, "accum_steps": 4, "effective_batch": 4, "checkpoint": false, "offload": true, "peak_allocated_mib": 678.66, "reserved_mib": 712.0, "step_time_s": 0.2158, "loss_first": 1.386368, "loss_last": 1.389794}
+ALL_TESTS_PASS /home/simin/llm-algo-task2/evidence/task2/task2_results.json

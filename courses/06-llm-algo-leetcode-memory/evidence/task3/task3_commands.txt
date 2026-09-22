@@ -1,0 +1,29 @@
+Task3 execution commands (PowerShell local; SSH remote Linux)
+
+Discovery:
+pwd
+Get-Command apply_patch
+ssh vm-60 "pwd; python -c 'import torch; print(torch.__version__); print(torch.cuda.get_device_name(0))'; df -h /tmp; nvidia-smi"
+Result: apply_patch unavailable locally; python unavailable remotely. Used file write tool and python3. No packages installed.
+ssh vm-60 "command -v python3; ls -d /home/simin/* /opt/*; python3 -c 'import torch; print(torch.__version__)'"
+Result: /usr/bin/python3, torch 2.9.1+cu128.
+
+Execution:
+ssh vm-60 "mkdir -p /tmp/memopt_task3"
+scp courses/06-llm-algo-leetcode-memory/code/task3_training_budget.py vm-60:/tmp/memopt_task3/task3_training_budget.py
+ssh vm-60 "cd /tmp/memopt_task3 && CUBLAS_WORKSPACE_CONFIG=:4096:8 python3 -u task3_training_budget.py --out-dir . > task3_run.log 2>&1"
+
+Environment capture:
+ssh vm-60 "cd /tmp/memopt_task3 && { date -Is; uname -a; command -v python3; python3 --version; python3 -m pip show torch; nvidia-smi; df -h /tmp; sha256sum task3_training_budget.py; } > task3_environment.log 2>&1"
+
+Revision and rerun:
+Re-uploaded source after review: benchmark now uses step-boundary sync only, stage diagnostics are independent (3 warmups + 3 samples), profiler annotations enabled only in separate trace, budget adds 25% baseline throughput lower bound.
+ssh vm-60 "cd /tmp/memopt_task3 && cp task3_run.log task3_superseded_stage_sync.log && CUBLAS_WORKSPACE_CONFIG=:4096:8 python3 -u task3_training_budget.py --out-dir . > task3_run.log 2>&1"
+Then repeated environment capture and artifact retrieval. A final upload and same execution command reran the complete script after adding task3_offload_trace.json; the final report source SHA256 is a0dbde1c5c6299dc6b7afec03049c8acd9261e63bce09d115279dcf036c09422. Superseded raw log is retained for audit; do not use it for final metrics.
+
+Plot package check:
+ssh vm-60 "python3 -c 'import PIL, matplotlib; print(PIL.__version__, matplotlib.__version__)'"
+Result: Pillow 12.0.0, matplotlib 3.10.8. No install.
+
+Return artifacts:
+scp vm-60:/tmp/memopt_task3/task3_*.json vm-60:/tmp/memopt_task3/task3_*.log vm-60:/tmp/memopt_task3/task3_profiler_table.txt courses/06-llm-algo-leetcode-memory/evidence/task3/

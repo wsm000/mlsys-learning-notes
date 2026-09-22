@@ -1,0 +1,22 @@
+{
+  "seed": 73,
+  "model_id": "Qwen/Qwen2.5-0.5B",
+  "model_revision": "main",
+  "dataset_id": "Salesforce/wikitext",
+  "dataset_config": "wikitext-2-raw-v1",
+  "dataset_revision": "main",
+  "seq_len": 128,
+  "effective_batch": 2,
+  "warmup_steps": 3,
+  "measured_steps": 5,
+  "eval_chunks": 8,
+  "lr": 1e-05,
+  "weight_decay": 0.01,
+  "max_grad_norm": 1.0,
+  "budget_gib": 14.0,
+  "safety_margin_gib": 1.0,
+  "min_throughput_ratio": 0.4,
+  "initial_loss_atol": 1e-05,
+  "final_loss_atol": 0.15,
+  "run_profiler": false
+}

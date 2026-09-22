@@ -1,0 +1,25 @@
+{
+  "train_sha256": "6d4d714c49a35d4010b7160a7c11344bf2bc2dd088edc9bf7ad8707b7dd84dee",
+  "validation_sha256": "7af9be18b0d825682c81525e8684e9209a1c5f9006f7c34b2eab14707548a830",
+  "batch_sha256": [
+    "39bae258c69647c306b4cca0918ee44eb06565671f3b77f1522c3a4a2e292f41",
+    "a56c226a72c894396fba79204c9ca40a098638833b29010b5888086e4fa2756a",
+    "a5f4b13f1c132a8e4b369cef54d4f32a08f2320ea3c175f2f2904c438b15972f",
+    "fc19d78bc38494c613d2856c43dc6f1ca9bed8dc4b1e3fb7514533bc5fdf2a38",
+    "fba7a47bb302727f22ed234bf4798fe1256e7b84bd72b6f57beebc4b1bc39d48",
+    "5d240c27eb517bd869c91a2ab51dd2e865f8d635d11a07b417d3ee92fb30979b",
+    "4e901a9c8e815d17283aadf8ffa89135e23b7bde1931b06b0f47969e2a6f51d5",
+    "e9bacdb864165bf271a3a2b84df21c9fce4e1785d5ede05610c65209bacaabd5"
+  ],
+  "train_shape": [
+    8,
+    2,
+    128
+  ],
+  "validation_shape": [
+    8,
+    128
+  ],
+  "padding": false,
+  "causal_targets_per_update": 254
+}

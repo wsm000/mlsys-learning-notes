@@ -40,7 +40,8 @@
 |---|---|---|---|
 | Task 0（预习） | 显存对象与生命周期：P0 07 Autograd、Part02 17/18 反向传播、topic 02 训练侧显存压力（[Issue #148](https://github.com/datawhalechina/llm-algo-leetcode/issues/148)） | [task00-memory-objects-lifecycle.md](../../05-llm-algo-leetcode-memopt/notes/task00-memory-objects-lifecycle.md)（归档在原 05-llm-algo-leetcode-memopt 目录） | [task0 证据](../../05-llm-algo-leetcode-memopt/evidence/task0/) |
 | **Task 1** | **硬件与显存账本**：Part01 01 dtype / 02 参数量与 FLOPs / 06 显存计算与 ZeRO（+03/12 选做、14/topic01/Part02 04 扩展）（[Issue #149](https://github.com/datawhalechina/llm-algo-leetcode/issues/149)） | [task01-hardware-and-vram-ledger.md](notes/task01-hardware-and-vram-ledger.md) | [task1 证据](evidence/task1/) |
-| Task 2 | 待发布 | 待写 | 待写 |
+| Task 2 | 单机训练显存策略（Issue #168） | [task02-single-gpu-training-memory-strategy.md](notes/task02-single-gpu-training-memory-strategy.md) | [task2 证据](evidence/task2/) |
+| **Task 3** | **训练侧测量与预算决策（Issue #169，4.1 + 4.2）** | [task03-training-measurement-budget.md](notes/task03-training-measurement-budget.md) | [task3 证据](evidence/task3/) |
 
 ### Task1 学习材料
 
@@ -63,6 +64,10 @@
 | [code/task1_shot_41.py](code/task1_shot_41.py) · [42](code/task1_shot_42.py) · [43](code/task1_shot_43.py) · [task1_common.py](code/task1_common.py) | Task1 可复跑脚本：教程函数逐条复跑 + 真机实测 + 自动出图（vm-60 上 `ALL_TESTS_PASS`） |
 | [code/04_solved.ipynb](code/04_solved.ipynb) | Task1 增项2 要求的 Part02 04 节解答版 notebook（已执行，含测试通过输出） |
 | [evidence/task1/](evidence/task1/) | Task1 打卡截图（4.1/4.2/4.3 + 04 节运行截图）与完整运行日志 |
+| [code/task3_training_budget.py](code/task3_training_budget.py) · [task3_render_evidence.py](code/task3_render_evidence.py) | Task3 vm-60 实测：四策略对照 + 阶段拆分 + 预算决策 + 三张证据图（`ALL_TESTS_PASS`） |
+| [code/task3_colab_real_model.ipynb](code/task3_colab_real_model.ipynb) | Task3 Colab 真实模型版（Qwen2.5-0.5B + WikiText）：主表 baseline/累积/checkpoint，增项含**实测显存账本、offload、缩小 batch、缩短序列、8-bit 优化器与 4-bit 权重、预算敏感性扫描、profiler trace 四分类** |
+| [evidence/task3/](evidence/task3/) | Task3 实测证据：结果 JSON、原始日志、两份 chrome trace、复现命令与证据图 |
+| [notes/task03-colab-real-model.md](notes/task03-colab-real-model.md) · [evidence/task3_colab/](evidence/task3_colab/) | Task3 Colab 真实模型实测（T4 · Qwen2.5-0.5B · WikiText-2）：三策略 PASS，常驻状态占峰值 87.5% |
 
 ## 学习方法
 

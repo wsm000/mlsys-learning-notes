@@ -1,0 +1,18 @@
+{
+  "files": [
+    "accumulation.json",
+    "baseline.json",
+    "checkpoint.json",
+    "comparison.png",
+    "config.json",
+    "decisions.json",
+    "environment.json",
+    "fixed_inputs.pt",
+    "inputs.json",
+    "provenance.json",
+    "steps.csv",
+    "training_loss.png"
+  ],
+  "executed_notebook": "请在 Colab 文件菜单单独下载含输出的 .ipynb",
+  "scope": "真实模型短跑，非收敛结论；仅本次硬件与配置有效"
+}
