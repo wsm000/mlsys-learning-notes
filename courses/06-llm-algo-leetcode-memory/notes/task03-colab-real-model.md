@@ -102,6 +102,22 @@ per-strategy 峰值残差：baseline 1.0623、累积 1.7188、checkpoint 1.0482 
 
 `code/task3_colab_real_model_new.ipynb` → Colab 选 GPU → 从上到下运行；安装格含 bitsandbytes，装完按提示重启运行时再跑（否则 transformers 的 bnb 集成会在缺 `nn`/`bnb` 的状态下被 import，4-bit 加载连续报 NameError）。完整踩坑与修复过程见 git 提交记录（缓存刷新 → 命名空间注入 → 模块重载 → lazy 缓存 → gc 扫描五轮迭代）。
 
+
+## 10. 六份学习材料的对照（做了什么 / 缺什么）
+
+Task3 列了 6 份学习材料，逐份对照如下（“教程要求”列摘自各节 Step 1–4 与交付物清单）：
+
+| 材料 | 教程要求 | 我们的实测 | 证据 | 缺口 |
+|---|---|---|---|---|
+| Part01 · 13 性能分析与瓶颈定位 | 工具链 torch.profiler → Nsight Systems → Nsight Compute；Q1 先测再改；Q2 用算力/访存/调度三类信号分瓶颈；Q3 把结果变成动作 | 用 torch.profiler 做全链时间线，按 kernel/memcpy/runtime/同步四桶分类；三类信号逐条对照（kernel 形态与次数、memcpy 桶、sync 桶、launch 次数）；产出的一句话瓶颈结论见 §6 | `trace_summary.json`、两份 chrome trace、`task3_profiler_table.txt` | **无 Nsight**：没有 occupancy / memory throughput 硬件计数器，因此不断言“带宽或算力已饱和”，只报告事件级的量与形态 |
+| Part02 · 73 训练性能分析 | 固定 workload/环境 → baseline 合法（warmup + 多轮）→ 拆 数据加载/forward/backward/optimizer/显存峰值 → 统一口径比较 → 对比表 + accept/tune/reject；交付物含 step_time、samples/s、peak_mem、loss | 全部做到：固定项与逐批 SHA256 落盘；3 warmup + 5 measured；阶段独立诊断；`steps.csv` 每步记录耗时/吞吐/峰值/loss；`decisions.json` 给 PASS/REJECT | `config/inputs/provenance.json`、`steps.csv`、`decisions.json`、`summary.json` | 无（通信单卡 N/A） |
+| 06 基准测试与权衡决策 | accept/tune/reject 判据；报告必须写清动了哪个资源对象、峰值变化、吞吐/稳定性变化、是否扩大 batch 或部署空间、最终保留/调优/换方案；预算敏感性——最佳候选只在窄阈值成立要标“预算敏感” | 判据全实现（质量 → 预算 → 吞吐）；§4/§5 按“动了哪个对象”逐条分析；8 档预算扫描，赢家全档一致，**不标预算敏感** | `budget_sensitivity.json`、§4/§5、`trace_summary.json` | 无 |
+| Part02 · 76 激活检查点与卸载对比 | 候选 baseline / checkpoint / offload（必要时 hybrid）；预算边界 = 显存上限 + 吞吐下限 + 最大 val loss 退化；统一比较 peak memory / step time / samples/s / val loss；结论 accept/tune/reject | 四策略 + 累积 + 8-bit 优化器 + 4-bit 权重 + 缩 batch/缩序列共 7 行同口径；预算边界三条件实现为 `reserved+1 GiB ≤ 预算`、`吞吐 ≥ 40%`、`|Δloss| ≤ 0.15` | `checkpoint.json`、`activation_offload.json`、`summary.json` | **hybrid（checkpoint+offload 组合）未测** |
+| Part02 · 75 显存预算压缩 | 预算账本（上限/吞吐下限/质量阈值）；候选策略；结果对比 peak memory/step time/throughput/val loss；项目结论 accept/tune/reject；75 只读 76 的 JSON 不重训 | 账本比教程更细（静态张量精确求和 + 动态实测差值，§3）；7 个候选；阈值扫描；`summary.json` 即决策记录 | `memory_ledger.json`、`budget_sensitivity.json`、`summary.json` | `budget_sensitivity.json` 有 workload 过滤 bug（基线三行被排除），已在 §5 用同批实测数据重算并说明 |
+| Part02 · 74 Profiling 驱动的端到端优化 | 训练场景必须拆 数据加载/forward/backward/optimizer/显存峰值/多卡通信；产物 = 一句话瓶颈结论 + baseline/tuned 对比表 + 是否值得保留；一次只改一个方向 | 阶段拆分含显存峰值；一句话瓶颈结论（§4/§6）；7 行对比表；一次一变量；判定 accept/tune/reject | `steps.csv`、`summary.json`、`trace_summary.json` | **多卡通信未测**（全单卡）；Nsight 级 kernel 细节未做 |
+
+三条明确缺口（不补数据，只标注）：**hybrid 组合未测**、**无 Nsight/硬件计数器级证据**、**多卡通信未测**。其余学习目标均有实测落盘。
+
 ## 9. 局限
 
 - 8 步短跑：loss 下降是真实学习，不是收敛结论；固定数据重复 8 步，指标只用于公平对照。
