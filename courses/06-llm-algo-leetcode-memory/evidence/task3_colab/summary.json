@@ -1,159 +1,187 @@
 {
-  "note": "所有峰值/吞吐/loss 均为实测；variants 工作负载不同，只比显存与吞吐；weight_nf4_static 只做静态/前向。",
-  "ledger": {
-    "parameters_gib": 1.8404,
-    "gradients_gib": 1.8404,
-    "optimizer_state_gib": 3.6808,
-    "model_state_gib": 7.3617,
-    "measured_resident_allocated_gib": 7.4013,
-    "activations_and_temporary_gib": 0.0365,
-    "peak_transient_above_resident_gib": 1.0156,
-    "allocator_cache_gib": 1.501,
-    "measurement_points": {
-      "after_load_allocated_gib": 1.8594,
-      "after_backward_allocated_gib": 3.7173,
-      "after_optimizer_allocated_gib": 7.4013,
-      "after_step_reserved_gib": 8.9023,
-      "peak_allocated_gib": 8.417,
-      "seconds": 0.6533
-    },
-    "per_strategy_peak_minus_state_gib": {
-      "baseline": 1.0623,
-      "accumulation": 1.7188,
-      "checkpoint": 1.0482
-    }
+ "note": "所有峰值/吞吐/loss 均为实测；variants 工作负载不同，只比显存与吞吐；weight_nf4_static 只做静态/前向。",
+ "ledger": {
+  "parameters_gib": 1.8404,
+  "gradients_gib": 1.8404,
+  "optimizer_state_gib": 3.6808,
+  "model_state_gib": 7.3617,
+  "measured_resident_allocated_gib": 7.4013,
+  "activations_and_temporary_gib": 0.0365,
+  "peak_transient_above_resident_gib": 1.0156,
+  "allocator_cache_gib": 1.501,
+  "measurement_points": {
+   "after_load_allocated_gib": 1.8594,
+   "after_backward_allocated_gib": 3.7173,
+   "after_optimizer_allocated_gib": 7.4013,
+   "after_step_reserved_gib": 8.9023,
+   "peak_allocated_gib": 8.417,
+   "seconds": 0.6533
   },
-  "summary": [
-    {
-      "strategy": "baseline",
-      "workload": null,
-      "status": "COMPLETE",
-      "peak_reserved_gib": 9.457,
-      "peak_allocated_gib": 8.424,
-      "tokens_per_s": 408.6,
-      "initial_loss": 3.003767,
-      "final_loss": 2.604605,
-      "memory_saving_vs_baseline_pct": 0.0,
-      "throughput_ratio_vs_baseline": 1.0,
-      "final_loss_delta_vs_baseline": -0.0,
-      "same_workload_as_baseline": false
-    },
-    {
-      "strategy": "accumulation",
-      "workload": null,
-      "status": "COMPLETE",
-      "peak_reserved_gib": 9.74,
-      "peak_allocated_gib": 9.08,
-      "tokens_per_s": 355.9,
-      "initial_loss": 3.003767,
-      "final_loss": 2.603844,
-      "memory_saving_vs_baseline_pct": -2.99,
-      "throughput_ratio_vs_baseline": 0.871,
-      "final_loss_delta_vs_baseline": -0.000761,
-      "same_workload_as_baseline": false
-    },
-    {
-      "strategy": "checkpoint",
-      "workload": null,
-      "status": "COMPLETE",
-      "peak_reserved_gib": 9.271,
-      "peak_allocated_gib": 8.41,
-      "tokens_per_s": 395.0,
-      "initial_loss": 3.003767,
-      "final_loss": 2.604605,
-      "memory_saving_vs_baseline_pct": 1.97,
-      "throughput_ratio_vs_baseline": 0.967,
-      "final_loss_delta_vs_baseline": -0.0,
-      "same_workload_as_baseline": false
-    },
-    {
-      "strategy": "activation_offload",
-      "workload": "main:seq128/eff2",
-      "status": "COMPLETE",
-      "peak_reserved_gib": 9.254,
-      "peak_allocated_gib": 8.41,
-      "tokens_per_s": 261.3,
-      "initial_loss": 3.003767,
-      "final_loss": 2.604605,
-      "memory_saving_vs_baseline_pct": 2.15,
-      "throughput_ratio_vs_baseline": 0.64,
-      "final_loss_delta_vs_baseline": -0.0,
-      "same_workload_as_baseline": true
-    },
-    {
-      "strategy": "quant_adamw8bit",
-      "workload": "main:seq128/eff2",
-      "status": "COMPLETE",
-      "peak_reserved_gib": 5.932,
-      "peak_allocated_gib": 5.17,
-      "tokens_per_s": 429.6,
-      "initial_loss": 3.003767,
-      "final_loss": 2.603308,
-      "memory_saving_vs_baseline_pct": 37.27,
-      "throughput_ratio_vs_baseline": 1.052,
-      "final_loss_delta_vs_baseline": -0.001297,
-      "same_workload_as_baseline": true
-    }
-  ],
-  "budget_sensitivity": [
-    {
-      "budget_gib": 6,
-      "eligible": [],
-      "recommendation": "infeasible"
-    },
-    {
-      "budget_gib": 8,
-      "eligible": [
-        "quant_adamw8bit"
-      ],
-      "recommendation": "quant_adamw8bit"
-    },
-    {
-      "budget_gib": 10,
-      "eligible": [
-        "quant_adamw8bit"
-      ],
-      "recommendation": "quant_adamw8bit"
-    },
-    {
-      "budget_gib": 12,
-      "eligible": [
-        "activation_offload",
-        "quant_adamw8bit"
-      ],
-      "recommendation": "quant_adamw8bit"
-    },
-    {
-      "budget_gib": 14,
-      "eligible": [
-        "activation_offload",
-        "quant_adamw8bit"
-      ],
-      "recommendation": "quant_adamw8bit"
-    },
-    {
-      "budget_gib": 16,
-      "eligible": [
-        "activation_offload",
-        "quant_adamw8bit"
-      ],
-      "recommendation": "quant_adamw8bit"
-    },
-    {
-      "budget_gib": 20,
-      "eligible": [
-        "activation_offload",
-        "quant_adamw8bit"
-      ],
-      "recommendation": "quant_adamw8bit"
-    },
-    {
-      "budget_gib": 24,
-      "eligible": [
-        "activation_offload",
-        "quant_adamw8bit"
-      ],
-      "recommendation": "quant_adamw8bit"
-    }
-  ]
+  "per_strategy_peak_minus_state_gib": {
+   "baseline": 1.0623,
+   "accumulation": 1.7188,
+   "checkpoint": 1.0482
+  }
+ },
+ "summary": [
+  {
+   "strategy": "baseline",
+   "workload": null,
+   "status": "COMPLETE",
+   "peak_reserved_gib": 9.457,
+   "peak_allocated_gib": 8.424,
+   "tokens_per_s": 408.6,
+   "initial_loss": 3.003767,
+   "final_loss": 2.604605,
+   "memory_saving_vs_baseline_pct": 0,
+   "throughput_ratio_vs_baseline": 1,
+   "final_loss_delta_vs_baseline": 0,
+   "same_workload_as_baseline": false
+  },
+  {
+   "strategy": "accumulation",
+   "workload": null,
+   "status": "COMPLETE",
+   "peak_reserved_gib": 9.74,
+   "peak_allocated_gib": 9.08,
+   "tokens_per_s": 355.9,
+   "initial_loss": 3.003767,
+   "final_loss": 2.603844,
+   "memory_saving_vs_baseline_pct": -2.99,
+   "throughput_ratio_vs_baseline": 0.871,
+   "final_loss_delta_vs_baseline": -0.000761,
+   "same_workload_as_baseline": false
+  },
+  {
+   "strategy": "checkpoint",
+   "workload": null,
+   "status": "COMPLETE",
+   "peak_reserved_gib": 9.271,
+   "peak_allocated_gib": 8.41,
+   "tokens_per_s": 395,
+   "initial_loss": 3.003767,
+   "final_loss": 2.604605,
+   "memory_saving_vs_baseline_pct": 1.97,
+   "throughput_ratio_vs_baseline": 0.967,
+   "final_loss_delta_vs_baseline": 0,
+   "same_workload_as_baseline": false
+  },
+  {
+   "strategy": "activation_offload",
+   "workload": "main:seq128/eff2",
+   "status": "COMPLETE",
+   "peak_reserved_gib": 9.254,
+   "peak_allocated_gib": 8.41,
+   "tokens_per_s": 261.3,
+   "initial_loss": 3.003767,
+   "final_loss": 2.604605,
+   "memory_saving_vs_baseline_pct": 2.15,
+   "throughput_ratio_vs_baseline": 0.64,
+   "final_loss_delta_vs_baseline": 0,
+   "same_workload_as_baseline": true
+  },
+  {
+   "strategy": "quant_adamw8bit",
+   "workload": "main:seq128/eff2",
+   "status": "COMPLETE",
+   "peak_reserved_gib": 5.932,
+   "peak_allocated_gib": 5.17,
+   "tokens_per_s": 429.6,
+   "initial_loss": 3.003767,
+   "final_loss": 2.603308,
+   "memory_saving_vs_baseline_pct": 37.27,
+   "throughput_ratio_vs_baseline": 1.052,
+   "final_loss_delta_vs_baseline": -0.001297,
+   "same_workload_as_baseline": true
+  },
+  {
+   "strategy": "small_batch_eff1",
+   "workload": "variant:seq128/eff1",
+   "status": "COMPLETE",
+   "peak_reserved_gib": 9.369,
+   "peak_allocated_gib": 8.41,
+   "tokens_per_s": 273.3,
+   "initial_loss": 3.003767,
+   "final_loss": 2.664777,
+   "memory_saving_vs_baseline_pct": 0.93,
+   "throughput_ratio_vs_baseline": 0.669,
+   "final_loss_delta_vs_baseline": 0.060172,
+   "same_workload_as_baseline": false
+  },
+  {
+   "strategy": "short_seq64",
+   "workload": "variant:seq64/eff2",
+   "status": "COMPLETE",
+   "peak_reserved_gib": 9.359,
+   "peak_allocated_gib": 8.41,
+   "tokens_per_s": 268.3,
+   "initial_loss": 3.253621,
+   "final_loss": 2.93371,
+   "memory_saving_vs_baseline_pct": 1.04,
+   "throughput_ratio_vs_baseline": 0.657,
+   "final_loss_delta_vs_baseline": 0.329105,
+   "same_workload_as_baseline": false
+  }
+ ],
+ "budget_sensitivity": [
+  {
+   "budget_gib": 6,
+   "eligible": [],
+   "recommendation": "infeasible"
+  },
+  {
+   "budget_gib": 8,
+   "eligible": [
+    "quant_adamw8bit"
+   ],
+   "recommendation": "quant_adamw8bit"
+  },
+  {
+   "budget_gib": 10,
+   "eligible": [
+    "quant_adamw8bit"
+   ],
+   "recommendation": "quant_adamw8bit"
+  },
+  {
+   "budget_gib": 12,
+   "eligible": [
+    "activation_offload",
+    "quant_adamw8bit"
+   ],
+   "recommendation": "quant_adamw8bit"
+  },
+  {
+   "budget_gib": 14,
+   "eligible": [
+    "activation_offload",
+    "quant_adamw8bit"
+   ],
+   "recommendation": "quant_adamw8bit"
+  },
+  {
+   "budget_gib": 16,
+   "eligible": [
+    "activation_offload",
+    "quant_adamw8bit"
+   ],
+   "recommendation": "quant_adamw8bit"
+  },
+  {
+   "budget_gib": 20,
+   "eligible": [
+    "activation_offload",
+    "quant_adamw8bit"
+   ],
+   "recommendation": "quant_adamw8bit"
+  },
+  {
+   "budget_gib": 24,
+   "eligible": [
+    "activation_offload",
+    "quant_adamw8bit"
+   ],
+   "recommendation": "quant_adamw8bit"
+  }
+ ]
 }

@@ -32,9 +32,9 @@
 - budget_sensitivity.json：Notebook 内按 workload 字符串过滤，基线三策略该字段为空而被排除，只保留 offload/quant。用同一批实测数据与同一判定规则（reserved+1 GiB <= 预算、吞吐 >= baseline 40%、|delta loss| <= 0.15）重算的正确表见 ../../notes/task03-colab-real-model.md 第 5 节：6 GiB 不可行；8/10 GiB 仅 8-bit AdamW；>=12 GiB 全部可行，推荐 8-bit AdamW（吞吐最高）。
 - trace_summary.json：baseline 89,670 事件 vs offload 118,221 事件；offload 的 gpu_memcpy 从 54 次 / 0.42 ms 涨到 1,904 次 / 303.28 ms，同步等待从 7 次 / 104.58 ms 涨到 932 次 / 461.13 ms——offload 的代价确实转移到数据传输与同步。
 
-## 本次导出未包含（如实说明）
+## 补跑说明
 
-- small_batch_eff1.json / short_seq64.json：缩小有效 batch（4->1）与缩短序列（128->64）两个独立 workload 变体本次未运行（会话时间花在 4-bit 加载的运行时兼容排障上），因此这两条只有方法说明，没有实测数字。
+- small_batch_eff1.json / short_seq64.json / summary.json 的 7 行版本是主表跑完后在同一会话补跑的（未重新打包 ZIP）；两者的逐步记录、初始/最终 held-out loss 与峰值均来自该次补跑输出。
 - decisions.json 只含主表三策略（该单元格在增项之前执行）；offload 与 8-bit 的判定记录在 summary.json。
 
 ## 判定口径
