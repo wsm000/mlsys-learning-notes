@@ -67,7 +67,7 @@
 | [code/task3_training_budget.py](code/task3_training_budget.py) · [task3_render_evidence.py](code/task3_render_evidence.py) | Task3 vm-60 实测：四策略对照 + 阶段拆分 + 预算决策 + 三张证据图（`ALL_TESTS_PASS`） |
 | [code/task3_colab_real_model_new.ipynb](code/task3_colab_real_model_new.ipynb) | Task3 Colab 真实模型版（Qwen2.5-0.5B + WikiText）：主表 baseline/累积/checkpoint，增项含**实测显存账本、offload、缩小 batch、缩短序列、8-bit 优化器与 4-bit 权重、预算敏感性扫描、profiler trace 四分类** |
 | [evidence/task3/](evidence/task3/) | Task3 实测证据：结果 JSON、原始日志、两份 chrome trace、复现命令与证据图 |
-| [notes/task03-colab-real-model.md](notes/task03-colab-real-model.md) · [evidence/task3_colab/](evidence/task3_colab/) | Task3 Colab 真实模型实测（T4 · Qwen2.5-0.5B · WikiText-2）：三策略 PASS，常驻状态占峰值 87.5% |
+| [notes/task03-colab-real-model.md](notes/task03-colab-real-model.md) · [evidence/task3_colab/](evidence/task3_colab/) | Task3 Colab 真实模型**全量增项实测**（T4 · Qwen2.5-0.5B · WikiText-2）：五策略对照 + 显存账本 + 预算敏感性 + profiler 四分类；8-bit AdamW 省 37.3% 显存且更快，4-bit 权重省 76% 但 loss +0.098 |
 
 ## 学习方法
 

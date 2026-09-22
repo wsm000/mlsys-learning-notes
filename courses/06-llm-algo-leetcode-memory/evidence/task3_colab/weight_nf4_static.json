@@ -1,0 +1,9 @@
+{
+  "strategy": "weight_nf4_static",
+  "workload": "inference-only",
+  "static_allocated_gib": 0.4442,
+  "forward_peak_allocated_gib": 0.7359,
+  "stored_weight_bytes_gib": 0.4203,
+  "heldout_loss": 3.102217,
+  "note": "4-bit 权重冻结，只测加载与前向显存；不训练，因此不与训练策略比吞吐"
+}

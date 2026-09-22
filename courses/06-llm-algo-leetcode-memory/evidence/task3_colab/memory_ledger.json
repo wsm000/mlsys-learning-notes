@@ -1,0 +1,23 @@
+{
+  "parameters_gib": 1.8404,
+  "gradients_gib": 1.8404,
+  "optimizer_state_gib": 3.6808,
+  "model_state_gib": 7.3617,
+  "measured_resident_allocated_gib": 7.4013,
+  "activations_and_temporary_gib": 0.0365,
+  "peak_transient_above_resident_gib": 1.0156,
+  "allocator_cache_gib": 1.501,
+  "measurement_points": {
+    "after_load_allocated_gib": 1.8594,
+    "after_backward_allocated_gib": 3.7173,
+    "after_optimizer_allocated_gib": 7.4013,
+    "after_step_reserved_gib": 8.9023,
+    "peak_allocated_gib": 8.417,
+    "seconds": 0.6533
+  },
+  "per_strategy_peak_minus_state_gib": {
+    "baseline": 1.0623,
+    "accumulation": 1.7188,
+    "checkpoint": 1.0482
+  }
+}

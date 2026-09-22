@@ -1,0 +1,61 @@
+[
+  {
+    "budget_gib": 6,
+    "eligible": [],
+    "recommendation": "infeasible"
+  },
+  {
+    "budget_gib": 8,
+    "eligible": [
+      "quant_adamw8bit"
+    ],
+    "recommendation": "quant_adamw8bit"
+  },
+  {
+    "budget_gib": 10,
+    "eligible": [
+      "quant_adamw8bit"
+    ],
+    "recommendation": "quant_adamw8bit"
+  },
+  {
+    "budget_gib": 12,
+    "eligible": [
+      "activation_offload",
+      "quant_adamw8bit"
+    ],
+    "recommendation": "quant_adamw8bit"
+  },
+  {
+    "budget_gib": 14,
+    "eligible": [
+      "activation_offload",
+      "quant_adamw8bit"
+    ],
+    "recommendation": "quant_adamw8bit"
+  },
+  {
+    "budget_gib": 16,
+    "eligible": [
+      "activation_offload",
+      "quant_adamw8bit"
+    ],
+    "recommendation": "quant_adamw8bit"
+  },
+  {
+    "budget_gib": 20,
+    "eligible": [
+      "activation_offload",
+      "quant_adamw8bit"
+    ],
+    "recommendation": "quant_adamw8bit"
+  },
+  {
+    "budget_gib": 24,
+    "eligible": [
+      "activation_offload",
+      "quant_adamw8bit"
+    ],
+    "recommendation": "quant_adamw8bit"
+  }
+]

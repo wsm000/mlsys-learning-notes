@@ -1,31 +1,44 @@
-# Task3 Colab 真实模型实测证据（T4 · Qwen2.5-0.5B · WikiText-2）
+# Task3 Colab 真实模型实测证据（完整版 · T4 · Qwen2.5-0.5B · WikiText-2）
 
-来源：`code/task3_colab_real_model_new.ipynb` 在 Google Colab GPU 运行时的导出 ZIP（`20260922_012052.zip`，本目录即其解压内容）。运行时间 2026-09-22 01:20（UTC，Colab 目录名）。
+来源：`code/task3_colab_real_model_new.ipynb` 在 Google Colab GPU 的完整运行，导出 ZIP `../task3/20260922_044059.zip`（本目录即其解压内容，24 个文件）。
+早前一次不完整运行（`20260922_012052.zip`，仅主表三策略）保留在上级目录备查。
 
-## 环境与来源（provenance.json）
+## 环境与来源
 
 | 项 | 值 |
 |---|---|
 | GPU | Tesla T4，可见显存 14.56 GiB |
 | torch / CUDA | 2.11.0+cu128 / 12.8 |
 | transformers / datasets | 4.48.3 / 3.2.0 |
-| 模型 | Qwen/Qwen2.5-0.5B，commit `060db6499f32faf8b98477b0a26969ef7d8b9987`，494,032,768 参数 |
-| 数据 | Salesforce/wikitext `wikitext-2-raw-v1`，commit `b08601e04326c79dfdd32d625aee71d232d685c3` |
-| 权重/优化器 | FP32 权重 + AdamW(foreach=False)，autocast 记录为 bfloat16 |
-| 输入 | seq=128、EOS 分隔、无 padding；effective batch=2；3 warmup + 5 measured；逐 batch sha256 见 `inputs.json`，`fixed_inputs.pt` 为固化输入 |
+| 模型 | Qwen2.5-0.5B，commit 060db6499f32faf8b98477b0a26969ef7d8b9987，494,032,768 参数 |
+| 数据 | Salesforce/wikitext wikitext-2-raw-v1，commit b08601e04326c79dfdd32d625aee71d232d685c3 |
+| 口径 | FP32 权重 + 优化器，autocast bf16，seq=128、EOS 分隔无 padding、effective batch=2、3 warmup + 5 measured，逐 batch sha256 |
 
-## 本次导出包含
+## 实测结果总览
 
-- `baseline.json` / `accumulation.json` / `checkpoint.json`：三策略逐步记录（耗时、loss、allocated/reserved 峰值）、初始与最终 held-out loss、静态预算
-- `decisions.json`：三策略全部 `PASS`（同初始权重 identity、同输入哈希、初始/最终验证 loss 阈值、吞吐 ≥ baseline 40%、reserved + 1 GiB ≤ 14 GiB）
-- `comparison.png` / `training_loss.png` / `steps.csv` / `environment.json` / `config.json` / `provenance.json` / `inputs.json` / `export_manifest.json`
+| 策略 | peak reserved | peak allocated | tokens/s | 初始 loss | 最终 held-out loss | 显存节省 | 吞吐比 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| baseline | 9.457 | 8.424 | 408.6 | 3.0038 | 2.6046 | 0% | 1.000 |
+| 梯度累积 1x2 | 9.740 | 9.080 | 355.9 | 3.0038 | 2.6038 | -2.99% | 0.871 |
+| checkpoint | 9.271 | 8.410 | 395.0 | 3.0038 | 2.6046 | +1.97% | 0.967 |
+| activation offload | 9.254 | 8.410 | 261.3 | 3.0038 | 2.6046 | +2.15% | 0.640 |
+| 8-bit AdamW | 5.932 | 5.170 | 429.6 | 3.0038 | 2.6033 | +37.27% | 1.052 |
 
-## 本次导出**不**包含（如实说明）
+4-bit 权重（仅静态/前向，不训练）：加载后 allocated 0.444 GiB、前向峰值 0.736 GiB、实存权重字节 0.420 GiB（FP32 权重 1.840 GiB，省 76%）、held-out loss 3.1022（FP32 同点 3.0038，质量代价 +0.098）。
 
-Notebook 中 4.2 增项的 6 个实测单元格（显存账本精确分解、activation offload、缩小 batch、缩短序列、8-bit 优化器与 4-bit 权重静态实测、预算敏感性扫描、profiler trace 四分类）**在本次导出时尚未运行**，因此 ZIP 中没有对应 JSON/图表。补齐后需重新运行导出单元格再归档。对应缺口文件：`memory_ledger.json`、`activation_offload.json`、`small_batch_eff1.json`、`short_seq64.json`、`quant_adamw8bit.json`、`weight_nf4_static.json`、`budget_sensitivity.json`、`summary.json`、`trace_summary.json`、`profiled_*_trace.json`、`comparison_extended.png`、`training_loss_extended.png`。
+## 三份关键明细
+
+- memory_ledger.json：参数 1.8404 / 梯度 1.8404 / Adam 状态 3.6808 = 常驻 7.3617 GiB；激活+临时 0.0365 GiB；峰值-常驻 1.0156 GiB；分配器缓存 1.501 GiB。
+- budget_sensitivity.json：Notebook 内按 workload 字符串过滤，基线三策略该字段为空而被排除，只保留 offload/quant。用同一批实测数据与同一判定规则（reserved+1 GiB <= 预算、吞吐 >= baseline 40%、|delta loss| <= 0.15）重算的正确表见 ../../notes/task03-colab-real-model.md 第 5 节：6 GiB 不可行；8/10 GiB 仅 8-bit AdamW；>=12 GiB 全部可行，推荐 8-bit AdamW（吞吐最高）。
+- trace_summary.json：baseline 89,670 事件 vs offload 118,221 事件；offload 的 gpu_memcpy 从 54 次 / 0.42 ms 涨到 1,904 次 / 303.28 ms，同步等待从 7 次 / 104.58 ms 涨到 932 次 / 461.13 ms——offload 的代价确实转移到数据传输与同步。
+
+## 本次导出未包含（如实说明）
+
+- small_batch_eff1.json / short_seq64.json：缩小有效 batch（4->1）与缩短序列（128->64）两个独立 workload 变体本次未运行（会话时间花在 4-bit 加载的运行时兼容排障上），因此这两条只有方法说明，没有实测数字。
+- decisions.json 只含主表三策略（该单元格在增项之前执行）；offload 与 8-bit 的判定记录在 summary.json。
 
 ## 判定口径
 
-- 数值一致性：同一初始权重、同一批固定输入下的一步 loss 与参数更新接近（阈值见 `decisions.json`），**不是收敛结论**。
-- 吞吐门槛 `min_throughput_ratio=0.40`、loss 阈值、reserved + 1 GiB 安全余量 ≤ 预算，均为脚本内显式规则；判决输出 `verdict` 而非人工挑选。
-- 8 步短跑；工作负载固定；单卡，无通信测量。
+- 数值一致性：同一初始权重、同一批固定输入下的一步 loss 与参数更新接近；8 步短跑，不是收敛结论。
+- 增项行的 status=COMPLETE 只表示跑完且有限，不是与 baseline 的等价性判定；工作负载相同的五行（三主表 + offload + 8-bit）才可互比显存与吞吐。
+- 4-bit 行是推理侧静态/前向测量，不参与训练侧吞吐比较。

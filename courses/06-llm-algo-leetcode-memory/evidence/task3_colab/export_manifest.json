@@ -1,17 +1,28 @@
 {
   "files": [
     "accumulation.json",
+    "activation_offload.json",
     "baseline.json",
+    "budget_sensitivity.json",
     "checkpoint.json",
     "comparison.png",
+    "comparison_extended.png",
     "config.json",
     "decisions.json",
     "environment.json",
     "fixed_inputs.pt",
     "inputs.json",
+    "memory_ledger.json",
+    "profiled_baseline_trace.json",
+    "profiled_offload_trace.json",
     "provenance.json",
+    "quant_adamw8bit.json",
     "steps.csv",
-    "training_loss.png"
+    "summary.json",
+    "trace_summary.json",
+    "training_loss.png",
+    "training_loss_extended.png",
+    "weight_nf4_static.json"
   ],
   "executed_notebook": "请在 Colab 文件菜单单独下载含输出的 .ipynb",
   "scope": "真实模型短跑，非收敛结论；仅本次硬件与配置有效"
