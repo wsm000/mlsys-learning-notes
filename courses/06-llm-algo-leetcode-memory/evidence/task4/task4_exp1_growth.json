@@ -1,0 +1,176 @@
+{
+  "experiment": "task4_exp1_growth",
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "total_memory_mib": 24090.8,
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "python": "3.10.12",
+    "utc": "2026-09-28T05:52:20+00:00"
+  },
+  "source_sha256": "e5069c1514ff776a",
+  "model_shape": {
+    "layers": 12,
+    "heads": 8,
+    "head_dim": 128,
+    "hidden": 1024,
+    "dtype": "fp16"
+  },
+  "formula": "KV bytes = 2 * layers * kv_heads * head_dim * tokens * dtype_bytes * batch",
+  "a_allocation_match": [
+    {
+      "case": "B=1,S=1024",
+      "bytes": 16777216,
+      "mib": 16.0
+    },
+    {
+      "case": "B=4,S=512",
+      "bytes": 8388608,
+      "mib": 8.0
+    },
+    {
+      "case": "B=2,S=2048",
+      "bytes": 4194304,
+      "mib": 4.0
+    },
+    {
+      "case": "B=1,S=256,fp32",
+      "bytes": 8388608,
+      "mib": 8.0
+    }
+  ],
+  "b_linearity": {
+    "base_bytes": 134217728,
+    "dimensions": {
+      "tokens": {
+        "double_ratio": 2.0,
+        "linear": true
+      },
+      "layers": {
+        "double_ratio": 2.0,
+        "linear": true
+      },
+      "kv_heads": {
+        "double_ratio": 2.0,
+        "linear": true
+      },
+      "head_dim": {
+        "double_ratio": 2.0,
+        "linear": true
+      },
+      "dtype_bytes": {
+        "double_ratio": 2.0,
+        "linear": true
+      },
+      "batch": {
+        "double_ratio": 2.0,
+        "linear": true
+      }
+    },
+    "note": "全部六个维度严格一阶线性；无平方项（tokens 不是 tokens^2）"
+  },
+  "c_real_model": {
+    "batch": 4,
+    "prefill_seq": 512,
+    "gen_tokens": 32,
+    "rows": [
+      {
+        "config": "MHA",
+        "kv_heads": 8,
+        "prefill_cache_bytes": 100663296,
+        "prefill_ledger_bytes": 100663296,
+        "ledger_match": true,
+        "per_token_bytes": 49152,
+        "per_token_kib": 48.0,
+        "decode_step_bytes_median": 196608,
+        "decode_step_ms_median": 11.138,
+        "params_m": 219.7,
+        "param_mib": 419.0
+      },
+      {
+        "config": "GQA-4",
+        "kv_heads": 4,
+        "prefill_cache_bytes": 50331648,
+        "prefill_ledger_bytes": 50331648,
+        "ledger_match": true,
+        "per_token_bytes": 24576,
+        "per_token_kib": 24.0,
+        "decode_step_bytes_median": 98304,
+        "decode_step_ms_median": 11.287,
+        "params_m": 207.1,
+        "param_mib": 395.0
+      },
+      {
+        "config": "GQA-2",
+        "kv_heads": 2,
+        "prefill_cache_bytes": 25165824,
+        "prefill_ledger_bytes": 25165824,
+        "ledger_match": true,
+        "per_token_bytes": 12288,
+        "per_token_kib": 12.0,
+        "decode_step_bytes_median": 49152,
+        "decode_step_ms_median": 11.278,
+        "params_m": 200.8,
+        "param_mib": 383.0
+      },
+      {
+        "config": "MQA",
+        "kv_heads": 1,
+        "prefill_cache_bytes": 12582912,
+        "prefill_ledger_bytes": 12582912,
+        "ledger_match": true,
+        "per_token_bytes": 6144,
+        "per_token_kib": 6.0,
+        "decode_step_bytes_median": 24576,
+        "decode_step_ms_median": 11.315,
+        "params_m": 197.7,
+        "param_mib": 377.0
+      }
+    ]
+  },
+  "d_mla": {
+    "seq": 4096,
+    "latent_elements_per_token_per_layer": 576,
+    "mla_bytes": 56623104,
+    "mha_bytes_H8": 201326592,
+    "gqa8_bytes": 201326592,
+    "mla_vs_mha_ratio": 0.2812,
+    "mla_vs_gqa8_ratio": 0.2812,
+    "mla_mib": 54.0,
+    "mha_mib": 192.0,
+    "gqa8_mib": 192.0
+  },
+  "e_kv_precision": {
+    "tensor_shape": [
+      1,
+      256,
+      512
+    ],
+    "rows": [
+      {
+        "name": "fp16",
+        "bytes": 524288,
+        "k_max_abs_err": 0.0,
+        "v_max_abs_err": 0.0,
+        "k_rel_l2": 0.0
+      },
+      {
+        "name": "fp8_e4m3",
+        "bytes": 262144,
+        "k_max_abs_err": 0.125,
+        "v_max_abs_err": 0.125,
+        "k_rel_l2": 0.02639
+      },
+      {
+        "name": "int8_symmetric",
+        "bytes": 262144,
+        "k_max_abs_err": 0.01083,
+        "v_max_abs_err": 0.01133,
+        "k_rel_l2": 0.00735
+      }
+    ],
+    "fp16_vs_fp8_bytes_ratio": 2.0,
+    "fp16_vs_int8_bytes_ratio": 2.0
+  },
+  "status": "PASS"
+}

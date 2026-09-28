@@ -1,0 +1,7 @@
+GPU: NVIDIA GeForce RTX 4090 D
+== A. 容量规划：权重/缓冲/上下文/KV 池/安全余量 ==
+== B. 准入压力实测：MHA / GQA-8 / MQA ==
+  part B 入口 free=447 MiB / total=24091 MiB
+== C. 同 workload 缓存策略对照（toy 12L） ==
+[json] /home/simin/projects/memopt-task4/code/task4_exp4_capacity.json
+ALL_TESTS_PASS

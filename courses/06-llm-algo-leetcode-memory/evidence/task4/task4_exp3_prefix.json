@@ -1,0 +1,123 @@
+{
+  "experiment": "task4_exp3_prefix",
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "total_memory_mib": 24090.8,
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "python": "3.10.12",
+    "utc": "2026-09-28T05:53:23+00:00"
+  },
+  "source_sha256": "cb8c2b96ceefb101",
+  "model": {
+    "layers": 12,
+    "kv_heads": 8,
+    "head_dim": 128,
+    "dtype": "fp16"
+  },
+  "per_token_kv_bytes": 49152,
+  "a_mechanism": {
+    "status": "PASS",
+    "checks": [
+      "exact hit",
+      "branch longest match",
+      "middle divergence",
+      "same tokens other position",
+      "partial tail block",
+      "LRU+refcount"
+    ]
+  },
+  "b_real_model": {
+    "b1_compute_scale_prompt4096": {
+      "full_prefill_ttft_ms": 22.847,
+      "prompt_fill_once_ms": 20.526,
+      "suffix_only_ttft_ms": 11.745,
+      "suffix_skip_ratio_tokens": 0.9697,
+      "ttft_saving_ratio_vs_full": 0.4859,
+      "deepcopy_isolation_ms": 1.854,
+      "note": "4096 prompt 下 prefill 进入 compute-bound，suffix-only 的墙钟收益可观测"
+    },
+    "workload": {
+      "prompt_len": 512,
+      "suffix_len": 128,
+      "requests": 6,
+      "block_size": 64,
+      "seed": 777
+    },
+    "baseline_ttft_ms": [
+      11.903,
+      11.8,
+      11.876,
+      11.821,
+      11.876,
+      11.828
+    ],
+    "prefix_ttft_ms": [
+      11.921,
+      12.109,
+      12.082,
+      12.047,
+      12.05,
+      12.124
+    ],
+    "deepcopy_ms": [
+      2.695,
+      2.928,
+      2.88,
+      2.886,
+      2.875,
+      2.849
+    ],
+    "baseline_mean_ms": 11.851,
+    "prefix_mean_ms": 12.056,
+    "ttft_speedup_small_scale": 0.983,
+    "prefill_tokens_baseline": 3840,
+    "prefill_tokens_prefix": 1280,
+    "prefill_token_reduction": 0.6667,
+    "logits_max_abs_diff": [
+      0.00488,
+      0.00586,
+      0.00488,
+      0.00488,
+      0.00488,
+      0.00488
+    ],
+    "logits_diff_note": "deepcopy 隔离下前缀复用与整段 prefill 的末位 logits 差异（fp16 量级）",
+    "small_scale_note": "prompt=512 的整段 prefill 仅 ~12ms，被 kernel 启动等固定开销主导，跳过 512 token 不体现为墙钟收益——命中率不等于 TTFT 收益的直接证据",
+    "prompt_kv_bytes_shared_once": 25165824,
+    "tolerance": 0.05
+  },
+  "c_storage": {
+    "per_token_kv_bytes": 49152,
+    "duplicate_storage_bytes": 188743680,
+    "shared_storage_bytes": 62914560,
+    "storage_saving_ratio": 0.6667,
+    "duplicate_mib": 180.0,
+    "shared_mib": 60.0,
+    "gpu_probe": {
+      "duplicate_peak_mib": 15.62,
+      "shared_peak_mib": 10.62,
+      "note": "真实 fp16 张量分配，测量口径 torch.cuda.max_memory_allocated"
+    },
+    "boundary": "深拷贝隔离的 decode 路径每请求仍持有 prompt 副本；物理共享由块表引用计数实现，此处以分配探针证明'一份 prompt + N suffix'与'N 整段'的真实差异"
+  },
+  "d_contiguity": {
+    "case_A_same_prefix": {
+      "hit_blocks": 8,
+      "hit_tokens": 512,
+      "ttft_ms": 12.031
+    },
+    "case_B_diff_head": {
+      "hit_blocks": 0,
+      "hit_tokens": 0,
+      "ttft_ms": 13.246
+    },
+    "case_C_diff_middle": {
+      "hit_blocks": 4,
+      "hit_tokens": 256,
+      "ttft_ms": 12.172
+    },
+    "conclusion": "首段或中段任一不同 -> 链式哈希从分叉点即失效，命中长度回到 0/分叉前，必须整段重算（因果注意力 + RoPE 位置绑定）"
+  },
+  "status": "PASS"
+}

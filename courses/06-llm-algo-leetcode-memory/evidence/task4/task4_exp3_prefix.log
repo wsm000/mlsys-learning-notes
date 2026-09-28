@@ -1,0 +1,16 @@
+GPU: NVIDIA GeForce RTX 4090 D
+== A. 块哈希前缀缓存机制单测 ==
+  [ok] 整条 512 token prompt 全部命中（8 块）
+  [ok] 未登记的分叉请求命中他人已登记的 2 个共享块
+  [ok] 登记分叉后原请求仍命中 8 块
+  [ok] 登记后分叉请求自身 8 块全命中
+  [ok] 第 1 块后即分叉 -> 只命中 1 块
+  [ok] 前 256 与已登记前缀一致 -> 命中 4 块，后半段不命中
+  [ok] 500 token = 7 个完整块，尾块不匹配
+  [ok] 容量约束生效（被引用的块不被驱逐）
+  [ok] 被引用的块驱逐后仍可命中
+== B. 真实模型：共享 prompt 的 prefill 跳过与 TTFT ==
+== C. 存储侧：共享块 vs 重复存储（字节账本 + GPU 分配探针） ==
+== D. 连续前缀必要性：首段/中段不同的命中与 TTFT ==
+[json] /home/simin/projects/memopt-task4/code/task4_exp3_prefix.json
+ALL_TESTS_PASS

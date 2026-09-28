@@ -1,0 +1,357 @@
+{
+  "experiment": "task4_exp4_capacity",
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "total_memory_mib": 24090.8,
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "python": "3.10.12",
+    "utc": "2026-09-28T06:10:47+00:00"
+  },
+  "source_sha256": "6b24794eae0ae523",
+  "a_capacity_plan": {
+    "device": "NVIDIA GeForce RTX 4090 D",
+    "total_memory_gib": 23.53,
+    "context_reserved_mib": 0.0,
+    "gpu_memory_utilization": 0.9,
+    "safety_guard_mib": 256,
+    "weights_measured": true,
+    "weights_bytes": 3315798016,
+    "weights_gib": 3.09,
+    "runtime_peak_bytes": 3514014720,
+    "runtime_buffers_mib": 189.0,
+    "peak_reserved_gib": 3.34,
+    "kv_pool_gib": 17.65,
+    "model_shape_measured": {
+      "layers": 24,
+      "hidden": 2048,
+      "heads": 16,
+      "kv_heads": 8,
+      "head_dim": 128,
+      "intermediate": 5632,
+      "vocab": 128256
+    },
+    "model_shape_reference": {
+      "layers": 32,
+      "hidden": 4096,
+      "heads": 32,
+      "kv_heads": 8,
+      "head_dim": 128,
+      "intermediate": 14336,
+      "vocab": 128256
+    },
+    "capacity_rows": [
+      {
+        "variant": "MHA (kv=16) [24L measured]",
+        "per_token_bytes": 196608,
+        "per_token_kib": 192.0,
+        "kv_pool_gib": 17.65,
+        "max_tokens": 96397,
+        "max_ctx_single_request": 96397,
+        "max_concurrency_at_4096": 23,
+        "max_concurrency_at_2048": 47
+      },
+      {
+        "variant": "GQA-8 [24L measured]",
+        "per_token_bytes": 98304,
+        "per_token_kib": 96.0,
+        "kv_pool_gib": 17.65,
+        "max_tokens": 192794,
+        "max_ctx_single_request": 192794,
+        "max_concurrency_at_4096": 47,
+        "max_concurrency_at_2048": 94
+      },
+      {
+        "variant": "MQA (kv=1) [24L measured]",
+        "per_token_bytes": 12288,
+        "per_token_kib": 12.0,
+        "kv_pool_gib": 17.65,
+        "max_tokens": 1542357,
+        "max_ctx_single_request": 1542357,
+        "max_concurrency_at_4096": 376,
+        "max_concurrency_at_2048": 753
+      },
+      {
+        "variant": "MLA (512+64) [24L measured]",
+        "per_token_bytes": 27648,
+        "per_token_kib": 27.0,
+        "kv_pool_gib": 17.65,
+        "max_tokens": 685492,
+        "max_ctx_single_request": 685492,
+        "max_concurrency_at_4096": 167,
+        "max_concurrency_at_2048": 334
+      },
+      {
+        "variant": "GQA-8 + FP8 KV [24L measured]",
+        "per_token_bytes": 49152,
+        "per_token_kib": 48.0,
+        "kv_pool_gib": 17.65,
+        "max_tokens": 385589,
+        "max_ctx_single_request": 385589,
+        "max_concurrency_at_4096": 94,
+        "max_concurrency_at_2048": 188
+      },
+      {
+        "variant": "GQA-8 + INT8 KV [24L measured]",
+        "per_token_bytes": 49152,
+        "per_token_kib": 48.0,
+        "kv_pool_gib": 17.65,
+        "max_tokens": 385589,
+        "max_ctx_single_request": 385589,
+        "max_concurrency_at_4096": 94,
+        "max_concurrency_at_2048": 188
+      }
+    ],
+    "capacity_rows_8b_ledger": [
+      {
+        "variant": "MHA (kv=32) [32L ledger]",
+        "per_token_bytes": 524288,
+        "per_token_kib": 512.0,
+        "kv_pool_gib": 17.65,
+        "max_tokens": 36149,
+        "max_ctx_single_request": 36149,
+        "max_concurrency_at_4096": 8,
+        "max_concurrency_at_2048": 17
+      },
+      {
+        "variant": "GQA-8 [32L ledger]",
+        "per_token_bytes": 131072,
+        "per_token_kib": 128.0,
+        "kv_pool_gib": 17.65,
+        "max_tokens": 144596,
+        "max_ctx_single_request": 144596,
+        "max_concurrency_at_4096": 35,
+        "max_concurrency_at_2048": 70
+      },
+      {
+        "variant": "MQA (kv=1) [32L ledger]",
+        "per_token_bytes": 16384,
+        "per_token_kib": 16.0,
+        "kv_pool_gib": 17.65,
+        "max_tokens": 1156768,
+        "max_ctx_single_request": 1156768,
+        "max_concurrency_at_4096": 282,
+        "max_concurrency_at_2048": 564
+      },
+      {
+        "variant": "MLA (512+64) [32L ledger]",
+        "per_token_bytes": 36864,
+        "per_token_kib": 36.0,
+        "kv_pool_gib": 17.65,
+        "max_tokens": 514119,
+        "max_ctx_single_request": 514119,
+        "max_concurrency_at_4096": 125,
+        "max_concurrency_at_2048": 251
+      },
+      {
+        "variant": "GQA-8 + FP8 KV [32L ledger]",
+        "per_token_bytes": 65536,
+        "per_token_kib": 64.0,
+        "kv_pool_gib": 17.65,
+        "max_tokens": 289192,
+        "max_ctx_single_request": 289192,
+        "max_concurrency_at_4096": 70,
+        "max_concurrency_at_2048": 141
+      },
+      {
+        "variant": "GQA-8 + INT8 KV [32L ledger]",
+        "per_token_bytes": 65536,
+        "per_token_kib": 64.0,
+        "kv_pool_gib": 17.65,
+        "max_tokens": 289192,
+        "max_ctx_single_request": 289192,
+        "max_concurrency_at_4096": 70,
+        "max_concurrency_at_2048": 141
+      }
+    ],
+    "boundary": "权重与运行缓冲为 1.5B 级模型真实测量；MLA/FP8/INT8 与 8B 行按同一账本推导（表示变化），真实 kernel 收益需在 backend 复测"
+  },
+  "b_admission": {
+    "workload": {
+      "prompt": 512,
+      "suffix": 48,
+      "gen": 32,
+      "per_request_tokens": 592
+    },
+    "rows": [
+      {
+        "variant": "MHA-16",
+        "kv_heads": 16,
+        "weights_gib": 3.28,
+        "buffers_mib": 234.1,
+        "kv_pool_gib": 13.79,
+        "per_token_bytes": 196608,
+        "budget_tokens": 75335,
+        "planned_max_concurrency_4096": 18,
+        "admitted_total": 127,
+        "denied_wave": 0,
+        "waves": 7,
+        "max_concurrent_wave": 64,
+        "physical_limit": null,
+        "ttft_ms_waves": [
+          244.3,
+          219.9,
+          222.4,
+          220.2,
+          287.4,
+          552.9,
+          1066.2
+        ],
+        "tpot_ms_waves": [
+          21.75,
+          22.22,
+          22.18,
+          22.19,
+          22.02,
+          22.8,
+          30.61
+        ],
+        "kv_peak_bytes": 7449083904,
+        "kv_peak_gib": 6.938,
+        "gen_tokens_per_s": 504.6
+      },
+      {
+        "variant": "GQA-8",
+        "kv_heads": 8,
+        "weights_gib": 3.09,
+        "buffers_mib": 186.1,
+        "kv_pool_gib": 14.33,
+        "per_token_bytes": 98304,
+        "budget_tokens": 156559,
+        "planned_max_concurrency_4096": 38,
+        "admitted_total": 127,
+        "denied_wave": 0,
+        "waves": 7,
+        "max_concurrent_wave": 64,
+        "physical_limit": null,
+        "ttft_ms_waves": [
+          229.2,
+          235.7,
+          235.7,
+          237.1,
+          269.2,
+          522.6,
+          1017.9
+        ],
+        "tpot_ms_waves": [
+          21.99,
+          22.63,
+          22.84,
+          22.65,
+          22.47,
+          23.26,
+          23.23
+        ],
+        "kv_peak_bytes": 3724541952,
+        "kv_peak_gib": 3.469,
+        "gen_tokens_per_s": 518.5
+      },
+      {
+        "variant": "MQA-1",
+        "kv_heads": 1,
+        "weights_gib": 2.92,
+        "buffers_mib": 144.1,
+        "kv_pool_gib": 14.67,
+        "per_token_bytes": 12288,
+        "budget_tokens": 1282168,
+        "planned_max_concurrency_4096": 313,
+        "admitted_total": 127,
+        "denied_wave": 0,
+        "waves": 7,
+        "max_concurrent_wave": 64,
+        "physical_limit": null,
+        "ttft_ms_waves": [
+          220.3,
+          222.4,
+          227.3,
+          227.7,
+          232.6,
+          428.2,
+          833.4
+        ],
+        "tpot_ms_waves": [
+          21.61,
+          22.29,
+          22.27,
+          22.6,
+          22.68,
+          23.16,
+          23.21
+        ],
+        "kv_peak_bytes": 465567744,
+        "kv_peak_gib": 0.434,
+        "gen_tokens_per_s": 546.1
+      }
+    ]
+  },
+  "c_policy_ab": {
+    "workload": {
+      "requests": 12,
+      "prompt": 512,
+      "suffix": 128,
+      "gen": 24,
+      "dtype": "fp16",
+      "model": "toy-12L-1024",
+      "arrival": "sequential"
+    },
+    "baseline": {
+      "ttft_mean_ms": 13.23,
+      "ttft_p95_ms": 13.11,
+      "ttft_p99_ms": 15.43,
+      "tpot_mean_ms": 11.459,
+      "kv_peak_bytes": 31457280,
+      "kv_peak_mib": 30.0,
+      "wall_ms": 3300.2,
+      "hit_rate": 0.0,
+      "throughput_tok_s": 87.3
+    },
+    "unbounded_prefix_cache": {
+      "ttft_mean_ms": 13.31,
+      "ttft_p95_ms": 12.62,
+      "ttft_p99_ms": 22.1,
+      "tpot_mean_ms": 11.547,
+      "kv_peak_bytes": 56623104,
+      "kv_peak_mib": 54.0,
+      "wall_ms": 3325.5,
+      "hit_rate": 1.0,
+      "throughput_tok_s": 86.6
+    },
+    "lru_capped_cache": {
+      "ttft_mean_ms": 12.58,
+      "ttft_p95_ms": 12.89,
+      "ttft_p99_ms": 12.95,
+      "tpot_mean_ms": 11.485,
+      "kv_peak_bytes": 56623104,
+      "kv_peak_mib": 54.0,
+      "wall_ms": 3307.7,
+      "hit_rate": 0.9167,
+      "throughput_tok_s": 87.1
+    },
+    "comparison": {
+      "unbounded_vs_baseline": {
+        "ttft_delta_ms": 0.08,
+        "peak_delta_mib": 24.0
+      },
+      "lru_capped_vs_baseline": {
+        "ttft_delta_ms": -0.65,
+        "peak_delta_mib": 24.0
+      }
+    },
+    "decisions": [
+      {
+        "candidate": "unbounded",
+        "decision": "reject",
+        "ttft_delta_ms": 0.08,
+        "peak_delta_mib": 24.0
+      },
+      {
+        "candidate": "lru_capped",
+        "decision": "tune",
+        "ttft_delta_ms": -0.65,
+        "peak_delta_mib": 24.0
+      }
+    ],
+    "decision_rule": "同 workload 下 TTFT 降且峰值不升 -> accept；TTFT 降但峰值升 -> tune；否则 reject"
+  },
+  "status": "PASS"
+}

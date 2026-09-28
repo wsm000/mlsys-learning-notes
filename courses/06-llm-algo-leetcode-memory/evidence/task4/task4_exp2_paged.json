@@ -1,0 +1,167 @@
+{
+  "experiment": "task4_exp2_paged",
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "total_memory_mib": 24090.8,
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "python": "3.10.12",
+    "utc": "2026-09-28T05:53:21+00:00"
+  },
+  "source_sha256": "665dd0959fee5169",
+  "model": {
+    "layers": 12,
+    "kv_heads": 8,
+    "head_dim": 128,
+    "dtype": "fp16"
+  },
+  "per_token_kv_bytes": 49152,
+  "a_mechanism": {
+    "mechanism": "atomic alloc / decode boundary / tail ledger / OOM rollback / release-reuse / refcount share",
+    "status": "PASS"
+  },
+  "b_constructive_oom": {
+    "scenario": "device filled to ~86%, alternating 8 MiB holes freed; need one contiguous block of half the free total",
+    "total_memory_mib": 24090.8,
+    "chunk_mib": 8,
+    "n_chunks": 2372,
+    "free_hole_bytes": 9948889088,
+    "contiguous_need_bytes": 4974444544,
+    "contiguous_allocated": false,
+    "paged_8mib_chunks_allocated": true,
+    "interpretation": "连续分配失败且分页成功 => '总空闲够但无足够大连续块'的外部碎片真实存在"
+  },
+  "c_fragmentation": {
+    "workload": {
+      "requests": 200,
+      "len_min": 16,
+      "len_max": 4095,
+      "seed": 20260926,
+      "block_size": 16
+    },
+    "real_tokens": 86040,
+    "contiguous_reserved_tokens": 819000,
+    "paged_allocated_tokens": 87488,
+    "tail_waste_tokens": 1448,
+    "token_saving_ratio": 0.8932,
+    "kv_bytes_paged": 4300210176,
+    "kv_bytes_contiguous": 40255488000,
+    "kv_mib_paged": 4101.0,
+    "kv_mib_contiguous": 38390.6,
+    "gpu_probe": {
+      "paged_peak_allocated_mb": 22.0,
+      "contiguous_peak_allocated_mb": 200.0,
+      "head_dim": 128,
+      "dtype": "fp16"
+    },
+    "note": "探针张量仅 [tokens, head_dim]，用来观察分配量差异；层/头维通过 PER_TOKEN 换算"
+  },
+  "d_block_size_sweep": {
+    "per_token_bytes_full_model": 49152,
+    "rows": [
+      {
+        "block_size": 1,
+        "block_table_entries": 86040,
+        "meta_bytes_8b": 688320,
+        "meta_bytes_4b": 344160,
+        "internal_frag_tokens": 0,
+        "internal_frag_bytes": 0,
+        "internal_frag_ratio": 0.0,
+        "waste_over_meta_8b": 0.0
+      },
+      {
+        "block_size": 2,
+        "block_table_entries": 43071,
+        "meta_bytes_8b": 344568,
+        "meta_bytes_4b": 172284,
+        "internal_frag_tokens": 102,
+        "internal_frag_bytes": 5013504,
+        "internal_frag_ratio": 0.0012,
+        "waste_over_meta_8b": 14.55
+      },
+      {
+        "block_size": 4,
+        "block_table_entries": 21586,
+        "meta_bytes_8b": 172688,
+        "meta_bytes_4b": 86344,
+        "internal_frag_tokens": 304,
+        "internal_frag_bytes": 14942208,
+        "internal_frag_ratio": 0.0035,
+        "waste_over_meta_8b": 86.53
+      },
+      {
+        "block_size": 8,
+        "block_table_entries": 10839,
+        "meta_bytes_8b": 86712,
+        "meta_bytes_4b": 43356,
+        "internal_frag_tokens": 672,
+        "internal_frag_bytes": 33030144,
+        "internal_frag_ratio": 0.0078,
+        "waste_over_meta_8b": 380.92
+      },
+      {
+        "block_size": 16,
+        "block_table_entries": 5468,
+        "meta_bytes_8b": 43744,
+        "meta_bytes_4b": 21872,
+        "internal_frag_tokens": 1448,
+        "internal_frag_bytes": 71172096,
+        "internal_frag_ratio": 0.0168,
+        "waste_over_meta_8b": 1627.01
+      },
+      {
+        "block_size": 32,
+        "block_table_entries": 2777,
+        "meta_bytes_8b": 22216,
+        "meta_bytes_4b": 11108,
+        "internal_frag_tokens": 2824,
+        "internal_frag_bytes": 138805248,
+        "internal_frag_ratio": 0.0328,
+        "waste_over_meta_8b": 6247.99
+      },
+      {
+        "block_size": 64,
+        "block_table_entries": 1434,
+        "meta_bytes_8b": 11472,
+        "meta_bytes_4b": 5736,
+        "internal_frag_tokens": 5736,
+        "internal_frag_bytes": 281935872,
+        "internal_frag_ratio": 0.0667,
+        "waste_over_meta_8b": 24576.0
+      },
+      {
+        "block_size": 128,
+        "block_table_entries": 792,
+        "meta_bytes_8b": 6336,
+        "meta_bytes_4b": 3168,
+        "internal_frag_tokens": 15336,
+        "internal_frag_bytes": 753795072,
+        "internal_frag_ratio": 0.1782,
+        "waste_over_meta_8b": 118970.18
+      },
+      {
+        "block_size": 256,
+        "block_table_entries": 466,
+        "meta_bytes_8b": 3728,
+        "meta_bytes_4b": 1864,
+        "internal_frag_tokens": 33256,
+        "internal_frag_bytes": 1634598912,
+        "internal_frag_ratio": 0.3865,
+        "waste_over_meta_8b": 438465.37
+      }
+    ]
+  },
+  "e_gather_attention": {
+    "shape": {
+      "batch": 2,
+      "seq": 512,
+      "heads": 8,
+      "head_dim": 128,
+      "block_size": 16
+    },
+    "logical_recovery_max_diff": 0.0,
+    "attention_output_max_diff": 0.0,
+    "status": "PASS"
+  },
+  "status": "PASS"
+}

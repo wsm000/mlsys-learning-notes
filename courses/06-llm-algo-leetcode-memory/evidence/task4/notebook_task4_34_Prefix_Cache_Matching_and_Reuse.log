@@ -1,0 +1,12 @@
+[NbConvertApp] Converting notebook /tmp/task4_solved/task4_34_Prefix_Cache_Matching_and_Reuse_solved.ipynb to notebook
+[NbConvertApp] ERROR | Notebook JSON is invalid: Additional properties are not allowed ('execution_count' was unexpected)
+
+Failed validating 'additionalProperties' in markdown_cell:
+
+On instance['cells'][12]:
+{'cell_type': 'markdown',
+ 'execution_count': None,
+ 'id': '34_gpu_config',
+ 'metadata': {},
+ 'source': ''}
+[NbConvertApp] Writing 16748 bytes to /tmp/task4_solved/task4_34_Prefix_Cache_Matching_and_Reuse_solved.ipynb

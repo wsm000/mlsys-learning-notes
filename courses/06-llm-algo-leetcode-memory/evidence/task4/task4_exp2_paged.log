@@ -1,0 +1,23 @@
+GPU: NVIDIA GeForce RTX 4090 D | per-token KV bytes: 49152
+== A. 分页机制单测 ==
+  [ok] 长度 6 -> 2 个 block
+  [ok] 空闲块剩 8
+  [ok] 第 7 token 不加块
+  [ok] 第 9 token 加第 3 块
+  [ok] seq_len = 9
+  [ok] 尾块浪费 3 个 token 槽
+  [ok] OOM 后空闲池不变（原子）
+  [ok] OOM 后无残留引用
+  [ok] 释放后 10 块全部可复用
+  [ok] 两个请求共享 2 块后空闲剩 6（只付一份物理存储）
+  [ok] 释放一个引用后块不归还（refcount 3->2）
+  [ok] 释放两个引用后块仍不归还（refcount 2->1）
+  [ok] 三个引用全部释放后块才真正归还
+== B. 构造性 OOM：总量够但无连续大块 ==
+== C. 同一请求分布：连续预留 vs 按需分页 ==
+== D. block size 扫描：元数据 vs 内部碎片 ==
+== E. GPU gather-attention 数值等价 ==
+  [ok] 块表顺序恢复与连续数据完全一致（max_diff=0.0）
+  [ok] 分页拼装后 attention 输出一致（max_diff=0.0）
+[json] /home/simin/projects/memopt-task4/code/task4_exp2_paged.json
+ALL_TESTS_PASS

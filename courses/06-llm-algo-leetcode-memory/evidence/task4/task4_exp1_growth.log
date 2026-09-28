@@ -1,0 +1,29 @@
+GPU: NVIDIA GeForce RTX 4090 D | torch 2.9.1+cu128
+== A. 账本公式 vs 真实张量分配 ==
+  [ok] B=1,S=1024: 单层分配 16777216 == 账本 16777216
+  [ok] B=4,S=512: 单层分配 8388608 == 账本 8388608
+  [ok] B=2,S=2048: 单层分配 4194304 == 账本 4194304
+  [ok] B=1,S=256,fp32: 单层分配 8388608 == 账本 8388608
+== B. 逐维度线性增长（倍增斜率） ==
+  [ok] tokens 翻倍 -> KV 字节翻倍（比率 2.0）
+  [ok] layers 翻倍 -> KV 字节翻倍（比率 2.0）
+  [ok] kv_heads 翻倍 -> KV 字节翻倍（比率 2.0）
+  [ok] head_dim 翻倍 -> KV 字节翻倍（比率 2.0）
+  [ok] dtype_bytes 翻倍 -> KV 字节翻倍（比率 2.0）
+  [ok] batch 翻倍 -> KV 字节翻倍（比率 2.0）
+== C. 真实 LLaMA 玩具模型：MHA/GQA/MQA 实测 ==
+  [ok] MHA: prefill cache 100663296 == 账本 100663296
+  [ok] MHA: decode 每步新增 196608 B == per_token*B
+  [ok] GQA-4: prefill cache 50331648 == 账本 50331648
+  [ok] GQA-4: decode 每步新增 98304 B == per_token*B
+  [ok] GQA-2: prefill cache 25165824 == 账本 25165824
+  [ok] GQA-2: decode 每步新增 49152 B == per_token*B
+  [ok] MQA: prefill cache 12582912 == 账本 12582912
+  [ok] MQA: decode 每步新增 24576 B == per_token*B
+== D. MLA latent 表示的显式缓冲账本 ==
+  [ok] MLA latent 缓冲 56623104 == 账本 56623104
+== E. FP8 / INT8 KV：字节与数值误差 ==
+  fp8_e4m3: bytes=262144 max_abs_err(K)=0.1250 rel_l2=0.0264
+  int8_symmetric: bytes=262144 max_abs_err(K)=0.0108 rel_l2=0.0074
+[json] /home/simin/projects/memopt-task4/code/task4_exp1_growth.json
+ALL_TESTS_PASS

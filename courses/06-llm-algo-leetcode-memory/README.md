@@ -42,6 +42,7 @@
 | **Task 1** | **硬件与显存账本**：Part01 01 dtype / 02 参数量与 FLOPs / 06 显存计算与 ZeRO（+03/12 选做、14/topic01/Part02 04 扩展）（[Issue #149](https://github.com/datawhalechina/llm-algo-leetcode/issues/149)） | [task01-hardware-and-vram-ledger.md](notes/task01-hardware-and-vram-ledger.md) | [task1 证据](evidence/task1/) |
 | Task 2 | 单机训练显存策略（Issue #168） | [task02-single-gpu-training-memory-strategy.md](notes/task02-single-gpu-training-memory-strategy.md) | [task2 证据](evidence/task2/) |
 | **Task 3** | **训练侧测量与预算决策（Issue #169，4.1 + 4.2）** | [task03-training-measurement-budget.md](notes/task03-training-measurement-budget.md) | [task3 证据](evidence/task3/) |
+| **Task 4** | **推理侧 KV Cache 与显存容量（[Issue #177](https://github.com/datawhalechina/llm-algo-leetcode/issues/177)，4.1 + 4.2 + 4.3）** | [task04-inference-kv-cache-and-capacity.md](notes/task04-inference-kv-cache-and-capacity.md) | [task4 证据](evidence/task4/) |
 
 ### Task1 学习材料
 
@@ -68,6 +69,10 @@
 | [code/task3_colab_real_model_new.ipynb](code/task3_colab_real_model_new.ipynb) | Task3 Colab 真实模型版（Qwen2.5-0.5B + WikiText）：主表 baseline/累积/checkpoint，增项含**实测显存账本、offload、缩小 batch、缩短序列、8-bit 优化器与 4-bit 权重、预算敏感性扫描、profiler trace 四分类** |
 | [evidence/task3/](evidence/task3/) | Task3 实测证据：结果 JSON、原始日志、两份 chrome trace、复现命令与证据图 |
 | [notes/task03-colab-real-model.md](notes/task03-colab-real-model.md) · [evidence/task3_colab/](evidence/task3_colab/) | Task3 Colab 真实模型**全量增项实测**（T4 · Qwen2.5-0.5B · WikiText-2）：五策略对照 + 显存账本 + 预算敏感性 + profiler 四分类；8-bit AdamW 省 37.3% 显存且更快，4-bit 权重省 76% 但 loss +0.098 |
+| [notes/task04-inference-kv-cache-and-capacity.md](notes/task04-inference-kv-cache-and-capacity.md) | Task4 打卡笔记：增长账本逐维度验证 → 分页碎片与块大小权衡 → 前缀复用的计算/存储收益与连续前缀要求 → 容量规划与准入实测；覆盖 4.1/4.2/4.3 全部 10 问 |
+| [code/task4_common.py](code/task4_common.py) · [task4_exp1_growth.py](code/task4_exp1_growth.py) · [task4_exp2_paged.py](code/task4_exp2_paged.py) · [task4_exp3_prefix.py](code/task4_exp3_prefix.py) · [task4_exp4_capacity.py](code/task4_exp4_capacity.py) · [task4_render_evidence.py](code/task4_render_evidence.py) | Task4 可复跑实验：账本/线性验证、分页池与构造性 OOM、前缀哈希链与真实模型复用、容量规划与准入压力（vm-60 实测，`ALL_TESTS_PASS`） |
+| [evidence/task4/](evidence/task4/) | Task4 实测证据：四个实验 JSON + 原始日志、上游 11/22/34/24/66/69 六个已执行 solved notebook、四张证据图与运行总览 |
+| [evidence/task4/issue177-checkin.md](evidence/task4/issue177-checkin.md) | 提交到 Issue #177 的打卡文案 |
 
 ## 学习方法
 
