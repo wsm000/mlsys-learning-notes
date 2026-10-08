@@ -1,0 +1,6 @@
+  fp16_baseline          TTFT    15.68 TPOT  12.314 thr   323.5 peak   705.3 KV  108.00 cos 1.00000 -> baseline
+  w8a16_weight           TTFT    20.97 TPOT  16.534 thr   240.9 peak   648.7 KV  108.00 cos 0.99881 -> tune
+  int4_weight            TTFT    17.47 TPOT  17.162 thr   233.0 peak   779.3 KV  108.00 cos 0.96016 -> reject
+  w8a16_weight_kv_int8   TTFT    17.12 TPOT  21.525 thr   186.4 peak   648.7 KV   54.00 cos 0.99877 -> tune
+[json] ../evidence/task5/task5_exp4_candidates.json
+PASS exp4

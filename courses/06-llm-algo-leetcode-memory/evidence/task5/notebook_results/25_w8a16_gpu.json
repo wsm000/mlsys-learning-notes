@@ -1,0 +1,60 @@
+{
+  "stage": "gpu_real_model_state_measurement",
+  "run_mode": "real_gpu",
+  "runtime": {
+    "python": "3.10.12",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "cuda_available": true,
+    "device": "NVIDIA GeForce RTX 4090 D"
+  },
+  "config": {
+    "in_features": 896,
+    "out_features": 896,
+    "batch_size": 1,
+    "seq_len": 128,
+    "dtype": "torch.float16",
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "warmup": 5,
+    "iters": 20,
+    "seed": 42,
+    "actual_input_shape": [
+      1,
+      10,
+      896
+    ],
+    "weight_source": "real_model"
+  },
+  "workload": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "layer_scope": "one q_proj-like linear layer",
+    "batch_size": 1,
+    "seq_len": 128
+  },
+  "json_path": "benchmarks/results/25_w8a16_gpu.json",
+  "evidence_level": "gpu_real_model_state_measurement",
+  "baseline": {
+    "latency_ms": 0.0408,
+    "peak_memory_mb": 11.46
+  },
+  "candidate": {
+    "latency_ms": 0.094,
+    "peak_memory_mb": 14.84
+  },
+  "artifact_path": null,
+  "failure": null,
+  "metrics": {
+    "weight_fp_bytes": 1605632,
+    "weight_int8_bytes": 802816,
+    "output_mse": 3.89e-06,
+    "output_shape": [
+      1,
+      10,
+      896
+    ]
+  },
+  "decision": {
+    "decision": "measure",
+    "reason": "仅验证 W8A16 GPU 机制；不代表真实 INT8 kernel 加速。"
+  }
+}

@@ -1,0 +1,20 @@
+== A. 真实 KV 量化误差（Qwen2.5-0.5B-Instruct 第 0 层）==
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:  88%|████████▊ | 255/290 [00:00<00:00, 2545.63it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 2603.24it/s]
+  fp16                  6.500 KiB (x1.00) MSE_K 0.000e+00 MSE_V 0.000e+00 maxK 0.000 cos 1.00000
+  int8_per_tensor       3.258 KiB (x2.00) MSE_K 7.585e-02 MSE_V 4.155e-07 maxK 0.513 cos 0.99996
+  int8_per_row_g64      3.453 KiB (x1.88) MSE_K 7.151e-02 MSE_V 6.944e-08 maxK 0.512 cos 0.99997
+  int4_per_row_g64      1.828 KiB (x3.56) MSE_K 4.216e+00 MSE_V 4.817e-06 maxK 4.344 cos 0.99801
+  fp8_e4m3              3.250 KiB (x2.00) MSE_K 5.525e-01 MSE_V 6.032e-07 maxK 4.000 cos 0.99974
+== B. 容量账本（4090D）==
+  权重 419.0 MiB + 运行缓冲 75.1 MiB -> KV 池 20.44 GiB
+  MHA-32kv: fp16 512KiB/tok -> S512 并发 81 | int8 256KiB/tok -> S512 并发 163 | fp8 256KiB/tok -> S512 并发 163
+  GQA-8kv: fp16 128KiB/tok -> S512 并发 327 | int8 64KiB/tok -> S512 并发 654 | fp8 64KiB/tok -> S512 并发 654
+  MQA-1kv: fp16 16KiB/tok -> S512 并发 2616 | int8 8KiB/tok -> S512 并发 5232 | fp8 8KiB/tok -> S512 并发 5232
+== C. 构造性准入实测（真实分配直到 OOM）==
+  fp16: 准入 108 请求 (S=4096)，占用 20.35 GiB，OOM=True
+  int8: 准入 217 请求 (S=4096)，占用 20.35 GiB，OOM=True
+  INT8 KV 准入并发为 FP16 的 x2.01
+== D. 运行时预留项实测 ==
+  权重 419.0 MiB；forward 峰值 662.2 MiB（激活 243.1 MiB）；reserved 734.0 MiB，gap 71.8 MiB
+[json] ../evidence/task5/task5_exp3_kv_quant_capacity.json
+PASS exp3

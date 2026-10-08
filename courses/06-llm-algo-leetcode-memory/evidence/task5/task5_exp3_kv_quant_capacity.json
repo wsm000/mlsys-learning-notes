@@ -1,0 +1,165 @@
+{
+  "experiment": "task5_exp3_kv_quant_capacity",
+  "source_sha256": "31167ecd1dd97e34",
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "total_memory_mib": 24090.8,
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "python": "3.10.12",
+    "utc": "2026-10-08T13:40:42+00:00"
+  },
+  "a_real_kv_error": {
+    "n_tokens": 13,
+    "shape": [
+      1,
+      2,
+      13,
+      64
+    ],
+    "variants": {
+      "fp16": {
+        "bytes": 6656,
+        "mse_key": 0.0,
+        "mse_value": 0.0,
+        "max_err_key": 0.0,
+        "max_err_value": 0.0,
+        "cosine_key": 1.0,
+        "compression_vs_fp16": 1.0
+      },
+      "int8_per_tensor": {
+        "bytes": 3336,
+        "mse_key": 0.0758509635925293,
+        "mse_value": 4.1550487139829784e-07,
+        "max_err_key": 0.5130386352539062,
+        "max_err_value": 0.0011116117238998413,
+        "cosine_key": 0.9999639987945557,
+        "compression_vs_fp16": 1.9952038369304557
+      },
+      "int8_per_row_g64": {
+        "bytes": 3536,
+        "mse_key": 0.07151048630475998,
+        "mse_value": 6.943829333749818e-08,
+        "max_err_key": 0.5115623474121094,
+        "max_err_value": 0.001050738850608468,
+        "cosine_key": 0.9999660849571228,
+        "compression_vs_fp16": 1.8823529411764706
+      },
+      "int4_per_row_g64": {
+        "bytes": 1872,
+        "mse_key": 4.215855598449707,
+        "mse_value": 4.817350145458477e-06,
+        "max_err_key": 4.34375,
+        "max_err_value": 0.00921834260225296,
+        "cosine_key": 0.9980142712593079,
+        "compression_vs_fp16": 3.5555555555555554
+      },
+      "fp8_e4m3": {
+        "bytes": 3328,
+        "mse_key": 0.5525363683700562,
+        "mse_value": 6.031739872014441e-07,
+        "max_err_key": 4.0,
+        "max_err_value": 0.007568359375,
+        "cosine_key": 0.9997401237487793,
+        "compression_vs_fp16": 2.0
+      }
+    }
+  },
+  "b_capacity_ledger": {
+    "weights_measured_bytes": 439404544,
+    "buffers_measured_bytes": 78779392,
+    "kv_pool_bytes": 21948323635,
+    "reserve_mib": 256,
+    "total_bytes": 25261047808,
+    "per_token_bytes": {
+      "MHA-32kv": {
+        "fp16": 524288,
+        "int8": 262144,
+        "fp8": 262144
+      },
+      "GQA-8kv": {
+        "fp16": 131072,
+        "int8": 65536,
+        "fp8": 65536
+      },
+      "MQA-1kv": {
+        "fp16": 16384,
+        "int8": 8192,
+        "fp8": 8192
+      }
+    },
+    "capacity": {
+      "MHA-32kv-fp16": {
+        "max_tokens": 41863,
+        "max_concurrency_s512": 81,
+        "max_concurrency_s4096": 10
+      },
+      "MHA-32kv-int8": {
+        "max_tokens": 83726,
+        "max_concurrency_s512": 163,
+        "max_concurrency_s4096": 20
+      },
+      "MHA-32kv-fp8": {
+        "max_tokens": 83726,
+        "max_concurrency_s512": 163,
+        "max_concurrency_s4096": 20
+      },
+      "GQA-8kv-fp16": {
+        "max_tokens": 167452,
+        "max_concurrency_s512": 327,
+        "max_concurrency_s4096": 40
+      },
+      "GQA-8kv-int8": {
+        "max_tokens": 334904,
+        "max_concurrency_s512": 654,
+        "max_concurrency_s4096": 81
+      },
+      "GQA-8kv-fp8": {
+        "max_tokens": 334904,
+        "max_concurrency_s512": 654,
+        "max_concurrency_s4096": 81
+      },
+      "MQA-1kv-fp16": {
+        "max_tokens": 1339619,
+        "max_concurrency_s512": 2616,
+        "max_concurrency_s4096": 327
+      },
+      "MQA-1kv-int8": {
+        "max_tokens": 2679238,
+        "max_concurrency_s512": 5232,
+        "max_concurrency_s4096": 654
+      },
+      "MQA-1kv-fp8": {
+        "max_tokens": 2679238,
+        "max_concurrency_s512": 5232,
+        "max_concurrency_s4096": 654
+      }
+    }
+  },
+  "c_admission_pressure": {
+    "fp16": {
+      "requests_admitted": 123,
+      "oom": true,
+      "kv_bytes_allocated": 24772739072,
+      "per_request_bytes": 201326592,
+      "measured_kv_capacity_gib": 23.071
+    },
+    "int8": {
+      "requests_admitted": 246,
+      "oom": true,
+      "kv_bytes_allocated": 24772739072,
+      "per_request_bytes": 100663296,
+      "measured_kv_capacity_gib": 23.071
+    },
+    "concurrency_gain": 2.0
+  },
+  "d_runtime_reservations": {
+    "weights_mib": 419.0,
+    "forward_peak_mib": 662.2,
+    "activations_mib": 243.1,
+    "reserved_mib": 734.0,
+    "allocator_reserved_minus_allocated_mib": 71.8,
+    "note": "reserved-allocated 差包含分配器缓存与 CUDA context/workspace；容量规划需预留"
+  },
+  "status": "ALL_TESTS_PASS"
+}

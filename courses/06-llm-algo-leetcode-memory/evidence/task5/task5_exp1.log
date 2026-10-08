@@ -1,0 +1,16 @@
+== A. 真实权重三档实测（Qwen2.5-0.5B-Instruct）==
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:  98%|█████████▊| 284/290 [00:00<00:00, 2832.77it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 2858.94it/s]
+  矩阵数 169，参数 494M
+  FP16   942.16 MiB | INT8-per-tensor  471.08 MiB (x2.000) | INT8-per-channel  472.82 MiB (x1.993)
+  INT4-g128 打包  250.26 MiB (x3.765)，其中 scale 14.721 MiB
+  重建 MSE：INT8-pt 8.806e-07 / INT8-pc 4.805e-08 / INT4-g128 1.899e-06
+== B. 容量账本表 + 激活峰值实测 ==
+  权重账本：0.5B fp16 0.91GiB/int8 0.46GiB/int4 0.23GiB | 1.5B fp16 2.87GiB/int8 1.43GiB/int4 0.72GiB | 7B fp16 14.19GiB/int8 7.10GiB/int4 3.55GiB
+  KV/token：MHA-32kv fp16 512KiB/int8 256KiB/fp8 256KiB | GQA-8kv fp16 128KiB/int8 64KiB/fp8 64KiB | MQA-1kv fp16 16KiB/int8 8KiB/fp8 8KiB
+  激活+权重峰值（toy-12L B=4 S=512 prefill）：664.2 MiB（其中权重 419.0 MiB）
+== C. 同一 7B 模型两种 workload 的账本构成（说明不能只看参数量）==
+  短上下文单并发: 权重 14.19 GiB (99.6%) + KV 0.06 GiB (0.4%)
+  长上下文高并发: 权重 14.19 GiB (10.0%) + KV 128.00 GiB (90.0%)
+  权重量化 INT8 后长上下文场景：权重 7.10 GiB (5.3%) + KV 128.00 GiB (94.7%) —— 瓶颈从权重转移到 KV
+[json] ../evidence/task5/task5_exp1_object_timing.json
+PASS exp1

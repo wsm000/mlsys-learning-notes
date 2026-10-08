@@ -1,0 +1,91 @@
+{
+  "experiment": "task5_exp4_candidates",
+  "source_sha256": "62ab478dd8e7e4cb",
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "total_memory_mib": 24090.8,
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "python": "3.10.12",
+    "utc": "2026-10-08T13:41:13+00:00"
+  },
+  "workload": {
+    "model": "toy-12L-1024 GQA-8kv (随机初始化教学形状, 同 seed 同权重)",
+    "batch": 4,
+    "prompt": 512,
+    "gen": 64,
+    "dtype": "fp16",
+    "seed": 73
+  },
+  "candidates": {
+    "fp16_baseline": {
+      "ttft_ms": 15.54,
+      "tpot_ms": 12.26,
+      "throughput_tok_s": 324.9,
+      "peak_mib": 705.3,
+      "kv_mib": 108.0,
+      "logits_mse_vs_baseline": 0.0,
+      "logits_cosine_vs_baseline": 1.0,
+      "delta_peak_mib": 0.0,
+      "delta_throughput_tok_s": 0.0,
+      "decision": "baseline",
+      "gates": {
+        "error_ok": true,
+        "memory_gain": false,
+        "performance_gain": false
+      }
+    },
+    "w8a16_weight": {
+      "ttft_ms": 19.21,
+      "tpot_ms": 16.517,
+      "throughput_tok_s": 241.6,
+      "peak_mib": 648.7,
+      "kv_mib": 108.0,
+      "logits_mse_vs_baseline": 0.0009693847387097776,
+      "logits_cosine_vs_baseline": 0.998809814453125,
+      "delta_peak_mib": -56.7,
+      "delta_throughput_tok_s": -83.4,
+      "decision": "tune",
+      "gates": {
+        "error_ok": true,
+        "memory_gain": true,
+        "performance_gain": false
+      }
+    },
+    "int4_weight": {
+      "ttft_ms": 17.41,
+      "tpot_ms": 17.15,
+      "throughput_tok_s": 233.2,
+      "peak_mib": 779.3,
+      "kv_mib": 108.0,
+      "logits_mse_vs_baseline": 0.032524969428777695,
+      "logits_cosine_vs_baseline": 0.9601554870605469,
+      "delta_peak_mib": 74.0,
+      "delta_throughput_tok_s": -91.7,
+      "decision": "reject",
+      "gates": {
+        "error_ok": false,
+        "memory_gain": false,
+        "performance_gain": false
+      }
+    },
+    "w8a16_weight_kv_int8": {
+      "ttft_ms": 17.03,
+      "tpot_ms": 21.486,
+      "throughput_tok_s": 186.8,
+      "peak_mib": 648.7,
+      "kv_mib": 54.0,
+      "logits_mse_vs_baseline": 0.0010057620238512754,
+      "logits_cosine_vs_baseline": 0.998765230178833,
+      "delta_peak_mib": -56.7,
+      "delta_throughput_tok_s": -138.2,
+      "decision": "tune",
+      "gates": {
+        "error_ok": true,
+        "memory_gain": true,
+        "performance_gain": false
+      }
+    }
+  },
+  "status": "ALL_TESTS_PASS"
+}

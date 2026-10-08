@@ -1,0 +1,58 @@
+{
+  "task5_21_Quantization_Theory_and_INT4_INT8_solved_executed.ipynb": {
+    "errors": [],
+    "n_pass": 3,
+    "n_fail": 0,
+    "pass_lines": [
+      "✅ calculate_weight_memory tests passed",
+      "✅ quantize_per_tensor tests passed",
+      "✅ 21 Quantization tests passed"
+    ],
+    "fail_lines": []
+  },
+  "task5_25_Quantization_W8A16_solved_executed.ipynb": {
+    "errors": [],
+    "n_pass": 1,
+    "n_fail": 0,
+    "pass_lines": [
+      "✅ W8A16 机制测试通过：量化、存储、反量化、dtype 与集成路径均已验证。"
+    ],
+    "fail_lines": []
+  },
+  "task5_40_GPTQ_and_AWQ_Weight_Quantization_solved_executed.ipynb": {
+    "errors": [],
+    "n_pass": 1,
+    "n_fail": 0,
+    "pass_lines": [
+      "✅ GPTQ/AWQ 模拟机制测试通过：校准、分组、保护、反量化与方法差异均已验证。"
+    ],
+    "fail_lines": []
+  },
+  "task5_41_FP8_and_KV_Cache_Quantization_solved_executed.ipynb": {
+    "errors": [],
+    "n_pass": 1,
+    "n_fail": 0,
+    "pass_lines": [
+      "✅ FP8/KV Cache 机制测试通过：量化、状态、分组、恢复与误差均已验证。"
+    ],
+    "fail_lines": []
+  },
+  "task5_66_Inference_Performance_Comparison_solved_executed.ipynb": {
+    "errors": [],
+    "n_pass": 1,
+    "n_fail": 0,
+    "pass_lines": [
+      "✅ 推理性能项目：波次、瓶颈、策略决策与对照链路均已验证。"
+    ],
+    "fail_lines": []
+  },
+  "task5_67_Quantized_Inference_and_Deployment_solved_executed.ipynb": {
+    "errors": [],
+    "n_pass": 1,
+    "n_fail": 0,
+    "pass_lines": [
+      "✅ 量化部署项目：分组量化、候选排序、策略决策、项目链路与上游契约均已验证。"
+    ],
+    "fail_lines": []
+  }
+}

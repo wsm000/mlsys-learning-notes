@@ -1,0 +1,17 @@
+== A. 真实 q_proj：FP16 vs W8A16（口径同上游 02·25 Step5）==
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:  87%|████████▋ | 251/290 [00:00<00:00, 2503.41it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 2515.04it/s]
+  FP16 : 0.0685 ms, peak 11.46 MiB, 权重 1568 KiB
+  W8A16: 0.2808 ms (4.10x), peak 14.84 MiB (1.29x), 权重 784 KiB
+  输出 MSE 3.893e-06 —— 存储减半，但反量化副本使峰值显存不降、前向不加速
+== B. 全模型 W8A16 化 forward：fp16 vs int8 权重存储 + 逐层反量化 ==
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:  89%|████████▉ | 259/290 [00:00<00:00, 2588.46it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 2614.21it/s]
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]Loading weights:  82%|████████▏ | 239/290 [00:00<00:00, 2374.04it/s]Loading weights: 100%|██████████| 290/290 [00:00<00:00, 2418.24it/s]
+  w8a16_per_tensor: 40.56 ms, peak 1970.0 MiB, 参数字节 732.6 MiB (压缩 x1.29), logits MSE 1.842e+00, hidden 最大相对误差 86.8% (layer 22)
+  w8a16_per_channel: 44.72 ms, peak 2487.0 MiB, 参数字节 734.3 MiB (压缩 x1.28), logits MSE 1.798e-01, hidden 最大相对误差 31.1% (layer 22)
+  FP16 baseline: 29.48 ms, peak 976.1 MiB, 参数 942.3 MiB
+  注：量化体存储减半，但教学版逐层反量化物化 fp16 副本，forward 峰值反升；kernel 内反量化的真实 backend 不会有该副本。
+== C. 账本：固定节省 vs 线性增长 ==
+  权重 419.0 -> 209.5 MiB，固定省 209.5 MiB
+  每 token KV 48.0 KiB -> 节省量只够多 4470 token 的 KV
+[json] ../evidence/task5/task5_exp2_w8a16_vs_kv.json
+PASS exp2

@@ -1,0 +1,27 @@
+{
+  "json_path": "benchmarks/results/41_fp8_torchao_probe.json",
+  "workload": {
+    "batch_size": 1,
+    "seq_len": 512,
+    "head_dim": 64
+  },
+  "baseline": "BF16 Linear in memory",
+  "candidate": "torchao Float8WeightOnlyConfig",
+  "library": "torchao",
+  "config": "Float8WeightOnlyConfig",
+  "input_shape": [
+    1,
+    512,
+    64
+  ],
+  "output_shape": [
+    1,
+    512,
+    64
+  ],
+  "device": "NVIDIA GeForce RTX 4090 D",
+  "evidence_level": "mature_library_weight_only_api_probe",
+  "decision": "weight_only_api_path_executed",
+  "artifact_path": null,
+  "failure": null
+}

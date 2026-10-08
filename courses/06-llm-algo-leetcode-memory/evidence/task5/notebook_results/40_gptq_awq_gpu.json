@@ -1,0 +1,74 @@
+{
+  "stage": "gpu_simulation_on_real_model_state",
+  "run_mode": "real_gpu",
+  "runtime": {
+    "python": "3.10.12",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "cuda_available": true,
+    "device": "NVIDIA GeForce RTX 4090 D"
+  },
+  "json_path": "benchmarks/results/40_gptq_awq_gpu.json",
+  "workload": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "layer_scope": "q_proj",
+    "calibration_samples": 32,
+    "calibration_prompts": [
+      "Explain quantization.",
+      "Why does KV Cache grow?",
+      "Compare GPTQ and AWQ."
+    ]
+  },
+  "config": {
+    "out_features": 896,
+    "in_features": 896,
+    "calibration_samples": 32,
+    "bits": 4,
+    "group_size": 32,
+    "protect_ratio": 0.05,
+    "warmup": 1,
+    "iters": 1,
+    "seed": 42,
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "actual_activation_shape": [
+      256,
+      896
+    ],
+    "actual_calibration_samples": 32,
+    "state_source": "real_model_q_proj_hook"
+  },
+  "evidence_level": "gpu_simulation_on_real_model_state",
+  "baseline": "FP16 layer and calibration output",
+  "candidate": [
+    "GPTQ simulation",
+    "AWQ simulation"
+  ],
+  "artifact_dir": "benchmarks/results/40_gptq_awq_artifacts",
+  "failure": null,
+  "runs": {
+    "gptq": {
+      "latency_ms": 8788.2337,
+      "peak_memory_mb": 23.64,
+      "weight_reconstruction_mse": 5.195e-05,
+      "calibration_output_mse": 0.00052352,
+      "calibration_samples": 256,
+      "protected_channels": 0,
+      "artifact_path": "benchmarks/results/40_gptq_awq_artifacts/gptq_simulation.pt",
+      "evidence_level": "teaching_simulation_artifact"
+    },
+    "awq": {
+      "latency_ms": 12321.7771,
+      "peak_memory_mb": 27.58,
+      "weight_reconstruction_mse": 3.747e-05,
+      "calibration_output_mse": 0.00013635,
+      "calibration_samples": 256,
+      "protected_channels": 56,
+      "artifact_path": "benchmarks/results/40_gptq_awq_artifacts/awq_simulation.pt",
+      "evidence_level": "teaching_simulation_artifact"
+    }
+  },
+  "decision": {
+    "decision": "measure",
+    "reason": "比较真实模型状态上的 GPTQ/AWQ 模拟误差；不代表真实 artifact 或 backend 收益。"
+  }
+}

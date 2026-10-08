@@ -1,0 +1,58 @@
+{
+  "stage": "gpu_simulation_on_real_kv_state",
+  "run_mode": "real_gpu",
+  "runtime": {
+    "python": "3.10.12",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "cuda_available": true,
+    "device": "NVIDIA GeForce RTX 4090 D"
+  },
+  "json_path": "benchmarks/results/41_fp8_kv_gpu.json",
+  "workload": {
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "batch_size": 1,
+    "seq_len": 512,
+    "kv_group_size": 32,
+    "state_scope": "one model KV state"
+  },
+  "config": {
+    "shape": [
+      1,
+      4,
+      9,
+      64
+    ],
+    "kv_group_size": 32,
+    "warmup": 5,
+    "iters": 20,
+    "seed": 42,
+    "model_id": "Qwen/Qwen2.5-0.5B-Instruct",
+    "prompt_tokens": 9,
+    "state_source": "real_model_past_key_values",
+    "layout_note": "K/V concatenated on head axis for teaching"
+  },
+  "evidence_level": "gpu_simulation_on_real_kv_state",
+  "baseline": "FP16 KV state in memory",
+  "candidate": "INT8 container simulation in memory",
+  "artifact_path": null,
+  "failure": null,
+  "metrics": {
+    "raw_bytes": 9216,
+    "quantized_bytes_with_scale": 2592,
+    "compression_ratio": 3.5556,
+    "mse": 0.03041945,
+    "quantize_restore_latency_ms": 14.5747,
+    "peak_memory_mb": 962.8,
+    "restored_shape": [
+      1,
+      4,
+      9,
+      64
+    ]
+  },
+  "decision": {
+    "decision": "measure",
+    "reason": "仅观察 KV Cache 分组量化的容量、误差和恢复代价；不代表真实 serving 收益。"
+  }
+}

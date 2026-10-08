@@ -1,0 +1,94 @@
+{
+  "experiment": "task5_exp1_object_timing",
+  "source_sha256": "618f947adc557cad",
+  "environment": {
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "total_memory_mib": 24090.8,
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "python": "3.10.12",
+    "utc": "2026-10-08T13:40:01+00:00"
+  },
+  "a_real_weight_ladder": {
+    "n_matrices": 169,
+    "total_params": 493961216,
+    "fp16_bytes": 987922432,
+    "int8_per_tensor_bytes": 493961892,
+    "int8_per_tensor_scale_bytes": 676,
+    "int8_per_channel_bytes": 495785472,
+    "int4_group128_packed_bytes": 262416896,
+    "int4_group128_scale_bytes": 15436288,
+    "mse_fp16_vs_int8_pertensor": 8.806145966069533e-07,
+    "mse_fp16_vs_int8_perchannel": 4.804887947347407e-08,
+    "mse_fp16_vs_int4_group128": 1.898854061612208e-06,
+    "compression": {
+      "int8_per_tensor": 1.9999972629467537,
+      "int8_per_channel": 1.9926409461227617,
+      "int4_group128": 3.764705882352941
+    }
+  },
+  "b_capacity_ledger": {
+    "weights": {
+      "0.5B": {
+        "fp16": 980000000,
+        "int8": 490000000,
+        "int4": 245000000.0
+      },
+      "1.5B": {
+        "fp16": 3080000000,
+        "int8": 1540000000,
+        "int4": 770000000.0
+      },
+      "7B": {
+        "fp16": 15240000000,
+        "int8": 7620000000,
+        "int4": 3810000000.0
+      }
+    },
+    "kv_per_token_bytes": {
+      "MHA-32kv": {
+        "fp16": 524288,
+        "int8": 262144,
+        "fp8": 262144
+      },
+      "GQA-8kv": {
+        "fp16": 131072,
+        "int8": 65536,
+        "fp8": 65536
+      },
+      "MQA-1kv": {
+        "fp16": 16384,
+        "int8": 8192,
+        "fp8": 8192
+      }
+    },
+    "activation_peak_measured": {
+      "model": "toy-12L-1024 (随机初始化教学形状)",
+      "batch": 4,
+      "seq": 512,
+      "weight_bytes": 439404544,
+      "peak_allocated_bytes": 696454144
+    }
+  },
+  "c_same_model_two_workloads": {
+    "短上下文单并发": {
+      "kv_bytes": 67108864,
+      "weight_fp16_bytes": 15240000000,
+      "weight_share": 0.9956158367594922,
+      "kv_share": 0.004384163240507806,
+      "total_bytes": 15307108864
+    },
+    "长上下文高并发": {
+      "kv_bytes": 137438953472,
+      "weight_fp16_bytes": 15240000000,
+      "weight_share": 0.0998172940895543,
+      "kv_share": 0.9001827059104457,
+      "total_bytes": 152678953472
+    },
+    "int8_weight_shift": {
+      "weight_int8_bytes": 7620000000,
+      "kv_share_after": 0.9474696334309978
+    }
+  },
+  "status": "ALL_TESTS_PASS"
+}

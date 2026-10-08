@@ -43,6 +43,7 @@
 | Task 2 | 单机训练显存策略（Issue #168） | [task02-single-gpu-training-memory-strategy.md](notes/task02-single-gpu-training-memory-strategy.md) | [task2 证据](evidence/task2/) |
 | **Task 3** | **训练侧测量与预算决策（Issue #169，4.1 + 4.2）** | [task03-training-measurement-budget.md](notes/task03-training-measurement-budget.md) | [task3 证据](evidence/task3/) |
 | **Task 4** | **推理侧 KV Cache 与显存容量（[Issue #177](https://github.com/datawhalechina/llm-algo-leetcode/issues/177)，4.1 + 4.2 + 4.3）** | [task04-inference-kv-cache-and-capacity.md](notes/task04-inference-kv-cache-and-capacity.md) | [task4 证据](evidence/task4/) |
+| **Task 5** | **量化与显存容量扩展（[Issue #178](https://github.com/datawhalechina/llm-algo-leetcode/issues/178)，4.1 + 4.2 + 4.3）** | [task05-quantization-and-memory-capacity.md](notes/task05-quantization-and-memory-capacity.md) | [task5 证据](evidence/task5/) |
 
 ### Task1 学习材料
 
@@ -73,6 +74,10 @@
 | [code/task4_common.py](code/task4_common.py) · [task4_exp1_growth.py](code/task4_exp1_growth.py) · [task4_exp2_paged.py](code/task4_exp2_paged.py) · [task4_exp3_prefix.py](code/task4_exp3_prefix.py) · [task4_exp4_capacity.py](code/task4_exp4_capacity.py) · [task4_render_evidence.py](code/task4_render_evidence.py) | Task4 可复跑实验：账本/线性验证、分页池与构造性 OOM、前缀哈希链与真实模型复用、容量规划与准入压力（vm-60 实测，`ALL_TESTS_PASS`） |
 | [evidence/task4/](evidence/task4/) | Task4 实测证据：四个实验 JSON + 原始日志、上游 11/22/34/24/66/69 六个已执行 solved notebook、四张证据图与运行总览 |
 | [evidence/task4/issue177-checkin.md](evidence/task4/issue177-checkin.md) | 提交到 Issue #177 的打卡文案 |
+| [notes/task05-quantization-and-memory-capacity.md](notes/task05-quantization-and-memory-capacity.md) | Task5 打卡笔记：对象×时机账本（权重三档实测/同模型两种 workload 瓶颈转移）→ W8A16 三角色与"存储收益≠峰值收益" → GPTQ/AWQ 校准信息与 24 层误差复合 → KV 量化五档误差/容量翻倍/准入 ×2.00 → 同 workload 四候选决策；覆盖 4.1/4.2/4.3 全部 13 问 |
+| [code/task5_common.py](code/task5_common.py) · [task5_exp1_object_timing.py](code/task5_exp1_object_timing.py) · [task5_exp2_w8a16_vs_kv.py](code/task5_exp2_w8a16_vs_kv.py) · [task5_exp3_kv_quant_capacity.py](code/task5_exp3_kv_quant_capacity.py) · [task5_exp4_candidates.py](code/task5_exp4_candidates.py) · [task5_render_evidence.py](code/task5_render_evidence.py) | Task5 可复跑实验：量化工具（INT8/INT4/FP8/W8A16/AWQ/GPTQ 教学实现）+ 四个实验 + 五张证据图（vm-60 实测，`ALL_TESTS_PASS`） |
+| [evidence/task5/](evidence/task5/) | Task5 实测证据：四个实验 JSON + 原始日志、上游 21/25/40/41/66/67 六个已执行 solved notebook + GPU 步骤 JSON、五张证据图与运行总览 |
+| [evidence/task5/issue178-checkin.md](evidence/task5/issue178-checkin.md) | 提交到 Issue #178 的打卡文案 |
 
 ## 学习方法
 
