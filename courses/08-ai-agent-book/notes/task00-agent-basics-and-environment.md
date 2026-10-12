@@ -37,7 +37,7 @@ Task0 的目标是理解 AI Agent，配置实验环境，并提交运行截图�
   → 模型读取更新后的上下文并回答，或继续调用工具
 ```
 
-## 3. 官方离线演示：先看清流程
+## 3. 官方离线演示:
 
 在课程仓库的 `chapter1/web-search-agent` 目录运行：
 
@@ -48,6 +48,8 @@ python main.py --provider offline-demo --output demo.json
 示例问题是“Moonshot AI 的 Context Caching 是什么技术？”。轨迹先搜索定义，再搜索用途，最后整合回答。这条轨迹适合观察行动与反馈的关系，但其中标为“思考”的文字也是示例内容，不是本次真实模型推理。
 
 这一步在 vm-60 成功执行。后续取回文件曾发生 SCP 路径错误，运行成功与文件传输成功需要分别判断。本目录保留的是成功终端日志的节选，不把它伪装成已经取回的远端 JSON。
+<img width="966" height="386" alt="676331438b312699f67e7a8f7f312447" src="https://github.com/user-attachments/assets/21548a8d-866b-4bf2-844f-201a96d74185" />
+
 
 ## 4. Context 对照：答案相同，过程不同
 
