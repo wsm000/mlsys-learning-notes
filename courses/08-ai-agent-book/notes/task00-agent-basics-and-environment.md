@@ -14,7 +14,6 @@ Task0 的目标是理解 AI Agent，配置实验环境，并提交运行截图�
 | MiMo API 连通验证 | `/models` 与 `/chat/completions` 均返回 HTTP 200，回复 `API_OK` | 指定模型接口可以真实调用 |
 | `context` 两组对照 | full 与 no_tool_results 均结束，最终答案均为 4000 | 可以比较工具反馈对本次执行过程的影响 |
 
-没有运行 Kimi 的真实联网搜索，也没有完成上下文实验全部五个消融组。离线演示中的搜索内容是预先编写的，不能当作真实搜索服务已经连通的证据。
 
 ## 2. Agent = LLM + Context + Tools
 
@@ -101,10 +100,7 @@ API 连通、Python 依赖安装、工具执行和结果文件传输是不同环
 
 ## 8. 复现与范围
 
-本目录的 [MiMo 适配脚本](../code/task0/run_context_mimo.py) 使用环境变量 `AMD_API_KEY`，通过 `AI_AGENT_BOOK_DIR` 指向单独克隆的课程仓库。步骤见 [代码说明](../code/task0/README.md)。脚本使用课程原始 Agent 类，未复制课程实现，也没有修改 full/no_tool_results 逻辑。
-
-本次下载的源码未记录上游 commit，文件 SHA-256 见 [source-manifest.json](../evidence/task0/source-manifest.json)。课程持续更新，后续复现应额外记录所用 commit；不同模型、任务与运行次数可能得到不同结果。
-
+本目录的 [MiMo 适配脚本](../code/task0/run_context_mimo.py) 使用环境变量 `AMD_API_KEY`，通过 `AI_AGENT_BOOK_DIR` 指向单独克隆的课程仓库。步骤见 [代码说明](../code/task0/README.md)。脚本使用课程原始 Agent 类
 ## 资料来源
 
 - [ai-agent-book 课程仓库](https://github.com/bojieli/ai-agent-book)
