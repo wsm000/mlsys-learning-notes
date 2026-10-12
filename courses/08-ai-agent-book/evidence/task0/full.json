@@ -1,0 +1,36 @@
+{
+  "model": "MiMo-V2.6-Flash",
+  "base_url": "https://developer.amd.com.cn/radeon/api/v1",
+  "iterations": 2,
+  "completed": true,
+  "final_answer": "4000",
+  "error": null,
+  "mode": "full",
+  "provenance": "Extracted from actual saved execution; provider metadata and reasoning text omitted.",
+  "tool_calls": [
+    {
+      "tool_name": "calculate",
+      "arguments": {
+        "expression": "(125 + 375) * 8"
+      },
+      "result": {
+        "expression": "(125 + 375) * 8",
+        "result": 4000,
+        "type": "int"
+      },
+      "timestamp": "2026-10-12T06:18:43.609953"
+    }
+  ],
+  "request_tool_messages": [
+    {
+      "iteration": 1,
+      "tool_contents": []
+    },
+    {
+      "iteration": 2,
+      "tool_contents": [
+        "{\"expression\": \"(125 + 375) * 8\", \"result\": 4000, \"type\": \"int\"}"
+      ]
+    }
+  ]
+}

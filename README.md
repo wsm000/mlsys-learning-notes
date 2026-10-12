@@ -1,6 +1,6 @@
 # mlsys-learning-notes
 
-个人学习笔记仓库，当前主线分为四门课：
+个人学习笔记仓库，按课程与专题组织：
 
 | 课程 | 目录 | 说明 |
 |---|---|---|
@@ -8,6 +8,7 @@
 | MLSys | `courses/02-mlsys/` | Task0–Task5 系列笔记。 |
 | llm-algo-leetcode 训练微调 | `courses/03-llm-algo-leetcode-finetune/` | SFT、LoRA、QLoRA、Task6 综合项目。 |
 | DIY-LLM | `courses/04-diy-llm/` | Byte-level BPE、资源账本、MoE、推理评测。 |
+| AI Agent 工程实践 | `courses/08-ai-agent-book/` | Agent 基础、上下文、记忆与 RAG、Tools/MCP、Coding Agent 与多 Agent 协作。 |
 
 ## 快速入口
 
@@ -15,6 +16,7 @@
 - [MLSys](courses/02-mlsys/README.md)
 - [llm-algo-leetcode 训练微调](courses/03-llm-algo-leetcode-finetune/README.md)
 - [DIY-LLM](courses/04-diy-llm/README.md)
+- [AI Agent 工程实践](courses/08-ai-agent-book/README.md)
 
 ## 说明
 

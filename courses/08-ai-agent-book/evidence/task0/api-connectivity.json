@@ -1,0 +1,6 @@
+{
+  "model": "MiMo-V2.6-Flash",
+  "models_http_status": 200,
+  "chat_http_status": 200,
+  "answer": "API_OK"
+}
