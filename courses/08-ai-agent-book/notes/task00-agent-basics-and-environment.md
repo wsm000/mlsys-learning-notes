@@ -47,7 +47,7 @@ python main.py --provider offline-demo --output demo.json
 
 示例问题是“Moonshot AI 的 Context Caching 是什么技术？”。轨迹先搜索定义，再搜索用途，最后整合回答。这条轨迹适合观察行动与反馈的关系，但其中标为“思考”的文字也是示例内容，不是本次真实模型推理。
 
-这一步在 vm-60 成功执行。后续取回文件曾发生 SCP 路径错误，运行成功与文件传输成功需要分别判断。本目录保留的是成功终端日志的节选，不把它伪装成已经取回的远端 JSON。
+
 <img width="966" height="386" alt="676331438b312699f67e7a8f7f312447" src="https://github.com/user-attachments/assets/21548a8d-866b-4bf2-844f-201a96d74185" />
 
 
