@@ -1,0 +1,36 @@
+{
+  "mode": "offline",
+  "source_commit": "f93fe0a8be843eae77efaf85448035ddc54ff7ea",
+  "python": "3.12.13",
+  "executed_at": "2026-10-13T09:55:07.279057+00:00",
+  "lock_hash": "fc9bd72fd8c232f10664accec825e1e7403cb7b42c3c5d87814e4924c089b26f",
+  "results": [
+    {
+      "id": "ch01-agent-harness",
+      "status": "passed",
+      "mode": "offline",
+      "source_hash": "be168a72dc9d36abc9202e8cbda2e6db790cd6f2d57cb055e28766a47302eda5",
+      "services": [],
+      "model_evidence": "scripted",
+      "model_configuration": null
+    },
+    {
+      "id": "ch02-quickstart",
+      "status": "passed",
+      "mode": "offline",
+      "source_hash": "22c5256933d6d7f5abd4773ea892f23b4fbb0021ce6836580c230fc32ffbd333",
+      "services": [],
+      "model_evidence": "scripted",
+      "model_configuration": null
+    },
+    {
+      "id": "ch02-research-assistant",
+      "status": "passed",
+      "mode": "offline",
+      "source_hash": "fb164bd0074b0f691075135a2994601ef46c784dd08d72cd6834b15ee743cd13",
+      "services": [],
+      "model_evidence": "scripted",
+      "model_configuration": null
+    }
+  ]
+}

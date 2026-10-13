@@ -1,0 +1,92 @@
+{
+  "model": "DeepSeek-V4-Flash",
+  "kind": "message trajectory, not full execution spans",
+  "verification": {
+    "business_tool_requests": 0,
+    "matching_returns": 0,
+    "successful_returns": 0,
+    "tool_chain_observed": false
+  },
+  "messages": [
+    {
+      "content": "Analyze DEMO latest 100 records versus preceding 100 records.",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": "919cfc4f-a83b-4b77-9631-54ca8fcf27bc"
+    },
+    {
+      "content": "I can't perform that comparison with the available tool. Here's why:\n\nThe `analyze_price_volume` tool only supports a **window of 1–5** for comparing the latest N records against the preceding N records. Comparing the latest 100 records versus the preceding 100 records would require a window of 100, which is outside the tool's supported range.\n\nAdditionally, the tool only has **DEMO synthetic data** (10 records available), not real market data, and it cannot support a 100-record window.\n\n**What I can offer:**\n- A demonstration comparison using a window of **5** (latest 5 vs. preceding 5), which is the maximum supported.\n\nWould you like me to run the **5-window** demonstration comparison instead? Please confirm before I proceed, since I won't substitute a smaller window without your explicit consent.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 178,
+          "prompt_tokens": 3027,
+          "total_tokens": 3205,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null,
+            "text_tokens": null,
+            "image_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0,
+            "image_tokens": 0,
+            "text_tokens": null,
+            "video_tokens": 0
+          },
+          "reasoning_tokens": 0,
+          "cost": 0.00047362,
+          "cost_details": {
+            "upstream_inference_cost": 0.00047362,
+            "upstream_inference_prompt_cost": 0.00042378,
+            "upstream_inference_completions_cost": 4.984e-05,
+            "total_cost": 0.00047362,
+            "input_cost": 0.00042378,
+            "output_cost": 4.984e-05,
+            "cached_input_cost": 0,
+            "cache_write_input_cost": 0,
+            "request_cost": 0,
+            "web_search_cost": 0,
+            "image_input_cost": null,
+            "image_output_cost": null,
+            "audio_input_cost": null,
+            "data_storage_cost": 3.205e-05
+          }
+        },
+        "model_provider": "openai",
+        "model_name": "self-dploy/DeepSeek-V4-Flash",
+        "system_fingerprint": null,
+        "id": "50134c09797d4a4e88cbdeb2755eb218",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "lc_run--01a134a6-746b-7333-a9ab-97786c31235a-0",
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 3027,
+        "output_tokens": 178,
+        "total_tokens": 3205,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 0,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  ]
+}

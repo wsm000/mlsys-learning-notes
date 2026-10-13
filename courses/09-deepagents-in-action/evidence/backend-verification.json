@@ -1,0 +1,7 @@
+{
+  "query_write_read_id_matched": true,
+  "written_content_matches_state": true,
+  "readback_contains_expected_numbers": true,
+  "checked_disk_paths_absent": true,
+  "note": "Original report check falsely failed due to string/list handling; corrected offline."
+}

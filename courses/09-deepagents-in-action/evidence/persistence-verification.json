@@ -1,0 +1,8 @@
+{
+  "different_processes": true,
+  "disk_hash_unchanged": true,
+  "read_started_without_old_messages": true,
+  "only_read_tool_called": true,
+  "readback_matches_disk_lines": true,
+  "scope": "Two Python processes on the same vm; not an OS reboot test."
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "case": "empty",
+    "characters": 0,
+    "exit_code": 2,
+    "passed": true,
+    "stderr": "usage: agent.py [-h] [question]\nagent.py: error: question must contain 1\u20134000 characters\n",
+    "layer": "CLI rejects before model/client initialization"
+  },
+  {
+    "case": "too_long",
+    "characters": 4001,
+    "exit_code": 2,
+    "passed": true,
+    "stderr": "usage: agent.py [-h] [question]\nagent.py: error: question must contain 1\u20134000 characters\n",
+    "layer": "CLI rejects before model/client initialization"
+  }
+]

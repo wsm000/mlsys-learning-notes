@@ -1,0 +1,613 @@
+{
+  "case": "unsupported100",
+  "root_id": "f12aa36d-30d4-484f-8d61-4461aa88e2d4",
+  "input": "Analyze DEMO latest 100 records versus preceding 100 records.",
+  "format": "local callback execution spans, not a LangSmith cloud trace",
+  "status": "completed",
+  "messages": [
+    {
+      "content": "Analyze DEMO latest 100 records versus preceding 100 records.",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": "87f28258-2fa5-48d8-9ff5-621a8a5744db"
+    },
+    {
+      "content": "I'll analyze this price-volume question. Let me check the tool requirements first.\n\nThe DEMO tool supports windows of 1-5, not 100. Per the constraints, when a user requests a larger window N (here 100), I must explain that 2N records (200) are needed and ask whether they accept window=5 instead. I should not call a substitute tool or modify anything before explicit agreement.\n\nLet me verify the environment first to understand what's available.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 139,
+          "prompt_tokens": 4245,
+          "total_tokens": 4384,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null,
+            "text_tokens": null,
+            "image_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 4096,
+            "image_tokens": 0,
+            "text_tokens": null,
+            "video_tokens": 0
+          },
+          "reasoning_tokens": 0,
+          "cost": 7.12488e-05,
+          "cost_details": {
+            "upstream_inference_cost": 7.12488e-05,
+            "upstream_inference_prompt_cost": 3.23288e-05,
+            "upstream_inference_completions_cost": 3.892e-05,
+            "total_cost": 7.12488e-05,
+            "input_cost": 2.086e-05,
+            "output_cost": 3.892e-05,
+            "cached_input_cost": 1.14688e-05,
+            "cache_write_input_cost": 0,
+            "request_cost": 0,
+            "web_search_cost": 0,
+            "image_input_cost": null,
+            "image_output_cost": null,
+            "audio_input_cost": null,
+            "data_storage_cost": 4.384e-05
+          }
+        },
+        "model_provider": "openai",
+        "model_name": "self-dploy/DeepSeek-V4-Flash",
+        "system_fingerprint": null,
+        "id": "bea6fbe901094481b2d97682f912b8d7",
+        "finish_reason": "tool_calls",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "lc_run--01a134ab-14b7-7932-832d-48ccc8040a7f-0",
+      "tool_calls": [
+        {
+          "name": "ls",
+          "args": {
+            "path": "."
+          },
+          "id": "call_60ca20bf9153402ab2c4afbd",
+          "type": "tool_call"
+        }
+      ],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 4245,
+        "output_tokens": 139,
+        "total_tokens": 4384,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 4096,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    },
+    {
+      "content": "No files found",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "tool",
+      "name": "ls",
+      "id": "94c8b012-3caa-4316-a4ee-5424c65ce1ea",
+      "tool_call_id": "call_60ca20bf9153402ab2c4afbd",
+      "artifact": null,
+      "status": "success"
+    },
+    {
+      "content": "You've asked me to analyze the latest **100** DEMO records versus the preceding **100** records.\n\nI'm unable to run this analysis as requested due to a hard constraint on the tooling:\n\n- The DEMO price-volume analysis tool only supports a **window of 1–5 records**.\n- Comparing the latest 100 versus the preceding 100 requires **200 records** of data (2 × window).\n- Only **10 DEMO synthetic records** exist in the environment, so there is insufficient data for a 100-vs-100 comparison regardless of the window setting.\n\n**What I can do instead:** The maximum supported window is **5**. Analyzing the latest 5 records versus the preceding 5 requires 10 records — which exactly matches the number of DEMO records available.\n\n**Do you accept using window = 5** (latest 5 vs. preceding 5) for this analysis? If so, let me know and I'll run the price-volume comparison within those limits.",
+      "additional_kwargs": {
+        "refusal": null
+      },
+      "response_metadata": {
+        "token_usage": {
+          "completion_tokens": 204,
+          "prompt_tokens": 4398,
+          "total_tokens": 4602,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": null,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": null,
+            "text_tokens": null,
+            "image_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 4096,
+            "image_tokens": 0,
+            "text_tokens": null,
+            "video_tokens": 0
+          },
+          "reasoning_tokens": 0,
+          "cost": 0.0001108688,
+          "cost_details": {
+            "upstream_inference_cost": 0.0001108688,
+            "upstream_inference_prompt_cost": 5.37488e-05,
+            "upstream_inference_completions_cost": 5.712e-05,
+            "total_cost": 0.0001108688,
+            "input_cost": 4.228e-05,
+            "output_cost": 5.712e-05,
+            "cached_input_cost": 1.14688e-05,
+            "cache_write_input_cost": 0,
+            "request_cost": 0,
+            "web_search_cost": 0,
+            "image_input_cost": null,
+            "image_output_cost": null,
+            "audio_input_cost": null,
+            "data_storage_cost": 4.602e-05
+          }
+        },
+        "model_provider": "openai",
+        "model_name": "self-dploy/DeepSeek-V4-Flash",
+        "system_fingerprint": null,
+        "id": "f99331a8cd6748e8bacc820e02ba9a64",
+        "finish_reason": "stop",
+        "logprobs": null
+      },
+      "type": "ai",
+      "name": null,
+      "id": "lc_run--01a134ab-41c7-7143-b3b8-7ea8667a31b1-0",
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": {
+        "input_tokens": 4398,
+        "output_tokens": 204,
+        "total_tokens": 4602,
+        "input_token_details": {
+          "audio": 0,
+          "cache_read": 4096,
+          "cache_creation": 0
+        },
+        "output_token_details": {
+          "audio": 0,
+          "reasoning": 0
+        }
+      }
+    }
+  ],
+  "calls": [
+    {
+      "name": "ls",
+      "args": {
+        "path": "."
+      },
+      "id": "call_60ca20bf9153402ab2c4afbd",
+      "type": "tool_call"
+    }
+  ],
+  "behavior_check": false,
+  "spans": [
+    {
+      "id": "f12aa36d-30d4-484f-8d61-4461aa88e2d4",
+      "parent_id": null,
+      "kind": "chain",
+      "name": "LangGraph",
+      "started_at": "2026-10-13T09:49:49.611015+00:00",
+      "status": "success",
+      "ended_at": "2026-10-13T09:50:18.257530+00:00",
+      "duration_ms": 28646.509
+    },
+    {
+      "id": "01a134ab-14ab-71b2-ba2d-0d62b0a672ff",
+      "parent_id": "f12aa36d-30d4-484f-8d61-4461aa88e2d4",
+      "kind": "chain",
+      "name": "PatchToolCallsMiddleware.before_agent",
+      "started_at": "2026-10-13T09:49:49.611959+00:00",
+      "status": "success",
+      "ended_at": "2026-10-13T09:49:49.612037+00:00",
+      "duration_ms": 0.075
+    },
+    {
+      "id": "01a134ab-14ac-7613-8f72-5bd1a9f67208",
+      "parent_id": "f12aa36d-30d4-484f-8d61-4461aa88e2d4",
+      "kind": "chain",
+      "name": "model",
+      "started_at": "2026-10-13T09:49:49.612340+00:00",
+      "status": "success",
+      "ended_at": "2026-10-13T09:50:01.145113+00:00",
+      "duration_ms": 11532.773
+    },
+    {
+      "id": "01a134ab-14b7-7932-832d-48ccc8040a7f",
+      "parent_id": "01a134ab-14ac-7613-8f72-5bd1a9f67208",
+      "kind": "model",
+      "name": "ChatOpenAI",
+      "started_at": "2026-10-13T09:49:49.623314+00:00",
+      "status": "success",
+      "input_messages": [
+        [
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "You are Quanty. For supported price-volume questions call analyze_price_volume. Only 10 DEMO synthetic records exist. Tools support window 1-5. If user requests a larger window N, explain that 2N records are needed and ask whether they accept window=5; do not call a substitute or modify code before explicit agreement. Explain numerical evidence and limitations. Simple queries need no planning. Never invent data."
+              },
+              {
+                "type": "text",
+                "text": "\n\n## `write_todos`\n\nYou have access to the `write_todos` tool to help you manage and plan complex objectives.\nUse this tool for complex objectives to ensure that you are tracking each necessary step.\nThis tool is very helpful for planning complex objectives, and for breaking down these larger complex objectives into smaller steps.\n\nIt is critical that you mark todos as completed as soon as you are done with a step. Do not batch up multiple steps before marking them as completed.\nFor simple objectives that only require a few steps, it is better to just complete the objective directly and NOT use this tool.\nWriting todos takes time and tokens, use it when it is helpful for managing complex many-step problems! But not for simple few-step requests.\n\n## Important To-Do List Usage Notes to Remember\n\n- The `write_todos` tool should never be called multiple times in parallel.\n- Don't be afraid to revise the To-Do list as you go. New information may reveal new tasks that need to be done, or old tasks that are irrelevant.\n\n## Finishing a task\n\nWhen you finish all work, write your final answer in the message AFTER your last `write_todos` call — not in the same turn as that call. Start the final message with the substantive content the user asked for — the data, computation, summary, or analysis. The user wants the result, not confirmation that the work is done."
+              }
+            ],
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": null
+          },
+          {
+            "content": "Analyze DEMO latest 100 records versus preceding 100 records.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "87f28258-2fa5-48d8-9ff5-621a8a5744db"
+          }
+        ]
+      ],
+      "ended_at": "2026-10-13T09:50:01.144916+00:00",
+      "duration_ms": 11521.606,
+      "output_messages": [
+        {
+          "content": "I'll analyze this price-volume question. Let me check the tool requirements first.\n\nThe DEMO tool supports windows of 1-5, not 100. Per the constraints, when a user requests a larger window N (here 100), I must explain that 2N records (200) are needed and ask whether they accept window=5 instead. I should not call a substitute tool or modify anything before explicit agreement.\n\nLet me verify the environment first to understand what's available.",
+          "additional_kwargs": {
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 139,
+              "prompt_tokens": 4245,
+              "total_tokens": 4384,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": null,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": null,
+                "text_tokens": null,
+                "image_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 4096,
+                "image_tokens": 0,
+                "text_tokens": null,
+                "video_tokens": 0
+              },
+              "reasoning_tokens": 0,
+              "cost": 7.12488e-05,
+              "cost_details": {
+                "upstream_inference_cost": 7.12488e-05,
+                "upstream_inference_prompt_cost": 3.23288e-05,
+                "upstream_inference_completions_cost": 3.892e-05,
+                "total_cost": 7.12488e-05,
+                "input_cost": 2.086e-05,
+                "output_cost": 3.892e-05,
+                "cached_input_cost": 1.14688e-05,
+                "cache_write_input_cost": 0,
+                "request_cost": 0,
+                "web_search_cost": 0,
+                "image_input_cost": null,
+                "image_output_cost": null,
+                "audio_input_cost": null,
+                "data_storage_cost": 4.384e-05
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "self-dploy/DeepSeek-V4-Flash",
+            "system_fingerprint": null,
+            "id": "bea6fbe901094481b2d97682f912b8d7",
+            "finish_reason": "tool_calls",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a134ab-14b7-7932-832d-48ccc8040a7f-0",
+          "tool_calls": [
+            {
+              "name": "ls",
+              "args": {
+                "path": "."
+              },
+              "id": "call_60ca20bf9153402ab2c4afbd",
+              "type": "tool_call"
+            }
+          ],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 4245,
+            "output_tokens": 139,
+            "total_tokens": 4384,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 4096,
+              "cache_creation": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "01a134ab-41b9-7b82-8620-a1a652a3522c",
+      "parent_id": "f12aa36d-30d4-484f-8d61-4461aa88e2d4",
+      "kind": "chain",
+      "name": "TodoListMiddleware.after_model",
+      "started_at": "2026-10-13T09:50:01.145592+00:00",
+      "status": "success",
+      "ended_at": "2026-10-13T09:50:01.145771+00:00",
+      "duration_ms": 0.178
+    },
+    {
+      "id": "01a134ab-41ba-7040-87b8-a24891abb51d",
+      "parent_id": "f12aa36d-30d4-484f-8d61-4461aa88e2d4",
+      "kind": "chain",
+      "name": "tools",
+      "started_at": "2026-10-13T09:50:01.146075+00:00",
+      "status": "success",
+      "ended_at": "2026-10-13T09:50:01.154109+00:00",
+      "duration_ms": 8.038
+    },
+    {
+      "id": "01a134ab-41c0-7f52-b11d-165c8aacb9df",
+      "parent_id": "01a134ab-41ba-7040-87b8-a24891abb51d",
+      "kind": "tool",
+      "name": "ls",
+      "started_at": "2026-10-13T09:50:01.153023+00:00",
+      "status": "success",
+      "input": "{'path': '.'}",
+      "ended_at": "2026-10-13T09:50:01.153784+00:00",
+      "duration_ms": 0.759,
+      "output": {
+        "content": "No files found",
+        "additional_kwargs": {},
+        "response_metadata": {},
+        "type": "tool",
+        "name": "ls",
+        "id": null,
+        "tool_call_id": "call_60ca20bf9153402ab2c4afbd",
+        "artifact": null,
+        "status": "success"
+      }
+    },
+    {
+      "id": "01a134ab-41c2-7c32-8c3e-3ff18cae741c",
+      "parent_id": "f12aa36d-30d4-484f-8d61-4461aa88e2d4",
+      "kind": "chain",
+      "name": "model",
+      "started_at": "2026-10-13T09:50:01.154487+00:00",
+      "status": "success",
+      "ended_at": "2026-10-13T09:50:18.256728+00:00",
+      "duration_ms": 17102.241
+    },
+    {
+      "id": "01a134ab-41c7-7143-b3b8-7ea8667a31b1",
+      "parent_id": "01a134ab-41c2-7c32-8c3e-3ff18cae741c",
+      "kind": "model",
+      "name": "ChatOpenAI",
+      "started_at": "2026-10-13T09:50:01.159770+00:00",
+      "status": "success",
+      "input_messages": [
+        [
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "You are Quanty. For supported price-volume questions call analyze_price_volume. Only 10 DEMO synthetic records exist. Tools support window 1-5. If user requests a larger window N, explain that 2N records are needed and ask whether they accept window=5; do not call a substitute or modify code before explicit agreement. Explain numerical evidence and limitations. Simple queries need no planning. Never invent data."
+              },
+              {
+                "type": "text",
+                "text": "\n\n## `write_todos`\n\nYou have access to the `write_todos` tool to help you manage and plan complex objectives.\nUse this tool for complex objectives to ensure that you are tracking each necessary step.\nThis tool is very helpful for planning complex objectives, and for breaking down these larger complex objectives into smaller steps.\n\nIt is critical that you mark todos as completed as soon as you are done with a step. Do not batch up multiple steps before marking them as completed.\nFor simple objectives that only require a few steps, it is better to just complete the objective directly and NOT use this tool.\nWriting todos takes time and tokens, use it when it is helpful for managing complex many-step problems! But not for simple few-step requests.\n\n## Important To-Do List Usage Notes to Remember\n\n- The `write_todos` tool should never be called multiple times in parallel.\n- Don't be afraid to revise the To-Do list as you go. New information may reveal new tasks that need to be done, or old tasks that are irrelevant.\n\n## Finishing a task\n\nWhen you finish all work, write your final answer in the message AFTER your last `write_todos` call — not in the same turn as that call. Start the final message with the substantive content the user asked for — the data, computation, summary, or analysis. The user wants the result, not confirmation that the work is done."
+              }
+            ],
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": null
+          },
+          {
+            "content": "Analyze DEMO latest 100 records versus preceding 100 records.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "87f28258-2fa5-48d8-9ff5-621a8a5744db"
+          },
+          {
+            "content": "I'll analyze this price-volume question. Let me check the tool requirements first.\n\nThe DEMO tool supports windows of 1-5, not 100. Per the constraints, when a user requests a larger window N (here 100), I must explain that 2N records (200) are needed and ask whether they accept window=5 instead. I should not call a substitute tool or modify anything before explicit agreement.\n\nLet me verify the environment first to understand what's available.",
+            "additional_kwargs": {
+              "refusal": null
+            },
+            "response_metadata": {
+              "token_usage": {
+                "completion_tokens": 139,
+                "prompt_tokens": 4245,
+                "total_tokens": 4384,
+                "completion_tokens_details": {
+                  "accepted_prediction_tokens": null,
+                  "audio_tokens": 0,
+                  "reasoning_tokens": 0,
+                  "rejected_prediction_tokens": null,
+                  "text_tokens": null,
+                  "image_tokens": 0
+                },
+                "prompt_tokens_details": {
+                  "audio_tokens": 0,
+                  "cache_write_tokens": 0,
+                  "cached_tokens": 4096,
+                  "image_tokens": 0,
+                  "text_tokens": null,
+                  "video_tokens": 0
+                },
+                "reasoning_tokens": 0,
+                "cost": 7.12488e-05,
+                "cost_details": {
+                  "upstream_inference_cost": 7.12488e-05,
+                  "upstream_inference_prompt_cost": 3.23288e-05,
+                  "upstream_inference_completions_cost": 3.892e-05,
+                  "total_cost": 7.12488e-05,
+                  "input_cost": 2.086e-05,
+                  "output_cost": 3.892e-05,
+                  "cached_input_cost": 1.14688e-05,
+                  "cache_write_input_cost": 0,
+                  "request_cost": 0,
+                  "web_search_cost": 0,
+                  "image_input_cost": null,
+                  "image_output_cost": null,
+                  "audio_input_cost": null,
+                  "data_storage_cost": 4.384e-05
+                }
+              },
+              "model_provider": "openai",
+              "model_name": "self-dploy/DeepSeek-V4-Flash",
+              "system_fingerprint": null,
+              "id": "bea6fbe901094481b2d97682f912b8d7",
+              "finish_reason": "tool_calls",
+              "logprobs": null
+            },
+            "type": "ai",
+            "name": null,
+            "id": "lc_run--01a134ab-14b7-7932-832d-48ccc8040a7f-0",
+            "tool_calls": [
+              {
+                "name": "ls",
+                "args": {
+                  "path": "."
+                },
+                "id": "call_60ca20bf9153402ab2c4afbd",
+                "type": "tool_call"
+              }
+            ],
+            "invalid_tool_calls": [],
+            "usage_metadata": {
+              "input_tokens": 4245,
+              "output_tokens": 139,
+              "total_tokens": 4384,
+              "input_token_details": {
+                "audio": 0,
+                "cache_read": 4096,
+                "cache_creation": 0
+              },
+              "output_token_details": {
+                "audio": 0,
+                "reasoning": 0
+              }
+            }
+          },
+          {
+            "content": "No files found",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "tool",
+            "name": "ls",
+            "id": "94c8b012-3caa-4316-a4ee-5424c65ce1ea",
+            "tool_call_id": "call_60ca20bf9153402ab2c4afbd",
+            "artifact": null,
+            "status": "success"
+          }
+        ]
+      ],
+      "ended_at": "2026-10-13T09:50:18.256540+00:00",
+      "duration_ms": 17096.775,
+      "output_messages": [
+        {
+          "content": "You've asked me to analyze the latest **100** DEMO records versus the preceding **100** records.\n\nI'm unable to run this analysis as requested due to a hard constraint on the tooling:\n\n- The DEMO price-volume analysis tool only supports a **window of 1–5 records**.\n- Comparing the latest 100 versus the preceding 100 requires **200 records** of data (2 × window).\n- Only **10 DEMO synthetic records** exist in the environment, so there is insufficient data for a 100-vs-100 comparison regardless of the window setting.\n\n**What I can do instead:** The maximum supported window is **5**. Analyzing the latest 5 records versus the preceding 5 requires 10 records — which exactly matches the number of DEMO records available.\n\n**Do you accept using window = 5** (latest 5 vs. preceding 5) for this analysis? If so, let me know and I'll run the price-volume comparison within those limits.",
+          "additional_kwargs": {
+            "refusal": null
+          },
+          "response_metadata": {
+            "token_usage": {
+              "completion_tokens": 204,
+              "prompt_tokens": 4398,
+              "total_tokens": 4602,
+              "completion_tokens_details": {
+                "accepted_prediction_tokens": null,
+                "audio_tokens": 0,
+                "reasoning_tokens": 0,
+                "rejected_prediction_tokens": null,
+                "text_tokens": null,
+                "image_tokens": 0
+              },
+              "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "cache_write_tokens": 0,
+                "cached_tokens": 4096,
+                "image_tokens": 0,
+                "text_tokens": null,
+                "video_tokens": 0
+              },
+              "reasoning_tokens": 0,
+              "cost": 0.0001108688,
+              "cost_details": {
+                "upstream_inference_cost": 0.0001108688,
+                "upstream_inference_prompt_cost": 5.37488e-05,
+                "upstream_inference_completions_cost": 5.712e-05,
+                "total_cost": 0.0001108688,
+                "input_cost": 4.228e-05,
+                "output_cost": 5.712e-05,
+                "cached_input_cost": 1.14688e-05,
+                "cache_write_input_cost": 0,
+                "request_cost": 0,
+                "web_search_cost": 0,
+                "image_input_cost": null,
+                "image_output_cost": null,
+                "audio_input_cost": null,
+                "data_storage_cost": 4.602e-05
+              }
+            },
+            "model_provider": "openai",
+            "model_name": "self-dploy/DeepSeek-V4-Flash",
+            "system_fingerprint": null,
+            "id": "f99331a8cd6748e8bacc820e02ba9a64",
+            "finish_reason": "stop",
+            "logprobs": null
+          },
+          "type": "ai",
+          "name": null,
+          "id": "lc_run--01a134ab-41c7-7143-b3b8-7ea8667a31b1-0",
+          "tool_calls": [],
+          "invalid_tool_calls": [],
+          "usage_metadata": {
+            "input_tokens": 4398,
+            "output_tokens": 204,
+            "total_tokens": 4602,
+            "input_token_details": {
+              "audio": 0,
+              "cache_read": 4096,
+              "cache_creation": 0
+            },
+            "output_token_details": {
+              "audio": 0,
+              "reasoning": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "01a134ab-8491-7111-b4f7-d72d3666ed83",
+      "parent_id": "f12aa36d-30d4-484f-8d61-4461aa88e2d4",
+      "kind": "chain",
+      "name": "TodoListMiddleware.after_model",
+      "started_at": "2026-10-13T09:50:18.257180+00:00",
+      "status": "success",
+      "ended_at": "2026-10-13T09:50:18.257333+00:00",
+      "duration_ms": 0.152
+    }
+  ]
+}
