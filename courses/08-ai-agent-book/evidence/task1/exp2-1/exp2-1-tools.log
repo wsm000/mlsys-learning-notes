@@ -1,0 +1,50 @@
+2026-10-13 14:56:16,403 - __main__ - INFO - Initializing on Linux with ollama
+2026-10-13 14:56:17,314 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2026-10-13 14:56:17,314 - __main__ - INFO - Using Ollama model: qwen3:0.6b
+2026-10-13 14:56:17,368 - httpx - INFO - HTTP Request: GET http://127.0.0.1:11434/api/tags "HTTP/1.1 200 OK"
+2026-10-13 14:56:17,369 - ollama_native - INFO - ✅ Connected to Ollama with model: qwen3:0.6b
+2026-10-13 14:56:19,644 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+============================================================
+🚀 Universal Tool Calling Agent
+============================================================
+
+⚙️  Initializing agent...
+✅ Agent ready! Using ollama backend
+
+============================================================
+TASK EXECUTION
+============================================================
+
+📋 Task: Use tools to get the current time in Asia/Shanghai and America/Denver, then report both.
+------------------------------------------------------------
+
+⏳ Processing (streaming)...
+
+🧠 Thinking: [90mOkay[0m[90m,[0m[90m the[0m[90m user[0m[90m wants[0m[90m to[0m[90m get[0m[90m the[0m[90m current[0m[90m time[0m[90m in[0m[90m two[0m[90m different[0m[90m time[0m[90mzones[0m[90m:[0m[90m Asia[0m[90m/Sh[0m[90manghai[0m[90m and[0m[90m America[0m[90m/D[0m[90men[0m[90mver[0m[90m,[0m[90m and[0m[90m report[0m[90m both[0m[90m.[0m[90m Let[0m[90m me[0m[90m check[0m[90m the[0m[90m tools[0m[90m available[0m[90m.
+
+[0m[90mFirst[0m[90m,[0m[90m there[0m[90m's[0m[90m the[0m[90m get[0m[90m_current[0m[90m_time[0m[90m function[0m[90m.[0m[90m It[0m[90m takes[0m[90m a[0m[90m timezone[0m[90m parameter[0m[90m.[0m[90m The[0m[90m user[0m[90m specified[0m[90m both[0m[90m time[0m[90mzones[0m[90m,[0m[90m so[0m[90m I[0m[90m need[0m[90m to[0m[90m call[0m[90m this[0m[90m function[0m[90m twice[0m[90m,[0m[90m once[0m[90m for[0m[90m each[0m[90m timezone[0m[90m.[0m[90m The[0m[90m function[0m[90m's[0m[90m parameters[0m[90m are[0m[90m a[0m[90m timezone[0m[90m name[0m[90m,[0m[90m like[0m[90m "[0m[90mAmerica[0m[90m/D[0m[90men[0m[90mver[0m[90m".[0m[90m So[0m[90m I[0m[90m should[0m[90m make[0m[90m two[0m[90m separate[0m[90m tool[0m[90m calls[0m[90m,[0m[90m each[0m[90m with[0m[90m the[0m[90m respective[0m[90m timezone[0m[90m.[0m[90m Then[0m[90m,[0m[90m once[0m[90m I[0m[90m have[0m[90m both[0m[90m times[0m[90m,[0m[90m I[0m[90m can[0m[90m present[0m[90m them[0m[90m to[0m[90m the[0m[90m user[0m[90m.[0m[90m Let[0m[90m me[0m[90m make[0m[90m sure[0m[90m I[0m[90m'm[0m[90m using[0m[90m the[0m[90m correct[0m[90m syntax[0m[90m for[0m[90m each[0m[90m tool[0m[90m call[0m[90m.[0m[90m Alright[0m[90m,[0m[90m that[0m[90m should[0m[90m do[0m[90m it[0m[90m.
+[0m2026-10-13 14:56:20,165 - ollama_native - INFO - Executing tool: get_current_time with args: {'timezone': 'Asia/Shanghai'}
+2026-10-13 14:56:20,166 - ollama_native - INFO - Executing tool: get_current_time with args: {'timezone': 'America/Denver'}
+2026-10-13 14:56:20,204 - httpx - INFO - HTTP Request: POST http://127.0.0.1:11434/api/chat "HTTP/1.1 200 OK"
+
+
+🔧 Tool Calls:
+  → get_current_time: {'timezone': 'Asia/Shanghai'}
+  → get_current_time: {'timezone': 'America/Denver'}
+    ✓ {"timezone": "Asia/Shanghai", "datetime": "2026-10-13 14:56:20", "date": "2026-10-13", "time": "14:56:20", "day_of_week": "Tuesday", "utc_offset": "+0800", "timestamp": "2026-10-13T14:56:20.166521+08:00"}
+    ✓ {"timezone": "America/Denver", "datetime": "2026-10-13 00:56:20", "date": "2026-10-13", "time": "00:56:20", "day_of_week": "Tuesday", "utc_offset": "-0600", "timestamp": "2026-10-13T00:56:20.167137-06:00"}
+[90mOkay[0m[90m,[0m[90m the[0m[90m user[0m[90m wants[0m[90m the[0m[90m current[0m[90m time[0m[90m in[0m[90m two[0m[90m different[0m[90m time[0m[90mzones[0m[90m,[0m[90m Asia[0m[90m/Sh[0m[90manghai[0m[90m and[0m[90m America[0m[90m/D[0m[90men[0m[90mver[0m[90m.[0m[90m I[0m[90m already[0m[90m used[0m[90m the[0m[90m get[0m[90m_current[0m[90m_time[0m[90m function[0m[90m twice[0m[90m,[0m[90m once[0m[90m for[0m[90m each[0m[90m timezone[0m[90m.[0m[90m The[0m[90m responses[0m[90m from[0m[90m the[0m[90m tool[0m[90m calls[0m[90m show[0m[90m the[0m[90m times[0m[90m.[0m[90m Now[0m[90m I[0m[90m need[0m[90m to[0m[90m present[0m[90m both[0m[90m results[0m[90m clearly[0m[90m.
+
+[0m[90mFirst[0m[90m,[0m[90m for[0m[90m Asia[0m[90m/Sh[0m[90manghai[0m[90m,[0m[90m the[0m[90m time[0m[90m is[0m[90m [0m[90m1[0m[90m4[0m[90m:[0m[90m5[0m[90m6[0m[90m:[0m[90m2[0m[90m0[0m[90m on[0m[90m Tuesday[0m[90m,[0m[90m UTC[0m[90m+[0m[90m8[0m[90m.[0m[90m Then[0m[90m,[0m[90m for[0m[90m America[0m[90m/D[0m[90men[0m[90mver[0m[90m,[0m[90m it[0m[90m's[0m[90m [0m[90m0[0m[90m0[0m[90m:[0m[90m5[0m[90m6[0m[90m:[0m[90m2[0m[90m0[0m[90m on[0m[90m Tuesday[0m[90m,[0m[90m UTC[0m[90m-[0m[90m6[0m[90m.[0m[90m I[0m[90m should[0m[90m format[0m[90m both[0m[90m times[0m[90m in[0m[90m a[0m[90m user[0m[90m-friendly[0m[90m way[0m[90m,[0m[90m maybe[0m[90m adding[0m[90m the[0m[90m day[0m[90m of[0m[90m the[0m[90m week[0m[90m and[0m[90m the[0m[90m offset[0m[90m.[0m[90m Let[0m[90m me[0m[90m check[0m[90m if[0m[90m there[0m[90m's[0m[90m any[0m[90m additional[0m[90m information[0m[90m needed[0m[90m,[0m[90m like[0m[90m the[0m[90m exact[0m[90m date[0m[90m,[0m[90m but[0m[90m the[0m[90m date[0m[90m in[0m[90m both[0m[90m cases[0m[90m is[0m[90m the[0m[90m same[0m[90m.[0m[90m So[0m[90m the[0m[90m final[0m[90m answer[0m[90m should[0m[90m list[0m[90m both[0m[90m times[0m[90m with[0m[90m their[0m[90m respective[0m[90m offsets[0m[90m and[0m[90m time[0m[90m zones[0m[90m.
+[0m
+
+🤖 Assistant: Here are the current times in the specified time zones:
+
+- **Asia/Shanghai**:  
+  Time: 14:56:20 (UTC+8), Day of Week: Tuesday
+
+- **America/Denver**:  
+  Time: 00:56:20 (UTC-6), Day of Week: Tuesday
+
+Let me know if you need further details!
+----------------------------------------

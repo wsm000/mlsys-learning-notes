@@ -11,7 +11,7 @@
 | Task | 内容 | 状态 |
 |---|---|---|
 | [Task0](notes/task00-agent-basics-and-environment.md) | Agent 基础、环境准备、官方离线演示、MiMo 上下文对照 | 已记录实跑结果 |
-| Task1 | Chapter 2：上下文工程 | 待学习 |
+| [Task1](notes/task01-context-engineering-reflection.md) | Chapter 2：上下文工程 | 学习心得、注意力图、六组提示消融与资料快照压缩实验 |
 | Task2 | Chapter 3：用户记忆与 RAG | 待学习 |
 | Task3 | Chapter 4：Tools 与 MCP | 待学习 |
 | Task4 | Chapter 5：Coding Agent | 待学习 |

@@ -1,0 +1,462 @@
+{
+  "experiment_id": "2-4",
+  "created_at": "2026-10-14T05:03:18.328812+08:00",
+  "protocol_sha256": "bfa7e95b1cf492e37ccd8cc382d626b715c5218a525a6a0b74789e239ad947a7",
+  "protocol_copy": "/home/simin/codex-task1-20261013/results/exp2-4-retry-1/experiment_protocol.json",
+  "provider": "openai",
+  "model": "MiMo-V2.6-Flash",
+  "user_model": "MiMo-V2.6-Flash",
+  "objective_scoring": "vendored tau-bench environment reward",
+  "arms": {
+    "baseline": {
+      "artifact": {
+        "path": "/home/simin/codex-task1-20261013/results/exp2-4-retry-1/tool-calling-MiMo-V2.6-Flash-baseline_1014043601.json",
+        "sha256": "07a3a72d35b3736d7aab68b5a4ea821c79cfdf753c0f356df01a403376943fc6"
+      },
+      "rewards": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0
+      ],
+      "success_rate": 80.0,
+      "total": 10,
+      "successes": 8,
+      "failures": 2,
+      "tasks_completed": 10,
+      "expected_tasks": 10,
+      "task_errors": [],
+      "agent_steps": [
+        15,
+        18,
+        19,
+        9,
+        15,
+        18,
+        15,
+        11,
+        21,
+        17
+      ],
+      "tool_calls": [
+        9,
+        10,
+        10,
+        5,
+        12,
+        13,
+        10,
+        5,
+        11,
+        13
+      ],
+      "tool_errors": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "real_api_calls": 228,
+      "response_ids_present": true,
+      "usage": {
+        "prompt_tokens": 1597530,
+        "completion_tokens": 89721,
+        "total_tokens": 1687251
+      },
+      "observed_litellm_cost_usd": 0,
+      "all_calls_priced": false,
+      "native_cost_cny": null,
+      "arm_complete": true
+    },
+    "tone_trump": {
+      "artifact": {
+        "path": "/home/simin/codex-task1-20261013/results/exp2-4-retry-1/tool-calling-MiMo-V2.6-Flash-tone_trump_1014044720.json",
+        "sha256": "2024e9685f5f0c673521a60983977f2999d4bfcb2a596268ddcdee89520ccac6"
+      },
+      "rewards": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "success_rate": 80.0,
+      "total": 10,
+      "successes": 8,
+      "failures": 2,
+      "tasks_completed": 10,
+      "expected_tasks": 10,
+      "task_errors": [],
+      "agent_steps": [
+        16,
+        10,
+        17,
+        15,
+        18,
+        22,
+        18,
+        18,
+        12,
+        14
+      ],
+      "tool_calls": [
+        9,
+        6,
+        14,
+        10,
+        11,
+        13,
+        10,
+        14,
+        8,
+        10
+      ],
+      "tool_errors": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "real_api_calls": 225,
+      "response_ids_present": true,
+      "usage": {
+        "prompt_tokens": 1692617,
+        "completion_tokens": 97583,
+        "total_tokens": 1790200
+      },
+      "observed_litellm_cost_usd": 0,
+      "all_calls_priced": false,
+      "native_cost_cny": null,
+      "arm_complete": true
+    },
+    "tone_casual": {
+      "artifact": {
+        "path": "/home/simin/codex-task1-20261013/results/exp2-4-retry-1/tool-calling-MiMo-V2.6-Flash-tone_casual_1014044720.json",
+        "sha256": "6272cca06bad6a2069ef37c4734d48752392f7820945dec9eb0131d84eef8f1b"
+      },
+      "rewards": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0
+      ],
+      "success_rate": 80.0,
+      "total": 10,
+      "successes": 8,
+      "failures": 2,
+      "tasks_completed": 10,
+      "expected_tasks": 10,
+      "task_errors": [],
+      "agent_steps": [
+        9,
+        15,
+        20,
+        17,
+        15,
+        14,
+        14,
+        20,
+        19,
+        21
+      ],
+      "tool_calls": [
+        5,
+        8,
+        17,
+        11,
+        11,
+        11,
+        7,
+        11,
+        9,
+        11
+      ],
+      "tool_errors": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "real_api_calls": 238,
+      "response_ids_present": true,
+      "usage": {
+        "prompt_tokens": 1826552,
+        "completion_tokens": 106472,
+        "total_tokens": 1933024
+      },
+      "observed_litellm_cost_usd": 0,
+      "all_calls_priced": false,
+      "native_cost_cny": null,
+      "arm_complete": true
+    },
+    "wiki_random": {
+      "artifact": {
+        "path": "/home/simin/codex-task1-20261013/results/exp2-4-retry-1/tool-calling-MiMo-V2.6-Flash-wiki_random_1014044721.json",
+        "sha256": "fd8e26593cbbf8e57cbc4316fc1ba5f1f9d8c18dc7ec4969026afac49729af26"
+      },
+      "rewards": [
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "success_rate": 50.0,
+      "total": 10,
+      "successes": 5,
+      "failures": 5,
+      "tasks_completed": 10,
+      "expected_tasks": 10,
+      "task_errors": [],
+      "agent_steps": [
+        15,
+        10,
+        30,
+        18,
+        15,
+        16,
+        15,
+        13,
+        14,
+        17
+      ],
+      "tool_calls": [
+        9,
+        5,
+        28,
+        11,
+        11,
+        14,
+        10,
+        8,
+        8,
+        9
+      ],
+      "tool_errors": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "real_api_calls": 223,
+      "response_ids_present": true,
+      "usage": {
+        "prompt_tokens": 1842469,
+        "completion_tokens": 114879,
+        "total_tokens": 1957348
+      },
+      "observed_litellm_cost_usd": 0,
+      "all_calls_priced": false,
+      "native_cost_cny": null,
+      "arm_complete": true
+    },
+    "no_tool_desc": {
+      "artifact": {
+        "path": "/home/simin/codex-task1-20261013/results/exp2-4-retry-1/tool-calling-MiMo-V2.6-Flash-no_tool_desc_1014044721.json",
+        "sha256": "a581f3a75ff9b2cdc3829d07c39c789d7bd998ecf2e825ba02df86a2a212c0e9"
+      },
+      "rewards": [
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "success_rate": 60.0,
+      "total": 10,
+      "successes": 6,
+      "failures": 4,
+      "tasks_completed": 10,
+      "expected_tasks": 10,
+      "task_errors": [],
+      "agent_steps": [
+        16,
+        21,
+        18,
+        20,
+        16,
+        12,
+        12,
+        13,
+        19,
+        25
+      ],
+      "tool_calls": [
+        9,
+        11,
+        15,
+        14,
+        12,
+        9,
+        8,
+        7,
+        11,
+        14
+      ],
+      "tool_errors": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "real_api_calls": 245,
+      "response_ids_present": true,
+      "usage": {
+        "prompt_tokens": 1686506,
+        "completion_tokens": 109181,
+        "total_tokens": 1795687
+      },
+      "observed_litellm_cost_usd": 0,
+      "all_calls_priced": false,
+      "native_cost_cny": null,
+      "arm_complete": true
+    },
+    "all_ablations": {
+      "artifact": {
+        "path": "/home/simin/codex-task1-20261013/results/exp2-4-retry-1/tool-calling-MiMo-V2.6-Flash-tone_casual_wiki_random_no_tool_desc_1014044722.json",
+        "sha256": "d9f627517b78e896689eb95fd0e9f6906a235554fb3770db9fe90192975318eb"
+      },
+      "rewards": [
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "success_rate": 50.0,
+      "total": 10,
+      "successes": 5,
+      "failures": 5,
+      "tasks_completed": 10,
+      "expected_tasks": 10,
+      "task_errors": [],
+      "agent_steps": [
+        15,
+        9,
+        30,
+        15,
+        12,
+        10,
+        13,
+        24,
+        15,
+        16
+      ],
+      "tool_calls": [
+        9,
+        5,
+        27,
+        10,
+        9,
+        5,
+        8,
+        14,
+        9,
+        10
+      ],
+      "tool_errors": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "real_api_calls": 223,
+      "response_ids_present": true,
+      "usage": {
+        "prompt_tokens": 1789847,
+        "completion_tokens": 119874,
+        "total_tokens": 1909721
+      },
+      "observed_litellm_cost_usd": 0,
+      "all_calls_priced": false,
+      "native_cost_cny": null,
+      "arm_complete": true
+    }
+  },
+  "credential_scan_passed": true,
+  "credential_findings": [],
+  "usage_and_cost": {
+    "total_real_api_calls": 1382,
+    "prompt_tokens": 10435521,
+    "completion_tokens": 637710,
+    "total_tokens": 11073231,
+    "observed_litellm_cost_usd": 0,
+    "all_calls_priced": false,
+    "native_cost_cny": 0,
+    "native_cost_complete": false,
+    "qualification": "Prompt cache detail is unavailable in these responses, so every prompt token is conservatively priced as uncached."
+  },
+  "campaign_complete": true,
+  "hypothesis_results": {
+    "historical_percentages_reproduced": false,
+    "qualification": "Current fixed ten-task campaign only; compare arm metrics directly."
+  }
+}

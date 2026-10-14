@@ -1,0 +1,10 @@
+{
+  "experiment_id": "2-7",
+  "official_complete": true,
+  "protocol_sha256": "2dc2f936d3dd6e2b9452f3429c19a39bf7d02cdbcd1b5157c4b9376226cbc13e",
+  "comparison_sha256": "fec79196228db2a04937d384967579edb86fbe064be4fd3a8abf31cc573467c5",
+  "artifact_hashes": {
+    "attention_matrices.npz": "974cdbc89084c0e4dd5895d76c8ed0f8c83fdb14f94dcb395db1d7d61217e80e",
+    "status_bar_attention.png": "b37a2056f110c8b94ec6ed20f2e67df2592cb1f10900c98ff3fabd10ff56bc81"
+  }
+}

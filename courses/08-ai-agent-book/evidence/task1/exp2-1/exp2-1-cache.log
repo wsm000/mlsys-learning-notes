@@ -1,0 +1,34 @@
+2026-10-13 14:56:23,896 - benchmark - INFO - 连接服务端: http://localhost:11434/v1（模型: qwen3:0.6b）
+2026-10-13 14:56:23,897 - benchmark - INFO - 开始场景: kv-cache
+2026-10-13 14:56:24,296 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-13 14:56:24,433 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-13 14:56:24,640 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-13 14:56:24,824 - benchmark - INFO - kv-cache 第 1/5 次: 命中 TTFT=0.022s, 未命中 TTFT=0.093s
+2026-10-13 14:56:24,926 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-13 14:56:25,144 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-13 14:56:25,257 - benchmark - INFO - kv-cache 第 2/5 次: 命中 TTFT=0.103s, 未命中 TTFT=0.102s
+2026-10-13 14:56:25,348 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-13 14:56:25,552 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-13 14:56:25,731 - benchmark - INFO - kv-cache 第 3/5 次: 命中 TTFT=0.091s, 未命中 TTFT=0.092s
+2026-10-13 14:56:25,894 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-13 14:56:26,171 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-13 14:56:26,285 - benchmark - INFO - kv-cache 第 4/5 次: 命中 TTFT=0.163s, 未命中 TTFT=0.146s
+2026-10-13 14:56:26,386 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-13 14:56:26,583 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-13 14:56:26,703 - benchmark - INFO - kv-cache 第 5/5 次: 命中 TTFT=0.101s, 未命中 TTFT=0.087s
+2026-10-13 14:56:26,703 - benchmark - INFO - 结果已写入: /home/simin/codex-task1-20261013/results/exp2-1-cache.json
+====================================================================
+🚀 本地 LLM 服务性能基准（实验 2-1）
+====================================================================
+
+====================================================================
+本地 LLM 服务基准结果
+====================================================================
+
+[kv-cache] 前缀缓存命中 vs 未命中（TTFT）
+  前缀长度(约)   : 1024 tok
+  命中平均 TTFT  : 0.096 s
+  未命中平均TTFT : 0.104 s
+  缓存加速比     : 1.08x
+
+====================================================================
