@@ -1,0 +1,218 @@
+[
+  {
+    "label": "simple-one-shot-answer",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只根据提供的证据回答问题，不得补充养蜂常识。每项结论引用对应的[C编号]。缺少哪部分就明确说证据未说明。简短回答。"
+      },
+      {
+        "role": "user",
+        "content": "问题：手册M要求先做什么？\n证据：\n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。\n[C2] 蜂群A发现蜂螨。蜂螨防治参考手册M。"
+      }
+    ],
+    "raw_output": "问题：手册M要求先做什么？  \n证据：[C3] 手册M要求先监测蜂螨数量，再决定防治措施。",
+    "latency_ms": 1445.784674026072,
+    "input_tokens": 101,
+    "output_tokens": 32,
+    "finish": "eos"
+  },
+  {
+    "label": "simple-controller-1",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是检索控制器。根据问题和已取得的证据，决定是否需要继续调用search。只输出一个JSON对象，不要解释、不要写答案。\n字段action只能是search或finish。需要补证据时action=search，同时字段query写一个简短检索词，优先用证据中出现的一两个实体名称。\n若全部子问题已有直接证据，action=finish。若已重复查找且仍缺信息，也可finish，最终回答应说明缺失。不要重复以前的query。不要假设某种蜂场问题必然采用某本手册，必须找到连接关系。"
+      },
+      {
+        "role": "user",
+        "content": "问题：手册M要求先做什么？\n已取得的证据：\n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。\n[C2] 蜂群A发现蜂螨。蜂螨防治参考手册M。\n已执行查询：[\"手册M要求先做什么？\"]\n还可追加检索次数：3"
+      }
+    ],
+    "raw_output": "{\n  \"action\": \"search\",\n  \"query\": \"蜂螨防治\"\n}",
+    "latency_ms": 576.1310551315546,
+    "input_tokens": 208,
+    "output_tokens": 19,
+    "finish": "eos"
+  },
+  {
+    "label": "simple-controller-2",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是检索控制器。根据问题和已取得的证据，决定是否需要继续调用search。只输出一个JSON对象，不要解释、不要写答案。\n字段action只能是search或finish。需要补证据时action=search，同时字段query写一个简短检索词，优先用证据中出现的一两个实体名称。\n若全部子问题已有直接证据，action=finish。若已重复查找且仍缺信息，也可finish，最终回答应说明缺失。不要重复以前的query。不要假设某种蜂场问题必然采用某本手册，必须找到连接关系。"
+      },
+      {
+        "role": "user",
+        "content": "问题：手册M要求先做什么？\n已取得的证据：\n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。\n[C2] 蜂群A发现蜂螨。蜂螨防治参考手册M。\n已执行查询：[\"手册M要求先做什么？\", \"蜂螨防治\"]\n还可追加检索次数：2"
+      }
+    ],
+    "raw_output": "{\n  \"action\": \"search\",\n  \"query\": \"蜂螨防治\"\n}",
+    "latency_ms": 575.569006614387,
+    "input_tokens": 213,
+    "output_tokens": 19,
+    "finish": "eos"
+  },
+  {
+    "label": "simple-agent-answer",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只根据提供的证据回答问题，不得补充养蜂常识。每项结论引用对应的[C编号]。缺少哪部分就明确说证据未说明。简短回答。"
+      },
+      {
+        "role": "user",
+        "content": "问题：手册M要求先做什么？\n证据：\n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。\n[C2] 蜂群A发现蜂螨。蜂螨防治参考手册M。"
+      }
+    ],
+    "raw_output": "问题：手册M要求先做什么？  \n证据：[C3] 手册M要求先监测蜂螨数量，再决定防治措施。",
+    "latency_ms": 951.8847474828362,
+    "input_tokens": 101,
+    "output_tokens": 32,
+    "finish": "eos"
+  },
+  {
+    "label": "multihop-one-shot-answer",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只根据提供的证据回答问题，不得补充养蜂常识。每项结论引用对应的[C编号]。缺少哪部分就明确说证据未说明。简短回答。"
+      },
+      {
+        "role": "user",
+        "content": "问题：青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，第一步要做什么？\n证据：\n[C1] 青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。\n[C4] 河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。"
+      }
+    ],
+    "raw_output": "问题：青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，第一步要做什么？  \n证据：  \n[C1] 青禾蜂场位于河谷镇。  \n[C4] 河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。  \n\n结论：未说明蜂群遇到的具体问题，证据未说明。  \n证据未说明。",
+    "latency_ms": 2643.0890150368214,
+    "input_tokens": 126,
+    "output_tokens": 88,
+    "finish": "eos"
+  },
+  {
+    "label": "multihop-controller-1",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是检索控制器。根据问题和已取得的证据，决定是否需要继续调用search。只输出一个JSON对象，不要解释、不要写答案。\n字段action只能是search或finish。需要补证据时action=search，同时字段query写一个简短检索词，优先用证据中出现的一两个实体名称。\n若全部子问题已有直接证据，action=finish。若已重复查找且仍缺信息，也可finish，最终回答应说明缺失。不要重复以前的query。不要假设某种蜂场问题必然采用某本手册，必须找到连接关系。"
+      },
+      {
+        "role": "user",
+        "content": "问题：青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，第一步要做什么？\n已取得的证据：\n[C1] 青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。\n[C4] 河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。\n已执行查询：[\"青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，第一步要做什么？\"]\n还可追加检索次数：3"
+      }
+    ],
+    "raw_output": "{\n  \"action\": \"search\",\n  \"query\": \"青禾蜂场冬季管理\"\n}",
+    "latency_ms": 661.8966180831194,
+    "input_tokens": 249,
+    "output_tokens": 22,
+    "finish": "eos"
+  },
+  {
+    "label": "multihop-controller-2",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是检索控制器。根据问题和已取得的证据，决定是否需要继续调用search。只输出一个JSON对象，不要解释、不要写答案。\n字段action只能是search或finish。需要补证据时action=search，同时字段query写一个简短检索词，优先用证据中出现的一两个实体名称。\n若全部子问题已有直接证据，action=finish。若已重复查找且仍缺信息，也可finish，最终回答应说明缺失。不要重复以前的query。不要假设某种蜂场问题必然采用某本手册，必须找到连接关系。"
+      },
+      {
+        "role": "user",
+        "content": "问题：青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，第一步要做什么？\n已取得的证据：\n[C1] 青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。\n[C4] 河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。\n已执行查询：[\"青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，第一步要做什么？\", \"青禾蜂场冬季管理\"]\n还可追加检索次数：2"
+      }
+    ],
+    "raw_output": "{\n  \"action\": \"search\",\n  \"query\": \"青禾蜂场冬季管理\"\n}",
+    "latency_ms": 661.1324809491634,
+    "input_tokens": 257,
+    "output_tokens": 22,
+    "finish": "eos"
+  },
+  {
+    "label": "multihop-agent-answer",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只根据提供的证据回答问题，不得补充养蜂常识。每项结论引用对应的[C编号]。缺少哪部分就明确说证据未说明。简短回答。"
+      },
+      {
+        "role": "user",
+        "content": "问题：青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，第一步要做什么？\n证据：\n[C1] 青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。\n[C4] 河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。"
+      }
+    ],
+    "raw_output": "问题：青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，第一步要做什么？  \n证据：  \n[C1] 青禾蜂场位于河谷镇。  \n[C4] 河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。  \n\n结论：未说明蜂群遇到的具体问题，证据未说明。  \n证据未说明。",
+    "latency_ms": 2635.463629849255,
+    "input_tokens": 126,
+    "output_tokens": 88,
+    "finish": "eos"
+  },
+  {
+    "label": "missing-one-shot-answer",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只根据提供的证据回答问题，不得补充养蜂常识。每项结论引用对应的[C编号]。缺少哪部分就明确说证据未说明。简短回答。"
+      },
+      {
+        "role": "user",
+        "content": "问题：手册M规定蜂螨数量达到多少必须处理？\n证据：\n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。\n[C2] 蜂群A发现蜂螨。蜂螨防治参考手册M。"
+      }
+    ],
+    "raw_output": "证据未说明蜂螨数量达到多少必须处理。",
+    "latency_ms": 361.07842065393925,
+    "input_tokens": 106,
+    "output_tokens": 12,
+    "finish": "eos"
+  },
+  {
+    "label": "missing-controller-1",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是检索控制器。根据问题和已取得的证据，决定是否需要继续调用search。只输出一个JSON对象，不要解释、不要写答案。\n字段action只能是search或finish。需要补证据时action=search，同时字段query写一个简短检索词，优先用证据中出现的一两个实体名称。\n若全部子问题已有直接证据，action=finish。若已重复查找且仍缺信息，也可finish，最终回答应说明缺失。不要重复以前的query。不要假设某种蜂场问题必然采用某本手册，必须找到连接关系。"
+      },
+      {
+        "role": "user",
+        "content": "问题：手册M规定蜂螨数量达到多少必须处理？\n已取得的证据：\n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。\n[C2] 蜂群A发现蜂螨。蜂螨防治参考手册M。\n已执行查询：[\"手册M规定蜂螨数量达到多少必须处理？\"]\n还可追加检索次数：3"
+      }
+    ],
+    "raw_output": "{\n  \"action\": \"search\",\n  \"query\": \"蜂螨数量达到多少\"\n}",
+    "latency_ms": 630.4493471980095,
+    "input_tokens": 218,
+    "output_tokens": 21,
+    "finish": "eos"
+  },
+  {
+    "label": "missing-controller-2",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是检索控制器。根据问题和已取得的证据，决定是否需要继续调用search。只输出一个JSON对象，不要解释、不要写答案。\n字段action只能是search或finish。需要补证据时action=search，同时字段query写一个简短检索词，优先用证据中出现的一两个实体名称。\n若全部子问题已有直接证据，action=finish。若已重复查找且仍缺信息，也可finish，最终回答应说明缺失。不要重复以前的query。不要假设某种蜂场问题必然采用某本手册，必须找到连接关系。"
+      },
+      {
+        "role": "user",
+        "content": "问题：手册M规定蜂螨数量达到多少必须处理？\n已取得的证据：\n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。\n[C2] 蜂群A发现蜂螨。蜂螨防治参考手册M。\n已执行查询：[\"手册M规定蜂螨数量达到多少必须处理？\", \"蜂螨数量达到多少\"]\n还可追加检索次数：2"
+      }
+    ],
+    "raw_output": "{\n  \"action\": \"search\",\n  \"query\": \"蜂螨数量达到多少\"\n}",
+    "latency_ms": 631.5558161586523,
+    "input_tokens": 225,
+    "output_tokens": 21,
+    "finish": "eos"
+  },
+  {
+    "label": "missing-agent-answer",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只根据提供的证据回答问题，不得补充养蜂常识。每项结论引用对应的[C编号]。缺少哪部分就明确说证据未说明。简短回答。"
+      },
+      {
+        "role": "user",
+        "content": "问题：手册M规定蜂螨数量达到多少必须处理？\n证据：\n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。\n[C2] 蜂群A发现蜂螨。蜂螨防治参考手册M。"
+      }
+    ],
+    "raw_output": "证据未说明蜂螨数量达到多少必须处理。",
+    "latency_ms": 360.2273976430297,
+    "input_tokens": 106,
+    "output_tokens": 12,
+    "finish": "eos"
+  }
+]

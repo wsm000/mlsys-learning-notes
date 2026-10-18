@@ -1,0 +1,470 @@
+[
+  {
+    "id": "T001",
+    "split": "training",
+    "values": [
+      1,
+      0,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T002",
+    "split": "training",
+    "values": [
+      1,
+      0,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T003",
+    "split": "training",
+    "values": [
+      1,
+      0,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T004",
+    "split": "training",
+    "values": [
+      1,
+      0,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T005",
+    "split": "training",
+    "values": [
+      1,
+      0,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T006",
+    "split": "training",
+    "values": [
+      1,
+      0,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T007",
+    "split": "training",
+    "values": [
+      1,
+      0,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T008",
+    "split": "training",
+    "values": [
+      1,
+      0,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T009",
+    "split": "training",
+    "values": [
+      1,
+      0,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T010",
+    "split": "training",
+    "values": [
+      1,
+      0,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T011",
+    "split": "training",
+    "values": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "parse_error": "non-binary feature"
+  },
+  {
+    "id": "T012",
+    "split": "training",
+    "values": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "parse_error": "non-binary feature"
+  },
+  {
+    "id": "T013",
+    "split": "training",
+    "values": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "parse_error": "non-binary feature"
+  },
+  {
+    "id": "T014",
+    "split": "training",
+    "values": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "parse_error": "non-binary feature"
+  },
+  {
+    "id": "T015",
+    "split": "training",
+    "values": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "parse_error": "non-binary feature"
+  },
+  {
+    "id": "T016",
+    "split": "training",
+    "values": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "parse_error": "non-binary feature"
+  },
+  {
+    "id": "T017",
+    "split": "training",
+    "values": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "parse_error": "non-binary feature"
+  },
+  {
+    "id": "T018",
+    "split": "training",
+    "values": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "parse_error": "non-binary feature"
+  },
+  {
+    "id": "T019",
+    "split": "training",
+    "values": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "parse_error": "non-binary feature"
+  },
+  {
+    "id": "T020",
+    "split": "training",
+    "values": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "parse_error": "non-binary feature"
+  },
+  {
+    "id": "T021",
+    "split": "training",
+    "values": [
+      0,
+      1,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T022",
+    "split": "training",
+    "values": [
+      0,
+      1,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T023",
+    "split": "training",
+    "values": [
+      0,
+      1,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T024",
+    "split": "training",
+    "values": [
+      0,
+      1,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T025",
+    "split": "training",
+    "values": [
+      0,
+      1,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T026",
+    "split": "training",
+    "values": [
+      0,
+      1,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T027",
+    "split": "training",
+    "values": [
+      0,
+      1,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T028",
+    "split": "training",
+    "values": [
+      0,
+      1,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T029",
+    "split": "training",
+    "values": [
+      0,
+      1,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "T030",
+    "split": "training",
+    "values": [
+      0,
+      1,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "V001",
+    "split": "heldout",
+    "values": [
+      1,
+      0,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "V002",
+    "split": "heldout",
+    "values": [
+      1,
+      0,
+      1,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "V003",
+    "split": "heldout",
+    "values": [
+      1,
+      0,
+      1,
+      0,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "V004",
+    "split": "heldout",
+    "values": [
+      1,
+      0,
+      1,
+      0,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "V005",
+    "split": "heldout",
+    "values": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "parse_error": "non-binary feature"
+  },
+  {
+    "id": "V006",
+    "split": "heldout",
+    "values": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "parse_error": "non-binary feature"
+  },
+  {
+    "id": "V007",
+    "split": "heldout",
+    "values": [
+      1,
+      0,
+      0,
+      1,
+      -1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "V008",
+    "split": "heldout",
+    "values": [
+      -1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "parse_error": null
+  },
+  {
+    "id": "V009",
+    "split": "heldout",
+    "values": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "parse_error": null
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "key": "气温",
+    "description": "7摄氏度"
+  },
+  {
+    "key": "蜂群活动",
+    "description": "偏少"
+  },
+  {
+    "key": "饲料储备",
+    "description": "不足"
+  },
+  {
+    "key": "通风",
+    "description": "正常"
+  },
+  {
+    "key": "蜂螨",
+    "description": "未发现"
+  }
+]

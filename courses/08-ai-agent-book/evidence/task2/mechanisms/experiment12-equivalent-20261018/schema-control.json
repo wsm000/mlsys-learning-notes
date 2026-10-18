@@ -1,0 +1,518 @@
+{
+  "status": "completed",
+  "scope": "Controlled refinement: operator defined types/negation handling from source observations, deterministic rules replace LLM extractor; schema and extractor both changed. Not automatically discovered by model and not a clean extractor-only ablation.",
+  "schema": [
+    {
+      "key": "temperature_c",
+      "type": "number",
+      "meaning": "原文明示的摄氏温度，不自行定义低温阈值"
+    },
+    {
+      "key": "food_shortage",
+      "type": "binary",
+      "meaning": "原文明示饲料不足=1、充足=0，否则缺失"
+    },
+    {
+      "key": "poor_ventilation",
+      "type": "binary",
+      "meaning": "原文明示通风不足=1、正常=0，否则缺失"
+    },
+    {
+      "key": "mite_present",
+      "type": "binary",
+      "meaning": "原文明示发现蜂螨=1、未发现=0，否则缺失"
+    }
+  ],
+  "extracted_training": [
+    {
+      "id": "T001",
+      "features": [
+        7.0,
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T002",
+      "features": [
+        8.0,
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T003",
+      "features": [
+        9.0,
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T004",
+      "features": [
+        7.0,
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T005",
+      "features": [
+        8.0,
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T006",
+      "features": [
+        9.0,
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T007",
+      "features": [
+        7.0,
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T008",
+      "features": [
+        8.0,
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T009",
+      "features": [
+        9.0,
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T010",
+      "features": [
+        7.0,
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T011",
+      "features": [
+        34.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T012",
+      "features": [
+        35.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T013",
+      "features": [
+        36.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T014",
+      "features": [
+        34.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T015",
+      "features": [
+        35.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T016",
+      "features": [
+        36.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T017",
+      "features": [
+        34.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T018",
+      "features": [
+        35.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T019",
+      "features": [
+        36.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T020",
+      "features": [
+        34.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "id": "T021",
+      "features": [
+        20.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "id": "T022",
+      "features": [
+        21.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "id": "T023",
+      "features": [
+        22.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "id": "T024",
+      "features": [
+        20.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "id": "T025",
+      "features": [
+        21.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "id": "T026",
+      "features": [
+        22.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "id": "T027",
+      "features": [
+        20.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "id": "T028",
+      "features": [
+        21.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "id": "T029",
+      "features": [
+        22.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "id": "T030",
+      "features": [
+        20.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "training_only_fitting": true,
+  "prototypes": [
+    {
+      "cluster": 0,
+      "training_ids": [
+        "T021",
+        "T022",
+        "T023",
+        "T024",
+        "T025",
+        "T026",
+        "T027",
+        "T028",
+        "T029",
+        "T030"
+      ],
+      "count": 10,
+      "mean_features": {
+        "temperature_c": 20.9,
+        "food_shortage": 0.0,
+        "poor_ventilation": 0.0,
+        "mite_present": 1.0
+      },
+      "action_counts": {
+        "记录转交专业人员复查": 10
+      },
+      "common_action": "记录转交专业人员复查"
+    },
+    {
+      "cluster": 1,
+      "training_ids": [
+        "T001",
+        "T002",
+        "T003",
+        "T004",
+        "T005",
+        "T006",
+        "T007",
+        "T008",
+        "T009",
+        "T010"
+      ],
+      "count": 10,
+      "mean_features": {
+        "temperature_c": 7.9,
+        "food_shortage": 1.0,
+        "poor_ventilation": 0.0,
+        "mite_present": 0.0
+      },
+      "action_counts": {
+        "记录补给与保温处理": 10
+      },
+      "common_action": "记录补给与保温处理"
+    },
+    {
+      "cluster": 2,
+      "training_ids": [
+        "T011",
+        "T012",
+        "T013",
+        "T014",
+        "T015",
+        "T016",
+        "T017",
+        "T018",
+        "T019",
+        "T020"
+      ],
+      "count": 10,
+      "mean_features": {
+        "temperature_c": 34.9,
+        "food_shortage": 0.0,
+        "poor_ventilation": 1.0,
+        "mite_present": 0.0
+      },
+      "action_counts": {
+        "记录改善环境与供水处理": 10
+      },
+      "common_action": "记录改善环境与供水处理"
+    }
+  ],
+  "distance_threshold": 0.5,
+  "heldout": [
+    {
+      "id": "V001",
+      "features": [
+        8.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "observed_action_for_evaluation_only": "记录补给与保温处理",
+      "cluster": 1,
+      "distance": 0.00904447704208855,
+      "status": "matched_training_pattern",
+      "prototype_action": "记录补给与保温处理",
+      "prototype_action_matches_record": true
+    },
+    {
+      "id": "V002",
+      "features": [
+        9.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "observed_action_for_evaluation_only": "记录补给与保温处理",
+      "cluster": 1,
+      "distance": 0.09948924746297605,
+      "status": "matched_training_pattern",
+      "prototype_action": "记录补给与保温处理",
+      "prototype_action_matches_record": true
+    },
+    {
+      "id": "V003",
+      "features": [
+        35.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "observed_action_for_evaluation_only": "记录改善环境与供水处理",
+      "cluster": 2,
+      "distance": 0.009044477042088994,
+      "status": "matched_training_pattern",
+      "prototype_action": "记录改善环境与供水处理",
+      "prototype_action_matches_record": true
+    },
+    {
+      "id": "V004",
+      "features": [
+        36.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "observed_action_for_evaluation_only": "记录改善环境与供水处理",
+      "cluster": 2,
+      "distance": 0.09948924746297627,
+      "status": "matched_training_pattern",
+      "prototype_action": "记录改善环境与供水处理",
+      "prototype_action_matches_record": true
+    },
+    {
+      "id": "V005",
+      "features": [
+        21.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "observed_action_for_evaluation_only": "记录转交专业人员复查",
+      "cluster": 0,
+      "distance": 0.009044477042088744,
+      "status": "matched_training_pattern",
+      "prototype_action": "记录转交专业人员复查",
+      "prototype_action_matches_record": true
+    },
+    {
+      "id": "V006",
+      "features": [
+        22.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "observed_action_for_evaluation_only": "记录转交专业人员复查",
+      "cluster": 0,
+      "distance": 0.09948924746297617,
+      "status": "matched_training_pattern",
+      "prototype_action": "记录转交专业人员复查",
+      "prototype_action_matches_record": true
+    },
+    {
+      "id": "V007",
+      "features": [
+        8.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "observed_action_for_evaluation_only": null,
+      "cluster": 0,
+      "distance": 1.1667375384294478,
+      "status": "outside_training_distance",
+      "prototype_action": "记录转交专业人员复查",
+      "prototype_action_matches_record": null
+    },
+    {
+      "id": "V008",
+      "features": [
+        35.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "observed_action_for_evaluation_only": null,
+      "cluster": 2,
+      "distance": 3.0000136337298486,
+      "status": "outside_training_distance",
+      "prototype_action": "记录改善环境与供水处理",
+      "prototype_action_matches_record": null
+    },
+    {
+      "id": "V009",
+      "features": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "observed_action_for_evaluation_only": null,
+      "status": "abstain_missing_features",
+      "cluster": null,
+      "reason": "不以训练均值填补缺失后假装精确匹配"
+    }
+  ],
+  "match_count": 6,
+  "labelled_count": 6,
+  "limits": "Templated fictional data with explicit wording. Rules and patterns do not establish real-world management advice, efficacy, causality or broad extraction superiority."
+}

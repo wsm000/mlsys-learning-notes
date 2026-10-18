@@ -1,0 +1,1389 @@
+[
+  {
+    "id": "H1",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_insurance_001",
+    "timestamp": "2024-10-15 11:00:00",
+    "round_start": 1,
+    "round_end": 4,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Hi, I need to add my new car to my insurance policy."
+      },
+      {
+        "role": "assistant",
+        "content": "Good morning! I'm Jennifer from State Farm. I'll help you add your new vehicle. First, may I have your policy number?"
+      },
+      {
+        "role": "user",
+        "content": "It's SF-789234501."
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you, Mr... let me pull this up... Mr. William Chen?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, that's me."
+      },
+      {
+        "role": "assistant",
+        "content": "Perfect. I see you currently have a 2019 Honda Accord on your policy. Tell me about your new vehicle."
+      },
+      {
+        "role": "user",
+        "content": "I just bought a 2023 Tesla Model 3."
+      },
+      {
+        "role": "assistant",
+        "content": "Congratulations on the Tesla! Is this replacing the Honda or an addition?"
+      }
+    ],
+    "text": "USER: Hi, I need to add my new car to my insurance policy.\nASSISTANT: Good morning! I'm Jennifer from State Farm. I'll help you add your new vehicle. First, may I have your policy number?\nUSER: It's SF-789234501.\nASSISTANT: Thank you, Mr... let me pull this up... Mr. William Chen?\nUSER: Yes, that's me.\nASSISTANT: Perfect. I see you currently have a 2019 Honda Accord on your policy. Tell me about your new vehicle.\nUSER: I just bought a 2023 Tesla Model 3.\nASSISTANT: Congratulations on the Tesla! Is this replacing the Honda or an addition?"
+  },
+  {
+    "id": "H2",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_insurance_001",
+    "timestamp": "2024-10-15 11:00:00",
+    "round_start": 4,
+    "round_end": 7,
+    "messages": [
+      {
+        "role": "user",
+        "content": "I just bought a 2023 Tesla Model 3."
+      },
+      {
+        "role": "assistant",
+        "content": "Congratulations on the Tesla! Is this replacing the Honda or an addition?"
+      },
+      {
+        "role": "user",
+        "content": "It's an addition. I'm keeping the Honda for my wife to drive."
+      },
+      {
+        "role": "assistant",
+        "content": "Understood. So you'll have two vehicles on the policy. Let me get the Tesla's details. What's the VIN?"
+      },
+      {
+        "role": "user",
+        "content": "5YJ3E7EB8PF445892."
+      },
+      {
+        "role": "assistant",
+        "content": "And which trim level? Standard Range, Long Range, or Performance?"
+      },
+      {
+        "role": "user",
+        "content": "It's the Long Range AWD."
+      },
+      {
+        "role": "assistant",
+        "content": "Excellent. What color?"
+      }
+    ],
+    "text": "USER: I just bought a 2023 Tesla Model 3.\nASSISTANT: Congratulations on the Tesla! Is this replacing the Honda or an addition?\nUSER: It's an addition. I'm keeping the Honda for my wife to drive.\nASSISTANT: Understood. So you'll have two vehicles on the policy. Let me get the Tesla's details. What's the VIN?\nUSER: 5YJ3E7EB8PF445892.\nASSISTANT: And which trim level? Standard Range, Long Range, or Performance?\nUSER: It's the Long Range AWD.\nASSISTANT: Excellent. What color?"
+  },
+  {
+    "id": "H3",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_insurance_001",
+    "timestamp": "2024-10-15 11:00:00",
+    "round_start": 7,
+    "round_end": 10,
+    "messages": [
+      {
+        "role": "user",
+        "content": "It's the Long Range AWD."
+      },
+      {
+        "role": "assistant",
+        "content": "Excellent. What color?"
+      },
+      {
+        "role": "user",
+        "content": "Pearl White with black interior."
+      },
+      {
+        "role": "assistant",
+        "content": "Purchase date?"
+      },
+      {
+        "role": "user",
+        "content": "October 10th, just five days ago."
+      },
+      {
+        "role": "assistant",
+        "content": "Did you buy or lease?"
+      },
+      {
+        "role": "user",
+        "content": "I financed it through Tesla Financial."
+      },
+      {
+        "role": "assistant",
+        "content": "They'll need to be listed as lienholder. Now, where will this vehicle be primarily parked?"
+      }
+    ],
+    "text": "USER: It's the Long Range AWD.\nASSISTANT: Excellent. What color?\nUSER: Pearl White with black interior.\nASSISTANT: Purchase date?\nUSER: October 10th, just five days ago.\nASSISTANT: Did you buy or lease?\nUSER: I financed it through Tesla Financial.\nASSISTANT: They'll need to be listed as lienholder. Now, where will this vehicle be primarily parked?"
+  },
+  {
+    "id": "H4",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_insurance_001",
+    "timestamp": "2024-10-15 11:00:00",
+    "round_start": 10,
+    "round_end": 13,
+    "messages": [
+      {
+        "role": "user",
+        "content": "I financed it through Tesla Financial."
+      },
+      {
+        "role": "assistant",
+        "content": "They'll need to be listed as lienholder. Now, where will this vehicle be primarily parked?"
+      },
+      {
+        "role": "user",
+        "content": "At my home, same address as on the policy, 4421 Oak Street in Austin."
+      },
+      {
+        "role": "assistant",
+        "content": "In a garage or driveway?"
+      },
+      {
+        "role": "user",
+        "content": "In the garage. The Honda parks in the driveway now."
+      },
+      {
+        "role": "assistant",
+        "content": "Good, garaged vehicles often get a discount. Who will be the primary driver of the Tesla?"
+      },
+      {
+        "role": "user",
+        "content": "That'll be me."
+      },
+      {
+        "role": "assistant",
+        "content": "And your wife remains primary on the Honda?"
+      }
+    ],
+    "text": "USER: I financed it through Tesla Financial.\nASSISTANT: They'll need to be listed as lienholder. Now, where will this vehicle be primarily parked?\nUSER: At my home, same address as on the policy, 4421 Oak Street in Austin.\nASSISTANT: In a garage or driveway?\nUSER: In the garage. The Honda parks in the driveway now.\nASSISTANT: Good, garaged vehicles often get a discount. Who will be the primary driver of the Tesla?\nUSER: That'll be me.\nASSISTANT: And your wife remains primary on the Honda?"
+  },
+  {
+    "id": "H5",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_insurance_001",
+    "timestamp": "2024-10-15 11:00:00",
+    "round_start": 13,
+    "round_end": 16,
+    "messages": [
+      {
+        "role": "user",
+        "content": "That'll be me."
+      },
+      {
+        "role": "assistant",
+        "content": "And your wife remains primary on the Honda?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, exactly."
+      },
+      {
+        "role": "assistant",
+        "content": "Daily commute distance for the Tesla?"
+      },
+      {
+        "role": "user",
+        "content": "About 15 miles each way to work, so 30 miles daily."
+      },
+      {
+        "role": "assistant",
+        "content": "Annual mileage estimate?"
+      },
+      {
+        "role": "user",
+        "content": "Probably 12,000 miles a year."
+      },
+      {
+        "role": "assistant",
+        "content": "Now for coverage. Your Honda has 100/300/100 liability, comprehensive, and collision with $500 deductibles. Want the same for the Tesla?"
+      }
+    ],
+    "text": "USER: That'll be me.\nASSISTANT: And your wife remains primary on the Honda?\nUSER: Yes, exactly.\nASSISTANT: Daily commute distance for the Tesla?\nUSER: About 15 miles each way to work, so 30 miles daily.\nASSISTANT: Annual mileage estimate?\nUSER: Probably 12,000 miles a year.\nASSISTANT: Now for coverage. Your Honda has 100/300/100 liability, comprehensive, and collision with $500 deductibles. Want the same for the Tesla?"
+  },
+  {
+    "id": "H6",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_insurance_001",
+    "timestamp": "2024-10-15 11:00:00",
+    "round_start": 16,
+    "round_end": 19,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Probably 12,000 miles a year."
+      },
+      {
+        "role": "assistant",
+        "content": "Now for coverage. Your Honda has 100/300/100 liability, comprehensive, and collision with $500 deductibles. Want the same for the Tesla?"
+      },
+      {
+        "role": "user",
+        "content": "What would you recommend for a new Tesla?"
+      },
+      {
+        "role": "assistant",
+        "content": "For a new luxury EV, I'd suggest keeping the same coverage levels but maybe consider a $1000 deductible to lower premiums, since Teslas can be expensive to insure."
+      },
+      {
+        "role": "user",
+        "content": "What's the premium difference?"
+      },
+      {
+        "role": "assistant",
+        "content": "With $500 deductibles, the Tesla adds $1,847 per year. With $1000 deductibles, it's $1,592 per year."
+      },
+      {
+        "role": "user",
+        "content": "Let's go with the $1000 deductibles for the Tesla. Keep the Honda as is."
+      },
+      {
+        "role": "assistant",
+        "content": "Smart choice. So the Tesla will have $1000 comprehensive and collision deductibles. Do you want gap insurance since it's financed?"
+      }
+    ],
+    "text": "USER: Probably 12,000 miles a year.\nASSISTANT: Now for coverage. Your Honda has 100/300/100 liability, comprehensive, and collision with $500 deductibles. Want the same for the Tesla?\nUSER: What would you recommend for a new Tesla?\nASSISTANT: For a new luxury EV, I'd suggest keeping the same coverage levels but maybe consider a $1000 deductible to lower premiums, since Teslas can be expensive to insure.\nUSER: What's the premium difference?\nASSISTANT: With $500 deductibles, the Tesla adds $1,847 per year. With $1000 deductibles, it's $1,592 per year.\nUSER: Let's go with the $1000 deductibles for the Tesla. Keep the Honda as is.\nASSISTANT: Smart choice. So the Tesla will have $1000 comprehensive and collision deductibles. Do you want gap insurance since it's financed?"
+  },
+  {
+    "id": "H7",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_insurance_001",
+    "timestamp": "2024-10-15 11:00:00",
+    "round_start": 19,
+    "round_end": 22,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Let's go with the $1000 deductibles for the Tesla. Keep the Honda as is."
+      },
+      {
+        "role": "assistant",
+        "content": "Smart choice. So the Tesla will have $1000 comprehensive and collision deductibles. Do you want gap insurance since it's financed?"
+      },
+      {
+        "role": "user",
+        "content": "Is that necessary?"
+      },
+      {
+        "role": "assistant",
+        "content": "With EVs depreciating quickly and your loan, gap insurance covers the difference if it's totaled. It's $89 per year."
+      },
+      {
+        "role": "user",
+        "content": "Yes, add that please."
+      },
+      {
+        "role": "assistant",
+        "content": "Added. Your Honda's current premium is $924 per year. Adding the Tesla brings your total to $2,605 per year."
+      },
+      {
+        "role": "user",
+        "content": "That's reasonable. When does this take effect?"
+      },
+      {
+        "role": "assistant",
+        "content": "I can make it effective immediately, today October 15th."
+      }
+    ],
+    "text": "USER: Let's go with the $1000 deductibles for the Tesla. Keep the Honda as is.\nASSISTANT: Smart choice. So the Tesla will have $1000 comprehensive and collision deductibles. Do you want gap insurance since it's financed?\nUSER: Is that necessary?\nASSISTANT: With EVs depreciating quickly and your loan, gap insurance covers the difference if it's totaled. It's $89 per year.\nUSER: Yes, add that please.\nASSISTANT: Added. Your Honda's current premium is $924 per year. Adding the Tesla brings your total to $2,605 per year.\nUSER: That's reasonable. When does this take effect?\nASSISTANT: I can make it effective immediately, today October 15th."
+  },
+  {
+    "id": "H8",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_insurance_001",
+    "timestamp": "2024-10-15 11:00:00",
+    "round_start": 22,
+    "round_end": 25,
+    "messages": [
+      {
+        "role": "user",
+        "content": "That's reasonable. When does this take effect?"
+      },
+      {
+        "role": "assistant",
+        "content": "I can make it effective immediately, today October 15th."
+      },
+      {
+        "role": "user",
+        "content": "Perfect."
+      },
+      {
+        "role": "assistant",
+        "content": "I'll email your updated insurance cards. The Tesla's policy number suffix is -02, so it's SF-789234501-02."
+      },
+      {
+        "role": "user",
+        "content": "And the Honda keeps -01?"
+      },
+      {
+        "role": "assistant",
+        "content": "Correct. Honda is SF-789234501-01, Tesla is SF-789234501-02."
+      },
+      {
+        "role": "user",
+        "content": "Great, that's easy to remember."
+      },
+      {
+        "role": "assistant",
+        "content": "Your new six-month premium is $1,302.50. Would you like to continue with automatic payments?"
+      }
+    ],
+    "text": "USER: That's reasonable. When does this take effect?\nASSISTANT: I can make it effective immediately, today October 15th.\nUSER: Perfect.\nASSISTANT: I'll email your updated insurance cards. The Tesla's policy number suffix is -02, so it's SF-789234501-02.\nUSER: And the Honda keeps -01?\nASSISTANT: Correct. Honda is SF-789234501-01, Tesla is SF-789234501-02.\nUSER: Great, that's easy to remember.\nASSISTANT: Your new six-month premium is $1,302.50. Would you like to continue with automatic payments?"
+  },
+  {
+    "id": "H9",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_insurance_001",
+    "timestamp": "2024-10-15 11:00:00",
+    "round_start": 25,
+    "round_end": 28,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Great, that's easy to remember."
+      },
+      {
+        "role": "assistant",
+        "content": "Your new six-month premium is $1,302.50. Would you like to continue with automatic payments?"
+      },
+      {
+        "role": "user",
+        "content": "Yes, same credit card on file."
+      },
+      {
+        "role": "assistant",
+        "content": "Perfect. Anything else you need?"
+      },
+      {
+        "role": "user",
+        "content": "Actually, wait. What about my teenage son? He just got his permit."
+      },
+      {
+        "role": "assistant",
+        "content": "How old is he?"
+      },
+      {
+        "role": "user",
+        "content": "He's 16, turned 16 last month."
+      },
+      {
+        "role": "assistant",
+        "content": "With a permit, he's covered under your policy when driving with a licensed adult. When he gets his license, we'll need to add him officially."
+      }
+    ],
+    "text": "USER: Great, that's easy to remember.\nASSISTANT: Your new six-month premium is $1,302.50. Would you like to continue with automatic payments?\nUSER: Yes, same credit card on file.\nASSISTANT: Perfect. Anything else you need?\nUSER: Actually, wait. What about my teenage son? He just got his permit.\nASSISTANT: How old is he?\nUSER: He's 16, turned 16 last month.\nASSISTANT: With a permit, he's covered under your policy when driving with a licensed adult. When he gets his license, we'll need to add him officially."
+  },
+  {
+    "id": "H10",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_insurance_001",
+    "timestamp": "2024-10-15 11:00:00",
+    "round_start": 28,
+    "round_end": 31,
+    "messages": [
+      {
+        "role": "user",
+        "content": "He's 16, turned 16 last month."
+      },
+      {
+        "role": "assistant",
+        "content": "With a permit, he's covered under your policy when driving with a licensed adult. When he gets his license, we'll need to add him officially."
+      },
+      {
+        "role": "user",
+        "content": "How much will that increase our premium?"
+      },
+      {
+        "role": "assistant",
+        "content": "For a 16-year-old male with two cars, expect an increase of about $2,200-2,800 per year."
+      },
+      {
+        "role": "user",
+        "content": "Wow, that's a lot!"
+      },
+      {
+        "role": "assistant",
+        "content": "There are discounts available. Good student discount if he maintains a B average saves 15%."
+      },
+      {
+        "role": "user",
+        "content": "He's an A student, so that helps."
+      },
+      {
+        "role": "assistant",
+        "content": "Excellent. Also, if he takes a defensive driving course, that's another 10% off."
+      }
+    ],
+    "text": "USER: He's 16, turned 16 last month.\nASSISTANT: With a permit, he's covered under your policy when driving with a licensed adult. When he gets his license, we'll need to add him officially.\nUSER: How much will that increase our premium?\nASSISTANT: For a 16-year-old male with two cars, expect an increase of about $2,200-2,800 per year.\nUSER: Wow, that's a lot!\nASSISTANT: There are discounts available. Good student discount if he maintains a B average saves 15%.\nUSER: He's an A student, so that helps.\nASSISTANT: Excellent. Also, if he takes a defensive driving course, that's another 10% off."
+  },
+  {
+    "id": "H11",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_insurance_001",
+    "timestamp": "2024-10-15 11:00:00",
+    "round_start": 31,
+    "round_end": 34,
+    "messages": [
+      {
+        "role": "user",
+        "content": "He's an A student, so that helps."
+      },
+      {
+        "role": "assistant",
+        "content": "Excellent. Also, if he takes a defensive driving course, that's another 10% off."
+      },
+      {
+        "role": "user",
+        "content": "Can he drive the Tesla?"
+      },
+      {
+        "role": "assistant",
+        "content": "I'd strongly advise against it. Teen drivers with high-performance vehicles dramatically increase premiums."
+      },
+      {
+        "role": "user",
+        "content": "So just the Honda then?"
+      },
+      {
+        "role": "assistant",
+        "content": "That would be much more affordable. Making the Honda his primary vehicle would add about $1,800 per year with the discounts."
+      },
+      {
+        "role": "user",
+        "content": "Still expensive but more manageable. Oh, another question - what if I use the Tesla for Uber occasionally?"
+      },
+      {
+        "role": "assistant",
+        "content": "Personal auto policies don't cover rideshare driving. You'd need rideshare endorsement."
+      }
+    ],
+    "text": "USER: He's an A student, so that helps.\nASSISTANT: Excellent. Also, if he takes a defensive driving course, that's another 10% off.\nUSER: Can he drive the Tesla?\nASSISTANT: I'd strongly advise against it. Teen drivers with high-performance vehicles dramatically increase premiums.\nUSER: So just the Honda then?\nASSISTANT: That would be much more affordable. Making the Honda his primary vehicle would add about $1,800 per year with the discounts.\nUSER: Still expensive but more manageable. Oh, another question - what if I use the Tesla for Uber occasionally?\nASSISTANT: Personal auto policies don't cover rideshare driving. You'd need rideshare endorsement."
+  },
+  {
+    "id": "H12",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_insurance_001",
+    "timestamp": "2024-10-15 11:00:00",
+    "round_start": 34,
+    "round_end": 37,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Still expensive but more manageable. Oh, another question - what if I use the Tesla for Uber occasionally?"
+      },
+      {
+        "role": "assistant",
+        "content": "Personal auto policies don't cover rideshare driving. You'd need rideshare endorsement."
+      },
+      {
+        "role": "user",
+        "content": "How much is that?"
+      },
+      {
+        "role": "assistant",
+        "content": "About $250 per year additional, and it covers the gap between personal and Uber's commercial coverage."
+      },
+      {
+        "role": "user",
+        "content": "I'll think about it. Not sure if I'll actually do rideshare."
+      },
+      {
+        "role": "assistant",
+        "content": "No problem. You can add it anytime. Just don't drive for Uber without it."
+      },
+      {
+        "role": "user",
+        "content": "Understood. What about rental car coverage?"
+      },
+      {
+        "role": "assistant",
+        "content": "You have rental reimbursement at $40 per day, maximum $1,200 per claim on both vehicles."
+      }
+    ],
+    "text": "USER: Still expensive but more manageable. Oh, another question - what if I use the Tesla for Uber occasionally?\nASSISTANT: Personal auto policies don't cover rideshare driving. You'd need rideshare endorsement.\nUSER: How much is that?\nASSISTANT: About $250 per year additional, and it covers the gap between personal and Uber's commercial coverage.\nUSER: I'll think about it. Not sure if I'll actually do rideshare.\nASSISTANT: No problem. You can add it anytime. Just don't drive for Uber without it.\nUSER: Understood. What about rental car coverage?\nASSISTANT: You have rental reimbursement at $40 per day, maximum $1,200 per claim on both vehicles."
+  },
+  {
+    "id": "H13",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_insurance_001",
+    "timestamp": "2024-10-15 11:00:00",
+    "round_start": 37,
+    "round_end": 40,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Understood. What about rental car coverage?"
+      },
+      {
+        "role": "assistant",
+        "content": "You have rental reimbursement at $40 per day, maximum $1,200 per claim on both vehicles."
+      },
+      {
+        "role": "user",
+        "content": "Good. And towing?"
+      },
+      {
+        "role": "assistant",
+        "content": "Emergency roadside assistance includes towing up to 100 miles, plus jump starts, flat tires, and lockouts."
+      },
+      {
+        "role": "user",
+        "content": "Tesla has their own roadside service through the app."
+      },
+      {
+        "role": "assistant",
+        "content": "True, but ours covers any vehicle you're driving, not just the Tesla."
+      },
+      {
+        "role": "user",
+        "content": "Good point. What about if I drive someone else's car?"
+      },
+      {
+        "role": "assistant",
+        "content": "Your liability coverage extends to any vehicle you drive with permission. Physical damage follows the vehicle owner's policy."
+      }
+    ],
+    "text": "USER: Understood. What about rental car coverage?\nASSISTANT: You have rental reimbursement at $40 per day, maximum $1,200 per claim on both vehicles.\nUSER: Good. And towing?\nASSISTANT: Emergency roadside assistance includes towing up to 100 miles, plus jump starts, flat tires, and lockouts.\nUSER: Tesla has their own roadside service through the app.\nASSISTANT: True, but ours covers any vehicle you're driving, not just the Tesla.\nUSER: Good point. What about if I drive someone else's car?\nASSISTANT: Your liability coverage extends to any vehicle you drive with permission. Physical damage follows the vehicle owner's policy."
+  },
+  {
+    "id": "H14",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_insurance_001",
+    "timestamp": "2024-10-15 11:00:00",
+    "round_start": 40,
+    "round_end": 43,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Good point. What about if I drive someone else's car?"
+      },
+      {
+        "role": "assistant",
+        "content": "Your liability coverage extends to any vehicle you drive with permission. Physical damage follows the vehicle owner's policy."
+      },
+      {
+        "role": "user",
+        "content": "Makes sense. Oh, I forgot to ask - what about uninsured motorist coverage?"
+      },
+      {
+        "role": "assistant",
+        "content": "You have uninsured/underinsured motorist coverage at 100/300, matching your liability limits."
+      },
+      {
+        "role": "user",
+        "content": "That's important in Texas with all the uninsured drivers."
+      },
+      {
+        "role": "assistant",
+        "content": "Absolutely. About 20% of Texas drivers are uninsured, so it's crucial protection."
+      },
+      {
+        "role": "user",
+        "content": "What if my Tesla gets damaged while charging at a public station?"
+      },
+      {
+        "role": "assistant",
+        "content": "That would fall under comprehensive coverage if someone vandalizes it, or collision if another vehicle hits it."
+      }
+    ],
+    "text": "USER: Good point. What about if I drive someone else's car?\nASSISTANT: Your liability coverage extends to any vehicle you drive with permission. Physical damage follows the vehicle owner's policy.\nUSER: Makes sense. Oh, I forgot to ask - what about uninsured motorist coverage?\nASSISTANT: You have uninsured/underinsured motorist coverage at 100/300, matching your liability limits.\nUSER: That's important in Texas with all the uninsured drivers.\nASSISTANT: Absolutely. About 20% of Texas drivers are uninsured, so it's crucial protection.\nUSER: What if my Tesla gets damaged while charging at a public station?\nASSISTANT: That would fall under comprehensive coverage if someone vandalizes it, or collision if another vehicle hits it."
+  },
+  {
+    "id": "H15",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_insurance_001",
+    "timestamp": "2024-10-15 11:00:00",
+    "round_start": 43,
+    "round_end": 46,
+    "messages": [
+      {
+        "role": "user",
+        "content": "What if my Tesla gets damaged while charging at a public station?"
+      },
+      {
+        "role": "assistant",
+        "content": "That would fall under comprehensive coverage if someone vandalizes it, or collision if another vehicle hits it."
+      },
+      {
+        "role": "user",
+        "content": "The $1000 deductible would apply?"
+      },
+      {
+        "role": "assistant",
+        "content": "Yes, unless we can recover from the at-fault party's insurance."
+      },
+      {
+        "role": "user",
+        "content": "I charge mostly at home. Does that affect anything?"
+      },
+      {
+        "role": "assistant",
+        "content": "Home charging is considered safer, which is factored into your rates. Public charging lot incidents are increasing."
+      },
+      {
+        "role": "user",
+        "content": "Good to know. What about Tesla's Autopilot? Any issues with coverage?"
+      },
+      {
+        "role": "assistant",
+        "content": "No coverage issues, but you're still responsible for accidents even when using Autopilot."
+      }
+    ],
+    "text": "USER: What if my Tesla gets damaged while charging at a public station?\nASSISTANT: That would fall under comprehensive coverage if someone vandalizes it, or collision if another vehicle hits it.\nUSER: The $1000 deductible would apply?\nASSISTANT: Yes, unless we can recover from the at-fault party's insurance.\nUSER: I charge mostly at home. Does that affect anything?\nASSISTANT: Home charging is considered safer, which is factored into your rates. Public charging lot incidents are increasing.\nUSER: Good to know. What about Tesla's Autopilot? Any issues with coverage?\nASSISTANT: No coverage issues, but you're still responsible for accidents even when using Autopilot."
+  },
+  {
+    "id": "H16",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_insurance_001",
+    "timestamp": "2024-10-15 11:00:00",
+    "round_start": 46,
+    "round_end": 49,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Good to know. What about Tesla's Autopilot? Any issues with coverage?"
+      },
+      {
+        "role": "assistant",
+        "content": "No coverage issues, but you're still responsible for accidents even when using Autopilot."
+      },
+      {
+        "role": "user",
+        "content": "Of course. It's just driver assistance, not fully autonomous."
+      },
+      {
+        "role": "assistant",
+        "content": "Exactly. Some people misunderstand that. Any other questions?"
+      },
+      {
+        "role": "user",
+        "content": "What if I need to file a claim?"
+      },
+      {
+        "role": "assistant",
+        "content": "Call our 24/7 claims line or use the mobile app. Average claim processing is 7-10 days."
+      },
+      {
+        "role": "user",
+        "content": "Do you have preferred repair shops for Teslas?"
+      },
+      {
+        "role": "assistant",
+        "content": "Yes, we work with several Tesla-certified body shops in Austin. I'll include that list in your email."
+      }
+    ],
+    "text": "USER: Good to know. What about Tesla's Autopilot? Any issues with coverage?\nASSISTANT: No coverage issues, but you're still responsible for accidents even when using Autopilot.\nUSER: Of course. It's just driver assistance, not fully autonomous.\nASSISTANT: Exactly. Some people misunderstand that. Any other questions?\nUSER: What if I need to file a claim?\nASSISTANT: Call our 24/7 claims line or use the mobile app. Average claim processing is 7-10 days.\nUSER: Do you have preferred repair shops for Teslas?\nASSISTANT: Yes, we work with several Tesla-certified body shops in Austin. I'll include that list in your email."
+  },
+  {
+    "id": "H17",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_insurance_001",
+    "timestamp": "2024-10-15 11:00:00",
+    "round_start": 49,
+    "round_end": 50,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Do you have preferred repair shops for Teslas?"
+      },
+      {
+        "role": "assistant",
+        "content": "Yes, we work with several Tesla-certified body shops in Austin. I'll include that list in your email."
+      },
+      {
+        "role": "user",
+        "content": "Perfect. I think that covers everything."
+      },
+      {
+        "role": "assistant",
+        "content": "Great! Welcome to the two-car family, Mr. Chen. Drive safely!"
+      }
+    ],
+    "text": "USER: Do you have preferred repair shops for Teslas?\nASSISTANT: Yes, we work with several Tesla-certified body shops in Austin. I'll include that list in your email.\nUSER: Perfect. I think that covers everything.\nASSISTANT: Great! Welcome to the two-car family, Mr. Chen. Drive safely!"
+  },
+  {
+    "id": "H18",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_service_001",
+    "timestamp": "2024-11-20 09:30:00",
+    "round_start": 1,
+    "round_end": 4,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Hi, I need to schedule service for my car."
+      },
+      {
+        "role": "assistant",
+        "content": "Good morning! This is Mike at Firestone Auto Care. I'll help you schedule service. What kind of service do you need?"
+      },
+      {
+        "role": "user",
+        "content": "I need an oil change and the 30,000 mile service."
+      },
+      {
+        "role": "assistant",
+        "content": "Sure thing. What's the year, make and model of your vehicle?"
+      },
+      {
+        "role": "user",
+        "content": "It's a 2019 Honda Accord."
+      },
+      {
+        "role": "assistant",
+        "content": "Great. And what's your name?"
+      },
+      {
+        "role": "user",
+        "content": "William Chen."
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you, Mr. Chen. Current mileage on the Honda?"
+      }
+    ],
+    "text": "USER: Hi, I need to schedule service for my car.\nASSISTANT: Good morning! This is Mike at Firestone Auto Care. I'll help you schedule service. What kind of service do you need?\nUSER: I need an oil change and the 30,000 mile service.\nASSISTANT: Sure thing. What's the year, make and model of your vehicle?\nUSER: It's a 2019 Honda Accord.\nASSISTANT: Great. And what's your name?\nUSER: William Chen.\nASSISTANT: Thank you, Mr. Chen. Current mileage on the Honda?"
+  },
+  {
+    "id": "H19",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_service_001",
+    "timestamp": "2024-11-20 09:30:00",
+    "round_start": 4,
+    "round_end": 7,
+    "messages": [
+      {
+        "role": "user",
+        "content": "William Chen."
+      },
+      {
+        "role": "assistant",
+        "content": "Thank you, Mr. Chen. Current mileage on the Honda?"
+      },
+      {
+        "role": "user",
+        "content": "Just hit 31,500 miles."
+      },
+      {
+        "role": "assistant",
+        "content": "Perfect timing for the 30K service. That includes oil change, tire rotation, brake inspection, air filter, cabin filter, and transmission service."
+      },
+      {
+        "role": "user",
+        "content": "How much will that cost?"
+      },
+      {
+        "role": "assistant",
+        "content": "The complete 30K service package is $389.99. Oil change alone would be $44.99 if you wanted to do that separately."
+      },
+      {
+        "role": "user",
+        "content": "Let's do the full package. When can you fit me in?"
+      },
+      {
+        "role": "assistant",
+        "content": "I have openings this Friday November 24th at 8 AM, or Saturday the 25th at 10 AM."
+      }
+    ],
+    "text": "USER: William Chen.\nASSISTANT: Thank you, Mr. Chen. Current mileage on the Honda?\nUSER: Just hit 31,500 miles.\nASSISTANT: Perfect timing for the 30K service. That includes oil change, tire rotation, brake inspection, air filter, cabin filter, and transmission service.\nUSER: How much will that cost?\nASSISTANT: The complete 30K service package is $389.99. Oil change alone would be $44.99 if you wanted to do that separately.\nUSER: Let's do the full package. When can you fit me in?\nASSISTANT: I have openings this Friday November 24th at 8 AM, or Saturday the 25th at 10 AM."
+  },
+  {
+    "id": "H20",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_service_001",
+    "timestamp": "2024-11-20 09:30:00",
+    "round_start": 7,
+    "round_end": 10,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Let's do the full package. When can you fit me in?"
+      },
+      {
+        "role": "assistant",
+        "content": "I have openings this Friday November 24th at 8 AM, or Saturday the 25th at 10 AM."
+      },
+      {
+        "role": "user",
+        "content": "Friday at 8 works."
+      },
+      {
+        "role": "assistant",
+        "content": "Perfect. That service takes about 2-3 hours. Will you wait or need a ride?"
+      },
+      {
+        "role": "user",
+        "content": "I'll wait. You have WiFi in the waiting room?"
+      },
+      {
+        "role": "assistant",
+        "content": "Yes, free WiFi and coffee. Phone number for confirmation?"
+      },
+      {
+        "role": "user",
+        "content": "512-555-8823."
+      },
+      {
+        "role": "assistant",
+        "content": "Email for service records?"
+      }
+    ],
+    "text": "USER: Let's do the full package. When can you fit me in?\nASSISTANT: I have openings this Friday November 24th at 8 AM, or Saturday the 25th at 10 AM.\nUSER: Friday at 8 works.\nASSISTANT: Perfect. That service takes about 2-3 hours. Will you wait or need a ride?\nUSER: I'll wait. You have WiFi in the waiting room?\nASSISTANT: Yes, free WiFi and coffee. Phone number for confirmation?\nUSER: 512-555-8823.\nASSISTANT: Email for service records?"
+  },
+  {
+    "id": "H21",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_service_001",
+    "timestamp": "2024-11-20 09:30:00",
+    "round_start": 10,
+    "round_end": 13,
+    "messages": [
+      {
+        "role": "user",
+        "content": "512-555-8823."
+      },
+      {
+        "role": "assistant",
+        "content": "Email for service records?"
+      },
+      {
+        "role": "user",
+        "content": "wchen@techcompany.com"
+      },
+      {
+        "role": "assistant",
+        "content": "License plate number?"
+      },
+      {
+        "role": "user",
+        "content": "Texas plate JFK-8821."
+      },
+      {
+        "role": "assistant",
+        "content": "VIN number for our records?"
+      },
+      {
+        "role": "user",
+        "content": "I don't have that handy."
+      },
+      {
+        "role": "assistant",
+        "content": "No problem, we'll get it when you come in. Any specific concerns with the vehicle?"
+      }
+    ],
+    "text": "USER: 512-555-8823.\nASSISTANT: Email for service records?\nUSER: wchen@techcompany.com\nASSISTANT: License plate number?\nUSER: Texas plate JFK-8821.\nASSISTANT: VIN number for our records?\nUSER: I don't have that handy.\nASSISTANT: No problem, we'll get it when you come in. Any specific concerns with the vehicle?"
+  },
+  {
+    "id": "H22",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_service_001",
+    "timestamp": "2024-11-20 09:30:00",
+    "round_start": 13,
+    "round_end": 16,
+    "messages": [
+      {
+        "role": "user",
+        "content": "I don't have that handy."
+      },
+      {
+        "role": "assistant",
+        "content": "No problem, we'll get it when you come in. Any specific concerns with the vehicle?"
+      },
+      {
+        "role": "user",
+        "content": "The brakes have been squeaking a bit."
+      },
+      {
+        "role": "assistant",
+        "content": "We'll do a thorough brake inspection as part of the service. If you need brake work, we'll give you a quote before doing anything."
+      },
+      {
+        "role": "user",
+        "content": "Sounds good. What type of oil do you use?"
+      },
+      {
+        "role": "assistant",
+        "content": "For your Accord, we recommend full synthetic 0W-20. It's what Honda specifies."
+      },
+      {
+        "role": "user",
+        "content": "Is that included in the price?"
+      },
+      {
+        "role": "assistant",
+        "content": "Yes, full synthetic is included in the $389.99 package price."
+      }
+    ],
+    "text": "USER: I don't have that handy.\nASSISTANT: No problem, we'll get it when you come in. Any specific concerns with the vehicle?\nUSER: The brakes have been squeaking a bit.\nASSISTANT: We'll do a thorough brake inspection as part of the service. If you need brake work, we'll give you a quote before doing anything.\nUSER: Sounds good. What type of oil do you use?\nASSISTANT: For your Accord, we recommend full synthetic 0W-20. It's what Honda specifies.\nUSER: Is that included in the price?\nASSISTANT: Yes, full synthetic is included in the $389.99 package price."
+  },
+  {
+    "id": "H23",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_service_001",
+    "timestamp": "2024-11-20 09:30:00",
+    "round_start": 16,
+    "round_end": 19,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Is that included in the price?"
+      },
+      {
+        "role": "assistant",
+        "content": "Yes, full synthetic is included in the $389.99 package price."
+      },
+      {
+        "role": "user",
+        "content": "Good. How long is the oil change good for?"
+      },
+      {
+        "role": "assistant",
+        "content": "With full synthetic, Honda recommends every 7,500 miles or 6 months, whichever comes first."
+      },
+      {
+        "role": "user",
+        "content": "What about the transmission service?"
+      },
+      {
+        "role": "assistant",
+        "content": "We'll drain and refill the transmission fluid with Honda-compatible ATF."
+      },
+      {
+        "role": "user",
+        "content": "Is it a full flush or just drain and fill?"
+      },
+      {
+        "role": "assistant",
+        "content": "For Hondas, we do drain and fill. Full flushes can sometimes cause issues with Honda transmissions."
+      }
+    ],
+    "text": "USER: Is that included in the price?\nASSISTANT: Yes, full synthetic is included in the $389.99 package price.\nUSER: Good. How long is the oil change good for?\nASSISTANT: With full synthetic, Honda recommends every 7,500 miles or 6 months, whichever comes first.\nUSER: What about the transmission service?\nASSISTANT: We'll drain and refill the transmission fluid with Honda-compatible ATF.\nUSER: Is it a full flush or just drain and fill?\nASSISTANT: For Hondas, we do drain and fill. Full flushes can sometimes cause issues with Honda transmissions."
+  },
+  {
+    "id": "H24",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_service_001",
+    "timestamp": "2024-11-20 09:30:00",
+    "round_start": 19,
+    "round_end": 22,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Is it a full flush or just drain and fill?"
+      },
+      {
+        "role": "assistant",
+        "content": "For Hondas, we do drain and fill. Full flushes can sometimes cause issues with Honda transmissions."
+      },
+      {
+        "role": "user",
+        "content": "I've heard that too. What about the brake inspection?"
+      },
+      {
+        "role": "assistant",
+        "content": "We measure pad thickness, check rotors for warping, inspect calipers, and test brake fluid."
+      },
+      {
+        "role": "user",
+        "content": "If I need new brake pads, what's the cost?"
+      },
+      {
+        "role": "assistant",
+        "content": "Front brake pads with labor run about $179. If rotors need replacing, add another $250."
+      },
+      {
+        "role": "user",
+        "content": "That's not too bad. What about the cabin air filter?"
+      },
+      {
+        "role": "assistant",
+        "content": "The cabin filter replacement is included. Helps with air quality and AC efficiency."
+      }
+    ],
+    "text": "USER: Is it a full flush or just drain and fill?\nASSISTANT: For Hondas, we do drain and fill. Full flushes can sometimes cause issues with Honda transmissions.\nUSER: I've heard that too. What about the brake inspection?\nASSISTANT: We measure pad thickness, check rotors for warping, inspect calipers, and test brake fluid.\nUSER: If I need new brake pads, what's the cost?\nASSISTANT: Front brake pads with labor run about $179. If rotors need replacing, add another $250.\nUSER: That's not too bad. What about the cabin air filter?\nASSISTANT: The cabin filter replacement is included. Helps with air quality and AC efficiency."
+  },
+  {
+    "id": "H25",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_service_001",
+    "timestamp": "2024-11-20 09:30:00",
+    "round_start": 22,
+    "round_end": 25,
+    "messages": [
+      {
+        "role": "user",
+        "content": "That's not too bad. What about the cabin air filter?"
+      },
+      {
+        "role": "assistant",
+        "content": "The cabin filter replacement is included. Helps with air quality and AC efficiency."
+      },
+      {
+        "role": "user",
+        "content": "Good. My allergies have been bad lately."
+      },
+      {
+        "role": "assistant",
+        "content": "A fresh cabin filter will definitely help with that. We use quality HEPA filters."
+      },
+      {
+        "role": "user",
+        "content": "What about the engine air filter?"
+      },
+      {
+        "role": "assistant",
+        "content": "That's also included. We'll inspect and replace if needed."
+      },
+      {
+        "role": "user",
+        "content": "Do you check other fluids too?"
+      },
+      {
+        "role": "assistant",
+        "content": "Yes, we top off all fluids - coolant, brake fluid, power steering, windshield washer."
+      }
+    ],
+    "text": "USER: That's not too bad. What about the cabin air filter?\nASSISTANT: The cabin filter replacement is included. Helps with air quality and AC efficiency.\nUSER: Good. My allergies have been bad lately.\nASSISTANT: A fresh cabin filter will definitely help with that. We use quality HEPA filters.\nUSER: What about the engine air filter?\nASSISTANT: That's also included. We'll inspect and replace if needed.\nUSER: Do you check other fluids too?\nASSISTANT: Yes, we top off all fluids - coolant, brake fluid, power steering, windshield washer."
+  },
+  {
+    "id": "H26",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_service_001",
+    "timestamp": "2024-11-20 09:30:00",
+    "round_start": 25,
+    "round_end": 28,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Do you check other fluids too?"
+      },
+      {
+        "role": "assistant",
+        "content": "Yes, we top off all fluids - coolant, brake fluid, power steering, windshield washer."
+      },
+      {
+        "role": "user",
+        "content": "What about the battery?"
+      },
+      {
+        "role": "assistant",
+        "content": "We test the battery and charging system as part of our complimentary inspection."
+      },
+      {
+        "role": "user",
+        "content": "Mine's probably original from 2019."
+      },
+      {
+        "role": "assistant",
+        "content": "So about 5 years old. That's getting to replacement age. We'll test it and let you know."
+      },
+      {
+        "role": "user",
+        "content": "How much for a new battery if I need one?"
+      },
+      {
+        "role": "assistant",
+        "content": "Batteries for your Accord run $159-189 depending on the brand, includes installation."
+      }
+    ],
+    "text": "USER: Do you check other fluids too?\nASSISTANT: Yes, we top off all fluids - coolant, brake fluid, power steering, windshield washer.\nUSER: What about the battery?\nASSISTANT: We test the battery and charging system as part of our complimentary inspection.\nUSER: Mine's probably original from 2019.\nASSISTANT: So about 5 years old. That's getting to replacement age. We'll test it and let you know.\nUSER: How much for a new battery if I need one?\nASSISTANT: Batteries for your Accord run $159-189 depending on the brand, includes installation."
+  },
+  {
+    "id": "H27",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_service_001",
+    "timestamp": "2024-11-20 09:30:00",
+    "round_start": 28,
+    "round_end": 31,
+    "messages": [
+      {
+        "role": "user",
+        "content": "How much for a new battery if I need one?"
+      },
+      {
+        "role": "assistant",
+        "content": "Batteries for your Accord run $159-189 depending on the brand, includes installation."
+      },
+      {
+        "role": "user",
+        "content": "Okay. Do you offer any warranties?"
+      },
+      {
+        "role": "assistant",
+        "content": "Yes, our service comes with a 12-month/12,000-mile warranty on parts and labor."
+      },
+      {
+        "role": "user",
+        "content": "That's reassuring. Oh, I also have a Tesla that needs tire rotation."
+      },
+      {
+        "role": "assistant",
+        "content": "We can definitely do that. What model Tesla?"
+      },
+      {
+        "role": "user",
+        "content": "2023 Model 3 Long Range."
+      },
+      {
+        "role": "assistant",
+        "content": "Current mileage on the Tesla?"
+      }
+    ],
+    "text": "USER: How much for a new battery if I need one?\nASSISTANT: Batteries for your Accord run $159-189 depending on the brand, includes installation.\nUSER: Okay. Do you offer any warranties?\nASSISTANT: Yes, our service comes with a 12-month/12,000-mile warranty on parts and labor.\nUSER: That's reassuring. Oh, I also have a Tesla that needs tire rotation.\nASSISTANT: We can definitely do that. What model Tesla?\nUSER: 2023 Model 3 Long Range.\nASSISTANT: Current mileage on the Tesla?"
+  },
+  {
+    "id": "H28",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_service_001",
+    "timestamp": "2024-11-20 09:30:00",
+    "round_start": 31,
+    "round_end": 34,
+    "messages": [
+      {
+        "role": "user",
+        "content": "2023 Model 3 Long Range."
+      },
+      {
+        "role": "assistant",
+        "content": "Current mileage on the Tesla?"
+      },
+      {
+        "role": "user",
+        "content": "About 8,000 miles."
+      },
+      {
+        "role": "assistant",
+        "content": "Tire rotation for a Tesla is $29.99. We can do both cars the same day if you'd like."
+      },
+      {
+        "role": "user",
+        "content": "Actually, let me just focus on the Honda for now. My wife uses the Tesla mostly."
+      },
+      {
+        "role": "assistant",
+        "content": "No problem. So just the Honda Accord on Friday at 8 AM."
+      },
+      {
+        "role": "user",
+        "content": "Yes. How do you handle payment?"
+      },
+      {
+        "role": "assistant",
+        "content": "We accept cash, check, all major credit cards. Payment is due when service is complete."
+      }
+    ],
+    "text": "USER: 2023 Model 3 Long Range.\nASSISTANT: Current mileage on the Tesla?\nUSER: About 8,000 miles.\nASSISTANT: Tire rotation for a Tesla is $29.99. We can do both cars the same day if you'd like.\nUSER: Actually, let me just focus on the Honda for now. My wife uses the Tesla mostly.\nASSISTANT: No problem. So just the Honda Accord on Friday at 8 AM.\nUSER: Yes. How do you handle payment?\nASSISTANT: We accept cash, check, all major credit cards. Payment is due when service is complete."
+  },
+  {
+    "id": "H29",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_service_001",
+    "timestamp": "2024-11-20 09:30:00",
+    "round_start": 34,
+    "round_end": 37,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Yes. How do you handle payment?"
+      },
+      {
+        "role": "assistant",
+        "content": "We accept cash, check, all major credit cards. Payment is due when service is complete."
+      },
+      {
+        "role": "user",
+        "content": "Do you offer any discounts?"
+      },
+      {
+        "role": "assistant",
+        "content": "If you sign up for our email list, you get $20 off your first service."
+      },
+      {
+        "role": "user",
+        "content": "Sure, sign me up."
+      },
+      {
+        "role": "assistant",
+        "content": "Great! That brings your 30K service to $369.99."
+      },
+      {
+        "role": "user",
+        "content": "Every bit helps. What if you find other issues?"
+      },
+      {
+        "role": "assistant",
+        "content": "We'll call you before doing any work beyond the scheduled service. No surprises."
+      }
+    ],
+    "text": "USER: Yes. How do you handle payment?\nASSISTANT: We accept cash, check, all major credit cards. Payment is due when service is complete.\nUSER: Do you offer any discounts?\nASSISTANT: If you sign up for our email list, you get $20 off your first service.\nUSER: Sure, sign me up.\nASSISTANT: Great! That brings your 30K service to $369.99.\nUSER: Every bit helps. What if you find other issues?\nASSISTANT: We'll call you before doing any work beyond the scheduled service. No surprises."
+  },
+  {
+    "id": "H30",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_service_001",
+    "timestamp": "2024-11-20 09:30:00",
+    "round_start": 37,
+    "round_end": 40,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Every bit helps. What if you find other issues?"
+      },
+      {
+        "role": "assistant",
+        "content": "We'll call you before doing any work beyond the scheduled service. No surprises."
+      },
+      {
+        "role": "user",
+        "content": "That's what I like to hear. Some places just do work without asking."
+      },
+      {
+        "role": "assistant",
+        "content": "Never here. We believe in transparency and customer approval."
+      },
+      {
+        "role": "user",
+        "content": "What time do you open on Friday?"
+      },
+      {
+        "role": "assistant",
+        "content": "We open at 7:30 AM, but your appointment is at 8 AM."
+      },
+      {
+        "role": "user",
+        "content": "Can I drop it off early?"
+      },
+      {
+        "role": "assistant",
+        "content": "Absolutely. We have an early bird drop-off. Just put the keys in our secure drop box."
+      }
+    ],
+    "text": "USER: Every bit helps. What if you find other issues?\nASSISTANT: We'll call you before doing any work beyond the scheduled service. No surprises.\nUSER: That's what I like to hear. Some places just do work without asking.\nASSISTANT: Never here. We believe in transparency and customer approval.\nUSER: What time do you open on Friday?\nASSISTANT: We open at 7:30 AM, but your appointment is at 8 AM.\nUSER: Can I drop it off early?\nASSISTANT: Absolutely. We have an early bird drop-off. Just put the keys in our secure drop box."
+  },
+  {
+    "id": "H31",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_service_001",
+    "timestamp": "2024-11-20 09:30:00",
+    "round_start": 40,
+    "round_end": 43,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Can I drop it off early?"
+      },
+      {
+        "role": "assistant",
+        "content": "Absolutely. We have an early bird drop-off. Just put the keys in our secure drop box."
+      },
+      {
+        "role": "user",
+        "content": "That's convenient. What's your address again?"
+      },
+      {
+        "role": "assistant",
+        "content": "We're at 4455 North Lamar Boulevard, Austin. Right next to the Target."
+      },
+      {
+        "role": "user",
+        "content": "Oh yeah, I know where that is. Easy to find."
+      },
+      {
+        "role": "assistant",
+        "content": "Exactly. Plenty of parking too. Your appointment is confirmed for Friday, November 24th at 8 AM."
+      },
+      {
+        "role": "user",
+        "content": "Wait, that's Black Friday. Are you sure you're open?"
+      },
+      {
+        "role": "assistant",
+        "content": "Good catch! Yes, we're open Black Friday but with reduced hours, 8 AM to 3 PM."
+      }
+    ],
+    "text": "USER: Can I drop it off early?\nASSISTANT: Absolutely. We have an early bird drop-off. Just put the keys in our secure drop box.\nUSER: That's convenient. What's your address again?\nASSISTANT: We're at 4455 North Lamar Boulevard, Austin. Right next to the Target.\nUSER: Oh yeah, I know where that is. Easy to find.\nASSISTANT: Exactly. Plenty of parking too. Your appointment is confirmed for Friday, November 24th at 8 AM.\nUSER: Wait, that's Black Friday. Are you sure you're open?\nASSISTANT: Good catch! Yes, we're open Black Friday but with reduced hours, 8 AM to 3 PM."
+  },
+  {
+    "id": "H32",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_service_001",
+    "timestamp": "2024-11-20 09:30:00",
+    "round_start": 43,
+    "round_end": 46,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Wait, that's Black Friday. Are you sure you're open?"
+      },
+      {
+        "role": "assistant",
+        "content": "Good catch! Yes, we're open Black Friday but with reduced hours, 8 AM to 3 PM."
+      },
+      {
+        "role": "user",
+        "content": "So I should come early to make sure it's done?"
+      },
+      {
+        "role": "assistant",
+        "content": "With your 8 AM appointment, you'll be our first customer. Should be done by 11 AM."
+      },
+      {
+        "role": "user",
+        "content": "Perfect. I can do some Black Friday shopping while I wait."
+      },
+      {
+        "role": "assistant",
+        "content": "Target next door will definitely be busy! Your confirmation number is FS-447291."
+      },
+      {
+        "role": "user",
+        "content": "Let me write that down... FS-447291?"
+      },
+      {
+        "role": "assistant",
+        "content": "Correct. We'll also send a text reminder Thursday evening."
+      }
+    ],
+    "text": "USER: Wait, that's Black Friday. Are you sure you're open?\nASSISTANT: Good catch! Yes, we're open Black Friday but with reduced hours, 8 AM to 3 PM.\nUSER: So I should come early to make sure it's done?\nASSISTANT: With your 8 AM appointment, you'll be our first customer. Should be done by 11 AM.\nUSER: Perfect. I can do some Black Friday shopping while I wait.\nASSISTANT: Target next door will definitely be busy! Your confirmation number is FS-447291.\nUSER: Let me write that down... FS-447291?\nASSISTANT: Correct. We'll also send a text reminder Thursday evening."
+  },
+  {
+    "id": "H33",
+    "case_id": "layer2_01_multiple_vehicles",
+    "conversation_id": "auto_service_001",
+    "timestamp": "2024-11-20 09:30:00",
+    "round_start": 46,
+    "round_end": 47,
+    "messages": [
+      {
+        "role": "user",
+        "content": "Let me write that down... FS-447291?"
+      },
+      {
+        "role": "assistant",
+        "content": "Correct. We'll also send a text reminder Thursday evening."
+      },
+      {
+        "role": "user",
+        "content": "Great. See you Friday morning!"
+      },
+      {
+        "role": "assistant",
+        "content": "See you then, Mr. Chen. Have a great Thanksgiving!"
+      }
+    ],
+    "text": "USER: Let me write that down... FS-447291?\nASSISTANT: Correct. We'll also send a text reminder Thursday evening.\nUSER: Great. See you Friday morning!\nASSISTANT: See you then, Mr. Chen. Have a great Thanksgiving!"
+  }
+]

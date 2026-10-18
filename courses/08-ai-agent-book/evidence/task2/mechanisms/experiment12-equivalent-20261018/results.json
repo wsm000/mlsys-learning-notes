@@ -1,0 +1,284 @@
+{
+  "status": "completed",
+  "scope": "mechanism-equivalent fictional bee cases, not official CAIL2018 discovery/legal benchmark",
+  "mechanism": "Training observations -> live factor discovery -> fixed schema -> live per-case extraction -> training-only imputation/scaling/KMeans -> prototype action/outcome statistics -> heldout nearest prototype and limited narrative.",
+  "model": "Qwen/Qwen3-0.6B",
+  "split": {
+    "training": 30,
+    "heldout": 9,
+    "labelled_heldout": 6,
+    "unlabelled_mixed_or_missing": 3
+  },
+  "leakage_controls": "Heldout observations never used for factor discovery, fitting imputation/scaler/clusters/tree, or prototype statistics. Training actions/outcomes excluded from discovery/extraction prompts, used only after features exist. Heldout action labels excluded from model reports and feature extraction.",
+  "schema": [
+    {
+      "key": "气温",
+      "description": "7摄氏度"
+    },
+    {
+      "key": "蜂群活动",
+      "description": "偏少"
+    },
+    {
+      "key": "饲料储备",
+      "description": "不足"
+    },
+    {
+      "key": "通风",
+      "description": "正常"
+    },
+    {
+      "key": "蜂螨",
+      "description": "未发现"
+    }
+  ],
+  "extraction_parse_errors": 12,
+  "train_unknown_values": 70,
+  "test_unknown_values": 21,
+  "training_imputation_values": [
+    0.5,
+    0.5,
+    1.0,
+    1.0,
+    0.5
+  ],
+  "clusters": 3,
+  "unique_training_vectors": 3,
+  "silhouette": 1.0,
+  "prototypes": [
+    {
+      "cluster": 0,
+      "training_case_ids": [
+        "T021",
+        "T022",
+        "T023",
+        "T024",
+        "T025",
+        "T026",
+        "T027",
+        "T028",
+        "T029",
+        "T030"
+      ],
+      "count": 10,
+      "factor_means": {
+        "气温": 0.0,
+        "蜂群活动": 1.0,
+        "饲料储备": 1.0,
+        "通风": 1.0,
+        "蜂螨": 0.5
+      },
+      "recorded_actions": {
+        "记录转交专业人员复查": 10
+      },
+      "recorded_outcomes": {
+        "后续活动恢复": 8,
+        "后续仍需观察": 2
+      },
+      "most_common_recorded_action": "记录转交专业人员复查"
+    },
+    {
+      "cluster": 1,
+      "training_case_ids": [
+        "T001",
+        "T002",
+        "T003",
+        "T004",
+        "T005",
+        "T006",
+        "T007",
+        "T008",
+        "T009",
+        "T010"
+      ],
+      "count": 10,
+      "factor_means": {
+        "气温": 1.0,
+        "蜂群活动": 0.0,
+        "饲料储备": 1.0,
+        "通风": 1.0,
+        "蜂螨": 0.5
+      },
+      "recorded_actions": {
+        "记录补给与保温处理": 10
+      },
+      "recorded_outcomes": {
+        "后续仍需观察": 3,
+        "后续活动恢复": 7
+      },
+      "most_common_recorded_action": "记录补给与保温处理"
+    },
+    {
+      "cluster": 2,
+      "training_case_ids": [
+        "T011",
+        "T012",
+        "T013",
+        "T014",
+        "T015",
+        "T016",
+        "T017",
+        "T018",
+        "T019",
+        "T020"
+      ],
+      "count": 10,
+      "factor_means": {
+        "气温": 0.5,
+        "蜂群活动": 0.5,
+        "饲料储备": 1.0,
+        "通风": 1.0,
+        "蜂螨": 0.5
+      },
+      "recorded_actions": {
+        "记录改善环境与供水处理": 10
+      },
+      "recorded_outcomes": {
+        "后续活动恢复": 8,
+        "后续仍需观察": 2
+      },
+      "most_common_recorded_action": "记录改善环境与供水处理"
+    }
+  ],
+  "predictive_feature_importance": {
+    "气温": 0.5000000000000001,
+    "蜂群活动": 0.49999999999999994,
+    "饲料储备": 0.0,
+    "通风": 0.0,
+    "蜂螨": 0.0
+  },
+  "importance_target": "Training recorded-action labels; predictive association in authored data, not causal factor weights.",
+  "distance_threshold": 0.5,
+  "threshold_note": "Illustrative max(0.5, training within-cluster distance 95th percentile), not calibrated OOD detection. Missingness separately retained.",
+  "heldout_predictions": [
+    {
+      "id": "V001",
+      "observation": "另一次独立编号的巡检：巡检时气温8摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。",
+      "cluster": 1,
+      "distance": 6.280369834735101e-16,
+      "outside_training_distance_threshold": false,
+      "unknown_factor_count": 1,
+      "prototype_common_action": "记录补给与保温处理",
+      "decision_tree_action": "记录补给与保温处理",
+      "heldout_recorded_action": "记录补给与保温处理",
+      "prototype_action_matches_record": true
+    },
+    {
+      "id": "V002",
+      "observation": "另一次独立编号的巡检：巡检时气温9摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。",
+      "cluster": 1,
+      "distance": 6.280369834735101e-16,
+      "outside_training_distance_threshold": false,
+      "unknown_factor_count": 1,
+      "prototype_common_action": "记录补给与保温处理",
+      "decision_tree_action": "记录补给与保温处理",
+      "heldout_recorded_action": "记录补给与保温处理",
+      "prototype_action_matches_record": true
+    },
+    {
+      "id": "V003",
+      "observation": "另一次独立编号的巡检：巡检时气温35摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。",
+      "cluster": 1,
+      "distance": 1.0,
+      "outside_training_distance_threshold": true,
+      "unknown_factor_count": 1,
+      "prototype_common_action": "记录补给与保温处理",
+      "decision_tree_action": "记录补给与保温处理",
+      "heldout_recorded_action": "记录改善环境与供水处理",
+      "prototype_action_matches_record": false
+    },
+    {
+      "id": "V004",
+      "observation": "另一次独立编号的巡检：巡检时气温36摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。",
+      "cluster": 1,
+      "distance": 1.0,
+      "outside_training_distance_threshold": true,
+      "unknown_factor_count": 1,
+      "prototype_common_action": "记录补给与保温处理",
+      "decision_tree_action": "记录补给与保温处理",
+      "heldout_recorded_action": "记录改善环境与供水处理",
+      "prototype_action_matches_record": false
+    },
+    {
+      "id": "V005",
+      "observation": "另一次独立编号的巡检：巡检时气温21摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。",
+      "cluster": 2,
+      "distance": 0.0,
+      "outside_training_distance_threshold": false,
+      "unknown_factor_count": 5,
+      "prototype_common_action": "记录改善环境与供水处理",
+      "decision_tree_action": "记录改善环境与供水处理",
+      "heldout_recorded_action": "记录转交专业人员复查",
+      "prototype_action_matches_record": false
+    },
+    {
+      "id": "V006",
+      "observation": "另一次独立编号的巡检：巡检时气温22摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。",
+      "cluster": 2,
+      "distance": 0.0,
+      "outside_training_distance_threshold": false,
+      "unknown_factor_count": 5,
+      "prototype_common_action": "记录改善环境与供水处理",
+      "decision_tree_action": "记录改善环境与供水处理",
+      "heldout_recorded_action": "记录转交专业人员复查",
+      "prototype_action_matches_record": false
+    },
+    {
+      "id": "V007",
+      "observation": "气温8摄氏度，饲料充足，通风正常，复查发现蜂螨迹象。",
+      "cluster": 1,
+      "distance": 1.0,
+      "outside_training_distance_threshold": true,
+      "unknown_factor_count": 1,
+      "prototype_common_action": "记录补给与保温处理",
+      "decision_tree_action": "记录补给与保温处理",
+      "heldout_recorded_action": null,
+      "prototype_action_matches_record": null
+    },
+    {
+      "id": "V008",
+      "observation": "气温35摄氏度，饲料不足，通风不足，饮水点缺水，复查发现蜂螨迹象。",
+      "cluster": 2,
+      "distance": 1.6583123951777,
+      "outside_training_distance_threshold": true,
+      "unknown_factor_count": 1,
+      "prototype_common_action": "记录改善环境与供水处理",
+      "decision_tree_action": "记录补给与保温处理",
+      "heldout_recorded_action": null,
+      "prototype_action_matches_record": null
+    },
+    {
+      "id": "V009",
+      "observation": "仅记录蜂群活动偏少，气温、饲料、通风及蜂螨检查结果均未记录。",
+      "cluster": 2,
+      "distance": 0.0,
+      "outside_training_distance_threshold": false,
+      "unknown_factor_count": 5,
+      "prototype_common_action": "记录改善环境与供水处理",
+      "decision_tree_action": "记录改善环境与供水处理",
+      "heldout_recorded_action": null,
+      "prototype_action_matches_record": null
+    }
+  ],
+  "prototype_action_match_count": 2,
+  "labelled_heldout_count": 6,
+  "narratives": [
+    {
+      "heldout_id": "V001",
+      "model_report": "训练簇1记录10次，记录补给与保温处理，未发现蜂螨，气温8℃，活动偏少，匹配诊断为记录补给与保温处理。"
+    },
+    {
+      "heldout_id": "V003",
+      "model_report": "训练簇1记录10次，记录补给与保温处理，未发现蜂螨，气温35℃，通风不足。"
+    },
+    {
+      "heldout_id": "V005",
+      "model_report": "训练簇2记录10次，记录改善环境与供水处理，匹配诊断为蜂螨迹象。"
+    },
+    {
+      "heldout_id": "V009",
+      "model_report": "训练簇2记录10个案例，均未记录蜂群活动、气温、饲料、通风及蜂螨等关键信息，且未记录改善环境与供水处理。该簇最接近匹配诊断，未提供实际养蜂处方。"
+    }
+  ],
+  "limitations": "Small templated records; heldout phrasing resembles training templates; action/outcome associations designed by author. High match rate would not show real-world effectiveness, generalization or causality. No independent judge. Narratives may still overstate prototype evidence and must be checked."
+}

@@ -1,0 +1,899 @@
+[
+  {
+    "case_id": "structured_cn",
+    "original": "客户身份证号11010519491231002X，手机号13800138000。",
+    "gold": [
+      [
+        "cn_id_card",
+        "11010519491231002X"
+      ],
+      [
+        "cn_phone",
+        "13800138000"
+      ]
+    ],
+    "arms": {
+      "regex": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "residual_values": [],
+        "false_positive_values": [],
+        "benign_chars": 11,
+        "benign_chars_removed": 0,
+        "redacted_text": "客户身份证号[REDACTED]，手机号[REDACTED]。",
+        "findings": [
+          {
+            "type": "cn_id_card",
+            "value": "11010519491231002X",
+            "start": 6,
+            "end": 24,
+            "confidence": 1.0
+          },
+          {
+            "type": "cn_phone",
+            "value": "13800138000",
+            "start": 28,
+            "end": 39,
+            "confidence": 1.0
+          }
+        ]
+      },
+      "llm": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 2,
+        "residual_values": [
+          "11010519491231002X",
+          "13800138000"
+        ],
+        "false_positive_values": [],
+        "benign_chars": 11,
+        "benign_chars_removed": 0,
+        "redacted_text": "客户身份证号11010519491231002X，手机号13800138000。",
+        "findings": []
+      },
+      "hybrid": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "residual_values": [],
+        "false_positive_values": [],
+        "benign_chars": 11,
+        "benign_chars_removed": 0,
+        "redacted_text": "客户身份证号[REDACTED]，手机号[REDACTED]。",
+        "findings": [
+          {
+            "type": "cn_id_card",
+            "value": "11010519491231002X",
+            "start": 6,
+            "end": 24,
+            "confidence": 1.0
+          },
+          {
+            "type": "cn_phone",
+            "value": "13800138000",
+            "start": 28,
+            "end": 39,
+            "confidence": 1.0
+          }
+        ]
+      }
+    },
+    "llm_parse_error": null,
+    "hybrid_parse_error": null
+  },
+  {
+    "case_id": "structured_us",
+    "original": "SSN 123-45-6789; Visa 4111 1111 1111 1111; ticket 123-45-6780 is not an SSN.",
+    "gold": [
+      [
+        "us_ssn",
+        "123-45-6789"
+      ],
+      [
+        "credit_card",
+        "4111 1111 1111 1111"
+      ]
+    ],
+    "arms": {
+      "regex": {
+        "tp": 2,
+        "fp": 1,
+        "fn": 0,
+        "residual_values": [],
+        "false_positive_values": [
+          "123-45-6780"
+        ],
+        "benign_chars": 46,
+        "benign_chars_removed": 11,
+        "redacted_text": "SSN [REDACTED]; Visa [REDACTED]; ticket [REDACTED] is not an SSN.",
+        "findings": [
+          {
+            "type": "us_ssn",
+            "value": "123-45-6789",
+            "start": 4,
+            "end": 15,
+            "confidence": 1.0
+          },
+          {
+            "type": "us_ssn",
+            "value": "123-45-6780",
+            "start": 50,
+            "end": 61,
+            "confidence": 1.0
+          },
+          {
+            "type": "credit_card",
+            "value": "4111 1111 1111 1111",
+            "start": 22,
+            "end": 41,
+            "confidence": 1.0
+          }
+        ]
+      },
+      "llm": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 2,
+        "residual_values": [
+          "123-45-6789",
+          "4111 1111 1111 1111"
+        ],
+        "false_positive_values": [],
+        "benign_chars": 46,
+        "benign_chars_removed": 0,
+        "redacted_text": "SSN 123-45-6789; Visa 4111 1111 1111 1111; ticket 123-45-6780 is not an SSN.",
+        "findings": []
+      },
+      "hybrid": {
+        "tp": 2,
+        "fp": 1,
+        "fn": 0,
+        "residual_values": [],
+        "false_positive_values": [
+          "123-45-6780"
+        ],
+        "benign_chars": 46,
+        "benign_chars_removed": 11,
+        "redacted_text": "SSN [REDACTED]; Visa [REDACTED]; ticket [REDACTED] is not an SSN.",
+        "findings": [
+          {
+            "type": "us_ssn",
+            "value": "123-45-6789",
+            "start": 4,
+            "end": 15,
+            "confidence": 1.0
+          },
+          {
+            "type": "us_ssn",
+            "value": "123-45-6780",
+            "start": 50,
+            "end": 61,
+            "confidence": 1.0
+          },
+          {
+            "type": "credit_card",
+            "value": "4111 1111 1111 1111",
+            "start": 22,
+            "end": 41,
+            "confidence": 1.0
+          }
+        ]
+      }
+    },
+    "llm_parse_error": null,
+    "hybrid_parse_error": null
+  },
+  {
+    "case_id": "credentials",
+    "original": "postgres://alice:S3cr3t-Pass@db.internal:5432/prod failed; retry token=not-a-real-token-but-secret",
+    "gold": [
+      [
+        "password",
+        "S3cr3t-Pass"
+      ],
+      [
+        "secret",
+        "not-a-real-token-but-secret"
+      ]
+    ],
+    "arms": {
+      "regex": {
+        "tp": 2,
+        "fp": 1,
+        "fn": 0,
+        "residual_values": [],
+        "false_positive_values": [
+          "S3cr3t-Pass@db.internal"
+        ],
+        "benign_chars": 60,
+        "benign_chars_removed": 12,
+        "redacted_text": "postgres://alice:[REDACTED]5432/prod failed; retry token=[REDACTED]",
+        "findings": [
+          {
+            "type": "email",
+            "value": "S3cr3t-Pass@db.internal",
+            "start": 17,
+            "end": 40,
+            "confidence": 1.0
+          },
+          {
+            "type": "secret",
+            "value": "not-a-real-token-but-secret",
+            "start": 71,
+            "end": 98,
+            "confidence": 1.0
+          },
+          {
+            "type": "password",
+            "value": "S3cr3t-Pass",
+            "start": 17,
+            "end": 28,
+            "confidence": 1.0
+          }
+        ]
+      },
+      "llm": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 1,
+        "residual_values": [
+          "not-a-real-token-but-secret"
+        ],
+        "false_positive_values": [],
+        "benign_chars": 60,
+        "benign_chars_removed": 0,
+        "redacted_text": "postgres://alice:[REDACTED]@db.internal:5432/prod failed; retry token=not-a-real-token-but-secret",
+        "findings": [
+          {
+            "type": "credit_card",
+            "value": "S3cr3t-Pass",
+            "confidence": 0.9,
+            "start": 17,
+            "end": 28
+          }
+        ]
+      },
+      "hybrid": {
+        "tp": 2,
+        "fp": 1,
+        "fn": 0,
+        "residual_values": [],
+        "false_positive_values": [
+          "S3cr3t-Pass@db.internal"
+        ],
+        "benign_chars": 60,
+        "benign_chars_removed": 12,
+        "redacted_text": "postgres://alice:[REDACTED]5432/prod failed; retry token=[REDACTED]",
+        "findings": [
+          {
+            "type": "email",
+            "value": "S3cr3t-Pass@db.internal",
+            "start": 17,
+            "end": 40,
+            "confidence": 1.0
+          },
+          {
+            "type": "secret",
+            "value": "not-a-real-token-but-secret",
+            "start": 71,
+            "end": 98,
+            "confidence": 1.0
+          },
+          {
+            "type": "password",
+            "value": "S3cr3t-Pass",
+            "start": 17,
+            "end": 28,
+            "confidence": 1.0
+          }
+        ]
+      }
+    },
+    "llm_parse_error": null,
+    "hybrid_parse_error": null
+  },
+  {
+    "case_id": "natural_password",
+    "original": "用户说：我网银的登录口令是‘Blue moon over river 77’，请帮我记住。",
+    "gold": [
+      [
+        "password",
+        "Blue moon over river 77"
+      ]
+    ],
+    "arms": {
+      "regex": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "residual_values": [
+          "Blue moon over river 77"
+        ],
+        "false_positive_values": [],
+        "benign_chars": 22,
+        "benign_chars_removed": 0,
+        "redacted_text": "用户说：我网银的登录口令是‘Blue moon over river 77’，请帮我记住。",
+        "findings": []
+      },
+      "llm": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "residual_values": [],
+        "false_positive_values": [],
+        "benign_chars": 22,
+        "benign_chars_removed": 0,
+        "redacted_text": "用户说：我网银的登录口令是‘[REDACTED]’，请帮我记住。",
+        "findings": [
+          {
+            "type": "password",
+            "value": "Blue moon over river 77",
+            "confidence": 0.9,
+            "start": 14,
+            "end": 37
+          }
+        ]
+      },
+      "hybrid": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 0,
+        "residual_values": [],
+        "false_positive_values": [],
+        "benign_chars": 22,
+        "benign_chars_removed": 0,
+        "redacted_text": "用户说：我网银的登录口令是‘[REDACTED]’，请帮我记住。",
+        "findings": [
+          {
+            "type": "password",
+            "value": "Blue moon over river 77",
+            "confidence": 0.9,
+            "start": 14,
+            "end": 37
+          }
+        ]
+      }
+    },
+    "llm_parse_error": null,
+    "hybrid_parse_error": null
+  },
+  {
+    "case_id": "address",
+    "original": "Please ship replacements to apartment 3B, 1847 Maple Street, Portland, Oregon 97205 after Tuesday.",
+    "gold": [
+      [
+        "address",
+        "apartment 3B, 1847 Maple Street, Portland, Oregon 97205"
+      ]
+    ],
+    "arms": {
+      "regex": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "residual_values": [
+          "apartment 3B, 1847 Maple Street, Portland, Oregon 97205"
+        ],
+        "false_positive_values": [],
+        "benign_chars": 43,
+        "benign_chars_removed": 0,
+        "redacted_text": "Please ship replacements to apartment 3B, 1847 Maple Street, Portland, Oregon 97205 after Tuesday.",
+        "findings": []
+      },
+      "llm": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "residual_values": [
+          "apartment 3B, 1847 Maple Street, Portland, Oregon 97205"
+        ],
+        "false_positive_values": [],
+        "benign_chars": 43,
+        "benign_chars_removed": 0,
+        "redacted_text": "Please ship replacements to apartment 3B, 1847 Maple Street, Portland, Oregon 97205 after Tuesday.",
+        "findings": []
+      },
+      "hybrid": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "residual_values": [
+          "apartment 3B, 1847 Maple Street, Portland, Oregon 97205"
+        ],
+        "false_positive_values": [],
+        "benign_chars": 43,
+        "benign_chars_removed": 0,
+        "redacted_text": "Please ship replacements to apartment 3B, 1847 Maple Street, Portland, Oregon 97205 after Tuesday.",
+        "findings": []
+      }
+    },
+    "llm_parse_error": null,
+    "hybrid_parse_error": null
+  },
+  {
+    "case_id": "medical",
+    "original": "Chart note: patient Maria Chen, MRN-789456, was diagnosed with stage II breast cancer and starts doxorubicin Friday.",
+    "gold": [
+      [
+        "medical_record",
+        "MRN-789456"
+      ],
+      [
+        "medical_diagnosis",
+        "stage II breast cancer"
+      ],
+      [
+        "treatment",
+        "doxorubicin"
+      ]
+    ],
+    "arms": {
+      "regex": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "residual_values": [
+          "MRN-789456",
+          "stage II breast cancer",
+          "doxorubicin"
+        ],
+        "false_positive_values": [],
+        "benign_chars": 73,
+        "benign_chars_removed": 0,
+        "redacted_text": "Chart note: patient Maria Chen, MRN-789456, was diagnosed with stage II breast cancer and starts doxorubicin Friday.",
+        "findings": []
+      },
+      "llm": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "residual_values": [
+          "MRN-789456",
+          "stage II breast cancer",
+          "doxorubicin"
+        ],
+        "false_positive_values": [],
+        "benign_chars": 73,
+        "benign_chars_removed": 0,
+        "redacted_text": "Chart note: patient Maria Chen, MRN-789456, was diagnosed with stage II breast cancer and starts doxorubicin Friday.",
+        "findings": []
+      },
+      "hybrid": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 3,
+        "residual_values": [
+          "MRN-789456",
+          "stage II breast cancer",
+          "doxorubicin"
+        ],
+        "false_positive_values": [],
+        "benign_chars": 73,
+        "benign_chars_removed": 0,
+        "redacted_text": "Chart note: patient Maria Chen, MRN-789456, was diagnosed with stage II breast cancer and starts doxorubicin Friday.",
+        "findings": []
+      }
+    },
+    "llm_parse_error": null,
+    "hybrid_parse_error": null
+  },
+  {
+    "case_id": "passport",
+    "original": "Traveler passport P987654321 expires 2027-04-09; booking code P987654320 is unrelated.",
+    "gold": [
+      [
+        "passport",
+        "P987654321"
+      ]
+    ],
+    "arms": {
+      "regex": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "residual_values": [
+          "P987654321"
+        ],
+        "false_positive_values": [],
+        "benign_chars": 76,
+        "benign_chars_removed": 0,
+        "redacted_text": "Traveler passport P987654321 expires 2027-04-09; booking code P987654320 is unrelated.",
+        "findings": []
+      },
+      "llm": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "residual_values": [
+          "P987654321"
+        ],
+        "false_positive_values": [],
+        "benign_chars": 76,
+        "benign_chars_removed": 0,
+        "redacted_text": "Traveler passport P987654321 expires 2027-04-09; booking code P987654320 is unrelated.",
+        "findings": []
+      },
+      "hybrid": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 1,
+        "residual_values": [
+          "P987654321"
+        ],
+        "false_positive_values": [],
+        "benign_chars": 76,
+        "benign_chars_removed": 0,
+        "redacted_text": "Traveler passport P987654321 expires 2027-04-09; booking code P987654320 is unrelated.",
+        "findings": []
+      }
+    },
+    "llm_parse_error": null,
+    "hybrid_parse_error": null
+  },
+  {
+    "case_id": "financial",
+    "original": "Wire account 4429853327 routing 123006800. Product SKU 4429853328 should remain visible.",
+    "gold": [
+      [
+        "bank_account",
+        "4429853327"
+      ],
+      [
+        "routing_number",
+        "123006800"
+      ]
+    ],
+    "arms": {
+      "regex": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 2,
+        "residual_values": [
+          "4429853327",
+          "123006800"
+        ],
+        "false_positive_values": [],
+        "benign_chars": 69,
+        "benign_chars_removed": 0,
+        "redacted_text": "Wire account 4429853327 routing 123006800. Product SKU 4429853328 should remain visible.",
+        "findings": []
+      },
+      "llm": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 2,
+        "residual_values": [
+          "4429853327",
+          "123006800"
+        ],
+        "false_positive_values": [],
+        "benign_chars": 69,
+        "benign_chars_removed": 0,
+        "redacted_text": "Wire account 4429853327 routing 123006800. Product SKU 4429853328 should remain visible.",
+        "findings": []
+      },
+      "hybrid": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 2,
+        "residual_values": [
+          "4429853327",
+          "123006800"
+        ],
+        "false_positive_values": [],
+        "benign_chars": 69,
+        "benign_chars_removed": 0,
+        "redacted_text": "Wire account 4429853327 routing 123006800. Product SKU 4429853328 should remain visible.",
+        "findings": []
+      }
+    },
+    "llm_parse_error": null,
+    "hybrid_parse_error": null
+  },
+  {
+    "case_id": "email_bearer",
+    "original": "Authorization: Bearer fakeBearerToken1234567890; notify alice.wang@example.com.",
+    "gold": [
+      [
+        "bearer_token",
+        "fakeBearerToken1234567890"
+      ],
+      [
+        "email",
+        "alice.wang@example.com"
+      ]
+    ],
+    "arms": {
+      "regex": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "residual_values": [],
+        "false_positive_values": [],
+        "benign_chars": 32,
+        "benign_chars_removed": 0,
+        "redacted_text": "Authorization: Bearer [REDACTED]; notify [REDACTED].",
+        "findings": [
+          {
+            "type": "email",
+            "value": "alice.wang@example.com",
+            "start": 56,
+            "end": 78,
+            "confidence": 1.0
+          },
+          {
+            "type": "bearer_token",
+            "value": "fakeBearerToken1234567890",
+            "start": 22,
+            "end": 47,
+            "confidence": 1.0
+          }
+        ]
+      },
+      "llm": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 1,
+        "residual_values": [
+          "alice.wang@example.com"
+        ],
+        "false_positive_values": [],
+        "benign_chars": 32,
+        "benign_chars_removed": 0,
+        "redacted_text": "Authorization: Bearer [REDACTED]; notify alice.wang@example.com.",
+        "findings": [
+          {
+            "type": "bearer_token",
+            "value": "fakeBearerToken1234567890",
+            "confidence": 0.9,
+            "start": 22,
+            "end": 47
+          }
+        ]
+      },
+      "hybrid": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0,
+        "residual_values": [],
+        "false_positive_values": [],
+        "benign_chars": 32,
+        "benign_chars_removed": 0,
+        "redacted_text": "Authorization: Bearer [REDACTED]; notify [REDACTED].",
+        "findings": [
+          {
+            "type": "email",
+            "value": "alice.wang@example.com",
+            "start": 56,
+            "end": 78,
+            "confidence": 1.0
+          },
+          {
+            "type": "bearer_token",
+            "value": "fakeBearerToken1234567890",
+            "start": 22,
+            "end": 47,
+            "confidence": 1.0
+          }
+        ]
+      }
+    },
+    "llm_parse_error": null,
+    "hybrid_parse_error": null
+  },
+  {
+    "case_id": "negative_numbers",
+    "original": "Metrics: latency 13800138000 ns, build 4111111111111112 vectors, model XR-7003. None identify a person.",
+    "gold": [],
+    "arms": {
+      "regex": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "residual_values": [],
+        "false_positive_values": [
+          "13800138000"
+        ],
+        "benign_chars": 103,
+        "benign_chars_removed": 11,
+        "redacted_text": "Metrics: latency [REDACTED] ns, build 4111111111111112 vectors, model XR-7003. None identify a person.",
+        "findings": [
+          {
+            "type": "cn_phone",
+            "value": "13800138000",
+            "start": 17,
+            "end": 28,
+            "confidence": 1.0
+          }
+        ]
+      },
+      "llm": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "residual_values": [],
+        "false_positive_values": [],
+        "benign_chars": 103,
+        "benign_chars_removed": 0,
+        "redacted_text": "Metrics: latency 13800138000 ns, build 4111111111111112 vectors, model XR-7003. None identify a person.",
+        "findings": []
+      },
+      "hybrid": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "residual_values": [],
+        "false_positive_values": [
+          "13800138000"
+        ],
+        "benign_chars": 103,
+        "benign_chars_removed": 11,
+        "redacted_text": "Metrics: latency [REDACTED] ns, build 4111111111111112 vectors, model XR-7003. None identify a person.",
+        "findings": [
+          {
+            "type": "cn_phone",
+            "value": "13800138000",
+            "start": 17,
+            "end": 28,
+            "confidence": 1.0
+          }
+        ]
+      }
+    },
+    "llm_parse_error": null,
+    "hybrid_parse_error": null
+  },
+  {
+    "case_id": "negative_language",
+    "original": "The password field must contain at least 12 characters. Never log a user's real password.",
+    "gold": [],
+    "arms": {
+      "regex": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "residual_values": [],
+        "false_positive_values": [],
+        "benign_chars": 89,
+        "benign_chars_removed": 0,
+        "redacted_text": "The password field must contain at least 12 characters. Never log a user's real password.",
+        "findings": []
+      },
+      "llm": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "residual_values": [],
+        "false_positive_values": [],
+        "benign_chars": 89,
+        "benign_chars_removed": 0,
+        "redacted_text": "The password field must contain at least 12 characters. Never log a user's real password.",
+        "findings": []
+      },
+      "hybrid": {
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "residual_values": [],
+        "false_positive_values": [],
+        "benign_chars": 89,
+        "benign_chars_removed": 0,
+        "redacted_text": "The password field must contain at least 12 characters. Never log a user's real password.",
+        "findings": []
+      }
+    },
+    "llm_parse_error": null,
+    "hybrid_parse_error": null
+  },
+  {
+    "case_id": "mixed_context",
+    "original": "Support transcript: 'call me at 13912345678'. Agent replied that order 13912345679 ships tomorrow and wrote password: hunter2xyz.",
+    "gold": [
+      [
+        "cn_phone",
+        "13912345678"
+      ],
+      [
+        "password",
+        "hunter2xyz"
+      ]
+    ],
+    "arms": {
+      "regex": {
+        "tp": 2,
+        "fp": 1,
+        "fn": 0,
+        "residual_values": [],
+        "false_positive_values": [
+          "13912345679"
+        ],
+        "benign_chars": 108,
+        "benign_chars_removed": 11,
+        "redacted_text": "Support transcript: 'call me at [REDACTED]'. Agent replied that order [REDACTED] ships tomorrow and wrote password: [REDACTED].",
+        "findings": [
+          {
+            "type": "cn_phone",
+            "value": "13912345678",
+            "start": 32,
+            "end": 43,
+            "confidence": 1.0
+          },
+          {
+            "type": "cn_phone",
+            "value": "13912345679",
+            "start": 71,
+            "end": 82,
+            "confidence": 1.0
+          },
+          {
+            "type": "password",
+            "value": "hunter2xyz",
+            "start": 118,
+            "end": 128,
+            "confidence": 1.0
+          }
+        ]
+      },
+      "llm": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 1,
+        "residual_values": [
+          "13912345678"
+        ],
+        "false_positive_values": [],
+        "benign_chars": 108,
+        "benign_chars_removed": 0,
+        "redacted_text": "Support transcript: 'call me at 13912345678'. Agent replied that order 13912345679 ships tomorrow and wrote password: [REDACTED].",
+        "findings": [
+          {
+            "type": "password",
+            "value": "hunter2xyz",
+            "confidence": 0.9,
+            "start": 118,
+            "end": 128
+          }
+        ]
+      },
+      "hybrid": {
+        "tp": 2,
+        "fp": 1,
+        "fn": 0,
+        "residual_values": [],
+        "false_positive_values": [
+          "13912345679"
+        ],
+        "benign_chars": 108,
+        "benign_chars_removed": 11,
+        "redacted_text": "Support transcript: 'call me at [REDACTED]'. Agent replied that order [REDACTED] ships tomorrow and wrote password: [REDACTED].",
+        "findings": [
+          {
+            "type": "cn_phone",
+            "value": "13912345678",
+            "start": 32,
+            "end": 43,
+            "confidence": 1.0
+          },
+          {
+            "type": "cn_phone",
+            "value": "13912345679",
+            "start": 71,
+            "end": 82,
+            "confidence": 1.0
+          },
+          {
+            "type": "password",
+            "value": "hunter2xyz",
+            "start": 118,
+            "end": 128,
+            "confidence": 1.0
+          }
+        ]
+      }
+    },
+    "llm_parse_error": null,
+    "hybrid_parse_error": null
+  }
+]

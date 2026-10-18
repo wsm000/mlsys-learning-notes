@@ -1,0 +1,27 @@
+{
+  "label": "email_bearer-hybrid",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Extract sensitive information from the log. Distinguish disclosed private values from product IDs, metrics, order IDs, instructions and explicit decoys. Types: cn_id_card, cn_phone, us_ssn, credit_card, password, secret, address, medical_record, medical_diagnosis, treatment, passport, bank_account, routing_number, bearer_token, email. Return JSON only: {\"findings\":[{\"type\":\"password\",\"value\":\"exact substring\",\"confidence\":0.9}]}. No findings: {\"findings\":[]}. Values must be copied exactly; do not include descriptive prefixes. Ignore [REDACTED]."
+    },
+    {
+      "role": "user",
+      "content": "Authorization: Bearer [REDACTED]; notify [REDACTED]."
+    }
+  ],
+  "raw_output": "```json\n{\"findings\": [{\"type\":\"bearer_token\",\"value\":\"[REDACTED]\"}]}\n```",
+  "parsed_findings": [
+    {
+      "type": "bearer_token",
+      "value": "[REDACTED]",
+      "start": 22,
+      "end": 32
+    }
+  ],
+  "parse_error": null,
+  "input_tokens": 157,
+  "output_tokens": 25,
+  "latency_seconds": 0.7558851344510913,
+  "finish": "eos"
+}

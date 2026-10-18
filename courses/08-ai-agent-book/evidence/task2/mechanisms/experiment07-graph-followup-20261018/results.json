@@ -1,0 +1,381 @@
+{
+  "status": "completed",
+  "scope": "targeted mechanism demonstration; response-container compatibility then live entity-name constraint for C2 only",
+  "original_receipts_sha256": "45c8e1df92c2180b51ad340c3f95ed48bd726b019a594d8157134252c256d003",
+  "baseline": {
+    "edges": [
+      {
+        "subject": "青禾蜂场",
+        "relation": "管理",
+        "object": "蜂群A",
+        "source_id": "C1",
+        "source_text": "青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。"
+      },
+      {
+        "subject": "蜂群A",
+        "relation": "发现",
+        "object": "蜂螨",
+        "source_id": "C2",
+        "source_text": "蜂群A发现蜂螨。蜂螨防治参考手册M。"
+      },
+      {
+        "subject": "蜂螨防治参考手册",
+        "relation": "参考",
+        "object": "M",
+        "source_id": "C2",
+        "source_text": "蜂群A发现蜂螨。蜂螨防治参考手册M。"
+      },
+      {
+        "subject": "手册M",
+        "relation": "要求",
+        "object": "监测蜂螨数量",
+        "source_id": "C3",
+        "source_text": "手册M要求先监测蜂螨数量，再决定防治措施。"
+      },
+      {
+        "subject": "监测蜂螨数量",
+        "relation": "先",
+        "object": "决定防治措施",
+        "source_id": "C3",
+        "source_text": "手册M要求先监测蜂螨数量，再决定防治措施。"
+      },
+      {
+        "subject": "河谷镇",
+        "relation": "冬季寒冷",
+        "object": "青禾蜂场",
+        "source_id": "C4",
+        "source_text": "河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。"
+      },
+      {
+        "subject": "青禾蜂场",
+        "relation": "冬季管理",
+        "object": "保温和饲料检查",
+        "source_id": "C4",
+        "source_text": "河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。"
+      },
+      {
+        "subject": "白石蜂场",
+        "relation": "管理",
+        "object": "蜂群B",
+        "source_id": "C5",
+        "source_text": "白石蜂场位于山岭镇。白石蜂场管理蜂群B。"
+      },
+      {
+        "subject": "蜂群B",
+        "relation": "缺少饲料",
+        "object": "饲料",
+        "source_id": "C6",
+        "source_text": "蜂群B缺少饲料。缺料处理参考手册N。"
+      },
+      {
+        "subject": "饲料",
+        "relation": "缺少",
+        "object": "饲料",
+        "source_id": "C6",
+        "source_text": "蜂群B缺少饲料。缺料处理参考手册N。"
+      },
+      {
+        "subject": "参考手册N",
+        "relation": "缺料处理",
+        "object": "处理",
+        "source_id": "C6",
+        "source_text": "蜂群B缺少饲料。缺料处理参考手册N。"
+      },
+      {
+        "subject": "手册N",
+        "relation": "要求",
+        "object": "补充饲料",
+        "source_id": "C7",
+        "source_text": "手册N要求补充饲料并检查饲喂器卫生。"
+      },
+      {
+        "subject": "饲料",
+        "relation": "补充",
+        "object": "饲料",
+        "source_id": "C7",
+        "source_text": "手册N要求补充饲料并检查饲喂器卫生。"
+      },
+      {
+        "subject": "饲喂器",
+        "relation": "检查",
+        "object": "卫生",
+        "source_id": "C7",
+        "source_text": "手册N要求补充饲料并检查饲喂器卫生。"
+      },
+      {
+        "subject": "山岭镇",
+        "relation": "冬季多风",
+        "object": "白石蜂场",
+        "source_id": "C8",
+        "source_text": "山岭镇冬季多风。白石蜂场的冬季管理包括防风和饮水检查。"
+      },
+      {
+        "subject": "白石蜂场",
+        "relation": "冬季管理",
+        "object": "防风和饮水检查",
+        "source_id": "C8",
+        "source_text": "山岭镇冬季多风。白石蜂场的冬季管理包括防风和饮水检查。"
+      }
+    ],
+    "traversal": {
+      "start": "青禾蜂场",
+      "max_hops": 4,
+      "visited_entities": [
+        "保温和饲料检查",
+        "蜂群A",
+        "蜂螨",
+        "青禾蜂场"
+      ],
+      "source_ids": [
+        "C1",
+        "C2",
+        "C4"
+      ],
+      "edge_indices": [
+        0,
+        1,
+        6
+      ],
+      "paths": [
+        {
+          "end": "蜂群A",
+          "edge_indices": [
+            0
+          ]
+        },
+        {
+          "end": "保温和饲料检查",
+          "edge_indices": [
+            6
+          ]
+        },
+        {
+          "end": "蜂螨",
+          "edge_indices": [
+            0,
+            1
+          ]
+        }
+      ],
+      "reaches_manual_M": false
+    },
+    "parse_errors": []
+  },
+  "controlled": {
+    "edges": [
+      {
+        "subject": "青禾蜂场",
+        "relation": "管理",
+        "object": "蜂群A",
+        "source_id": "C1",
+        "source_text": "青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。"
+      },
+      {
+        "subject": "手册M",
+        "relation": "要求",
+        "object": "监测蜂螨数量",
+        "source_id": "C3",
+        "source_text": "手册M要求先监测蜂螨数量，再决定防治措施。"
+      },
+      {
+        "subject": "监测蜂螨数量",
+        "relation": "先",
+        "object": "决定防治措施",
+        "source_id": "C3",
+        "source_text": "手册M要求先监测蜂螨数量，再决定防治措施。"
+      },
+      {
+        "subject": "河谷镇",
+        "relation": "冬季寒冷",
+        "object": "青禾蜂场",
+        "source_id": "C4",
+        "source_text": "河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。"
+      },
+      {
+        "subject": "青禾蜂场",
+        "relation": "冬季管理",
+        "object": "保温和饲料检查",
+        "source_id": "C4",
+        "source_text": "河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。"
+      },
+      {
+        "subject": "白石蜂场",
+        "relation": "管理",
+        "object": "蜂群B",
+        "source_id": "C5",
+        "source_text": "白石蜂场位于山岭镇。白石蜂场管理蜂群B。"
+      },
+      {
+        "subject": "蜂群B",
+        "relation": "缺少饲料",
+        "object": "饲料",
+        "source_id": "C6",
+        "source_text": "蜂群B缺少饲料。缺料处理参考手册N。"
+      },
+      {
+        "subject": "饲料",
+        "relation": "缺少",
+        "object": "饲料",
+        "source_id": "C6",
+        "source_text": "蜂群B缺少饲料。缺料处理参考手册N。"
+      },
+      {
+        "subject": "参考手册N",
+        "relation": "缺料处理",
+        "object": "处理",
+        "source_id": "C6",
+        "source_text": "蜂群B缺少饲料。缺料处理参考手册N。"
+      },
+      {
+        "subject": "手册N",
+        "relation": "要求",
+        "object": "补充饲料",
+        "source_id": "C7",
+        "source_text": "手册N要求补充饲料并检查饲喂器卫生。"
+      },
+      {
+        "subject": "饲料",
+        "relation": "补充",
+        "object": "饲料",
+        "source_id": "C7",
+        "source_text": "手册N要求补充饲料并检查饲喂器卫生。"
+      },
+      {
+        "subject": "饲喂器",
+        "relation": "检查",
+        "object": "卫生",
+        "source_id": "C7",
+        "source_text": "手册N要求补充饲料并检查饲喂器卫生。"
+      },
+      {
+        "subject": "山岭镇",
+        "relation": "冬季多风",
+        "object": "白石蜂场",
+        "source_id": "C8",
+        "source_text": "山岭镇冬季多风。白石蜂场的冬季管理包括防风和饮水检查。"
+      },
+      {
+        "subject": "白石蜂场",
+        "relation": "冬季管理",
+        "object": "防风和饮水检查",
+        "source_id": "C8",
+        "source_text": "山岭镇冬季多风。白石蜂场的冬季管理包括防风和饮水检查。"
+      },
+      {
+        "subject": "蜂群A",
+        "relation": "发现",
+        "object": "蜂螨",
+        "source_id": "C2",
+        "source_text": "蜂群A发现蜂螨。蜂螨防治参考手册M。"
+      },
+      {
+        "subject": "蜂螨",
+        "relation": "防治参考手册",
+        "object": "手册M",
+        "source_id": "C2",
+        "source_text": "蜂群A发现蜂螨。蜂螨防治参考手册M。"
+      }
+    ],
+    "traversal": {
+      "start": "青禾蜂场",
+      "max_hops": 4,
+      "visited_entities": [
+        "保温和饲料检查",
+        "手册M",
+        "监测蜂螨数量",
+        "蜂群A",
+        "蜂螨",
+        "青禾蜂场"
+      ],
+      "source_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ],
+      "edge_indices": [
+        0,
+        1,
+        4,
+        14,
+        15
+      ],
+      "paths": [
+        {
+          "end": "蜂群A",
+          "edge_indices": [
+            0
+          ]
+        },
+        {
+          "end": "保温和饲料检查",
+          "edge_indices": [
+            4
+          ]
+        },
+        {
+          "end": "蜂螨",
+          "edge_indices": [
+            0,
+            14
+          ]
+        },
+        {
+          "end": "手册M",
+          "edge_indices": [
+            0,
+            14,
+            15
+          ]
+        },
+        {
+          "end": "监测蜂螨数量",
+          "edge_indices": [
+            0,
+            14,
+            15,
+            1
+          ]
+        }
+      ],
+      "reaches_manual_M": true
+    },
+    "replacement_C2_edges": [
+      {
+        "subject": "蜂群A",
+        "relation": "发现",
+        "object": "蜂螨",
+        "source_id": "C2",
+        "source_text": "蜂群A发现蜂螨。蜂螨防治参考手册M。"
+      },
+      {
+        "subject": "蜂螨",
+        "relation": "防治参考手册",
+        "object": "手册M",
+        "source_id": "C2",
+        "source_text": "蜂群A发现蜂螨。蜂螨防治参考手册M。"
+      }
+    ],
+    "parse_error": null,
+    "allowed_names": [
+      "蜂群A",
+      "蜂螨",
+      "手册M"
+    ]
+  },
+  "answers": [
+    {
+      "method": "unconstrained_entity_names",
+      "question": "青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，手册要求先做什么？",
+      "context": "[C1] 青禾蜂场 --管理--> 蜂群A\n[C2] 蜂群A --发现--> 蜂螨\n[C4] 青禾蜂场 --冬季管理--> 保温和饲料检查",
+      "answer": "问题：青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，手册要求先做什么？\n\n证据：\n[C1] 青禾蜂场 --管理--> 蜂群A  \n[C2] 蜂群A --发现--> 蜂螨  \n[C4] 青禾蜂场 --冬季管理--> 保温和饲料检查  \n\n问题：蜂群遇到了蜂螨问题，应参考手册[C1]，手册要求先检查蜂群状态。"
+    },
+    {
+      "method": "controlled_entity_names",
+      "question": "青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，手册要求先做什么？",
+      "context": "[C1] 青禾蜂场 --管理--> 蜂群A\n[C3] 手册M --要求--> 监测蜂螨数量\n[C4] 青禾蜂场 --冬季管理--> 保温和饲料检查\n[C2] 蜂群A --发现--> 蜂螨\n[C2] 蜂螨 --防治参考手册--> 手册M",
+      "answer": "问题：青禾蜂场管理的蜂群遇到了蜂螨问题，应参考手册M，手册要求先监测蜂螨数量。"
+    }
+  ],
+  "limitations": "Allowed entity names supplied by experiment author; no automatic entity linking or full GraphRAG community pipeline. Endpoint grounding does not validate relation truth. Failed source relations retained."
+}

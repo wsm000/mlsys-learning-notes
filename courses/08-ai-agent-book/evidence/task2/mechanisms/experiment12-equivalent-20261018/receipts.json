@@ -1,0 +1,794 @@
+[
+  {
+    "label": "training-factor-discovery",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是案例资料整理员。仅根据训练观察发现3到6个有区分度、可从原文判断有无的二元因素。每个因素只表达一个条件。不要将处理措施、结果或案例编号当因素。输出JSON对象，factors字段为数组，每项含key（唯一英文下划线名）和description（中文条件）。不要解释。"
+      },
+      {
+        "role": "user",
+        "content": "训练观察：\n巡检时气温7摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。\n巡检时气温7摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。\n巡检时气温7摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。\n巡检时气温7摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。\n巡检时气温34摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。\n巡检时气温34摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。\n巡检时气温34摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。\n巡检时气温34摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。\n巡检时气温20摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。\n巡检时气温20摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。\n巡检时气温20摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。\n巡检时气温20摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "```json\n[\n  {\n    \"key\": \"气温\",\n    \"description\": \"7摄氏度\"\n  },\n  {\n    \"key\": \"蜂群活动\",\n    \"description\": \"偏少\"\n  },\n  {\n    \"key\": \"饲料储备\",\n    \"description\": \"不足\"\n  },\n  {\n    \"key\": \"通风\",\n    \"description\": \"正常\"\n  },\n  {\n    \"key\": \"蜂螨\",\n    \"description\": \"未发现\"\n  }\n]\n```",
+    "input_tokens": 504,
+    "output_tokens": 106,
+    "latency_ms": 3761.712223291397,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T001",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温7摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  1,\n  0,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 175,
+    "output_tokens": 23,
+    "latency_ms": 720.7460422068834,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T002",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温8摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  1,\n  0,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 175,
+    "output_tokens": 23,
+    "latency_ms": 722.2873726859689,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T003",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温9摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  1,\n  0,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 175,
+    "output_tokens": 23,
+    "latency_ms": 723.4638873487711,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T004",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温7摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  1,\n  0,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 175,
+    "output_tokens": 23,
+    "latency_ms": 725.9207032620907,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T005",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温8摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  1,\n  0,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 175,
+    "output_tokens": 23,
+    "latency_ms": 725.5759630352259,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T006",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温9摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  1,\n  0,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 175,
+    "output_tokens": 23,
+    "latency_ms": 723.1534859165549,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T007",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温7摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  1,\n  0,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 175,
+    "output_tokens": 23,
+    "latency_ms": 724.9512057751417,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T008",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温8摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  1,\n  0,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 175,
+    "output_tokens": 23,
+    "latency_ms": 723.0079490691423,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T009",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温9摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  1,\n  0,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 175,
+    "output_tokens": 23,
+    "latency_ms": 721.156551502645,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T010",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温7摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  1,\n  0,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 175,
+    "output_tokens": 23,
+    "latency_ms": 720.9231546148658,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T011",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温34摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  \"1\",\n  \"0\",\n  \"0\",\n  \"1\",\n  \"-1\"\n]",
+    "input_tokens": 181,
+    "output_tokens": 23,
+    "latency_ms": 723.8135198131204,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T012",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温35摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  \"1\",\n  \"0\",\n  \"0\",\n  \"1\",\n  \"-1\"\n]",
+    "input_tokens": 181,
+    "output_tokens": 23,
+    "latency_ms": 723.9112826064229,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T013",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温36摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  \"1\",\n  \"0\",\n  \"0\",\n  \"1\",\n  \"-1\"\n]",
+    "input_tokens": 181,
+    "output_tokens": 23,
+    "latency_ms": 722.7241927757859,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T014",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温34摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  \"1\",\n  \"0\",\n  \"0\",\n  \"1\",\n  \"-1\"\n]",
+    "input_tokens": 181,
+    "output_tokens": 23,
+    "latency_ms": 735.4485969990492,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T015",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温35摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  \"1\",\n  \"0\",\n  \"0\",\n  \"1\",\n  \"-1\"\n]",
+    "input_tokens": 181,
+    "output_tokens": 23,
+    "latency_ms": 734.4534443691373,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T016",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温36摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  \"1\",\n  \"0\",\n  \"0\",\n  \"1\",\n  \"-1\"\n]",
+    "input_tokens": 181,
+    "output_tokens": 23,
+    "latency_ms": 727.5131354108453,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T017",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温34摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  \"1\",\n  \"0\",\n  \"0\",\n  \"1\",\n  \"-1\"\n]",
+    "input_tokens": 181,
+    "output_tokens": 23,
+    "latency_ms": 727.3907195776701,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T018",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温35摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  \"1\",\n  \"0\",\n  \"0\",\n  \"1\",\n  \"-1\"\n]",
+    "input_tokens": 181,
+    "output_tokens": 23,
+    "latency_ms": 728.8876781240106,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T019",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温36摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  \"1\",\n  \"0\",\n  \"0\",\n  \"1\",\n  \"-1\"\n]",
+    "input_tokens": 181,
+    "output_tokens": 23,
+    "latency_ms": 729.274582117796,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T020",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温34摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  \"1\",\n  \"0\",\n  \"0\",\n  \"1\",\n  \"-1\"\n]",
+    "input_tokens": 181,
+    "output_tokens": 23,
+    "latency_ms": 729.4978825375438,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T021",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温20摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  0,\n  1,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 174,
+    "output_tokens": 23,
+    "latency_ms": 728.3368417993188,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T022",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温21摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  0,\n  1,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 174,
+    "output_tokens": 23,
+    "latency_ms": 729.9848720431328,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T023",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温22摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  0,\n  1,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 174,
+    "output_tokens": 23,
+    "latency_ms": 728.3424343913794,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T024",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温20摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  0,\n  1,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 174,
+    "output_tokens": 23,
+    "latency_ms": 727.3641992360353,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T025",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温21摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  0,\n  1,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 174,
+    "output_tokens": 23,
+    "latency_ms": 729.2177751660347,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T026",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温22摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  0,\n  1,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 174,
+    "output_tokens": 23,
+    "latency_ms": 726.9506836310029,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T027",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温20摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  0,\n  1,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 174,
+    "output_tokens": 23,
+    "latency_ms": 729.2486419901252,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T028",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温21摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  0,\n  1,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 174,
+    "output_tokens": 23,
+    "latency_ms": 725.1831460744143,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T029",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温22摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  0,\n  1,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 174,
+    "output_tokens": 23,
+    "latency_ms": 729.1374374181032,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-T030",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：巡检时气温20摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  0,\n  1,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 174,
+    "output_tokens": 23,
+    "latency_ms": 726.5120595693588,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-V001",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：另一次独立编号的巡检：巡检时气温8摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  1,\n  0,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 183,
+    "output_tokens": 23,
+    "latency_ms": 728.9685411378741,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-V002",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：另一次独立编号的巡检：巡检时气温9摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  1,\n  0,\n  1,\n  1,\n  -1\n]",
+    "input_tokens": 183,
+    "output_tokens": 23,
+    "latency_ms": 728.72210200876,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-V003",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：另一次独立编号的巡检：巡检时气温35摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  1,\n  0,\n  1,\n  0,\n  -1\n]",
+    "input_tokens": 189,
+    "output_tokens": 23,
+    "latency_ms": 730.4957574233413,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-V004",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：另一次独立编号的巡检：巡检时气温36摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  1,\n  0,\n  1,\n  0,\n  -1\n]",
+    "input_tokens": 189,
+    "output_tokens": 23,
+    "latency_ms": 730.9153713285923,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-V005",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：另一次独立编号的巡检：巡检时气温21摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  \"1\",\n  \"0\",\n  \"0\",\n  \"1\",\n  \"-1\"\n]",
+    "input_tokens": 182,
+    "output_tokens": 23,
+    "latency_ms": 729.0615066885948,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-V006",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：另一次独立编号的巡检：巡检时气温22摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  \"1\",\n  \"0\",\n  \"0\",\n  \"1\",\n  \"-1\"\n]",
+    "input_tokens": 182,
+    "output_tokens": 23,
+    "latency_ms": 726.3944512233138,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-V007",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：气温8摄氏度，饲料充足，通风正常，复查发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  1,\n  0,\n  0,\n  1,\n  -1\n]",
+    "input_tokens": 161,
+    "output_tokens": 23,
+    "latency_ms": 728.3020922914147,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-V008",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：气温35摄氏度，饲料不足，通风不足，饮水点缺水，复查发现蜂螨迹象。"
+      }
+    ],
+    "raw_output": "[\n  -1,\n  0,\n  1,\n  0,\n  1\n]",
+    "input_tokens": 167,
+    "output_tokens": 23,
+    "latency_ms": 727.188684977591,
+    "finish": "eos"
+  },
+  {
+    "label": "extract-V009",
+    "messages": [
+      {
+        "role": "system",
+        "content": "按给定因素顺序从观察中提取值。条件存在=1，明确不存在=0，无法判断=-1。只输出JSON数字数组，每个因素一个值。注意否定词。不要解释，不要推测未记录的信息。"
+      },
+      {
+        "role": "user",
+        "content": "因素顺序：[{\"key\": \"气温\", \"description\": \"7摄氏度\"}, {\"key\": \"蜂群活动\", \"description\": \"偏少\"}, {\"key\": \"饲料储备\", \"description\": \"不足\"}, {\"key\": \"通风\", \"description\": \"正常\"}, {\"key\": \"蜂螨\", \"description\": \"未发现\"}]\n观察：仅记录蜂群活动偏少，气温、饲料、通风及蜂螨检查结果均未记录。"
+      }
+    ],
+    "raw_output": "[-1, -1, -1, -1, -1]",
+    "input_tokens": 165,
+    "output_tokens": 16,
+    "latency_ms": 509.72091779112816,
+    "finish": "eos"
+  },
+  {
+    "label": "prototype-report-V001",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你在解释虚构教学案例的匹配结果。仅描述最接近的训练簇、该簇记录数量与常见处置记录，不把相关性说成因果或疗效，不提供实际养蜂处方。缺信息或偏离训练分布时明确不能可靠类推。不超过150字。"
+      },
+      {
+        "role": "user",
+        "content": "新观察：另一次独立编号的巡检：巡检时气温8摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。\n匹配诊断：{\"id\": \"V001\", \"observation\": \"另一次独立编号的巡检：巡检时气温8摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。\", \"cluster\": 1, \"distance\": 6.280369834735101e-16, \"outside_training_distance_threshold\": false, \"unknown_factor_count\": 1, \"prototype_common_action\": \"记录补给与保温处理\", \"decision_tree_action\": \"记录补给与保温处理\"}\n训练簇统计：{\"cluster\": 1, \"training_case_ids\": [\"T001\", \"T002\", \"T003\", \"T004\", \"T005\", \"T006\", \"T007\", \"T008\", \"T009\", \"T010\"], \"count\": 10, \"factor_means\": {\"气温\": 1.0, \"蜂群活动\": 0.0, \"饲料储备\": 1.0, \"通风\": 1.0, \"蜂螨\": 0.5}, \"recorded_actions\": {\"记录补给与保温处理\": 10}, \"recorded_outcomes\": {\"后续仍需观察\": 3, \"后续活动恢复\": 7}, \"most_common_recorded_action\": \"记录补给与保温处理\"}"
+      }
+    ],
+    "raw_output": "训练簇1记录10次，记录补给与保温处理，未发现蜂螨，气温8℃，活动偏少，匹配诊断为记录补给与保温处理。",
+    "input_tokens": 438,
+    "output_tokens": 39,
+    "latency_ms": 1228.7461971864104,
+    "finish": "eos"
+  },
+  {
+    "label": "prototype-report-V003",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你在解释虚构教学案例的匹配结果。仅描述最接近的训练簇、该簇记录数量与常见处置记录，不把相关性说成因果或疗效，不提供实际养蜂处方。缺信息或偏离训练分布时明确不能可靠类推。不超过150字。"
+      },
+      {
+        "role": "user",
+        "content": "新观察：另一次独立编号的巡检：巡检时气温35摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。\n匹配诊断：{\"id\": \"V003\", \"observation\": \"另一次独立编号的巡检：巡检时气温35摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。\", \"cluster\": 1, \"distance\": 1.0, \"outside_training_distance_threshold\": true, \"unknown_factor_count\": 1, \"prototype_common_action\": \"记录补给与保温处理\", \"decision_tree_action\": \"记录补给与保温处理\"}\n训练簇统计：{\"cluster\": 1, \"training_case_ids\": [\"T001\", \"T002\", \"T003\", \"T004\", \"T005\", \"T006\", \"T007\", \"T008\", \"T009\", \"T010\"], \"count\": 10, \"factor_means\": {\"气温\": 1.0, \"蜂群活动\": 0.0, \"饲料储备\": 1.0, \"通风\": 1.0, \"蜂螨\": 0.5}, \"recorded_actions\": {\"记录补给与保温处理\": 10}, \"recorded_outcomes\": {\"后续仍需观察\": 3, \"后续活动恢复\": 7}, \"most_common_recorded_action\": \"记录补给与保温处理\"}"
+      }
+    ],
+    "raw_output": "训练簇1记录10次，记录补给与保温处理，未发现蜂螨，气温35℃，通风不足。",
+    "input_tokens": 432,
+    "output_tokens": 29,
+    "latency_ms": 915.5287407338619,
+    "finish": "eos"
+  },
+  {
+    "label": "prototype-report-V005",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你在解释虚构教学案例的匹配结果。仅描述最接近的训练簇、该簇记录数量与常见处置记录，不把相关性说成因果或疗效，不提供实际养蜂处方。缺信息或偏离训练分布时明确不能可靠类推。不超过150字。"
+      },
+      {
+        "role": "user",
+        "content": "新观察：另一次独立编号的巡检：巡检时气温21摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。\n匹配诊断：{\"id\": \"V005\", \"observation\": \"另一次独立编号的巡检：巡检时气温21摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。\", \"cluster\": 2, \"distance\": 0.0, \"outside_training_distance_threshold\": false, \"unknown_factor_count\": 5, \"prototype_common_action\": \"记录改善环境与供水处理\", \"decision_tree_action\": \"记录改善环境与供水处理\"}\n训练簇统计：{\"cluster\": 2, \"training_case_ids\": [\"T011\", \"T012\", \"T013\", \"T014\", \"T015\", \"T016\", \"T017\", \"T018\", \"T019\", \"T020\"], \"count\": 10, \"factor_means\": {\"气温\": 0.5, \"蜂群活动\": 0.5, \"饲料储备\": 1.0, \"通风\": 1.0, \"蜂螨\": 0.5}, \"recorded_actions\": {\"记录改善环境与供水处理\": 10}, \"recorded_outcomes\": {\"后续活动恢复\": 8, \"后续仍需观察\": 2}, \"most_common_recorded_action\": \"记录改善环境与供水处理\"}"
+      }
+    ],
+    "raw_output": "训练簇2记录10次，记录改善环境与供水处理，匹配诊断为蜂螨迹象。",
+    "input_tokens": 418,
+    "output_tokens": 23,
+    "latency_ms": 728.1315913423896,
+    "finish": "eos"
+  },
+  {
+    "label": "prototype-report-V009",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你在解释虚构教学案例的匹配结果。仅描述最接近的训练簇、该簇记录数量与常见处置记录，不把相关性说成因果或疗效，不提供实际养蜂处方。缺信息或偏离训练分布时明确不能可靠类推。不超过150字。"
+      },
+      {
+        "role": "user",
+        "content": "新观察：仅记录蜂群活动偏少，气温、饲料、通风及蜂螨检查结果均未记录。\n匹配诊断：{\"id\": \"V009\", \"observation\": \"仅记录蜂群活动偏少，气温、饲料、通风及蜂螨检查结果均未记录。\", \"cluster\": 2, \"distance\": 0.0, \"outside_training_distance_threshold\": false, \"unknown_factor_count\": 5, \"prototype_common_action\": \"记录改善环境与供水处理\", \"decision_tree_action\": \"记录改善环境与供水处理\"}\n训练簇统计：{\"cluster\": 2, \"training_case_ids\": [\"T011\", \"T012\", \"T013\", \"T014\", \"T015\", \"T016\", \"T017\", \"T018\", \"T019\", \"T020\"], \"count\": 10, \"factor_means\": {\"气温\": 0.5, \"蜂群活动\": 0.5, \"饲料储备\": 1.0, \"通风\": 1.0, \"蜂螨\": 0.5}, \"recorded_actions\": {\"记录改善环境与供水处理\": 10}, \"recorded_outcomes\": {\"后续活动恢复\": 8, \"后续仍需观察\": 2}, \"most_common_recorded_action\": \"记录改善环境与供水处理\"}"
+      }
+    ],
+    "raw_output": "训练簇2记录10个案例，均未记录蜂群活动、气温、饲料、通风及蜂螨等关键信息，且未记录改善环境与供水处理。该簇最接近匹配诊断，未提供实际养蜂处方。",
+    "input_tokens": 384,
+    "output_tokens": 52,
+    "latency_ms": 1636.518427170813,
+    "finish": "eos"
+  }
+]

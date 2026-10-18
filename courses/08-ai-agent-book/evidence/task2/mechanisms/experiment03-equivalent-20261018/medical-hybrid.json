@@ -1,0 +1,20 @@
+{
+  "label": "medical-hybrid",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Extract sensitive information from the log. Distinguish disclosed private values from product IDs, metrics, order IDs, instructions and explicit decoys. Types: cn_id_card, cn_phone, us_ssn, credit_card, password, secret, address, medical_record, medical_diagnosis, treatment, passport, bank_account, routing_number, bearer_token, email. Return JSON only: {\"findings\":[{\"type\":\"password\",\"value\":\"exact substring\",\"confidence\":0.9}]}. No findings: {\"findings\":[]}. Values must be copied exactly; do not include descriptive prefixes. Ignore [REDACTED]."
+    },
+    {
+      "role": "user",
+      "content": "Chart note: patient Maria Chen, MRN-789456, was diagnosed with stage II breast cancer and starts doxorubicin Friday."
+    }
+  ],
+  "raw_output": "```json\n{\"findings\": [{\"type\":\"password\",\"value\":\"exact substring\",\"confidence\":0.9}]}\n```",
+  "parsed_findings": [],
+  "parse_error": null,
+  "input_tokens": 172,
+  "output_tokens": 26,
+  "latency_seconds": 0.7828187113627791,
+  "finish": "eos"
+}

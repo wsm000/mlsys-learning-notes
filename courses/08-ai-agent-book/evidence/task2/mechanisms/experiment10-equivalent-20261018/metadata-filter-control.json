@@ -1,0 +1,148 @@
+{
+  "status": "completed",
+  "method": "Local deterministic replay of saved plain dense scores; exact title-derived metadata constraints explicitly present in queries, then original dense score order. No additional encoder or model calls.",
+  "prefixes_equal_titles": true,
+  "hits_at_1": 6,
+  "queries": 6,
+  "results": [
+    {
+      "query_id": "Q1",
+      "question": "青禾蜂场2025年春季蜂蜜产量变化多少，主要来自哪种蜂蜜？",
+      "constraints": {
+        "farm": "青禾蜂场",
+        "year": "2025",
+        "season": "春季"
+      },
+      "candidate_ids": [
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "ranking": [
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "gold": [
+        "A1"
+      ],
+      "hit_at_1": 1
+    },
+    {
+      "query_id": "Q2",
+      "question": "白石蜂场2025年春季蜂蜜产量为什么下降？",
+      "constraints": {
+        "farm": "白石蜂场",
+        "year": "2025",
+        "season": "春季"
+      },
+      "candidate_ids": [
+        "B1",
+        "B2",
+        "B3"
+      ],
+      "ranking": [
+        "B1",
+        "B2",
+        "B3"
+      ],
+      "gold": [
+        "B1"
+      ],
+      "hit_at_1": 1
+    },
+    {
+      "query_id": "Q3",
+      "question": "青禾蜂场2025年秋季蜂蜜产量变化多少，主要来自哪种蜂蜜？",
+      "constraints": {
+        "farm": "青禾蜂场",
+        "year": "2025",
+        "season": "秋季"
+      },
+      "candidate_ids": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "ranking": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "gold": [
+        "C1"
+      ],
+      "hit_at_1": 1
+    },
+    {
+      "query_id": "Q4",
+      "question": "青禾蜂场2024年春季蜂蜜产量变化多少，主要来自哪种蜂蜜？",
+      "constraints": {
+        "farm": "青禾蜂场",
+        "year": "2024",
+        "season": "春季"
+      },
+      "candidate_ids": [
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "ranking": [
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "gold": [
+        "D1"
+      ],
+      "hit_at_1": 1
+    },
+    {
+      "query_id": "Q5",
+      "question": "青禾蜂场2025年春季增加了多少箱蜂？",
+      "constraints": {
+        "farm": "青禾蜂场",
+        "year": "2025",
+        "season": "春季"
+      },
+      "candidate_ids": [
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "ranking": [
+        "A2",
+        "A1",
+        "A3"
+      ],
+      "gold": [
+        "A2"
+      ],
+      "hit_at_1": 1
+    },
+    {
+      "query_id": "Q6",
+      "question": "青禾蜂场2024年春季增加了多少箱蜂？",
+      "constraints": {
+        "farm": "青禾蜂场",
+        "year": "2024",
+        "season": "春季"
+      },
+      "candidate_ids": [
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "ranking": [
+        "D2",
+        "D1",
+        "D3"
+      ],
+      "gold": [
+        "D2"
+      ],
+      "hit_at_1": 1
+    }
+  ],
+  "limits": "All questions explicitly specify these three fields; this is not an automatic temporal-intent parser or a general metadata benchmark."
+}
