@@ -13,7 +13,7 @@
 | [Task0](notes/task00-agent-basics-and-environment.md) | Agent 基础、环境准备、官方离线演示、MiMo 上下文对照 | 已记录实跑结果 |
 | [Task1](notes/task01-context-engineering-reflection.md) | Chapter 2：上下文工程 | 学习心得、注意力图、六组提示消融与资料快照压缩实验 |
 | [Task2](notes/task02-memory-rag/Task2_十二项实验机制总览.md) | Chapter 3：用户记忆与 RAG | 十二项机制学习与等价实验；[全量记忆验收说明](notes/task02-memory-rag/从238到240_全量验收补充报告.md)：原配置238/240，恢复后240/240 |
-| Task3 | Chapter 4：Tools 与 MCP | 待学习 |
+| [Task3](notes/task03-tools-and-mcp.md) | Chapter 4：Tools 与 MCP | 工具分类、MCP 接口与执行工具实测；已注明未验证范围 |
 | Task4 | Chapter 5：Coding Agent | 待学习 |
 | Task5 | Chapter 10：Multi-Agent 协作 | 待学习 |
 
