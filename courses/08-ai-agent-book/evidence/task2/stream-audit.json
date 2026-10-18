@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "successful_streams": 4,
+  "checks": [
+    {
+      "purpose": "3-1/3-2 answer layer2_07_multiple_medications advanced_json_cards",
+      "model": "DeepSeek-V4-Flash",
+      "stream_sha256": "96f241258f1f3711915850184dbcc8eecb3840d96de934dcd9c8d09d4756530a",
+      "content_characters": 1646,
+      "reasoning_characters": 0,
+      "finish_reason": "stop",
+      "usage_available": true,
+      "response_matches_stream": true
+    },
+    {
+      "purpose": "3-1/3-2 memory update layer2_07_multiple_medications advanced_json_cards session 3",
+      "model": "DeepSeek-V4-Flash",
+      "stream_sha256": "c1a6e09523283c99facedf89d078cdf06e5e6e2d1e8df64a9d06bb1659a5d632",
+      "content_characters": 15428,
+      "reasoning_characters": 0,
+      "finish_reason": "stop",
+      "usage_available": true,
+      "response_matches_stream": true
+    },
+    {
+      "purpose": "3-1/3-2 independent judge layer3_13_emergency_medical_cascade json_cards",
+      "model": "Qwen3.8-Flash-Next",
+      "stream_sha256": "a7a7093ff32b869901c8c84b68adbfdbda1ae69c91a50a3146684b0b2f1014fd",
+      "content_characters": 2957,
+      "reasoning_characters": 15253,
+      "finish_reason": "stop",
+      "usage_available": true,
+      "response_matches_stream": true
+    },
+    {
+      "purpose": "3-1/3-2 independent judge layer2_07_multiple_medications advanced_json_cards",
+      "model": "Qwen3.8-Flash-Next",
+      "stream_sha256": "86d6c44345aaebbd626feb501952d9598361a7e981bef794d5cff919a1c5b120",
+      "content_characters": 3189,
+      "reasoning_characters": 6383,
+      "finish_reason": "stop",
+      "usage_available": true,
+      "response_matches_stream": true
+    }
+  ],
+  "baseline_checkpoints_unchanged": 240
+}

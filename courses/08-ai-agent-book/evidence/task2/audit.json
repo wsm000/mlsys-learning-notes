@@ -1,0 +1,4731 @@
+{
+  "status": "passed",
+  "audited_epoch": 1792296866.9930608,
+  "coverage_completed": 240,
+  "coverage_expected": 240,
+  "counts": {
+    "checkpoints": 240,
+    "completed": 240,
+    "states_audited": 560
+  },
+  "errors": [],
+  "missing": [],
+  "aggregate": {
+    "notes": {
+      "layer1": {
+        "completed": 20,
+        "expected": 20,
+        "quality_pass_rate": 0.95,
+        "mean_reward": 0.978125,
+        "hallucination_rate": 0.0,
+        "tokens": 151376,
+        "reported_cost": 0.023337731199999996
+      },
+      "layer2": {
+        "completed": 20,
+        "expected": 20,
+        "quality_pass_rate": 0.35,
+        "mean_reward": 0.65625,
+        "hallucination_rate": 0.1,
+        "tokens": 269358,
+        "reported_cost": 0.0454238736
+      },
+      "layer3": {
+        "completed": 20,
+        "expected": 20,
+        "quality_pass_rate": 0.35,
+        "mean_reward": 0.534375,
+        "hallucination_rate": 0.3,
+        "tokens": 305201,
+        "reported_cost": 0.05163090800000002
+      },
+      "overall": {
+        "completed": 60,
+        "expected": 60,
+        "quality_pass_rate": 0.55,
+        "mean_reward": 0.7229166666666667,
+        "hallucination_rate": 0.13333333333333333,
+        "tokens": 725935,
+        "reported_cost": 0.12039251279999998
+      }
+    },
+    "enhanced_notes": {
+      "layer1": {
+        "completed": 20,
+        "expected": 20,
+        "quality_pass_rate": 0.95,
+        "mean_reward": 0.971875,
+        "hallucination_rate": 0.0,
+        "tokens": 145728,
+        "reported_cost": 0.023133157600000006
+      },
+      "layer2": {
+        "completed": 20,
+        "expected": 20,
+        "quality_pass_rate": 0.6,
+        "mean_reward": 0.696875,
+        "hallucination_rate": 0.15,
+        "tokens": 292845,
+        "reported_cost": 0.0469885024
+      },
+      "layer3": {
+        "completed": 20,
+        "expected": 20,
+        "quality_pass_rate": 0.55,
+        "mean_reward": 0.696875,
+        "hallucination_rate": 0.15,
+        "tokens": 327439,
+        "reported_cost": 0.0524349112
+      },
+      "overall": {
+        "completed": 60,
+        "expected": 60,
+        "quality_pass_rate": 0.7,
+        "mean_reward": 0.7885416666666667,
+        "hallucination_rate": 0.1,
+        "tokens": 766012,
+        "reported_cost": 0.12255657120000002
+      }
+    },
+    "json_cards": {
+      "layer1": {
+        "completed": 20,
+        "expected": 20,
+        "quality_pass_rate": 0.95,
+        "mean_reward": 0.971875,
+        "hallucination_rate": 0.0,
+        "tokens": 174385,
+        "reported_cost": 0.024615141599999994
+      },
+      "layer2": {
+        "completed": 20,
+        "expected": 20,
+        "quality_pass_rate": 0.7,
+        "mean_reward": 0.715625,
+        "hallucination_rate": 0.2,
+        "tokens": 354601,
+        "reported_cost": 0.055338511199999996
+      },
+      "layer3": {
+        "completed": 20,
+        "expected": 20,
+        "quality_pass_rate": 0.65,
+        "mean_reward": 0.678125,
+        "hallucination_rate": 0.3,
+        "tokens": 553376,
+        "reported_cost": 0.08638880880000001
+      },
+      "overall": {
+        "completed": 60,
+        "expected": 60,
+        "quality_pass_rate": 0.7666666666666667,
+        "mean_reward": 0.7885416666666667,
+        "hallucination_rate": 0.16666666666666666,
+        "tokens": 1082362,
+        "reported_cost": 0.16634246159999996
+      }
+    },
+    "advanced_json_cards": {
+      "layer1": {
+        "completed": 20,
+        "expected": 20,
+        "quality_pass_rate": 0.9,
+        "mean_reward": 0.9625,
+        "hallucination_rate": 0.0,
+        "tokens": 173853,
+        "reported_cost": 0.0242658584
+      },
+      "layer2": {
+        "completed": 20,
+        "expected": 20,
+        "quality_pass_rate": 0.55,
+        "mean_reward": 0.63125,
+        "hallucination_rate": 0.3,
+        "tokens": 380866,
+        "reported_cost": 0.05721966879999999
+      },
+      "layer3": {
+        "completed": 20,
+        "expected": 20,
+        "quality_pass_rate": 0.55,
+        "mean_reward": 0.725,
+        "hallucination_rate": 0.1,
+        "tokens": 403631,
+        "reported_cost": 0.06148170559999999
+      },
+      "overall": {
+        "completed": 60,
+        "expected": 60,
+        "quality_pass_rate": 0.6666666666666666,
+        "mean_reward": 0.7729166666666667,
+        "hallucination_rate": 0.13333333333333333,
+        "tokens": 958350,
+        "reported_cost": 0.1429672328
+      }
+    }
+  },
+  "rows": [
+    {
+      "test_id": "layer1_01_bank_account",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 8626,
+      "reported_cost": 0.001208032,
+      "checkpoint_sha256": "057f0c072b9986c7b185affa2465bcb56e3423ad58d023c031f36d2207e33752"
+    },
+    {
+      "test_id": "layer1_01_bank_account",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6867,
+      "reported_cost": 0.0011428200000000001,
+      "checkpoint_sha256": "45d951f3307a854de9bfdf775e4b147846d629143a8a85e45489dd7ec4d337d1"
+    },
+    {
+      "test_id": "layer1_01_bank_account",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 4,
+      "failed_attempts": 1,
+      "total_tokens": 11039,
+      "reported_cost": 0.0012030983999999998,
+      "checkpoint_sha256": "722a0d28aae8c1fddeed723d9dd703cd5df4aaf44dc4eab8d12a68d75b394ce2"
+    },
+    {
+      "test_id": "layer1_01_bank_account",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6687,
+      "reported_cost": 0.0009267440000000001,
+      "checkpoint_sha256": "2cd6e545b6d6f645d2cf883c80fae8a236e2529428f06a193d6c9b9fe5e614c9"
+    },
+    {
+      "test_id": "layer1_02_insurance_claim",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 3,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.9375,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 9521,
+      "reported_cost": 0.0012864264000000002,
+      "checkpoint_sha256": "33ab33e389260e83bae704d87316d3118dca746abbaacaf720d518ac11fe4a3f"
+    },
+    {
+      "test_id": "layer1_02_insurance_claim",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7914,
+      "reported_cost": 0.00130368,
+      "checkpoint_sha256": "79323e7ed7f9812c6c064e259fe2d192a96b8c1949af5564035167b8797cefab"
+    },
+    {
+      "test_id": "layer1_02_insurance_claim",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 4,
+      "failed_attempts": 1,
+      "total_tokens": 14398,
+      "reported_cost": 0.0017938256000000002,
+      "checkpoint_sha256": "a31ab6fdeb2c0bead0bcade887b35d5eb87f39248de3570bb7c8e62b1abdfbe4"
+    },
+    {
+      "test_id": "layer1_02_insurance_claim",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 8074,
+      "reported_cost": 0.00134694,
+      "checkpoint_sha256": "0c7647ce24d4948485a132aa4219e95a3f6728335234577f261028974b0eb441"
+    },
+    {
+      "test_id": "layer1_03_medical_appointment",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 8835,
+      "reported_cost": 0.0011817288,
+      "checkpoint_sha256": "f082ac0dadd214919e38f0bb65b0a09981c55e6daf0515e4bf4c0055cde3faa3"
+    },
+    {
+      "test_id": "layer1_03_medical_appointment",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7521,
+      "reported_cost": 0.00124922,
+      "checkpoint_sha256": "8a28dd018232adea8406c62ecd0a6725aa8b10724ba659ad874d2f439f1647da"
+    },
+    {
+      "test_id": "layer1_03_medical_appointment",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 4,
+      "failed_attempts": 1,
+      "total_tokens": 12806,
+      "reported_cost": 0.0018421088,
+      "checkpoint_sha256": "e827fbec89a51077a5009c2715ae1826d817548948daea6000b66b48534dfa01"
+    },
+    {
+      "test_id": "layer1_03_medical_appointment",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7862,
+      "reported_cost": 0.00131824,
+      "checkpoint_sha256": "ab95dc2015c8107f91d91f193a883fdbb36bc4cd0415098ae7cd3ad93db81236"
+    },
+    {
+      "test_id": "layer1_04_airline_booking",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7419,
+      "reported_cost": 0.00123732,
+      "checkpoint_sha256": "ed8c9ca8e6a07d54efedf5dd9977e86db0be9c42bb639055066b4b3529246e05"
+    },
+    {
+      "test_id": "layer1_04_airline_booking",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 4,
+      "failed_attempts": 1,
+      "total_tokens": 7279,
+      "reported_cost": 0.0008682296000000001,
+      "checkpoint_sha256": "3afc98b11591db2cc86879825d4729984c2c2d14c64f2dd7095cb09a7da45b5a"
+    },
+    {
+      "test_id": "layer1_04_airline_booking",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 4,
+      "failed_attempts": 1,
+      "total_tokens": 7699,
+      "reported_cost": 0.0008994831999999999,
+      "checkpoint_sha256": "b67f3f527658d2e7b24512939a44a1658a66ac10c3187e943a45285c0ffbf709"
+    },
+    {
+      "test_id": "layer1_04_airline_booking",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7229,
+      "reported_cost": 0.00118622,
+      "checkpoint_sha256": "15cae100c48cbf5a085f3161f529560b45f7078d673a4c9f5ea18c8f0d0ab8bd"
+    },
+    {
+      "test_id": "layer1_05_internet_service",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7974,
+      "reported_cost": 0.0013463799999999999,
+      "checkpoint_sha256": "19061af1b9c79950d791da5d6c92783489935823d79d57e357b3d94df40553a9"
+    },
+    {
+      "test_id": "layer1_05_internet_service",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 4,
+      "failed_attempts": 1,
+      "total_tokens": 10316,
+      "reported_cost": 0.00167104,
+      "checkpoint_sha256": "8e9c8799c88a4abda029e4cd966e3c347403abb1a0aaab83785b4e38f4846125"
+    },
+    {
+      "test_id": "layer1_05_internet_service",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7666,
+      "reported_cost": 0.0012824,
+      "checkpoint_sha256": "29ece8f2ff593c9a16f1808d4d5b5acc6c80de8825e15f7a15a1ec9fb9e1a1a4"
+    },
+    {
+      "test_id": "layer1_05_internet_service",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6731,
+      "reported_cost": 0.0010787000000000001,
+      "checkpoint_sha256": "fb6c46cc1cfad6dea4e77e3b52c1f186e095dad58b8e0bdcf4e7dc4d86c38f44"
+    },
+    {
+      "test_id": "layer1_06_credit_card_app",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7765,
+      "reported_cost": 0.0010108112,
+      "checkpoint_sha256": "4ae8dbc09b366390a084f0362531628265f893db07dc9f865e747a2937bf1066"
+    },
+    {
+      "test_id": "layer1_06_credit_card_app",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7323,
+      "reported_cost": 0.0012318992,
+      "checkpoint_sha256": "d2b23023b503886830148533b14579b8f33e248597cfca2653271e30342b51ea"
+    },
+    {
+      "test_id": "layer1_06_credit_card_app",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 8319,
+      "reported_cost": 0.0011515112,
+      "checkpoint_sha256": "0627dcd03ea910d27a548fef0135d3d3c60955eb0a58b2a942321830302871fa"
+    },
+    {
+      "test_id": "layer1_06_credit_card_app",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7274,
+      "reported_cost": 0.000951356,
+      "checkpoint_sha256": "b1a7c2a717dc485674a9dc77cb0a9e97e737b76089a0ff871e13c2d820d4e721"
+    },
+    {
+      "test_id": "layer1_07_car_rental",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6884,
+      "reported_cost": 0.0008567328,
+      "checkpoint_sha256": "98ce54ef27e5dece2f382f9fdb7ff03b6c8b25e57a5fdca97d153ed470f938a9"
+    },
+    {
+      "test_id": "layer1_07_car_rental",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6664,
+      "reported_cost": 0.00111062,
+      "checkpoint_sha256": "4573a01efdb4a2b2e1a06d77532e2a1205aeaaf6a623a442c9dfe06d26026e2e"
+    },
+    {
+      "test_id": "layer1_07_car_rental",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7351,
+      "reported_cost": 0.0009659327999999999,
+      "checkpoint_sha256": "d8fa7020cfa612994d6850a4071a9663399b83b76e9a13043753a6c5f5f09011"
+    },
+    {
+      "test_id": "layer1_07_car_rental",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6286,
+      "reported_cost": 0.00102158,
+      "checkpoint_sha256": "1cbfe8859413b2245f60457a556bda2b7caa694b98ea1cb89f32c5bb5d172262"
+    },
+    {
+      "test_id": "layer1_08_hotel_reservation",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 1,
+        "recall": 4,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.75,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7613,
+      "reported_cost": 0.0011298952,
+      "checkpoint_sha256": "a92b6c56125f6a9215b9769a9f030fcc640cf53506f5de3839a73c1291fbfb21"
+    },
+    {
+      "test_id": "layer1_08_hotel_reservation",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6150,
+      "reported_cost": 0.0010091592,
+      "checkpoint_sha256": "1a4554f26bf14a6456549adde8df8a1148a4ccc0171974df0b7da592112e8c17"
+    },
+    {
+      "test_id": "layer1_08_hotel_reservation",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6625,
+      "reported_cost": 0.0008526952,
+      "checkpoint_sha256": "bca9f137cc13ccdc2733e64eaaeb3d100eec9f5ec63c84cb7ced5b9244703d36"
+    },
+    {
+      "test_id": "layer1_08_hotel_reservation",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6009,
+      "reported_cost": 0.0009867592,
+      "checkpoint_sha256": "3168302c6062aaa85cdb2b5f4324efc2fb8104a8ad8eed5d4a0ceaa06c972894"
+    },
+    {
+      "test_id": "layer1_09_home_security",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6838,
+      "reported_cost": 0.0008483328,
+      "checkpoint_sha256": "351cd31cb94cb9ba2f661c03c7038e28b28a8335e3f67c9cf5cde9dfbfdc4e1b"
+    },
+    {
+      "test_id": "layer1_09_home_security",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6531,
+      "reported_cost": 0.0007814128,
+      "checkpoint_sha256": "50ccdaa925623229815b1901f63595c9dcd6d96fee9922a777f8695444103a6c"
+    },
+    {
+      "test_id": "layer1_09_home_security",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6834,
+      "reported_cost": 0.0011484592,
+      "checkpoint_sha256": "deddae618b69e8dcbe2bc69cedf82fc38e028a47f32119170b00a99e0728c2d1"
+    },
+    {
+      "test_id": "layer1_09_home_security",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 5981,
+      "reported_cost": 0.00096026,
+      "checkpoint_sha256": "522ec5cb70f5a0cd44a0d13b11a25768e32bf7c06be91824a732ccae2d1dfa0e"
+    },
+    {
+      "test_id": "layer1_10_pharmacy_transfer",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 3
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.9375,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6092,
+      "reported_cost": 0.0007770168,
+      "checkpoint_sha256": "64a0f04fbf5e2d0c06f13d0dfc3fbb8a989fba34ebed2ac1e0e21f44bb0b20e9"
+    },
+    {
+      "test_id": "layer1_10_pharmacy_transfer",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 3
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.9375,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 5725,
+      "reported_cost": 0.0009451792,
+      "checkpoint_sha256": "f60d38243b35009c9fbbdfb5e407bd88e563eff6f6b640407adef608fbe8afe7"
+    },
+    {
+      "test_id": "layer1_10_pharmacy_transfer",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6301,
+      "reported_cost": 0.0008281168,
+      "checkpoint_sha256": "666affa1914612eb3b665b28bfb8224e71164056395408dcafb9074615e2d81b"
+    },
+    {
+      "test_id": "layer1_10_pharmacy_transfer",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 3
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.9375,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 5706,
+      "reported_cost": 0.0009366392,
+      "checkpoint_sha256": "e2768d23f7759d06c3625aa7657306bb12593b8835d277f4b58207029d4a41b1"
+    },
+    {
+      "test_id": "layer1_11_mortgage_application",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 1,
+        "recall": 4,
+        "reasoning": 1,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.625,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 9865,
+      "reported_cost": 0.0013923672000000001,
+      "checkpoint_sha256": "433bb13757a6de290189ead2a55563a596027f36c6b0ba613fd60193b18d2df2"
+    },
+    {
+      "test_id": "layer1_11_mortgage_application",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 1,
+        "recall": 4,
+        "reasoning": 1,
+        "proactivity": 2
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.5,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7976,
+      "reported_cost": 0.0010971968,
+      "checkpoint_sha256": "5d2e99e2c8cf472bd288036857ddb80f2aa0ddbbe6ea9931bec2802c91dbaf4a"
+    },
+    {
+      "test_id": "layer1_11_mortgage_application",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 1,
+        "recall": 4,
+        "reasoning": 1,
+        "proactivity": 3
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.5625,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 9356,
+      "reported_cost": 0.0012970272000000001,
+      "checkpoint_sha256": "ad579bfa46b7a39be1dff3a77443c6c8c40785fe37b8eede98a669151a5a7d53"
+    },
+    {
+      "test_id": "layer1_11_mortgage_application",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 1,
+        "recall": 4,
+        "reasoning": 1,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.625,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7749,
+      "reported_cost": 0.0012836992,
+      "checkpoint_sha256": "92f22f072c80f8f41100a0bdfa12aca65e42b3deaf8e3ed3f33b9d99455a3e72"
+    },
+    {
+      "test_id": "layer1_12_gym_membership",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 2,
+      "total_tokens": 10557,
+      "reported_cost": 0.00194054,
+      "checkpoint_sha256": "6107c728ff75dbcbd97bd10994830a7fbc74d33888241a91251a6f28338cad82"
+    },
+    {
+      "test_id": "layer1_12_gym_membership",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7673,
+      "reported_cost": 0.0013133792,
+      "checkpoint_sha256": "4f7afe38bea148bf729027d790c6ec6b704eef56efcaf5b54b6e13371c7c8318"
+    },
+    {
+      "test_id": "layer1_12_gym_membership",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 8669,
+      "reported_cost": 0.0012216511999999999,
+      "checkpoint_sha256": "8a8801e39dd52bb47bf5463133e6cacf242e3e38cbc0ade616c789ea1116817e"
+    },
+    {
+      "test_id": "layer1_12_gym_membership",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7900,
+      "reported_cost": 0.0013651791999999999,
+      "checkpoint_sha256": "997dcc2a81c716c997fc379f97aeeac3a6b2ba10f1ade9a92e0eb5234ed08520"
+    },
+    {
+      "test_id": "layer1_13_tax_preparation",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 9643,
+      "reported_cost": 0.0012943056000000001,
+      "checkpoint_sha256": "34f5d9252f91b1dac9a631c675590236e3439586fb1e434cbde58aff07648441"
+    },
+    {
+      "test_id": "layer1_13_tax_preparation",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 9013,
+      "reported_cost": 0.0015369592000000001,
+      "checkpoint_sha256": "613a8c2d9baf759d63a12ea5e531d76dfe9503253d13f37862e9337f4e7af907"
+    },
+    {
+      "test_id": "layer1_13_tax_preparation",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 10001,
+      "reported_cost": 0.0013844655999999999,
+      "checkpoint_sha256": "ecc8c53328d2891140a4f6a3657f796c68663ee54142e351fefc93c007a5222e"
+    },
+    {
+      "test_id": "layer1_13_tax_preparation",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 4,
+      "failed_attempts": 1,
+      "total_tokens": 13191,
+      "reported_cost": 0.0018441248,
+      "checkpoint_sha256": "36728f7803398c8282f3d0739cfaecced80121f73f72498b744f4e2c605c091b"
+    },
+    {
+      "test_id": "layer1_14_cellphone_upgrade",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 4,
+      "failed_attempts": 1,
+      "total_tokens": 7469,
+      "reported_cost": 0.0009750719999999999,
+      "checkpoint_sha256": "6b695d4dddd44ff875cfad029651a139b9464aba7bcd3125cb71787a197fb60c"
+    },
+    {
+      "test_id": "layer1_14_cellphone_upgrade",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7108,
+      "reported_cost": 0.0011877991999999999,
+      "checkpoint_sha256": "89202c5e2ef5c5d61cab081713a84b260348388070efbad3673dc55be4af43f4"
+    },
+    {
+      "test_id": "layer1_14_cellphone_upgrade",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 3,
+        "reasoning": 4,
+        "proactivity": 3
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.875,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7557,
+      "reported_cost": 0.0013059591999999998,
+      "checkpoint_sha256": "ee8f8ed082dd0a1b59aa8ea65183004b1dac6d0f3dac6f0902c98822efa70aa7"
+    },
+    {
+      "test_id": "layer1_14_cellphone_upgrade",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7684,
+      "reported_cost": 0.0013172992,
+      "checkpoint_sha256": "f804c664b0378cbe7a567a8cec587c33b203688b539634c8e5f27a2e5fd21d1e"
+    },
+    {
+      "test_id": "layer1_15_college_enrollment",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 2,
+      "total_tokens": 10128,
+      "reported_cost": 0.0013370559999999999,
+      "checkpoint_sha256": "9ff903783598ad7f68ad0bbb35231ada816778b6da33ba1d8fb3202a7baeedf2"
+    },
+    {
+      "test_id": "layer1_15_college_enrollment",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7840,
+      "reported_cost": 0.0013009191999999998,
+      "checkpoint_sha256": "59df7bd31d02f812d610dca37e8fc1043cd998387c10a996427b37d5771f78ea"
+    },
+    {
+      "test_id": "layer1_15_college_enrollment",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 9087,
+      "reported_cost": 0.0012591096,
+      "checkpoint_sha256": "cadd8616bee04d18011a88810b7dd63dc62afe97f896b4054fdb69b15200a4c0"
+    },
+    {
+      "test_id": "layer1_15_college_enrollment",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 2,
+      "total_tokens": 12134,
+      "reported_cost": 0.0011082568,
+      "checkpoint_sha256": "e57723c4982b31a87e273d03681beba32df5343b5ea2506acf8e1374b830a51a"
+    },
+    {
+      "test_id": "layer1_16_home_renovation",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 2,
+      "total_tokens": 13831,
+      "reported_cost": 0.0013388480000000001,
+      "checkpoint_sha256": "c635420f5aa6084d9eed6d7a3695d9290f6b6d1daff06f45402bbfd59b583abf"
+    },
+    {
+      "test_id": "layer1_16_home_renovation",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6493,
+      "reported_cost": 0.00109354,
+      "checkpoint_sha256": "1f99623bdb9326e9f73512590586260c3e78a600515ff55073e4df73a92f1eb6"
+    },
+    {
+      "test_id": "layer1_16_home_renovation",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 8340,
+      "reported_cost": 0.0012143936,
+      "checkpoint_sha256": "5f4760c8be738c93e0723e2233272406d7a4d1daa9fa1459127eb623be3c910f"
+    },
+    {
+      "test_id": "layer1_16_home_renovation",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7104,
+      "reported_cost": 0.001225,
+      "checkpoint_sha256": "c64befdf34520014655d8918c3a21d1124af47d2e4cfd61e9a74c3a03b463311"
+    },
+    {
+      "test_id": "layer1_17_veterinary_care",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 4,
+      "failed_attempts": 1,
+      "total_tokens": 12453,
+      "reported_cost": 0.0017732455999999999,
+      "checkpoint_sha256": "f90b8657f198051566854bb96e7d17f52e87b5e0a0773502e8f848588935104c"
+    },
+    {
+      "test_id": "layer1_17_veterinary_care",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6399,
+      "reported_cost": 0.0010840592000000001,
+      "checkpoint_sha256": "bdb1ddf96099889e0ed60f500b59a081d71846bc963b2de8ca847ab24cae7896"
+    },
+    {
+      "test_id": "layer1_17_veterinary_care",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7823,
+      "reported_cost": 0.0011607568,
+      "checkpoint_sha256": "e547c09c80dfbbe99d7cc6ca54882c14095ef43723b6d1475e7e0a70240781b1"
+    },
+    {
+      "test_id": "layer1_17_veterinary_care",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6600,
+      "reported_cost": 0.00113414,
+      "checkpoint_sha256": "91245ebc0df63dbed2379635f05cfe6941f70a8d96ed1b68dee5e23e84fd644b"
+    },
+    {
+      "test_id": "layer1_18_retirement_planning",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7723,
+      "reported_cost": 0.0010624936,
+      "checkpoint_sha256": "0fbe1959b66ae0154225d133281727fa4f23798d61dd3be1f156904dc1e85a79"
+    },
+    {
+      "test_id": "layer1_18_retirement_planning",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7123,
+      "reported_cost": 0.0011110904,
+      "checkpoint_sha256": "b10b5d466d34f32ff3b27af3fb7df7f29660632e77d694d05096f463fd6b401f"
+    },
+    {
+      "test_id": "layer1_18_retirement_planning",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7983,
+      "reported_cost": 0.0011161136,
+      "checkpoint_sha256": "949218811c0890ac223af89845f5d029e71bd7068334ae7d1d7086f0b8c92830"
+    },
+    {
+      "test_id": "layer1_18_retirement_planning",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7216,
+      "reported_cost": 0.0012307400000000001,
+      "checkpoint_sha256": "8a9758b0e17a24d491b94e09bbe6ad13216d0b6f02940932045dc73a8d0359a7"
+    },
+    {
+      "test_id": "layer1_19_wedding_venue",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6989,
+      "reported_cost": 0.0009417352,
+      "checkpoint_sha256": "e077953a6976d5a30ebfc8c81fe7e60c8032e44c0ae9401b9123ef9e8af9fb32"
+    },
+    {
+      "test_id": "layer1_19_wedding_venue",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7118,
+      "reported_cost": 0.0009704352,
+      "checkpoint_sha256": "d72b9d9193d002a7f7ebeee2896a3023ec349e918304c956b9f975525348346f"
+    },
+    {
+      "test_id": "layer1_19_wedding_venue",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 8266,
+      "reported_cost": 0.0014978992,
+      "checkpoint_sha256": "de3debcd1cc5be988b8854ffd6b9047a7516bd4be4188d3011ff2d4f8ef2122c"
+    },
+    {
+      "test_id": "layer1_19_wedding_venue",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6949,
+      "reported_cost": 0.0011999792,
+      "checkpoint_sha256": "db7ec4efc396bbe64bf5af17bc5bafeb385f9cbe95a7bcea58171da84bf5d170"
+    },
+    {
+      "test_id": "layer1_20_daycare_enrollment",
+      "layer": "layer1",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7628,
+      "reported_cost": 0.0013275192000000002,
+      "checkpoint_sha256": "6b50c487a573b2d0eafbfaf57118e155c5121dc790c325511418b5c53cece8bc"
+    },
+    {
+      "test_id": "layer1_20_daycare_enrollment",
+      "layer": "layer1",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 6695,
+      "reported_cost": 0.0011245191999999999,
+      "checkpoint_sha256": "a82964515c87bb4914237c52d2abfce191979d96aaba3203e9f3b9d43b43ea33"
+    },
+    {
+      "test_id": "layer1_20_daycare_enrollment",
+      "layer": "layer1",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 8265,
+      "reported_cost": 0.0011901344,
+      "checkpoint_sha256": "c19629a154a84b68d13473707c15f6afffe4cabfe8186ec5f420020ce2a04761"
+    },
+    {
+      "test_id": "layer1_20_daycare_enrollment",
+      "layer": "layer1",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 3,
+      "failed_attempts": 0,
+      "total_tokens": 7010,
+      "reported_cost": 0.0009158744,
+      "checkpoint_sha256": "4531d319544657fa642ff80cdeb8ba967f8c371935d042490d8471891381852d"
+    },
+    {
+      "test_id": "layer2_01_multiple_vehicles",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 1,
+        "recall": 4,
+        "reasoning": 2,
+        "proactivity": 3
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 5,
+      "failed_attempts": 1,
+      "total_tokens": 13496,
+      "reported_cost": 0.0015673896,
+      "checkpoint_sha256": "e56a9326e50dbf261ec0a8fdb1ab5300b2665d73aae4184d4685eb1ba83b8a65"
+    },
+    {
+      "test_id": "layer2_01_multiple_vehicles",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 1,
+      "total_tokens": 12373,
+      "reported_cost": 0.001552572,
+      "checkpoint_sha256": "214fc91c34c762b88a471c856ce1bcff8cfcc78e2c688d0a78925ec00344863b"
+    },
+    {
+      "test_id": "layer2_01_multiple_vehicles",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 1,
+        "recall": 3,
+        "reasoning": 2,
+        "proactivity": 2
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 4,
+      "failed_attempts": 0,
+      "total_tokens": 12391,
+      "reported_cost": 0.0020878592,
+      "checkpoint_sha256": "0e74b33d9c13499edf796c7e214fdaa4fdc4055f8b3a756081a38e3b6c0f2251"
+    },
+    {
+      "test_id": "layer2_01_multiple_vehicles",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 1,
+      "total_tokens": 11188,
+      "reported_cost": 0.0018133192000000002,
+      "checkpoint_sha256": "9b96964a2047ec03c5e832129d65bc45b672597d205cc6d71588d737fa44ceaa"
+    },
+    {
+      "test_id": "layer2_02_multiple_properties",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 4,
+      "failed_attempts": 0,
+      "total_tokens": 17210,
+      "reported_cost": 0.002594592,
+      "checkpoint_sha256": "db748d47b73bf888e841142838bd8d78052904bf6aaabc3abd3164b9ba7519c5"
+    },
+    {
+      "test_id": "layer2_02_multiple_properties",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 1,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 1
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.25,
+      "api_attempts": 4,
+      "failed_attempts": 0,
+      "total_tokens": 12150,
+      "reported_cost": 0.0020398,
+      "checkpoint_sha256": "c57dbd48292b34cb0adcf3acd4de8b7e4e89205e7a81455a8494f58f825cf506"
+    },
+    {
+      "test_id": "layer2_02_multiple_properties",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 4,
+      "failed_attempts": 0,
+      "total_tokens": 14903,
+      "reported_cost": 0.002136652,
+      "checkpoint_sha256": "39676a0dcecbf6a04baf43f8bc4225d73b767b5c97857ba065e3a5c1da1be003"
+    },
+    {
+      "test_id": "layer2_02_multiple_properties",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 1,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 1
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.25,
+      "api_attempts": 4,
+      "failed_attempts": 0,
+      "total_tokens": 11871,
+      "reported_cost": 0.0020017200000000002,
+      "checkpoint_sha256": "e85dac37b7a5c912f9588d63ae7a3543c670e6ad8260c99988055da395c502d4"
+    },
+    {
+      "test_id": "layer2_03_multiple_credit_cards",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 3,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.9375,
+      "api_attempts": 7,
+      "failed_attempts": 2,
+      "total_tokens": 24339,
+      "reported_cost": 0.0045220391999999995,
+      "checkpoint_sha256": "1d92b577c26d16786baca6fa564ae0853cc66c1cf0748961ef5026dd29f85981"
+    },
+    {
+      "test_id": "layer2_03_multiple_credit_cards",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 2,
+        "recall": 3,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 13,
+      "failed_attempts": 8,
+      "total_tokens": 25275,
+      "reported_cost": 0.0023355415999999998,
+      "checkpoint_sha256": "4aff90e533352c189a5cbd6133ecfb7343876c75025ec2eff2c82cb9d7a2b383"
+    },
+    {
+      "test_id": "layer2_03_multiple_credit_cards",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 2,
+        "recall": 3,
+        "reasoning": 2,
+        "proactivity": 4
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 20220,
+      "reported_cost": 0.00365666,
+      "checkpoint_sha256": "73655a2eb83027f4f4019b348db737c9d9fbef78785403136a0e01d1e753adb4"
+    },
+    {
+      "test_id": "layer2_03_multiple_credit_cards",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 15620,
+      "reported_cost": 0.00265272,
+      "checkpoint_sha256": "a0085b9e2e23e53b7f491addf395ca71b3400ce85d2cfefdbc6ca61e8e4352a9"
+    },
+    {
+      "test_id": "layer2_04_multiple_subscriptions",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 8,
+      "failed_attempts": 3,
+      "total_tokens": 36455,
+      "reported_cost": 0.0033766712000000004,
+      "checkpoint_sha256": "75229612f488bc2902ff5bb26041f63bdf22e6021274a310edfa43b937787c94"
+    },
+    {
+      "test_id": "layer2_04_multiple_subscriptions",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 3,
+        "reasoning": 4,
+        "proactivity": 3
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.875,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 14846,
+      "reported_cost": 0.0025061792,
+      "checkpoint_sha256": "6701dd6a1f8c400c45b6e7d77e928c6d2007afe7f00ed6d2534a67c60253e9ff"
+    },
+    {
+      "test_id": "layer2_04_multiple_subscriptions",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 17219,
+      "reported_cost": 0.0024305456000000003,
+      "checkpoint_sha256": "56e78d267b72ad8895ab7a60bb9029b3c82ad199278e60f32316580315b0f422"
+    },
+    {
+      "test_id": "layer2_04_multiple_subscriptions",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 1,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 2
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.3125,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 13623,
+      "reported_cost": 0.00224966,
+      "checkpoint_sha256": "d15a9eb137ddb0e11854d9b965a03678882874151d43f809c090ab448f2cd219"
+    },
+    {
+      "test_id": "layer2_05_multiple_bank_accounts",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 1,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 1
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 18862,
+      "reported_cost": 0.0027670439999999998,
+      "checkpoint_sha256": "2af0e0a589e106d3639ffe7bec06f74648bd6a17e1cb9f24327ee7fb751d9bf5"
+    },
+    {
+      "test_id": "layer2_05_multiple_bank_accounts",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 1,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 2
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 15746,
+      "reported_cost": 0.0027023192,
+      "checkpoint_sha256": "249682cdeda7c4a2976d04eb2af69bf5f15529e17613a1a9e4103bfb9a441dd2"
+    },
+    {
+      "test_id": "layer2_05_multiple_bank_accounts",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 19799,
+      "reported_cost": 0.0029851639999999994,
+      "checkpoint_sha256": "98f1fa7e250fc77efffe86e7d5fe3597fa89122407f63d5d1b0c9d8e8c2c1848"
+    },
+    {
+      "test_id": "layer2_05_multiple_bank_accounts",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 1,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 1
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 15387,
+      "reported_cost": 0.0026205592000000002,
+      "checkpoint_sha256": "b5cfb3abdc251e364fac20a52fe32535352aa63e9659a23ebfee88f9ca305d93"
+    },
+    {
+      "test_id": "layer2_06_multiple_insurance_policies",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 1,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 2
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 14812,
+      "reported_cost": 0.0017281432,
+      "checkpoint_sha256": "92d422adc537e3807b5e7bde125645a4f46c1cd5b380955b7156dc88f008521e"
+    },
+    {
+      "test_id": "layer2_06_multiple_insurance_policies",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 1,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 2
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.3125,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 12558,
+      "reported_cost": 0.0020629392,
+      "checkpoint_sha256": "253589d09de4fe15efa4ed99c1ca58b8d6571bc218c8e9a454ed62dfdef62ac5"
+    },
+    {
+      "test_id": "layer2_06_multiple_insurance_policies",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 3,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.9375,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 17918,
+      "reported_cost": 0.0032520992,
+      "checkpoint_sha256": "1a0636be4751b70627f418dcbc7ffba9c84e5972f3b5b63a08cce429a514164a"
+    },
+    {
+      "test_id": "layer2_06_multiple_insurance_policies",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 1,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 2
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 13002,
+      "reported_cost": 0.0019698,
+      "checkpoint_sha256": "80d6f0cde6afb84ec6378dc4d39e06ae66f3320a0d2f24fc398539601ed3cf1c"
+    },
+    {
+      "test_id": "layer2_07_multiple_medications",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 2,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 2
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 29,
+      "failed_attempts": 24,
+      "total_tokens": 30785,
+      "reported_cost": 0.00605682,
+      "checkpoint_sha256": "fdf71a9d715dd689428cd10744e010fda192b3cd19f348f7e1ceba4b4b249d72"
+    },
+    {
+      "test_id": "layer2_07_multiple_medications",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 1,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 1
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 15267,
+      "reported_cost": 0.00253806,
+      "checkpoint_sha256": "5a72732579505a1417c007686a4eaed92172c9f25dd81739fb3fdd70976618fa"
+    },
+    {
+      "test_id": "layer2_07_multiple_medications",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 3,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 24084,
+      "reported_cost": 0.0038195192000000005,
+      "checkpoint_sha256": "aafedf1621538c91f484fb473f47bd529c53e62173d5879101784593c6f65947"
+    },
+    {
+      "test_id": "layer2_07_multiple_medications",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 1,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 1
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.25,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 15494,
+      "reported_cost": 0.00257152,
+      "checkpoint_sha256": "eaf7493cc71a675ad47a87f9819c5533597491699ac6d2b7b3b6050f30f13a69"
+    },
+    {
+      "test_id": "layer2_08_multiple_rental_properties",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 1
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.4375,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 19617,
+      "reported_cost": 0.0025919096,
+      "checkpoint_sha256": "0a943d178a1a44e0aa9a416692c4c5b88efc5f69d730fc9bb8a1f48bc3981391"
+    },
+    {
+      "test_id": "layer2_08_multiple_rental_properties",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 1,
+        "reasoning": 2,
+        "proactivity": 1
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.5,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 18258,
+      "reported_cost": 0.0030646,
+      "checkpoint_sha256": "2d9f1c2cbdd74d56941204607de3ab133ff44a6925810f9ce262253f2fbcb43e"
+    },
+    {
+      "test_id": "layer2_08_multiple_rental_properties",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 1
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.4375,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 21076,
+      "reported_cost": 0.0029084496000000002,
+      "checkpoint_sha256": "8e5d379dbe2d295a26e4363b45fa470aa1ef5ec88b88ce6839a5f2e42774198d"
+    },
+    {
+      "test_id": "layer2_08_multiple_rental_properties",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 1,
+        "reasoning": 2,
+        "proactivity": 1
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.5,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 17834,
+      "reported_cost": 0.00297192,
+      "checkpoint_sha256": "f05004c5301d7fc09d34e18dc76aefa72a483fb707fa3da709ebe5d04e2c117b"
+    },
+    {
+      "test_id": "layer2_09_multiple_children_schools",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 1,
+        "reasoning": 2,
+        "proactivity": 2
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.5625,
+      "api_attempts": 7,
+      "failed_attempts": 2,
+      "total_tokens": 21156,
+      "reported_cost": 0.003543568,
+      "checkpoint_sha256": "340ab124c04506cc93d40586ef9ae456d2f89fa47c8aeac2226f8f0dabbe88d1"
+    },
+    {
+      "test_id": "layer2_09_multiple_children_schools",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 2
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.5,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 13516,
+      "reported_cost": 0.0022456392,
+      "checkpoint_sha256": "a26bfd72161804f3163c0183265a7defd261555807ab32005a34c493a1902ae2"
+    },
+    {
+      "test_id": "layer2_09_multiple_children_schools",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 1,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 1
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.25,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 16593,
+      "reported_cost": 0.0029209992,
+      "checkpoint_sha256": "8bdf1792ac0bed4469f1f7ac2d1492a99d01c555527bc67ee009fa43e427699e"
+    },
+    {
+      "test_id": "layer2_09_multiple_children_schools",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 2
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.5,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 14425,
+      "reported_cost": 0.00245154,
+      "checkpoint_sha256": "967ae3ea51cbba65d16a973e2d59ac397ea0671a0b6e20873c0fcbe5d8eccf81"
+    },
+    {
+      "test_id": "layer2_10_travel_rebooking_chain",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 17903,
+      "reported_cost": 0.0031934,
+      "checkpoint_sha256": "2f518f400f4033d61df7875517951d75ba7805edaf4c870001d5f193942f40d9"
+    },
+    {
+      "test_id": "layer2_10_travel_rebooking_chain",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 13922,
+      "reported_cost": 0.00234136,
+      "checkpoint_sha256": "2dd4a4ff1b51c8ec3f26c33ddf58e9eebb1a110b106ac53cd3003f96dea45ad7"
+    },
+    {
+      "test_id": "layer2_10_travel_rebooking_chain",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 1,
+        "recall": 4,
+        "reasoning": 2,
+        "proactivity": 4
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 19536,
+      "reported_cost": 0.0026195343999999995,
+      "checkpoint_sha256": "bf3e19b02824a9acbc55f1519b8e5c7289611265d75b46d5a09858787c907e3b"
+    },
+    {
+      "test_id": "layer2_10_travel_rebooking_chain",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 13924,
+      "reported_cost": 0.00232358,
+      "checkpoint_sha256": "fed5bcc92dff504f38f96a1b58915130132b120c553f49dbd81c77f78fc2c831"
+    },
+    {
+      "test_id": "layer2_11_medical_treatment_evolution",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 3,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.9375,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 17485,
+      "reported_cost": 0.0026406128,
+      "checkpoint_sha256": "de4f712cd4e4444aed67278a019d358dc6193e6c12d483a306ab7deec65fb2e9"
+    },
+    {
+      "test_id": "layer2_11_medical_treatment_evolution",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 3,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.9375,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 12880,
+      "reported_cost": 0.0021766192,
+      "checkpoint_sha256": "78a72fbdfdbffb6cfe32c7f290b538157e4ef13e0a6ba638c6f0b102da10990d"
+    },
+    {
+      "test_id": "layer2_11_medical_treatment_evolution",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 17589,
+      "reported_cost": 0.0026931128,
+      "checkpoint_sha256": "25eced80e4651172df6735bb40096d58b303de37d76e0599d589b0e7f09bfeea"
+    },
+    {
+      "test_id": "layer2_11_medical_treatment_evolution",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 3,
+        "recall": 2,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.8125,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 12916,
+      "reported_cost": 0.00218358,
+      "checkpoint_sha256": "db7fd34c7a2977163cf292f51fc03b61b44a3e5930a2ae8d815c303a2f61a1d3"
+    },
+    {
+      "test_id": "layer2_12_contradictory_financial_instructions",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 16008,
+      "reported_cost": 0.002312492,
+      "checkpoint_sha256": "21a3f28a3fce296b448670e19158d980707e5350bfcfdc17ce40e4ab825e27b1"
+    },
+    {
+      "test_id": "layer2_12_contradictory_financial_instructions",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 3,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.9375,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 12272,
+      "reported_cost": 0.00205702,
+      "checkpoint_sha256": "21abb062cf83dbdf6f64798565b6c7276d5e040a6623e47126ebc6b63eba4a06"
+    },
+    {
+      "test_id": "layer2_12_contradictory_financial_instructions",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 3,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.9375,
+      "api_attempts": 8,
+      "failed_attempts": 3,
+      "total_tokens": 20963,
+      "reported_cost": 0.0028455336,
+      "checkpoint_sha256": "3b65ba83de5d4f982875f03876af0c5035f3c1257d2feb783e278b0cddfcac49"
+    },
+    {
+      "test_id": "layer2_12_contradictory_financial_instructions",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 12690,
+      "reported_cost": 0.0021287,
+      "checkpoint_sha256": "c47a4ef9020ca0f6d32718829847dd8e252e36026b357282b3adc7073b661cde"
+    },
+    {
+      "test_id": "layer2_13_home_services_cascade",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 2,
+        "recall": 4,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.8125,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 15824,
+      "reported_cost": 0.0024059168,
+      "checkpoint_sha256": "fab5e143af113c08308a7b3127afd46887dfd62188604c4250e765b9dcff99ed"
+    },
+    {
+      "test_id": "layer2_13_home_services_cascade",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 12058,
+      "reported_cost": 0.0020283592,
+      "checkpoint_sha256": "f9ce0722416eb03f2c39afd0f9dd2aeb1d23cb99928aa90fbe6ed8f21bb36a1f"
+    },
+    {
+      "test_id": "layer2_13_home_services_cascade",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 3,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 3
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.875,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 16678,
+      "reported_cost": 0.0030747192,
+      "checkpoint_sha256": "0855f020401fc771f4b6d257823e5198edd661b0f49b4dedc0e5ec70105b46f6"
+    },
+    {
+      "test_id": "layer2_13_home_services_cascade",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 3
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.9375,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 11847,
+      "reported_cost": 0.0019918191999999998,
+      "checkpoint_sha256": "fcf24904eb31d3d0f0ed1d63a10bb283138ae5e10b4a686f19177883a63a6cb5"
+    },
+    {
+      "test_id": "layer2_14_product_order_modifications",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 15644,
+      "reported_cost": 0.0023529576,
+      "checkpoint_sha256": "161735a2ae37c4d42ab2d104dd8b48fe31a5eb7f37de2df9f684ffc06098b975"
+    },
+    {
+      "test_id": "layer2_14_product_order_modifications",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 12829,
+      "reported_cost": 0.0022211391999999996,
+      "checkpoint_sha256": "a6dfde85604f3a7cc0d9f6cf37352e9cbe2c667e29c334f69a0625a73df5058b"
+    },
+    {
+      "test_id": "layer2_14_product_order_modifications",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 15991,
+      "reported_cost": 0.0024526376,
+      "checkpoint_sha256": "4739d764e019220aa7f54678d5f1ad6ec0fcbb7d91a16a54db21b149903fddfb"
+    },
+    {
+      "test_id": "layer2_14_product_order_modifications",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 11864,
+      "reported_cost": 0.0020153000000000003,
+      "checkpoint_sha256": "397f0004d36592e6043ea9606608ccd51f11c5046390ca62ec7d8f0b92b26037"
+    },
+    {
+      "test_id": "layer2_15_employment_negotiation",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 14146,
+      "reported_cost": 0.0020197968,
+      "checkpoint_sha256": "5ea2c94d3415be9e68badfdffc934e541f8e2e6be6cc8f805c5b118ed3f80e6e"
+    },
+    {
+      "test_id": "layer2_15_employment_negotiation",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 12835,
+      "reported_cost": 0.0022013992000000002,
+      "checkpoint_sha256": "87c769e1f63aaf6eec0c066b84c2a9cb08e1c7ff21346367ee1481038e45b208"
+    },
+    {
+      "test_id": "layer2_15_employment_negotiation",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 16097,
+      "reported_cost": 0.0024484768,
+      "checkpoint_sha256": "94c4322ee9d79735fe93255c7d5ebb244d9145a44b55ed0618084953e82086d2"
+    },
+    {
+      "test_id": "layer2_15_employment_negotiation",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 3,
+        "recall": 2,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.75,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 12635,
+      "reported_cost": 0.0021683592,
+      "checkpoint_sha256": "3a1a7b469f37ce827a3fb9feacecd3524ebf475b8b5b25b54ff2c66fca73c406"
+    },
+    {
+      "test_id": "layer2_16_family_event_conflicting_input",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 2,
+        "recall": 4,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 14472,
+      "reported_cost": 0.002083536,
+      "checkpoint_sha256": "56d02d1514edb37fa6cc1202b7ceda4fa142ae77677c9795eada83a4bc500fe5"
+    },
+    {
+      "test_id": "layer2_16_family_event_conflicting_input",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 3,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.9375,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 13478,
+      "reported_cost": 0.0023654792,
+      "checkpoint_sha256": "87fd9e23b9625e4023303690fb65c50187e0c1b3089150610e3bb4f8c8b0fc65"
+    },
+    {
+      "test_id": "layer2_16_family_event_conflicting_input",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 3,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.9375,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 14444,
+      "reported_cost": 0.002084096,
+      "checkpoint_sha256": "3dea247db4bf8819ab040d239c1f874e975e9cc408ff9c972c0d98cba64c388c"
+    },
+    {
+      "test_id": "layer2_16_family_event_conflicting_input",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 2,
+        "recall": 3,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.75,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 12978,
+      "reported_cost": 0.0022345791999999996,
+      "checkpoint_sha256": "a83c733a69583b0b619793d6dcfff4921ea7910c084cb74756fedff3466f86ca"
+    },
+    {
+      "test_id": "layer2_17_tech_support_cascade",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 2,
+        "recall": 3,
+        "reasoning": 3,
+        "proactivity": 2
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 16342,
+      "reported_cost": 0.0026064416,
+      "checkpoint_sha256": "1fa698ea5ca476e60ce1a32123844cff0dcad23b880a0cb053a6bf9c5417eaee"
+    },
+    {
+      "test_id": "layer2_17_tech_support_cascade",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 3,
+        "recall": 2,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.75,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 11483,
+      "reported_cost": 0.0019685792,
+      "checkpoint_sha256": "955afd86f721049d047a984d83645be36f5b8a29f23a9df82576274b98eadae3"
+    },
+    {
+      "test_id": "layer2_17_tech_support_cascade",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 14841,
+      "reported_cost": 0.0022761815999999997,
+      "checkpoint_sha256": "6b7f72f51420d4d284c1d967990d72c7b72ee2958ca4ca2042e476282565f0c5"
+    },
+    {
+      "test_id": "layer2_17_tech_support_cascade",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 3,
+        "recall": 2,
+        "reasoning": 2,
+        "proactivity": 3
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.625,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 11436,
+      "reported_cost": 0.0019895792,
+      "checkpoint_sha256": "c4155cdccbd88865242b49b325c8123ab6ea432af9dcf3e4aaf602f136d5fcd1"
+    },
+    {
+      "test_id": "layer2_18_education_prerequisite_chain",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 17029,
+      "reported_cost": 0.002606296,
+      "checkpoint_sha256": "4029a242aa87367ed8d1087d9a794a93ae94110486c60975b4545b8401218151"
+    },
+    {
+      "test_id": "layer2_18_education_prerequisite_chain",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 16007,
+      "reported_cost": 0.0028427392000000004,
+      "checkpoint_sha256": "37a36197804eb84a4a9914d2c7b057a96bed56ae6bd43cdb00f4c585f0a4d050"
+    },
+    {
+      "test_id": "layer2_18_education_prerequisite_chain",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 17701,
+      "reported_cost": 0.002765196,
+      "checkpoint_sha256": "4cac481e719ca43aeedffa35504d7522e0c7e4e85935d66b881188a9e6f8a638"
+    },
+    {
+      "test_id": "layer2_18_education_prerequisite_chain",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 2,
+        "recall": 4,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.8125,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 13152,
+      "reported_cost": 0.0022482991999999997,
+      "checkpoint_sha256": "d1d0209f161a88c0df8271537d9511d8b1ed83226192877c4c3f8b72e3ee81dd"
+    },
+    {
+      "test_id": "layer2_19_investment_market_response",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 3,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.9375,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 21810,
+      "reported_cost": 0.0036572368,
+      "checkpoint_sha256": "a693e3534231799eec37877060395a838e7a8eb6521883de6f5ac0adf16925f2"
+    },
+    {
+      "test_id": "layer2_19_investment_market_response",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 13918,
+      "reported_cost": 0.00242046,
+      "checkpoint_sha256": "8ac0433319cd2e6264518df8194f8a8ffd6c0e4572a0ee6018087f58dc912886"
+    },
+    {
+      "test_id": "layer2_19_investment_market_response",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 16640,
+      "reported_cost": 0.0026063968,
+      "checkpoint_sha256": "6ccb0f10da8eab29a7d2b0fce39693199acc47d037ab16fa724f6780ff0ac5a9"
+    },
+    {
+      "test_id": "layer2_19_investment_market_response",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 3,
+        "recall": 4,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.875,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 14334,
+      "reported_cost": 0.0025898600000000003,
+      "checkpoint_sha256": "105bb2bdf8af1df3fc15e0a64d2c0fa751563ece43d3ccc4c8dc189b92ff014c"
+    },
+    {
+      "test_id": "layer2_20_healthcare_coverage_changes",
+      "layer": "layer2",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 17471,
+      "reported_cost": 0.0025928056,
+      "checkpoint_sha256": "f51e90b0419cd9c5137c940d42191bac659ed65a7d6dfcd01fceea9eac0f6180"
+    },
+    {
+      "test_id": "layer2_20_healthcare_coverage_changes",
+      "layer": "layer2",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 3,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.9375,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 21174,
+      "reported_cost": 0.0033176976,
+      "checkpoint_sha256": "8b22d5c6fc8e3869df5c8a57fa655eeccbe9c596bc8f3e219a6d5993e50ca01c"
+    },
+    {
+      "test_id": "layer2_20_healthcare_coverage_changes",
+      "layer": "layer2",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 3,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.9375,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 19918,
+      "reported_cost": 0.0032746783999999998,
+      "checkpoint_sha256": "a7aed752979e15991a0415050234624b54ee4f4a515531874c91f92d6465e378"
+    },
+    {
+      "test_id": "layer2_20_healthcare_coverage_changes",
+      "layer": "layer2",
+      "mode": "notes",
+      "scores": {
+        "precision": 3,
+        "recall": 2,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.75,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 13138,
+      "reported_cost": 0.0022474592000000003,
+      "checkpoint_sha256": "65f03ceb53c6cebf90be4e081c7fbfc59b91c7b993dde77c7c936df37b53daf9"
+    },
+    {
+      "test_id": "layer3_01_travel_coordination",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 1
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.4375,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 17366,
+      "reported_cost": 0.0023975224,
+      "checkpoint_sha256": "4d26cce47bcdd96d53b097709a97a60219d4b45a42f0c5285f466de2076e65ad"
+    },
+    {
+      "test_id": "layer3_01_travel_coordination",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 2,
+        "recall": 4,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 16713,
+      "reported_cost": 0.0028670991999999998,
+      "checkpoint_sha256": "04c374ef6a2e4cf70bb03c41be259575fc282263b1109ef2661b80a8c54ae119"
+    },
+    {
+      "test_id": "layer3_01_travel_coordination",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 21191,
+      "reported_cost": 0.0028655703999999997,
+      "checkpoint_sha256": "89cb6fcbe63604a3d3af353152a947e00f627384096d8c1a3a5404ee9f266f9b"
+    },
+    {
+      "test_id": "layer3_01_travel_coordination",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 1,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 1
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.25,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 16228,
+      "reported_cost": 0.0027833792,
+      "checkpoint_sha256": "534d62b54dbc82e4dc0ae6855e164aaa421f044bc6cd08142febf07dff7b3001"
+    },
+    {
+      "test_id": "layer3_02_medical_insurance_coordination",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 23454,
+      "reported_cost": 0.0036079792000000004,
+      "checkpoint_sha256": "349ebe96d9a7f4e8e2660d1819cdbb8e9cc390d3f4a10b8dda806a70d6dc5940"
+    },
+    {
+      "test_id": "layer3_02_medical_insurance_coordination",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 16849,
+      "reported_cost": 0.0028659791999999995,
+      "checkpoint_sha256": "92f82d4970de02e20880707017ac6152b7bf4c69379935201d89be720fb45120"
+    },
+    {
+      "test_id": "layer3_02_medical_insurance_coordination",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 20360,
+      "reported_cost": 0.0026849535999999997,
+      "checkpoint_sha256": "52f4b325f6ebee8afb4d27767d3dcc6925c135862f156d98b712c92dc7fd36c2"
+    },
+    {
+      "test_id": "layer3_02_medical_insurance_coordination",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 16033,
+      "reported_cost": 0.0027065192,
+      "checkpoint_sha256": "69b466596ba1a2381d6018072be95289e7236840503fbf46771ce14c184f4d6d"
+    },
+    {
+      "test_id": "layer3_03_home_purchase_coordination",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 22973,
+      "reported_cost": 0.0034200543999999998,
+      "checkpoint_sha256": "44878166295cd4f901d29e0f76d1659f889e82bb130e64165d1569d089d3385c"
+    },
+    {
+      "test_id": "layer3_03_home_purchase_coordination",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 2,
+        "reasoning": 2,
+        "proactivity": 2
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.625,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 16403,
+      "reported_cost": 0.00274092,
+      "checkpoint_sha256": "0c4637b0068e15173af9d48cf222bfba2fdebc022e21d07d73d0e021da3a4a64"
+    },
+    {
+      "test_id": "layer3_03_home_purchase_coordination",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 21474,
+      "reported_cost": 0.0031177944,
+      "checkpoint_sha256": "a07a279255faffaa13b01920722892fcb27ffc212ad1641848990ae0d3538b13"
+    },
+    {
+      "test_id": "layer3_03_home_purchase_coordination",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 2,
+        "reasoning": 1,
+        "proactivity": 2
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.5625,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 15623,
+      "reported_cost": 0.0025811799999999998,
+      "checkpoint_sha256": "4764e2893c6ea13d1ada29b6eb443d0ed5e981f5395425b821f8b12d43c9ef1f"
+    },
+    {
+      "test_id": "layer3_04_warranty_coordination",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 1,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 1
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.25,
+      "api_attempts": 6,
+      "failed_attempts": 0,
+      "total_tokens": 17994,
+      "reported_cost": 0.00245686,
+      "checkpoint_sha256": "24a7a791c90c24a99b2bb69f2af748018b60be09037f6a067aba5e056adc0422"
+    },
+    {
+      "test_id": "layer3_04_warranty_coordination",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 1,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 1
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.25,
+      "api_attempts": 6,
+      "failed_attempts": 0,
+      "total_tokens": 15589,
+      "reported_cost": 0.0025974592,
+      "checkpoint_sha256": "37ed26e9b2f8b8fb79dd0957893faa5b0153216754aae9f99ae0e16c7e2e9d9e"
+    },
+    {
+      "test_id": "layer3_04_warranty_coordination",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 1,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 1
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 6,
+      "failed_attempts": 0,
+      "total_tokens": 21722,
+      "reported_cost": 0.0032823,
+      "checkpoint_sha256": "91aae51073895793f20800d95bdb583aabdf64c4324439b3f045f293ea0c64a1"
+    },
+    {
+      "test_id": "layer3_04_warranty_coordination",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 1,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 1
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.25,
+      "api_attempts": 6,
+      "failed_attempts": 0,
+      "total_tokens": 15440,
+      "reported_cost": 0.00257866,
+      "checkpoint_sha256": "a3fda524f4096f9a96a26e6e045b72fd06dfc59879bd681cbefbc4f2679d30af"
+    },
+    {
+      "test_id": "layer3_05_tax_preparation_synthesis",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 1
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.4375,
+      "api_attempts": 6,
+      "failed_attempts": 0,
+      "total_tokens": 21569,
+      "reported_cost": 0.0038297,
+      "checkpoint_sha256": "70954bf89bd39e0c6f775c0ba4b0d4fba3ad43d88ae6ee24595ae8909668be77"
+    },
+    {
+      "test_id": "layer3_05_tax_preparation_synthesis",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 3,
+        "recall": 3,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.875,
+      "api_attempts": 6,
+      "failed_attempts": 0,
+      "total_tokens": 20361,
+      "reported_cost": 0.0035504392000000004,
+      "checkpoint_sha256": "18de24ebcb00bebb55d3ac1a53fbe82856fd5bb34e98ab085fda7c87118d34af"
+    },
+    {
+      "test_id": "layer3_05_tax_preparation_synthesis",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 3,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.9375,
+      "api_attempts": 6,
+      "failed_attempts": 0,
+      "total_tokens": 26827,
+      "reported_cost": 0.004958519999999999,
+      "checkpoint_sha256": "940e545ce2dc98f51009e70b189175e293c644b88e810a077a65e7d566ec8cf1"
+    },
+    {
+      "test_id": "layer3_05_tax_preparation_synthesis",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 2,
+        "reasoning": 3,
+        "proactivity": 3
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.75,
+      "api_attempts": 6,
+      "failed_attempts": 0,
+      "total_tokens": 17263,
+      "reported_cost": 0.0028810992,
+      "checkpoint_sha256": "d4a46bade1a241667aff62b708610c7ca249f97bf2a4f3c711b2ae4bf289476c"
+    },
+    {
+      "test_id": "layer3_06_business_expansion_coordination",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 19577,
+      "reported_cost": 0.0026381319999999996,
+      "checkpoint_sha256": "923b3dbdf73b67f81b475f85a48f655243fd6d26a9c87df52149e443541b9aee"
+    },
+    {
+      "test_id": "layer3_06_business_expansion_coordination",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 3,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.9375,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 17391,
+      "reported_cost": 0.0028878192,
+      "checkpoint_sha256": "56894ecb7b5dfe421b5b9dd74407b41c4f32fb3fe193a39fcdbb920ba3b5cb21"
+    },
+    {
+      "test_id": "layer3_06_business_expansion_coordination",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 7,
+      "failed_attempts": 2,
+      "total_tokens": 23329,
+      "reported_cost": 0.0029977135999999997,
+      "checkpoint_sha256": "9b4a8be55dce44e65db725446a0482e810eb7d0cba404dba10c43ec83b97ae51"
+    },
+    {
+      "test_id": "layer3_06_business_expansion_coordination",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 2,
+        "reasoning": 3,
+        "proactivity": 3
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.75,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 17530,
+      "reported_cost": 0.0029403192000000003,
+      "checkpoint_sha256": "32248607611bc4bf1134f609a9577f3604ce766e69d514bee732b23b23522c53"
+    },
+    {
+      "test_id": "layer3_07_eldercare_coordination",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 2,
+        "recall": 3,
+        "reasoning": 2,
+        "proactivity": 3
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 23628,
+      "reported_cost": 0.0034634096000000004,
+      "checkpoint_sha256": "7b80781269e9d555057a83419f23016149db0768b21a47d1dad817a1057535a4"
+    },
+    {
+      "test_id": "layer3_07_eldercare_coordination",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 3,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.875,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 18107,
+      "reported_cost": 0.00302568,
+      "checkpoint_sha256": "13207192cae5983ecc006a190fbd536e03620a07d6a9eceef9a79cf0bd05b511"
+    },
+    {
+      "test_id": "layer3_07_eldercare_coordination",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 23878,
+      "reported_cost": 0.0034818896,
+      "checkpoint_sha256": "74ef7fb9cf90869cd11d1ea0bce6d6fb2d44d56218395bb7d5aeefe6ae45133c"
+    },
+    {
+      "test_id": "layer3_07_eldercare_coordination",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 3,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.875,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 18421,
+      "reported_cost": 0.0030909199999999996,
+      "checkpoint_sha256": "bfe803e04a85b04df4b1737d33e38deb210793593cceb24d6a9b5d55bdd833b4"
+    },
+    {
+      "test_id": "layer3_08_divorce_settlement_complexity",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 2,
+        "recall": 3,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.75,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 25287,
+      "reported_cost": 0.0033878376,
+      "checkpoint_sha256": "d6f203207d0a3090334b6547866e5b4c2506735ff33ec920236c530c2ee1c195"
+    },
+    {
+      "test_id": "layer3_08_divorce_settlement_complexity",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 2,
+        "reasoning": 2,
+        "proactivity": 3
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.6875,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 19823,
+      "reported_cost": 0.0029492064,
+      "checkpoint_sha256": "fb763aeb2800a3276fda987587cb085b5b686a5203088f8c6cc5899c1b01cf55"
+    },
+    {
+      "test_id": "layer3_08_divorce_settlement_complexity",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 2,
+        "recall": 3,
+        "reasoning": 2,
+        "proactivity": 4
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 9,
+      "failed_attempts": 4,
+      "total_tokens": 40267,
+      "reported_cost": 0.0053158784,
+      "checkpoint_sha256": "1616e00e1bc157a94cf5c6d0f3a0e61f4b15f8abd0d30f61fd8950e3029b75f6"
+    },
+    {
+      "test_id": "layer3_08_divorce_settlement_complexity",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 1,
+        "recall": 2,
+        "reasoning": 1,
+        "proactivity": 2
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 19309,
+      "reported_cost": 0.0032109392,
+      "checkpoint_sha256": "49a1ae62b800cff023e904d84a3602f22bf21b552fcb604092ebd17f1f8199c9"
+    },
+    {
+      "test_id": "layer3_09_vehicle_accident_cascade",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 20285,
+      "reported_cost": 0.00356664,
+      "checkpoint_sha256": "150cd1a794f8cd4fb50cf01262ba695011aac3435093d3ceb31b09f11b3bf3a9"
+    },
+    {
+      "test_id": "layer3_09_vehicle_accident_cascade",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 21417,
+      "reported_cost": 0.0035086744,
+      "checkpoint_sha256": "bc5f0da2c12e08f9a33a411112217751511659ce3ba2e1c5e1ab56c06afc4631"
+    },
+    {
+      "test_id": "layer3_09_vehicle_accident_cascade",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 2,
+        "recall": 3,
+        "reasoning": 2,
+        "proactivity": 4
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 10,
+      "failed_attempts": 5,
+      "total_tokens": 38703,
+      "reported_cost": 0.0060096736,
+      "checkpoint_sha256": "76be7e256ac8acd05072fe798f1b310f4620b05157e43f8b5a716012963a7d01"
+    },
+    {
+      "test_id": "layer3_09_vehicle_accident_cascade",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 1,
+        "recall": 3,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 16020,
+      "reported_cost": 0.00265188,
+      "checkpoint_sha256": "28d3b05a009ced34963f933a871fb98ad54d3e47fd0f3821e2cb534d82af40bb"
+    },
+    {
+      "test_id": "layer3_10_education_financing_maze",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 2,
+        "recall": 2,
+        "reasoning": 2,
+        "proactivity": 3
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.5625,
+      "api_attempts": 8,
+      "failed_attempts": 3,
+      "total_tokens": 21095,
+      "reported_cost": 0.0026391568,
+      "checkpoint_sha256": "7c3a30236a2f0ff09b65ac207b15d6b0842a81c2c1f1bac3af5361be00b08c0d"
+    },
+    {
+      "test_id": "layer3_10_education_financing_maze",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 2,
+        "recall": 2,
+        "reasoning": 2,
+        "proactivity": 3
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.5625,
+      "api_attempts": 7,
+      "failed_attempts": 2,
+      "total_tokens": 17406,
+      "reported_cost": 0.0018095335999999999,
+      "checkpoint_sha256": "cf5ced9530fdf61e21a3bdde23775ee6a28d7dee47a3b0792c52eb02d2d3d2c1"
+    },
+    {
+      "test_id": "layer3_10_education_financing_maze",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 25171,
+      "reported_cost": 0.00462644,
+      "checkpoint_sha256": "f7ede0610066fb3c55f169514dd6a7f49afb228ed4eee6180831198fe39f7e09"
+    },
+    {
+      "test_id": "layer3_10_education_financing_maze",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 1,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 2
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 18611,
+      "reported_cost": 0.00323932,
+      "checkpoint_sha256": "e69c3c469650ca4196033112e46331adfbb203102c8d1251be53807ebc5ae810"
+    },
+    {
+      "test_id": "layer3_11_immigration_status_complexity",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 9,
+      "failed_attempts": 4,
+      "total_tokens": 24357,
+      "reported_cost": 0.00458332,
+      "checkpoint_sha256": "1074cfe898d8fe4708b945bb737fe15eca5e9bd4fdac4e9311e878a74c17cc8a"
+    },
+    {
+      "test_id": "layer3_11_immigration_status_complexity",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 15560,
+      "reported_cost": 0.00269766,
+      "checkpoint_sha256": "7e973cb9f2cedc8acce388c44d023387023f307e626e431a6ecc886322a29d04"
+    },
+    {
+      "test_id": "layer3_11_immigration_status_complexity",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 11,
+      "failed_attempts": 6,
+      "total_tokens": 25937,
+      "reported_cost": 0.0043542184,
+      "checkpoint_sha256": "bae7b214d16e7353b16e811b7263e1d47323e33963a1d5d1ae7d38cad31076f2"
+    },
+    {
+      "test_id": "layer3_11_immigration_status_complexity",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 14996,
+      "reported_cost": 0.00257264,
+      "checkpoint_sha256": "8e86b57fe79a47243ed23b7aa274497161cdc7d3ee38dd68f222077697bde368"
+    },
+    {
+      "test_id": "layer3_12_real_estate_investment_tangle",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 20907,
+      "reported_cost": 0.0028131712000000002,
+      "checkpoint_sha256": "602ea03e551b0fb53b145af84342614c1d5ff615735cdb96ff8363d2b25e95a0"
+    },
+    {
+      "test_id": "layer3_12_real_estate_investment_tangle",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 2,
+        "recall": 2,
+        "reasoning": 2,
+        "proactivity": 3
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 15335,
+      "reported_cost": 0.0025981199999999998,
+      "checkpoint_sha256": "73ae843b07f3be46dd143dbfb4cca062c095b8944fcb9f4673708f3ed513af6e"
+    },
+    {
+      "test_id": "layer3_12_real_estate_investment_tangle",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 2,
+        "recall": 3,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 9,
+      "failed_attempts": 4,
+      "total_tokens": 26147,
+      "reported_cost": 0.0035426328,
+      "checkpoint_sha256": "8aade91088955cb15b5686ae856c1ffd83e69d31b885c8010330a0728019a1e1"
+    },
+    {
+      "test_id": "layer3_12_real_estate_investment_tangle",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 2,
+        "recall": 2,
+        "reasoning": 2,
+        "proactivity": 3
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 15881,
+      "reported_cost": 0.0026685959999999996,
+      "checkpoint_sha256": "1423f2d5574a20c0ca2554534909876dd9ef03b473082e4e717ba19c31b85c78"
+    },
+    {
+      "test_id": "layer3_13_emergency_medical_cascade",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 2,
+        "recall": 2,
+        "reasoning": 3,
+        "proactivity": 2
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 19759,
+      "reported_cost": 0.0032769799999999997,
+      "checkpoint_sha256": "c0ebe5b84c84074324f2ba0078cf2d8d2ebf92370b9d0d7340d693723fac5637"
+    },
+    {
+      "test_id": "layer3_13_emergency_medical_cascade",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 3,
+        "reasoning": 4,
+        "proactivity": 3
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.875,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 12940,
+      "reported_cost": 0.0022495199999999996,
+      "checkpoint_sha256": "8291c8ccc3ade21444a6e75304d9b136d1ee6b164c5b6ac75b8ec4c74205863c"
+    },
+    {
+      "test_id": "layer3_13_emergency_medical_cascade",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 1,
+        "recall": 2,
+        "reasoning": 2,
+        "proactivity": 2
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 30,
+      "failed_attempts": 25,
+      "total_tokens": 118557,
+      "reported_cost": 0.021860260800000003,
+      "checkpoint_sha256": "a23abd4eb9ce31fdc9d604418af2ec7b9a30d1569ca0d4bfb4559c3b614018d1"
+    },
+    {
+      "test_id": "layer3_13_emergency_medical_cascade",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 2,
+        "recall": 2,
+        "reasoning": 3,
+        "proactivity": 3
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 13623,
+      "reported_cost": 0.00241808,
+      "checkpoint_sha256": "2510ab1cc5881a543d82234e1586ce871a24a1af0ffc55e1cf426757f3654db2"
+    },
+    {
+      "test_id": "layer3_14_hidden_medical_insurance_web",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 2,
+        "recall": 1,
+        "reasoning": 1,
+        "proactivity": 2
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.375,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 15720,
+      "reported_cost": 0.0020168904,
+      "checkpoint_sha256": "fad013f267d672670b28552a2976f6c719be615ec7a0441b853d6caede7f4a1e"
+    },
+    {
+      "test_id": "layer3_14_hidden_medical_insurance_web",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 2,
+        "reasoning": 1,
+        "proactivity": 2
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.5625,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 12542,
+      "reported_cost": 0.00208558,
+      "checkpoint_sha256": "8b7b0a11486da31d6b0f5814db45911e6b6113454cbe3a2480acda6170b1d45c"
+    },
+    {
+      "test_id": "layer3_14_hidden_medical_insurance_web",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 3,
+        "recall": 2,
+        "reasoning": 2,
+        "proactivity": 3
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.625,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 16897,
+      "reported_cost": 0.0025211928,
+      "checkpoint_sha256": "fcad99c4da174666c486802cb0273ccdc43e4affadbb2ddc359bf63d55b184be"
+    },
+    {
+      "test_id": "layer3_14_hidden_medical_insurance_web",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 2,
+        "recall": 2,
+        "reasoning": 1,
+        "proactivity": 2
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.4375,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 13122,
+      "reported_cost": 0.0020182008,
+      "checkpoint_sha256": "693eba2d87c849704c8b101bfa87c8f163aa2b677e7a82d292342edd6a5a578c"
+    },
+    {
+      "test_id": "layer3_15_identity_theft_discovery",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 16733,
+      "reported_cost": 0.00300986,
+      "checkpoint_sha256": "510ab377e12ea23f1e02589c7c12effca113ca2b476d9b94143cc0bb72431caa"
+    },
+    {
+      "test_id": "layer3_15_identity_theft_discovery",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 7,
+      "failed_attempts": 2,
+      "total_tokens": 13652,
+      "reported_cost": 0.0018172112,
+      "checkpoint_sha256": "474e939dcc9a32aedcf4ab22f5c207f983eeaf436624d701b3b12d7bdd5360b1"
+    },
+    {
+      "test_id": "layer3_15_identity_theft_discovery",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 7,
+      "failed_attempts": 2,
+      "total_tokens": 16779,
+      "reported_cost": 0.0023564184,
+      "checkpoint_sha256": "99e88b0c31667e10666bb12a2a118ca7f4ea82552517a4f493c058a8e1a82542"
+    },
+    {
+      "test_id": "layer3_15_identity_theft_discovery",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 12767,
+      "reported_cost": 0.0021687399999999997,
+      "checkpoint_sha256": "e341ac08babee555f83b1634cb386dcba63c6091e85306ac6f1429db71cac725"
+    },
+    {
+      "test_id": "layer3_16_cryptocurrency_inheritance_puzzle",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 16885,
+      "reported_cost": 0.0024317999999999996,
+      "checkpoint_sha256": "52401fe86cc665b5a9dac153b2639ba897ced4c2afb12ae82348d60379c1f6e2"
+    },
+    {
+      "test_id": "layer3_16_cryptocurrency_inheritance_puzzle",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 2,
+        "recall": 4,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 12623,
+      "reported_cost": 0.002131976,
+      "checkpoint_sha256": "8ab58fb4177dcd6f3ed4ed4e284b3427aa08a601784fd09fb2782da5d08bdfdc"
+    },
+    {
+      "test_id": "layer3_16_cryptocurrency_inheritance_puzzle",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 11,
+      "failed_attempts": 6,
+      "total_tokens": 20220,
+      "reported_cost": 0.0027890912,
+      "checkpoint_sha256": "0db41a874e2904926ddefbcf77fe895f99e45fc7d3644a8fbb99dae2ce058f36"
+    },
+    {
+      "test_id": "layer3_16_cryptocurrency_inheritance_puzzle",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 12647,
+      "reported_cost": 0.0021875,
+      "checkpoint_sha256": "6421d1161cc37b710200522d25e264b6d50e7e7a7d784bcf535cfc335f4c4f5f"
+    },
+    {
+      "test_id": "layer3_17_environmental_contamination_cascade",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 2,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.8125,
+      "api_attempts": 8,
+      "failed_attempts": 3,
+      "total_tokens": 26159,
+      "reported_cost": 0.0034311816,
+      "checkpoint_sha256": "2ced4d4d0b9ec2cb1b0f5ec488cd3f0f380026c91f1550a18603bb371d7c210f"
+    },
+    {
+      "test_id": "layer3_17_environmental_contamination_cascade",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 19310,
+      "reported_cost": 0.0027753376000000003,
+      "checkpoint_sha256": "3f3da2a912cc88d402d1959197035628d30cc343fce8ba85c74bf508f357e0e7"
+    },
+    {
+      "test_id": "layer3_17_environmental_contamination_cascade",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 2,
+        "recall": 3,
+        "reasoning": 2,
+        "proactivity": 4
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 14521,
+      "reported_cost": 0.0021421176,
+      "checkpoint_sha256": "10cd419a8117057b25cb6c84483bdadfae605c770ffc5ac5e71604ffac5dc4fb"
+    },
+    {
+      "test_id": "layer3_17_environmental_contamination_cascade",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 2,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.8125,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 12141,
+      "reported_cost": 0.00206374,
+      "checkpoint_sha256": "0c9b4c8cae3f7262b7ab4c53e607b9c7781cbf62bc62bdaa5d4ae102db4a37c0"
+    },
+    {
+      "test_id": "layer3_18_genetic_testing_revelation",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 3,
+        "reasoning": 3,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 0.875,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 17867,
+      "reported_cost": 0.0028111776,
+      "checkpoint_sha256": "5639ba538f626ddf0e2a57ab591127e5e54d0d82e4c61963a5dd60e32c774f7c"
+    },
+    {
+      "test_id": "layer3_18_genetic_testing_revelation",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 2,
+        "reasoning": 3,
+        "proactivity": 2
+      },
+      "hallucination_veto": false,
+      "passed": false,
+      "reward": 0.6875,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 12818,
+      "reported_cost": 0.0021963592000000002,
+      "checkpoint_sha256": "3ca26e34238bf4e62ce78ab739dc1c5b5a437bcb1ed8b54e7475002d505dc6cf"
+    },
+    {
+      "test_id": "layer3_18_genetic_testing_revelation",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 7,
+      "failed_attempts": 2,
+      "total_tokens": 16704,
+      "reported_cost": 0.002320332,
+      "checkpoint_sha256": "49a25ff115af5035fac43daef2ed5a4cfb4e09c38d2943282aa511adb4fdd973"
+    },
+    {
+      "test_id": "layer3_18_genetic_testing_revelation",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 1,
+        "recall": 2,
+        "reasoning": 1,
+        "proactivity": 2
+      },
+      "hallucination_veto": true,
+      "passed": false,
+      "reward": 0.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 13628,
+      "reported_cost": 0.0024183992,
+      "checkpoint_sha256": "0addc50a1c3b2cde8037b3c91e8d5417c936202ada740fb2d81fd212f1a191b9"
+    },
+    {
+      "test_id": "layer3_19_employment_fraud_network",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 9,
+      "failed_attempts": 4,
+      "total_tokens": 17876,
+      "reported_cost": 0.0032902799999999996,
+      "checkpoint_sha256": "d455dcf085f6e49b3d6104d45863f9077dfdb4c9322fca8cf29b92bc313a04b7"
+    },
+    {
+      "test_id": "layer3_19_employment_fraud_network",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 18593,
+      "reported_cost": 0.0026423376,
+      "checkpoint_sha256": "2bf56bf6d51d27bcc7f8f1f09e44d7a235ce3640a281fc5c87023794036d33a0"
+    },
+    {
+      "test_id": "layer3_19_employment_fraud_network",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 15946,
+      "reported_cost": 0.0024250184,
+      "checkpoint_sha256": "ed1acf3dec6e39c73bd4cf94abe5d9f779492f53e7ef4f5a5dccfe2da526d1c7"
+    },
+    {
+      "test_id": "layer3_19_employment_fraud_network",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 12990,
+      "reported_cost": 0.0022386392,
+      "checkpoint_sha256": "47a6e45589cc2845925fc6dc5156a756691510d8cfb8d7acc6410c5198a607ba"
+    },
+    {
+      "test_id": "layer3_20_medical_malpractice_pattern",
+      "layer": "layer3",
+      "mode": "advanced_json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 6,
+      "failed_attempts": 1,
+      "total_tokens": 14140,
+      "reported_cost": 0.0024097527999999997,
+      "checkpoint_sha256": "cba81148fb628b59e096765d223f542135c1469c7c07fc284efe06f80a1ede1b"
+    },
+    {
+      "test_id": "layer3_20_medical_malpractice_pattern",
+      "layer": "layer3",
+      "mode": "enhanced_notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 5,
+      "failed_attempts": 0,
+      "total_tokens": 14007,
+      "reported_cost": 0.0024379992,
+      "checkpoint_sha256": "ed76ca401d7b4486c709fdfcce5f6952b74c87da374d06dfcf2e5595ef02df00"
+    },
+    {
+      "test_id": "layer3_20_medical_malpractice_pattern",
+      "layer": "layer3",
+      "mode": "json_cards",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 7,
+      "failed_attempts": 2,
+      "total_tokens": 18746,
+      "reported_cost": 0.0027367928000000003,
+      "checkpoint_sha256": "bffb22bf2c50501ac37fe63719bd2396db5ffd6cdd0f4538fabe9524d3cb307d"
+    },
+    {
+      "test_id": "layer3_20_medical_malpractice_pattern",
+      "layer": "layer3",
+      "mode": "notes",
+      "scores": {
+        "precision": 4,
+        "recall": 4,
+        "reasoning": 4,
+        "proactivity": 4
+      },
+      "hallucination_veto": false,
+      "passed": true,
+      "reward": 1.0,
+      "api_attempts": 9,
+      "failed_attempts": 4,
+      "total_tokens": 12928,
+      "reported_cost": 0.0022121568,
+      "checkpoint_sha256": "10ea878a7c4f243c54b1af2b75dff7a748203dc623b3aeaa5bed168aea2eade6"
+    }
+  ],
+  "meaning": "passed means coverage/isolation/receipts verified, not every answer scored successful",
+  "reported_cost_note": "Provider-reported cost field only; not an invoice or confirmed charge."
+}
