@@ -1,0 +1,9 @@
+{
+  "pdf_sha256": "2c5df195e068f6f1b7113ec634552493339a6d48eff94851119118c96d71618c",
+  "pages": 2,
+  "chunks": 10,
+  "accepted_qa": 7,
+  "rejected_qa": 13,
+  "backend": "Ollama qwen3:0.6b, think=false",
+  "extraction": "PyMuPDF born-digital text"
+}

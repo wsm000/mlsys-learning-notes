@@ -1,0 +1,19 @@
+2026-10-20 21:19:29.914 | INFO     | DataFlow:registry.py:__getattr__:358 - Lazyloader ['dataflow/operators/core_text/'] trying to import PromptedGenerator
+2026-10-20 21:19:30.286 | INFO     | DataFlow:prompted_generator.py:run:60 - Running PromptGenerator...
+2026-10-20 21:19:30.286 | INFO     | DataFlow:storage.py:read:606 - Reading data from <REMOTE_HOME>/dataflow-task1/pdf2model/chunks.json with type dataframe
+2026-10-20 21:19:30.286 | INFO     | DataFlow:storage.py:read:610 - Reading remote dataset from <REMOTE_HOME>/dataflow-task1/pdf2model/chunks.json with type dataframe
+2026-10-20 21:19:30.291 | INFO     | DataFlow:prompted_generator.py:run:64 - Loading, number of rows: 10
+2026-10-20 21:19:30.291 | INFO     | DataFlow:prompted_generator.py:run:78 - Generating text using the model...
+QA_CHUNK_DONE 1/10
+QA_CHUNK_DONE 2/10
+QA_CHUNK_DONE 3/10
+QA_CHUNK_DONE 4/10
+QA_CHUNK_DONE 5/10
+QA_CHUNK_DONE 6/10
+QA_CHUNK_DONE 7/10
+QA_CHUNK_DONE 8/10
+QA_CHUNK_DONE 9/10
+QA_CHUNK_DONE 10/10
+2026-10-20 21:19:35.080 | INFO     | DataFlow:prompted_generator.py:run:80 - Text generation completed.
+2026-10-20 21:19:35.081 | SUCCESS  | DataFlow:storage.py:write:698 - Writing data to <REMOTE_HOME>/dataflow-task1/pdf2model/cache_local/dataflow_cache_step_step1.jsonl with type jsonl
+{"pdf_sha256": "2c5df195e068f6f1b7113ec634552493339a6d48eff94851119118c96d71618c", "pages": 2, "chunks": 10, "accepted_qa": 7, "rejected_qa": 13, "backend": "Ollama qwen3:0.6b, think=false", "extraction": "PyMuPDF born-digital text"}

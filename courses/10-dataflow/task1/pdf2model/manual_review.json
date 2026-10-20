@@ -1,0 +1,9 @@
+{
+  "rejected_questions": [
+    "How did researchers try to make systems that worked the way their minds worked?",
+    "What is the main technique used in computer Go?"
+  ],
+  "reason": "question too broad or answer visibly truncated",
+  "train_count": 4,
+  "eval_count": 1
+}

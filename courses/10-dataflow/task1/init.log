@@ -1,0 +1,521 @@
+Initializing (base): base
+Initializing in current working directory...
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/__init__.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/__init__.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/core_text/prompted_refine.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/core_text/prompted_refine.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/core_text/prompted_filter.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/core_text/prompted_filter.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/core_text/prompted_eval.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/core_text/prompted_eval.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/core_text_bencheval_semantic_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/core_text_bencheval_semantic_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/core_text_bencheval_semantic_pipeline_question.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/core_text_bencheval_semantic_pipeline_question.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/text2sql_pipeline_gen.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/text2sql_pipeline_gen.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/pdf_vqa_extract_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/pdf_vqa_extract_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/reasoning_pretrain_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/reasoning_pretrain_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/text2vecsql_pipeline_gen.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/text2vecsql_pipeline_gen.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/reasoning_general_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/reasoning_general_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/text_conversation_synthesis_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/text_conversation_synthesis_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/reasoning_diy_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/reasoning_diy_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/code_code_to_sft_data_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/code_code_to_sft_data_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/README.md
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/README.md
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/text2qa_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/text2qa_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/code_gen_dataset_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/code_gen_dataset_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/reasoning_math_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/reasoning_math_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/text_sft_synthesis_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/text_sft_synthesis_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/agentic_rag_multihop_core_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/agentic_rag_multihop_core_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/func_call_synthesis.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/func_call_synthesis.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/agentic_rag_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/agentic_rag_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/reasoning_math_pipeline_mathfusion.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/reasoning_math_pipeline_mathfusion.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/chemistry_smiles.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/chemistry_smiles.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/core_text_bencheval_semantic_pipeline_question_single_step.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/core_text_bencheval_semantic_pipeline_question_single_step.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/kbcleaning_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/kbcleaning_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/api_pipelines/text2sql_pipeline_refine.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/api_pipelines/text2sql_pipeline_refine.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/cpu_pipelines/text_pt_filter.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/cpu_pipelines/text_pt_filter.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/cpu_pipelines/code_pt_filter.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/cpu_pipelines/code_pt_filter.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/cpu_pipelines/kbcleaning_pipeline_url.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/cpu_pipelines/kbcleaning_pipeline_url.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/cpu_pipelines/reasoning_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/cpu_pipelines/reasoning_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/cpu_pipelines/text2sql_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/cpu_pipelines/text2sql_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/cpu_pipelines/text_sft_filter.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/cpu_pipelines/text_sft_filter.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/gpu_pipelines/text_pt_filter.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/gpu_pipelines/text_pt_filter.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/gpu_pipelines/text2sql_pipeline_gen.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/gpu_pipelines/text2sql_pipeline_gen.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/gpu_pipelines/text_pt_synthetic.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/gpu_pipelines/text_pt_synthetic.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/gpu_pipelines/reasoning_math_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/gpu_pipelines/reasoning_math_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/gpu_pipelines/core_text_bencheval_match_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/gpu_pipelines/core_text_bencheval_match_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/gpu_pipelines/text_sft_synthetic.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/gpu_pipelines/text_sft_synthetic.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/gpu_pipelines/text_sft_filter.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/gpu_pipelines/text_sft_filter.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/gpu_pipelines/speechtranscription_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/gpu_pipelines/speechtranscription_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/gpu_pipelines/text2sql_pipeline_refine.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/gpu_pipelines/text2sql_pipeline_refine.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/gpu_pipelines/kbcleaning/kbcleaning_pipeline_sglang.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/gpu_pipelines/kbcleaning/kbcleaning_pipeline_sglang.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/gpu_pipelines/kbcleaning/kbcleaning_pipeline_vllm.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/gpu_pipelines/kbcleaning/kbcleaning_pipeline_vllm.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/gpu_pipelines/benchmark_eval/unified_bench_eval_type_semantic.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/gpu_pipelines/benchmark_eval/unified_bench_eval_type_semantic.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/gpu_pipelines/benchmark_eval/unified_bench_eval_type1.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/gpu_pipelines/benchmark_eval/unified_bench_eval_type1.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/gpu_pipelines/benchmark_eval/unified_bench_eval_type2.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/gpu_pipelines/benchmark_eval/unified_bench_eval_type2.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/gpu_pipelines/benchmark_eval/unified_bench_eval_type5.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/gpu_pipelines/benchmark_eval/unified_bench_eval_type5.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/gpu_pipelines/benchmark_eval/unified_bench_eval_type3.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/gpu_pipelines/benchmark_eval/unified_bench_eval_type3.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/gpu_pipelines/benchmark_eval/unified_bench_eval_type4.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/gpu_pipelines/benchmark_eval/unified_bench_eval_type4.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/pipelines/gpu_pipelines/benchmark_eval/unified_bench_eval_type6.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/gpu_pipelines/benchmark_eval/unified_bench_eval_type6.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/ReasoningPipeline/pipeline_math_short.json
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/ReasoningPipeline/pipeline_math_short.json
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/ReasoningPipeline/pipeline_general_short.json
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/ReasoningPipeline/pipeline_general_short.json
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/ReasoningPipeline/pipeline_general.json
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/ReasoningPipeline/pipeline_general.json
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/ReasoningPipeline/pipeline_math.json
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/ReasoningPipeline/pipeline_math.json
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/PDF2VQAPipeline/vqa_extract_test.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/PDF2VQAPipeline/vqa_extract_test.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/PDF2VQAPipeline/math_question.pdf
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/PDF2VQAPipeline/math_question.pdf
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/PDF2VQAPipeline/math_answer.pdf
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/PDF2VQAPipeline/math_answer.pdf
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/PDF2VQAPipeline/questionextract_test.pdf
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/PDF2VQAPipeline/questionextract_test.pdf
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/DataflowAgent/mq_test_data.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/DataflowAgent/mq_test_data.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/DataflowAgent/agent_test_data.json
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/DataflowAgent/agent_test_data.json
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/AgenticRAGPipeline/eval_test_data.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/AgenticRAGPipeline/eval_test_data.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/AgenticRAGPipeline/multihop_pipeline_data.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/AgenticRAGPipeline/multihop_pipeline_data.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/chemistry/matched_sample_10.json
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/chemistry/matched_sample_10.json
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/core_text_data/bench_eval_data_2.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/core_text_data/bench_eval_data_2.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/core_text_data/pipeline_small_chunk.json
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/core_text_data/pipeline_small_chunk.json
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/core_text_data/unified_bench_eval_type3.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/core_text_data/unified_bench_eval_type3.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/core_text_data/double_column_input.json
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/core_text_data/double_column_input.json
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/core_text_data/unified_bench_eval_type2.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/core_text_data/unified_bench_eval_type2.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/core_text_data/unified_bench_eval_type4.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/core_text_data/unified_bench_eval_type4.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/core_text_data/bench_eval_data.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/core_text_data/bench_eval_data.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/core_text_data/eval_data.json
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/core_text_data/eval_data.json
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/core_text_data/unified_bench_eval_type6.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/core_text_data/unified_bench_eval_type6.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/core_text_data/unified_bench_eval_type1.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/core_text_data/unified_bench_eval_type1.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/core_text_data/unified_bench_eval_type5.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/core_text_data/unified_bench_eval_type5.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/VQA/pic_path.json
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/VQA/pic_path.json
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/VQA/pdfimages/page_1.jpg
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/VQA/pdfimages/page_1.jpg
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/VQA/pdfimages/page_2.jpg
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/VQA/pdfimages/page_2.jpg
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/VQA/pdfimages/page_0.jpg
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/VQA/pdfimages/page_0.jpg
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/FuncCallPipeline/chat_data.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/FuncCallPipeline/chat_data.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/GeneralTextPipeline/gen_input.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/GeneralTextPipeline/gen_input.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/GeneralTextPipeline/sft_input.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/GeneralTextPipeline/sft_input.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/GeneralTextPipeline/math_100.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/GeneralTextPipeline/math_100.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/GeneralTextPipeline/translation.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/GeneralTextPipeline/translation.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/GeneralTextPipeline/filtering.json
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/GeneralTextPipeline/filtering.json
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/GeneralTextPipeline/pt_input.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/GeneralTextPipeline/pt_input.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/GeneralTextPipeline/pandas.json
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/GeneralTextPipeline/pandas.json
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/GeneralTextPipeline/abbreviation.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/GeneralTextPipeline/abbreviation.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/GeneralTextPipeline/empty.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/GeneralTextPipeline/empty.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/SpeechTranscription/pipeline_speechtranscription.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/SpeechTranscription/pipeline_speechtranscription.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/SpeechTranscription/audio/test.wav
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/SpeechTranscription/audio/test.wav
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/CodePipeline/code_input.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/CodePipeline/code_input.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/CodePipeline/raw_code.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/CodePipeline/raw_code.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/CodePipeline/code_synthesis_input.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/CodePipeline/code_synthesis_input.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/Text2SQLPipeline/pipeline_refine.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/Text2SQLPipeline/pipeline_refine.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/Text2SQLPipeline/empty.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/Text2SQLPipeline/empty.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/KBCleaningPipeline/kbc_test.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/KBCleaningPipeline/kbc_test.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/KBCleaningPipeline/test.pdf
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/KBCleaningPipeline/test.pdf
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/KBCleaningPipeline/bitter_lesson.pdf
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/KBCleaningPipeline/bitter_lesson.pdf
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/KBCleaningPipeline/kbc_placeholder.json
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/KBCleaningPipeline/kbc_placeholder.json
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/KBCleaningPipeline/kbc_playground.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/KBCleaningPipeline/kbc_playground.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/KBCleaningPipeline/test.doc
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/KBCleaningPipeline/test.doc
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/example/KBCleaningPipeline/kbc_test_1.jsonl
+To: <REMOTE_HOME>/dataflow-task1/workspace/example_data/KBCleaningPipeline/kbc_test_1.jsonl
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/simple_text_pipelines/sft_from_scratch.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/simple_text_pipelines/sft_from_scratch.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/simple_text_pipelines/eval_semantic.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/simple_text_pipelines/eval_semantic.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/simple_text_pipelines/pt_simple_filter.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/simple_text_pipelines/pt_simple_filter.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/simple_text_pipelines/eval_match.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/simple_text_pipelines/eval_match.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/reasoning_general_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/reasoning_general_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/text_conversation_synthesis_pipeline.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/text_conversation_synthesis_pipeline.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/kbcleaning_pipeline_vllm.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/kbcleaning_pipeline_vllm.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/vqa.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/vqa.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/text_sft_synthesis_from_seed.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/text_sft_synthesis_from_seed.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/text_sft_synthesis_from_scratch.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/text_sft_synthesis_from_scratch.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/mathbook_extract.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/mathbook_extract.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/quick_evaluate.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/quick_evaluate.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/prompted_generator/translation_litellm_json_schema.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/prompted_generator/translation_litellm_json_schema.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/prompted_generator/generate_qa_local.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/prompted_generator/generate_qa_local.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/prompted_generator/retrieval_api.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/prompted_generator/retrieval_api.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/prompted_generator/abbreviation_qa_api.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/prompted_generator/abbreviation_qa_api.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/prompted_generator/translation_api_json_schema.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/prompted_generator/translation_api_json_schema.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/prompted_generator/translation_api.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/prompted_generator/translation_api.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/prompted_generator/translation_local.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/prompted_generator/translation_local.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/prompted_generator/translation_litellm.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/prompted_generator/translation_litellm.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/prompted_generator/translation_local_json_schema.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/prompted_generator/translation_local_json_schema.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/prompted_generator/abbreviation_qa_local.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/prompted_generator/abbreviation_qa_local.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/prompted_generator/generate_qa_api.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/prompted_generator/generate_qa_api.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/materials/mat_prop1_df.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/materials/mat_prop1_df.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/materials/mat_names_df.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/materials/mat_names_df.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/materials/mat_recipe_df.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/materials/mat_recipe_df.py
+
+[Copied]
+From: <REMOTE_HOME>/dataflow-task1/pipeline-env/lib/python3.10/site-packages/dataflow/statics/playground/playground/format_str_prompt_generator/double_column_input.py
+To: <REMOTE_HOME>/dataflow-task1/workspace/playground/format_str_prompt_generator/double_column_input.py
