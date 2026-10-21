@@ -1,0 +1,21 @@
+{
+  "source": "synthetic",
+  "windows": [
+    {
+      "window": 3,
+      "price_return_pct": 2.912621,
+      "volume_ratio": 1.3076923076923077,
+      "baseline_mean_volume": 1300.0,
+      "recent_mean_volume": 1700.0
+    },
+    {
+      "window": 5,
+      "price_return_pct": 6.0,
+      "volume_ratio": 1.6,
+      "baseline_mean_volume": 1000.0,
+      "recent_mean_volume": 1600.0
+    }
+  ],
+  "comparison": "两个窗口均显示价格上升且量能放大。收益率方面，window=5 的收益率（6.0%）高于 window=3 的收益率（2.912621%），说明拉长观察窗口后累计涨幅更大。量比方面，window=5 的量比（1.6）高于 window=3 的量比（1.3076923076923077），即 5 日窗口的放量程度更明显。均量方面，window=3 的基线均量（1300.0）高于 window=5 的基线均量（1000.0），而近期均量 window=3（1700.0）也高于 window=5（1600.0），这是因为 3 日窗口的基线仅含 3 个交易日、5 日窗口的基线含 5 个交易日，基线样本不同所致。总体而言，5 日窗口在收益率与量比上均更突出，显示更长时间维度的上涨伴随更显著的放量。",
+  "limitations": "本报告基于模拟教学资料（synthetic teaching fixture），并非真实市场数据，仅用于演示分析流程。分析为描述性的窗口对比，不构成因果推断，也不代表任何预测或投资建议，不能用于预测未来走势。"
+}

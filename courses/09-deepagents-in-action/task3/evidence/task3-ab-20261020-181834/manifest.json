@@ -1,0 +1,36 @@
+{
+  "model": "DeepSeek-V4-Flash",
+  "temperature": 0,
+  "max_tokens": 4096,
+  "timeout": 90,
+  "max_retries": 0,
+  "system_prompt": "You are Quanty. Use tools for numerical claims. Only DEMO synthetic teaching data exists. Do not use execute or delegate. Complete all requested steps and verify the saved artifact.",
+  "user_prompt": "完成多步骤分析：读取 /input/demo.csv，分别调用 analyze_price_volume(window=3) 和 analyze_price_volume(window=5)，比较结果，写入 /reports/comparison.json，最后读回核对。\n报告为合法 JSON：{\"source\":\"synthetic\",\"windows\":[{\"window\":3,\"price_return_pct\":数值,\"volume_ratio\":数值,\"baseline_mean_volume\":数值,\"recent_mean_volume\":数值},{\"window\":5,\"price_return_pct\":数值,\"volume_ratio\":数值,\"baseline_mean_volume\":数值,\"recent_mean_volume\":数值}],\"comparison\":\"中文比较收益率、量比及均量差异并引用数值\",\"limitations\":\"中文说明模拟资料、非因果、不能预测未来\"}。\n保持工具数值精度；比较大小必须符合数值，不加入资料不支持的价格路径解释。文件仅使用内置文件工具，不使用 execute 或委派。完成全部操作再结束。",
+  "fixture_sha256": "1352edc00ce42839f6c097af4d1f1cf9c6708791da7375f7c88748c78a574665",
+  "versions": {
+    "deepagents": "0.7.8",
+    "langchain": "1.4.3",
+    "langchain-openai": "1.6.7"
+  },
+  "order": [
+    "off",
+    "on"
+  ],
+  "expected": [
+    {
+      "window": 3,
+      "price_return_pct": 2.912621,
+      "volume_ratio": 1.3076923076923077,
+      "baseline_mean_volume": 1300.0,
+      "recent_mean_volume": 1700.0
+    },
+    {
+      "window": 5,
+      "price_return_pct": 6.0,
+      "volume_ratio": 1.6,
+      "baseline_mean_volume": 1000.0,
+      "recent_mean_volume": 1600.0
+    }
+  ],
+  "design": "One paired exploratory run. Middleware adds its tool, state and system guidance. No checkpointer; independent filesystem roots. Default Deep Agents harness kept equal. No claim of seed-level determinism."
+}

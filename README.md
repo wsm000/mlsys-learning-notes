@@ -13,6 +13,8 @@
 
 ## 快速入口
 
+- [Deep Agents Task3：规划、Todo 与上下文压缩图解](courses/09-deepagents-in-action/task3/README.md)
+
 - [hello-gpu](courses/01-hello-gpu/README.md)
 - [MLSys](courses/02-mlsys/README.md)
 - [llm-algo-leetcode 训练微调](courses/03-llm-algo-leetcode-finetune/README.md)

@@ -1,0 +1,16 @@
+{
+  "method": "Independent reading of reports against frozen CSV, tool evidence and recomputed values; no LLM judge call",
+  "off": {
+    "numeric_comparisons_correct": true,
+    "limitations_correct": true,
+    "explanation_accepted": false,
+    "finding": "The phrase '低量基准，放大了量比与收益的对比幅度' conflates the volume baseline with the return baseline. A lower volume baseline supports a larger volume ratio; return differences require comparing baseline closes 100 and 103 against final close 106. Revise this explanation before full acceptance."
+  },
+  "on": {
+    "numeric_comparisons_correct": true,
+    "limitations_correct": true,
+    "explanation_accepted": true,
+    "finding": "Return and volume-ratio directions are correct. Both recent and baseline mean volumes are correctly higher for window=3. The different samples explain the descriptive differences; sample length alone does not imply a general increase or decrease. The report explicitly limits its claims to synthetic descriptive data."
+  },
+  "causal_interpretation": "The enabled arm made zero write_todos calls. This comparison evaluates availability of Todo middleware, including its system guidance and tool schema, not the effect of executing a Todo plan. A single sequential pair cannot establish a stable treatment effect."
+}
