@@ -1,0 +1,36 @@
+test_discount_above_one (test_cart.CartTests) ... FAIL
+test_empty_cart (test_cart.CartTests) ... ok
+test_full_discount (test_cart.CartTests) ... ok
+test_nan_discount (test_cart.CartTests) ... FAIL
+test_negative_discount (test_cart.CartTests) ... FAIL
+test_no_discount (test_cart.CartTests) ... ok
+test_twenty_percent_off (test_cart.CartTests) ... ok
+
+======================================================================
+FAIL: test_discount_above_one (test_cart.CartTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/test_cart.py", line 23, in test_discount_above_one
+    with self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_nan_discount (test_cart.CartTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/test_cart.py", line 27, in test_nan_discount
+    with self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_negative_discount (test_cart.CartTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/test_cart.py", line 19, in test_negative_discount
+    with self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.002s
+
+FAILED (failures=3)

@@ -1,0 +1,4 @@
+order_id,region,event,amount,currency
+A001,华东,sale,100,CNY
+A002,华南,sale,200,CNY
+A003,华东,refund,-30,CNY

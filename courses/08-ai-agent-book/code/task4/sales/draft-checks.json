@@ -1,0 +1,35 @@
+{
+  "status": "draft_incomplete",
+  "final_ready": false,
+  "source_hashes": {
+    "01.csv": "d03cb6369e94c29448cdda472c3753b8072f0a1b9ca8269d2e92c70abeff67a3",
+    "02.csv": "2a3e3c34db7cc90016912bdba0e0c7973537c3494e892c9962b4c5967d8091b8",
+    "03.csv": "a41aa3bbc39a8cef6aa37b0fa5e2de171c7b33618c74e5807d5251f4f34f3a4d"
+  },
+  "sources_unchanged": true,
+  "files": 3,
+  "rows": 7,
+  "known_regions": {
+    "华东": "120",
+    "华南": "240",
+    "华北": "80"
+  },
+  "known_subtotal": "440",
+  "pending_total": "60",
+  "raw_total": "500",
+  "reconciliation_passed": true,
+  "pending_rows": [
+    {
+      "file": "03.csv",
+      "line": 3,
+      "order_id": "C002",
+      "region": "",
+      "event": "sale",
+      "amount": "60",
+      "currency": "CNY",
+      "issues": [
+        "missing or unknown region"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "scope": "仅本教学实验，模拟可靠确认，不代表真实业务证据",
+  "confirmations": [
+    {
+      "order_id": "C002",
+      "source_file": "03.csv",
+      "source_sha256": "a41aa3bbc39a8cef6aa37b0fa5e2de171c7b33618c74e5807d5251f4f34f3a4d",
+      "field": "region",
+      "original_value": "",
+      "confirmed_value": "华南",
+      "evidence": "教学场景给定：假设已获得可靠确认，C002 属于华南",
+      "status": "confirmed_in_simulation"
+    }
+  ]
+}

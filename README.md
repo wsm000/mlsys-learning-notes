@@ -13,6 +13,8 @@
 
 ## 快速入口
 
+- [AI Agent 第五章：从一行折扣公式，到一个能完成任务的 Agent](courses/08-ai-agent-book/notes/task04-coding-agent-and-general-agent.md)
+
 - [Deep Agents Task3：规划、Todo 与上下文压缩图解](courses/09-deepagents-in-action/task3/README.md)
 
 - [hello-gpu](courses/01-hello-gpu/README.md)

@@ -1,0 +1,9 @@
+test_empty_cart (test_cart.CartTests.test_empty_cart) ... ok
+test_full_discount (test_cart.CartTests.test_full_discount) ... ok
+test_no_discount (test_cart.CartTests.test_no_discount) ... ok
+test_twenty_percent_off (test_cart.CartTests.test_twenty_percent_off) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK

@@ -1,0 +1,3 @@
+order_id,region,event,amount,currency
+B001,华北,sale,80,CNY
+B002,华东,sale,50,CNY

@@ -1,0 +1,33 @@
+test_empty_cart (test_cart.CartTests.test_empty_cart) ... ok
+test_full_discount (test_cart.CartTests.test_full_discount) ... FAIL
+test_no_discount (test_cart.CartTests.test_no_discount) ... FAIL
+test_twenty_percent_off (test_cart.CartTests.test_twenty_percent_off) ... FAIL
+
+======================================================================
+FAIL: test_full_discount (test_cart.CartTests.test_full_discount)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/test_cart.py", line 13, in test_full_discount
+    self.assertEqual(total_after_discount([100], 1), 0)
+AssertionError: 100 != 0
+
+======================================================================
+FAIL: test_no_discount (test_cart.CartTests.test_no_discount)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/test_cart.py", line 10, in test_no_discount
+    self.assertEqual(total_after_discount([100], 0), 100)
+AssertionError: 0 != 100
+
+======================================================================
+FAIL: test_twenty_percent_off (test_cart.CartTests.test_twenty_percent_off)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<workspace>/test_cart.py", line 7, in test_twenty_percent_off
+    self.assertAlmostEqual(total_after_discount([100, 50], 0.2), 120)
+AssertionError: 30.0 != 120 within 7 places (90.0 difference)
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.002s
+
+FAILED (failures=3)

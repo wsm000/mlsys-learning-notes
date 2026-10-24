@@ -1,0 +1,2 @@
+# Preserve fixture bytes because confirmations bind source SHA-256 values.
+sales/data/*.csv -text

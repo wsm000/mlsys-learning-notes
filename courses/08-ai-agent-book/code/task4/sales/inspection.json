@@ -1,0 +1,94 @@
+{
+  "files": 3,
+  "rows": 7,
+  "raw_total_cny": "500",
+  "errors": [
+    {
+      "file": "03.csv",
+      "line": 3,
+      "order_id": "C002",
+      "region": "",
+      "event": "sale",
+      "amount": "60",
+      "currency": "CNY",
+      "issues": [
+        "missing or unknown region"
+      ]
+    }
+  ],
+  "rows_detail": [
+    {
+      "file": "01.csv",
+      "line": 2,
+      "order_id": "A001",
+      "region": "华东",
+      "event": "sale",
+      "amount": "100",
+      "currency": "CNY",
+      "issues": []
+    },
+    {
+      "file": "01.csv",
+      "line": 3,
+      "order_id": "A002",
+      "region": "华南",
+      "event": "sale",
+      "amount": "200",
+      "currency": "CNY",
+      "issues": []
+    },
+    {
+      "file": "01.csv",
+      "line": 4,
+      "order_id": "A003",
+      "region": "华东",
+      "event": "refund",
+      "amount": "-30",
+      "currency": "CNY",
+      "issues": []
+    },
+    {
+      "file": "02.csv",
+      "line": 2,
+      "order_id": "B001",
+      "region": "华北",
+      "event": "sale",
+      "amount": "80",
+      "currency": "CNY",
+      "issues": []
+    },
+    {
+      "file": "02.csv",
+      "line": 3,
+      "order_id": "B002",
+      "region": "华东",
+      "event": "sale",
+      "amount": "50",
+      "currency": "CNY",
+      "issues": []
+    },
+    {
+      "file": "03.csv",
+      "line": 2,
+      "order_id": "C001",
+      "region": "华南",
+      "event": "sale",
+      "amount": "40",
+      "currency": "CNY",
+      "issues": []
+    },
+    {
+      "file": "03.csv",
+      "line": 3,
+      "order_id": "C002",
+      "region": "",
+      "event": "sale",
+      "amount": "60",
+      "currency": "CNY",
+      "issues": [
+        "missing or unknown region"
+      ]
+    }
+  ],
+  "final_ready": false
+}
