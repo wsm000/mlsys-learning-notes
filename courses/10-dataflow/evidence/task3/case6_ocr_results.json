@@ -1,0 +1,14 @@
+[
+  {
+    "raw_content":"\/home\/simin\/dataflow-task3\/example_data\/VQA\/pdfimages\/page_0.jpg",
+    "generated_content":"\nThe image shows a page from a book that is written in Chinese. The page contains a list of equations and geometric diagrams, along with explanations in Chinese. The equations and diagrams are in black and white, making it easier to read and understand the content. The page is numbered \"86\" and is titled \"福商论\", which translates to \"Theory of Geometry\". The page is filled with various geometric shapes and equations, providing a comprehensive guide to the principles of geometry."
+  },
+  {
+    "raw_content":"\/home\/simin\/dataflow-task3\/example_data\/VQA\/pdfimages\/page_1.jpg",
+    "generated_content":"\nThe image shows a page from a math textbook, which is written in Chinese. The page contains a diagram of a triangle and a quadratic equation, along with some calculations. The page also includes some Chinese characters and formulas, which are written in a foreign language. The page is numbered \"58\" and is part of a larger book."
+  },
+  {
+    "raw_content":"\/home\/simin\/dataflow-task3\/example_data\/VQA\/pdfimages\/page_2.jpg",
+    "generated_content":"\nThe image shows a page of a math textbook with Chinese characters on it. The page is filled with various equations and formulas, including a problem involving the area of a circle. The page also contains explanations and instructions in Chinese, which may be in English as well. The page is written in black ink, making the equations and text stand out. The content of the page is focused on math problems and formulas, providing a comprehensive guide for students to learn and practice math concepts.\n\nThe page is divided into multiple sections, with each section containing different equations and explanations. The page is well-organized, with the math problems and formulas clearly presented, making it easy for students to follow along and understand the concepts being taught."
+  }
+]

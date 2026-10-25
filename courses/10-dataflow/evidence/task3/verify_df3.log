@@ -1,0 +1,7 @@
+dataflow 1.0.11
+torch 2.9.1+cu128 cuda True
+transformers 4.57.6
+numpy 1.26.4
+Traceback (most recent call last):
+  File "<stdin>", line 7, in <module>
+AttributeError: module 'mineru' has no attribute '__version__'
