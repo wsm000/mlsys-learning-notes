@@ -1,0 +1,16 @@
+{"question": "", "answer": "Yes", "solution": "例5 已知  $\\triangle ABC$  的内切圆  $\\odot I$  与  $AB, AC$  分别切于点  $P, Q$ , 射线  $BI, CI$  分别交  $PQ$  于点  $K, L$ . 证明:  $\\triangle ILK$  的外接圆与  $\\triangle ABC$  的内切圆相切的充分必要条件是  $AB + AC = 3BC$ .\n证明\n如图3.14所示，设  $BC = a,CA = b,$ $AB = c$  ，设  $BL$  和  $CK$  延长后交于点  $D$  由于 $\\triangle PAQ$  是等腰三角形，所以  $\\angle BKL =$ $\\angle APK - \\angle ABK = \\frac{1}{2}\\angle ACB.$  所以  $I,K,Q,$ $C$  四点共圆，  $B,L,K,C$  四点共圆．由 $\\angle IKC = \\angle IQC = 90^{\\circ},I,L,D,K$  四点共圆， $ID$  是  $\\triangle ILK$  的外接圆直径.", "label": "4", "chapter_title": ""}
+{"question": "![图3.14](vqa_images/a807ec48facb798153e1dd321df007d1b39052960a6ac427ac968bd22e209188.jpg)\n中\n圆", "answer": "3.14", "solution": "", "label": "2", "chapter_title": ""}
+{"question": "", "answer": "Yes", "solution": "", "label": "5", "chapter_title": ""}
+{"question": "", "answer": "Yes", "solution": "", "label": "6", "chapter_title": ""}
+{"question": "", "answer": "Yes", "solution": "", "label": "13", "chapter_title": ""}
+{"question": "", "answer": "Yes", "solution": "", "label": "16", "chapter_title": ""}
+{"question": "", "answer": "Yes", "solution": "", "label": "12", "chapter_title": ""}
+{"question": "", "answer": "Yes", "solution": "", "label": "14", "chapter_title": ""}
+{"question": "", "answer": "Yes", "solution": "", "label": "18", "chapter_title": ""}
+{"question": "", "answer": "Yes", "solution": "", "label": "21", "chapter_title": ""}
+{"question": "", "answer": "Yes", "solution": "", "label": "19", "chapter_title": ""}
+{"question": "", "answer": "Yes", "solution": "", "label": "23", "chapter_title": ""}
+{"question": "", "answer": "Yes", "solution": "", "label": "24", "chapter_title": ""}
+{"question": "", "answer": "Yes", "solution": "", "label": "27", "chapter_title": ""}
+{"question": "", "answer": "Yes", "solution": "", "label": "28", "chapter_title": ""}
+{"question": "", "answer": "Yes", "solution": "", "label": "31", "chapter_title": ""}

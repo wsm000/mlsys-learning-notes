@@ -1,0 +1,10 @@
+<chapter><title>1</title>
+<qa_pair><label>1</label><question>1. 2025 GDFZ 入学数学真卷（一）</question>
+<answer>Yes</answer><solution>5,6,7</solution></qa_pair>
+<qa_pair><label>2</label><question>8,9,10</question>
+<answer>3.14</answer><solution></solution></qa_pair>
+</chapter>
+<chapter><title>12</title>
+<qa_pair><label>1</label><question></question>
+<answer>2^6</answer><solution>16</solution></qa_pair>
+</chapter>

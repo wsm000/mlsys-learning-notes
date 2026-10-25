@@ -1,0 +1,17 @@
+[32m2026-10-25 19:34:01.351[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/core_vision/'] trying to import PromptedVQAGenerator [0m
+1. PromptedVQAGenerator OK
+2. APIVLMServing_openai OK
+3. APILLMServing_request OK
+[32m2026-10-25 19:34:10.090[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/knowledge_cleaning/'] trying to import FileOrURLToMarkdownConverterLocal [0m
+4. FileOrURLToMarkdownConverterLocal OK
+5. QAExtractPrompt OK, len 4858
+[32m2026-10-25 19:34:10.177[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/pdf2vqa/'] trying to import MinerU2LLMInputOperator [0m
+[32m2026-10-25 19:34:10.178[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/pdf2vqa/'] trying to import LLMOutputParser [0m
+[32m2026-10-25 19:34:10.179[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/pdf2vqa/'] trying to import QA_Merger [0m
+[32m2026-10-25 19:34:10.181[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/pdf2vqa/'] trying to import PDF_Merger [0m
+[32m2026-10-25 19:34:10.244[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/pdf2vqa/'] trying to import VQAFormatter [0m
+6. pdf2vqa operators OK
+[32m2026-10-25 19:34:10.247[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/core_text/'] trying to import ChunkedPromptedGenerator [0m
+7. ChunkedPromptedGenerator OK (tiktoken+import)
+8. vlm model path -> /home/simin/df3_assets/MinerU2.5-2509-1.2B
+ALL_OK

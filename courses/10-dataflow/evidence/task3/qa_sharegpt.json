@@ -1,0 +1,30 @@
+[
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "<image>中\n圆"
+      },
+      {
+        "role": "assistant",
+        "content": "3.14"
+      }
+    ],
+    "images": [
+      "/home/simin/dataflow-task3/cache/math1/vqa_images/a807ec48facb798153e1dd321df007d1b39052960a6ac427ac968bd22e209188.jpg"
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "user",
+        "content": "A. 平方厘米\nB. 平方分米\nC. 厘米"
+      },
+      {
+        "role": "assistant",
+        "content": "3.14"
+      }
+    ],
+    "images": []
+  }
+]

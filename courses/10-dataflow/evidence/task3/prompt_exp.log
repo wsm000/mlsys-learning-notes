@@ -1,0 +1,15 @@
+layout items: 40
+user json chars: 7368
+=== RESPONSE ===
+<chapter><title>0</title>
+<qa_pair><label>例4</label><question>例4</question>
+<answer>A,C,K,L 共圆</answer><solution>证明</solution></qa_pair>
+<qa_pair><label>例5</label><question>例5</question>
+<answer>AB + AC = 3BC</answer><solution>证明</solution></qa_pair>
+</chapter>
+<chapter><title>1</title>
+<qa_pair><label>例6</label><question>例6</question>
+<answer>AB:BC:AC = 3:4:5</answer><solution>解</solution></qa_pair>
+<qa_pair><label>例7</label><question>例7</question>
+<answer>AD, BG, CF 共点</answer><solution>证明</solution></qa_pair>
+</chapter>

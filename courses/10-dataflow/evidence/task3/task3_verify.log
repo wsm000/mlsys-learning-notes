@@ -1,0 +1,28 @@
+PASS mineru_output_dirs>=1 | ['intermediate/math1_merged/vlm-transformers', 'intermediate/math2_merged/vlm-transformers']
+PASS mineru[math1_merged].md exists
+PASS mineru[math1_merged].content_list
+PASS mineru[math1_merged].content_list_nonempty | 40 items {'text': 23, 'image': 4, 'header': 7, 'page_number': 4, 'equation': 2}
+PASS mineru[math1_merged].has_text
+PASS mineru[math1_merged].images_dir | 6 images
+PASS mineru[math2_merged].md exists
+PASS mineru[math2_merged].content_list
+PASS mineru[math2_merged].content_list_nonempty | 64 items {'text': 54, 'table': 2, 'image': 5, 'list': 1, 'header': 2}
+PASS mineru[math2_merged].has_text
+PASS mineru[math2_merged].images_dir | 7 images
+PASS converted_layout>=1 | 2
+PASS converted_ids_unique
+PASS converted_ids_unique
+INFO merged[data] images copied: 0
+PASS extracted[math1].fields | 16
+PASS merged[math1].pairs>=0 | 1 pairs
+INFO merged[math1] images copied: 6
+PASS extracted[math2].fields | 3
+PASS merged[math2].pairs>=0 | 1 pairs
+INFO merged[math2] images copied: 7
+PASS sharegpt.records>=0 | 2
+PASS sharegpt.messages_roles | user
+PASS sharegpt.image_exists | /home/simin/dataflow-task3/cache/math1/vqa_images/a807ec48facb798153e1dd321df007d1b39052960a6ac427ac968bd22e209188.jpg
+PASS sharegpt.messages_roles | user
+
+SUMMARY: 22 passed, 0 failed
+VERIFY_RC=0

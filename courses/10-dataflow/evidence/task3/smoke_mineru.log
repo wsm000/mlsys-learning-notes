@@ -1,0 +1,10 @@
+CMD: mineru -p ./example_data/PDF2VQAPipeline/questionextract_test.pdf -o intermediate_smoke -b vlm-transformers --source local
+2026-10-25 19:38:59.513 | INFO     | mineru.backend.vlm.utils:set_default_batch_size:92 - gpu_memory: 24 GB, batch_size: 8
+2026-10-25 19:38:59.514 | INFO     | mineru.backend.vlm.vlm_analyze:get_model:189 - get transformers predictor cost: 6.48s
+Predict:   0%|          | 0/4 [00:00<?, ?it/s]Predict: 100%|██████████| 4/4 [00:19<00:00,  4.92s/it]Predict: 100%|██████████| 4/4 [00:19<00:00,  4.92s/it]
+Predict:   0%|          | 0/45 [00:00<?, ?it/s]Predict:  18%|█▊        | 8/45 [00:00<00:00, 52.63it/s]Predict:  36%|███▌      | 16/45 [00:00<00:00, 36.48it/s]Predict:  53%|█████▎    | 24/45 [00:02<00:02,  8.01it/s]Predict:  71%|███████   | 32/45 [00:05<00:02,  4.67it/s]Predict:  89%|████████▉ | 40/45 [00:11<00:02,  2.30it/s]Predict: 100%|██████████| 45/45 [00:22<00:00,  1.21it/s]Predict: 100%|██████████| 45/45 [00:22<00:00,  2.04it/s]
+2026-10-25 19:39:41.724 | INFO     | mineru.cli.common:_process_output:167 - local output dir is intermediate_smoke/questionextract_test/vlm
+mineru rc: 0 elapsed: 52.1s
+=== output dir: intermediate_smoke/questionextract_test/vlm-transformers
+images: 0 []
+SMOKE_RC=0
