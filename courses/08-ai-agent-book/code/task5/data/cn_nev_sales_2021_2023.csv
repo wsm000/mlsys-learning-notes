@@ -1,0 +1,7 @@
+metric,period,value_wan,unit,source
+nev_sales,Y2021,352.1,万辆,CAAM
+nev_sales,Y2022,688.7,万辆,CAAM
+nev_sales,Y2023,949.5,万辆,CAAM
+total_auto_sales,Y2021,2627.5,万辆,CAAM
+total_auto_sales,Y2022,2686.4,万辆,CAAM
+total_auto_sales,Y2023,3009.4,万辆,CAAM

@@ -1,0 +1,7 @@
+{
+  "url": "https://www.cs.stanford.edu/people/faculty",
+  "http_status": 200,
+  "source": "live_fetch_urllib",
+  "html_bytes": 216707,
+  "text_chars": 7193
+}

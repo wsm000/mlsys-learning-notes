@@ -1,0 +1,39 @@
+{
+  "file": "data/cn_nev_sales_2021_2023.csv",
+  "description": "中国新能源汽车销量（万辆），2021-2023 分年度与分季度",
+  "source_org": "中国汽车工业协会 (CAAM)",
+  "source_kind": "frozen_snapshot",
+  "collected_by": "manual transcription from CAAM annual press releases, rounded to 0.1 万辆",
+  "frozen_at": "2026-10-26",
+  "caveat": "这是仓库内固化的快照，不是实时联网检索结果；数字以 CAAM 公布口径为准，本实验用它保证可重复运行。",
+  "annual_nev_sales_wan": {
+    "2021": 352.1,
+    "2022": 688.7,
+    "2023": 949.5
+  },
+  "quarterly_nev_sales_wan": {
+    "2021": {
+      "Q1": 51.5,
+      "Q2": 73.4,
+      "Q3": 94.4,
+      "Q4": 132.8
+    },
+    "2022": {
+      "Q1": 125.7,
+      "Q2": 134.0,
+      "Q3": 196.7,
+      "Q4": 232.3
+    },
+    "2023": {
+      "Q1": 158.6,
+      "Q2": 217.9,
+      "Q3": 271.8,
+      "Q4": 301.2
+    }
+  },
+  "annual_total_auto_sales_wan": {
+    "2021": 2627.5,
+    "2022": 2686.4,
+    "2023": 3009.4
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "url": "https://law.stanford.edu/directory/",
+  "http_status": 200,
+  "source": "live_fetch_urllib",
+  "html_bytes": 153321,
+  "text_chars": 8883
+}

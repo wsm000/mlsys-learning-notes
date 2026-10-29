@@ -1,0 +1,7 @@
+{
+  "url": "https://ed.stanford.edu/faculty",
+  "http_status": 200,
+  "source": "live_fetch_urllib",
+  "html_bytes": 41970,
+  "text_chars": 3234
+}

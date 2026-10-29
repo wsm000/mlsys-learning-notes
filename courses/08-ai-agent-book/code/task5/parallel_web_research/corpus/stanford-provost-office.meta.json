@@ -1,0 +1,7 @@
+{
+  "url": "https://provost.stanford.edu/",
+  "http_status": 200,
+  "source": "live_fetch_urllib",
+  "html_bytes": 36220,
+  "text_chars": 2211
+}

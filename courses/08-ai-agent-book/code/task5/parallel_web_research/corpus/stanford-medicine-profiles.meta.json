@@ -1,0 +1,7 @@
+{
+  "url": "https://med.stanford.edu/profiles/browse",
+  "http_status": 200,
+  "source": "live_fetch_urllib",
+  "html_bytes": 50820,
+  "text_chars": 3017
+}

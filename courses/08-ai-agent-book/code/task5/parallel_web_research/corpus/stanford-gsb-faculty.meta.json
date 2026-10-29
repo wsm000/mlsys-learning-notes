@@ -1,0 +1,7 @@
+{
+  "url": "https://www.gsb.stanford.edu/faculty-research/faculty",
+  "http_status": 200,
+  "source": "live_fetch_urllib",
+  "html_bytes": 252173,
+  "text_chars": 3855
+}
