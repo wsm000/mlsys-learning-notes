@@ -1,0 +1,267 @@
+{
+  "experiment": "task6-E234-approval",
+  "at": "2026-10-27T05:34:39.645138+00:00",
+  "env": {
+    "python": "3.12.14",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "deepagents": "0.7.24",
+    "langchain": "1.4.5",
+    "langchain-core": "1.6.10",
+    "langgraph": "1.2.15"
+  },
+  "checks": {
+    "H4_interrupted_before_execution": true,
+    "H4_approve_executes_proposed_args": true,
+    "H4_approve_interrupt_payload_names_write_file": true,
+    "H5_reject_does_not_execute": true,
+    "H5_reject_still_interrupted": true,
+    "H6_edit_executes_only_edited_args": true,
+    "H6_edit_not_proposed_content": true
+  },
+  "all_passed": true,
+  "cases": {
+    "approve": {
+      "case": "approve",
+      "thread_id": "approval-approve",
+      "decision": {
+        "type": "approve"
+      },
+      "interrupted": true,
+      "interrupt_payload": [
+        {
+          "action_requests": [
+            {
+              "name": "write_file",
+              "args": {
+                "file_path": "/reports/report.md",
+                "content": "PROPOSED-CONTENT-原始提议"
+              },
+              "description": "Tool execution requires approval\n\nTool: write_file\nArgs: {'file_path': '/reports/report.md', 'content': 'PROPOSED-CONTENT-原始提议'}"
+            }
+          ],
+          "review_configs": [
+            {
+              "action_name": "write_file",
+              "allowed_decisions": [
+                "approve",
+                "edit",
+                "reject",
+                "respond"
+              ]
+            }
+          ]
+        }
+      ],
+      "pre_resume_disk": {
+        "exists": false
+      },
+      "post_resume_disk": {
+        "exists": true,
+        "files": {
+          "reports/report.md": "PROPOSED-CONTENT-原始提议"
+        }
+      },
+      "final_messages": [
+        {
+          "type": "human",
+          "content": "把报告写到 /reports/report.md",
+          "name": null
+        },
+        {
+          "type": "ai",
+          "content": "",
+          "name": null
+        },
+        {
+          "type": "tool",
+          "content": "Updated file /reports/report.md",
+          "name": "write_file"
+        },
+        {
+          "type": "ai",
+          "content": "案例 approve 结束。",
+          "name": null
+        }
+      ],
+      "events": [
+        {
+          "event": "tool_start",
+          "at": "2026-10-27T05:34:39.447986+00:00",
+          "run_id": "01a17bda-7f58-79b0-8cc0-c56598aa5713",
+          "name": "write_file",
+          "input": "{'file_path': '/reports/report.md', 'content': 'PROPOSED-CONTENT-原始提议'}"
+        },
+        {
+          "event": "tool_end",
+          "at": "2026-10-27T05:34:39.451974+00:00",
+          "run_id": "01a17bda-7f58-79b0-8cc0-c56598aa5713",
+          "output": {
+            "type": "tool",
+            "content": "Updated file /reports/report.md",
+            "name": "write_file",
+            "tool_call_id": "call-0001",
+            "status": "success"
+          }
+        }
+      ],
+      "requests_count": 2
+    },
+    "reject": {
+      "case": "reject",
+      "thread_id": "approval-reject",
+      "decision": {
+        "type": "reject",
+        "message": "这份报告先不写"
+      },
+      "interrupted": true,
+      "interrupt_payload": [
+        {
+          "action_requests": [
+            {
+              "name": "write_file",
+              "args": {
+                "file_path": "/reports/report.md",
+                "content": "PROPOSED-CONTENT-原始提议"
+              },
+              "description": "Tool execution requires approval\n\nTool: write_file\nArgs: {'file_path': '/reports/report.md', 'content': 'PROPOSED-CONTENT-原始提议'}"
+            }
+          ],
+          "review_configs": [
+            {
+              "action_name": "write_file",
+              "allowed_decisions": [
+                "approve",
+                "edit",
+                "reject",
+                "respond"
+              ]
+            }
+          ]
+        }
+      ],
+      "pre_resume_disk": {
+        "exists": false
+      },
+      "post_resume_disk": {
+        "exists": false
+      },
+      "final_messages": [
+        {
+          "type": "human",
+          "content": "把报告写到 /reports/report.md",
+          "name": null
+        },
+        {
+          "type": "ai",
+          "content": "",
+          "name": null
+        },
+        {
+          "type": "tool",
+          "content": "User rejected the tool call for `write_file` with reason: 这份报告先不写",
+          "name": "write_file"
+        },
+        {
+          "type": "ai",
+          "content": "案例 reject 结束。",
+          "name": null
+        }
+      ],
+      "events": [],
+      "requests_count": 2
+    },
+    "edit": {
+      "case": "edit",
+      "thread_id": "approval-edit",
+      "decision": {
+        "type": "edit",
+        "edited_action": {
+          "name": "write_file",
+          "args": {
+            "file_path": "/reports/report.md",
+            "content": "EDITED-CONTENT-修改后参数"
+          }
+        }
+      },
+      "interrupted": true,
+      "interrupt_payload": [
+        {
+          "action_requests": [
+            {
+              "name": "write_file",
+              "args": {
+                "file_path": "/reports/report.md",
+                "content": "PROPOSED-CONTENT-原始提议"
+              },
+              "description": "Tool execution requires approval\n\nTool: write_file\nArgs: {'file_path': '/reports/report.md', 'content': 'PROPOSED-CONTENT-原始提议'}"
+            }
+          ],
+          "review_configs": [
+            {
+              "action_name": "write_file",
+              "allowed_decisions": [
+                "approve",
+                "edit",
+                "reject",
+                "respond"
+              ]
+            }
+          ]
+        }
+      ],
+      "pre_resume_disk": {
+        "exists": false
+      },
+      "post_resume_disk": {
+        "exists": true,
+        "files": {
+          "reports/report.md": "EDITED-CONTENT-修改后参数"
+        }
+      },
+      "final_messages": [
+        {
+          "type": "human",
+          "content": "把报告写到 /reports/report.md",
+          "name": null
+        },
+        {
+          "type": "ai",
+          "content": "",
+          "name": null
+        },
+        {
+          "type": "tool",
+          "content": "Note: a human reviewer replaced this tool call before it ran. The call recorded in your message is the one you produced, not the one that executed. This was intentional and authorized. Do not re-issue your original call. Executed instead: write_file with arguments {\"file_path\": \"/reports/report.md\", \"content\": \"EDITED-CONTENT-\\u4fee\\u6539\\u540e\\u53c2\\u6570\"}.\n\nTool response:\nUpdated file /reports/report.md",
+          "name": "write_file"
+        },
+        {
+          "type": "ai",
+          "content": "案例 edit 结束。",
+          "name": null
+        }
+      ],
+      "events": [
+        {
+          "event": "tool_start",
+          "at": "2026-10-27T05:34:39.631181+00:00",
+          "run_id": "01a17bda-800f-7782-b5a8-b067e8a175df",
+          "name": "write_file",
+          "input": "{'file_path': '/reports/report.md', 'content': 'EDITED-CONTENT-修改后参数'}"
+        },
+        {
+          "event": "tool_end",
+          "at": "2026-10-27T05:34:39.635767+00:00",
+          "run_id": "01a17bda-800f-7782-b5a8-b067e8a175df",
+          "output": {
+            "type": "tool",
+            "content": "Updated file /reports/report.md",
+            "name": "write_file",
+            "tool_call_id": "call-0001",
+            "status": "success"
+          }
+        }
+      ],
+      "requests_count": 2
+    }
+  }
+}

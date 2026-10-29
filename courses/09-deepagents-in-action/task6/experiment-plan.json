@@ -1,0 +1,52 @@
+{
+  "experiment_id": "task6-memory-approval",
+  "course_id": "deepagents-in-action",
+  "task_id": "Task6",
+  "title": "记住用户偏好，执行前等待审批（第8-9章）",
+  "created_at": "2026-10-26",
+  "question": {
+    "posed": "同一个对话里 Agent 明明记得我，为什么换一个新对话就全忘了？",
+    "hypothesis_to_verify": "对话状态（messages/文件状态）保存在该 thread 的 checkpoint 里，是 thread-scoped 的；新对话=新 thread_id，从零开始。跨对话记忆必须写入对话之外的持久存储：文件（AGENTS.md + MemoryMiddleware 注入 system prompt）或 Store（StoreBackend，namespace 跨线程持久化）。"
+  },
+  "tiers": {
+    "Lite": [
+      "E1: 偏好写进约定文件 /memory/AGENTS.md，新会话（新 thread_id）仍能读到（H1/H2/H3）",
+      "E2: 体验一次「批准后才执行」（H4）"
+    ],
+    "Basic": [
+      "E1b: 不同 thread_id 的新会话读到同一份文件记忆（H1，含跨进程）",
+      "E3: 拒绝后不执行（H5），与 E2 分开提交"
+    ],
+    "Advanced": [
+      "E5: StoreBackend 用户间隔离（H7）：同一 store，alice/bob namespace 互相不可见",
+      "E6: 按风险等级分层的权限/审批（H8-H11）：allow / interrupt / deny 三层 + edit 后仍过 deny 检查",
+      "E4: edit 之后只执行修改后的参数（H6）"
+    ]
+  },
+  "environments": {
+    "local_dev": {
+      "python": "3.12.14",
+      "deepagents": "0.7.24",
+      "role": "开发与首轮离线机械验证"
+    },
+    "remote_main_lock": {
+      "python": "3.13.13",
+      "deepagents": "0.7.8",
+      "host": "vm-60",
+      "path": "/home/simin/course09-quanty/main-app/my_deepagent/.venv/bin/python",
+      "role": "主锁环境复核"
+    }
+  },
+  "method": {
+    "offline_scripted": "确定性 ScriptedModel 驱动机理链；记录真实模型请求消息（含 system prompt）作为证据；不宣称语义行为",
+    "live_model": "真实模型（DeepSeek-V4-Flash AMD 端点或 ollama qwen3:1.7b）做端到端观察，单独分母",
+    "discipline": "预测->实验->留证；失败保留；不混用 SDK 版本分母；密钥不入记录"
+  },
+  "fixed_inputs": {
+    "preference_text": "用户偏好：我喜欢中文回答，回答要简洁。",
+    "memory_path": "/memory/AGENTS.md",
+    "approval_target": "/reports/report.md",
+    "proposed_content": "PROPOSED-CONTENT-原始提议",
+    "edited_content": "EDITED-CONTENT-修改后参数"
+  }
+}

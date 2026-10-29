@@ -1,0 +1,66 @@
+# Task6 pytest regression suite (2026-10-27)
+# 29 lab tests (test_labs.py) + 24 scheme tests (test_risk_scheme.py) = 53 passed
+# env: Python 3.12.14 / deepagents 0.7.24 / pytest 9.1.1 (pytest via DSH TEMP PYTHONPATH; see registration.json)
+# independently re-run by lead: 53 passed in 5.73s
+
+﻿============================= test session starts =============================
+platform win32 -- Python 3.12.14, pytest-9.1.1, pluggy-1.7.0 -- C:\Users\86150\Documents\ChatGPT\cs336��ϰ\hello-gpu\courses\09-deepagents-in-action\.venv\Scripts\python.exe
+rootdir: C:\Users\86150\Documents\ChatGPT\cs336��ϰ\hello-gpu
+plugins: anyio-4.15.1, langsmith-0.14.8
+collecting ... collected 53 items
+
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestMemoryLab::test_h1_disk_file_written PASSED [  1%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestMemoryLab::test_h1_fresh_thread_system_prompt_has_preference PASSED [  3%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestMemoryLab::test_h1_fresh_thread_answer_uses_memory PASSED [  5%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestMemoryLab::test_h1b_cross_process_system_prompt_has_preference PASSED [  7%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestMemoryLab::test_h2_control_no_preference PASSED [  9%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestMemoryLab::test_h2_control_answer_reports_no_memory PASSED [ 11%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestMemoryLab::test_h3_same_thread_sees_file PASSED [ 13%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestMemoryLab::test_h3_fresh_thread_blind PASSED [ 15%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestMemoryLab::test_memory_lab_all_checks_pass PASSED [ 16%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestApprovalLab::test_h4_interrupted_before_execution PASSED [ 18%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestApprovalLab::test_h4_approve_executes_proposed_args PASSED [ 20%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestApprovalLab::test_h4_approve_interrupt_payload_names_write_file PASSED [ 22%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestApprovalLab::test_h5_reject_still_interrupted PASSED [ 24%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestApprovalLab::test_h5_reject_does_not_execute PASSED [ 26%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestApprovalLab::test_h6_edit_executes_only_edited_args PASSED [ 28%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestApprovalLab::test_h6_edit_not_proposed_content PASSED [ 30%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestApprovalLab::test_approval_lab_all_checks_pass PASSED [ 32%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestStoreLab::test_h7a_alice_cross_thread_sees_own_memory PASSED [ 33%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestStoreLab::test_h7a_alice_answer_uses_memory PASSED [ 35%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestStoreLab::test_h7b_bob_cannot_see_alice_file PASSED [ 37%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestStoreLab::test_h7b_alice_cannot_see_bob_file PASSED [ 39%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestStoreLab::test_store_lab_all_checks_pass PASSED [ 41%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestRiskLab::test_h8_public_no_interrupt_and_executed PASSED [ 43%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestRiskLab::test_h9_drafts_interrupts_then_approve_executes PASSED [ 45%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestRiskLab::test_h10_secrets_denied_no_interrupt PASSED [ 47%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestRiskLab::test_h10b_deny_before_interrupt_wins PASSED [ 49%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestRiskLab::test_h11_edit_into_deny_still_denied PASSED [ 50%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestRiskLab::test_h12_direct_backend_not_gated PASSED [ 52%]
+courses/09-deepagents-in-action/task6/tests/test_labs.py::TestRiskLab::test_risk_lab_all_checks_pass PASSED [ 54%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_classifier_tier[ls-args0-L0] PASSED [ 56%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_classifier_tier[read_file-args1-L0] PASSED [ 58%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_classifier_tier[read_file-args2-L3] PASSED [ 60%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_classifier_tier[grep-args3-L3] PASSED [ 62%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_classifier_tier[glob-args4-L3] PASSED [ 64%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_classifier_tier[ls-args5-L3] PASSED [ 66%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_classifier_tier[write_file-args6-L1] PASSED [ 67%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_classifier_tier[write_file-args7-L2] PASSED [ 69%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_classifier_tier[write_file-args8-L2] PASSED [ 71%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_classifier_tier[write_file-args9-L4] PASSED [ 73%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_classifier_tier[write_file-args10-L4] PASSED [ 75%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_classifier_tier[edit_file-args11-L2] PASSED [ 77%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_classifier_tier[delete-args12-L3] PASSED [ 79%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_classifier_tier[delete-args13-L4] PASSED [ 81%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_classifier_tier[weird_tool-args14-L2] PASSED [ 83%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_classifier_decision_sets PASSED [ 84%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_build_policy_shape PASSED [ 86%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_e2e_l1_public_write_auto_executes PASSED [ 88%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_e2e_l2_draft_interrupt_decision_set PASSED [ 90%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_e2e_l3_delete_interrupt_decision_set PASSED [ 92%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_e2e_l4_secret_write_denied_no_interrupt PASSED [ 94%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_e2e_l4_credential_content_denied_by_guard PASSED [ 96%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_e2e_unclassified_fails_closed PASSED [ 98%]
+courses/09-deepagents-in-action/task6/tests/test_risk_scheme.py::test_e2e_bulk_root_read_interrupts PASSED [100%]
+
+============================= 53 passed in 5.73s ==============================

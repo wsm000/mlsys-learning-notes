@@ -1,0 +1,646 @@
+{
+  "experiment": "task6-risk-scheme",
+  "at": "2026-10-27T06:17:46.861592+00:00",
+  "env": {
+    "python": "3.13.13",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "deepagents": "0.7.8",
+    "langchain": "1.4.3",
+    "langchain-core": "1.6.7",
+    "langgraph": "1.2.14"
+  },
+  "checks": {
+    "A_unit_tier_table": true,
+    "S1_L1_public_no_interrupt_executed": true,
+    "S2_L2_draft_interrupt_decisions": true,
+    "S3_L3_delete_interrupt_decisions_and_reject_keeps_file": true,
+    "S4_L4_secret_write_denied_no_interrupt": true,
+    "S5_L4_credential_content_denied_by_guard": true,
+    "S6_unclassified_fails_closed_to_interrupt": true,
+    "S7_L3_secret_read_interrupt_decisions": true,
+    "S8_bulk_root_interrupts": true,
+    "S9_edit_decision_on_L3_rejected": true,
+    "S10_audit_trail_complete": true
+  },
+  "all_passed": true,
+  "unit_results": [
+    {
+      "tool": "ls",
+      "args": {
+        "path": "/public"
+      },
+      "want": "L0",
+      "got": "L0",
+      "verdict": {
+        "tier": "L0",
+        "mode": "allow",
+        "decisions": [],
+        "reasons": [
+          "bulk read outside sensitive area"
+        ]
+      }
+    },
+    {
+      "tool": "read_file",
+      "args": {
+        "file_path": "/public/a.md"
+      },
+      "want": "L0",
+      "got": "L0",
+      "verdict": {
+        "tier": "L0",
+        "mode": "allow",
+        "decisions": [],
+        "reasons": [
+          "read-only"
+        ]
+      }
+    },
+    {
+      "tool": "read_file",
+      "args": {
+        "file_path": "/secrets/k.txt"
+      },
+      "want": "L3",
+      "got": "L3",
+      "verdict": {
+        "tier": "L3",
+        "mode": "interrupt",
+        "decisions": [
+          "approve",
+          "reject"
+        ],
+        "reasons": [
+          "read under /secrets/**"
+        ]
+      }
+    },
+    {
+      "tool": "grep",
+      "args": {
+        "path": null
+      },
+      "want": "L3",
+      "got": "L3",
+      "verdict": {
+        "tier": "L3",
+        "mode": "interrupt",
+        "decisions": [
+          "approve",
+          "reject"
+        ],
+        "reasons": [
+          "bulk read subtree may overlap /secrets/**"
+        ]
+      }
+    },
+    {
+      "tool": "glob",
+      "args": {
+        "path": "/public",
+        "pattern": "/secrets/**"
+      },
+      "want": "L3",
+      "got": "L3",
+      "verdict": {
+        "tier": "L3",
+        "mode": "interrupt",
+        "decisions": [
+          "approve",
+          "reject"
+        ],
+        "reasons": [
+          "bulk read subtree may overlap /secrets/**"
+        ]
+      }
+    },
+    {
+      "tool": "ls",
+      "args": {
+        "path": "/"
+      },
+      "want": "L3",
+      "got": "L3",
+      "verdict": {
+        "tier": "L3",
+        "mode": "interrupt",
+        "decisions": [
+          "approve",
+          "reject"
+        ],
+        "reasons": [
+          "bulk read subtree may overlap /secrets/**"
+        ]
+      }
+    },
+    {
+      "tool": "write_file",
+      "args": {
+        "file_path": "/public/a.md",
+        "content": "x"
+      },
+      "want": "L1",
+      "got": "L1",
+      "verdict": {
+        "tier": "L1",
+        "mode": "allow",
+        "decisions": [],
+        "reasons": [
+          "public-area write"
+        ]
+      }
+    },
+    {
+      "tool": "write_file",
+      "args": {
+        "file_path": "/drafts/b.md",
+        "content": "x"
+      },
+      "want": "L2",
+      "got": "L2",
+      "verdict": {
+        "tier": "L2",
+        "mode": "interrupt",
+        "decisions": [
+          "approve",
+          "edit",
+          "reject"
+        ],
+        "reasons": [
+          "draft-area write"
+        ]
+      }
+    },
+    {
+      "tool": "write_file",
+      "args": {
+        "file_path": "/other/x.md",
+        "content": "x"
+      },
+      "want": "L2",
+      "got": "L2",
+      "verdict": {
+        "tier": "L2",
+        "mode": "interrupt",
+        "decisions": [
+          "approve",
+          "edit",
+          "reject"
+        ],
+        "reasons": [
+          "unclassified path fails closed to approval"
+        ]
+      }
+    },
+    {
+      "tool": "write_file",
+      "args": {
+        "file_path": "/secrets/c.md",
+        "content": "x"
+      },
+      "want": "L4",
+      "got": "L4",
+      "verdict": {
+        "tier": "L4",
+        "mode": "deny",
+        "decisions": [],
+        "reasons": [
+          "write/edit under /secrets/**"
+        ]
+      }
+    },
+    {
+      "tool": "write_file",
+      "args": {
+        "file_path": "/public/p.md",
+        "content": "api_key = sk-abcdef1234567890abcdef"
+      },
+      "want": "L4",
+      "got": "L4",
+      "verdict": {
+        "tier": "L4",
+        "mode": "deny",
+        "decisions": [],
+        "reasons": [
+          "content matches openai-style key"
+        ]
+      }
+    },
+    {
+      "tool": "edit_file",
+      "args": {
+        "file_path": "/drafts/d.md",
+        "old_string": "a",
+        "new_string": "b"
+      },
+      "want": "L2",
+      "got": "L2",
+      "verdict": {
+        "tier": "L2",
+        "mode": "interrupt",
+        "decisions": [
+          "approve",
+          "edit",
+          "reject"
+        ],
+        "reasons": [
+          "draft-area write"
+        ]
+      }
+    },
+    {
+      "tool": "delete",
+      "args": {
+        "file_path": "/notes/t.md"
+      },
+      "want": "L3",
+      "got": "L3",
+      "verdict": {
+        "tier": "L3",
+        "mode": "interrupt",
+        "decisions": [
+          "approve",
+          "reject"
+        ],
+        "reasons": [
+          "delete is hard to reverse"
+        ]
+      }
+    },
+    {
+      "tool": "delete",
+      "args": {
+        "file_path": "/secrets/k.txt"
+      },
+      "want": "L4",
+      "got": "L4",
+      "verdict": {
+        "tier": "L4",
+        "mode": "deny",
+        "decisions": [],
+        "reasons": [
+          "delete under /secrets/**"
+        ]
+      }
+    },
+    {
+      "tool": "weird_tool",
+      "args": {
+        "x": 1
+      },
+      "want": "L2",
+      "got": "L2",
+      "verdict": {
+        "tier": "L2",
+        "mode": "interrupt",
+        "decisions": [
+          "approve",
+          "reject"
+        ],
+        "reasons": [
+          "unknown tool fails closed to approval"
+        ]
+      }
+    }
+  ],
+  "cases": {
+    "S1_public_write": {
+      "case": "S1_public_write",
+      "interrupted": false,
+      "interrupt_payload": [],
+      "tool_messages": [
+        {
+          "type": "tool",
+          "content": "Updated file /public/note.md",
+          "name": "write_file",
+          "tool_call_id": "call-0001",
+          "status": "success"
+        }
+      ],
+      "disk_files": {
+        "public/note.md": "PUBLIC"
+      },
+      "final_message": "案例 S1_public_write 结束。"
+    },
+    "S2_draft_write": {
+      "case": "S2_draft_write",
+      "interrupted": true,
+      "interrupt_payload": [
+        {
+          "action_requests": [
+            {
+              "name": "write_file",
+              "args": {
+                "file_path": "/drafts/d.md",
+                "content": "DRAFT"
+              },
+              "description": "Tool execution requires approval\n\nTool: write_file\nArgs: {'file_path': '/drafts/d.md', 'content': 'DRAFT'}"
+            }
+          ],
+          "review_configs": [
+            {
+              "action_name": "write_file",
+              "allowed_decisions": [
+                "approve",
+                "edit",
+                "reject"
+              ]
+            }
+          ]
+        }
+      ],
+      "tool_messages": [],
+      "disk_files": {},
+      "final_message": ""
+    },
+    "S3_delete": {
+      "case": "S3_delete",
+      "interrupted": true,
+      "interrupt_payload": [
+        {
+          "action_requests": [
+            {
+              "name": "delete",
+              "args": {
+                "file_path": "/notes/t.md"
+              },
+              "description": "Tool execution requires approval\n\nTool: delete\nArgs: {'file_path': '/notes/t.md'}"
+            }
+          ],
+          "review_configs": [
+            {
+              "action_name": "delete",
+              "allowed_decisions": [
+                "approve",
+                "reject"
+              ]
+            }
+          ]
+        }
+      ],
+      "tool_messages": [],
+      "disk_files": {
+        "notes/t.md": "todo",
+        "secrets/k.txt": "top-secret"
+      },
+      "final_message": "案例 S3_delete 结束。",
+      "post_disk_files": {
+        "notes/t.md": "todo",
+        "secrets/k.txt": "top-secret"
+      }
+    },
+    "S4_secret_write": {
+      "case": "S4_secret_write",
+      "interrupted": false,
+      "interrupt_payload": [],
+      "tool_messages": [
+        {
+          "type": "tool",
+          "content": "Error: permission denied for write on /secrets/s.md",
+          "name": "write_file",
+          "tool_call_id": "call-0001",
+          "status": "error"
+        }
+      ],
+      "disk_files": {},
+      "final_message": "案例 S4_secret_write 结束。"
+    },
+    "S5_credential_content": {
+      "case": "S5_credential_content",
+      "interrupted": false,
+      "interrupt_payload": [],
+      "tool_messages": [],
+      "disk_files": {},
+      "final_message": "案例 S5_credential_content 结束。"
+    },
+    "S6_unclassified_write": {
+      "case": "S6_unclassified_write",
+      "interrupted": true,
+      "interrupt_payload": [
+        {
+          "action_requests": [
+            {
+              "name": "write_file",
+              "args": {
+                "file_path": "/other/x.md",
+                "content": "X"
+              },
+              "description": "Tool execution requires approval\n\nTool: write_file\nArgs: {'file_path': '/other/x.md', 'content': 'X'}"
+            }
+          ],
+          "review_configs": [
+            {
+              "action_name": "write_file",
+              "allowed_decisions": [
+                "approve",
+                "edit",
+                "reject"
+              ]
+            }
+          ]
+        }
+      ],
+      "tool_messages": [],
+      "disk_files": {},
+      "final_message": ""
+    },
+    "S7_secret_read": {
+      "case": "S7_secret_read",
+      "interrupted": true,
+      "interrupt_payload": [
+        {
+          "action_requests": [
+            {
+              "name": "read_file",
+              "args": {
+                "file_path": "/secrets/k.txt"
+              },
+              "description": "Tool execution requires approval\n\nTool: read_file\nArgs: {'file_path': '/secrets/k.txt'}"
+            }
+          ],
+          "review_configs": [
+            {
+              "action_name": "read_file",
+              "allowed_decisions": [
+                "approve",
+                "reject"
+              ]
+            }
+          ]
+        }
+      ],
+      "tool_messages": []
+    },
+    "S8_bulk_root": {
+      "case": "S8_bulk_root",
+      "interrupted": true,
+      "interrupt_payload": [
+        {
+          "action_requests": [
+            {
+              "name": "ls",
+              "args": {
+                "path": "/"
+              },
+              "description": "Tool execution requires approval\n\nTool: ls\nArgs: {'path': '/'}"
+            }
+          ],
+          "review_configs": [
+            {
+              "action_name": "ls",
+              "allowed_decisions": [
+                "approve",
+                "edit",
+                "reject",
+                "respond"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "S9_edit_on_delete": {
+      "case": "S9_edit_on_delete",
+      "error": "Unexpected human decision: {'type': 'edit', 'edited_action': {'name': 'delete', 'args': {'file_path': '/notes/t.md'}}}. Decision type 'edit' is not allowed for tool 'delete'. Expected one of ['approve', 'reject'] based on the tool's configuration."
+    }
+  },
+  "audit_execution": [
+    {
+      "at": 1793081866.5511806,
+      "tool": "write_file",
+      "args_digest": "5067b3590b2ad09c",
+      "tier": "L1",
+      "mode": "allow",
+      "decisions": [],
+      "reasons": [
+        "public-area write"
+      ],
+      "executed": true,
+      "outcome": "executed",
+      "result_status": "success"
+    },
+    {
+      "at": 1793081866.674549,
+      "tool": "write_file",
+      "args_digest": "cda96f6691bca557",
+      "tier": "L4",
+      "mode": "deny",
+      "decisions": [],
+      "reasons": [
+        "write/edit under /secrets/**"
+      ],
+      "executed": true,
+      "outcome": "executed",
+      "result_status": "error"
+    },
+    {
+      "at": 1793081866.715214,
+      "tool": "write_file",
+      "args_digest": "f9b1baaa18a30ef1",
+      "tier": "L4",
+      "mode": "deny",
+      "decisions": [],
+      "reasons": [
+        "content matches openai-style key"
+      ],
+      "executed": false,
+      "outcome": "denied-by-content-guard"
+    }
+  ],
+  "audit_approvals": [
+    {
+      "kind": "approval_request",
+      "case": "S2_draft_write",
+      "tool": "write_file",
+      "tier": "L2",
+      "reasons": [
+        "draft-area write"
+      ],
+      "allowed_decisions": [
+        "approve",
+        "edit",
+        "reject"
+      ]
+    },
+    {
+      "kind": "approval_request",
+      "case": "S3_delete",
+      "tool": "delete",
+      "tier": "L3",
+      "reasons": [
+        "delete is hard to reverse"
+      ],
+      "allowed_decisions": [
+        "approve",
+        "reject"
+      ]
+    },
+    {
+      "kind": "human_decision",
+      "case": "S3_delete",
+      "decision": "reject",
+      "message": "先别删"
+    },
+    {
+      "kind": "approval_request",
+      "case": "S6_unclassified_write",
+      "tool": "write_file",
+      "tier": "L2",
+      "reasons": [
+        "unclassified path fails closed to approval"
+      ],
+      "allowed_decisions": [
+        "approve",
+        "edit",
+        "reject"
+      ]
+    },
+    {
+      "kind": "approval_request",
+      "case": "S7_secret_read",
+      "tool": "read_file",
+      "tier": "L3",
+      "reasons": [
+        "read under /secrets/**"
+      ],
+      "allowed_decisions": [
+        "approve",
+        "reject"
+      ]
+    },
+    {
+      "kind": "approval_request",
+      "case": "S8_bulk_root",
+      "tool": "ls",
+      "tier": "L3",
+      "reasons": [
+        "bulk read subtree may overlap /secrets/**"
+      ],
+      "allowed_decisions": [
+        "approve",
+        "edit",
+        "reject",
+        "respond"
+      ]
+    },
+    {
+      "kind": "approval_request",
+      "case": "S9_edit_on_delete",
+      "tool": "delete",
+      "tier": "L3",
+      "reasons": [
+        "delete is hard to reverse"
+      ],
+      "allowed_decisions": [
+        "approve",
+        "reject"
+      ]
+    },
+    {
+      "kind": "human_decision",
+      "case": "S9_edit_on_delete",
+      "decision": "edit",
+      "message": null
+    }
+  ]
+}

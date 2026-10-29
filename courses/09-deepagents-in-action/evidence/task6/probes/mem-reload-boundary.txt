@@ -1,0 +1,14 @@
+# Memory reload boundary probe (2026-10-27)
+# local: Python 3.12.14 / deepagents 0.7.24 ; remote: Python 3.13.13 / deepagents 0.7.8 (vm-60 main lock)
+# script: task6/probes/mem_reload_probe.py
+local:
+invoke1 prompt has V1: False
+same-thread invoke2 prompt has V1: False
+fresh-thread invoke3 prompt has V1: True
+remote-0.7.8:
+invoke1 prompt has V1: False
+same-thread invoke2 prompt has V1: False
+fresh-thread invoke3 prompt has V1: True
+# Finding: MemoryMiddleware loads sources in before_agent and skips reloading when
+# memory_contents is already in thread state. A file changed on disk mid-thread is
+# NOT re-injected into the same thread; only a FRESH thread picks it up.

@@ -1,0 +1,200 @@
+{
+  "experiment": "task6-E6-risk-tiers",
+  "at": "2026-10-27T05:38:37.008936+00:00",
+  "env": {
+    "python": "3.13.13",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "deepagents": "0.7.8",
+    "langchain": "1.4.3",
+    "langchain-core": "1.6.7",
+    "langgraph": "1.2.14"
+  },
+  "rules": [
+    {
+      "operations": [
+        "read"
+      ],
+      "paths": [
+        "/**"
+      ],
+      "mode": "allow"
+    },
+    {
+      "operations": [
+        "write"
+      ],
+      "paths": [
+        "/public/**"
+      ],
+      "mode": "allow"
+    },
+    {
+      "operations": [
+        "write"
+      ],
+      "paths": [
+        "/drafts/**"
+      ],
+      "mode": "interrupt"
+    },
+    {
+      "operations": [
+        "write"
+      ],
+      "paths": [
+        "/secrets/**"
+      ],
+      "mode": "deny"
+    }
+  ],
+  "ordered_rules_variant": [
+    {
+      "operations": [
+        "read"
+      ],
+      "paths": [
+        "/**"
+      ],
+      "mode": "allow"
+    },
+    {
+      "operations": [
+        "write"
+      ],
+      "paths": [
+        "/drafts/blocked/**"
+      ],
+      "mode": "deny"
+    },
+    {
+      "operations": [
+        "write"
+      ],
+      "paths": [
+        "/drafts/**"
+      ],
+      "mode": "interrupt"
+    }
+  ],
+  "checks": {
+    "H8_public_no_interrupt_and_executed": true,
+    "H9_drafts_interrupts_then_approve_executes": true,
+    "H10_secrets_denied_no_interrupt": true,
+    "H10b_deny_before_interrupt_wins": true,
+    "H11_edit_into_deny_still_denied": true,
+    "H12_direct_backend_not_gated": true
+  },
+  "all_passed": true,
+  "cases": {
+    "L1_public_allow": {
+      "case": "L1_public_allow",
+      "path": "/public/note.md",
+      "interrupted": false,
+      "tool_messages": [
+        {
+          "type": "tool",
+          "content": "Updated file /public/note.md",
+          "name": "write_file",
+          "tool_call_id": "call-0001",
+          "status": "success"
+        }
+      ],
+      "disk_files": {
+        "public/note.md": "PUBLIC"
+      },
+      "final_message": "案例 L1_public_allow 结束。"
+    },
+    "L2_drafts_interrupt_approve": {
+      "case": "L2_drafts_interrupt_approve",
+      "path": "/drafts/d.md",
+      "decision": {
+        "type": "approve"
+      },
+      "interrupted": true,
+      "pre_resume_disk": {},
+      "tool_messages": [
+        {
+          "type": "tool",
+          "content": "Updated file /drafts/d.md",
+          "name": "write_file",
+          "tool_call_id": "call-0001",
+          "status": "success"
+        }
+      ],
+      "disk_files": {
+        "drafts/d.md": "DRAFT"
+      },
+      "final_message": "案例 L2_drafts_interrupt_approve 结束。"
+    },
+    "L3_secrets_deny": {
+      "case": "L3_secrets_deny",
+      "path": "/secrets/s.md",
+      "interrupted": false,
+      "tool_messages": [
+        {
+          "type": "tool",
+          "content": "Error: permission denied for write on /secrets/s.md",
+          "name": "write_file",
+          "tool_call_id": "call-0001",
+          "status": "error"
+        }
+      ],
+      "disk_files": {},
+      "final_message": "案例 L3_secrets_deny 结束。"
+    },
+    "L3b_deny_before_interrupt": {
+      "case": "L3b_deny_before_interrupt",
+      "path": "/drafts/blocked/x.md",
+      "interrupted": false,
+      "tool_messages": [
+        {
+          "type": "tool",
+          "content": "Error: permission denied for write on /drafts/blocked/x.md",
+          "name": "write_file",
+          "tool_call_id": "call-0001",
+          "status": "error"
+        }
+      ],
+      "disk_files": {},
+      "final_message": "案例 L3b_deny_before_interrupt 结束。"
+    },
+    "H11_edit_redirect_into_deny": {
+      "case": "H11_edit_redirect_into_deny",
+      "path": "/drafts/ok.md",
+      "decision": {
+        "type": "edit",
+        "edited_action": {
+          "name": "write_file",
+          "args": {
+            "file_path": "/secrets/evil.md",
+            "content": "EVIL"
+          }
+        }
+      },
+      "interrupted": true,
+      "pre_resume_disk": {},
+      "tool_messages": [
+        {
+          "type": "tool",
+          "content": "Error: permission denied for write on /secrets/evil.md",
+          "name": "write_file",
+          "tool_call_id": "call-0001",
+          "status": "error"
+        }
+      ],
+      "disk_files": {},
+      "final_message": "案例 H11_edit_redirect_into_deny 结束。"
+    },
+    "H12_direct_backend": {
+      "case": "direct_backend",
+      "write_result": {
+        "result_type": "WriteResult",
+        "error": null,
+        "path": "/secrets/direct.md"
+      },
+      "disk_files": {
+        "secrets/direct.md": "DIRECT-BACKEND-WRITE"
+      }
+    }
+  }
+}

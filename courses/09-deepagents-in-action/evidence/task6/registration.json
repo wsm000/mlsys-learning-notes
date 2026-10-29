@@ -1,0 +1,104 @@
+{
+  "experiment_id": "task6-memory-approval",
+  "course_id": "deepagents-in-action",
+  "task_id": "Task6",
+  "registered_at": "2026-10-27",
+  "code_hashes": {
+    "task6/lab_common.py": {
+      "sha256": "d7cc4cdbf0ea42176275397947c17e725cdabcd7a8aa18d5dd5cc28357ff3608",
+      "bytes": 6241
+    },
+    "task6/run_memory_lab.py": {
+      "sha256": "2090fab63ba2b3b00809a5ee3a0a242a5ece1dca12716f7382cab78f05af8cdd",
+      "bytes": 10923
+    },
+    "task6/run_approval_lab.py": {
+      "sha256": "260803e10428539b2ddcc0148763bf3950ef8ce8198ff3fc930863713d5ed095",
+      "bytes": 6267
+    },
+    "task6/run_store_lab.py": {
+      "sha256": "e92d99af59f3451783b244da23ac06a8c9314b3cd37f744acbf1f29270c216df",
+      "bytes": 6377
+    },
+    "task6/run_risk_lab.py": {
+      "sha256": "c03941b65990d737a86b9718756d08c90a87bae0320d400e935ddaae6f005cb2",
+      "bytes": 9973
+    },
+    "task6/run_live_lab.py": {
+      "sha256": "f92cde508b40d7bf1f555ed89eb7c6b1dbe3c2539eecc1c622620137ec7f5ddf",
+      "bytes": 8824
+    },
+    "task6/experiment-plan.json": {
+      "sha256": "89bad5c390b49611683716e25efa10783163dfe25e3c517f9b9e54c0961e4d04",
+      "bytes": 1773
+    },
+    "task6/tests/test_labs.py": {
+      "sha256": "e80a7f8fd43fd4b016b51142dd498da1d5958f830ece89099cdc532bbff7ab75",
+      "bytes": 23213
+    },
+    "task6/tests/__init__.py": {
+      "sha256": "e18a66e14449ad337a6145ef803d022570854b2492e01b30f36131dd097afe56",
+      "bytes": 570
+    },
+    "task6/实验讲解.md": {
+      "sha256": "f0199f46a71bba8d4b6056bc2bc2052fb650c80969cdc3e5173d66e2a591594f",
+      "bytes": 3350
+    },
+    "task6/risk_policy.py": {
+      "sha256": "96e9f14c6484bc083eb88d1f9f5ce40d3236701a54318b385c34bbc9521118e8",
+      "bytes": 10630
+    },
+    "task6/run_risk_scheme_lab.py": {
+      "sha256": "109b9b0b112cb0d5d0362552f7bfcb3945dafa8e2569d6fff7571e8a796217ce",
+      "bytes": 16020
+    },
+    "task6/risk-tier-approval.md": {
+      "sha256": "6f34f019072272fde8b88a79548ed0ed55ba4b35ec8db31bc5b6f65144fb03a7",
+      "bytes": 2630
+    },
+    "task6/tests/test_risk_scheme.py": {
+      "sha256": "e336bfddca1ba04fdd4702cc2a614ba5f20f45c3dfec6ea16bcdb34b2eaa6e14",
+      "bytes": 5479
+    }
+  },
+  "note": "run_live_lab.py hash reflects the post-fix version (root_dir mkdir) that produced live-ds-01 evidence; the pre-fix L1 attempt (model trapped by ls path_not_found) is recorded in the check-in note, not re-run.",
+  "runs": [
+    {
+      "id": "offline-local-01",
+      "env": "Python 3.12.14 / deepagents 0.7.24 (local dev venv)",
+      "kind": "offline scripted",
+      "checks": 24,
+      "result": "24/24 pass (memory 7 + approval 7 + store 4 + risk 6)"
+    },
+    {
+      "id": "offline-remote-078-01",
+      "env": "Python 3.13.13 / deepagents 0.7.8 (vm-60 main lock)",
+      "kind": "offline scripted",
+      "checks": 24,
+      "result": "24/24 pass (same 24 checks, 0.7.8 main lock)"
+    },
+    {
+      "id": "live-ds-01",
+      "env": "vm-60 main lock + DeepSeek-V4-Flash (AMD endpoint)",
+      "kind": "live real model",
+      "checks": 5,
+      "result": "5/5 pass (L1 write, L2 read x2, L3 reject, L4 approve)",
+      "note": "L1 2 calls; L2 fresh process; L3 reject; L4 approve. Credential read from key file, never recorded."
+    },
+    {
+      "id": "pytest-regression",
+      "env": "Python 3.12.14 / deepagents 0.7.24 (local dev venv), pytest 9.1.1 via DSH TEMP PYTHONPATH",
+      "kind": "pytest",
+      "checks": 53,
+      "result": "53/53 pass (29 lab + 24 scheme); independently re-run by lead: 53 passed in 5.73s"
+    },
+    {
+      "id": "risk-scheme-offline",
+      "env": "local 0.7.24 + remote vm-60 0.7.8 main lock",
+      "kind": "offline scripted",
+      "checks": 26,
+      "result": "26/26 pass in BOTH envs (15 unit tier-table + 11 e2e); summaries stored under offline-local-01/ and offline-remote-078-01/"
+    }
+  ],
+  "credentials": "AMD key read from /home/simin/codex-task1-20261013/.mimo-key on remote only; never printed, never in evidence files."
+}
