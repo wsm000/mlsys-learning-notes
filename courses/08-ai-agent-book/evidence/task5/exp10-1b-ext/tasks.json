@@ -1,0 +1,360 @@
+{
+ "built_at": "2026-10-26T23:07:00-06:00",
+ "executed_by": "C:\\Users\\86150\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+ "python_version": "3.10.2",
+ "platform": "win32",
+ "n_tasks": 35,
+ "note": "ground truth 由本机真实执行 stdlib Python 得到，不是模型自述。这是 trap 集的扩样集（B01-B35）。",
+ "tasks": [
+  {
+   "id": "B01",
+   "tag": "shared-mutable-mult",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "print([[]] * 3)\na = [[]] * 3\na[0].append(1)\nprint(a)",
+   "ground_truth_stdout": "[[], [], []]\n[[1], [1], [1]]",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B02",
+   "tag": "def-before-global",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "x = 1\ndef f():\n    x = 2\n    print(x)\nf()",
+   "ground_truth_stdout": "2",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B03",
+   "tag": "float-str-threshold",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "print(str(1e16), str(1e17))",
+   "ground_truth_stdout": "1e+16 1e+17",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B04",
+   "tag": "tuple-augmented-assign",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "t = (1, 2, 3)\nt += (4,)\nprint(t)\nprint((1, 2) + (3,))",
+   "ground_truth_stdout": "(1, 2, 3, 4)\n(1, 2, 3)",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B05",
+   "tag": "bool-numeric-equality",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "print(bool(\"\") == bool(0) == False, 0.0 == False, [] == False)",
+   "ground_truth_stdout": "True True False",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B06",
+   "tag": "shallow-copy-alias",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "import copy\na = [[1, 2], [3]]\nb = copy.copy(a)\nb[0].append(9)\nprint(a)",
+   "ground_truth_stdout": "[[1, 2, 9], [3]]",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B07",
+   "tag": "max-key-and-str",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "print(max([1, 3, 2], key=lambda v: -v), max(\"a\", \"b\"))",
+   "ground_truth_stdout": "1 b",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B08",
+   "tag": "negative-floor-mod",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "print(-7 // 2, -7 % 2, 7 // -2, 7 % -2)",
+   "ground_truth_stdout": "-4 1 -4 -1",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B09",
+   "tag": "mutable-default-carry",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "def f(a, b=[]):\n    b.append(a)\n    return b\nprint(f(1))\nprint(f(2))",
+   "ground_truth_stdout": "[1]\n[1, 2]",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B10",
+   "tag": "title-and-center",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "print(\"abc\".title(), \"a-b c\".title(), \"x\".center(5, \"-\"))",
+   "ground_truth_stdout": "Abc A-B C --x--",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B11",
+   "tag": "dict-key-merge",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "d = {1: \"a\", True: \"b\", 1.0: \"c\"}\nprint(len(d), d)",
+   "ground_truth_stdout": "1 {1: 'c'}",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B12",
+   "tag": "reverse-slice",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "print(list(range(5))[10:], list(range(5))[-1:-3:-1])",
+   "ground_truth_stdout": "[] [4, 3]",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B13",
+   "tag": "augmented-assign-tuple",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "t = (1, 2, 3)\nt += (4,)\nprint(type(t), len(t))",
+   "ground_truth_stdout": "<class 'tuple'> 4",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B14",
+   "tag": "int-float-compare",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "print(1 == 1.0, hash(1) == hash(1.0), {1: \"x\"}[1.0])",
+   "ground_truth_stdout": "True True x",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B15",
+   "tag": "string-multiply-identity",
+   "question": "下面这段 Python 代码输出什么？（两个表达式用逗号隔开）",
+   "code": "print(\"ab\" * 2, [0] * 2)",
+   "ground_truth_stdout": "abab [0, 0]",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B16",
+   "tag": "round-half-even",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "print(round(0.5), round(1.5), round(2.5), round(-0.5))",
+   "ground_truth_stdout": "0 2 2 0",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B17",
+   "tag": "list-append-vs-extend",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "a = [1]\na.append([2])\na.extend([3])\nprint(a, len(a))",
+   "ground_truth_stdout": "[1, [2], 3] 3",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B18",
+   "tag": "nan-dict-key",
+   "question": "下面这段 Python 代码输出什么？（两个 n 是不同的 NaN 对象）",
+   "code": "n1 = float(\"nan\")\nn2 = float(\"nan\")\nd = {n1: 1}\nprint(n1 is n2, n1 == n2, n2 in d)",
+   "ground_truth_stdout": "False False False",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B19",
+   "tag": "closure-late-binding",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "fs = [lambda: i for i in range(3)]\nprint([f() for f in fs])",
+   "ground_truth_stdout": "[2, 2, 2]",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B20",
+   "tag": "exception-else-finally",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "try:\n    pass\nexcept ValueError:\n    print(\"except\")\nelse:\n    print(\"else\")\nfinally:\n    print(\"finally\")",
+   "ground_truth_stdout": "else\nfinally",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B21",
+   "tag": "str-join-vs-add",
+   "question": "下面这段 Python 代码输出什么？（两个字符串用空格隔开）",
+   "code": "print(\"-\".join([\"a\", \"b\"]), \"a\" \"b\")",
+   "ground_truth_stdout": "a-b ab",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B22",
+   "tag": "is-vs-eq-string",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "print(\"hi\" is \"hi\", \"\".join([\"h\", \"i\"]) is \"hi\", \"hi\" == \"h\" + \"i\")",
+   "ground_truth_stdout": "True False True",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "<string>:1: SyntaxWarning: \"is\" with a literal. Did you mean \"==\"?\n<string>:1: SyntaxWarning: \"is\" with a literal. Did you mean \"==\"?",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B23",
+   "tag": "list-multiply-nested",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "row = [0] * 2\ngrid = [row] * 2\ngrid[0][0] = 7\nprint(grid)",
+   "ground_truth_stdout": "[[7, 0], [7, 0]]",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B24",
+   "tag": "int-parse-leading-zero",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "print(int(\"007\"), int(\"0b101\", 2), int(\" 42 \"))",
+   "ground_truth_stdout": "7 5 42",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B25",
+   "tag": "division-vs-truediv",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "print(7 / 2, 7 // 2, 7 % 2, divmod(7, 2))",
+   "ground_truth_stdout": "3.5 3 1 (3, 1)",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B26",
+   "tag": "dict-get-missing",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "d = {}\nprint(d.get(\"k\"), d.get(\"k\", 0), d)",
+   "ground_truth_stdout": "None 0 {}",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B27",
+   "tag": "sorted-stability-tuples",
+   "question": "下面这段 Python 代码输出什么？（两行输出）",
+   "code": "pairs = [(1, \"b\"), (1, \"a\"), (0, \"c\")]\nprint(sorted(pairs))\nprint(sorted(pairs, key=lambda p: p[0]))",
+   "ground_truth_stdout": "[(0, 'c'), (1, 'a'), (1, 'b')]\n[(0, 'c'), (1, 'b'), (1, 'a')]",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B28",
+   "tag": "string-index-negative",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "s = \"hello\"\nprint(s[-1], s[-2:], s[:-2])",
+   "ground_truth_stdout": "o lo hel",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B29",
+   "tag": "enumerate-start",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "print(list(enumerate([\"a\", \"b\"])), list(enumerate([\"a\", \"b\"], 1)))",
+   "ground_truth_stdout": "[(0, 'a'), (1, 'b')] [(1, 'a'), (2, 'b')]",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B30",
+   "tag": "any-all-empty",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "print(any([]), all([]), any([0, \"\"]), all([1, \"x\"]))",
+   "ground_truth_stdout": "False True False True",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B31",
+   "tag": "mutable-in-tuple-hashing",
+   "question": "下面这段 Python 代码输出什么？（若抛异常，说明异常类型）",
+   "code": "print(hash((1, 2)), hash((1, [2])))",
+   "ground_truth_stdout": "",
+   "ground_truth_returncode": 1,
+   "exec_stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nTypeError: unhashable type: 'list'",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B32",
+   "tag": "str-strip-vs-lstrip",
+   "question": "下面这段 Python 代码输出什么？（两个字符串用竖线隔开）",
+   "code": "print(\"--x--\".strip(\"-\"), \"\")\nprint(\"  \" + \"a\")",
+   "ground_truth_stdout": "x \n  a",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B33",
+   "tag": "nested-unpack-mismatch",
+   "question": "下面这段 Python 代码输出什么？（若抛异常，说明异常类型）",
+   "code": "a, (b, c) = 1, (2, 3)\nprint(a, b, c)\nx, y = [1, 2, 3]",
+   "ground_truth_stdout": "1 2 3",
+   "ground_truth_returncode": 1,
+   "exec_stderr": "Traceback (most recent call last):\n  File \"<string>\", line 3, in <module>\nValueError: too many values to unpack (expected 2)",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B34",
+   "tag": "lambda-default-capture",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "fs = [lambda i=i: i for i in range(3)]\nprint([f() for f in fs])",
+   "ground_truth_stdout": "[0, 1, 2]",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  },
+  {
+   "id": "B35",
+   "tag": "float-int-truncation",
+   "question": "下面这段 Python 代码输出什么？",
+   "code": "print(int(-3.9), int(3.9), abs(-3.9), round(-3.5))",
+   "ground_truth_stdout": "-3 3 3.9 -4",
+   "ground_truth_returncode": 0,
+   "exec_stderr": "",
+   "exec_wall_s": null
+  }
+ ]
+}

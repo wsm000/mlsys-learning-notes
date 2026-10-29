@@ -1,0 +1,1851 @@
+{
+  "generated_at": "2026-10-28T00:02:04-0600",
+  "model": "gpt-5.6-sol",
+  "dataset_provenance": {
+    "file": "data/cn_nev_sales_2021_2023.csv",
+    "description": "中国新能源汽车销量（万辆），2021-2023 分年度与分季度",
+    "source_org": "中国汽车工业协会 (CAAM)",
+    "source_kind": "frozen_snapshot",
+    "collected_by": "manual transcription from CAAM annual press releases, rounded to 0.1 万辆",
+    "frozen_at": "2026-10-26",
+    "caveat": "这是仓库内固化的快照，不是实时联网检索结果；数字以 CAAM 公布口径为准，本实验用它保证可重复运行。",
+    "annual_nev_sales_wan": {
+      "2021": 352.1,
+      "2022": 688.7,
+      "2023": 949.5
+    },
+    "quarterly_nev_sales_wan": {
+      "2021": {
+        "Q1": 51.5,
+        "Q2": 73.4,
+        "Q3": 94.4,
+        "Q4": 132.8
+      },
+      "2022": {
+        "Q1": 125.7,
+        "Q2": 134.0,
+        "Q3": 196.7,
+        "Q4": 232.3
+      },
+      "2023": {
+        "Q1": 158.6,
+        "Q2": 217.9,
+        "Q3": 271.8,
+        "Q4": 301.2
+      }
+    },
+    "annual_total_auto_sales_wan": {
+      "2021": 2627.5,
+      "2022": 2686.4,
+      "2023": 3009.4
+    }
+  },
+  "n_runs": 9,
+  "modes": {
+    "A1": {
+      "n_runs": 3,
+      "n_runs_without_error": 3,
+      "errors": [],
+      "total_input_tokens": 18303,
+      "total_output_tokens": 2418,
+      "total_tokens": 20721,
+      "mean_input_tokens_per_run": 6101.0,
+      "mean_output_tokens_per_run": 806.0,
+      "mean_tokens_per_run": 6907.0,
+      "mean_wall_s_per_run": 97.532,
+      "mean_model_calls_per_run": 5.0,
+      "failed_attempts_total": 0,
+      "failed_calls_total": 0,
+      "n_distinct_static_prefixes": 1,
+      "static_prefix_fingerprints": [
+        "ebdcd2bd0747b9fa"
+      ],
+      "cache_read_tokens_total": 1608,
+      "cache_write_tokens_total": 9860,
+      "mean_instructions_chars": 317.0,
+      "stage_tokens": [
+        {
+          "run_id": "A1_r01",
+          "step": 1,
+          "role": "monolithic",
+          "input_tokens": 633,
+          "output_tokens": 153,
+          "wall_s": 5.1435,
+          "attempts": 1,
+          "instructions_chars": 317,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file"
+          ],
+          "prefix_fp": "ebdcd2bd0747b9fa"
+        },
+        {
+          "run_id": "A1_r01",
+          "step": 2,
+          "role": "monolithic",
+          "input_tokens": 961,
+          "output_tokens": 77,
+          "wall_s": 88.6612,
+          "attempts": 1,
+          "instructions_chars": 317,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file"
+          ],
+          "prefix_fp": "ebdcd2bd0747b9fa"
+        },
+        {
+          "run_id": "A1_r01",
+          "step": 3,
+          "role": "monolithic",
+          "input_tokens": 1016,
+          "output_tokens": 75,
+          "wall_s": 102.5264,
+          "attempts": 1,
+          "instructions_chars": 317,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file"
+          ],
+          "prefix_fp": "ebdcd2bd0747b9fa"
+        },
+        {
+          "run_id": "A1_r01",
+          "step": 4,
+          "role": "monolithic",
+          "input_tokens": 1611,
+          "output_tokens": 31,
+          "wall_s": 5.4045,
+          "attempts": 1,
+          "instructions_chars": 317,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file"
+          ],
+          "prefix_fp": "ebdcd2bd0747b9fa"
+        },
+        {
+          "run_id": "A1_r01",
+          "step": 5,
+          "role": "monolithic",
+          "input_tokens": 1658,
+          "output_tokens": 408,
+          "wall_s": 6.951,
+          "attempts": 1,
+          "instructions_chars": 317,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file"
+          ],
+          "prefix_fp": "ebdcd2bd0747b9fa"
+        },
+        {
+          "run_id": "A1_r02",
+          "step": 1,
+          "role": "monolithic",
+          "input_tokens": 633,
+          "output_tokens": 172,
+          "wall_s": 8.2877,
+          "attempts": 1,
+          "instructions_chars": 317,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file"
+          ],
+          "prefix_fp": "ebdcd2bd0747b9fa"
+        },
+        {
+          "run_id": "A1_r02",
+          "step": 2,
+          "role": "monolithic",
+          "input_tokens": 961,
+          "output_tokens": 123,
+          "wall_s": 7.122,
+          "attempts": 1,
+          "instructions_chars": 317,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file"
+          ],
+          "prefix_fp": "ebdcd2bd0747b9fa"
+        },
+        {
+          "run_id": "A1_r02",
+          "step": 3,
+          "role": "monolithic",
+          "input_tokens": 1238,
+          "output_tokens": 86,
+          "wall_s": 11.6198,
+          "attempts": 1,
+          "instructions_chars": 317,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file"
+          ],
+          "prefix_fp": "ebdcd2bd0747b9fa"
+        },
+        {
+          "run_id": "A1_r02",
+          "step": 4,
+          "role": "monolithic",
+          "input_tokens": 1833,
+          "output_tokens": 31,
+          "wall_s": 3.6868,
+          "attempts": 1,
+          "instructions_chars": 317,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file"
+          ],
+          "prefix_fp": "ebdcd2bd0747b9fa"
+        },
+        {
+          "run_id": "A1_r02",
+          "step": 5,
+          "role": "monolithic",
+          "input_tokens": 1880,
+          "output_tokens": 361,
+          "wall_s": 5.7451,
+          "attempts": 1,
+          "instructions_chars": 317,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file"
+          ],
+          "prefix_fp": "ebdcd2bd0747b9fa"
+        },
+        {
+          "run_id": "A1_r03",
+          "step": 1,
+          "role": "monolithic",
+          "input_tokens": 633,
+          "output_tokens": 117,
+          "wall_s": 5.7117,
+          "attempts": 1,
+          "instructions_chars": 317,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file"
+          ],
+          "prefix_fp": "ebdcd2bd0747b9fa"
+        },
+        {
+          "run_id": "A1_r03",
+          "step": 2,
+          "role": "monolithic",
+          "input_tokens": 961,
+          "output_tokens": 43,
+          "wall_s": 10.2464,
+          "attempts": 1,
+          "instructions_chars": 317,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file"
+          ],
+          "prefix_fp": "ebdcd2bd0747b9fa"
+        },
+        {
+          "run_id": "A1_r03",
+          "step": 3,
+          "role": "monolithic",
+          "input_tokens": 1016,
+          "output_tokens": 75,
+          "wall_s": 3.4961,
+          "attempts": 1,
+          "instructions_chars": 317,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file"
+          ],
+          "prefix_fp": "ebdcd2bd0747b9fa"
+        },
+        {
+          "run_id": "A1_r03",
+          "step": 4,
+          "role": "monolithic",
+          "input_tokens": 1611,
+          "output_tokens": 65,
+          "wall_s": 15.5686,
+          "attempts": 1,
+          "instructions_chars": 317,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file"
+          ],
+          "prefix_fp": "ebdcd2bd0747b9fa"
+        },
+        {
+          "run_id": "A1_r03",
+          "step": 5,
+          "role": "monolithic",
+          "input_tokens": 1658,
+          "output_tokens": 601,
+          "wall_s": 12.4253,
+          "attempts": 1,
+          "instructions_chars": 317,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file"
+          ],
+          "prefix_fp": "ebdcd2bd0747b9fa"
+        }
+      ],
+      "quality": {
+        "n_evaluated": 3,
+        "all_core_checks_pass": 0,
+        "mean_rule_score_0to7": 6.0,
+        "length_ok": 3,
+        "cagr_ok": 3,
+        "term_ok": 3,
+        "provenance_ok": 3,
+        "used_real_data_tool": 0,
+        "calc_returned_true_cagr": 3,
+        "dubious_number_rate": 0.0,
+        "summary_cjk_len_mean": 47.0
+      },
+      "per_run": [
+        {
+          "run_id": "A1_r01",
+          "error": null,
+          "tokens": 6623,
+          "wall_s": 208.687,
+          "steps": 5,
+          "evaluation": {
+            "summary": "中国新能源汽车（NEV）销量连续增长：2021—2023年分别为352.1、688.7、949.5万辆，2021→2023年CAGR为64.2%。口径：中汽协年度销量，仓库固化快照。",
+            "summary_chars_total": 91,
+            "summary_cjk_chars": 36,
+            "summary_cjk_len": 46,
+            "length_ok": true,
+            "cagr_true": 0.642156,
+            "cagr_model": 0.642156,
+            "cagr_ok": true,
+            "used_calc_tool": true,
+            "calc_returned_true_cagr": true,
+            "used_real_data_tool": false,
+            "term_full_name": true,
+            "term_uses_nev": true,
+            "term_bad": [],
+            "term_ok": true,
+            "provenance_ok": true,
+            "dubious_numbers": [],
+            "parsed_final_json": {
+              "summary": "中国新能源汽车（NEV）销量连续增长：2021—2023年分别为352.1、688.7、949.5万辆，2021→2023年CAGR为64.2%。口径：中汽协年度销量，仓库固化快照。",
+              "cagr": 0.642156,
+              "v0": 352.1,
+              "v1": 949.5,
+              "years": 2,
+              "provenance_noted": true
+            },
+            "rule_score_0to7": 6,
+            "all_core_checks_pass": false
+          }
+        },
+        {
+          "run_id": "A1_r02",
+          "error": null,
+          "tokens": 7318,
+          "wall_s": 36.461,
+          "steps": 5,
+          "evaluation": {
+            "summary": "结论：2021—2023年中国新能源汽车（NEV）销量CAGR为64.22%。按中国汽车工业协会（CAAM）年度销量口径，三年销量分别为352.1、688.7、949.5万辆。",
+            "summary_chars_total": 88,
+            "summary_cjk_chars": 37,
+            "summary_cjk_len": 46,
+            "length_ok": true,
+            "cagr_true": 0.642156,
+            "cagr_model": 0.642156,
+            "cagr_ok": true,
+            "used_calc_tool": true,
+            "calc_returned_true_cagr": true,
+            "used_real_data_tool": false,
+            "term_full_name": true,
+            "term_uses_nev": true,
+            "term_bad": [],
+            "term_ok": true,
+            "provenance_ok": true,
+            "dubious_numbers": [],
+            "parsed_final_json": {
+              "summary": "结论：2021—2023年中国新能源汽车（NEV）销量CAGR为64.22%。按中国汽车工业协会（CAAM）年度销量口径，三年销量分别为352.1、688.7、949.5万辆。",
+              "cagr": 0.642156,
+              "v0": 352.1,
+              "v1": 949.5,
+              "years": 2,
+              "provenance_noted": true
+            },
+            "rule_score_0to7": 6,
+            "all_core_checks_pass": false
+          }
+        },
+        {
+          "run_id": "A1_r03",
+          "error": null,
+          "tokens": 6780,
+          "wall_s": 47.448,
+          "steps": 5,
+          "evaluation": {
+            "summary": "新能源汽车（NEV）销量连续增长：2021—2023年分别为352.1、688.7、949.5万辆，2021→2023年CAGR为64.2%。口径：中国汽车工业协会年度销量，仓库固化快照。",
+            "summary_chars_total": 94,
+            "summary_cjk_chars": 39,
+            "summary_cjk_len": 49,
+            "length_ok": true,
+            "cagr_true": 0.642156,
+            "cagr_model": 0.642156,
+            "cagr_ok": true,
+            "used_calc_tool": true,
+            "calc_returned_true_cagr": true,
+            "used_real_data_tool": false,
+            "term_full_name": true,
+            "term_uses_nev": true,
+            "term_bad": [],
+            "term_ok": true,
+            "provenance_ok": true,
+            "dubious_numbers": [],
+            "parsed_final_json": {
+              "summary": "新能源汽车（NEV）销量连续增长：2021—2023年分别为352.1、688.7、949.5万辆，2021→2023年CAGR为64.2%。口径：中国汽车工业协会年度销量，仓库固化快照。",
+              "cagr": 0.642156,
+              "v0": 352.1,
+              "v1": 949.5,
+              "years": 2,
+              "provenance_noted": true
+            },
+            "rule_score_0to7": 6,
+            "all_core_checks_pass": false
+          }
+        }
+      ]
+    },
+    "A2": {
+      "n_runs": 3,
+      "n_runs_without_error": 3,
+      "errors": [],
+      "total_input_tokens": 84150,
+      "total_output_tokens": 15521,
+      "total_tokens": 99671,
+      "mean_input_tokens_per_run": 28050.0,
+      "mean_output_tokens_per_run": 5173.6667,
+      "mean_tokens_per_run": 33223.6667,
+      "mean_wall_s_per_run": 223.9695,
+      "mean_model_calls_per_run": 12.0,
+      "failed_attempts_total": 2,
+      "failed_calls_total": 0,
+      "n_distinct_static_prefixes": 5,
+      "static_prefix_fingerprints": [
+        "53cf931ae198ccd5",
+        "e3808b3c0a322d26",
+        "83b454ee63932b61",
+        "2b3f9456d53281ef",
+        "c08fc7126cb2a0a1"
+      ],
+      "cache_read_tokens_total": 5537,
+      "cache_write_tokens_total": 75251,
+      "mean_instructions_chars": 189.6389,
+      "stage_tokens": [
+        {
+          "run_id": "A2_r01",
+          "step": 1,
+          "role": "triage",
+          "input_tokens": 438,
+          "output_tokens": 460,
+          "wall_s": 33.1957,
+          "attempts": 1,
+          "instructions_chars": 224,
+          "visible_tools": [
+            "read_file",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "53cf931ae198ccd5"
+        },
+        {
+          "run_id": "A2_r01",
+          "step": 2,
+          "role": "research",
+          "input_tokens": 938,
+          "output_tokens": 127,
+          "wall_s": 4.2519,
+          "attempts": 1,
+          "instructions_chars": 208,
+          "visible_tools": [
+            "read_file",
+            "local_csv_query",
+            "web_fetch",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "e3808b3c0a322d26"
+        },
+        {
+          "run_id": "A2_r01",
+          "step": 3,
+          "role": "research",
+          "input_tokens": 1266,
+          "output_tokens": 51,
+          "wall_s": 4.8853,
+          "attempts": 1,
+          "instructions_chars": 208,
+          "visible_tools": [
+            "read_file",
+            "local_csv_query",
+            "web_fetch",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "e3808b3c0a322d26"
+        },
+        {
+          "run_id": "A2_r01",
+          "step": 4,
+          "role": "research",
+          "input_tokens": 1321,
+          "output_tokens": 75,
+          "wall_s": 4.997,
+          "attempts": 1,
+          "instructions_chars": 208,
+          "visible_tools": [
+            "read_file",
+            "local_csv_query",
+            "web_fetch",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "e3808b3c0a322d26"
+        },
+        {
+          "run_id": "A2_r01",
+          "step": 5,
+          "role": "research",
+          "input_tokens": 1916,
+          "output_tokens": 148,
+          "wall_s": 4.508,
+          "attempts": 1,
+          "instructions_chars": 208,
+          "visible_tools": [
+            "read_file",
+            "local_csv_query",
+            "web_fetch",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "e3808b3c0a322d26"
+        },
+        {
+          "run_id": "A2_r01",
+          "step": 6,
+          "role": "research",
+          "input_tokens": 2361,
+          "output_tokens": 369,
+          "wall_s": 5.768,
+          "attempts": 1,
+          "instructions_chars": 208,
+          "visible_tools": [
+            "read_file",
+            "local_csv_query",
+            "web_fetch",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "e3808b3c0a322d26"
+        },
+        {
+          "run_id": "A2_r01",
+          "step": 7,
+          "role": "coding",
+          "input_tokens": 2675,
+          "output_tokens": 55,
+          "wall_s": 3.6771,
+          "attempts": 1,
+          "instructions_chars": 155,
+          "visible_tools": [
+            "calc",
+            "read_file",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "83b454ee63932b61"
+        },
+        {
+          "run_id": "A2_r01",
+          "step": 8,
+          "role": "coding",
+          "input_tokens": 2722,
+          "output_tokens": 322,
+          "wall_s": 18.6493,
+          "attempts": 1,
+          "instructions_chars": 155,
+          "visible_tools": [
+            "calc",
+            "read_file",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "83b454ee63932b61"
+        },
+        {
+          "run_id": "A2_r01",
+          "step": 9,
+          "role": "data_analysis",
+          "input_tokens": 3095,
+          "output_tokens": 1200,
+          "wall_s": 23.579,
+          "attempts": 1,
+          "instructions_chars": 180,
+          "visible_tools": [
+            "calc",
+            "read_file",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "2b3f9456d53281ef"
+        },
+        {
+          "run_id": "A2_r01",
+          "step": 10,
+          "role": "data_analysis",
+          "input_tokens": 3262,
+          "output_tokens": 474,
+          "wall_s": 10.1666,
+          "attempts": 1,
+          "instructions_chars": 180,
+          "visible_tools": [
+            "calc",
+            "read_file",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "2b3f9456d53281ef"
+        },
+        {
+          "run_id": "A2_r01",
+          "step": 11,
+          "role": "data_analysis",
+          "input_tokens": 3428,
+          "output_tokens": 1314,
+          "wall_s": 22.9892,
+          "attempts": 1,
+          "instructions_chars": 180,
+          "visible_tools": [
+            "calc",
+            "read_file",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "2b3f9456d53281ef"
+        },
+        {
+          "run_id": "A2_r01",
+          "step": 12,
+          "role": "writing",
+          "input_tokens": 3907,
+          "output_tokens": 440,
+          "wall_s": 8.0002,
+          "attempts": 1,
+          "instructions_chars": 170,
+          "visible_tools": [
+            "read_file",
+            "write_file",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "c08fc7126cb2a0a1"
+        },
+        {
+          "run_id": "A2_r02",
+          "step": 1,
+          "role": "triage",
+          "input_tokens": 438,
+          "output_tokens": 654,
+          "wall_s": 15.6014,
+          "attempts": 1,
+          "instructions_chars": 224,
+          "visible_tools": [
+            "read_file",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "53cf931ae198ccd5"
+        },
+        {
+          "run_id": "A2_r02",
+          "step": 2,
+          "role": "research",
+          "input_tokens": 1016,
+          "output_tokens": 185,
+          "wall_s": 5.8101,
+          "attempts": 1,
+          "instructions_chars": 208,
+          "visible_tools": [
+            "read_file",
+            "local_csv_query",
+            "web_fetch",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "e3808b3c0a322d26"
+        },
+        {
+          "run_id": "A2_r02",
+          "step": 3,
+          "role": "research",
+          "input_tokens": 1344,
+          "output_tokens": 60,
+          "wall_s": 8.3705,
+          "attempts": 1,
+          "instructions_chars": 208,
+          "visible_tools": [
+            "read_file",
+            "local_csv_query",
+            "web_fetch",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "e3808b3c0a322d26"
+        },
+        {
+          "run_id": "A2_r02",
+          "step": 4,
+          "role": "research",
+          "input_tokens": 1399,
+          "output_tokens": 75,
+          "wall_s": 8.0549,
+          "attempts": 1,
+          "instructions_chars": 208,
+          "visible_tools": [
+            "read_file",
+            "local_csv_query",
+            "web_fetch",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "e3808b3c0a322d26"
+        },
+        {
+          "run_id": "A2_r02",
+          "step": 5,
+          "role": "research",
+          "input_tokens": 1994,
+          "output_tokens": 166,
+          "wall_s": 8.3169,
+          "attempts": 1,
+          "instructions_chars": 208,
+          "visible_tools": [
+            "read_file",
+            "local_csv_query",
+            "web_fetch",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "e3808b3c0a322d26"
+        },
+        {
+          "run_id": "A2_r02",
+          "step": 6,
+          "role": "research",
+          "input_tokens": 2439,
+          "output_tokens": 364,
+          "wall_s": 6.9588,
+          "attempts": 1,
+          "instructions_chars": 208,
+          "visible_tools": [
+            "read_file",
+            "local_csv_query",
+            "web_fetch",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "e3808b3c0a322d26"
+        },
+        {
+          "run_id": "A2_r02",
+          "step": 7,
+          "role": "coding",
+          "input_tokens": 2699,
+          "output_tokens": 83,
+          "wall_s": 178.8632,
+          "attempts": 1,
+          "instructions_chars": 155,
+          "visible_tools": [
+            "calc",
+            "read_file",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "83b454ee63932b61"
+        },
+        {
+          "run_id": "A2_r02",
+          "step": 8,
+          "role": "coding",
+          "input_tokens": 2746,
+          "output_tokens": 312,
+          "wall_s": 14.9067,
+          "attempts": 1,
+          "instructions_chars": 155,
+          "visible_tools": [
+            "calc",
+            "read_file",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "83b454ee63932b61"
+        },
+        {
+          "run_id": "A2_r02",
+          "step": 9,
+          "role": "data_analysis",
+          "input_tokens": 3064,
+          "output_tokens": 799,
+          "wall_s": 17.2191,
+          "attempts": 1,
+          "instructions_chars": 180,
+          "visible_tools": [
+            "calc",
+            "read_file",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "2b3f9456d53281ef"
+        },
+        {
+          "run_id": "A2_r02",
+          "step": 10,
+          "role": "data_analysis",
+          "input_tokens": 3174,
+          "output_tokens": 669,
+          "wall_s": 19.3649,
+          "attempts": 1,
+          "instructions_chars": 180,
+          "visible_tools": [
+            "calc",
+            "read_file",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "2b3f9456d53281ef"
+        },
+        {
+          "run_id": "A2_r02",
+          "step": 11,
+          "role": "writing",
+          "input_tokens": 5277,
+          "output_tokens": 756,
+          "wall_s": 40.8928,
+          "attempts": 1,
+          "instructions_chars": 170,
+          "visible_tools": [
+            "read_file",
+            "write_file",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "c08fc7126cb2a0a1"
+        },
+        {
+          "run_id": "A2_r03",
+          "step": 1,
+          "role": "triage",
+          "input_tokens": 438,
+          "output_tokens": 903,
+          "wall_s": 18.8215,
+          "attempts": 1,
+          "instructions_chars": 224,
+          "visible_tools": [
+            "read_file",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "53cf931ae198ccd5"
+        },
+        {
+          "run_id": "A2_r03",
+          "step": 2,
+          "role": "research",
+          "input_tokens": 1080,
+          "output_tokens": 151,
+          "wall_s": 11.3605,
+          "attempts": 1,
+          "instructions_chars": 208,
+          "visible_tools": [
+            "read_file",
+            "local_csv_query",
+            "web_fetch",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "e3808b3c0a322d26"
+        },
+        {
+          "run_id": "A2_r03",
+          "step": 3,
+          "role": "research",
+          "input_tokens": 1408,
+          "output_tokens": 52,
+          "wall_s": 12.432,
+          "attempts": 1,
+          "instructions_chars": 208,
+          "visible_tools": [
+            "read_file",
+            "local_csv_query",
+            "web_fetch",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "e3808b3c0a322d26"
+        },
+        {
+          "run_id": "A2_r03",
+          "step": 4,
+          "role": "research",
+          "input_tokens": 1463,
+          "output_tokens": 75,
+          "wall_s": 7.8897,
+          "attempts": 1,
+          "instructions_chars": 208,
+          "visible_tools": [
+            "read_file",
+            "local_csv_query",
+            "web_fetch",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "e3808b3c0a322d26"
+        },
+        {
+          "run_id": "A2_r03",
+          "step": 5,
+          "role": "research",
+          "input_tokens": 2058,
+          "output_tokens": 167,
+          "wall_s": 4.3343,
+          "attempts": 1,
+          "instructions_chars": 208,
+          "visible_tools": [
+            "read_file",
+            "local_csv_query",
+            "web_fetch",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "e3808b3c0a322d26"
+        },
+        {
+          "run_id": "A2_r03",
+          "step": 6,
+          "role": "research",
+          "input_tokens": 2503,
+          "output_tokens": 279,
+          "wall_s": 9.6895,
+          "attempts": 1,
+          "instructions_chars": 208,
+          "visible_tools": [
+            "read_file",
+            "local_csv_query",
+            "web_fetch",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "e3808b3c0a322d26"
+        },
+        {
+          "run_id": "A2_r03",
+          "step": 7,
+          "role": "coding",
+          "input_tokens": 2741,
+          "output_tokens": 76,
+          "wall_s": 9.0727,
+          "attempts": 1,
+          "instructions_chars": 155,
+          "visible_tools": [
+            "calc",
+            "read_file",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "83b454ee63932b61"
+        },
+        {
+          "run_id": "A2_r03",
+          "step": 8,
+          "role": "coding",
+          "input_tokens": 2788,
+          "output_tokens": 160,
+          "wall_s": 31.4178,
+          "attempts": 3,
+          "instructions_chars": 155,
+          "visible_tools": [
+            "calc",
+            "read_file",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "83b454ee63932b61"
+        },
+        {
+          "run_id": "A2_r03",
+          "step": 9,
+          "role": "coding",
+          "input_tokens": 2879,
+          "output_tokens": 278,
+          "wall_s": 9.8028,
+          "attempts": 1,
+          "instructions_chars": 155,
+          "visible_tools": [
+            "calc",
+            "read_file",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "83b454ee63932b61"
+        },
+        {
+          "run_id": "A2_r03",
+          "step": 10,
+          "role": "data_analysis",
+          "input_tokens": 3202,
+          "output_tokens": 524,
+          "wall_s": 15.6635,
+          "attempts": 1,
+          "instructions_chars": 180,
+          "visible_tools": [
+            "calc",
+            "read_file",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "2b3f9456d53281ef"
+        },
+        {
+          "run_id": "A2_r03",
+          "step": 11,
+          "role": "data_analysis",
+          "input_tokens": 3335,
+          "output_tokens": 649,
+          "wall_s": 18.893,
+          "attempts": 1,
+          "instructions_chars": 180,
+          "visible_tools": [
+            "calc",
+            "read_file",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "2b3f9456d53281ef"
+        },
+        {
+          "run_id": "A2_r03",
+          "step": 12,
+          "role": "data_analysis",
+          "input_tokens": 3488,
+          "output_tokens": 1849,
+          "wall_s": 22.6293,
+          "attempts": 1,
+          "instructions_chars": 180,
+          "visible_tools": [
+            "calc",
+            "read_file",
+            "list_dir",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "2b3f9456d53281ef"
+        },
+        {
+          "run_id": "A2_r03",
+          "step": 13,
+          "role": "writing",
+          "input_tokens": 3848,
+          "output_tokens": 1200,
+          "wall_s": 30.8754,
+          "attempts": 1,
+          "instructions_chars": 170,
+          "visible_tools": [
+            "read_file",
+            "write_file",
+            "transfer_to_agent"
+          ],
+          "prefix_fp": "c08fc7126cb2a0a1"
+        }
+      ],
+      "quality": {
+        "n_evaluated": 3,
+        "all_core_checks_pass": 2,
+        "mean_rule_score_0to7": 5.6667,
+        "length_ok": 2,
+        "cagr_ok": 2,
+        "term_ok": 2,
+        "provenance_ok": 2,
+        "used_real_data_tool": 3,
+        "calc_returned_true_cagr": 3,
+        "dubious_number_rate": 0.0,
+        "summary_cjk_len_mean": 33.6667
+      },
+      "per_run": [
+        {
+          "run_id": "A2_r01",
+          "error": null,
+          "tokens": 32364,
+          "wall_s": 144.667,
+          "steps": 12,
+          "evaluation": {
+            "summary": "中国新能源汽车（NEV）销量规模增长、年度增速放缓；2021—2023年销量依次为352.1、688.7、949.5万辆，CAGR约64.22%。口径：中汽协销量，本地固化快照。",
+            "summary_chars_total": 89,
+            "summary_cjk_chars": 41,
+            "summary_cjk_len": 49,
+            "length_ok": true,
+            "cagr_true": 0.642156,
+            "cagr_model": 0.642156,
+            "cagr_ok": true,
+            "used_calc_tool": true,
+            "calc_returned_true_cagr": true,
+            "used_real_data_tool": true,
+            "term_full_name": true,
+            "term_uses_nev": true,
+            "term_bad": [],
+            "term_ok": true,
+            "provenance_ok": true,
+            "dubious_numbers": [],
+            "parsed_final_json": {
+              "summary": "中国新能源汽车（NEV）销量规模增长、年度增速放缓；2021—2023年销量依次为352.1、688.7、949.5万辆，CAGR约64.22%。口径：中汽协销量，本地固化快照。",
+              "cagr": 0.642156,
+              "v0": 352.1,
+              "v1": 949.5,
+              "years": 2,
+              "provenance_noted": true
+            },
+            "rule_score_0to7": 7,
+            "all_core_checks_pass": true
+          }
+        },
+        {
+          "run_id": "A2_r02",
+          "error": null,
+          "tokens": 29713,
+          "wall_s": 324.359,
+          "steps": 11,
+          "evaluation": {
+            "summary": "中国新能源汽车（NEV）销量规模扩大：按中国汽车工业协会年度销量口径（仓库固化快照），2021—2023年分别为352.1、688.7、949.5万辆，2021→2023年CAGR为64.22%。",
+            "summary_chars_total": 98,
+            "summary_cjk_chars": 42,
+            "summary_cjk_len": 52,
+            "length_ok": true,
+            "cagr_true": 0.642156,
+            "cagr_model": 0.642156,
+            "cagr_ok": true,
+            "used_calc_tool": true,
+            "calc_returned_true_cagr": true,
+            "used_real_data_tool": true,
+            "term_full_name": true,
+            "term_uses_nev": true,
+            "term_bad": [],
+            "term_ok": true,
+            "provenance_ok": true,
+            "dubious_numbers": [],
+            "parsed_final_json": {
+              "summary": "中国新能源汽车（NEV）销量规模扩大：按中国汽车工业协会年度销量口径（仓库固化快照），2021—2023年分别为352.1、688.7、949.5万辆，2021→2023年CAGR为64.22%。",
+              "cagr": 0.642156,
+              "v0": 352.1,
+              "v1": 949.5,
+              "years": 2,
+              "provenance_noted": true
+            },
+            "rule_score_0to7": 7,
+            "all_core_checks_pass": true
+          }
+        },
+        {
+          "run_id": "A2_r03",
+          "error": null,
+          "tokens": 37594,
+          "wall_s": 202.882,
+          "steps": 13,
+          "evaluation": {
+            "summary": "",
+            "summary_chars_total": 0,
+            "summary_cjk_chars": 0,
+            "summary_cjk_len": 0,
+            "length_ok": false,
+            "cagr_true": 0.642156,
+            "cagr_model": null,
+            "cagr_ok": false,
+            "used_calc_tool": true,
+            "calc_returned_true_cagr": true,
+            "used_real_data_tool": true,
+            "term_full_name": false,
+            "term_uses_nev": false,
+            "term_bad": [],
+            "term_ok": false,
+            "provenance_ok": false,
+            "dubious_numbers": [],
+            "parsed_final_json": {},
+            "rule_score_0to7": 3,
+            "all_core_checks_pass": false
+          }
+        }
+      ],
+      "n_role_transitions_mean": 4.0,
+      "final_roles": [
+        "writing",
+        "writing",
+        "writing"
+      ]
+    },
+    "A3": {
+      "n_runs": 3,
+      "n_runs_without_error": 3,
+      "errors": [],
+      "total_input_tokens": 35520,
+      "total_output_tokens": 3954,
+      "total_tokens": 39474,
+      "mean_input_tokens_per_run": 11840.0,
+      "mean_output_tokens_per_run": 1318.0,
+      "mean_tokens_per_run": 13158.0,
+      "mean_wall_s_per_run": 154.1154,
+      "mean_model_calls_per_run": 6.6667,
+      "failed_attempts_total": 0,
+      "failed_calls_total": 0,
+      "n_distinct_static_prefixes": 1,
+      "static_prefix_fingerprints": [
+        "bc6eb1b6462ccb42"
+      ],
+      "cache_read_tokens_total": 0,
+      "cache_write_tokens_total": 30601,
+      "mean_instructions_chars": 429.0,
+      "stage_tokens": [
+        {
+          "run_id": "A3_r01",
+          "step": 1,
+          "role": "skill-mode",
+          "input_tokens": 685,
+          "output_tokens": 74,
+          "wall_s": 3.7352,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r01",
+          "step": 2,
+          "role": "skill-mode",
+          "input_tokens": 796,
+          "output_tokens": 228,
+          "wall_s": 5.3983,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r01",
+          "step": 3,
+          "role": "skill-mode",
+          "input_tokens": 1686,
+          "output_tokens": 38,
+          "wall_s": 5.9761,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r01",
+          "step": 4,
+          "role": "skill-mode",
+          "input_tokens": 1741,
+          "output_tokens": 75,
+          "wall_s": 5.9296,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r01",
+          "step": 5,
+          "role": "skill-mode",
+          "input_tokens": 2336,
+          "output_tokens": 174,
+          "wall_s": 4.7775,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r01",
+          "step": 6,
+          "role": "skill-mode",
+          "input_tokens": 2781,
+          "output_tokens": 31,
+          "wall_s": 7.175,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r01",
+          "step": 7,
+          "role": "skill-mode",
+          "input_tokens": 2828,
+          "output_tokens": 533,
+          "wall_s": 11.9747,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r02",
+          "step": 1,
+          "role": "skill-mode",
+          "input_tokens": 685,
+          "output_tokens": 148,
+          "wall_s": 4.3306,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r02",
+          "step": 2,
+          "role": "skill-mode",
+          "input_tokens": 1013,
+          "output_tokens": 108,
+          "wall_s": 3.6339,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r02",
+          "step": 3,
+          "role": "skill-mode",
+          "input_tokens": 1597,
+          "output_tokens": 59,
+          "wall_s": 5.8646,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r02",
+          "step": 4,
+          "role": "skill-mode",
+          "input_tokens": 1652,
+          "output_tokens": 30,
+          "wall_s": 5.4689,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r02",
+          "step": 5,
+          "role": "skill-mode",
+          "input_tokens": 1800,
+          "output_tokens": 120,
+          "wall_s": 5.3641,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r02",
+          "step": 6,
+          "role": "skill-mode",
+          "input_tokens": 2245,
+          "output_tokens": 153,
+          "wall_s": 95.858,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r02",
+          "step": 7,
+          "role": "skill-mode",
+          "input_tokens": 2356,
+          "output_tokens": 618,
+          "wall_s": 249.7288,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r03",
+          "step": 1,
+          "role": "skill-mode",
+          "input_tokens": 685,
+          "output_tokens": 164,
+          "wall_s": 7.4912,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r03",
+          "step": 2,
+          "role": "skill-mode",
+          "input_tokens": 1013,
+          "output_tokens": 130,
+          "wall_s": 5.1263,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r03",
+          "step": 3,
+          "role": "skill-mode",
+          "input_tokens": 1646,
+          "output_tokens": 153,
+          "wall_s": 5.2782,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r03",
+          "step": 4,
+          "role": "skill-mode",
+          "input_tokens": 2346,
+          "output_tokens": 526,
+          "wall_s": 14.9916,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r03",
+          "step": 5,
+          "role": "skill-mode",
+          "input_tokens": 2791,
+          "output_tokens": 31,
+          "wall_s": 5.7311,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        },
+        {
+          "run_id": "A3_r03",
+          "step": 6,
+          "role": "skill-mode",
+          "input_tokens": 2838,
+          "output_tokens": 561,
+          "wall_s": 8.5124,
+          "attempts": 1,
+          "instructions_chars": 429,
+          "visible_tools": [
+            "read_file",
+            "list_dir",
+            "local_csv_query",
+            "web_fetch",
+            "calc",
+            "write_file",
+            "load_skill"
+          ],
+          "prefix_fp": "bc6eb1b6462ccb42"
+        }
+      ],
+      "quality": {
+        "n_evaluated": 3,
+        "all_core_checks_pass": 3,
+        "mean_rule_score_0to7": 7.0,
+        "length_ok": 3,
+        "cagr_ok": 3,
+        "term_ok": 3,
+        "provenance_ok": 3,
+        "used_real_data_tool": 3,
+        "calc_returned_true_cagr": 3,
+        "dubious_number_rate": 0.0,
+        "summary_cjk_len_mean": 45.3333
+      },
+      "per_run": [
+        {
+          "run_id": "A3_r01",
+          "error": null,
+          "tokens": 14006,
+          "wall_s": 44.966,
+          "steps": 7,
+          "evaluation": {
+            "summary": "中国新能源汽车（NEV）销量持续增长，2021/2022/2023年分别为352.1/688.7/949.5万辆，CAGR为64.2%；口径：CAAM、万辆、冻结快照（非实时检索）。",
+            "summary_chars_total": 91,
+            "summary_cjk_chars": 33,
+            "summary_cjk_len": 43,
+            "length_ok": true,
+            "cagr_true": 0.642156,
+            "cagr_model": 0.642156,
+            "cagr_ok": true,
+            "used_calc_tool": true,
+            "calc_returned_true_cagr": true,
+            "used_real_data_tool": true,
+            "term_full_name": true,
+            "term_uses_nev": true,
+            "term_bad": [],
+            "term_ok": true,
+            "provenance_ok": true,
+            "dubious_numbers": [],
+            "parsed_final_json": {
+              "summary": "中国新能源汽车（NEV）销量持续增长，2021/2022/2023年分别为352.1/688.7/949.5万辆，CAGR为64.2%；口径：CAAM、万辆、冻结快照（非实时检索）。",
+              "cagr": 0.642156,
+              "v0": 352.1,
+              "v1": 949.5,
+              "years": 2,
+              "provenance_noted": true
+            },
+            "rule_score_0to7": 7,
+            "all_core_checks_pass": true
+          }
+        },
+        {
+          "run_id": "A3_r02",
+          "error": null,
+          "tokens": 12584,
+          "wall_s": 370.249,
+          "steps": 7,
+          "evaluation": {
+            "summary": "中国新能源汽车（NEV）销量持续增长：2021—2023年分别为352.1、688.7、949.5万辆，CAGR为64.2%。口径：来源CAAM、单位为万辆、冻结快照（非实时检索）。",
+            "summary_chars_total": 91,
+            "summary_cjk_chars": 38,
+            "summary_cjk_len": 47,
+            "length_ok": true,
+            "cagr_true": 0.642156,
+            "cagr_model": 0.642156,
+            "cagr_ok": true,
+            "used_calc_tool": true,
+            "calc_returned_true_cagr": true,
+            "used_real_data_tool": true,
+            "term_full_name": true,
+            "term_uses_nev": true,
+            "term_bad": [],
+            "term_ok": true,
+            "provenance_ok": true,
+            "dubious_numbers": [],
+            "parsed_final_json": {
+              "summary": "中国新能源汽车（NEV）销量持续增长：2021—2023年分别为352.1、688.7、949.5万辆，CAGR为64.2%。口径：来源CAAM、单位为万辆、冻结快照（非实时检索）。",
+              "cagr": 0.642156,
+              "v0": 352.1,
+              "v1": 949.5,
+              "years": 2,
+              "provenance_noted": true
+            },
+            "rule_score_0to7": 7,
+            "all_core_checks_pass": true
+          }
+        },
+        {
+          "run_id": "A3_r03",
+          "error": null,
+          "tokens": 12884,
+          "wall_s": 47.131,
+          "steps": 6,
+          "evaluation": {
+            "summary": "新能源汽车（NEV）销量增长较快：2021—2023年分别为352.1、688.7、949.5万辆，2021→2023年CAGR为64.2%。口径：CAAM，单位为万辆，冻结快照（非实时检索）。",
+            "summary_chars_total": 97,
+            "summary_cjk_chars": 35,
+            "summary_cjk_len": 46,
+            "length_ok": true,
+            "cagr_true": 0.642156,
+            "cagr_model": 0.642156,
+            "cagr_ok": true,
+            "used_calc_tool": true,
+            "calc_returned_true_cagr": true,
+            "used_real_data_tool": true,
+            "term_full_name": true,
+            "term_uses_nev": true,
+            "term_bad": [],
+            "term_ok": true,
+            "provenance_ok": true,
+            "dubious_numbers": [],
+            "parsed_final_json": {
+              "summary": "新能源汽车（NEV）销量增长较快：2021—2023年分别为352.1、688.7、949.5万辆，2021→2023年CAGR为64.2%。口径：CAAM，单位为万辆，冻结快照（非实时检索）。",
+              "cagr": 0.642156,
+              "v0": 352.1,
+              "v1": 949.5,
+              "years": 2,
+              "provenance_noted": true
+            },
+            "rule_score_0to7": 7,
+            "all_core_checks_pass": true
+          }
+        }
+      ],
+      "skills_loaded_per_run": [
+        [
+          "cagr-computation",
+          "dataset-provenance",
+          "investment-memo"
+        ],
+        [
+          "cagr-computation",
+          "dataset-provenance",
+          "investment-memo"
+        ],
+        [
+          "cagr-computation",
+          "dataset-provenance",
+          "investment-memo"
+        ]
+      ],
+      "skill_load_chars_total": 2274
+    }
+  },
+  "ground_truth": {
+    "v0_2021_wan": 352.1,
+    "v1_2023_wan": 949.5,
+    "n_years": 2,
+    "cagr": 0.642156,
+    "cagr_pct_1dp": 64.2
+  },
+  "comparison": {
+    "token_ratio_vs_A1": {
+      "A1": 1.0,
+      "A2": 4.81,
+      "A3": 1.905
+    },
+    "latency_ratio_vs_A1": {
+      "A1": 1.0,
+      "A2": 2.296,
+      "A3": 1.58
+    },
+    "quality_pass_rate": {
+      "A1": 0.0,
+      "A2": 0.667,
+      "A3": 1.0
+    },
+    "cost_per_passing_run_tokens": {
+      "A1": null,
+      "A2": 49835.5,
+      "A3": 13158.0
+    },
+    "n_distinct_static_prefixes": {
+      "A1": 1,
+      "A2": 5,
+      "A3": 1
+    }
+  },
+  "reevaluated_at": "2026-10-28T00:02:04-0600",
+  "reevaluated_from": [
+    "raw\\A1_r01.json",
+    "raw\\A1_r02.json",
+    "raw\\A1_r03.json",
+    "raw\\A2_r01.json",
+    "raw\\A2_r02.json",
+    "raw\\A2_r03.json",
+    "raw\\A3_r01.json",
+    "raw\\A3_r02.json",
+    "raw\\A3_r03.json"
+  ],
+  "evaluator_note": "质量判定口径（确定性、可复算）：used_real_data_tool = 该 run 里至少一次 local_csv_query 返回了真实的 nev_sales 行（按结果内容判定，不按调用时传入的 period 大小写判定；数据工具的 period 参数对大小写敏感，这是工具设计缺陷，已在笔记中说明）；calc_returned_true_cagr = 至少一次 calc 返回含 0.642 的结果；cagr_ok = 最终 JSON 的 cagr 与 (949.5/352.1)**0.5-1 相差 <= 0.002；length_ok = 摘要按 cjk_len 口径 <=120；term_ok = 用了 NEV 且没有出现 新能源车/电动车/EV车；dubious_numbers = 摘要里出现了不在白名单内的 3 位以上数字；rule_score_0to7 = 七项各 1 分的和；all_core_checks_pass = 数据工具 + CAGR + 长度 + 术语 + 口径标注 + 无可疑数字 全部通过。"
+}
