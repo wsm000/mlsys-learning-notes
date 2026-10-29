@@ -1,0 +1,189 @@
+{
+  "run_id": "lead-cascade-check2",
+  "generated_at": "2026-10-27T04:07:24+00:00",
+  "query": "Provost of Stanford University",
+  "mode": "cascade_only",
+  "cascade": {
+    "winner": "agent-02",
+    "outcome": "found",
+    "duplicate_hits": [],
+    "terminate_broadcasts": 1,
+    "terminate_ts": 17.86,
+    "acks": [
+      "agent-00",
+      "agent-01",
+      "agent-03"
+    ],
+    "expected_loser_acks": [
+      "agent-00",
+      "agent-01",
+      "agent-03"
+    ],
+    "missing_loser_acks": [],
+    "context_audit": {
+      "label": "parallel-cascade",
+      "contexts_created": 5,
+      "contexts_closed": 5,
+      "contexts_leaked": 0,
+      "audit_ok": true,
+      "open_now": 0
+    },
+    "parallel_seconds": 17.86,
+    "status_table": {
+      "agent-00": {
+        "worker": "agent-00",
+        "source": "stanford-provost-office--fast-a",
+        "state": "已终止",
+        "note": "安全点响应级联终止：interrupted by terminate (target_found_by_agent-02)",
+        "updates": 4,
+        "seconds_since_start": 17.86,
+        "history": [
+          {
+            "ts": 0.0,
+            "state": "执行中",
+            "note": "创建独立抓取上下文 agent-00"
+          },
+          {
+            "ts": 0.0,
+            "state": "执行中",
+            "note": "抓取 http://127.0.0.1:57972/stanford-provost-office--fast-a.html"
+          },
+          {
+            "ts": 0.016,
+            "state": "执行中",
+            "note": "证据约束抽取"
+          },
+          {
+            "ts": 17.86,
+            "state": "已终止",
+            "note": "安全点响应级联终止：interrupted by terminate (target_found_by_agent-02)"
+          }
+        ]
+      },
+      "agent-01": {
+        "worker": "agent-01",
+        "source": "stanford-provost-office--fast-b",
+        "state": "已终止",
+        "note": "安全点响应级联终止：interrupted by terminate (target_found_by_agent-02)",
+        "updates": 4,
+        "seconds_since_start": 17.86,
+        "history": [
+          {
+            "ts": 0.0,
+            "state": "执行中",
+            "note": "创建独立抓取上下文 agent-01"
+          },
+          {
+            "ts": 0.0,
+            "state": "执行中",
+            "note": "抓取 http://127.0.0.1:57972/stanford-provost-office--fast-b.html"
+          },
+          {
+            "ts": 0.406,
+            "state": "执行中",
+            "note": "证据约束抽取"
+          },
+          {
+            "ts": 17.86,
+            "state": "已终止",
+            "note": "安全点响应级联终止：interrupted by terminate (target_found_by_agent-02)"
+          }
+        ]
+      },
+      "agent-02": {
+        "worker": "agent-02",
+        "source": "stanford-provost-office--slow-hit",
+        "state": "已完成",
+        "note": "找到目标（证据已逐字校验）",
+        "updates": 4,
+        "seconds_since_start": 17.86,
+        "history": [
+          {
+            "ts": 0.0,
+            "state": "执行中",
+            "note": "创建独立抓取上下文 agent-02"
+          },
+          {
+            "ts": 0.0,
+            "state": "执行中",
+            "note": "抓取 http://127.0.0.1:57972/stanford-provost-office--slow-hit.html"
+          },
+          {
+            "ts": 6.031,
+            "state": "执行中",
+            "note": "证据约束抽取"
+          },
+          {
+            "ts": 17.86,
+            "state": "已完成",
+            "note": "找到目标（证据已逐字校验）"
+          }
+        ]
+      },
+      "agent-03": {
+        "worker": "agent-03",
+        "source": "stanford-profiles-andrew-ng--trap",
+        "state": "已终止",
+        "note": "安全点响应级联终止：interrupted by terminate (target_found_by_agent-02)",
+        "updates": 4,
+        "seconds_since_start": 17.86,
+        "history": [
+          {
+            "ts": 0.0,
+            "state": "执行中",
+            "note": "创建独立抓取上下文 agent-03"
+          },
+          {
+            "ts": 0.0,
+            "state": "执行中",
+            "note": "抓取 http://127.0.0.1:57972/stanford-profiles-andrew-ng--trap.html"
+          },
+          {
+            "ts": 0.219,
+            "state": "执行中",
+            "note": "证据约束抽取"
+          },
+          {
+            "ts": 17.86,
+            "state": "已终止",
+            "note": "安全点响应级联终止：interrupted by terminate (target_found_by_agent-02)"
+          }
+        ]
+      },
+      "agent-04": {
+        "worker": "agent-04",
+        "source": "stanford-cs-faculty--negative",
+        "state": "已完成",
+        "note": "页面中未找到目标",
+        "updates": 4,
+        "seconds_since_start": 0.016,
+        "history": [
+          {
+            "ts": 0.0,
+            "state": "执行中",
+            "note": "创建独立抓取上下文 agent-04"
+          },
+          {
+            "ts": 0.0,
+            "state": "执行中",
+            "note": "抓取 http://127.0.0.1:57972/stanford-cs-faculty--negative.html"
+          },
+          {
+            "ts": 0.016,
+            "state": "执行中",
+            "note": "证据约束抽取"
+          },
+          {
+            "ts": 0.016,
+            "state": "已完成",
+            "note": "页面中未找到目标"
+          }
+        ]
+      }
+    },
+    "failure_summary": {
+      "count": 0,
+      "by_type": {}
+    }
+  }
+}

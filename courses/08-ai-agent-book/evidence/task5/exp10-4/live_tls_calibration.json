@@ -1,0 +1,64 @@
+{
+  "kind": "live_tls_calibration",
+  "note": "真实 HTTPS 抓取的传输/TLS 成本；不用于协调机制结论",
+  "rows": [
+    {
+      "url": "https://profiles.stanford.edu/andrew-ng",
+      "verify_on": {
+        "ok": false,
+        "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (_ssl.c:997)>",
+        "seconds": 0.61
+      },
+      "verify_off": {
+        "ok": true,
+        "status": 200,
+        "bytes": 8852,
+        "seconds": 1.953
+      }
+    },
+    {
+      "url": "https://provost.stanford.edu/",
+      "verify_on": {
+        "ok": true,
+        "status": 200,
+        "bytes": 36220,
+        "seconds": 2.531
+      },
+      "verify_off": {
+        "ok": true,
+        "status": 200,
+        "bytes": 36220,
+        "seconds": 1.953
+      }
+    },
+    {
+      "url": "https://www.cs.stanford.edu/people/faculty",
+      "verify_on": {
+        "ok": false,
+        "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:997)>",
+        "seconds": 1.125
+      },
+      "verify_off": {
+        "ok": true,
+        "status": 200,
+        "bytes": 216707,
+        "seconds": 3.485
+      }
+    },
+    {
+      "url": "https://www.gsb.stanford.edu/faculty-research/faculty",
+      "verify_on": {
+        "ok": true,
+        "status": 200,
+        "bytes": 252173,
+        "seconds": 0.516
+      },
+      "verify_off": {
+        "ok": true,
+        "status": 200,
+        "bytes": 252173,
+        "seconds": 0.532
+      }
+    }
+  ]
+}

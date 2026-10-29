@@ -1,0 +1,69 @@
+{
+  "run_id": "exp10-4-local-run1",
+  "generated_at": "2026-10-27T01:53:15+00:00",
+  "query": "Provost of Stanford University",
+  "parallel_seconds": 11.687,
+  "serial_seconds": 11.796,
+  "measured_speedup_serial_over_parallel": 1.009,
+  "same_sites": true,
+  "sites_configured": 15,
+  "serial_sites_visited": 2,
+  "serial_winner_index": 1,
+  "explanatory_speedup_until_winner": 1.009,
+  "winner": "agent-09",
+  "outcome": "found",
+  "duplicate_hits": [],
+  "terminate_broadcasts": 1,
+  "terminate_event_count": 1,
+  "expected_loser_acks": [
+    "agent-01",
+    "agent-13"
+  ],
+  "ack_count": 2,
+  "missing_loser_acks": [],
+  "unexpected_acks": [],
+  "failure_summary": {
+    "count": 2,
+    "by_type": {
+      "MalformedPage": 1,
+      "HTTP500": 1
+    }
+  },
+  "not_found_count": 10,
+  "status_updates_total": 57,
+  "context_audit_parallel": {
+    "label": "parallel-parallel",
+    "contexts_created": 15,
+    "contexts_closed": 15,
+    "contexts_leaked": 0,
+    "audit_ok": true,
+    "open_now": 0
+  },
+  "context_audit_serial": {
+    "label": "serial",
+    "contexts_created": 2,
+    "contexts_closed": 2,
+    "contexts_leaked": 0,
+    "audit_ok": true,
+    "open_now": 0
+  },
+  "cascade": {
+    "winner": null,
+    "outcome": "not_found",
+    "duplicate_hits": [],
+    "terminate_broadcasts": 0,
+    "terminate_ts": null,
+    "acks": [],
+    "expected_loser_acks": [],
+    "missing_loser_acks": [],
+    "context_audit": {
+      "label": "parallel-cascade",
+      "contexts_created": 4,
+      "contexts_closed": 4,
+      "contexts_leaked": 0,
+      "audit_ok": true,
+      "open_now": 0
+    },
+    "parallel_seconds": 5.953
+  }
+}

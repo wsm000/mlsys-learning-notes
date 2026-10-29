@@ -1,0 +1,554 @@
+{
+  "query": "Provost of Stanford University",
+  "outcome": "not_found",
+  "winner": null,
+  "profile": null,
+  "workers_launched": 8,
+  "duplicate_hits": [],
+  "late_results": 0,
+  "terminate_broadcasts": 0,
+  "terminate_event_count": 0,
+  "terminate_ts": null,
+  "terminate_recipients": [],
+  "expected_loser_acks": [],
+  "acks": {},
+  "missing_loser_acks": [],
+  "unexpected_acks": [],
+  "excluded_from_ack": {},
+  "errors": {
+    "agent-04": "HTTP403: HTTP Error 403: Forbidden",
+    "agent-06": "TimeoutError: exceeded 70s worker deadline",
+    "agent-01": "TimeoutError: exceeded 70s worker deadline",
+    "agent-05": "TimeoutError: exceeded 70s worker deadline"
+  },
+  "failure_summary": {
+    "count": 4,
+    "by_type": {
+      "HTTP403": 1,
+      "TimeoutError": 3
+    }
+  },
+  "not_found": {
+    "agent-07": "target string and site topic both absent from rendered page (deterministic gate)",
+    "agent-03": "target string and site topic both absent from rendered page (deterministic gate)",
+    "agent-02": "target string and site topic both absent from rendered page (deterministic gate)",
+    "agent-00": "The page identifies Andrew Ng as “Senior Director of Finance, Vice Provost and Dean of Research,” not as Stanford University’s current Provost."
+  },
+  "not_found_count": 4,
+  "status_table": {
+    "agent-00": {
+      "worker": "agent-00",
+      "source": "stanford-profiles-andrew-ng",
+      "state": "已完成",
+      "note": "页面中未找到目标",
+      "updates": 4,
+      "seconds_since_start": 21.547,
+      "history": [
+        {
+          "ts": 0.0,
+          "state": "执行中",
+          "note": "创建独立抓取上下文 agent-00"
+        },
+        {
+          "ts": 0.0,
+          "state": "执行中",
+          "note": "抓取 https://profiles.stanford.edu/andrew-ng"
+        },
+        {
+          "ts": 13.563,
+          "state": "执行中",
+          "note": "证据约束抽取"
+        },
+        {
+          "ts": 21.547,
+          "state": "已完成",
+          "note": "页面中未找到目标"
+        }
+      ]
+    },
+    "agent-01": {
+      "worker": "agent-01",
+      "source": "stanford-provost-office",
+      "state": "失败",
+      "note": "超出 worker 总时限，被看门狗取消",
+      "updates": 4,
+      "seconds_since_start": 69.985,
+      "history": [
+        {
+          "ts": 0.0,
+          "state": "执行中",
+          "note": "创建独立抓取上下文 agent-01"
+        },
+        {
+          "ts": 0.0,
+          "state": "执行中",
+          "note": "抓取 https://provost.stanford.edu/"
+        },
+        {
+          "ts": 9.625,
+          "state": "执行中",
+          "note": "证据约束抽取"
+        },
+        {
+          "ts": 69.985,
+          "state": "失败",
+          "note": "超出 worker 总时限，被看门狗取消"
+        }
+      ]
+    },
+    "agent-02": {
+      "worker": "agent-02",
+      "source": "stanford-cs-faculty",
+      "state": "已完成",
+      "note": "页面中未找到目标",
+      "updates": 4,
+      "seconds_since_start": 8.5,
+      "history": [
+        {
+          "ts": 0.0,
+          "state": "执行中",
+          "note": "创建独立抓取上下文 agent-02"
+        },
+        {
+          "ts": 0.0,
+          "state": "执行中",
+          "note": "抓取 https://www.cs.stanford.edu/people/faculty"
+        },
+        {
+          "ts": 8.5,
+          "state": "执行中",
+          "note": "证据约束抽取"
+        },
+        {
+          "ts": 8.5,
+          "state": "已完成",
+          "note": "页面中未找到目标"
+        }
+      ]
+    },
+    "agent-03": {
+      "worker": "agent-03",
+      "source": "stanford-gsb-faculty",
+      "state": "已完成",
+      "note": "页面中未找到目标",
+      "updates": 4,
+      "seconds_since_start": 8.297,
+      "history": [
+        {
+          "ts": 0.0,
+          "state": "执行中",
+          "note": "创建独立抓取上下文 agent-03"
+        },
+        {
+          "ts": 0.0,
+          "state": "执行中",
+          "note": "抓取 https://www.gsb.stanford.edu/faculty-research/faculty"
+        },
+        {
+          "ts": 8.297,
+          "state": "执行中",
+          "note": "证据约束抽取"
+        },
+        {
+          "ts": 8.297,
+          "state": "已完成",
+          "note": "页面中未找到目标"
+        }
+      ]
+    },
+    "agent-04": {
+      "worker": "agent-04",
+      "source": "stanford-law-directory",
+      "state": "失败",
+      "note": "抓取失败 HTTP403",
+      "updates": 3,
+      "seconds_since_start": 6.75,
+      "history": [
+        {
+          "ts": 0.0,
+          "state": "执行中",
+          "note": "创建独立抓取上下文 agent-04"
+        },
+        {
+          "ts": 0.0,
+          "state": "执行中",
+          "note": "抓取 https://law.stanford.edu/directory/"
+        },
+        {
+          "ts": 6.75,
+          "state": "失败",
+          "note": "抓取失败 HTTP403"
+        }
+      ]
+    },
+    "agent-05": {
+      "worker": "agent-05",
+      "source": "stanford-education-faculty",
+      "state": "失败",
+      "note": "超出 worker 总时限，被看门狗取消",
+      "updates": 4,
+      "seconds_since_start": 69.985,
+      "history": [
+        {
+          "ts": 0.0,
+          "state": "执行中",
+          "note": "创建独立抓取上下文 agent-05"
+        },
+        {
+          "ts": 0.0,
+          "state": "执行中",
+          "note": "抓取 https://ed.stanford.edu/faculty"
+        },
+        {
+          "ts": 14.578,
+          "state": "执行中",
+          "note": "证据约束抽取"
+        },
+        {
+          "ts": 69.985,
+          "state": "失败",
+          "note": "超出 worker 总时限，被看门狗取消"
+        }
+      ]
+    },
+    "agent-06": {
+      "worker": "agent-06",
+      "source": "stanford-medicine-profiles",
+      "state": "失败",
+      "note": "超出 worker 总时限，被看门狗取消",
+      "updates": 4,
+      "seconds_since_start": 69.985,
+      "history": [
+        {
+          "ts": 0.0,
+          "state": "执行中",
+          "note": "创建独立抓取上下文 agent-06"
+        },
+        {
+          "ts": 0.0,
+          "state": "执行中",
+          "note": "抓取 https://med.stanford.edu/profiles/browse"
+        },
+        {
+          "ts": 7.516,
+          "state": "执行中",
+          "note": "证据约束抽取"
+        },
+        {
+          "ts": 69.985,
+          "state": "失败",
+          "note": "超出 worker 总时限，被看门狗取消"
+        }
+      ]
+    },
+    "agent-07": {
+      "worker": "agent-07",
+      "source": "stanford-hai-people",
+      "state": "已完成",
+      "note": "页面中未找到目标",
+      "updates": 4,
+      "seconds_since_start": 7.735,
+      "history": [
+        {
+          "ts": 0.0,
+          "state": "执行中",
+          "note": "创建独立抓取上下文 agent-07"
+        },
+        {
+          "ts": 0.0,
+          "state": "执行中",
+          "note": "抓取 https://hai.stanford.edu/people"
+        },
+        {
+          "ts": 7.735,
+          "state": "执行中",
+          "note": "证据约束抽取"
+        },
+        {
+          "ts": 7.735,
+          "state": "已完成",
+          "note": "页面中未找到目标"
+        }
+      ]
+    }
+  },
+  "status_updates_total": 31,
+  "resource_closed_reports": 8,
+  "resource_failures": {},
+  "contexts": {
+    "created": 8,
+    "closed": 8,
+    "leaked": 0,
+    "audit_ok": true
+  },
+  "bus_events": 55,
+  "parallel_seconds": 69.985,
+  "timeline": [
+    {
+      "ts": 0.0,
+      "kind": "status",
+      "worker": "agent-00",
+      "note": "创建独立抓取上下文 agent-00",
+      "state": "执行中"
+    },
+    {
+      "ts": 0.0,
+      "kind": "status",
+      "worker": "agent-01",
+      "note": "创建独立抓取上下文 agent-01",
+      "state": "执行中"
+    },
+    {
+      "ts": 0.0,
+      "kind": "status",
+      "worker": "agent-02",
+      "note": "创建独立抓取上下文 agent-02",
+      "state": "执行中"
+    },
+    {
+      "ts": 0.0,
+      "kind": "status",
+      "worker": "agent-03",
+      "note": "创建独立抓取上下文 agent-03",
+      "state": "执行中"
+    },
+    {
+      "ts": 0.0,
+      "kind": "status",
+      "worker": "agent-04",
+      "note": "创建独立抓取上下文 agent-04",
+      "state": "执行中"
+    },
+    {
+      "ts": 0.0,
+      "kind": "status",
+      "worker": "agent-05",
+      "note": "创建独立抓取上下文 agent-05",
+      "state": "执行中"
+    },
+    {
+      "ts": 0.0,
+      "kind": "status",
+      "worker": "agent-06",
+      "note": "创建独立抓取上下文 agent-06",
+      "state": "执行中"
+    },
+    {
+      "ts": 0.0,
+      "kind": "status",
+      "worker": "agent-07",
+      "note": "创建独立抓取上下文 agent-07",
+      "state": "执行中"
+    },
+    {
+      "ts": 0.0,
+      "kind": "status",
+      "worker": "agent-00",
+      "note": "抓取 https://profiles.stanford.edu/andrew-ng",
+      "state": "执行中"
+    },
+    {
+      "ts": 0.0,
+      "kind": "status",
+      "worker": "agent-01",
+      "note": "抓取 https://provost.stanford.edu/",
+      "state": "执行中"
+    },
+    {
+      "ts": 0.0,
+      "kind": "status",
+      "worker": "agent-02",
+      "note": "抓取 https://www.cs.stanford.edu/people/faculty",
+      "state": "执行中"
+    },
+    {
+      "ts": 0.0,
+      "kind": "status",
+      "worker": "agent-03",
+      "note": "抓取 https://www.gsb.stanford.edu/faculty-research/faculty",
+      "state": "执行中"
+    },
+    {
+      "ts": 0.0,
+      "kind": "status",
+      "worker": "agent-04",
+      "note": "抓取 https://law.stanford.edu/directory/",
+      "state": "执行中"
+    },
+    {
+      "ts": 0.0,
+      "kind": "status",
+      "worker": "agent-05",
+      "note": "抓取 https://ed.stanford.edu/faculty",
+      "state": "执行中"
+    },
+    {
+      "ts": 0.0,
+      "kind": "status",
+      "worker": "agent-06",
+      "note": "抓取 https://med.stanford.edu/profiles/browse",
+      "state": "执行中"
+    },
+    {
+      "ts": 0.0,
+      "kind": "status",
+      "worker": "agent-07",
+      "note": "抓取 https://hai.stanford.edu/people",
+      "state": "执行中"
+    },
+    {
+      "ts": 6.75,
+      "kind": "status",
+      "worker": "agent-04",
+      "note": "抓取失败 HTTP403",
+      "state": "失败"
+    },
+    {
+      "ts": 6.75,
+      "kind": "resource_closed",
+      "worker": "agent-04"
+    },
+    {
+      "ts": 7.516,
+      "kind": "status",
+      "worker": "agent-06",
+      "note": "证据约束抽取",
+      "state": "执行中"
+    },
+    {
+      "ts": 7.735,
+      "kind": "status",
+      "worker": "agent-07",
+      "note": "证据约束抽取",
+      "state": "执行中"
+    },
+    {
+      "ts": 7.735,
+      "kind": "status",
+      "worker": "agent-07",
+      "note": "页面中未找到目标",
+      "state": "已完成"
+    },
+    {
+      "ts": 7.735,
+      "kind": "resource_closed",
+      "worker": "agent-07"
+    },
+    {
+      "ts": 8.297,
+      "kind": "status",
+      "worker": "agent-03",
+      "note": "证据约束抽取",
+      "state": "执行中"
+    },
+    {
+      "ts": 8.297,
+      "kind": "status",
+      "worker": "agent-03",
+      "note": "页面中未找到目标",
+      "state": "已完成"
+    },
+    {
+      "ts": 8.297,
+      "kind": "resource_closed",
+      "worker": "agent-03"
+    },
+    {
+      "ts": 8.5,
+      "kind": "status",
+      "worker": "agent-02",
+      "note": "证据约束抽取",
+      "state": "执行中"
+    },
+    {
+      "ts": 8.5,
+      "kind": "status",
+      "worker": "agent-02",
+      "note": "页面中未找到目标",
+      "state": "已完成"
+    },
+    {
+      "ts": 8.5,
+      "kind": "resource_closed",
+      "worker": "agent-02"
+    },
+    {
+      "ts": 9.625,
+      "kind": "status",
+      "worker": "agent-01",
+      "note": "证据约束抽取",
+      "state": "执行中"
+    },
+    {
+      "ts": 13.563,
+      "kind": "status",
+      "worker": "agent-00",
+      "note": "证据约束抽取",
+      "state": "执行中"
+    },
+    {
+      "ts": 14.578,
+      "kind": "status",
+      "worker": "agent-05",
+      "note": "证据约束抽取",
+      "state": "执行中"
+    },
+    {
+      "ts": 21.547,
+      "kind": "status",
+      "worker": "agent-00",
+      "note": "页面中未找到目标",
+      "state": "已完成"
+    },
+    {
+      "ts": 21.547,
+      "kind": "resource_closed",
+      "worker": "agent-00"
+    },
+    {
+      "ts": 69.985,
+      "kind": "status",
+      "worker": "agent-06",
+      "note": "超出 worker 总时限，被看门狗取消",
+      "state": "失败"
+    },
+    {
+      "ts": 69.985,
+      "kind": "status",
+      "worker": "agent-01",
+      "note": "超出 worker 总时限，被看门狗取消",
+      "state": "失败"
+    },
+    {
+      "ts": 69.985,
+      "kind": "status",
+      "worker": "agent-05",
+      "note": "超出 worker 总时限，被看门狗取消",
+      "state": "失败"
+    },
+    {
+      "ts": 69.985,
+      "kind": "resource_closed",
+      "worker": "agent-06"
+    },
+    {
+      "ts": 69.985,
+      "kind": "resource_closed",
+      "worker": "agent-01"
+    },
+    {
+      "ts": 69.985,
+      "kind": "resource_closed",
+      "worker": "agent-05"
+    }
+  ],
+  "runtime_audit": {
+    "label": "parallel-parallel",
+    "contexts_created": 8,
+    "contexts_closed": 8,
+    "contexts_leaked": 0,
+    "audit_ok": true,
+    "open_now": 0
+  },
+  "phase": "parallel"
+}

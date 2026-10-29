@@ -1,0 +1,48 @@
+{
+  "run_id": "exp10-4-live-L1",
+  "generated_at": "2026-10-27T05:40:04+00:00",
+  "query": "Provost of Stanford University",
+  "parallel_seconds": 69.985,
+  "serial_seconds": 41.968,
+  "measured_speedup_serial_over_parallel": 0.6,
+  "same_sites": true,
+  "sites_configured": 8,
+  "serial_sites_visited": 2,
+  "serial_winner_index": 1,
+  "explanatory_speedup_until_winner": 0.6,
+  "winner": null,
+  "outcome": "not_found",
+  "duplicate_hits": [],
+  "terminate_broadcasts": 0,
+  "terminate_event_count": 0,
+  "expected_loser_acks": [],
+  "ack_count": 0,
+  "missing_loser_acks": [],
+  "unexpected_acks": [],
+  "failure_summary": {
+    "count": 4,
+    "by_type": {
+      "HTTP403": 1,
+      "TimeoutError": 3
+    }
+  },
+  "not_found_count": 4,
+  "status_updates_total": 31,
+  "context_audit_parallel": {
+    "label": "parallel-parallel",
+    "contexts_created": 8,
+    "contexts_closed": 8,
+    "contexts_leaked": 0,
+    "audit_ok": true,
+    "open_now": 0
+  },
+  "context_audit_serial": {
+    "label": "serial",
+    "contexts_created": 2,
+    "contexts_closed": 2,
+    "contexts_leaked": 0,
+    "audit_ok": true,
+    "open_now": 0
+  },
+  "cascade": null
+}
