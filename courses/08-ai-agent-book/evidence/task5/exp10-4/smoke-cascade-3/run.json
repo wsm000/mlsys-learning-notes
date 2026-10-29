@@ -1,0 +1,472 @@
+{
+  "query": "Provost of Stanford University",
+  "run_id": "smoke-cascade-3",
+  "sites": [
+    {
+      "name": "stanford-profiles-andrew-ng",
+      "college": "Stanford Profiles / Office of the Vice Provost and Dean of Research",
+      "url": "http://127.0.0.1:51736/stanford-profiles-andrew-ng.html",
+      "level": "local_mirror",
+      "expected": "found",
+      "latency_seconds": 0.0,
+      "fail": null
+    },
+    {
+      "name": "stanford-provost-office",
+      "college": "Office of the Provost, Stanford University",
+      "url": "http://127.0.0.1:51736/stanford-provost-office.html",
+      "level": "local_mirror",
+      "expected": "found",
+      "latency_seconds": 0.0,
+      "fail": null
+    },
+    {
+      "name": "stanford-cs-faculty",
+      "college": "School of Engineering / Computer Science",
+      "url": "http://127.0.0.1:51736/stanford-cs-faculty.html",
+      "level": "local_mirror",
+      "expected": "not_found",
+      "latency_seconds": 0.0,
+      "fail": null
+    },
+    {
+      "name": "stanford-gsb-faculty",
+      "college": "Graduate School of Business",
+      "url": "http://127.0.0.1:51736/stanford-gsb-faculty.html",
+      "level": "local_mirror",
+      "expected": "not_found",
+      "latency_seconds": 0.0,
+      "fail": null
+    },
+    {
+      "name": "stanford-doeer-faculty",
+      "college": "Doerr School of Sustainability",
+      "url": "http://127.0.0.1:51736/stanford-doeer-faculty.html",
+      "level": "local_mirror",
+      "expected": "not_found",
+      "latency_seconds": 0.0,
+      "fail": null
+    },
+    {
+      "name": "stanford-law-directory",
+      "college": "Stanford Law School",
+      "url": "http://127.0.0.1:51736/stanford-law-directory.html",
+      "level": "local_mirror",
+      "expected": "not_found",
+      "latency_seconds": 0.0,
+      "fail": null
+    },
+    {
+      "name": "stanford-education-faculty",
+      "college": "Graduate School of Education",
+      "url": "http://127.0.0.1:51736/stanford-education-faculty.html",
+      "level": "local_mirror",
+      "expected": "not_found",
+      "latency_seconds": 0.0,
+      "fail": null
+    },
+    {
+      "name": "stanford-medicine-profiles",
+      "college": "School of Medicine",
+      "url": "http://127.0.0.1:51736/stanford-medicine-profiles.html",
+      "level": "local_mirror",
+      "expected": "not_found",
+      "latency_seconds": 0.0,
+      "fail": null
+    },
+    {
+      "name": "stanford-hai-people",
+      "college": "Stanford HAI",
+      "url": "http://127.0.0.1:51736/stanford-hai-people.html",
+      "level": "local_mirror",
+      "expected": "not_found",
+      "latency_seconds": 0.0,
+      "fail": null
+    },
+    {
+      "name": "stanford-provost-office--slow6000ms",
+      "college": "Office of the Provost, Stanford University",
+      "url": "http://127.0.0.1:51736/stanford-provost-office--slow6000ms.html",
+      "level": "local_mirror",
+      "expected": "found",
+      "latency_seconds": 6.0,
+      "fail": null
+    },
+    {
+      "name": "stanford-profiles-andrew-ng--slow2000ms",
+      "college": "Stanford Profiles / Office of the Vice Provost and Dean of Research",
+      "url": "http://127.0.0.1:51736/stanford-profiles-andrew-ng--slow2000ms.html",
+      "level": "local_mirror",
+      "expected": "found",
+      "latency_seconds": 2.0,
+      "fail": null
+    },
+    {
+      "name": "stanford-law-directory--slow1000ms",
+      "college": "Stanford Law School",
+      "url": "http://127.0.0.1:51736/stanford-law-directory--slow1000ms.html",
+      "level": "local_mirror",
+      "expected": "not_found",
+      "latency_seconds": 1.0,
+      "fail": null
+    },
+    {
+      "name": "stanford-education-faculty--fail-http500",
+      "college": "Graduate School of Education",
+      "url": "http://127.0.0.1:51736/stanford-education-faculty--fail-http500.html",
+      "level": "local_mirror",
+      "expected": "error",
+      "latency_seconds": 0.0,
+      "fail": "http500"
+    },
+    {
+      "name": "stanford-doeer-faculty--fail-hang",
+      "college": "Doerr School of Sustainability",
+      "url": "http://127.0.0.1:51736/stanford-doeer-faculty--fail-hang.html",
+      "level": "local_mirror",
+      "expected": "error",
+      "latency_seconds": 0.0,
+      "fail": "hang"
+    },
+    {
+      "name": "stanford-medicine-profiles--fail-malformed",
+      "college": "School of Medicine",
+      "url": "http://127.0.0.1:51736/stanford-medicine-profiles--fail-malformed.html",
+      "level": "local_mirror",
+      "expected": "error",
+      "latency_seconds": 0.0,
+      "fail": "malformed"
+    }
+  ],
+  "notes": [
+    "页面正文来自一次真实抓取（corpus/*.html），传输层在 L0 是本机 http.server。",
+    "目标 'Provost of Stanford University' 的现任者没有任何一个作业页面直接陈述；本实验只验证协调机制。",
+    "真实同名陷阱：profiles.stanford.edu/andrew-ng 上的 Andrew Ng 是财务/研究办公室的高级主管，不是 AI 教授。",
+    "半合成站点（--slow / --fail）的正文仍是真实抓取的页面，只有延迟/故障是注入的。"
+  ],
+  "mirror_base": "http://127.0.0.1:51736",
+  "cascade": {
+    "query": "Provost of Stanford University",
+    "outcome": "not_found",
+    "winner": null,
+    "profile": null,
+    "workers_launched": 4,
+    "duplicate_hits": [],
+    "late_results": 0,
+    "terminate_broadcasts": 0,
+    "terminate_event_count": 0,
+    "terminate_ts": null,
+    "terminate_recipients": [],
+    "expected_loser_acks": [],
+    "acks": {},
+    "missing_loser_acks": [],
+    "unexpected_acks": [],
+    "excluded_from_ack": {},
+    "errors": {},
+    "failure_summary": {
+      "count": 0,
+      "by_type": {}
+    },
+    "not_found": {
+      "agent-00": "target string absent from rendered page (deterministic gate)",
+      "agent-01": "target string absent from rendered page (deterministic gate)",
+      "agent-03": "target string absent from rendered page (deterministic gate)",
+      "agent-02": "target string absent from rendered page (deterministic gate)"
+    },
+    "not_found_count": 4,
+    "status_table": {
+      "agent-00": {
+        "worker": "agent-00",
+        "source": "stanford-profiles-andrew-ng",
+        "state": "已完成",
+        "note": "页面中未找到目标",
+        "updates": 4,
+        "seconds_since_start": 0.0,
+        "history": [
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "创建独立抓取上下文 agent-00"
+          },
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "抓取 http://127.0.0.1:51736/stanford-profiles-andrew-ng.html"
+          },
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "证据约束抽取"
+          },
+          {
+            "ts": 0.015,
+            "state": "已完成",
+            "note": "页面中未找到目标"
+          }
+        ]
+      },
+      "agent-01": {
+        "worker": "agent-01",
+        "source": "stanford-provost-office",
+        "state": "已完成",
+        "note": "页面中未找到目标",
+        "updates": 4,
+        "seconds_since_start": 0.0,
+        "history": [
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "创建独立抓取上下文 agent-01"
+          },
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "抓取 http://127.0.0.1:51736/stanford-provost-office.html"
+          },
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "证据约束抽取"
+          },
+          {
+            "ts": 0.015,
+            "state": "已完成",
+            "note": "页面中未找到目标"
+          }
+        ]
+      },
+      "agent-02": {
+        "worker": "agent-02",
+        "source": "stanford-provost-office--slow6000ms",
+        "state": "已完成",
+        "note": "页面中未找到目标",
+        "updates": 4,
+        "seconds_since_start": 6.016,
+        "history": [
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "创建独立抓取上下文 agent-02"
+          },
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "抓取 http://127.0.0.1:51736/stanford-provost-office--slow6000ms.html"
+          },
+          {
+            "ts": 6.031,
+            "state": "执行中",
+            "note": "证据约束抽取"
+          },
+          {
+            "ts": 6.031,
+            "state": "已完成",
+            "note": "页面中未找到目标"
+          }
+        ]
+      },
+      "agent-03": {
+        "worker": "agent-03",
+        "source": "stanford-profiles-andrew-ng--slow2000ms",
+        "state": "已完成",
+        "note": "页面中未找到目标",
+        "updates": 4,
+        "seconds_since_start": 2.016,
+        "history": [
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "创建独立抓取上下文 agent-03"
+          },
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "抓取 http://127.0.0.1:51736/stanford-profiles-andrew-ng--slow2000ms.html"
+          },
+          {
+            "ts": 2.031,
+            "state": "执行中",
+            "note": "证据约束抽取"
+          },
+          {
+            "ts": 2.031,
+            "state": "已完成",
+            "note": "页面中未找到目标"
+          }
+        ]
+      }
+    },
+    "status_updates_total": 16,
+    "resource_closed_reports": 4,
+    "resource_failures": {},
+    "contexts": {
+      "created": 4,
+      "closed": 4,
+      "leaked": 0,
+      "audit_ok": true
+    },
+    "bus_events": 28,
+    "parallel_seconds": 6.016,
+    "timeline": [
+      {
+        "ts": 0.015,
+        "kind": "status",
+        "worker": "agent-00",
+        "note": "创建独立抓取上下文 agent-00",
+        "state": "执行中"
+      },
+      {
+        "ts": 0.015,
+        "kind": "status",
+        "worker": "agent-01",
+        "note": "创建独立抓取上下文 agent-01",
+        "state": "执行中"
+      },
+      {
+        "ts": 0.015,
+        "kind": "status",
+        "worker": "agent-02",
+        "note": "创建独立抓取上下文 agent-02",
+        "state": "执行中"
+      },
+      {
+        "ts": 0.015,
+        "kind": "status",
+        "worker": "agent-03",
+        "note": "创建独立抓取上下文 agent-03",
+        "state": "执行中"
+      },
+      {
+        "ts": 0.015,
+        "kind": "status",
+        "worker": "agent-00",
+        "note": "抓取 http://127.0.0.1:51736/stanford-profiles-andrew-ng.html",
+        "state": "执行中"
+      },
+      {
+        "ts": 0.015,
+        "kind": "status",
+        "worker": "agent-01",
+        "note": "抓取 http://127.0.0.1:51736/stanford-provost-office.html",
+        "state": "执行中"
+      },
+      {
+        "ts": 0.015,
+        "kind": "status",
+        "worker": "agent-02",
+        "note": "抓取 http://127.0.0.1:51736/stanford-provost-office--slow6000ms.html",
+        "state": "执行中"
+      },
+      {
+        "ts": 0.015,
+        "kind": "status",
+        "worker": "agent-03",
+        "note": "抓取 http://127.0.0.1:51736/stanford-profiles-andrew-ng--slow2000ms.html",
+        "state": "执行中"
+      },
+      {
+        "ts": 0.015,
+        "kind": "status",
+        "worker": "agent-00",
+        "note": "证据约束抽取",
+        "state": "执行中"
+      },
+      {
+        "ts": 0.015,
+        "kind": "status",
+        "worker": "agent-00",
+        "note": "页面中未找到目标",
+        "state": "已完成"
+      },
+      {
+        "ts": 0.015,
+        "kind": "resource_closed",
+        "worker": "agent-00"
+      },
+      {
+        "ts": 0.015,
+        "kind": "status",
+        "worker": "agent-01",
+        "note": "证据约束抽取",
+        "state": "执行中"
+      },
+      {
+        "ts": 0.015,
+        "kind": "status",
+        "worker": "agent-01",
+        "note": "页面中未找到目标",
+        "state": "已完成"
+      },
+      {
+        "ts": 0.015,
+        "kind": "resource_closed",
+        "worker": "agent-01"
+      },
+      {
+        "ts": 2.031,
+        "kind": "status",
+        "worker": "agent-03",
+        "note": "证据约束抽取",
+        "state": "执行中"
+      },
+      {
+        "ts": 2.031,
+        "kind": "status",
+        "worker": "agent-03",
+        "note": "页面中未找到目标",
+        "state": "已完成"
+      },
+      {
+        "ts": 2.031,
+        "kind": "resource_closed",
+        "worker": "agent-03"
+      },
+      {
+        "ts": 6.031,
+        "kind": "status",
+        "worker": "agent-02",
+        "note": "证据约束抽取",
+        "state": "执行中"
+      },
+      {
+        "ts": 6.031,
+        "kind": "status",
+        "worker": "agent-02",
+        "note": "页面中未找到目标",
+        "state": "已完成"
+      },
+      {
+        "ts": 6.031,
+        "kind": "resource_closed",
+        "worker": "agent-02"
+      }
+    ],
+    "runtime_audit": {
+      "label": "parallel-cascade",
+      "contexts_created": 4,
+      "contexts_closed": 4,
+      "contexts_leaked": 0,
+      "audit_ok": true,
+      "open_now": 0
+    },
+    "phase": "cascade"
+  },
+  "duration_seconds": 6.062,
+  "environment": {
+    "python": "3.10.2",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "llm_endpoint": "http://127.0.0.1:8789/v1/responses",
+    "llm_model": "gpt-5.6-sol",
+    "worker_timeout_seconds": 40.0,
+    "level": "local_mirror(L0) + synthetic_local(L2)",
+    "playwright": false
+  },
+  "llm_stats": {
+    "responses_ok": 0,
+    "attempts": 0,
+    "failures": [],
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "max_concurrent_in_flight": 0
+  }
+}

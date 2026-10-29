@@ -1,0 +1,151 @@
+{
+  "run_id": "smoke-cascade-3",
+  "generated_at": "2026-10-27T01:39:39+00:00",
+  "query": "Provost of Stanford University",
+  "mode": "cascade_only",
+  "cascade": {
+    "winner": null,
+    "outcome": "not_found",
+    "duplicate_hits": [],
+    "terminate_broadcasts": 0,
+    "terminate_ts": null,
+    "acks": [],
+    "expected_loser_acks": [],
+    "missing_loser_acks": [],
+    "context_audit": {
+      "label": "parallel-cascade",
+      "contexts_created": 4,
+      "contexts_closed": 4,
+      "contexts_leaked": 0,
+      "audit_ok": true,
+      "open_now": 0
+    },
+    "parallel_seconds": 6.016,
+    "status_table": {
+      "agent-00": {
+        "worker": "agent-00",
+        "source": "stanford-profiles-andrew-ng",
+        "state": "已完成",
+        "note": "页面中未找到目标",
+        "updates": 4,
+        "seconds_since_start": 0.0,
+        "history": [
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "创建独立抓取上下文 agent-00"
+          },
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "抓取 http://127.0.0.1:51736/stanford-profiles-andrew-ng.html"
+          },
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "证据约束抽取"
+          },
+          {
+            "ts": 0.015,
+            "state": "已完成",
+            "note": "页面中未找到目标"
+          }
+        ]
+      },
+      "agent-01": {
+        "worker": "agent-01",
+        "source": "stanford-provost-office",
+        "state": "已完成",
+        "note": "页面中未找到目标",
+        "updates": 4,
+        "seconds_since_start": 0.0,
+        "history": [
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "创建独立抓取上下文 agent-01"
+          },
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "抓取 http://127.0.0.1:51736/stanford-provost-office.html"
+          },
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "证据约束抽取"
+          },
+          {
+            "ts": 0.015,
+            "state": "已完成",
+            "note": "页面中未找到目标"
+          }
+        ]
+      },
+      "agent-02": {
+        "worker": "agent-02",
+        "source": "stanford-provost-office--slow6000ms",
+        "state": "已完成",
+        "note": "页面中未找到目标",
+        "updates": 4,
+        "seconds_since_start": 6.016,
+        "history": [
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "创建独立抓取上下文 agent-02"
+          },
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "抓取 http://127.0.0.1:51736/stanford-provost-office--slow6000ms.html"
+          },
+          {
+            "ts": 6.031,
+            "state": "执行中",
+            "note": "证据约束抽取"
+          },
+          {
+            "ts": 6.031,
+            "state": "已完成",
+            "note": "页面中未找到目标"
+          }
+        ]
+      },
+      "agent-03": {
+        "worker": "agent-03",
+        "source": "stanford-profiles-andrew-ng--slow2000ms",
+        "state": "已完成",
+        "note": "页面中未找到目标",
+        "updates": 4,
+        "seconds_since_start": 2.016,
+        "history": [
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "创建独立抓取上下文 agent-03"
+          },
+          {
+            "ts": 0.015,
+            "state": "执行中",
+            "note": "抓取 http://127.0.0.1:51736/stanford-profiles-andrew-ng--slow2000ms.html"
+          },
+          {
+            "ts": 2.031,
+            "state": "执行中",
+            "note": "证据约束抽取"
+          },
+          {
+            "ts": 2.031,
+            "state": "已完成",
+            "note": "页面中未找到目标"
+          }
+        ]
+      }
+    },
+    "failure_summary": {
+      "count": 0,
+      "by_type": {}
+    }
+  }
+}

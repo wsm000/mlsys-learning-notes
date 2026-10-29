@@ -1,0 +1,133 @@
+{
+  "question": "does increasing the adversarial sample size make McNemar significant?",
+  "answer": "no: the generator made 0 genuine errors on 142 scoreable screened tasks, so the discordant-pair rate is 0 and no finite N reaches p<0.05",
+  "screening": {
+    "round1_short_semantics": {
+      "n_scored": 44,
+      "n_scoreable": 40,
+      "n_genuine_generator_errors": 0,
+      "n_call_failures": 0,
+      "n_empty_truth_unscoreable": 4,
+      "generator_error_rate_on_scoreable": 0.0,
+      "genuine_error_ids": [],
+      "call_failure_ids": []
+    },
+    "round2_realistic_and_identity": {
+      "n_scored": 48,
+      "n_scoreable": 47,
+      "n_genuine_generator_errors": 0,
+      "n_call_failures": 1,
+      "n_empty_truth_unscoreable": 1,
+      "generator_error_rate_on_scoreable": 0.0,
+      "genuine_error_ids": [],
+      "call_failure_ids": [
+        "C02"
+      ]
+    },
+    "round3_long_simulation": {
+      "n_scored": 24,
+      "n_scoreable": 23,
+      "n_genuine_generator_errors": 0,
+      "n_call_failures": 1,
+      "n_empty_truth_unscoreable": 0,
+      "generator_error_rate_on_scoreable": 0.0,
+      "genuine_error_ids": [],
+      "call_failure_ids": [
+        "S19"
+      ]
+    },
+    "exp10_1b_ext_generation_only": {
+      "n_scoreable": 32,
+      "n_genuine_generator_errors": 0,
+      "generator_error_rate_on_scoreable": 0.0,
+      "note": "G-stage only, no B1/B2, so no paired comparison is possible; counted purely as extra evidence that the generator does not err. This expansion attempt was never finished and was superseded by exp10-1b-adv; see exp10-1b-ext/STATUS.md."
+    }
+  },
+  "totals": {
+    "n_scored": 151,
+    "n_scoreable": 142,
+    "n_genuine_generator_errors": 0,
+    "generator_error_rate_on_scoreable": 0.0,
+    "note": "includes the 32 generation-only samples from exp10-1b-ext"
+  },
+  "discordant_pairs_needed": {
+    "1": {
+      "min_exact_two_sided_p": 1.0,
+      "significant_at_0_05": false
+    },
+    "2": {
+      "min_exact_two_sided_p": 0.5,
+      "significant_at_0_05": false
+    },
+    "3": {
+      "min_exact_two_sided_p": 0.25,
+      "significant_at_0_05": false
+    },
+    "4": {
+      "min_exact_two_sided_p": 0.125,
+      "significant_at_0_05": false
+    },
+    "5": {
+      "min_exact_two_sided_p": 0.0625,
+      "significant_at_0_05": false
+    },
+    "6": {
+      "min_exact_two_sided_p": 0.03125,
+      "significant_at_0_05": true
+    },
+    "7": {
+      "min_exact_two_sided_p": 0.015625,
+      "significant_at_0_05": true
+    },
+    "8": {
+      "min_exact_two_sided_p": 0.007812,
+      "significant_at_0_05": true
+    },
+    "9": {
+      "min_exact_two_sided_p": 0.003906,
+      "significant_at_0_05": true
+    },
+    "10": {
+      "min_exact_two_sided_p": 0.001953,
+      "significant_at_0_05": true
+    }
+  },
+  "N_required_at_discordant_rate": {
+    "2%": {
+      "N_samples": 300,
+      "model_calls": 900,
+      "hours_at_6s_per_call": 1.5
+    },
+    "7%": {
+      "N_samples": 84,
+      "model_calls": 252,
+      "hours_at_6s_per_call": 0.42
+    },
+    "10%": {
+      "N_samples": 60,
+      "model_calls": 180,
+      "hours_at_6s_per_call": 0.3
+    },
+    "20%": {
+      "N_samples": 30,
+      "model_calls": 90,
+      "hours_at_6s_per_call": 0.15
+    },
+    "40%": {
+      "N_samples": 15,
+      "model_calls": 45,
+      "hours_at_6s_per_call": 0.07
+    },
+    "60%": {
+      "N_samples": 10,
+      "model_calls": 30,
+      "hours_at_6s_per_call": 0.05
+    },
+    "80%": {
+      "N_samples": 8,
+      "model_calls": 24,
+      "hours_at_6s_per_call": 0.04
+    }
+  },
+  "note": "empty_truth_unscoreable counts programs that raise, so stdout is empty and the literal matcher cannot score them; they are scoring artifacts, not generator errors. call_failures are endpoint failures (empty answer, no confidence), also not generator errors."
+}

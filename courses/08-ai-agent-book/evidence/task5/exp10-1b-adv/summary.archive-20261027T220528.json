@@ -1,0 +1,852 @@
+{
+  "generated_at": "2026-10-26T20:00:25-0600",
+  "model": "gpt-5.6-sol",
+  "n_tasks": 28,
+  "python_version": "3.10.2",
+  "generator": {
+    "n": 28,
+    "n_correct": 24,
+    "accuracy": 0.8571,
+    "total_tokens": 9049,
+    "mean_tokens_per_task": 323.2,
+    "mean_wall_s_per_task": 11.841,
+    "failed_calls": 0,
+    "failed_attempts": 1,
+    "per_task": [
+      {
+        "task_id": "A01",
+        "answer": "0.30000000000000004\n",
+        "correct": true,
+        "reason": "二进制浮点数无法精确表示 0.1 和 0.2，因此相加后显示近似值。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A01__r2",
+        "answer": "0.30000000000000004\n",
+        "correct": true,
+        "reason": "二进制浮点数无法精确表示 0.1 和 0.2，因此相加后会显示为 0.30000000000000004。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A02",
+        "answer": "2 4 2.67\n",
+        "correct": true,
+        "reason": "round 使用银行家舍入，而浮点数 2.675 的实际二进制值略小于 2.675。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A02__r2",
+        "answer": "2 4 2.67\n",
+        "correct": true,
+        "reason": "Python 的 round 使用银行家舍入，而 2.675 的二进制浮点表示略小于精确值，因此结果分别为 2、4 和 2.67。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A03",
+        "answer": "False True True\n",
+        "correct": true,
+        "reason": "NaN 与自身比较时 == 为 False、!= 为 True，而列表成员测试会先检查对象身份，因此同一对象 n 在 [n] 中为 True。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A03__r2",
+        "answer": "False True True",
+        "correct": true,
+        "reason": "NaN 与自身比较既不相等且不等，但列表成员检测会先按对象身份匹配，因此同一对象 n 在 [n] 中。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A04",
+        "answer": "{'a': 1, 'b': 2, 'c': 3}\n",
+        "correct": true,
+        "reason": "list(d) 创建了键的快照，因此循环中可安全地向原字典添加键 'c'。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A04__r2",
+        "answer": "{'a': 1, 'b': 2, 'c': 3}\n",
+        "correct": true,
+        "reason": "list(d) 创建了键的快照，因此循环中添加键 'c' 不影响迭代，最终字典按插入顺序包含三个键。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A05",
+        "answer": "True True True\n",
+        "correct": true,
+        "reason": "链式比较两端均成立，且 True 作为整数 1 与 3 比较时也成立。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A05__r2",
+        "answer": "True True True\n",
+        "correct": true,
+        "reason": "链式比较两边都成立，且布尔值 True 在数值比较中等于 1，所以三个表达式均为 True。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A06",
+        "answer": "",
+        "correct": false,
+        "reason": "计算第一个参数 1.0/0.0 时即抛出 ZeroDivisionError，因此 print 未执行且 stdout 为空。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A06__r2",
+        "answer": "",
+        "correct": false,
+        "reason": "计算第一个参数 1.0/0.0 时即抛出 ZeroDivisionError，print 尚未执行，因此 stdout 为空。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A07",
+        "answer": "无法由 Python 语言规范唯一确定",
+        "correct": false,
+        "reason": "is 比较对象身份，而语言规范既不保证也不禁止相同整数常量复用同一对象。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A07__r2",
+        "answer": "无法由语言规范唯一确定",
+        "correct": false,
+        "reason": "整数常量对象是否复用属于实现细节，因此两个 is 比较的结果均不受语言规范保证。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A08",
+        "answer": "1 [2, 3] 4\n",
+        "correct": true,
+        "reason": "扩展解包将首元素赋给 a、尾元素赋给 c，并将中间元素作为列表赋给 b。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A08__r2",
+        "answer": "1 [2, 3] 4\n",
+        "correct": true,
+        "reason": "扩展解包将首元素赋给 a、末元素赋给 c，中间元素以列表形式赋给 b。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A09",
+        "answer": "[1, 2, 3, 9]",
+        "correct": true,
+        "reason": "遍历到 1 时向列表末尾追加 9，随后遍历到 2 时立即退出循环。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A09__r2",
+        "answer": "[1, 2, 3, 9]",
+        "correct": true,
+        "reason": "遍历到 1 时向列表末尾追加 9，随后遍历到 2 时立即退出循环，因此最终列表为 [1, 2, 3, 9]。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A10",
+        "answer": "'a\\tb' 1\n",
+        "correct": true,
+        "reason": "字符串中的制表符会被 repr 表示为 \\t，而 '\\t' 的长度为 1。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A10__r2",
+        "answer": "'a\\tb' 1\n",
+        "correct": true,
+        "reason": "字符串中的制表符被 repr 转义为 \\t，而单个制表符的长度为 1。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A11",
+        "answer": "exception\n",
+        "correct": true,
+        "reason": "ValueError 不是 LookupError 的子类，但属于 Exception，因此第二个 except 分支被执行。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A11__r2",
+        "answer": "exception\n",
+        "correct": true,
+        "reason": "ValueError 不是 LookupError 的子类，但它是 Exception 的子类，因此第二个 except 分支打印 exception。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A12",
+        "answer": "15 3.0 1.0\n",
+        "correct": true,
+        "reason": "int('12') 加 3 得 15，float('1.5') 乘 2 得 3.0，str(1.0) 得到 '1.0'。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A12__r2",
+        "answer": "15 3.0 1.0\n",
+        "correct": true,
+        "reason": "int('12') + 3 为 15，float('1.5') * 2 为 3.0，str(1.0) 为字符串 1.0，print 以空格分隔并在末尾换行。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A13",
+        "answer": "['a', 'bb', 'ccc']",
+        "correct": true,
+        "reason": "sorted 使用 len 作为键，按字符串长度从短到长排序。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A13__r2",
+        "answer": "['a', 'bb', 'ccc']",
+        "correct": true,
+        "reason": "sorted 使用 len 作为排序键，字符串按长度从短到长排列。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A14",
+        "answer": "1 12\n",
+        "correct": true,
+        "reason": "h(1) 使用默认 acc=0 得到 1，h(2, 10) 得到 12，print 以空格分隔输出。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A14__r2",
+        "answer": "1 12\n",
+        "correct": true,
+        "reason": "h(1) 使用默认 acc=0 得到 1，h(2, 10) 得到 12，print 以空格分隔输出。",
+        "confidence": 1.0
+      }
+    ]
+  },
+  "arm_B1_no_new_info": {
+    "n": 28,
+    "n_changed": 4,
+    "change_rate": 0.1429,
+    "n_final_correct": 24,
+    "final_accuracy": 0.8571,
+    "n_fixed_wrong_to_right": 0,
+    "n_broke_right_to_wrong": 0,
+    "n_still_wrong": 4,
+    "net_accuracy_gain_vs_generator": 0.0,
+    "mean_confidence": 0.9964,
+    "verdict_counts": {
+      "agree": 28,
+      "revise": 0,
+      "other_or_missing": 0
+    },
+    "input_tokens": 7132,
+    "output_tokens": 5780,
+    "total_tokens": 12912,
+    "mean_tokens_per_task": 461.1,
+    "mean_wall_s_per_task": 14.049,
+    "failed_attempts": 0,
+    "failed_calls": 0,
+    "per_task": [
+      {
+        "task_id": "A01",
+        "tag": "float-repr",
+        "generator_answer": "0.30000000000000004\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "0.30000000000000004\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A01__r2",
+        "tag": "float-repr",
+        "generator_answer": "0.30000000000000004\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "0.30000000000000004\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A02",
+        "tag": "round-banker",
+        "generator_answer": "2 4 2.67\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "2 4 2.67\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A02__r2",
+        "tag": "round-banker",
+        "generator_answer": "2 4 2.67\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "2 4 2.67\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A03",
+        "tag": "nan-identity",
+        "generator_answer": "False True True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "False True True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A03__r2",
+        "tag": "nan-identity",
+        "generator_answer": "False True True",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "False True True",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A04",
+        "tag": "dict-mutation",
+        "generator_answer": "{'a': 1, 'b': 2, 'c': 3}\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "{'a': 1, 'b': 2, 'c': 3}\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A04__r2",
+        "tag": "dict-mutation",
+        "generator_answer": "{'a': 1, 'b': 2, 'c': 3}\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "{'a': 1, 'b': 2, 'c': 3}\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A05",
+        "tag": "chain-comparison",
+        "generator_answer": "True True True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True True True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A05__r2",
+        "tag": "chain-comparison",
+        "generator_answer": "True True True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True True True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A06",
+        "tag": "float-div-zero",
+        "generator_answer": "",
+        "generator_correct": false,
+        "verdict": "agree",
+        "final_answer": "",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A06__r2",
+        "tag": "float-div-zero",
+        "generator_answer": "",
+        "generator_correct": false,
+        "verdict": "agree",
+        "final_answer": "",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A07",
+        "tag": "is-identity-int",
+        "generator_answer": "无法由 Python 语言规范唯一确定",
+        "generator_correct": false,
+        "verdict": "agree",
+        "final_answer": "无法由 Python 语言规范唯一确定；两个 `is` 比较都可能为 `True` 或 `False`。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A07__r2",
+        "tag": "is-identity-int",
+        "generator_answer": "无法由语言规范唯一确定",
+        "generator_correct": false,
+        "verdict": "agree",
+        "final_answer": "无法由 Python 语言规范唯一确定；两个比较各自都可能为 True 或 False。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A08",
+        "tag": "unpack-star",
+        "generator_answer": "1 [2, 3] 4\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 [2, 3] 4\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A08__r2",
+        "tag": "unpack-star",
+        "generator_answer": "1 [2, 3] 4\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 [2, 3] 4\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A09",
+        "tag": "mutate-during-iter",
+        "generator_answer": "[1, 2, 3, 9]",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "[1, 2, 3, 9]",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A09__r2",
+        "tag": "mutate-during-iter",
+        "generator_answer": "[1, 2, 3, 9]",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "[1, 2, 3, 9]",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A10",
+        "tag": "repr-escape",
+        "generator_answer": "'a\\tb' 1\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "'a\\tb' 1\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A10__r2",
+        "tag": "repr-escape",
+        "generator_answer": "'a\\tb' 1\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "'a\\tb' 1\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A11",
+        "tag": "except-order",
+        "generator_answer": "exception\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "exception\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A11__r2",
+        "tag": "except-order",
+        "generator_answer": "exception\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "exception\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A12",
+        "tag": "str-conversion",
+        "generator_answer": "15 3.0 1.0\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "15 3.0 1.0\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A12__r2",
+        "tag": "str-conversion",
+        "generator_answer": "15 3.0 1.0\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "15 3.0 1.0\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A13",
+        "tag": "sorted-key-stability",
+        "generator_answer": "['a', 'bb', 'ccc']",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "['a', 'bb', 'ccc']",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A13__r2",
+        "tag": "sorted-key-stability",
+        "generator_answer": "['a', 'bb', 'ccc']",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "['a', 'bb', 'ccc']",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A14",
+        "tag": "default-arg-eval-order",
+        "generator_answer": "1 12\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 12\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A14__r2",
+        "tag": "default-arg-eval-order",
+        "generator_answer": "1 12\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 12\n",
+        "changed": false,
+        "final_correct": true
+      }
+    ]
+  },
+  "arm_B2_execution_evidence": {
+    "n": 28,
+    "n_changed": 4,
+    "change_rate": 0.1429,
+    "n_final_correct": 26,
+    "final_accuracy": 0.9286,
+    "n_fixed_wrong_to_right": 2,
+    "n_broke_right_to_wrong": 0,
+    "n_still_wrong": 2,
+    "net_accuracy_gain_vs_generator": 0.0714,
+    "mean_confidence": 0.9971,
+    "verdict_counts": {
+      "agree": 13,
+      "revise": 15,
+      "other_or_missing": 0
+    },
+    "input_tokens": 8854,
+    "output_tokens": 5043,
+    "total_tokens": 13897,
+    "mean_tokens_per_task": 496.3,
+    "mean_wall_s_per_task": 12.311,
+    "failed_attempts": 3,
+    "failed_calls": 0,
+    "per_task": [
+      {
+        "task_id": "A01",
+        "tag": "float-repr",
+        "generator_answer": "0.30000000000000004\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "0.30000000000000004",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A01__r2",
+        "tag": "float-repr",
+        "generator_answer": "0.30000000000000004\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "0.30000000000000004",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A02",
+        "tag": "round-banker",
+        "generator_answer": "2 4 2.67\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "2 4 2.67",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A02__r2",
+        "tag": "round-banker",
+        "generator_answer": "2 4 2.67\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "2 4 2.67\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A03",
+        "tag": "nan-identity",
+        "generator_answer": "False True True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "False True True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A03__r2",
+        "tag": "nan-identity",
+        "generator_answer": "False True True",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "False True True",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A04",
+        "tag": "dict-mutation",
+        "generator_answer": "{'a': 1, 'b': 2, 'c': 3}\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "{'a': 1, 'b': 2, 'c': 3}\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A04__r2",
+        "tag": "dict-mutation",
+        "generator_answer": "{'a': 1, 'b': 2, 'c': 3}\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "{'a': 1, 'b': 2, 'c': 3}",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A05",
+        "tag": "chain-comparison",
+        "generator_answer": "True True True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True True True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A05__r2",
+        "tag": "chain-comparison",
+        "generator_answer": "True True True\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "True True True",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A06",
+        "tag": "float-div-zero",
+        "generator_answer": "",
+        "generator_correct": false,
+        "verdict": "agree",
+        "final_answer": "stdout 为空；求值第一个参数 `1.0/0.0` 时抛出 `ZeroDivisionError: float division by zero`，因此 `print` 未执行。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A06__r2",
+        "tag": "float-div-zero",
+        "generator_answer": "",
+        "generator_correct": false,
+        "verdict": "agree",
+        "final_answer": "stdout 为空；计算第一个参数 1.0/0.0 时抛出 ZeroDivisionError: float division by zero，print 未执行。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A07",
+        "tag": "is-identity-int",
+        "generator_answer": "无法由 Python 语言规范唯一确定",
+        "generator_correct": false,
+        "verdict": "revise",
+        "final_answer": "True True",
+        "changed": true,
+        "final_correct": true
+      },
+      {
+        "task_id": "A07__r2",
+        "tag": "is-identity-int",
+        "generator_answer": "无法由语言规范唯一确定",
+        "generator_correct": false,
+        "verdict": "revise",
+        "final_answer": "True True",
+        "changed": true,
+        "final_correct": true
+      },
+      {
+        "task_id": "A08",
+        "tag": "unpack-star",
+        "generator_answer": "1 [2, 3] 4\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "1 [2, 3] 4",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A08__r2",
+        "tag": "unpack-star",
+        "generator_answer": "1 [2, 3] 4\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "1 [2, 3] 4",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A09",
+        "tag": "mutate-during-iter",
+        "generator_answer": "[1, 2, 3, 9]",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "[1, 2, 3, 9]",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A09__r2",
+        "tag": "mutate-during-iter",
+        "generator_answer": "[1, 2, 3, 9]",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "[1, 2, 3, 9]",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A10",
+        "tag": "repr-escape",
+        "generator_answer": "'a\\tb' 1\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "'a\\tb' 1\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A10__r2",
+        "tag": "repr-escape",
+        "generator_answer": "'a\\tb' 1\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "'a\\tb' 1",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A11",
+        "tag": "except-order",
+        "generator_answer": "exception\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "exception",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A11__r2",
+        "tag": "except-order",
+        "generator_answer": "exception\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "exception\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A12",
+        "tag": "str-conversion",
+        "generator_answer": "15 3.0 1.0\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "15 3.0 1.0",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A12__r2",
+        "tag": "str-conversion",
+        "generator_answer": "15 3.0 1.0\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "15 3.0 1.0",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A13",
+        "tag": "sorted-key-stability",
+        "generator_answer": "['a', 'bb', 'ccc']",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "['a', 'bb', 'ccc']",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A13__r2",
+        "tag": "sorted-key-stability",
+        "generator_answer": "['a', 'bb', 'ccc']",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "['a', 'bb', 'ccc']",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A14",
+        "tag": "default-arg-eval-order",
+        "generator_answer": "1 12\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "1 12",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A14__r2",
+        "tag": "default-arg-eval-order",
+        "generator_answer": "1 12\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "1 12",
+        "changed": false,
+        "final_correct": true
+      }
+    ]
+  },
+  "paired": {
+    "n_pairs": 28,
+    "n_only_B2_correct": 2,
+    "n_only_B1_correct": 0,
+    "mcnemar_exact_p_two_sided": 0.5,
+    "accuracy_delta_B2_minus_B1": 0.0715,
+    "change_rate_delta_B2_minus_B1": 0.0
+  },
+  "cost": {
+    "generation_tokens": 9049,
+    "B1_tokens": 12912,
+    "B2_tokens": 13897,
+    "single_pass_tokens": 9049,
+    "B1_pipeline_tokens": 21961,
+    "B2_pipeline_tokens": 22946,
+    "B1_overhead_ratio_vs_single_pass": 2.427,
+    "B2_overhead_ratio_vs_single_pass": 2.536
+  },
+  "task_set": {
+    "path": "C:\\Users\\86150\\Documents\\ChatGPT\\cs336复习\\hello-gpu\\courses\\08-ai-agent-book\\evidence\\task5\\exp10-1b-adv\\tasks.json",
+    "n_tasks": 28,
+    "n_distinct_tasks": 14,
+    "ground_truth_note": "ground truth 由本机真实执行 stdlib Python 得到，不是模型自述。",
+    "built_at": "2026-10-26T19:39:11-0600",
+    "repeats": 2
+  }
+}

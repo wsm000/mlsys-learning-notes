@@ -1,0 +1,94 @@
+[
+  {
+    "kind": "schedule_only_control",
+    "disclaimer": "固定延迟桩：只验证调度并发，不测网络与模型",
+    "params": {
+      "sites": 8,
+      "fetch_latency_seconds": 0.5,
+      "extract_delay_seconds": 1.0,
+      "winner_index": 7,
+      "per_site_serial_cost": 1.5
+    },
+    "parallel_seconds": 1.515,
+    "serial_seconds": 12.125,
+    "measured_speedup_serial_over_parallel": 8.003,
+    "parallel_winner": "agent-07",
+    "serial_winner_index": 7,
+    "serial_sites_visited": 8,
+    "terminate_broadcasts": 1,
+    "failure_summary": {
+      "count": 2,
+      "by_type": {
+        "RuntimeError": 2
+      }
+    },
+    "expected_loser_acks": [
+      "agent-06"
+    ],
+    "ack_delays_after_terminate": {},
+    "ack_count": 0,
+    "missing_loser_acks": [
+      "agent-06"
+    ],
+    "context_audit_parallel": {
+      "label": "stub",
+      "contexts_created": 8,
+      "contexts_closed": 8,
+      "contexts_leaked": 0,
+      "audit_ok": true,
+      "open_now": 0
+    },
+    "context_audit_serial": {
+      "created": 8,
+      "closed": 8,
+      "leaked": 0,
+      "audit_ok": true
+    },
+    "status_updates_total": 32
+  },
+  {
+    "kind": "schedule_only_control",
+    "disclaimer": "固定延迟桩：只验证调度并发，不测网络与模型",
+    "params": {
+      "sites": 4,
+      "fetch_latency_seconds": 0.5,
+      "extract_delay_seconds": 1.0,
+      "winner_index": 1,
+      "per_site_serial_cost": 1.5
+    },
+    "parallel_seconds": 1.516,
+    "serial_seconds": 3.031,
+    "measured_speedup_serial_over_parallel": 1.999,
+    "parallel_winner": "agent-01",
+    "serial_winner_index": 1,
+    "serial_sites_visited": 2,
+    "terminate_broadcasts": 1,
+    "failure_summary": {
+      "count": 0,
+      "by_type": {}
+    },
+    "expected_loser_acks": [
+      "agent-03"
+    ],
+    "ack_delays_after_terminate": {},
+    "ack_count": 0,
+    "missing_loser_acks": [
+      "agent-03"
+    ],
+    "context_audit_parallel": {
+      "label": "stub",
+      "contexts_created": 4,
+      "contexts_closed": 4,
+      "contexts_leaked": 0,
+      "audit_ok": true,
+      "open_now": 0
+    },
+    "context_audit_serial": {
+      "created": 2,
+      "closed": 2,
+      "leaked": 0,
+      "audit_ok": true
+    },
+    "status_updates_total": 16
+  }
+]

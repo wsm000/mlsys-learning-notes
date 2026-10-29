@@ -1,0 +1,50 @@
+{
+  "outcome": "found",
+  "sites_visited": 2,
+  "sites_configured": 8,
+  "winner_index": 1,
+  "stop_reason": "found",
+  "seconds": 13.375,
+  "results": [
+    {
+      "index": 0,
+      "site": "stanford-profiles-andrew-ng",
+      "level": "live_unverified",
+      "state": "已完成",
+      "hit": false,
+      "seconds": 6.468,
+      "fetch_seconds": 2.515,
+      "llm_seconds": 3.953,
+      "http_status": 200,
+      "text_chars": 1515,
+      "context_closed": true
+    },
+    {
+      "index": 1,
+      "site": "stanford-provost-office",
+      "level": "live_unverified",
+      "state": "已完成",
+      "hit": true,
+      "seconds": 6.907,
+      "fetch_seconds": 1.25,
+      "llm_seconds": 5.657,
+      "http_status": 200,
+      "text_chars": 2209,
+      "context_closed": true
+    }
+  ],
+  "contexts": {
+    "created": 2,
+    "closed": 2,
+    "leaked": 0,
+    "audit_ok": true
+  },
+  "runtime_audit": {
+    "label": "serial",
+    "contexts_created": 2,
+    "contexts_closed": 2,
+    "contexts_leaked": 0,
+    "audit_ok": true,
+    "open_now": 0
+  }
+}

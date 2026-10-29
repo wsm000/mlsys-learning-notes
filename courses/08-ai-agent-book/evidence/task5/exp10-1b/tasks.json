@@ -1,0 +1,250 @@
+{
+  "built_at": "2026-10-26T19:36:02-0600",
+  "executed_by": "C:\\Users\\86150\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+  "python_version": "3.10.2",
+  "platform": "win32",
+  "n_tasks": 24,
+  "note": "ground truth 由本机真实执行 stdlib Python 得到，不是模型自述。",
+  "tasks": [
+    {
+      "id": "T01",
+      "tag": "mutable-default-arg",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "def f(x, s=[]):\n    s.append(x)\n    return s\nprint(f(1), f(2), f(3))",
+      "ground_truth_stdout": "[1, 2, 3] [1, 2, 3] [1, 2, 3]",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.043
+    },
+    {
+      "id": "T02",
+      "tag": "late-binding-closure",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "fs = [lambda: i for i in range(3)]\nprint([f() for f in fs])",
+      "ground_truth_stdout": "[2, 2, 2]",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.032
+    },
+    {
+      "id": "T03",
+      "tag": "float-assoc",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "print(0.1 + 0.2 == 0.3, round(0.1 + 0.2, 10) == 0.3)",
+      "ground_truth_stdout": "False True",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.04
+    },
+    {
+      "id": "T04",
+      "tag": "list-mult-alias",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "a = [[0] * 2] * 3\na[0][0] = 1\nprint(a)",
+      "ground_truth_stdout": "[[1, 0], [1, 0], [1, 0]]",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.034
+    },
+    {
+      "id": "T05",
+      "tag": "floor-div-negative",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "print(-7 // 2, -7 % 2, int(-7 / 2))",
+      "ground_truth_stdout": "-4 1 -3",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.032
+    },
+    {
+      "id": "T06",
+      "tag": "dict-insertion-order",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "d = {'b': 1, 'a': 2}\nd['c'] = 3\nprint(list(d.keys()))",
+      "ground_truth_stdout": "['b', 'a', 'c']",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.035
+    },
+    {
+      "id": "T07",
+      "tag": "try-finally-return",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "def g():\n    try:\n        return 1\n    finally:\n        print('finally')\nprint(g())",
+      "ground_truth_stdout": "finally\n1",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.041
+    },
+    {
+      "id": "T08",
+      "tag": "class-attribute-shared",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "class A:\n    xs = []\nA.xs.append(1)\nb = A()\nb.xs.append(2)\nprint(A.xs)",
+      "ground_truth_stdout": "[1, 2]",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.044
+    },
+    {
+      "id": "T09",
+      "tag": "sort-tuple",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "pairs = [(1, 'b'), (1, 'a'), (0, 'z')]\nprint(sorted(pairs))",
+      "ground_truth_stdout": "[(0, 'z'), (1, 'a'), (1, 'b')]",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.044
+    },
+    {
+      "id": "T10",
+      "tag": "str-ops",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "print('ab' * 3, 'ab' + '3')",
+      "ground_truth_stdout": "ababab ab3",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.044
+    },
+    {
+      "id": "T11",
+      "tag": "enumerate-start",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "print(list(enumerate('abc', start=1)))",
+      "ground_truth_stdout": "[(1, 'a'), (2, 'b'), (3, 'c')]",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.035
+    },
+    {
+      "id": "T12",
+      "tag": "generator-exhaustion",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "g = (x * 2 for x in range(3))\nprint(list(g), list(g))",
+      "ground_truth_stdout": "[0, 2, 4] []",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.047
+    },
+    {
+      "id": "T13",
+      "tag": "bool-int-arith",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "print(True + True, [True, False].count(1), sum([True, True, False]))",
+      "ground_truth_stdout": "2 1 2",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.039
+    },
+    {
+      "id": "T14",
+      "tag": "format-spec",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "print(f'{3.14159:.2f}', f'{42:05d}', f'{0.5:.0%}')",
+      "ground_truth_stdout": "3.14 00042 50%",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.053
+    },
+    {
+      "id": "T15",
+      "tag": "set-ops",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "print(sorted({1, 2, 3} - {2}), sorted({1, 2} & {2, 3}), len({1, 1.0, True}))",
+      "ground_truth_stdout": "[1, 3] [2] 1",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.043
+    },
+    {
+      "id": "T16",
+      "tag": "exception-else",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "try:\n    x = int('4')\nexcept ValueError:\n    print('bad')\nelse:\n    print('ok', x)",
+      "ground_truth_stdout": "ok 4",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.042
+    },
+    {
+      "id": "T17",
+      "tag": "list-slice-assign",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "L = [1, 2, 3, 4, 5]\nL[1:3] = [9]\nprint(L)",
+      "ground_truth_stdout": "[1, 9, 4, 5]",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.032
+    },
+    {
+      "id": "T18",
+      "tag": "float-repr",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "print(0.1 + 0.7, 1e16 + 1 == 1e16)",
+      "ground_truth_stdout": "0.7999999999999999 True",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.053
+    },
+    {
+      "id": "T19",
+      "tag": "json-dumps",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "import json\nprint(json.dumps({'a': None, 'b': True}, sort_keys=True, separators=(',', ':')))",
+      "ground_truth_stdout": "{\"a\":null,\"b\":true}",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.064
+    },
+    {
+      "id": "T20",
+      "tag": "setdefault",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "d = {}\nd.setdefault('k', []).append(1)\nd.setdefault('k', []).append(2)\nprint(d)",
+      "ground_truth_stdout": "{'k': [1, 2]}",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.043
+    },
+    {
+      "id": "T21",
+      "tag": "recursion-fib",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "def fib(n):\n    return n if n < 2 else fib(n-1) + fib(n-2)\nprint([fib(i) for i in range(7)])",
+      "ground_truth_stdout": "[0, 1, 1, 2, 3, 5, 8]",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.032
+    },
+    {
+      "id": "T22",
+      "tag": "str-comparison",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "print('10' < '9', sorted(['10', '9', '2']))",
+      "ground_truth_stdout": "True ['10', '2', '9']",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.053
+    },
+    {
+      "id": "T23",
+      "tag": "dict-get-default-eval",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "calls = []\ndef d():\n    calls.append(1)\n    return 0\nprint({}.get('x', d()), len(calls))",
+      "ground_truth_stdout": "0 1",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.043
+    },
+    {
+      "id": "T24",
+      "tag": "percent-format",
+      "question": "下面这段 Python 代码输出什么？",
+      "code": "print('%d%%' % 50, '%.1f' % 2.25)",
+      "ground_truth_stdout": "50% 2.2",
+      "ground_truth_returncode": 0,
+      "exec_stderr": "",
+      "exec_wall_s": 0.049
+    }
+  ]
+}

@@ -1,0 +1,3196 @@
+{
+  "generated_at": "2026-10-27T23:44:53-0600",
+  "scoring_note": "只统计产出过答案的样本。调用失败（重试耗尽）与响应不完整（status=incomplete，输出预算被推理吃光）都不算模型答错，见 scorable()；真值为空（程序抛异常）的题由 tasks 侧过滤。excluded 记录被剔除的条数与原因。",
+  "excluded": {
+    "n_generator_no_answer": 3,
+    "n_B1_no_answer": 1,
+    "n_B2_no_answer": 0
+  },
+  "model": "gpt-5.6-sol",
+  "n_tasks": 114,
+  "python_version": "3.10.2",
+  "generator": {
+    "n": 111,
+    "n_correct": 108,
+    "accuracy": 0.973,
+    "total_tokens": 68182,
+    "mean_tokens_per_task": 614.3,
+    "mean_wall_s_per_task": 12.823,
+    "failed_calls": 0,
+    "failed_attempts": 1,
+    "per_task": [
+      {
+        "task_id": "A01",
+        "answer": "0.30000000000000004\n",
+        "correct": true,
+        "reason": "二进制浮点数无法精确表示 0.1 和 0.2，因此相加后显示近似值。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A01__r2",
+        "answer": "0.30000000000000004\n",
+        "correct": true,
+        "reason": "二进制浮点数无法精确表示 0.1 和 0.2，因此相加后会显示为 0.30000000000000004。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A01__r3",
+        "answer": "0.30000000000000004\n",
+        "correct": true,
+        "reason": "二进制浮点数无法精确表示 0.1 和 0.2，因此相加后打印为 0.30000000000000004。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A02",
+        "answer": "2 4 2.67\n",
+        "correct": true,
+        "reason": "round 使用银行家舍入，而浮点数 2.675 的实际二进制值略小于 2.675。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A02__r2",
+        "answer": "2 4 2.67\n",
+        "correct": true,
+        "reason": "Python 的 round 使用银行家舍入，而 2.675 的二进制浮点表示略小于精确值，因此结果分别为 2、4 和 2.67。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A02__r3",
+        "answer": "2 4 2.67\n",
+        "correct": true,
+        "reason": "Python 3 的 round 对精确中点采用舍入到偶数，而 2.675 的二进制浮点表示略小于该十进制值，因此结果为 2.67。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A03",
+        "answer": "False True True\n",
+        "correct": true,
+        "reason": "NaN 与自身比较时 == 为 False、!= 为 True，而列表成员测试会先检查对象身份，因此同一对象 n 在 [n] 中为 True。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A03__r2",
+        "answer": "False True True",
+        "correct": true,
+        "reason": "NaN 与自身比较既不相等且不等，但列表成员检测会先按对象身份匹配，因此同一对象 n 在 [n] 中。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A03__r3",
+        "answer": "False True True\n",
+        "correct": true,
+        "reason": "NaN 与自身比较时 == 为 False、!= 为 True，但列表成员测试会先判断对象身份，因此同一对象 n 在 [n] 中为 True。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A04",
+        "answer": "{'a': 1, 'b': 2, 'c': 3}\n",
+        "correct": true,
+        "reason": "list(d) 创建了键的快照，因此循环中可安全地向原字典添加键 'c'。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A04__r2",
+        "answer": "{'a': 1, 'b': 2, 'c': 3}\n",
+        "correct": true,
+        "reason": "list(d) 创建了键的快照，因此循环中添加键 'c' 不影响迭代，最终字典按插入顺序包含三个键。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A04__r3",
+        "answer": "{'a': 1, 'b': 2, 'c': 3}",
+        "correct": true,
+        "reason": "list(d) 创建了键的快照，因此循环中可安全添加按插入顺序位于末尾的键 'c'。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A05",
+        "answer": "True True True\n",
+        "correct": true,
+        "reason": "链式比较两端均成立，且 True 作为整数 1 与 3 比较时也成立。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A05__r2",
+        "answer": "True True True\n",
+        "correct": true,
+        "reason": "链式比较两边都成立，且布尔值 True 在数值比较中等于 1，所以三个表达式均为 True。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A05__r3",
+        "answer": "True True True\n",
+        "correct": true,
+        "reason": "链式比较两端均成立，且 True 在数值比较中等于 1，因此三个表达式都为 True。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A07",
+        "answer": "无法由 Python 语言规范唯一确定",
+        "correct": false,
+        "reason": "is 比较对象身份，而语言规范既不保证也不禁止相同整数常量复用同一对象。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A07__r2",
+        "answer": "无法由语言规范唯一确定",
+        "correct": false,
+        "reason": "整数常量对象是否复用属于实现细节，因此两个 is 比较的结果均不受语言规范保证。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A07__r3",
+        "answer": "无法由语言规范唯一确定；可能为 True True、True False、False True 或 False False，末尾均有换行",
+        "correct": false,
+        "reason": "Python 只保证这些整数的值相等，不保证整数常量的对象身份，常量合并与整数缓存均属实现细节。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A08",
+        "answer": "1 [2, 3] 4\n",
+        "correct": true,
+        "reason": "扩展解包将首元素赋给 a、尾元素赋给 c，并将中间元素作为列表赋给 b。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A08__r2",
+        "answer": "1 [2, 3] 4\n",
+        "correct": true,
+        "reason": "扩展解包将首元素赋给 a、末元素赋给 c，中间元素以列表形式赋给 b。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A08__r3",
+        "answer": "1 [2, 3] 4\n",
+        "correct": true,
+        "reason": "扩展解包将首元素赋给 a、末元素赋给 c，并把中间元素以列表形式赋给 b。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A09",
+        "answer": "[1, 2, 3, 9]",
+        "correct": true,
+        "reason": "遍历到 1 时向列表末尾追加 9，随后遍历到 2 时立即退出循环。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A09__r2",
+        "answer": "[1, 2, 3, 9]",
+        "correct": true,
+        "reason": "遍历到 1 时向列表末尾追加 9，随后遍历到 2 时立即退出循环，因此最终列表为 [1, 2, 3, 9]。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A09__r3",
+        "answer": "[1, 2, 3, 9]",
+        "correct": true,
+        "reason": "遍历到 1 时向列表末尾追加 9，随后遍历到 2 时立即退出循环。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A10",
+        "answer": "'a\\tb' 1\n",
+        "correct": true,
+        "reason": "字符串中的制表符会被 repr 表示为 \\t，而 '\\t' 的长度为 1。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A10__r2",
+        "answer": "'a\\tb' 1\n",
+        "correct": true,
+        "reason": "字符串中的制表符被 repr 转义为 \\t，而单个制表符的长度为 1。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A10__r3",
+        "answer": "'a\\tb' 1\n",
+        "correct": true,
+        "reason": "repr 会将制表符转义为 \\t，而一个制表符的长度为 1。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A11",
+        "answer": "exception\n",
+        "correct": true,
+        "reason": "ValueError 不是 LookupError 的子类，但属于 Exception，因此第二个 except 分支被执行。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A11__r2",
+        "answer": "exception\n",
+        "correct": true,
+        "reason": "ValueError 不是 LookupError 的子类，但它是 Exception 的子类，因此第二个 except 分支打印 exception。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A11__r3",
+        "answer": "exception\n",
+        "correct": true,
+        "reason": "ValueError 不是 LookupError 的子类，但它是 Exception 的子类，因此第二个 except 分支执行。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A12",
+        "answer": "15 3.0 1.0\n",
+        "correct": true,
+        "reason": "int('12') 加 3 得 15，float('1.5') 乘 2 得 3.0，str(1.0) 得到 '1.0'。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A12__r2",
+        "answer": "15 3.0 1.0\n",
+        "correct": true,
+        "reason": "int('12') + 3 为 15，float('1.5') * 2 为 3.0，str(1.0) 为字符串 1.0，print 以空格分隔并在末尾换行。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A12__r3",
+        "answer": "15 3.0 1.0\n",
+        "correct": true,
+        "reason": "int('12') 为 12，加 3 得 15；float('1.5') 乘 2 得 3.0；str(1.0) 为 '1.0'，print 以空格分隔并换行。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A13",
+        "answer": "['a', 'bb', 'ccc']",
+        "correct": true,
+        "reason": "sorted 使用 len 作为键，按字符串长度从短到长排序。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A13__r2",
+        "answer": "['a', 'bb', 'ccc']",
+        "correct": true,
+        "reason": "sorted 使用 len 作为排序键，字符串按长度从短到长排列。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A13__r3",
+        "answer": "['a', 'bb', 'ccc']",
+        "correct": true,
+        "reason": "sorted 使用 len 作为键，按字符串长度从短到长排序。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A14",
+        "answer": "1 12\n",
+        "correct": true,
+        "reason": "h(1) 使用默认 acc=0 得到 1，h(2, 10) 得到 12，print 以空格分隔输出。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A14__r2",
+        "answer": "1 12\n",
+        "correct": true,
+        "reason": "h(1) 使用默认 acc=0 得到 1，h(2, 10) 得到 12，print 以空格分隔输出。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A14__r3",
+        "answer": "1 12\n",
+        "correct": true,
+        "reason": "h(1) 使用默认 acc=0 得到 1，h(2, 10) 得到 12，print 以空格分隔输出。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A15",
+        "answer": "a b A\n",
+        "correct": true,
+        "reason": "元类 Meta 在创建 A 和 B 时分别将 tag 设置为类名的小写形式，而 B.__mro__[1] 是 A。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A15__r2",
+        "answer": "a b A\n",
+        "correct": true,
+        "reason": "元类 Meta 在创建 A 和 B 时分别设置 tag 为类名的小写形式，而 B.__mro__[1] 是 A。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A15__r3",
+        "answer": "a b A\n",
+        "correct": true,
+        "reason": "元类 Meta 在创建每个类时将其小写类名赋给 tag，而 B 的 MRO 中索引 1 是 A。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A16",
+        "answer": "1 10\nexit\n",
+        "correct": true,
+        "reason": "next(it) 产生 1，send(5) 使 x 为 5 并产生 10，而解释器退出时生成器被关闭并捕获 GeneratorExit，打印 exit。",
+        "confidence": 0.98
+      },
+      {
+        "task_id": "A16__r2",
+        "answer": "1 10\nexit\n",
+        "correct": true,
+        "reason": "next(it) 产出 1，send(5) 使 x 为 5 并产出 10，程序结束时生成器被关闭并捕获 GeneratorExit 打印 exit。",
+        "confidence": 0.98
+      },
+      {
+        "task_id": "A16__r3",
+        "answer": "1 10\nexit\n",
+        "correct": true,
+        "reason": "next(it) 产出 1，send(5) 使 x 为 5 并产出 10，随后生成器销毁时收到 GeneratorExit 并打印 exit。",
+        "confidence": 0.98
+      },
+      {
+        "task_id": "A17",
+        "answer": "42 42\n",
+        "correct": true,
+        "reason": "D 是描述符，实例访问和类访问都会调用其 __get__ 方法并返回 42。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A17__r2",
+        "answer": "42 42\n",
+        "correct": true,
+        "reason": "D.__get__ 在通过实例和类访问属性 d 时都会被调用并返回 42。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A17__r3",
+        "answer": "42 42\n",
+        "correct": true,
+        "reason": "D 实现了描述符 __get__，通过实例 C().d 和类 C.d 访问时都会返回 42。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A18",
+        "answer": "1 2 False\n",
+        "correct": true,
+        "reason": "P 和 Q 都使用 __slots__ 且未声明 __dict__，因此实例拥有 a、b 属性但没有 __dict__。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A18__r2",
+        "answer": "1 2 False\n",
+        "correct": true,
+        "reason": "P 和 Q 分别用 __slots__ 声明了 a 和 b，且继承链中没有实例 __dict__。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A18__r3",
+        "answer": "1 2 False\n",
+        "correct": true,
+        "reason": "P 和 Q 都使用 __slots__ 且未包含 __dict__，因此 q 有属性 a、b，但没有实例字典。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A19",
+        "answer": "ValueError ValueError\n",
+        "correct": true,
+        "reason": "使用“raise ... from e”时，TypeError 的 __cause__ 和 __context__ 都指向被捕获的 ValueError。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A19__r2",
+        "answer": "ValueError ValueError\n",
+        "correct": true,
+        "reason": "使用 raise ... from e 时，TypeError 的 __cause__ 和 __context__ 都指向被捕获的 ValueError。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A19__r3",
+        "answer": "ValueError ValueError\n",
+        "correct": true,
+        "reason": "使用 raise ... from e 时，TypeError 的 __cause__ 和 __context__ 都指向原始的 ValueError。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A20",
+        "answer": "16 24\n",
+        "correct": true,
+        "reason": "reduce 分别以 10 为初始值求和得到 16，并将 1 到 4 连乘得到 24。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A20__r2",
+        "answer": "16 24\n",
+        "correct": true,
+        "reason": "初始值 10 与列表元素依次相加得到 16，而 1 到 4 连乘得到 24。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A20__r3",
+        "answer": "16 24\n",
+        "correct": true,
+        "reason": "加法归约从初始值 10 得到 16，乘法归约计算 1×2×3×4 得到 24。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A21",
+        "answer": "0 2 2 0\n",
+        "correct": true,
+        "reason": "Python 的 round() 对恰好位于中点的数采用银行家舍入法，即舍入到最接近的偶数。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A21__r2",
+        "answer": "0 2 2 0\n",
+        "correct": true,
+        "reason": "Python 的 round() 对恰好位于中间的数采用舍入到最近偶数规则。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A21__r3",
+        "answer": "0 2 2 0\n",
+        "correct": true,
+        "reason": "Python 的 round() 对恰好位于中点的值采用“舍入到偶数”规则。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A22",
+        "answer": "2.67 1.0\n",
+        "correct": true,
+        "reason": "由于二进制浮点数无法精确表示这两个十进制数，round 按其实际近似值舍入后分别得到 2.67 和 1.0。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A22__r2",
+        "answer": "2.67 1.0\n",
+        "correct": true,
+        "reason": "这两个十进制数的二进制浮点表示都略低于对应的舍入中点，因此分别舍入为 2.67 和 1.0。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A22__r3",
+        "answer": "2.67 1.0\n",
+        "correct": true,
+        "reason": "这两个十进制小数都无法用二进制浮点数精确表示，因此 round 按其实际存储值舍入后分别得到 2.67 和 1.0。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A23",
+        "answer": "[(0, 'z'), (1, 'b'), (1, 'a')]",
+        "correct": true,
+        "reason": "sorted 按元组首元素排序且是稳定排序，因此键同为 1 的两个元组保持原有顺序。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A23__r2",
+        "answer": "[(0, 'z'), (1, 'b'), (1, 'a')]\n",
+        "correct": true,
+        "reason": "sorted 按元组首元素排序，并且稳定排序会保留首元素相同项的原始顺序。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A23__r3",
+        "answer": "[(0, 'z'), (1, 'b'), (1, 'a')]",
+        "correct": true,
+        "reason": "sorted 按元组首元素升序排序，且稳定排序会保持键相同元素的原有顺序。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A24",
+        "answer": "False True False False\n",
+        "correct": true,
+        "reason": "空可迭代对象的 any 为 False、all 为 True，而 0 和空字符串均为假值。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A24__r2",
+        "answer": "False True False False\n",
+        "correct": true,
+        "reason": "any([]) 对空可迭代对象返回 False，all([]) 返回 True，而 0 和空字符串均为假值。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A24__r3",
+        "answer": "False True False False\n",
+        "correct": true,
+        "reason": "空可迭代对象的 any() 为 False、all() 为 True，而 0 和空字符串均为假值。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A25",
+        "answer": "{'self': {...}}\n",
+        "correct": true,
+        "reason": "字典直接引用自身时，Python 的 repr 会用 {...} 表示递归引用。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A25__r2",
+        "answer": "{'self': {...}}\n",
+        "correct": true,
+        "reason": "字典直接引用自身，repr 会用 {...} 表示递归引用以避免无限展开。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A25__r3",
+        "answer": "{'self': {...}}\n",
+        "correct": true,
+        "reason": "字典直接引用自身时，Python 的 repr 会用 {...} 表示递归引用。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A26",
+        "answer": "12 12 10\n",
+        "correct": true,
+        "reason": "int() 会忽略首尾空白，并允许数字字符串中使用合法的下划线分隔符。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A26__r2",
+        "answer": "12 12 10\n",
+        "correct": true,
+        "reason": "int() 接受首尾空白，并允许数字字符串中使用合法的下划线分隔符。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A26__r3",
+        "answer": "12 12 10\n",
+        "correct": true,
+        "reason": "int() 接受首尾空白，也允许数字之间使用下划线分隔。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A27",
+        "answer": "True\n",
+        "correct": true,
+        "reason": "在通常的 CPython 中，同一代码对象中的两个相同整数字面量会复用同一个常量对象，因此 `a is b` 为 True。",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "A27__r2",
+        "answer": "True\n",
+        "correct": true,
+        "reason": "在 CPython 中整段代码作为同一编译单元时，两个 257 字面量会复用同一个常量对象，因此 is 为 True（但这不是 Python 语言规范保证的行为）。",
+        "confidence": 0.88
+      },
+      {
+        "task_id": "A27__r3",
+        "answer": "True\n",
+        "correct": true,
+        "reason": "在常见的 CPython 中，同一代码对象内相同的整数常量 257 会复用同一个对象。",
+        "confidence": 0.93
+      },
+      {
+        "task_id": "A28",
+        "answer": "True\n",
+        "correct": true,
+        "reason": "同一代码对象中的两个整数常量 257 通常被编译器复用为同一对象，因此 is 判断为 True。",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "A28__r2",
+        "answer": "True\n",
+        "correct": true,
+        "reason": "同一代码对象中的两个整数常量 257 通常引用同一个常量对象，因此 is 判断为 True。",
+        "confidence": 0.96
+      },
+      {
+        "task_id": "A28__r3",
+        "answer": "True\n",
+        "correct": true,
+        "reason": "在 CPython 中，同一编译单元内的两个 257 字面量通常会复用同一个常量对象，因此 is 判断为 True。",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "A29",
+        "answer": "True True\n",
+        "correct": true,
+        "reason": "在常见的 CPython 3 中，编译器会将常量字符串拼接折叠为同一个驻留的 'hello' 对象，因此身份比较和值比较都为真。",
+        "confidence": 0.98
+      },
+      {
+        "task_id": "A29__r2",
+        "answer": "True True\n",
+        "correct": true,
+        "reason": "字符串常量拼接会在编译期折叠为同一个 'hello' 常量，因此两者身份和值都相同。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A29__r3",
+        "answer": "True True\n",
+        "correct": true,
+        "reason": "在 CPython 中，字面量拼接会在编译期折叠并复用同一个字符串常量对象，因此 is 和 == 都为 True。",
+        "confidence": 0.98
+      },
+      {
+        "task_id": "A30",
+        "answer": "True\n",
+        "correct": true,
+        "reason": "在常见的 CPython 中，编译器会将常量表达式 'ab' * 2 折叠为 'abab' 并复用同一常量对象，因此 is 为 True，但语言规范不保证此行为。",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "A30__r2",
+        "answer": "True\n",
+        "correct": true,
+        "reason": "在通常的 CPython 中，编译期常量折叠会使两个变量引用同一个字符串常量对象，但语言规范并不保证这一点。",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "A30__r3",
+        "answer": "True\n",
+        "correct": true,
+        "reason": "在通常的 CPython 中，编译器会将常量表达式折叠并复用同一个字符串常量对象，因此 `a is b` 为 True，但该身份关系不由 Python 语言规范保证。",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "A31",
+        "answer": "True\n",
+        "correct": true,
+        "reason": "在常见的 CPython 中，同一代码对象内相同的浮点数字面量会复用同一个常量对象。",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "A31__r2",
+        "answer": "True\n",
+        "correct": true,
+        "reason": "在作为一个代码块编译的 CPython 中，两个 1.5 从同一常量表项加载，因此 a is b 为 True。",
+        "confidence": 0.98
+      },
+      {
+        "task_id": "A31__r3",
+        "answer": "True\n",
+        "correct": true,
+        "reason": "同一代码对象中的两个相同浮点字面量通常引用同一个常量对象，因此 is 判断为 True。",
+        "confidence": 0.95
+      },
+      {
+        "task_id": "A32",
+        "answer": "True\n",
+        "correct": true,
+        "reason": "在通常的 CPython 中，同一代码对象内相等的常量元组会被合并，因此 a 和 b 指向同一对象。",
+        "confidence": 0.9
+      },
+      {
+        "task_id": "A32__r2",
+        "answer": "True\n",
+        "correct": true,
+        "reason": "在常见的 CPython 中，同一代码对象内两个相等的常量元组通常会被合并为同一个对象，但语言规范不保证这一点。",
+        "confidence": 0.78
+      },
+      {
+        "task_id": "A32__r3",
+        "answer": "True\n",
+        "correct": true,
+        "reason": "在常见的 CPython 中，同一代码块内相同的不可变元组常量会被合并，因此 a 和 b 指向同一对象。",
+        "confidence": 0.93
+      },
+      {
+        "task_id": "A33",
+        "answer": "1 111\n",
+        "correct": true,
+        "reason": "该循环按 Collatz 规则迭代，1234567 经 111 次更新后到达 1。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A33__r2",
+        "answer": "1 111\n",
+        "correct": true,
+        "reason": "按奇偶规则逐步迭代，1234567 在第 111 次循环后变为 1。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A33__r3",
+        "answer": "1 111\n",
+        "correct": true,
+        "reason": "该循环按考拉兹规则迭代 111 次后将 n 变为 1。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A34",
+        "answer": "1 111\n",
+        "correct": true,
+        "reason": "27 按考拉兹规则迭代 111 次后首次到达 1。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A34__r2",
+        "answer": "1 111\n",
+        "correct": true,
+        "reason": "27 按考拉兹规则迭代 111 次后首次到达 1。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A34__r3",
+        "answer": "1 111\n",
+        "correct": true,
+        "reason": "对 27 反复执行考拉兹变换后，第 111 次迭代得到 1。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A35",
+        "answer": "-7.266489\n",
+        "correct": true,
+        "reason": "递推 20 次后 x 约为 -7.2664885257，保留 6 位小数得到 -7.266489。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A35__r2",
+        "answer": "-7.266489\n",
+        "correct": true,
+        "reason": "递推式可化为 x_n=6-5×1.05^n，代入 n=20 后按 6 位小数舍入得到该结果。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A35__r3",
+        "answer": "-7.266489",
+        "correct": true,
+        "reason": "递推式迭代 20 次后 x 约为 -7.2664885257，四舍五入到 6 位小数得到 -7.266489。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A36",
+        "answer": "5.0\n",
+        "correct": true,
+        "reason": "浮点累加虽有微小误差，但 round(a, 10) 将结果舍入为 5.0。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A36__r2",
+        "answer": "5.0\n",
+        "correct": true,
+        "reason": "浮点累加虽有微小误差，但 round(a, 10) 将结果舍入为 5.0。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A36__r3",
+        "answer": "5.0\n",
+        "correct": true,
+        "reason": "浮点累加虽有微小误差，但 round(a, 10) 将结果舍入为 5.0。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A37",
+        "answer": "0.0002\n",
+        "correct": true,
+        "reason": "每次除以 3 后保留 4 位小数，迭代 12 次后 x 为 0.0002。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A37__r2",
+        "answer": "0.0002",
+        "correct": true,
+        "reason": "每次除以 3 后保留四位小数，连续 12 次后得到 0.0002。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A37__r3",
+        "answer": "0.0002\n",
+        "correct": true,
+        "reason": "每轮将 x 除以 3.0 后保留四位小数，迭代 12 次后得到 0.0002。",
+        "confidence": 1.0
+      },
+      {
+        "task_id": "A38",
+        "answer": "1.255511",
+        "correct": true,
+        "reason": "利用积化和差及等差正弦求和公式可得 t≈1.2555110688，舍入到六位小数即为该输出。",
+        "confidence": 0.999
+      },
+      {
+        "task_id": "A38__r2",
+        "answer": "1.255511\n",
+        "correct": true,
+        "reason": "利用积化和差及有限正弦和公式可得总和约为 1.255511068834，四舍五入到 6 位小数后输出 1.255511。",
+        "confidence": 0.99
+      },
+      {
+        "task_id": "A38__r3",
+        "answer": "1.255511\n",
+        "correct": true,
+        "reason": "利用积化和差与等差正弦求和公式可得总和约为 1.2555110688，四舍五入到 6 位小数为 1.255511。",
+        "confidence": 0.99
+      }
+    ]
+  },
+  "arm_B1_no_new_info": {
+    "n": 113,
+    "n_changed": 15,
+    "change_rate": 0.1327,
+    "n_final_correct": 99,
+    "final_accuracy": 0.8761,
+    "n_fixed_wrong_to_right": 1,
+    "n_broke_right_to_wrong": 8,
+    "n_still_wrong": 6,
+    "net_accuracy_gain_vs_generator": -0.0789,
+    "mean_confidence": 0.99,
+    "verdict_counts": {
+      "agree": 102,
+      "revise": 11,
+      "other_or_missing": 0
+    },
+    "input_tokens": 29191,
+    "output_tokens": 91267,
+    "total_tokens": 120458,
+    "mean_tokens_per_task": 1066.0,
+    "mean_wall_s_per_task": 29.016,
+    "failed_attempts": 2,
+    "failed_calls": 0,
+    "per_task": [
+      {
+        "task_id": "A01",
+        "tag": "float-repr",
+        "generator_answer": "0.30000000000000004\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "0.30000000000000004\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A01__r2",
+        "tag": "float-repr",
+        "generator_answer": "0.30000000000000004\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "0.30000000000000004\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A01__r3",
+        "tag": "float-repr",
+        "generator_answer": "0.30000000000000004\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "0.30000000000000004\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A02",
+        "tag": "round-banker",
+        "generator_answer": "2 4 2.67\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "2 4 2.67\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A02__r2",
+        "tag": "round-banker",
+        "generator_answer": "2 4 2.67\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "2 4 2.67\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A02__r3",
+        "tag": "round-banker",
+        "generator_answer": "2 4 2.67\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "2 4 2.67\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A03",
+        "tag": "nan-identity",
+        "generator_answer": "False True True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "False True True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A03__r2",
+        "tag": "nan-identity",
+        "generator_answer": "False True True",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "False True True",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A03__r3",
+        "tag": "nan-identity",
+        "generator_answer": "False True True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "False True True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A04",
+        "tag": "dict-mutation",
+        "generator_answer": "{'a': 1, 'b': 2, 'c': 3}\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "{'a': 1, 'b': 2, 'c': 3}\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A04__r2",
+        "tag": "dict-mutation",
+        "generator_answer": "{'a': 1, 'b': 2, 'c': 3}\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "{'a': 1, 'b': 2, 'c': 3}\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A04__r3",
+        "tag": "dict-mutation",
+        "generator_answer": "{'a': 1, 'b': 2, 'c': 3}",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "{'a': 1, 'b': 2, 'c': 3}",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A05",
+        "tag": "chain-comparison",
+        "generator_answer": "True True True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True True True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A05__r2",
+        "tag": "chain-comparison",
+        "generator_answer": "True True True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True True True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A05__r3",
+        "tag": "chain-comparison",
+        "generator_answer": "True True True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True True True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A06",
+        "tag": "float-div-zero",
+        "generator_answer": "",
+        "generator_correct": false,
+        "verdict": "agree",
+        "final_answer": "没有任何标准输出；计算第一个参数 1.0/0.0 时即抛出 ZeroDivisionError: float division by zero。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A06__r3",
+        "tag": "float-div-zero",
+        "generator_answer": "",
+        "generator_correct": false,
+        "verdict": "agree",
+        "final_answer": "没有任何标准输出；求值第一个参数 `1.0/0.0` 时即抛出 `ZeroDivisionError: float division by zero`。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A07",
+        "tag": "is-identity-int",
+        "generator_answer": "无法由 Python 语言规范唯一确定",
+        "generator_correct": false,
+        "verdict": "agree",
+        "final_answer": "无法由 Python 语言规范唯一确定；两个 `is` 比较都可能为 `True` 或 `False`。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A07__r2",
+        "tag": "is-identity-int",
+        "generator_answer": "无法由语言规范唯一确定",
+        "generator_correct": false,
+        "verdict": "agree",
+        "final_answer": "无法由 Python 语言规范唯一确定；两个比较各自都可能为 True 或 False。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A07__r3",
+        "tag": "is-identity-int",
+        "generator_answer": "无法由语言规范唯一确定；可能为 True True、True False、False True 或 False False，末尾均有换行",
+        "generator_correct": false,
+        "verdict": "agree",
+        "final_answer": "无法由语言规范唯一确定；可能输出 True True、True False、False True 或 False False，末尾均有换行。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A08",
+        "tag": "unpack-star",
+        "generator_answer": "1 [2, 3] 4\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 [2, 3] 4\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A08__r2",
+        "tag": "unpack-star",
+        "generator_answer": "1 [2, 3] 4\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 [2, 3] 4\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A08__r3",
+        "tag": "unpack-star",
+        "generator_answer": "1 [2, 3] 4\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 [2, 3] 4\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A09",
+        "tag": "mutate-during-iter",
+        "generator_answer": "[1, 2, 3, 9]",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "[1, 2, 3, 9]",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A09__r2",
+        "tag": "mutate-during-iter",
+        "generator_answer": "[1, 2, 3, 9]",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "[1, 2, 3, 9]",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A09__r3",
+        "tag": "mutate-during-iter",
+        "generator_answer": "[1, 2, 3, 9]",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "[1, 2, 3, 9]",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A10",
+        "tag": "repr-escape",
+        "generator_answer": "'a\\tb' 1\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "'a\\tb' 1\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A10__r2",
+        "tag": "repr-escape",
+        "generator_answer": "'a\\tb' 1\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "'a\\tb' 1\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A10__r3",
+        "tag": "repr-escape",
+        "generator_answer": "'a\\tb' 1\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "'a\\tb' 1\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A11",
+        "tag": "except-order",
+        "generator_answer": "exception\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "exception\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A11__r2",
+        "tag": "except-order",
+        "generator_answer": "exception\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "exception\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A11__r3",
+        "tag": "except-order",
+        "generator_answer": "exception\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "exception\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A12",
+        "tag": "str-conversion",
+        "generator_answer": "15 3.0 1.0\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "15 3.0 1.0\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A12__r2",
+        "tag": "str-conversion",
+        "generator_answer": "15 3.0 1.0\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "15 3.0 1.0\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A12__r3",
+        "tag": "str-conversion",
+        "generator_answer": "15 3.0 1.0\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "15 3.0 1.0\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A13",
+        "tag": "sorted-key-stability",
+        "generator_answer": "['a', 'bb', 'ccc']",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "['a', 'bb', 'ccc']",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A13__r2",
+        "tag": "sorted-key-stability",
+        "generator_answer": "['a', 'bb', 'ccc']",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "['a', 'bb', 'ccc']",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A13__r3",
+        "tag": "sorted-key-stability",
+        "generator_answer": "['a', 'bb', 'ccc']",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "['a', 'bb', 'ccc']",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A14",
+        "tag": "default-arg-eval-order",
+        "generator_answer": "1 12\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 12\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A14__r2",
+        "tag": "default-arg-eval-order",
+        "generator_answer": "1 12\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 12\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A14__r3",
+        "tag": "default-arg-eval-order",
+        "generator_answer": "1 12\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 12\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A15",
+        "tag": "metaclass-attr",
+        "generator_answer": "a b A\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "a b A\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A15__r2",
+        "tag": "metaclass-attr",
+        "generator_answer": "a b A\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "a b A\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A15__r3",
+        "tag": "metaclass-attr",
+        "generator_answer": "a b A\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "a b A\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A16",
+        "tag": "gen-send",
+        "generator_answer": "1 10\nexit\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 10\nexit\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A16__r2",
+        "tag": "gen-send",
+        "generator_answer": "1 10\nexit\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 10\nexit\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A16__r3",
+        "tag": "gen-send",
+        "generator_answer": "1 10\nexit\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "1 10\n",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A17",
+        "tag": "descriptor",
+        "generator_answer": "42 42\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "42 42\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A17__r2",
+        "tag": "descriptor",
+        "generator_answer": "42 42\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "42 42\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A17__r3",
+        "tag": "descriptor",
+        "generator_answer": "42 42\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "42 42\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A18",
+        "tag": "slots-inherit",
+        "generator_answer": "1 2 False\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 2 False\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A18__r2",
+        "tag": "slots-inherit",
+        "generator_answer": "1 2 False\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 2 False\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A18__r3",
+        "tag": "slots-inherit",
+        "generator_answer": "1 2 False\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 2 False\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A19",
+        "tag": "exc-cause-context",
+        "generator_answer": "ValueError ValueError\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "ValueError ValueError\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A19__r2",
+        "tag": "exc-cause-context",
+        "generator_answer": "ValueError ValueError\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "ValueError ValueError\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A19__r3",
+        "tag": "exc-cause-context",
+        "generator_answer": "ValueError ValueError\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "ValueError ValueError\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A20",
+        "tag": "reduce-operator",
+        "generator_answer": "16 24\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "16 24\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A20__r2",
+        "tag": "reduce-operator",
+        "generator_answer": "16 24\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "16 24\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A20__r3",
+        "tag": "reduce-operator",
+        "generator_answer": "16 24\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "16 24\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A21",
+        "tag": "round-half-even",
+        "generator_answer": "0 2 2 0\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "0 2 2 0\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A21__r2",
+        "tag": "round-half-even",
+        "generator_answer": "0 2 2 0\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "0 2 2 0\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A21__r3",
+        "tag": "round-half-even",
+        "generator_answer": "0 2 2 0\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "0 2 2 0\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A22",
+        "tag": "round-float-repr",
+        "generator_answer": "2.67 1.0\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "2.67 1.0\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A22__r2",
+        "tag": "round-float-repr",
+        "generator_answer": "2.67 1.0\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "2.67 1.0\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A22__r3",
+        "tag": "round-float-repr",
+        "generator_answer": "2.67 1.0\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "2.67 1.0\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A23",
+        "tag": "sort-stable-key",
+        "generator_answer": "[(0, 'z'), (1, 'b'), (1, 'a')]",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "[(0, 'z'), (1, 'b'), (1, 'a')]",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A23__r2",
+        "tag": "sort-stable-key",
+        "generator_answer": "[(0, 'z'), (1, 'b'), (1, 'a')]\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "[(0, 'z'), (1, 'b'), (1, 'a')]\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A23__r3",
+        "tag": "sort-stable-key",
+        "generator_answer": "[(0, 'z'), (1, 'b'), (1, 'a')]",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "[(0, 'z'), (1, 'b'), (1, 'a')]",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A24",
+        "tag": "any-all-empty",
+        "generator_answer": "False True False False\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "False True False False\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A24__r2",
+        "tag": "any-all-empty",
+        "generator_answer": "False True False False\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "False True False False\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A24__r3",
+        "tag": "any-all-empty",
+        "generator_answer": "False True False False\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "False True False False\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A25",
+        "tag": "repr-dict-circ",
+        "generator_answer": "{'self': {...}}\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "{'self': {...}}\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A25__r2",
+        "tag": "repr-dict-circ",
+        "generator_answer": "{'self': {...}}\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "{'self': {...}}\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A25__r3",
+        "tag": "repr-dict-circ",
+        "generator_answer": "{'self': {...}}\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "{'self': {...}}\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A26",
+        "tag": "int-float-str",
+        "generator_answer": "12 12 10\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "12 12 10\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A26__r2",
+        "tag": "int-float-str",
+        "generator_answer": "12 12 10\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "12 12 10\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A26__r3",
+        "tag": "int-float-str",
+        "generator_answer": "12 12 10\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "12 12 10\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A27",
+        "tag": "int-257-same-object",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A27__r2",
+        "tag": "int-257-same-object",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A27__r3",
+        "tag": "int-257-same-object",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "实现相关：在常见 CPython 中将该片段作为一个代码单元执行时输出 `True`；Python 规范不保证常量对象复用，其他实现可能输出 `False`。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A28",
+        "tag": "int-257-cross-stmt",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A28__r2",
+        "tag": "int-257-cross-stmt",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "结果依赖实现：在常见 CPython 中，整段代码一次编译时通常输出 `True`；但 Python 规范也允许输出 `False`。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A28__r3",
+        "tag": "int-257-cross-stmt",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "输出依赖 Python 实现和编译方式；在常见 CPython 中作为同一编译单元运行时，标准输出通常为 \"True\\n\"（并可能产生 SyntaxWarning），但也可能为 \"False\\n\"。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A29",
+        "tag": "str-concat-fold",
+        "generator_answer": "True True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A29__r2",
+        "tag": "str-concat-fold",
+        "generator_answer": "True True\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "在常见的 CPython 中通常输出 `True True`；但 Python 语言规范不保证字符串对象身份，因此第一项也可能为 `False`，第二项恒为 `True`。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A29__r3",
+        "tag": "str-concat-fold",
+        "generator_answer": "True True\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "在常见的 CPython 中输出：True True\n但 Python 规范只保证第二项为 True；第一项取决于实现是否折叠并复用字符串对象，可能为 True 或 False。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A30",
+        "tag": "str-mul-fold",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A30__r2",
+        "tag": "str-mul-fold",
+        "generator_answer": null,
+        "generator_correct": false,
+        "verdict": "revise",
+        "final_answer": "True（在常见的 CPython 中；该结果并非语言规范保证）",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A30__r3",
+        "tag": "str-mul-fold",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A31",
+        "tag": "float-const-fold",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "实现相关；常见 CPython 中通常输出 True，但 Python 语言规范不保证浮点字面量复用，也可能输出 False。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A31__r2",
+        "tag": "float-const-fold",
+        "generator_answer": null,
+        "generator_correct": false,
+        "verdict": "revise",
+        "final_answer": "True",
+        "changed": true,
+        "final_correct": true
+      },
+      {
+        "task_id": "A31__r3",
+        "tag": "float-const-fold",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "结果依赖 Python 实现；常见 CPython 中通常输出：\nTrue\n但也可能输出 False。",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A32",
+        "tag": "tuple-const-fold",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A32__r2",
+        "tag": "tuple-const-fold",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A32__r3",
+        "tag": "tuple-const-fold",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "实现相关：常见 CPython 通常输出 `True`，但也可能输出 `False`。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A33",
+        "tag": "collatz-1234567",
+        "generator_answer": "1 111\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 111\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A33__r2",
+        "tag": "collatz-1234567",
+        "generator_answer": "1 111\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 111\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A33__r3",
+        "tag": "collatz-1234567",
+        "generator_answer": "1 111\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 111\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A34",
+        "tag": "collatz-27",
+        "generator_answer": "1 111\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 111\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A34__r2",
+        "tag": "collatz-27",
+        "generator_answer": "1 111\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 111\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A34__r3",
+        "tag": "collatz-27",
+        "generator_answer": "1 111\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 111\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A35",
+        "tag": "float-chain-20",
+        "generator_answer": "-7.266489\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "-7.266489\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A35__r2",
+        "tag": "float-chain-20",
+        "generator_answer": "-7.266489\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "-7.266489\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A35__r3",
+        "tag": "float-chain-20",
+        "generator_answer": "-7.266489",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "-7.266489",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A36",
+        "tag": "float-accum-50",
+        "generator_answer": "5.0\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "5.0\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A36__r2",
+        "tag": "float-accum-50",
+        "generator_answer": "5.0\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "5.0\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A36__r3",
+        "tag": "float-accum-50",
+        "generator_answer": "5.0\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "5.0\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A37",
+        "tag": "round-div-chain",
+        "generator_answer": "0.0002\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "0.0002\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A37__r2",
+        "tag": "round-div-chain",
+        "generator_answer": "0.0002",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "0.0002",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A37__r3",
+        "tag": "round-div-chain",
+        "generator_answer": "0.0002\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "0.0002\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A38",
+        "tag": "sin-cos-sum",
+        "generator_answer": "1.255511",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1.255511",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A38__r2",
+        "tag": "sin-cos-sum",
+        "generator_answer": "1.255511\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1.255511\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A38__r3",
+        "tag": "sin-cos-sum",
+        "generator_answer": "1.255511\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1.255511\n",
+        "changed": false,
+        "final_correct": true
+      }
+    ]
+  },
+  "arm_B2_execution_evidence": {
+    "n": 114,
+    "n_changed": 10,
+    "change_rate": 0.0877,
+    "n_final_correct": 109,
+    "final_accuracy": 0.9561,
+    "n_fixed_wrong_to_right": 5,
+    "n_broke_right_to_wrong": 1,
+    "n_still_wrong": 4,
+    "net_accuracy_gain_vs_generator": 0.0088,
+    "mean_confidence": 0.9954,
+    "verdict_counts": {
+      "agree": 59,
+      "revise": 55,
+      "other_or_missing": 0
+    },
+    "input_tokens": 36130,
+    "output_tokens": 24822,
+    "total_tokens": 60952,
+    "mean_tokens_per_task": 534.7,
+    "mean_wall_s_per_task": 13.816,
+    "failed_attempts": 4,
+    "failed_calls": 0,
+    "per_task": [
+      {
+        "task_id": "A01",
+        "tag": "float-repr",
+        "generator_answer": "0.30000000000000004\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "0.30000000000000004",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A01__r2",
+        "tag": "float-repr",
+        "generator_answer": "0.30000000000000004\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "0.30000000000000004",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A01__r3",
+        "tag": "float-repr",
+        "generator_answer": "0.30000000000000004\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "0.30000000000000004",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A02",
+        "tag": "round-banker",
+        "generator_answer": "2 4 2.67\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "2 4 2.67",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A02__r2",
+        "tag": "round-banker",
+        "generator_answer": "2 4 2.67\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "2 4 2.67\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A02__r3",
+        "tag": "round-banker",
+        "generator_answer": "2 4 2.67\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "2 4 2.67\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A03",
+        "tag": "nan-identity",
+        "generator_answer": "False True True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "False True True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A03__r2",
+        "tag": "nan-identity",
+        "generator_answer": "False True True",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "False True True",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A03__r3",
+        "tag": "nan-identity",
+        "generator_answer": "False True True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "False True True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A04",
+        "tag": "dict-mutation",
+        "generator_answer": "{'a': 1, 'b': 2, 'c': 3}\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "{'a': 1, 'b': 2, 'c': 3}\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A04__r2",
+        "tag": "dict-mutation",
+        "generator_answer": "{'a': 1, 'b': 2, 'c': 3}\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "{'a': 1, 'b': 2, 'c': 3}",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A04__r3",
+        "tag": "dict-mutation",
+        "generator_answer": "{'a': 1, 'b': 2, 'c': 3}",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "{'a': 1, 'b': 2, 'c': 3}",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A05",
+        "tag": "chain-comparison",
+        "generator_answer": "True True True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True True True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A05__r2",
+        "tag": "chain-comparison",
+        "generator_answer": "True True True\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "True True True",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A05__r3",
+        "tag": "chain-comparison",
+        "generator_answer": "True True True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True True True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A06",
+        "tag": "float-div-zero",
+        "generator_answer": "",
+        "generator_correct": false,
+        "verdict": "agree",
+        "final_answer": "stdout 为空；求值第一个参数 `1.0/0.0` 时抛出 `ZeroDivisionError: float division by zero`，因此 `print` 未执行。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A06__r2",
+        "tag": "float-div-zero",
+        "generator_answer": "",
+        "generator_correct": false,
+        "verdict": "agree",
+        "final_answer": "stdout 为空；计算第一个参数 1.0/0.0 时抛出 ZeroDivisionError: float division by zero，print 未执行。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A06__r3",
+        "tag": "float-div-zero",
+        "generator_answer": "",
+        "generator_correct": false,
+        "verdict": "agree",
+        "final_answer": "没有任何标准输出；在调用 print 前计算 1.0/0.0 时抛出 ZeroDivisionError: float division by zero，程序以状态码 1 退出。",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A07",
+        "tag": "is-identity-int",
+        "generator_answer": "无法由 Python 语言规范唯一确定",
+        "generator_correct": false,
+        "verdict": "revise",
+        "final_answer": "True True",
+        "changed": true,
+        "final_correct": true
+      },
+      {
+        "task_id": "A07__r2",
+        "tag": "is-identity-int",
+        "generator_answer": "无法由语言规范唯一确定",
+        "generator_correct": false,
+        "verdict": "revise",
+        "final_answer": "True True",
+        "changed": true,
+        "final_correct": true
+      },
+      {
+        "task_id": "A07__r3",
+        "tag": "is-identity-int",
+        "generator_answer": "无法由语言规范唯一确定；可能为 True True、True False、False True 或 False False，末尾均有换行",
+        "generator_correct": false,
+        "verdict": "revise",
+        "final_answer": "True True（末尾有换行）",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A08",
+        "tag": "unpack-star",
+        "generator_answer": "1 [2, 3] 4\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "1 [2, 3] 4",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A08__r2",
+        "tag": "unpack-star",
+        "generator_answer": "1 [2, 3] 4\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "1 [2, 3] 4",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A08__r3",
+        "tag": "unpack-star",
+        "generator_answer": "1 [2, 3] 4\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "1 [2, 3] 4",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A09",
+        "tag": "mutate-during-iter",
+        "generator_answer": "[1, 2, 3, 9]",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "[1, 2, 3, 9]",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A09__r2",
+        "tag": "mutate-during-iter",
+        "generator_answer": "[1, 2, 3, 9]",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "[1, 2, 3, 9]",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A09__r3",
+        "tag": "mutate-during-iter",
+        "generator_answer": "[1, 2, 3, 9]",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "[1, 2, 3, 9]",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A10",
+        "tag": "repr-escape",
+        "generator_answer": "'a\\tb' 1\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "'a\\tb' 1\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A10__r2",
+        "tag": "repr-escape",
+        "generator_answer": "'a\\tb' 1\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "'a\\tb' 1",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A10__r3",
+        "tag": "repr-escape",
+        "generator_answer": "'a\\tb' 1\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "'a\\tb' 1",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A11",
+        "tag": "except-order",
+        "generator_answer": "exception\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "exception",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A11__r2",
+        "tag": "except-order",
+        "generator_answer": "exception\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "exception\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A11__r3",
+        "tag": "except-order",
+        "generator_answer": "exception\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "exception\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A12",
+        "tag": "str-conversion",
+        "generator_answer": "15 3.0 1.0\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "15 3.0 1.0",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A12__r2",
+        "tag": "str-conversion",
+        "generator_answer": "15 3.0 1.0\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "15 3.0 1.0",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A12__r3",
+        "tag": "str-conversion",
+        "generator_answer": "15 3.0 1.0\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "15 3.0 1.0",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A13",
+        "tag": "sorted-key-stability",
+        "generator_answer": "['a', 'bb', 'ccc']",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "['a', 'bb', 'ccc']",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A13__r2",
+        "tag": "sorted-key-stability",
+        "generator_answer": "['a', 'bb', 'ccc']",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "['a', 'bb', 'ccc']",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A13__r3",
+        "tag": "sorted-key-stability",
+        "generator_answer": "['a', 'bb', 'ccc']",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "['a', 'bb', 'ccc']",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A14",
+        "tag": "default-arg-eval-order",
+        "generator_answer": "1 12\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "1 12",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A14__r2",
+        "tag": "default-arg-eval-order",
+        "generator_answer": "1 12\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "1 12",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A14__r3",
+        "tag": "default-arg-eval-order",
+        "generator_answer": "1 12\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "1 12",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A15",
+        "tag": "metaclass-attr",
+        "generator_answer": "a b A\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "a b A",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A15__r2",
+        "tag": "metaclass-attr",
+        "generator_answer": "a b A\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "a b A",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A15__r3",
+        "tag": "metaclass-attr",
+        "generator_answer": "a b A\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "a b A",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A16",
+        "tag": "gen-send",
+        "generator_answer": "1 10\nexit\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "1 10\nexit",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A16__r2",
+        "tag": "gen-send",
+        "generator_answer": null,
+        "generator_correct": false,
+        "verdict": "revise",
+        "final_answer": "1 10\nexit",
+        "changed": true,
+        "final_correct": true
+      },
+      {
+        "task_id": "A16__r3",
+        "tag": "gen-send",
+        "generator_answer": "1 10\nexit\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "1 10\nexit",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A17",
+        "tag": "descriptor",
+        "generator_answer": "42 42\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "42 42",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A17__r2",
+        "tag": "descriptor",
+        "generator_answer": "42 42\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "42 42",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A17__r3",
+        "tag": "descriptor",
+        "generator_answer": "42 42\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "42 42",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A18",
+        "tag": "slots-inherit",
+        "generator_answer": "1 2 False\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "1 2 False",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A18__r2",
+        "tag": "slots-inherit",
+        "generator_answer": "1 2 False\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 2 False\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A18__r3",
+        "tag": "slots-inherit",
+        "generator_answer": "1 2 False\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "1 2 False",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A19",
+        "tag": "exc-cause-context",
+        "generator_answer": "ValueError ValueError\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "ValueError ValueError",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A19__r2",
+        "tag": "exc-cause-context",
+        "generator_answer": "ValueError ValueError\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "ValueError ValueError\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A19__r3",
+        "tag": "exc-cause-context",
+        "generator_answer": "ValueError ValueError\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "ValueError ValueError",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A20",
+        "tag": "reduce-operator",
+        "generator_answer": "16 24\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "16 24",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A20__r2",
+        "tag": "reduce-operator",
+        "generator_answer": "16 24\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "16 24",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A20__r3",
+        "tag": "reduce-operator",
+        "generator_answer": "16 24\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "16 24",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A21",
+        "tag": "round-half-even",
+        "generator_answer": "0 2 2 0\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "0 2 2 0",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A21__r2",
+        "tag": "round-half-even",
+        "generator_answer": "0 2 2 0\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "0 2 2 0",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A21__r3",
+        "tag": "round-half-even",
+        "generator_answer": "0 2 2 0\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "0 2 2 0",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A22",
+        "tag": "round-float-repr",
+        "generator_answer": "2.67 1.0\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "2.67 1.0\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A22__r2",
+        "tag": "round-float-repr",
+        "generator_answer": "2.67 1.0\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "2.67 1.0",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A22__r3",
+        "tag": "round-float-repr",
+        "generator_answer": "2.67 1.0\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "2.67 1.0\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A23",
+        "tag": "sort-stable-key",
+        "generator_answer": "[(0, 'z'), (1, 'b'), (1, 'a')]",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "[(0, 'z'), (1, 'b'), (1, 'a')]",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A23__r2",
+        "tag": "sort-stable-key",
+        "generator_answer": "[(0, 'z'), (1, 'b'), (1, 'a')]\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "[(0, 'z'), (1, 'b'), (1, 'a')]",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A23__r3",
+        "tag": "sort-stable-key",
+        "generator_answer": "[(0, 'z'), (1, 'b'), (1, 'a')]",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "[(0, 'z'), (1, 'b'), (1, 'a')]",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A24",
+        "tag": "any-all-empty",
+        "generator_answer": "False True False False\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "False True False False",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A24__r2",
+        "tag": "any-all-empty",
+        "generator_answer": "False True False False\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "False True False False\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A24__r3",
+        "tag": "any-all-empty",
+        "generator_answer": "False True False False\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "False True False False",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A25",
+        "tag": "repr-dict-circ",
+        "generator_answer": "{'self': {...}}\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "{'self': {...}}",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A25__r2",
+        "tag": "repr-dict-circ",
+        "generator_answer": "{'self': {...}}\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "{'self': {...}}",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A25__r3",
+        "tag": "repr-dict-circ",
+        "generator_answer": "{'self': {...}}\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "{'self': {...}}",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A26",
+        "tag": "int-float-str",
+        "generator_answer": "12 12 10\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "12 12 10",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A26__r2",
+        "tag": "int-float-str",
+        "generator_answer": "12 12 10\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "12 12 10",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A26__r3",
+        "tag": "int-float-str",
+        "generator_answer": "12 12 10\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "12 12 10",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A27",
+        "tag": "int-257-same-object",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A27__r2",
+        "tag": "int-257-same-object",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A27__r3",
+        "tag": "int-257-same-object",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A28",
+        "tag": "int-257-cross-stmt",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A28__r2",
+        "tag": "int-257-cross-stmt",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "stdout: True\nstderr: <string>:2: SyntaxWarning: \"is\" with a literal. Did you mean \"==\"?",
+        "changed": true,
+        "final_correct": false
+      },
+      {
+        "task_id": "A28__r3",
+        "tag": "int-257-cross-stmt",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A29",
+        "tag": "str-concat-fold",
+        "generator_answer": "True True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A29__r2",
+        "tag": "str-concat-fold",
+        "generator_answer": "True True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A29__r3",
+        "tag": "str-concat-fold",
+        "generator_answer": "True True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A30",
+        "tag": "str-mul-fold",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A30__r2",
+        "tag": "str-mul-fold",
+        "generator_answer": null,
+        "generator_correct": false,
+        "verdict": "revise",
+        "final_answer": "True",
+        "changed": true,
+        "final_correct": true
+      },
+      {
+        "task_id": "A30__r3",
+        "tag": "str-mul-fold",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A31",
+        "tag": "float-const-fold",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A31__r2",
+        "tag": "float-const-fold",
+        "generator_answer": null,
+        "generator_correct": false,
+        "verdict": "revise",
+        "final_answer": "True",
+        "changed": true,
+        "final_correct": true
+      },
+      {
+        "task_id": "A31__r3",
+        "tag": "float-const-fold",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A32",
+        "tag": "tuple-const-fold",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A32__r2",
+        "tag": "tuple-const-fold",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A32__r3",
+        "tag": "tuple-const-fold",
+        "generator_answer": "True\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "True\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A33",
+        "tag": "collatz-1234567",
+        "generator_answer": "1 111\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 111\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A33__r2",
+        "tag": "collatz-1234567",
+        "generator_answer": "1 111\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 111\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A33__r3",
+        "tag": "collatz-1234567",
+        "generator_answer": "1 111\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 111\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A34",
+        "tag": "collatz-27",
+        "generator_answer": "1 111\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 111\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A34__r2",
+        "tag": "collatz-27",
+        "generator_answer": "1 111\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "1 111",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A34__r3",
+        "tag": "collatz-27",
+        "generator_answer": "1 111\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1 111",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A35",
+        "tag": "float-chain-20",
+        "generator_answer": "-7.266489\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "-7.266489",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A35__r2",
+        "tag": "float-chain-20",
+        "generator_answer": "-7.266489\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "-7.266489",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A35__r3",
+        "tag": "float-chain-20",
+        "generator_answer": "-7.266489",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "-7.266489",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A36",
+        "tag": "float-accum-50",
+        "generator_answer": "5.0\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "5.0",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A36__r2",
+        "tag": "float-accum-50",
+        "generator_answer": "5.0\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "5.0\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A36__r3",
+        "tag": "float-accum-50",
+        "generator_answer": "5.0\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "5.0\n",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A37",
+        "tag": "round-div-chain",
+        "generator_answer": "0.0002\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "0.0002",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A37__r2",
+        "tag": "round-div-chain",
+        "generator_answer": "0.0002",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "0.0002",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A37__r3",
+        "tag": "round-div-chain",
+        "generator_answer": "0.0002\n",
+        "generator_correct": true,
+        "verdict": "revise",
+        "final_answer": "0.0002",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A38",
+        "tag": "sin-cos-sum",
+        "generator_answer": "1.255511",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1.255511",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A38__r2",
+        "tag": "sin-cos-sum",
+        "generator_answer": "1.255511\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1.255511",
+        "changed": false,
+        "final_correct": true
+      },
+      {
+        "task_id": "A38__r3",
+        "tag": "sin-cos-sum",
+        "generator_answer": "1.255511\n",
+        "generator_correct": true,
+        "verdict": "agree",
+        "final_answer": "1.255511",
+        "changed": false,
+        "final_correct": true
+      }
+    ]
+  },
+  "paired": {
+    "n_pairs": 113,
+    "n_only_B2_correct": 10,
+    "n_only_B1_correct": 1,
+    "mcnemar_exact_p_two_sided": 0.0117,
+    "accuracy_delta_B2_minus_B1": 0.08,
+    "change_rate_delta_B2_minus_B1": -0.045
+  },
+  "cost": {
+    "generation_tokens": 68182,
+    "B1_tokens": 120458,
+    "B2_tokens": 60952,
+    "single_pass_tokens": 68182,
+    "B1_pipeline_tokens": 188640,
+    "B2_pipeline_tokens": 129134,
+    "B1_overhead_ratio_vs_single_pass": 2.767,
+    "B2_overhead_ratio_vs_single_pass": 1.894
+  },
+  "task_set": {
+    "path": "C:\\Users\\86150\\Documents\\ChatGPT\\cs336复习\\hello-gpu\\courses\\08-ai-agent-book\\evidence\\task5\\exp10-1b-adv\\tasks.json",
+    "n_tasks": 114,
+    "n_distinct_tasks": 38,
+    "ground_truth_note": "ground truth 由本机真实执行 stdlib Python 得到，不是模型自述。",
+    "built_at": "2026-10-27T22:05:28-0600",
+    "repeats": 3
+  },
+  "by_family": {
+    "identity-constant": {
+      "n_pairs": 18,
+      "generator_accuracy": 1.0,
+      "B1_final_accuracy": 0.5556,
+      "B2_final_accuracy": 0.9444,
+      "only_B2_correct": 7,
+      "only_B1_correct": 0,
+      "mcnemar_exact_p_two_sided": 0.0156
+    },
+    "original-trap": {
+      "n_pairs": 41,
+      "generator_accuracy": 0.9231,
+      "B1_final_accuracy": 0.878,
+      "B2_final_accuracy": 0.9048,
+      "only_B2_correct": 2,
+      "only_B1_correct": 1,
+      "mcnemar_exact_p_two_sided": 1.0
+    },
+    "realistic-program": {
+      "n_pairs": 18,
+      "generator_accuracy": 1.0,
+      "B1_final_accuracy": 0.9444,
+      "B2_final_accuracy": 1.0,
+      "only_B2_correct": 1,
+      "only_B1_correct": 0,
+      "mcnemar_exact_p_two_sided": 1.0
+    },
+    "semantics-trap": {
+      "n_pairs": 18,
+      "generator_accuracy": 1.0,
+      "B1_final_accuracy": 1.0,
+      "B2_final_accuracy": 1.0,
+      "only_B2_correct": 0,
+      "only_B1_correct": 0,
+      "mcnemar_exact_p_two_sided": 1.0
+    },
+    "simulation": {
+      "n_pairs": 18,
+      "generator_accuracy": 1.0,
+      "B1_final_accuracy": 1.0,
+      "B2_final_accuracy": 1.0,
+      "only_B2_correct": 0,
+      "only_B1_correct": 0,
+      "mcnemar_exact_p_two_sided": 1.0
+    }
+  }
+}

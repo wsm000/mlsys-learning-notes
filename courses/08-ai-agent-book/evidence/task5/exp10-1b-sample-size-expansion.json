@@ -1,0 +1,111 @@
+{
+  "question": "does raising the adversarial sample size make the McNemar test significant?",
+  "short_answer": "yes, but only after fixing two scoring artifacts that were fabricating discordant pairs; and the effect is concentrated in one task family",
+  "step1_power_analysis": {
+    "n_scoreable_screened_tasks": 110,
+    "generator_errors_on_screened": 0,
+    "conclusion": "on these task families the generator error rate is 0, so more samples of the same kind cannot create discordant pairs; a different task family or a weaker generator model is required"
+  },
+  "step2_sample_size": {
+    "before_pairs": 28,
+    "after_pairs": 113,
+    "tasks_before": 14,
+    "tasks_after": 38,
+    "rounds": 3,
+    "new_families": [
+      "realistic-program",
+      "semantics-trap",
+      "identity-constant",
+      "simulation"
+    ]
+  },
+  "step3_scoring_fix": {
+    "artifact": "records with status=incomplete (output budget consumed by reasoning) had no answer text; a literal matcher scores them as wrong",
+    "n_B1_no_answer_before_repair": 17,
+    "n_B2_no_answer_before_repair": 0,
+    "why_it_matters": "the handicap was asymmetric: B1 must reason from scratch while B2 can lean on the evidence, so B1 ran out of budget far more often",
+    "fix": "scorable() requires call_succeeded AND answer_was_produced; no-answer rows are counted in excluded, never scored as wrong"
+  },
+  "step4_harness_repair": {
+    "max_output_tokens_before": 900,
+    "max_output_tokens_after": 3000,
+    "rows_rerun": {
+      "generation": 6,
+      "B1": 17,
+      "B2": 0
+    },
+    "note": "only rows with no answer were dropped and re-run; rows that already produced an answer were untouched, so this removes a handicap rather than selecting samples"
+  },
+  "result": {
+    "n_pairs": 113,
+    "generator_accuracy": 0.973,
+    "B1_final_accuracy": 0.8761,
+    "B2_final_accuracy": 0.9561,
+    "B1_fixed_wrong_to_right": 1,
+    "B1_broke_right_to_wrong": 8,
+    "B2_fixed_wrong_to_right": 5,
+    "B2_broke_right_to_wrong": 1,
+    "only_B2_correct": 10,
+    "only_B1_correct": 1,
+    "mcnemar_exact_p_two_sided": 0.0117,
+    "p_before_any_expansion": 0.5
+  },
+  "where_the_effect_comes_from": {
+    "identity-constant": {
+      "n_pairs": 18,
+      "generator_accuracy": 1,
+      "B1_final_accuracy": 0.5556,
+      "B2_final_accuracy": 0.9444,
+      "only_B2_correct": 7,
+      "only_B1_correct": 0,
+      "mcnemar_exact_p_two_sided": 0.0156
+    },
+    "original-trap": {
+      "n_pairs": 41,
+      "generator_accuracy": 0.9231,
+      "B1_final_accuracy": 0.878,
+      "B2_final_accuracy": 0.9048,
+      "only_B2_correct": 2,
+      "only_B1_correct": 1,
+      "mcnemar_exact_p_two_sided": 1
+    },
+    "realistic-program": {
+      "n_pairs": 18,
+      "generator_accuracy": 1,
+      "B1_final_accuracy": 0.9444,
+      "B2_final_accuracy": 1,
+      "only_B2_correct": 1,
+      "only_B1_correct": 0,
+      "mcnemar_exact_p_two_sided": 1
+    },
+    "semantics-trap": {
+      "n_pairs": 18,
+      "generator_accuracy": 1,
+      "B1_final_accuracy": 1,
+      "B2_final_accuracy": 1,
+      "only_B2_correct": 0,
+      "only_B1_correct": 0,
+      "mcnemar_exact_p_two_sided": 1
+    },
+    "simulation": {
+      "n_pairs": 18,
+      "generator_accuracy": 1,
+      "B1_final_accuracy": 1,
+      "B2_final_accuracy": 1,
+      "only_B2_correct": 0,
+      "only_B1_correct": 0,
+      "mcnemar_exact_p_two_sided": 1
+    }
+  },
+  "interpretation": "the whole effect sits in identity-constant, where the generator is 100% correct but B1 reasons its way to a wrong answer on implementation-dependent identity; B2, shown the real stdout, keeps it right. This is the harmful-self-review regime from table 10-1 and Huang et al. ICLR 2024, not the execution-feedback-fixes-errors regime. The other three families show no difference at all because the generator is already perfect on them.",
+  "honest_limits": [
+    "the identity-constant family is small (18 pairs) and was curated after screening",
+    "the overall p=0.0117 rests on 10 discordant pairs, 7 of which come from that family",
+    "B2 can transcribe the stdout, so 100% accuracy there is partly cheap",
+    "the repair changed the output budget for 17 B1 rows; results are conditional on it"
+  ],
+  "source_files": [
+    "courses/08-ai-agent-book/evidence/task5/exp10-1b-adv/summary.json",
+    "courses/08-ai-agent-book/evidence/task5/exp10-1b-power-analysis.json"
+  ]
+}
