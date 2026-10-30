@@ -1,0 +1,399 @@
+{
+  "cache_dir": "/home/simin/dataflow-task4/text2sql/cache_gen",
+  "prefix": "task4_gen",
+  "steps": [
+    {
+      "step": 1,
+      "file": "task4_gen_step1.jsonl",
+      "exists": true,
+      "rows": 3,
+      "columns": [
+        "db_id",
+        "SQL",
+        "sql_complexity_type"
+      ],
+      "non_null": {
+        "db_id": 3,
+        "SQL": 3,
+        "sql_complexity_type": 3
+      },
+      "value_counts": {
+        "sql_complexity_type": {
+          "Moderate": 1,
+          "Complex": 1,
+          "Simple": 1
+        }
+      },
+      "db_id_counts": {
+        "student_club": 1,
+        "california_schools": 1,
+        "thrombosis_prediction": 1
+      }
+    },
+    {
+      "step": 2,
+      "file": "task4_gen_step2.jsonl",
+      "exists": true,
+      "rows": 3,
+      "columns": [
+        "db_id",
+        "SQL",
+        "sql_complexity_type"
+      ],
+      "non_null": {
+        "db_id": 3,
+        "SQL": 3,
+        "sql_complexity_type": 3
+      },
+      "value_counts": {
+        "sql_complexity_type": {
+          "Moderate": 1,
+          "Complex": 1,
+          "Simple": 1
+        }
+      },
+      "db_id_counts": {
+        "student_club": 1,
+        "california_schools": 1,
+        "thrombosis_prediction": 1
+      }
+    },
+    {
+      "step": 3,
+      "file": "task4_gen_step3.jsonl",
+      "exists": true,
+      "rows": 3,
+      "columns": [
+        "db_id",
+        "SQL",
+        "sql_complexity_type",
+        "question_type",
+        "question",
+        "evidence"
+      ],
+      "non_null": {
+        "db_id": 3,
+        "SQL": 3,
+        "question": 3,
+        "evidence": 3,
+        "sql_complexity_type": 3
+      },
+      "value_counts": {
+        "sql_complexity_type": {
+          "Moderate": 1,
+          "Complex": 1,
+          "Simple": 1
+        },
+        "question_type": {
+          "Formal": 1,
+          "Concise": 1,
+          "Colloquial": 1
+        }
+      },
+      "db_id_counts": {
+        "student_club": 1,
+        "california_schools": 1,
+        "thrombosis_prediction": 1
+      }
+    },
+    {
+      "step": 4,
+      "file": "task4_gen_step4.jsonl",
+      "exists": true,
+      "rows": 2,
+      "columns": [
+        "db_id",
+        "SQL",
+        "sql_complexity_type",
+        "question_type",
+        "question",
+        "evidence"
+      ],
+      "non_null": {
+        "db_id": 2,
+        "SQL": 2,
+        "question": 2,
+        "evidence": 2,
+        "sql_complexity_type": 2
+      },
+      "value_counts": {
+        "sql_complexity_type": {
+          "Moderate": 1,
+          "Complex": 1
+        },
+        "question_type": {
+          "Formal": 1,
+          "Concise": 1
+        }
+      },
+      "db_id_counts": {
+        "student_club": 1,
+        "california_schools": 1
+      }
+    },
+    {
+      "step": 5,
+      "file": "task4_gen_step5.jsonl",
+      "exists": true,
+      "rows": 2,
+      "columns": [
+        "db_id",
+        "SQL",
+        "sql_complexity_type",
+        "question_type",
+        "question",
+        "evidence",
+        "prompt"
+      ],
+      "non_null": {
+        "db_id": 2,
+        "SQL": 2,
+        "question": 2,
+        "evidence": 2,
+        "prompt": 2,
+        "sql_complexity_type": 2
+      },
+      "value_counts": {
+        "sql_complexity_type": {
+          "Moderate": 1,
+          "Complex": 1
+        },
+        "question_type": {
+          "Formal": 1,
+          "Concise": 1
+        }
+      },
+      "db_id_counts": {
+        "student_club": 1,
+        "california_schools": 1
+      }
+    },
+    {
+      "step": 6,
+      "file": "task4_gen_step6.jsonl",
+      "exists": true,
+      "rows": 2,
+      "columns": [
+        "db_id",
+        "SQL",
+        "sql_complexity_type",
+        "question_type",
+        "question",
+        "evidence",
+        "prompt",
+        "cot_responses"
+      ],
+      "non_null": {
+        "db_id": 2,
+        "SQL": 2,
+        "question": 2,
+        "evidence": 2,
+        "prompt": 2,
+        "sql_complexity_type": 2
+      },
+      "value_counts": {
+        "sql_complexity_type": {
+          "Moderate": 1,
+          "Complex": 1
+        },
+        "question_type": {
+          "Formal": 1,
+          "Concise": 1
+        }
+      },
+      "db_id_counts": {
+        "student_club": 1,
+        "california_schools": 1
+      }
+    },
+    {
+      "step": 7,
+      "file": "task4_gen_step7.jsonl",
+      "exists": true,
+      "rows": 2,
+      "columns": [
+        "db_id",
+        "SQL",
+        "sql_complexity_type",
+        "question_type",
+        "question",
+        "evidence",
+        "prompt",
+        "cot_reasoning"
+      ],
+      "non_null": {
+        "db_id": 2,
+        "SQL": 2,
+        "question": 2,
+        "evidence": 2,
+        "prompt": 2,
+        "cot_reasoning": 2,
+        "sql_complexity_type": 2
+      },
+      "value_counts": {
+        "sql_complexity_type": {
+          "Moderate": 1,
+          "Complex": 1
+        },
+        "question_type": {
+          "Formal": 1,
+          "Concise": 1
+        }
+      },
+      "db_id_counts": {
+        "student_club": 1,
+        "california_schools": 1
+      }
+    },
+    {
+      "step": 8,
+      "file": "task4_gen_step8.jsonl",
+      "exists": true,
+      "rows": 2,
+      "columns": [
+        "db_id",
+        "SQL",
+        "sql_complexity_type",
+        "question_type",
+        "question",
+        "evidence",
+        "prompt",
+        "cot_reasoning",
+        "sql_component_difficulty"
+      ],
+      "non_null": {
+        "db_id": 2,
+        "SQL": 2,
+        "question": 2,
+        "evidence": 2,
+        "prompt": 2,
+        "cot_reasoning": 2,
+        "sql_complexity_type": 2,
+        "sql_component_difficulty": 2
+      },
+      "value_counts": {
+        "sql_complexity_type": {
+          "Moderate": 1,
+          "Complex": 1
+        },
+        "sql_component_difficulty": {
+          "hard": 1,
+          "extra": 1
+        },
+        "question_type": {
+          "Formal": 1,
+          "Concise": 1
+        }
+      },
+      "db_id_counts": {
+        "student_club": 1,
+        "california_schools": 1
+      }
+    },
+    {
+      "step": 9,
+      "file": "task4_gen_step9.jsonl",
+      "exists": true,
+      "rows": 2,
+      "columns": [
+        "db_id",
+        "SQL",
+        "sql_complexity_type",
+        "question_type",
+        "question",
+        "evidence",
+        "prompt",
+        "cot_reasoning",
+        "sql_component_difficulty",
+        "sql_execution_difficulty"
+      ],
+      "non_null": {
+        "db_id": 2,
+        "SQL": 2,
+        "question": 2,
+        "evidence": 2,
+        "prompt": 2,
+        "cot_reasoning": 2,
+        "sql_complexity_type": 2,
+        "sql_component_difficulty": 2,
+        "sql_execution_difficulty": 2
+      },
+      "value_counts": {
+        "sql_complexity_type": {
+          "Moderate": 1,
+          "Complex": 1
+        },
+        "sql_component_difficulty": {
+          "hard": 1,
+          "extra": 1
+        },
+        "sql_execution_difficulty": {
+          "extra": 2
+        },
+        "question_type": {
+          "Formal": 1,
+          "Concise": 1
+        }
+      },
+      "db_id_counts": {
+        "student_club": 1,
+        "california_schools": 1
+      }
+    },
+    {
+      "step": 10,
+      "file": "task4_gen_step10.jsonl",
+      "exists": false
+    }
+  ],
+  "log": {
+    "path": "gen.log",
+    "exists": true,
+    "total_lines": 166,
+    "status_429_count": 0,
+    "error_lines": 0,
+    "rate_limit_exceeded_count": 0,
+    "token_rate_limit_count": 0,
+    "concurrency_limit_count": 0,
+    "model_glm_count": 0,
+    "model_deepseek_count": 5,
+    "step_markers": [
+      [
+        "1",
+        "3"
+      ],
+      [
+        "2",
+        "3"
+      ],
+      [
+        "3",
+        "3"
+      ],
+      [
+        "4",
+        "2"
+      ],
+      [
+        "5",
+        "2"
+      ],
+      [
+        "6",
+        "2"
+      ],
+      [
+        "7",
+        "2"
+      ],
+      [
+        "8",
+        "2"
+      ],
+      [
+        "9",
+        "2"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "input": "/home/simin/dataflow-task4/text2sql/subset_refine.jsonl",
+  "db_root": "/home/simin/dataflow-task4/db/downloaded_databases/databases",
+  "cache_dir": "/home/simin/dataflow-task4/text2sql/cache_refine",
+  "args": {
+    "input": "subset_refine.jsonl",
+    "cache_dir": "./cache_refine",
+    "prefix": "task4_refine",
+    "db_root": "/home/simin/dataflow-task4/db/downloaded_databases/databases",
+    "num_variations": 1,
+    "question_candidates": 2,
+    "cot_sampling": 1,
+    "exec_generations": 3,
+    "max_workers": 2,
+    "max_retries": 8,
+    "temperature": 0.7,
+    "device": "cuda",
+    "embedding_model": ""
+  },
+  "steps": [
+    {
+      "step": 1,
+      "file": "task4_refine_step1.jsonl",
+      "rows": 4,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL"
+      ],
+      "non_null": {
+        "db_id": 4,
+        "SQL": 4,
+        "question": 4
+      }
+    },
+    {
+      "step": 2,
+      "file": "task4_refine_step2.jsonl",
+      "rows": 4,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL",
+        "sql_variation_type"
+      ],
+      "non_null": {
+        "db_id": 4,
+        "SQL": 4,
+        "question": 0,
+        "sql_variation_type": 4
+      }
+    },
+    {
+      "step": 3,
+      "file": "task4_refine_step3.jsonl",
+      "rows": 4,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL",
+        "sql_variation_type"
+      ],
+      "non_null": {
+        "db_id": 4,
+        "SQL": 4,
+        "question": 0,
+        "sql_variation_type": 4
+      }
+    },
+    {
+      "step": 4,
+      "file": "task4_refine_step4.jsonl",
+      "rows": 4,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL",
+        "sql_variation_type",
+        "question_type",
+        "evidence"
+      ],
+      "non_null": {
+        "db_id": 4,
+        "SQL": 4,
+        "question": 4,
+        "evidence": 4,
+        "sql_variation_type": 4
+      }
+    },
+    {
+      "step": 5,
+      "file": "task4_refine_step5.jsonl",
+      "rows": 3,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL",
+        "sql_variation_type",
+        "question_type",
+        "evidence"
+      ],
+      "non_null": {
+        "db_id": 3,
+        "SQL": 3,
+        "question": 3,
+        "evidence": 3,
+        "sql_variation_type": 3
+      }
+    },
+    {
+      "step": 6,
+      "file": "task4_refine_step6.jsonl",
+      "rows": 3,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL",
+        "sql_variation_type",
+        "question_type",
+        "evidence",
+        "prompt"
+      ],
+      "non_null": {
+        "db_id": 3,
+        "SQL": 3,
+        "question": 3,
+        "evidence": 3,
+        "prompt": 3,
+        "sql_variation_type": 3
+      }
+    },
+    {
+      "step": 7,
+      "file": "task4_refine_step7.jsonl",
+      "rows": 3,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL",
+        "sql_variation_type",
+        "question_type",
+        "evidence",
+        "prompt",
+        "cot_responses"
+      ],
+      "non_null": {
+        "db_id": 3,
+        "SQL": 3,
+        "question": 3,
+        "evidence": 3,
+        "prompt": 3,
+        "sql_variation_type": 3
+      }
+    },
+    {
+      "step": 8,
+      "file": "task4_refine_step8.jsonl",
+      "rows": 3,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL",
+        "sql_variation_type",
+        "question_type",
+        "evidence",
+        "prompt",
+        "cot_reasoning"
+      ],
+      "non_null": {
+        "db_id": 3,
+        "SQL": 3,
+        "question": 3,
+        "evidence": 3,
+        "prompt": 3,
+        "cot_reasoning": 3,
+        "sql_variation_type": 3
+      }
+    },
+    {
+      "step": 9,
+      "file": "task4_refine_step9.jsonl",
+      "rows": 3,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL",
+        "sql_variation_type",
+        "question_type",
+        "evidence",
+        "prompt",
+        "cot_reasoning",
+        "sql_component_difficulty"
+      ],
+      "non_null": {
+        "db_id": 3,
+        "SQL": 3,
+        "question": 3,
+        "evidence": 3,
+        "prompt": 3,
+        "cot_reasoning": 3,
+        "sql_variation_type": 3,
+        "sql_component_difficulty": 3
+      }
+    },
+    {
+      "step": 10,
+      "file": "task4_refine_step10.jsonl",
+      "rows": 3,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL",
+        "sql_variation_type",
+        "question_type",
+        "evidence",
+        "prompt",
+        "cot_reasoning",
+        "sql_component_difficulty",
+        "sql_execution_difficulty"
+      ],
+      "non_null": {
+        "db_id": 3,
+        "SQL": 3,
+        "question": 3,
+        "evidence": 3,
+        "prompt": 3,
+        "cot_reasoning": 3,
+        "sql_variation_type": 3,
+        "sql_component_difficulty": 3,
+        "sql_execution_difficulty": 3
+      }
+    }
+  ]
+}

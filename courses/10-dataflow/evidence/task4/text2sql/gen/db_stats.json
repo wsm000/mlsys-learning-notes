@@ -1,0 +1,73 @@
+{
+  "california_schools": {
+    "size_bytes": 11116544,
+    "tables": {
+      "frpm": {
+        "columns": 29,
+        "rows": 9986
+      },
+      "satscores": {
+        "columns": 11,
+        "rows": 2269
+      },
+      "schools": {
+        "columns": 49,
+        "rows": 17686
+      }
+    }
+  },
+  "student_club": {
+    "size_bytes": 2641920,
+    "tables": {
+      "event": {
+        "columns": 7,
+        "rows": 42
+      },
+      "major": {
+        "columns": 4,
+        "rows": 113
+      },
+      "zip_code": {
+        "columns": 6,
+        "rows": 41877
+      },
+      "attendance": {
+        "columns": 2,
+        "rows": 326
+      },
+      "budget": {
+        "columns": 7,
+        "rows": 52
+      },
+      "expense": {
+        "columns": 7,
+        "rows": 32
+      },
+      "income": {
+        "columns": 6,
+        "rows": 36
+      },
+      "member": {
+        "columns": 9,
+        "rows": 33
+      }
+    }
+  },
+  "thrombosis_prediction": {
+    "size_bytes": 7327744,
+    "tables": {
+      "Examination": {
+        "columns": 13,
+        "rows": 806
+      },
+      "Patient": {
+        "columns": 7,
+        "rows": 1238
+      },
+      "Laboratory": {
+        "columns": 44,
+        "rows": 13908
+      }
+    }
+  }
+}

@@ -1,0 +1,357 @@
+{
+  "cache_dir": "/home/simin/dataflow-task4/text2sql/cache_smoke",
+  "prefix": "task4_refine_smoke",
+  "steps": [
+    {
+      "step": 1,
+      "file": "task4_refine_smoke_step1.jsonl",
+      "exists": true,
+      "rows": 2,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL"
+      ],
+      "non_null": {
+        "db_id": 2,
+        "SQL": 2,
+        "question": 2
+      },
+      "db_id_counts": {
+        "california_schools": 2
+      }
+    },
+    {
+      "step": 2,
+      "file": "task4_refine_smoke_step2.jsonl",
+      "exists": true,
+      "rows": 2,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL",
+        "sql_variation_type"
+      ],
+      "non_null": {
+        "db_id": 2,
+        "SQL": 2,
+        "question": 0,
+        "sql_variation_type": 2
+      },
+      "value_counts": {
+        "sql_variation_type": {
+          "Query Structure Modifications": 1,
+          "Business Logic Changes": 1
+        }
+      },
+      "db_id_counts": {
+        "california_schools": 2
+      }
+    },
+    {
+      "step": 3,
+      "file": "task4_refine_smoke_step3.jsonl",
+      "exists": true,
+      "rows": 2,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL",
+        "sql_variation_type"
+      ],
+      "non_null": {
+        "db_id": 2,
+        "SQL": 2,
+        "question": 0,
+        "sql_variation_type": 2
+      },
+      "value_counts": {
+        "sql_variation_type": {
+          "Query Structure Modifications": 1,
+          "Business Logic Changes": 1
+        }
+      },
+      "db_id_counts": {
+        "california_schools": 2
+      }
+    },
+    {
+      "step": 4,
+      "file": "task4_refine_smoke_step4.jsonl",
+      "exists": true,
+      "rows": 2,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL",
+        "sql_variation_type",
+        "question_type",
+        "evidence"
+      ],
+      "non_null": {
+        "db_id": 2,
+        "SQL": 2,
+        "question": 2,
+        "evidence": 2,
+        "sql_variation_type": 2
+      },
+      "value_counts": {
+        "sql_variation_type": {
+          "Query Structure Modifications": 1,
+          "Business Logic Changes": 1
+        },
+        "question_type": {
+          "Concise": 1,
+          "Descriptive": 1
+        }
+      },
+      "db_id_counts": {
+        "california_schools": 2
+      }
+    },
+    {
+      "step": 5,
+      "file": "task4_refine_smoke_step5.jsonl",
+      "exists": true,
+      "rows": 2,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL",
+        "sql_variation_type",
+        "question_type",
+        "evidence"
+      ],
+      "non_null": {
+        "db_id": 2,
+        "SQL": 2,
+        "question": 2,
+        "evidence": 2,
+        "sql_variation_type": 2
+      },
+      "value_counts": {
+        "sql_variation_type": {
+          "Query Structure Modifications": 1,
+          "Business Logic Changes": 1
+        },
+        "question_type": {
+          "Concise": 1,
+          "Descriptive": 1
+        }
+      },
+      "db_id_counts": {
+        "california_schools": 2
+      }
+    },
+    {
+      "step": 6,
+      "file": "task4_refine_smoke_step6.jsonl",
+      "exists": true,
+      "rows": 2,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL",
+        "sql_variation_type",
+        "question_type",
+        "evidence",
+        "prompt"
+      ],
+      "non_null": {
+        "db_id": 2,
+        "SQL": 2,
+        "question": 2,
+        "evidence": 2,
+        "prompt": 2,
+        "sql_variation_type": 2
+      },
+      "value_counts": {
+        "sql_variation_type": {
+          "Query Structure Modifications": 1,
+          "Business Logic Changes": 1
+        },
+        "question_type": {
+          "Concise": 1,
+          "Descriptive": 1
+        }
+      },
+      "db_id_counts": {
+        "california_schools": 2
+      }
+    },
+    {
+      "step": 7,
+      "file": "task4_refine_smoke_step7.jsonl",
+      "exists": true,
+      "rows": 2,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL",
+        "sql_variation_type",
+        "question_type",
+        "evidence",
+        "prompt",
+        "cot_responses"
+      ],
+      "non_null": {
+        "db_id": 2,
+        "SQL": 2,
+        "question": 2,
+        "evidence": 2,
+        "prompt": 2,
+        "sql_variation_type": 2
+      },
+      "value_counts": {
+        "sql_variation_type": {
+          "Query Structure Modifications": 1,
+          "Business Logic Changes": 1
+        },
+        "question_type": {
+          "Concise": 1,
+          "Descriptive": 1
+        }
+      },
+      "db_id_counts": {
+        "california_schools": 2
+      }
+    },
+    {
+      "step": 8,
+      "file": "task4_refine_smoke_step8.jsonl",
+      "exists": true,
+      "rows": 2,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL",
+        "sql_variation_type",
+        "question_type",
+        "evidence",
+        "prompt",
+        "cot_reasoning"
+      ],
+      "non_null": {
+        "db_id": 2,
+        "SQL": 2,
+        "question": 2,
+        "evidence": 2,
+        "prompt": 2,
+        "cot_reasoning": 2,
+        "sql_variation_type": 2
+      },
+      "value_counts": {
+        "sql_variation_type": {
+          "Query Structure Modifications": 1,
+          "Business Logic Changes": 1
+        },
+        "question_type": {
+          "Concise": 1,
+          "Descriptive": 1
+        }
+      },
+      "db_id_counts": {
+        "california_schools": 2
+      }
+    },
+    {
+      "step": 9,
+      "file": "task4_refine_smoke_step9.jsonl",
+      "exists": true,
+      "rows": 2,
+      "columns": [
+        "db_id",
+        "question",
+        "SQL",
+        "sql_variation_type",
+        "question_type",
+        "evidence",
+        "prompt",
+        "cot_reasoning",
+        "sql_component_difficulty"
+      ],
+      "non_null": {
+        "db_id": 2,
+        "SQL": 2,
+        "question": 2,
+        "evidence": 2,
+        "prompt": 2,
+        "cot_reasoning": 2,
+        "sql_variation_type": 2,
+        "sql_component_difficulty": 2
+      },
+      "value_counts": {
+        "sql_variation_type": {
+          "Query Structure Modifications": 1,
+          "Business Logic Changes": 1
+        },
+        "sql_component_difficulty": {
+          "hard": 1,
+          "medium": 1
+        },
+        "question_type": {
+          "Concise": 1,
+          "Descriptive": 1
+        }
+      },
+      "db_id_counts": {
+        "california_schools": 2
+      }
+    },
+    {
+      "step": 10,
+      "file": "task4_refine_smoke_step10.jsonl",
+      "exists": false
+    }
+  ],
+  "log": {
+    "path": "smoke.log",
+    "exists": true,
+    "total_lines": 179,
+    "status_429_count": 29,
+    "error_lines": 0,
+    "rate_limit_exceeded_count": 58,
+    "token_rate_limit_count": 16,
+    "concurrency_limit_count": 0,
+    "model_glm_count": 0,
+    "model_deepseek_count": 1,
+    "step_markers": [
+      [
+        "1",
+        "2"
+      ],
+      [
+        "2",
+        "2"
+      ],
+      [
+        "3",
+        "2"
+      ],
+      [
+        "4",
+        "2"
+      ],
+      [
+        "5",
+        "2"
+      ],
+      [
+        "6",
+        "2"
+      ],
+      [
+        "7",
+        "2"
+      ],
+      [
+        "8",
+        "2"
+      ],
+      [
+        "9",
+        "2"
+      ]
+    ]
+  }
+}

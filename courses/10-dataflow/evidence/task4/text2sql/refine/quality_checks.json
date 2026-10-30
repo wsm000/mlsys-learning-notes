@@ -1,0 +1,128 @@
+{
+  "generated_at": "2026-10-29T14:44:32.932Z",
+  "refine": {
+    "n": 3,
+    "fields": [
+      "db_id",
+      "question",
+      "SQL",
+      "sql_variation_type",
+      "question_type",
+      "evidence",
+      "prompt",
+      "cot_reasoning",
+      "sql_component_difficulty",
+      "sql_execution_difficulty"
+    ],
+    "n_fields": 10,
+    "non_empty_per_row": [
+      9,
+      9,
+      9
+    ],
+    "prompt_len": {
+      "min": 6121,
+      "max": 6232,
+      "avg": 6174
+    },
+    "cot_len": {
+      "min": 973,
+      "max": 1339,
+      "avg": 1131
+    },
+    "sql_len": {
+      "min": 316,
+      "max": 1619,
+      "avg": 761
+    },
+    "per_row": [
+      {
+        "db_id": "california_schools",
+        "question_type": "Colloquial",
+        "sql_variation_type": "Query Structure Modifications",
+        "sql_component_difficulty": "medium",
+        "sql_execution_difficulty": "hard",
+        "question_len": 259,
+        "evidence_len": 0,
+        "sql_len": 347,
+        "prompt_len": 6232,
+        "cot_len": 1080
+      },
+      {
+        "db_id": "california_schools",
+        "question_type": "Interrogative",
+        "sql_variation_type": "Advanced SQL Features",
+        "sql_component_difficulty": "extra",
+        "sql_execution_difficulty": "easy",
+        "question_len": 148,
+        "evidence_len": 0,
+        "sql_len": 1619,
+        "prompt_len": 6121,
+        "cot_len": 1339
+      },
+      {
+        "db_id": "california_schools",
+        "question_type": "Formal",
+        "sql_variation_type": "Query Structure Modifications",
+        "sql_component_difficulty": "medium",
+        "sql_execution_difficulty": "easy",
+        "question_len": 197,
+        "evidence_len": 0,
+        "sql_len": 316,
+        "prompt_len": 6170,
+        "cot_len": 973
+      }
+    ],
+    "value_counts": {
+      "question_type": {
+        "Colloquial": 1,
+        "Interrogative": 1,
+        "Formal": 1
+      },
+      "sql_variation_type": {
+        "Query Structure Modifications": 2,
+        "Advanced SQL Features": 1
+      },
+      "sql_component_difficulty": {
+        "medium": 2,
+        "extra": 1
+      },
+      "sql_execution_difficulty": {
+        "hard": 1,
+        "easy": 2
+      }
+    }
+  },
+  "smoke": {
+    "n": 2,
+    "fields": [
+      "db_id",
+      "question",
+      "SQL",
+      "sql_variation_type",
+      "question_type",
+      "evidence",
+      "prompt",
+      "cot_reasoning",
+      "sql_component_difficulty"
+    ],
+    "non_empty_per_row": [
+      8,
+      8
+    ],
+    "value_counts": {
+      "question_type": {
+        "Concise": 1,
+        "Descriptive": 1
+      },
+      "sql_variation_type": {
+        "Query Structure Modifications": 1,
+        "Business Logic Changes": 1
+      },
+      "sql_component_difficulty": {
+        "hard": 1,
+        "medium": 1
+      }
+    }
+  }
+}

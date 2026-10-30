@@ -1,0 +1,173 @@
+{
+  "input_file": "/home/simin/dataflow-task4/agentic_rag/input_main.jsonl",
+  "step1_cache": "/home/simin/dataflow-task4/agentic_rag/cache_main/agentic_rag_task4_step1.jsonl",
+  "step1_rows": 4,
+  "final_cache": "/home/simin/dataflow-task4/agentic_rag/cache_main/agentic_rag_task4_step2.jsonl",
+  "final_rows": 4,
+  "step1_columns": [
+    "id",
+    "contents",
+    "identifier",
+    "candidate_tasks_str",
+    "question",
+    "answer",
+    "refined_answer",
+    "llm_answer",
+    "llm_score",
+    "golden_doc_answer",
+    "golden_doc_score",
+    "optional_answer"
+  ],
+  "final_columns": [
+    "id",
+    "contents",
+    "identifier",
+    "candidate_tasks_str",
+    "question",
+    "answer",
+    "refined_answer",
+    "llm_answer",
+    "llm_score",
+    "golden_doc_answer",
+    "golden_doc_score",
+    "optional_answer",
+    "F1Score"
+  ],
+  "expected_fields": [
+    "question",
+    "answer",
+    "refined_answer",
+    "optional_answer",
+    "llm_answer",
+    "golden_doc_answer",
+    "identifier",
+    "candidate_tasks_str",
+    "llm_score",
+    "golden_doc_score",
+    "F1Score"
+  ],
+  "field_presence": {
+    "question": "present",
+    "answer": "present",
+    "refined_answer": "present",
+    "optional_answer": "present",
+    "llm_answer": "present",
+    "golden_doc_answer": "present",
+    "identifier": "present",
+    "candidate_tasks_str": "present",
+    "llm_score": "present",
+    "golden_doc_score": "present",
+    "F1Score": "present"
+  },
+  "field_completeness": {
+    "present": 11,
+    "expected": 11,
+    "ratio": 1.0,
+    "rate": "100.0%"
+  },
+  "empty_rate": {
+    "question": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "answer": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "refined_answer": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "optional_answer": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "llm_answer": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "golden_doc_answer": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "identifier": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "candidate_tasks_str": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "llm_score": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "golden_doc_score": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "F1Score": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    }
+  },
+  "f1_stats": {
+    "n": 4,
+    "mean": 0.6957,
+    "min": 0.0,
+    "p25": 0.7826,
+    "median": 1.0,
+    "p75": 1.0,
+    "max": 1.0,
+    "n_eq_0": 1,
+    "n_ge_0_5": 3,
+    "n_eq_1": 2,
+    "histogram_0.2bins": [
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  "score_stats": {
+    "llm_score": {
+      "n": 4,
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "golden_doc_score": {
+      "n": 4,
+      "mean": 1.75,
+      "min": 1.0,
+      "max": 2.0
+    }
+  },
+  "field_types_sample": {
+    "id": "int",
+    "contents": "str",
+    "identifier": "str",
+    "candidate_tasks_str": "str",
+    "question": "str",
+    "answer": "str",
+    "refined_answer": "str",
+    "llm_answer": "str",
+    "llm_score": "int",
+    "golden_doc_answer": "str",
+    "golden_doc_score": "int",
+    "optional_answer": "list",
+    "F1Score": "float"
+  }
+}

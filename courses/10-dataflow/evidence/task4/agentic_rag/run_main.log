@@ -1,0 +1,260 @@
+input subset: /home/simin/dataflow-task4/agentic_rag/input_main.jsonl 4 rows
+=== PROFILE=main ROWS=4 RPM=12 WORKERS=2 CACHE=/home/simin/dataflow-task4/agentic_rag/cache_main ===
+2026-10-29T22:33:06+08:00
+[32m2026-10-29 22:33:06.687[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/agentic_rag/'] trying to import AgenticRAGAtomicTaskGenerator [0m
+[32m2026-10-29 22:33:07.007[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/agentic_rag/'] trying to import AgenticRAGQAF1SampleEvaluator [0m
+/home/simin/.venv-df3/lib/python3.10/site-packages/google/api_core/_python_version_support.py:223: FutureWarning: You are using a non-supported Python version (3.10.12). Google will not post any further updates to google.api_core supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.11, and then update google.api_core.
+  warnings.warn(message, FutureWarning)
+/home/simin/.venv-df3/lib/python3.10/site-packages/google/api_core/_python_version_support.py:223: FutureWarning: You are using a non-supported Python version (3.10.12). Google will not post any further updates to google.cloud.aiplatform_v1 supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.11, and then update google.cloud.aiplatform_v1.
+  warnings.warn(message, FutureWarning)
+/home/simin/.venv-df3/lib/python3.10/site-packages/google/api_core/_python_version_support.py:223: FutureWarning: You are using a non-supported Python version (3.10.12). Google will not post any further updates to google.cloud.aiplatform_v1beta1 supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.11, and then update google.cloud.aiplatform_v1beta1.
+  warnings.warn(message, FutureWarning)
+/home/simin/.venv-df3/lib/python3.10/site-packages/google/api_core/_python_version_support.py:223: FutureWarning: You are using a non-supported Python version (3.10.12). Google will not post any further updates to google.cloud.resourcemanager_v3 supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.11, and then update google.cloud.resourcemanager_v3.
+  warnings.warn(message, FutureWarning)
+/home/simin/.venv-df3/lib/python3.10/site-packages/google/api_core/_python_version_support.py:223: FutureWarning: You are using a non-supported Python version (3.10.12). Google will not post any further updates to google.cloud.aiplatform.v1.schema.predict.instance_v1 supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.11, and then update google.cloud.aiplatform.v1.schema.predict.instance_v1.
+  warnings.warn(message, FutureWarning)
+/home/simin/.venv-df3/lib/python3.10/site-packages/google/api_core/_python_version_support.py:223: FutureWarning: You are using a non-supported Python version (3.10.12). Google will not post any further updates to google.cloud.aiplatform.v1.schema.predict.params_v1 supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.11, and then update google.cloud.aiplatform.v1.schema.predict.params_v1.
+  warnings.warn(message, FutureWarning)
+/home/simin/.venv-df3/lib/python3.10/site-packages/google/api_core/_python_version_support.py:223: FutureWarning: You are using a non-supported Python version (3.10.12). Google will not post any further updates to google.cloud.aiplatform.v1.schema.predict.prediction_v1 supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.11, and then update google.cloud.aiplatform.v1.schema.predict.prediction_v1.
+  warnings.warn(message, FutureWarning)
+/home/simin/.venv-df3/lib/python3.10/site-packages/google/api_core/_python_version_support.py:223: FutureWarning: You are using a non-supported Python version (3.10.12). Google will not post any further updates to google.cloud.aiplatform.v1.schema.trainingjob.definition_v1 supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.11, and then update google.cloud.aiplatform.v1.schema.trainingjob.definition_v1.
+  warnings.warn(message, FutureWarning)
+/home/simin/.venv-df3/lib/python3.10/site-packages/google/api_core/_python_version_support.py:223: FutureWarning: You are using a non-supported Python version (3.10.12). Google will not post any further updates to google.cloud.aiplatform.v1beta1.schema.predict.instance_v1beta1 supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.11, and then update google.cloud.aiplatform.v1beta1.schema.predict.instance_v1beta1.
+  warnings.warn(message, FutureWarning)
+/home/simin/.venv-df3/lib/python3.10/site-packages/google/api_core/_python_version_support.py:223: FutureWarning: You are using a non-supported Python version (3.10.12). Google will not post any further updates to google.cloud.aiplatform.v1beta1.schema.predict.params_v1beta1 supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.11, and then update google.cloud.aiplatform.v1beta1.schema.predict.params_v1beta1.
+  warnings.warn(message, FutureWarning)
+/home/simin/.venv-df3/lib/python3.10/site-packages/google/api_core/_python_version_support.py:223: FutureWarning: You are using a non-supported Python version (3.10.12). Google will not post any further updates to google.cloud.aiplatform.v1beta1.schema.predict.prediction_v1beta1 supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.11, and then update google.cloud.aiplatform.v1beta1.schema.predict.prediction_v1beta1.
+  warnings.warn(message, FutureWarning)
+/home/simin/.venv-df3/lib/python3.10/site-packages/google/api_core/_python_version_support.py:223: FutureWarning: You are using a non-supported Python version (3.10.12). Google will not post any further updates to google.cloud.aiplatform.v1beta1.schema.trainingjob.definition_v1beta1 supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.11, and then update google.cloud.aiplatform.v1beta1.schema.trainingjob.definition_v1beta1.
+  warnings.warn(message, FutureWarning)
+/home/simin/.venv-df3/lib/python3.10/site-packages/google/api_core/_python_version_support.py:223: FutureWarning: You are using a non-supported Python version (3.10.12). Google will not post any further updates to google.cloud.bigquery_storage_v1 supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.11, and then update google.cloud.bigquery_storage_v1.
+  warnings.warn(message, FutureWarning)
+/home/simin/.venv-df3/lib/python3.10/site-packages/google/api_core/_python_version_support.py:223: FutureWarning: You are using a non-supported Python version (3.10.12). Google will not post any further updates to google.cloud.bigquery supporting this Python version. Please upgrade to the latest Python version, or at least Python 3.11, and then update google.cloud.bigquery.
+  warnings.warn(message, FutureWarning)
+[THROTTLE] client-side rpm=12 (interval=5.00s)
+[32m2026-10-29 22:33:15.137[0m | [37mINFO    [0m | [36mDataFlow[0m:[36magenticrag_qaf1_sample_evaluator.py[0m:[36m__init__[0m:[36m17[0m - [37mInitializing AgenticRAGQAF1SampleEvaluator...[0m
+[32m2026-10-29 22:33:15.137[0m | [37mINFO    [0m | [36mDataFlow[0m:[36magenticrag_qaf1_sample_evaluator.py[0m:[36m__init__[0m:[36m18[0m - [37mAgenticRAGQAF1SampleEvaluator initialized.[0m
+[CONFIG] input        = /home/simin/dataflow-task4/agentic_rag/input_main.jsonl
+[CONFIG] cache_path   = /home/simin/dataflow-task4/agentic_rag/cache_main
+[CONFIG] api_url      = https://developer.amd.com.cn/radeon/api/v1/chat/completions
+[CONFIG] model        = DeepSeek-V4-Flash
+[CONFIG] max_workers  = 2
+[CONFIG] max_retries  = 6
+[CONFIG] max_per_task = 2
+[CONFIG] max_question = 1
+[STEP1] AgenticRAGAtomicTaskGenerator start
+[32m2026-10-29 22:33:15.137[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task4/agentic_rag/input_main.jsonl with type dataframe[0m
+[32m2026-10-29 22:33:15.137[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m610[0m - [37mReading remote dataset from /home/simin/dataflow-task4/agentic_rag/input_main.jsonl with type dataframe[0m
+[32m2026-10-29 22:33:15.142[0m | [37mINFO    [0m | [36mDataFlow[0m:[36magenticrag_atomic_task_generator.py[0m:[36mrun[0m:[36m317[0m - [37mGet identifier...[0m
+Generating responses from prompts......:   0%|          | 0/4 [00:00<?, ?it/s]Generating responses from prompts......:  25%|██▌       | 1/4 [00:01<00:04,  1.46s/it]Generating responses from prompts......:  50%|█████     | 2/4 [00:07<00:08,  4.39s/it]Generating responses from prompts......:  75%|███████▌  | 3/4 [00:11<00:04,  4.25s/it]Generating responses from prompts......: 100%|██████████| 4/4 [00:16<00:00,  4.42s/it]Generating responses from prompts......: 100%|██████████| 4/4 [00:16<00:00,  4.17s/it]
+[32m2026-10-29 22:33:31.813[0m | [37mINFO    [0m | [36mDataFlow[0m:[36magenticrag_atomic_task_generator.py[0m:[36mrun[0m:[36m322[0m - [37mGet conclusions...[0m
+Generating responses from prompts......:   0%|          | 0/4 [00:00<?, ?it/s]Generating responses from prompts......:  25%|██▌       | 1/4 [00:08<00:25,  8.56s/it]Generating responses from prompts......:  50%|█████     | 2/4 [00:30<00:33, 16.63s/it]Generating responses from prompts......:  75%|███████▌  | 3/4 [00:31<00:09,  9.44s/it]Generating responses from prompts......: 100%|██████████| 4/4 [01:16<00:00, 23.26s/it]Generating responses from prompts......: 100%|██████████| 4/4 [01:16<00:00, 19.04s/it]
+[32m2026-10-29 22:34:47.983[0m | [37mINFO    [0m | [36mDataFlow[0m:[36magenticrag_atomic_task_generator.py[0m:[36mrun[0m:[36m355[0m - [37mGenerate questions based on conclusion + reasoning...[0m
+Generating responses from prompts......:   0%|          | 0/8 [00:00<?, ?it/s]Generating responses from prompts......:  12%|█▎        | 1/8 [00:01<00:09,  1.31s/it]Generating responses from prompts......:  25%|██▌       | 2/8 [00:06<00:21,  3.64s/it]Generating responses from prompts......:  38%|███▊      | 3/8 [00:11<00:20,  4.01s/it]Generating responses from prompts......:  50%|█████     | 4/8 [00:17<00:20,  5.00s/it]Generating responses from prompts......:  62%|██████▎   | 5/8 [00:21<00:13,  4.61s/it]Generating responses from prompts......:  75%|███████▌  | 6/8 [00:28<00:11,  5.55s/it]Generating responses from prompts......:  88%|████████▊ | 7/8 [00:32<00:04,  4.89s/it]Generating responses from prompts......: 100%|██████████| 8/8 [00:36<00:00,  4.58s/it]Generating responses from prompts......: 100%|██████████| 8/8 [00:36<00:00,  4.54s/it]
+[32m2026-10-29 22:35:24.269[0m | [37mINFO    [0m | [36mDataFlow[0m:[36magenticrag_atomic_task_generator.py[0m:[36mrun[0m:[36m391[0m - [37mClean QA...[0m
+Generating responses from prompts......:   0%|          | 0/8 [00:00<?, ?it/s]Generating responses from prompts......:  12%|█▎        | 1/8 [00:05<00:39,  5.64s/it]Generating responses from prompts......:  25%|██▌       | 2/8 [00:10<00:31,  5.28s/it]Generating responses from prompts......:  38%|███▊      | 3/8 [00:17<00:29,  5.84s/it]Generating responses from prompts......:  50%|█████     | 4/8 [00:28<00:31,  7.85s/it]Generating responses from prompts......:  62%|██████▎   | 5/8 [00:28<00:15,  5.27s/it]Generating responses from prompts......:  75%|███████▌  | 6/8 [00:38<00:13,  6.78s/it]Generating responses from prompts......:  88%|████████▊ | 7/8 [00:39<00:05,  5.03s/it]Generating responses from prompts......: 100%|██████████| 8/8 [00:54<00:00,  7.95s/it]Generating responses from prompts......: 100%|██████████| 8/8 [00:54<00:00,  6.77s/it]
+[32m2026-10-29 22:36:18.417[0m | [37mINFO    [0m | [36mDataFlow[0m:[36magenticrag_atomic_task_generator.py[0m:[36mrun[0m:[36m408[0m - [37mLLM reasoning verify...[0m
+Generating responses from prompts......:   0%|          | 0/8 [00:00<?, ?it/s]Generating responses from prompts......:  12%|█▎        | 1/8 [00:07<00:53,  7.61s/it]Generating responses from prompts......:  25%|██▌       | 2/8 [00:08<00:22,  3.78s/it]Generating responses from prompts......:  38%|███▊      | 3/8 [00:12<00:18,  3.64s/it]Generating responses from prompts......:  50%|█████     | 4/8 [00:37<00:49, 12.30s/it]Generating responses from prompts......:  62%|██████▎   | 5/8 [00:39<00:25,  8.65s/it]Generating responses from prompts......:  75%|███████▌  | 6/8 [00:41<00:12,  6.26s/it]Generating responses from prompts......:  88%|████████▊ | 7/8 [00:47<00:06,  6.12s/it]Generating responses from prompts......: 100%|██████████| 8/8 [00:50<00:00,  5.12s/it]Generating responses from prompts......: 100%|██████████| 8/8 [00:50<00:00,  6.29s/it]
+Generating responses from prompts......:   0%|          | 0/8 [00:00<?, ?it/s]Generating responses from prompts......:  12%|█▎        | 1/8 [00:35<04:05, 35.12s/it]Generating responses from prompts......:  25%|██▌       | 2/8 [00:35<01:28, 14.76s/it]Generating responses from prompts......:  38%|███▊      | 3/8 [00:40<00:52, 10.42s/it]Generating responses from prompts......:  50%|█████     | 4/8 [01:11<01:13, 18.48s/it]Generating responses from prompts......:  62%|██████▎   | 5/8 [01:14<00:38, 12.69s/it]Generating responses from prompts......:  75%|███████▌  | 6/8 [01:14<00:17,  8.66s/it]Generating responses from prompts......:  88%|████████▊ | 7/8 [01:20<00:07,  7.62s/it]Generating responses from prompts......: 100%|██████████| 8/8 [01:23<00:00,  6.29s/it]Generating responses from prompts......: 100%|██████████| 8/8 [01:23<00:00, 10.49s/it]
+[32m2026-10-29 22:38:32.704[0m | [37mINFO    [0m | [36mDataFlow[0m:[36magenticrag_atomic_task_generator.py[0m:[36mrun[0m:[36m421[0m - [37mGet golden doc answer...[0m
+Generating responses from prompts......:   0%|          | 0/7 [00:00<?, ?it/s]Generating responses from prompts......:  14%|█▍        | 1/7 [00:03<00:22,  3.78s/it]Generating responses from prompts......:  29%|██▊       | 2/7 [00:15<00:43,  8.71s/it]Generating responses from prompts......:  43%|████▎     | 3/7 [00:20<00:27,  6.82s/it]Generating responses from prompts......:  57%|█████▋    | 4/7 [00:56<00:54, 18.28s/it]Generating responses from prompts......:  71%|███████▏  | 5/7 [00:57<00:23, 11.95s/it]Generating responses from prompts......:  86%|████████▌ | 6/7 [01:02<00:09,  9.67s/it]Generating responses from prompts......: 100%|██████████| 7/7 [01:03<00:00,  6.85s/it]Generating responses from prompts......: 100%|██████████| 7/7 [01:03<00:00,  9.06s/it]
+[32m2026-10-29 22:39:36.091[0m | [37mINFO    [0m | [36mDataFlow[0m:[36magenticrag_atomic_task_generator.py[0m:[36mrun[0m:[36m428[0m - [37mGolden doc LLM verifying...[0m
+Generating responses from prompts......:   0%|          | 0/7 [00:00<?, ?it/s]Generating responses from prompts......:  14%|█▍        | 1/7 [00:11<01:08, 11.41s/it]Generating responses from prompts......:  29%|██▊       | 2/7 [00:22<00:54, 10.99s/it]Generating responses from prompts......:  57%|█████▋    | 4/7 [00:23<00:13,  4.61s/it]Generating responses from prompts......:  71%|███████▏  | 5/7 [00:34<00:13,  6.58s/it]Generating responses from prompts......:  86%|████████▌ | 6/7 [00:35<00:04,  4.73s/it][32m2026-10-29 22:40:13.264[0m | [31mERROR   [0m | [36mDataFlow[0m:[36mapi_llm_serving_request.py[0m:[36m_api_chat_with_id[0m:[36m179[0m - [31mAPI request failed id=6 status=429 cost=0.06s body={"error":{"message":"Rate limit exceeded: maximum 20 requests per minute for this OneClick user. Please try again later.","type":"rate_limit_error","param":null,"code":"rate_limit_exceeded"}}[0m
+[32m2026-10-29 22:41:05.150[0m | [31mERROR   [0m | [36mDataFlow[0m:[36mapi_llm_serving_request.py[0m:[36m_api_chat_with_id[0m:[36m179[0m - [31mAPI request failed id=6 status=500 cost=46.94s body={"error":{"message":"Error from provider self-dploy: 504 Gateway Timeout {\"error\":{\"type\":\"Gateway Timeout\",\"code\":\"call_upstream_timeout\",\"message\":\"error sending request for url (http://134.199.135.33:8888/v1/chat/completions). URL: http://134.199.135.33:8888/v1/chat/completions\"}}","type":"upstream_error","param":null,"code":"upstream_error","usedProvider":"self-dploy","requestedModel":"DeepSeek-V4-Flash","usedInternalModel":"DeepSeek-V4-Flash","responseText":"{\"error\":{\"type[0m
+Generating responses from prompts......: 100%|██████████| 7/7 [01:43<00:00, 24.14s/it]Generating responses from prompts......: 100%|██████████| 7/7 [01:43<00:00, 14.82s/it]
+[32m2026-10-29 22:41:19.819[0m | [37mINFO    [0m | [36mDataFlow[0m:[36magenticrag_atomic_task_generator.py[0m:[36mrun[0m:[36m434[0m - [37mGenerating more optional answer...[0m
+Generating responses from prompts......:   0%|          | 0/7 [00:00<?, ?it/s]Generating responses from prompts......:  14%|█▍        | 1/7 [00:08<00:53,  8.86s/it]Generating responses from prompts......:  29%|██▊       | 2/7 [00:13<00:33,  6.62s/it]Generating responses from prompts......:  43%|████▎     | 3/7 [00:23<00:31,  7.81s/it]Generating responses from prompts......:  57%|█████▋    | 4/7 [00:27<00:18,  6.28s/it]Generating responses from prompts......:  71%|███████▏  | 5/7 [00:27<00:08,  4.16s/it]Generating responses from prompts......:  86%|████████▌ | 6/7 [00:37<00:06,  6.23s/it][32m2026-10-29 22:43:35.119[0m | [31mERROR   [0m | [36mDataFlow[0m:[36mapi_llm_serving_request.py[0m:[36m_api_chat_with_id[0m:[36m179[0m - [31mAPI request failed id=5 status=500 cost=107.16s body={"error":{"message":"Error from provider self-dploy: 504 Gateway Timeout {\"error\":{\"type\":\"Gateway Timeout\",\"code\":\"call_upstream_timeout\",\"message\":\"error sending request for url (http://134.199.135.45:8888/v1/chat/completions). URL: http://134.199.135.45:8888/v1/chat/completions\"}}","type":"upstream_error","param":null,"code":"upstream_error","usedProvider":"self-dploy","requestedModel":"DeepSeek-V4-Flash","usedInternalModel":"DeepSeek-V4-Flash","responseText":"{\"error\":{\"type[0m
+[32m2026-10-29 22:43:36.166[0m | [31mERROR   [0m | [36mDataFlow[0m:[36mapi_llm_serving_request.py[0m:[36m_api_chat_with_id[0m:[36m179[0m - [31mAPI request failed id=5 status=429 cost=0.05s body={"detail":{"error":{"message":"Model 'DeepSeek-V4-Flash' is at its concurrency limit (448); please retry later or use another model","type":"rate_limit_error","code":"model_concurrency_rate_limit_exceeded"}}}[0m
+[32m2026-10-29 22:43:41.169[0m | [31mERROR   [0m | [36mDataFlow[0m:[36mapi_llm_serving_request.py[0m:[36m_api_chat_with_id[0m:[36m179[0m - [31mAPI request failed id=5 status=429 cost=0.05s body={"detail":{"error":{"message":"Model 'DeepSeek-V4-Flash' is at its concurrency limit (448); please retry later or use another model","type":"rate_limit_error","code":"model_concurrency_rate_limit_exceeded"}}}[0m
+Generating responses from prompts......: 100%|██████████| 7/7 [02:50<00:00, 47.45s/it]Generating responses from prompts......: 100%|██████████| 7/7 [02:50<00:00, 24.29s/it]
+/home/simin/.venv-df3/lib/python3.10/site-packages/dataflow/operators/agentic_rag/generate/agenticrag_atomic_task_generator.py:439: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  .apply(lambda x: x.head(self.max_question))
+[32m2026-10-29 22:44:09.853[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task4/agentic_rag/cache_main/agentic_rag_task4_step1.jsonl with type jsonl[0m
+[32m2026-10-29 22:44:09.854[0m | [37mINFO    [0m | [36mDataFlow[0m:[36magenticrag_atomic_task_generator.py[0m:[36mrun[0m:[36m444[0m - [37mResults saved to /home/simin/dataflow-task4/agentic_rag/cache_main/agentic_rag_task4_step1.jsonl[0m
+[STEP1] done in 654.7s, llm_requests=66
+[STEP2] AgenticRAGQAF1SampleEvaluator start
+[32m2026-10-29 22:44:09.854[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task4/agentic_rag/cache_main/agentic_rag_task4_step1.jsonl with type dataframe[0m
+[32m2026-10-29 22:44:09.858[0m | [37mINFO    [0m | [36mDataFlow[0m:[36magenticrag_qaf1_sample_evaluator.py[0m:[36meval[0m:[36m106[0m - [37mEvaluating F1Score...[0m
+F1Scorer Evaluating...:   0%|          | 0/4 [00:00<?, ?it/s]F1Scorer Evaluating...: 100%|██████████| 4/4 [00:00<00:00, 5513.38it/s]
+[32m2026-10-29 22:44:09.859[0m | [37mINFO    [0m | [36mDataFlow[0m:[36magenticrag_qaf1_sample_evaluator.py[0m:[36meval[0m:[36m115[0m - [37mEvaluation complete![0m
+[32m2026-10-29 22:44:09.860[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task4/agentic_rag/cache_main/agentic_rag_task4_step2.jsonl with type jsonl[0m
+[STEP2] done in 0.0s
+[TOTAL] 654.7s, total llm requests=66
+[FINAL] /home/simin/dataflow-task4/agentic_rag/cache_main/agentic_rag_task4_step2.jsonl rows=4
+=== pipeline exit=0 ===
+2026-10-29T22:44:11+08:00
+{
+  "input_file": "/home/simin/dataflow-task4/agentic_rag/input_main.jsonl",
+  "step1_cache": "/home/simin/dataflow-task4/agentic_rag/cache_main/agentic_rag_task4_step1.jsonl",
+  "step1_rows": 4,
+  "final_cache": "/home/simin/dataflow-task4/agentic_rag/cache_main/agentic_rag_task4_step2.jsonl",
+  "final_rows": 4,
+  "step1_columns": [
+    "id",
+    "contents",
+    "identifier",
+    "candidate_tasks_str",
+    "question",
+    "answer",
+    "refined_answer",
+    "llm_answer",
+    "llm_score",
+    "golden_doc_answer",
+    "golden_doc_score",
+    "optional_answer"
+  ],
+  "final_columns": [
+    "id",
+    "contents",
+    "identifier",
+    "candidate_tasks_str",
+    "question",
+    "answer",
+    "refined_answer",
+    "llm_answer",
+    "llm_score",
+    "golden_doc_answer",
+    "golden_doc_score",
+    "optional_answer",
+    "F1Score"
+  ],
+  "expected_fields": [
+    "question",
+    "answer",
+    "refined_answer",
+    "optional_answer",
+    "llm_answer",
+    "golden_doc_answer",
+    "identifier",
+    "candidate_tasks_str",
+    "llm_score",
+    "golden_doc_score",
+    "F1Score"
+  ],
+  "field_presence": {
+    "question": "present",
+    "answer": "present",
+    "refined_answer": "present",
+    "optional_answer": "present",
+    "llm_answer": "present",
+    "golden_doc_answer": "present",
+    "identifier": "present",
+    "candidate_tasks_str": "present",
+    "llm_score": "present",
+    "golden_doc_score": "present",
+    "F1Score": "present"
+  },
+  "field_completeness": {
+    "present": 11,
+    "expected": 11,
+    "ratio": 1.0,
+    "rate": "100.0%"
+  },
+  "empty_rate": {
+    "question": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "answer": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "refined_answer": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "optional_answer": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "llm_answer": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "golden_doc_answer": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "identifier": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "candidate_tasks_str": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "llm_score": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "golden_doc_score": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "F1Score": {
+      "empty": 0,
+      "total": 4,
+      "rate": 0.0
+    }
+  },
+  "f1_stats": {
+    "n": 4,
+    "mean": 0.6957,
+    "min": 0.0,
+    "p25": 0.7826,
+    "median": 1.0,
+    "p75": 1.0,
+    "max": 1.0,
+    "n_eq_0": 1,
+    "n_ge_0_5": 3,
+    "n_eq_1": 2,
+    "histogram_0.2bins": [
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  "score_stats": {
+    "llm_score": {
+      "n": 4,
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "golden_doc_score": {
+      "n": 4,
+      "mean": 1.75,
+      "min": 1.0,
+      "max": 2.0
+    }
+  },
+  "field_types_sample": {
+    "id": "int",
+    "contents": "str",
+    "identifier": "str",
+    "candidate_tasks_str": "str",
+    "question": "str",
+    "answer": "str",
+    "refined_answer": "str",
+    "llm_answer": "str",
+    "llm_score": "int",
+    "golden_doc_answer": "str",
+    "golden_doc_score": "int",
+    "optional_answer": "list",
+    "F1Score": "float"
+  }
+}
+
+[SAMPLE first row] -> /home/simin/dataflow-task4/agentic_rag/field_check_main_sample.json

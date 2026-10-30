@@ -1,0 +1,29 @@
+{
+  "id": 4864947,
+  "contents": "\"Halloween 4: The Return of Michael Myers\"\nwhen reviewing the producers did not like how the mask turned out. It was allegedly customized again but did not live up to the original, and the producers felt it was too old and went for a new mask. Some scenes had to be re-shot with the new mask. The only scene left in is when Loomis is thrown through a glass door; as Michael comes up behind him, the unaltered face and blonde hair is visible. After viewing the film's rough cut, director Dwight H. Little and producer Moustapha Akkad decided that the film's violence was too soft, and",
+  "identifier": "{\n  \"content_identifier\": \"Halloween 4: The Return of Michael Myers\"\n}",
+  "candidate_tasks_str": "{\"conclusion\": \"Halloween 4: The Return of Michael Myers\", \"R\": \"Film title\"}",
+  "question": "What is the film title?",
+  "answer": "Halloween 4: The Return of Michael Myers",
+  "refined_answer": "Halloween 4: The Return of Michael Myers",
+  "llm_answer": "I need more information to identify the film title. Please provide details such as the plot, actors, director, year, or a specific scene.",
+  "llm_score": 0,
+  "golden_doc_answer": "Halloween 4: The Return of Michael Myers",
+  "golden_doc_score": 2,
+  "optional_answer": [
+    "Halloween 4: The Return of Michael Myers",
+    "Halloween 4",
+    "Halloween IV",
+    "Halloween 4: The Return of Michael Myers (1988 film)",
+    "Halloween 4 (1988)",
+    "Halloween IV: The Return of Michael Myers",
+    "H4",
+    "Halloween 4: Return of Michael Myers",
+    "Halloween 4: The Return of Michael Myers (film)",
+    "Halloween 4: The Return of Michael Myers (1988)",
+    "Halloween 4: The Return of Michael Myers (movie)",
+    "Halloween 4: The Return of Michael Myers (1988 movie)",
+    "Halloween 4: The Return of Michael Myers (1988 film)"
+  ],
+  "F1Score": 1.0
+}
