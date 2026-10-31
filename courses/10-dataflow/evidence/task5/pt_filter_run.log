@@ -1,0 +1,220 @@
+[32m2026-10-31 21:40:03.438[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import MinHashDeduplicateFilter [0m
+[32m2026-10-31 21:40:03.975[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import LanguageFilter [0m
+[32m2026-10-31 21:40:04.128[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import WordNumberFilter [0m
+[32m2026-10-31 21:40:04.128[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import BlocklistFilter [0m
+[32m2026-10-31 21:40:06.042[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import ColonEndFilter [0m
+[32m2026-10-31 21:40:06.043[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import SentenceNumberFilter [0m
+[32m2026-10-31 21:40:06.044[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import LineEndWithEllipsisFilter [0m
+[32m2026-10-31 21:40:06.045[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import ContentNullFilter [0m
+[32m2026-10-31 21:40:06.046[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import MeanWordLengthFilter [0m
+[32m2026-10-31 21:40:06.047[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import SymbolWordRatioFilter [0m
+[32m2026-10-31 21:40:06.048[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import HtmlEntityFilter [0m
+[32m2026-10-31 21:40:06.049[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import NoPuncFilter [0m
+[32m2026-10-31 21:40:06.050[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import SpecialCharacterFilter [0m
+[32m2026-10-31 21:40:06.051[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import WatermarkFilter [0m
+[32m2026-10-31 21:40:06.052[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import CurlyBracketFilter [0m
+[32m2026-10-31 21:40:06.054[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import CapitalWordsFilter [0m
+[32m2026-10-31 21:40:06.055[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import LoremIpsumFilter [0m
+[32m2026-10-31 21:40:06.056[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import UniqueWordsFilter [0m
+[32m2026-10-31 21:40:06.057[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import CharNumberFilter [0m
+[32m2026-10-31 21:40:06.058[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import LineStartWithBulletpointFilter [0m
+[32m2026-10-31 21:40:06.059[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import LineWithJavascriptFilter [0m
+[32m2026-10-31 21:40:06.060[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import RemoveExtraSpacesRefiner [0m
+[32m2026-10-31 21:40:06.061[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import RemoveEmojiRefiner [0m
+[32m2026-10-31 21:40:06.061[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import HtmlUrlRemoverRefiner [0m
+[32m2026-10-31 21:40:06.064[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/text_pt/'] trying to import PairQualFilter [0m
+[32m2026-10-31 21:40:06.064[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/text_pt/'] trying to import PairQualSampleEvaluator [0m
+[CONFIG] input    = /home/simin/dataflow-task5/task5/data/pt_input.jsonl
+[CONFIG] cache    = /home/simin/dataflow-task5/task5/cache_pt
+[CONFIG] hf_cache = /mnt/nfs/task5_hf
+[32m2026-10-31 21:40:09.596[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mremove_extra_spaces_refiner.py[0m:[36m__init__[0m:[36m12[0m - [37mInitializing RemoveExtraSpacesRefiner ...[0m
+[32m2026-10-31 21:40:09.596[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mremove_emoji_refiner.py[0m:[36m__init__[0m:[36m14[0m - [37mInitializing RemoveEmojiRefiner ...[0m
+[32m2026-10-31 21:40:09.596[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mhtml_url_remover_refiner.py[0m:[36m__init__[0m:[36m12[0m - [37mInitializing HtmlUrlRemoverRefiner ...[0m
+[32m2026-10-31 21:40:09.596[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mminhash_deduplicate_filter.py[0m:[36m__init__[0m:[36m16[0m - [37mInitializing MinHashDeduplicateFilter with num_perm = 128, threshold = 0.9, use_n_gram = True, ngram = 5...[0m
+[32m2026-10-31 21:40:09.597[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mblocklist_filter.py[0m:[36m__init__[0m:[36m20[0m - [37mInitializing BlocklistFilter with language = en, threshold = 1, use_tokenizer = False...[0m
+[nltk_data] Error loading punkt: <urlopen error [SSL:
+[nltk_data]     UNEXPECTED_EOF_WHILE_READING] EOF occurred in
+[nltk_data]     violation of protocol (_ssl.c:1007)>
+[32m2026-10-31 21:40:09.797[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mblocklist_filter.py[0m:[36mload_blocklist[0m:[36m70[0m - [37mLoading blocklist for language 'en' from /home/simin/.venv-df3/lib/python3.10/site-packages/dataflow/operators/general_text/filter/blocklist/en.txt...[0m
+[32m2026-10-31 21:40:09.797[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mblocklist_filter.py[0m:[36mload_blocklist[0m:[36m73[0m - [37mBlocklist for 'en' loaded. Total words in blocklist: 403.[0m
+[32m2026-10-31 21:40:09.797[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mword_number_filter.py[0m:[36m__init__[0m:[36m15[0m - [37mInitializing WordNumberFilter with min_words = 20, max_words = 100000...[0m
+[32m2026-10-31 21:40:09.798[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m16[0m - [37mInitializing ColonEndFilter...[0m
+[32m2026-10-31 21:40:09.798[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m72[0m - [37mInitializing SentenceNumberFilter with min_sentences = 3, max_sentences = 7500...[0m
+[32m2026-10-31 21:40:09.798[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m190[0m - [37mInitializing LineEndWithEllipsisFilter with threshold = 0.3...[0m
+[32m2026-10-31 21:40:09.798[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m260[0m - [37mInitializing ContentNullFilter...[0m
+[32m2026-10-31 21:40:09.798[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m834[0m - [37mInitializing MeanWordLengthFilter with min_length=3, max_length=10...[0m
+[32m2026-10-31 21:40:09.798[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m322[0m - [37mInitializing SymbolWordRatioFilter with threshold = 0.4...[0m
+[32m2026-10-31 21:40:09.799[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m480[0m - [37mInitializing HtmlEntityFilter...[0m
+[32m2026-10-31 21:40:09.799[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m621[0m - [37mInitializing NoPuncFilter with threshold = 112...[0m
+[32m2026-10-31 21:40:09.799[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m696[0m - [37mInitializing SpecialCharacterFilter...[0m
+[32m2026-10-31 21:40:09.799[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m768[0m - [37mInitializing WatermarkFilter with watermarks=['Copyright', 'Watermark', 'Confidential']...[0m
+[32m2026-10-31 21:40:09.799[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1005[0m - [37mInitializing CurlyBracketFilter with threshold=0.025...[0m
+[32m2026-10-31 21:40:09.799[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1072[0m - [37mInitializing CapitalWordsFilter with threshold = 0.2, use_tokenizer = False...[0m
+[32m2026-10-31 21:40:09.800[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1163[0m - [37mInitializing LoremIpsumFilter with threshold = 3e-08...[0m
+[32m2026-10-31 21:40:09.800[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1233[0m - [37mInitializing UniqueWordsFilter with threshold = 0.1...[0m
+[32m2026-10-31 21:40:09.800[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1307[0m - [37mInitializing CharNumberFilter with threshold = 100...[0m
+[32m2026-10-31 21:40:09.800[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1376[0m - [37mInitializing LineStartWithBulletpointFilter with threshold=0.9...[0m
+[32m2026-10-31 21:40:09.800[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1453[0m - [37mInitializing LineWithJavascriptFilter with threshold=3...[0m
+[32m2026-10-31 21:40:09.800[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mpair_qual_sample_evaluator.py[0m:[36m__init__[0m:[36m15[0m - [37mInitializing PairQualSampleEvaluator...[0m
+[32m2026-10-31 21:45:02.517[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mpair_qual_sample_evaluator.py[0m:[36m__init__[0m:[36m33[0m - [37mPairQualSampleEvaluator initialized.[0m
+[32m2026-10-31 21:45:02.517[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mpair_qual_filter.py[0m:[36m__init__[0m:[36m18[0m - [37mInitializing PairQualFilter with min_score = 2, max_score = 10000...[0m
+[32m2026-10-31 21:45:02.518[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mlanguage_filter.py[0m:[36m__init__[0m:[36m16[0m - [37mInitializing LanguageFilter with allowed_languages = __label__eng_Latn and model_cache_dir = /mnt/nfs/task5_hf...[0m
+[32m2026-10-31 21:45:02.518[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mlanguage_filter.py[0m:[36m__init__[0m:[36m23[0m - [37mDownloading model from Hugging Face Hub...[0m
+Warning : `load_model` does not return WordVectorModel or SupervisedModel any more, but a `FastText` object which is very similar.
+[32m2026-10-31 21:46:43.624[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mlanguage_filter.py[0m:[36m__init__[0m:[36m26[0m - [37mModel loaded successfully.[0m
+[INIT] operators ready (394.0s)
+[32m2026-10-31 21:46:43.625[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/data/pt_input.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.625[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m610[0m - [37mReading remote dataset from /home/simin/dataflow-task5/task5/data/pt_input.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.647[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mremove_emoji_refiner.py[0m:[36mrun[0m:[36m61[0m - [37mRunning RemoveEmojiRefiner with input_key = raw_content...[0m
+Implementing RemoveEmojiRefiner:   0%|          | 0/44 [00:00<?, ?it/s]Implementing RemoveEmojiRefiner: 100%|██████████| 44/44 [00:00<00:00, 112256.31it/s]
+[32m2026-10-31 21:46:43.651[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step1.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.653[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mremove_emoji_refiner.py[0m:[36mrun[0m:[36m80[0m - [37mRefining Complete. Total modified items: 1[0m
+[STEP] RemoveEmojiRefiner                 44 ->   44  (   0.0s)
+[32m2026-10-31 21:46:43.653[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mhtml_url_remover_refiner.py[0m:[36mrun[0m:[36m41[0m - [37mRunning HtmlUrlRemoverRefiner with input_key = raw_content...[0m
+[32m2026-10-31 21:46:43.653[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step1.jsonl with type dataframe[0m
+Implementing HtmlUrlRemoverRefiner:   0%|          | 0/44 [00:00<?, ?it/s]Implementing HtmlUrlRemoverRefiner: 100%|██████████| 44/44 [00:00<00:00, 122624.17it/s]
+[32m2026-10-31 21:46:43.656[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mhtml_url_remover_refiner.py[0m:[36mrun[0m:[36m64[0m - [37mRefining Complete. Total modified items: 1[0m
+[32m2026-10-31 21:46:43.657[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step2.jsonl with type jsonl[0m
+[STEP] HtmlUrlRemoverRefiner              44 ->   44  (   0.0s)
+[32m2026-10-31 21:46:43.657[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step2.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.660[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mremove_extra_spaces_refiner.py[0m:[36mrun[0m:[36m46[0m - [37mRunning RemoveExtraSpacesRefiner with input_key = raw_content...[0m
+Implementing RemoveExtraSpacesRefiner:   0%|          | 0/44 [00:00<?, ?it/s]Implementing RemoveExtraSpacesRefiner: 100%|██████████| 44/44 [00:00<00:00, 183631.22it/s]
+[32m2026-10-31 21:46:43.661[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step3.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.661[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mremove_extra_spaces_refiner.py[0m:[36mrun[0m:[36m67[0m - [37mRefining Complete. Total modified items: 7[0m
+[STEP] RemoveExtraSpacesRefiner           44 ->   44  (   0.0s)
+[32m2026-10-31 21:46:43.662[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step3.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.664[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mblocklist_filter.py[0m:[36mrun[0m:[36m80[0m - [37mRunning BlocklistFilter...[0m
+Implementing BlocklistFilter:   0%|          | 0/44 [00:00<?, ?it/s]Implementing BlocklistFilter: 100%|██████████| 44/44 [00:00<00:00, 109136.24it/s]
+[32m2026-10-31 21:46:43.667[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step4.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.668[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mblocklist_filter.py[0m:[36mrun[0m:[36m96[0m - [37mFiltering completed. Total records passing filter: 42.[0m
+[STEP] BlocklistFilter                    44 ->   42  (   0.0s)
+[32m2026-10-31 21:46:43.669[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step4.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.671[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mword_number_filter.py[0m:[36mrun[0m:[36m48[0m - [37mRunning WordNumberFilter with input_key = raw_content and output_key = word_number_filter_label...[0m
+Implementing WordNumberFilter:   0%|          | 0/42 [00:00<?, ?it/s]Implementing WordNumberFilter: 100%|██████████| 42/42 [00:00<00:00, 224981.82it/s]
+[32m2026-10-31 21:46:43.673[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step5.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.674[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mword_number_filter.py[0m:[36mrun[0m:[36m62[0m - [37mFiltering completed. Total records passing filter: 40.[0m
+[STEP] WordNumberFilter                   42 ->   40  (   0.0s)
+[32m2026-10-31 21:46:43.674[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step5.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.676[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m51[0m - [37mRunning ColonEndFilter...[0m
+Implementing ColonEndFilter:   0%|          | 0/40 [00:00<?, ?it/s]Implementing ColonEndFilter: 100%|██████████| 40/40 [00:00<00:00, 776722.96it/s]
+[32m2026-10-31 21:46:43.678[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step6.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.679[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m62[0m - [37mFiltering completed. Total records passing filter: 39.[0m
+[STEP] ColonEndFilter                     40 ->   39  (   0.0s)
+[32m2026-10-31 21:46:43.679[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step6.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.682[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m109[0m - [37mRunning SentenceNumberFilter with input_key = raw_content and output_key = sentence_number_filter_label...[0m
+Implementing SentenceNumberFilter:   0%|          | 0/39 [00:00<?, ?it/s]Implementing SentenceNumberFilter: 100%|██████████| 39/39 [00:00<00:00, 204472.32it/s]
+[32m2026-10-31 21:46:43.684[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step7.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.684[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m126[0m - [37mFiltering completed. Total records passing filter: 37.[0m
+[STEP] SentenceNumberFilter               39 ->   37  (   0.0s)
+[32m2026-10-31 21:46:43.685[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step7.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.687[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m225[0m - [37mRunning LineEndWithEllipsisFilter with input_key = raw_content and output_key = line_end_with_ellipsis_filter_label...[0m
+Implementing LineEndWithEllipsisFilter:   0%|          | 0/37 [00:00<?, ?it/s]Implementing LineEndWithEllipsisFilter: 100%|██████████| 37/37 [00:00<00:00, 92429.57it/s]
+[32m2026-10-31 21:46:43.690[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step8.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.690[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m250[0m - [37mFiltering completed. Total records passing filter: 37.[0m
+[STEP] LineEndWithEllipsisFilter          37 ->   37  (   0.0s)
+[32m2026-10-31 21:46:43.691[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step8.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.693[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m295[0m - [37mRunning ContentNullFilter with input_key = raw_content and output_key = content_null_filter_label...[0m
+Implementing ContentNullFilter:   0%|          | 0/37 [00:00<?, ?it/s]Implementing ContentNullFilter: 100%|██████████| 37/37 [00:00<00:00, 746102.15it/s]
+[32m2026-10-31 21:46:43.695[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step9.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.696[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m311[0m - [37mFiltering completed. Total records passing filter: 37.[0m
+[STEP] ContentNullFilter                  37 ->   37  (   0.0s)
+[32m2026-10-31 21:46:43.696[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step9.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.698[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m871[0m - [37mRunning MeanWordLengthFilter with input_key = raw_content and output_key = mean_word_length_filter_label...[0m
+Implementing MeanWordLengthFilter:   0%|          | 0/37 [00:00<?, ?it/s]Implementing MeanWordLengthFilter: 100%|██████████| 37/37 [00:00<00:00, 106366.86it/s]
+[32m2026-10-31 21:46:43.700[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step10.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.701[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m900[0m - [37mFiltering completed. Total records passing filter: 35.[0m
+[STEP] MeanWordLengthFilter               37 ->   35  (   0.0s)
+[32m2026-10-31 21:46:43.701[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step10.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.704[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m357[0m - [37mRunning SymbolWordRatioFilter with input_key = raw_content and output_key = symbol_word_ratio_filter_label...[0m
+Implementing SymbolWordRatioFilter:   0%|          | 0/35 [00:00<?, ?it/s]Implementing SymbolWordRatioFilter: 100%|██████████| 35/35 [00:00<00:00, 36773.71it/s]
+[32m2026-10-31 21:46:43.707[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step11.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.707[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m385[0m - [37mFiltering completed. Total records passing filter: 34.[0m
+[STEP] SymbolWordRatioFilter              35 ->   34  (   0.0s)
+[32m2026-10-31 21:46:43.708[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step11.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.710[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m515[0m - [37mRunning HtmlEntityFilter with input_key = raw_content and output_key = html_entity_filter_label...[0m
+Implementing HtmlEntityFilter:   0%|          | 0/34 [00:00<?, ?it/s]Implementing HtmlEntityFilter: 100%|██████████| 34/34 [00:00<00:00, 82718.29it/s]
+[32m2026-10-31 21:46:43.713[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step12.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.713[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m544[0m - [37mFiltering completed. Total records passing filter: 33.[0m
+[STEP] HtmlEntityFilter                   34 ->   33  (   0.0s)
+[32m2026-10-31 21:46:43.714[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step12.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.716[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m656[0m - [37mRunning NoPuncFilter with input_key = raw_content and output_key = no_punc_filter_label...[0m
+Implementing NoPuncFilter:   0%|          | 0/33 [00:00<?, ?it/s]Implementing NoPuncFilter: 100%|██████████| 33/33 [00:00<00:00, 44634.64it/s]
+[32m2026-10-31 21:46:43.719[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step13.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.719[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m687[0m - [37mFiltering completed. Total records passing filter: 32.[0m
+[STEP] NoPuncFilter                       33 ->   32  (   0.0s)
+[32m2026-10-31 21:46:43.720[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step13.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.722[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m731[0m - [37mRunning SpecialCharacterFilter with input_key = raw_content and output_key = special_character_filter_label...[0m
+Implementing SpecialCharacterFilter:   0%|          | 0/32 [00:00<?, ?it/s]Implementing SpecialCharacterFilter: 100%|██████████| 32/32 [00:00<00:00, 39615.62it/s]
+[32m2026-10-31 21:46:43.725[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step14.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.726[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m758[0m - [37mFiltering completed. Total records passing filter: 31.[0m
+[STEP] SpecialCharacterFilter             32 ->   31  (   0.0s)
+[32m2026-10-31 21:46:43.726[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step14.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.729[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m803[0m - [37mRunning WatermarkFilter with input_key = raw_content and output_key = watermark_filter_label...[0m
+Implementing WatermarkFilter:   0%|          | 0/31 [00:00<?, ?it/s]Implementing WatermarkFilter: 100%|██████████| 31/31 [00:00<00:00, 111992.61it/s]
+[32m2026-10-31 21:46:43.731[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step15.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.732[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m823[0m - [37mFiltering completed. Total records passing filter: 30.[0m
+[STEP] WatermarkFilter                    31 ->   30  (   0.0s)
+[32m2026-10-31 21:46:43.732[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step15.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.735[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1040[0m - [37mRunning CurlyBracketFilter with input_key = raw_content and output_key = curly_bracket_filter_label...[0m
+Implementing CurlyBracketFilter:   0%|          | 0/30 [00:00<?, ?it/s]Implementing CurlyBracketFilter: 100%|██████████| 30/30 [00:00<00:00, 382459.33it/s]
+[32m2026-10-31 21:46:43.737[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step16.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.738[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1061[0m - [37mFiltering completed. Total records passing filter: 29.[0m
+[STEP] CurlyBracketFilter                 30 ->   29  (   0.0s)
+[32m2026-10-31 21:46:43.738[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step16.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.741[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1124[0m - [37mRunning CapitalWordsFilter with input_key = raw_content and output_key = capital_words_filter...[0m
+Implementing CapitalWordsFilter:   0%|          | 0/29 [00:00<?, ?it/s]Implementing CapitalWordsFilter: 100%|██████████| 29/29 [00:00<00:00, 156142.25it/s]
+[32m2026-10-31 21:46:43.743[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step17.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.744[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1153[0m - [37mFiltering completed. Total records passing filter: 28.[0m
+[STEP] CapitalWordsFilter                 29 ->   28  (   0.0s)
+[32m2026-10-31 21:46:43.744[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step17.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.747[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1198[0m - [37mRunning LoremIpsumFilter with input_key = raw_content and output_key = loremipsum_filter_label...[0m
+Implementing LoremIpsumFilter:   0%|          | 0/28 [00:00<?, ?it/s]Implementing LoremIpsumFilter: 100%|██████████| 28/28 [00:00<00:00, 156587.35it/s]
+[32m2026-10-31 21:46:43.749[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step18.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.750[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1223[0m - [37mFiltering completed. Total records passing filter: 27.[0m
+[STEP] LoremIpsumFilter                   28 ->   27  (   0.0s)
+[32m2026-10-31 21:46:43.750[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step18.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.753[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1268[0m - [37mRunning UniqueWordsFilter with input_key = raw_content and output_key = unique_words_filter...[0m
+Implementing UniqueWordsFilter:   0%|          | 0/27 [00:00<?, ?it/s]Implementing UniqueWordsFilter: 100%|██████████| 27/27 [00:00<00:00, 103232.64it/s]
+[32m2026-10-31 21:46:43.755[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step19.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.756[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1297[0m - [37mFiltering completed. Total records passing filter: 26.[0m
+[STEP] UniqueWordsFilter                  27 ->   26  (   0.0s)
+[32m2026-10-31 21:46:43.756[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step19.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.759[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1342[0m - [37mRunning CharNumberFilter with input_key = raw_content and output_key = char_number_filter_label...[0m
+Implementing CharNumberFilter:   0%|          | 0/26 [00:00<?, ?it/s]Implementing CharNumberFilter: 100%|██████████| 26/26 [00:00<00:00, 228620.34it/s]
+[32m2026-10-31 21:46:43.761[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step20.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.762[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1366[0m - [37mFiltering completed. Total records passing filter: 26.[0m
+[STEP] CharNumberFilter                   26 ->   26  (   0.0s)
+[32m2026-10-31 21:46:43.762[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step20.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.765[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1411[0m - [37mRunning LineStartWithBulletpointFilter...[0m
+Implementing LineStartWithBulletpointFilter:   0%|          | 0/26 [00:00<?, ?it/s]Implementing LineStartWithBulletpointFilter: 100%|██████████| 26/26 [00:00<00:00, 127100.12it/s]
+[32m2026-10-31 21:46:43.768[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step21.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.768[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1443[0m - [37mFiltering completed. Total records passing filter: 25.[0m
+[STEP] LineStartWithBulletpointFilter     26 ->   25  (   0.0s)
+[32m2026-10-31 21:46:43.769[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step21.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.772[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1488[0m - [37mRunning LineWithJavascriptFilter...[0m
+Implementing LineWithJavascriptFilter:   0%|          | 0/25 [00:00<?, ?it/s]Implementing LineWithJavascriptFilter: 100%|██████████| 25/25 [00:00<00:00, 33057.25it/s]
+[32m2026-10-31 21:46:43.775[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step22.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:43.775[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1517[0m - [37mFiltering completed. Total records passing filter: 25.[0m
+[STEP] LineWithJavascriptFilter           25 ->   25  (   0.0s)
+[32m2026-10-31 21:46:43.776[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step22.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:43.778[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mpair_qual_filter.py[0m:[36mrun[0m:[36m60[0m - [37mRunning PairQualFilter with input_key = raw_content and output_key = PairQualScore...[0m
+[32m2026-10-31 21:46:43.779[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mpair_qual_sample_evaluator.py[0m:[36meval[0m:[36m65[0m - [37mEvaluating PairQualScore...[0m
+PairQualScorer Evaluating...:   0%|          | 0/25 [00:00<?, ?it/s]PairQualScorer Evaluating...:   4%|▍         | 1/25 [00:00<00:05,  4.61it/s]PairQualScorer Evaluating...:  48%|████▊     | 12/25 [00:00<00:00, 44.82it/s]PairQualScorer Evaluating...:  92%|█████████▏| 23/25 [00:00<00:00, 66.28it/s]PairQualScorer Evaluating...: 100%|██████████| 25/25 [00:00<00:00, 55.26it/s]
+[32m2026-10-31 21:46:44.231[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mpair_qual_sample_evaluator.py[0m:[36meval[0m:[36m70[0m - [37mEvaluation complete![0m
+[32m2026-10-31 21:46:44.235[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step23.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:44.236[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mpair_qual_filter.py[0m:[36mrun[0m:[36m65[0m - [37mFiltering completed. Total records passing filter: 18.[0m
+[STEP] PairQualFilter                     25 ->   18  (   0.5s)
+[32m2026-10-31 21:46:44.236[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step23.jsonl with type dataframe[0m
+[32m2026-10-31 21:46:44.240[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mlanguage_filter.py[0m:[36mrun[0m:[36m73[0m - [37mRunning LanguageFilter with input_key = raw_content and output_key = language_label...[0m
+[32m2026-10-31 21:46:44.240[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mlanguage_filter.py[0m:[36meval[0m:[36m55[0m - [37mStart evaluating LanguageFilter...[0m
+Implementing LanguageFilter:   0%|          | 0/18 [00:00<?, ?it/s]Implementing LanguageFilter: 100%|██████████| 18/18 [00:00<00:00, 2716.71it/s]
+[32m2026-10-31 21:46:44.249[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step24.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:44.250[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mlanguage_filter.py[0m:[36mrun[0m:[36m78[0m - [37mFiltering completed. Total records passing filter: 17.[0m
+[STEP] LanguageFilter                     18 ->   17  (   0.0s)
+[32m2026-10-31 21:46:44.250[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mminhash_deduplicate_filter.py[0m:[36mrun[0m:[36m69[0m - [37mRunning MinHashDeduplicateFilter with input_key = raw_content and output_key = minhash_deduplicated_label[0m
+[32m2026-10-31 21:46:44.272[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mread[0m:[36m606[0m - [37mReading data from /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step24.jsonl with type dataframe[0m
+Implementing MinHashDeduplicateFilter:   0%|          | 0/17 [00:00<?, ?it/s]Implementing MinHashDeduplicateFilter: 100%|██████████| 17/17 [00:00<00:00, 166.71it/s]Implementing MinHashDeduplicateFilter: 100%|██████████| 17/17 [00:00<00:00, 166.30it/s]
+[32m2026-10-31 21:46:44.384[0m | [32mSUCCESS [0m | [36mDataFlow[0m:[36mstorage.py[0m:[36mwrite[0m:[36m698[0m - [32mWriting data to /home/simin/dataflow-task5/task5/cache_pt/pt_filter_task5_step25.jsonl with type jsonl[0m
+[32m2026-10-31 21:46:44.384[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mminhash_deduplicate_filter.py[0m:[36mrun[0m:[36m92[0m - [37mDeduplication completed. Total unique items: 14[0m
+[STEP] MinHashDeduplicateFilter           17 ->   14  (   0.1s)
+[DONE] total 394.8s

@@ -1,0 +1,50 @@
+{
+  "ellipsis_lines": {
+    "expect_killed_by": "LineEndWithEllipsisFilter",
+    "LineEndWithEllipsisFilter": "drop",
+    "LineStartWithBulletpointFilter": "keep",
+    "LineWithJavascriptFilter": "keep",
+    "after_refiner": {
+      "LineEndWithEllipsisFilter": "keep",
+      "LineStartWithBulletpointFilter": "keep",
+      "LineWithJavascriptFilter": "keep"
+    },
+    "refiner_changed_newlines": true
+  },
+  "bullet_lines": {
+    "expect_killed_by": "LineStartWithBulletpointFilter",
+    "LineEndWithEllipsisFilter": "keep",
+    "LineStartWithBulletpointFilter": "drop",
+    "LineWithJavascriptFilter": "keep",
+    "after_refiner": {
+      "LineEndWithEllipsisFilter": "keep",
+      "LineStartWithBulletpointFilter": "drop",
+      "LineWithJavascriptFilter": "keep"
+    },
+    "refiner_changed_newlines": true
+  },
+  "javascript_lines": {
+    "expect_killed_by": "LineWithJavascriptFilter",
+    "LineEndWithEllipsisFilter": "keep",
+    "LineStartWithBulletpointFilter": "keep",
+    "LineWithJavascriptFilter": "drop",
+    "after_refiner": {
+      "LineEndWithEllipsisFilter": "keep",
+      "LineStartWithBulletpointFilter": "keep",
+      "LineWithJavascriptFilter": "keep"
+    },
+    "refiner_changed_newlines": true
+  },
+  "pt_clean_00": {
+    "expect_killed_by": "(control)",
+    "LineEndWithEllipsisFilter": "keep",
+    "LineStartWithBulletpointFilter": "keep",
+    "LineWithJavascriptFilter": "keep",
+    "after_refiner": {
+      "LineEndWithEllipsisFilter": "keep",
+      "LineStartWithBulletpointFilter": "keep",
+      "LineWithJavascriptFilter": "keep"
+    },
+    "refiner_changed_newlines": false
+  }
+}

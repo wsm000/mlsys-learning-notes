@@ -1,0 +1,82 @@
+[
+  {
+    "id": "sft_clean_01",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "sft_clean_02",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "sft_clean_03",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "sft_clean_04",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "sft_clean_05",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "sft_clean_06",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "sft_clean_07",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "sft_clean_08",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "sft_short_output",
+    "defect": "sft_short_output",
+    "expect": "drop"
+  },
+  {
+    "id": "sft_long_output",
+    "defect": "sft_long_output",
+    "expect": "drop"
+  },
+  {
+    "id": "sft_empty_output",
+    "defect": "sft_empty_output",
+    "expect": "drop"
+  },
+  {
+    "id": "sft_repetitive_output",
+    "defect": "sft_repetitive_output",
+    "expect": "drop"
+  },
+  {
+    "id": "sft_mismatch",
+    "defect": "sft_mismatch",
+    "expect": "drop"
+  },
+  {
+    "id": "sft_low_quality",
+    "defect": "sft_low_quality",
+    "expect": "drop"
+  },
+  {
+    "id": "sft_boundary_20",
+    "defect": "sft_boundary_20",
+    "expect": "keep"
+  },
+  {
+    "id": "sft_boundary_19",
+    "defect": "sft_boundary_19",
+    "expect": "drop"
+  }
+]

@@ -1,0 +1,122 @@
+[32m2026-10-31 21:40:02.210[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import LineEndWithEllipsisFilter [0m
+[32m2026-10-31 21:40:03.192[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import LineStartWithBulletpointFilter [0m
+[32m2026-10-31 21:40:03.193[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import LineWithJavascriptFilter [0m
+[32m2026-10-31 21:40:03.194[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mregistry.py[0m:[36m__getattr__[0m:[36m358[0m - [37mLazyloader ['dataflow/operators/general_text/'] trying to import RemoveExtraSpacesRefiner [0m
+[32m2026-10-31 21:40:03.195[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m190[0m - [37mInitializing LineEndWithEllipsisFilter with threshold = 0.3...[0m
+[32m2026-10-31 21:40:03.195[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1376[0m - [37mInitializing LineStartWithBulletpointFilter with threshold=0.9...[0m
+[32m2026-10-31 21:40:03.195[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1453[0m - [37mInitializing LineWithJavascriptFilter with threshold=3...[0m
+[32m2026-10-31 21:40:03.196[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m225[0m - [37mRunning LineEndWithEllipsisFilter with input_key = raw_content and output_key = line_end_with_ellipsis_filter_label...[0m
+Implementing LineEndWithEllipsisFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineEndWithEllipsisFilter: 100%|██████████| 1/1 [00:00<00:00, 5223.29it/s]
+[32m2026-10-31 21:40:03.198[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m250[0m - [37mFiltering completed. Total records passing filter: 0.[0m
+[32m2026-10-31 21:40:03.198[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1411[0m - [37mRunning LineStartWithBulletpointFilter...[0m
+Implementing LineStartWithBulletpointFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineStartWithBulletpointFilter: 100%|██████████| 1/1 [00:00<00:00, 18157.16it/s]
+[32m2026-10-31 21:40:03.199[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1443[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.200[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1488[0m - [37mRunning LineWithJavascriptFilter...[0m
+Implementing LineWithJavascriptFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineWithJavascriptFilter: 100%|██████████| 1/1 [00:00<00:00, 8701.88it/s]
+[32m2026-10-31 21:40:03.200[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1517[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.201[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mremove_extra_spaces_refiner.py[0m:[36m__init__[0m:[36m12[0m - [37mInitializing RemoveExtraSpacesRefiner ...[0m
+[32m2026-10-31 21:40:03.201[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mremove_extra_spaces_refiner.py[0m:[36mrun[0m:[36m46[0m - [37mRunning RemoveExtraSpacesRefiner with input_key = raw_content...[0m
+Implementing RemoveExtraSpacesRefiner:   0%|          | 0/1 [00:00<?, ?it/s]Implementing RemoveExtraSpacesRefiner: 100%|██████████| 1/1 [00:00<00:00, 21076.90it/s]
+[32m2026-10-31 21:40:03.201[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mremove_extra_spaces_refiner.py[0m:[36mrun[0m:[36m67[0m - [37mRefining Complete. Total modified items: 1[0m
+[32m2026-10-31 21:40:03.202[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m190[0m - [37mInitializing LineEndWithEllipsisFilter with threshold = 0.3...[0m
+[32m2026-10-31 21:40:03.202[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1376[0m - [37mInitializing LineStartWithBulletpointFilter with threshold=0.9...[0m
+[32m2026-10-31 21:40:03.202[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1453[0m - [37mInitializing LineWithJavascriptFilter with threshold=3...[0m
+[32m2026-10-31 21:40:03.202[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m225[0m - [37mRunning LineEndWithEllipsisFilter with input_key = raw_content and output_key = line_end_with_ellipsis_filter_label...[0m
+Implementing LineEndWithEllipsisFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineEndWithEllipsisFilter: 100%|██████████| 1/1 [00:00<00:00, 21290.88it/s]
+[32m2026-10-31 21:40:03.203[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m250[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.203[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1411[0m - [37mRunning LineStartWithBulletpointFilter...[0m
+Implementing LineStartWithBulletpointFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineStartWithBulletpointFilter: 100%|██████████| 1/1 [00:00<00:00, 22075.28it/s]
+[32m2026-10-31 21:40:03.204[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1443[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.204[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1488[0m - [37mRunning LineWithJavascriptFilter...[0m
+Implementing LineWithJavascriptFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineWithJavascriptFilter: 100%|██████████| 1/1 [00:00<00:00, 14768.68it/s]
+[32m2026-10-31 21:40:03.205[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1517[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.205[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m190[0m - [37mInitializing LineEndWithEllipsisFilter with threshold = 0.3...[0m
+[32m2026-10-31 21:40:03.205[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1376[0m - [37mInitializing LineStartWithBulletpointFilter with threshold=0.9...[0m
+[32m2026-10-31 21:40:03.205[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1453[0m - [37mInitializing LineWithJavascriptFilter with threshold=3...[0m
+[32m2026-10-31 21:40:03.205[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m225[0m - [37mRunning LineEndWithEllipsisFilter with input_key = raw_content and output_key = line_end_with_ellipsis_filter_label...[0m
+Implementing LineEndWithEllipsisFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineEndWithEllipsisFilter: 100%|██████████| 1/1 [00:00<00:00, 18157.16it/s]
+[32m2026-10-31 21:40:03.206[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m250[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.206[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1411[0m - [37mRunning LineStartWithBulletpointFilter...[0m
+Implementing LineStartWithBulletpointFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineStartWithBulletpointFilter: 100%|██████████| 1/1 [00:00<00:00, 19418.07it/s]
+[32m2026-10-31 21:40:03.207[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1443[0m - [37mFiltering completed. Total records passing filter: 0.[0m
+[32m2026-10-31 21:40:03.207[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1488[0m - [37mRunning LineWithJavascriptFilter...[0m
+Implementing LineWithJavascriptFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineWithJavascriptFilter: 100%|██████████| 1/1 [00:00<00:00, 8738.13it/s]
+[32m2026-10-31 21:40:03.208[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1517[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.208[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mremove_extra_spaces_refiner.py[0m:[36m__init__[0m:[36m12[0m - [37mInitializing RemoveExtraSpacesRefiner ...[0m
+[32m2026-10-31 21:40:03.209[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mremove_extra_spaces_refiner.py[0m:[36mrun[0m:[36m46[0m - [37mRunning RemoveExtraSpacesRefiner with input_key = raw_content...[0m
+Implementing RemoveExtraSpacesRefiner:   0%|          | 0/1 [00:00<?, ?it/s]Implementing RemoveExtraSpacesRefiner: 100%|██████████| 1/1 [00:00<00:00, 18236.10it/s]
+[32m2026-10-31 21:40:03.209[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mremove_extra_spaces_refiner.py[0m:[36mrun[0m:[36m67[0m - [37mRefining Complete. Total modified items: 1[0m
+[32m2026-10-31 21:40:03.209[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m190[0m - [37mInitializing LineEndWithEllipsisFilter with threshold = 0.3...[0m
+[32m2026-10-31 21:40:03.209[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1376[0m - [37mInitializing LineStartWithBulletpointFilter with threshold=0.9...[0m
+[32m2026-10-31 21:40:03.210[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1453[0m - [37mInitializing LineWithJavascriptFilter with threshold=3...[0m
+[32m2026-10-31 21:40:03.210[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m225[0m - [37mRunning LineEndWithEllipsisFilter with input_key = raw_content and output_key = line_end_with_ellipsis_filter_label...[0m
+Implementing LineEndWithEllipsisFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineEndWithEllipsisFilter: 100%|██████████| 1/1 [00:00<00:00, 21959.71it/s]
+[32m2026-10-31 21:40:03.211[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m250[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.211[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1411[0m - [37mRunning LineStartWithBulletpointFilter...[0m
+Implementing LineStartWithBulletpointFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineStartWithBulletpointFilter: 100%|██████████| 1/1 [00:00<00:00, 21959.71it/s]
+[32m2026-10-31 21:40:03.212[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1443[0m - [37mFiltering completed. Total records passing filter: 0.[0m
+[32m2026-10-31 21:40:03.212[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1488[0m - [37mRunning LineWithJavascriptFilter...[0m
+Implementing LineWithJavascriptFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineWithJavascriptFilter: 100%|██████████| 1/1 [00:00<00:00, 10512.04it/s]
+[32m2026-10-31 21:40:03.213[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1517[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.213[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m190[0m - [37mInitializing LineEndWithEllipsisFilter with threshold = 0.3...[0m
+[32m2026-10-31 21:40:03.213[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1376[0m - [37mInitializing LineStartWithBulletpointFilter with threshold=0.9...[0m
+[32m2026-10-31 21:40:03.213[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1453[0m - [37mInitializing LineWithJavascriptFilter with threshold=3...[0m
+[32m2026-10-31 21:40:03.213[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m225[0m - [37mRunning LineEndWithEllipsisFilter with input_key = raw_content and output_key = line_end_with_ellipsis_filter_label...[0m
+Implementing LineEndWithEllipsisFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineEndWithEllipsisFilter: 100%|██████████| 1/1 [00:00<00:00, 16194.22it/s]
+[32m2026-10-31 21:40:03.214[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m250[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.214[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1411[0m - [37mRunning LineStartWithBulletpointFilter...[0m
+Implementing LineStartWithBulletpointFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineStartWithBulletpointFilter: 100%|██████████| 1/1 [00:00<00:00, 19152.07it/s]
+[32m2026-10-31 21:40:03.215[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1443[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.215[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1488[0m - [37mRunning LineWithJavascriptFilter...[0m
+Implementing LineWithJavascriptFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineWithJavascriptFilter: 100%|██████████| 1/1 [00:00<00:00, 9709.04it/s]
+[32m2026-10-31 21:40:03.216[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1517[0m - [37mFiltering completed. Total records passing filter: 0.[0m
+[32m2026-10-31 21:40:03.216[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mremove_extra_spaces_refiner.py[0m:[36m__init__[0m:[36m12[0m - [37mInitializing RemoveExtraSpacesRefiner ...[0m
+[32m2026-10-31 21:40:03.217[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mremove_extra_spaces_refiner.py[0m:[36mrun[0m:[36m46[0m - [37mRunning RemoveExtraSpacesRefiner with input_key = raw_content...[0m
+Implementing RemoveExtraSpacesRefiner:   0%|          | 0/1 [00:00<?, ?it/s]Implementing RemoveExtraSpacesRefiner: 100%|██████████| 1/1 [00:00<00:00, 17050.02it/s]
+[32m2026-10-31 21:40:03.217[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mremove_extra_spaces_refiner.py[0m:[36mrun[0m:[36m67[0m - [37mRefining Complete. Total modified items: 1[0m
+[32m2026-10-31 21:40:03.217[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m190[0m - [37mInitializing LineEndWithEllipsisFilter with threshold = 0.3...[0m
+[32m2026-10-31 21:40:03.217[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1376[0m - [37mInitializing LineStartWithBulletpointFilter with threshold=0.9...[0m
+[32m2026-10-31 21:40:03.217[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1453[0m - [37mInitializing LineWithJavascriptFilter with threshold=3...[0m
+[32m2026-10-31 21:40:03.218[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m225[0m - [37mRunning LineEndWithEllipsisFilter with input_key = raw_content and output_key = line_end_with_ellipsis_filter_label...[0m
+Implementing LineEndWithEllipsisFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineEndWithEllipsisFilter: 100%|██████████| 1/1 [00:00<00:00, 21183.35it/s]
+[32m2026-10-31 21:40:03.218[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m250[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.219[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1411[0m - [37mRunning LineStartWithBulletpointFilter...[0m
+Implementing LineStartWithBulletpointFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineStartWithBulletpointFilter: 100%|██████████| 1/1 [00:00<00:00, 21290.88it/s]
+[32m2026-10-31 21:40:03.219[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1443[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.220[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1488[0m - [37mRunning LineWithJavascriptFilter...[0m
+Implementing LineWithJavascriptFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineWithJavascriptFilter: 100%|██████████| 1/1 [00:00<00:00, 13486.51it/s]
+[32m2026-10-31 21:40:03.220[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1517[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.221[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m190[0m - [37mInitializing LineEndWithEllipsisFilter with threshold = 0.3...[0m
+[32m2026-10-31 21:40:03.221[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1376[0m - [37mInitializing LineStartWithBulletpointFilter with threshold=0.9...[0m
+[32m2026-10-31 21:40:03.221[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1453[0m - [37mInitializing LineWithJavascriptFilter with threshold=3...[0m
+[32m2026-10-31 21:40:03.221[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m225[0m - [37mRunning LineEndWithEllipsisFilter with input_key = raw_content and output_key = line_end_with_ellipsis_filter_label...[0m
+Implementing LineEndWithEllipsisFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineEndWithEllipsisFilter: 100%|██████████| 1/1 [00:00<00:00, 21845.33it/s]
+[32m2026-10-31 21:40:03.222[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m250[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.222[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1411[0m - [37mRunning LineStartWithBulletpointFilter...[0m
+Implementing LineStartWithBulletpointFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineStartWithBulletpointFilter: 100%|██████████| 1/1 [00:00<00:00, 22192.08it/s]
+[32m2026-10-31 21:40:03.223[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1443[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.223[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1488[0m - [37mRunning LineWithJavascriptFilter...[0m
+Implementing LineWithJavascriptFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineWithJavascriptFilter: 100%|██████████| 1/1 [00:00<00:00, 12826.62it/s]
+[32m2026-10-31 21:40:03.224[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1517[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.224[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mremove_extra_spaces_refiner.py[0m:[36m__init__[0m:[36m12[0m - [37mInitializing RemoveExtraSpacesRefiner ...[0m
+[32m2026-10-31 21:40:03.224[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mremove_extra_spaces_refiner.py[0m:[36mrun[0m:[36m46[0m - [37mRunning RemoveExtraSpacesRefiner with input_key = raw_content...[0m
+Implementing RemoveExtraSpacesRefiner:   0%|          | 0/1 [00:00<?, ?it/s]Implementing RemoveExtraSpacesRefiner: 100%|██████████| 1/1 [00:00<00:00, 29127.11it/s]
+[32m2026-10-31 21:40:03.225[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mremove_extra_spaces_refiner.py[0m:[36mrun[0m:[36m67[0m - [37mRefining Complete. Total modified items: 0[0m
+[32m2026-10-31 21:40:03.225[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m190[0m - [37mInitializing LineEndWithEllipsisFilter with threshold = 0.3...[0m
+[32m2026-10-31 21:40:03.225[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1376[0m - [37mInitializing LineStartWithBulletpointFilter with threshold=0.9...[0m
+[32m2026-10-31 21:40:03.225[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36m__init__[0m:[36m1453[0m - [37mInitializing LineWithJavascriptFilter with threshold=3...[0m
+[32m2026-10-31 21:40:03.225[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m225[0m - [37mRunning LineEndWithEllipsisFilter with input_key = raw_content and output_key = line_end_with_ellipsis_filter_label...[0m
+Implementing LineEndWithEllipsisFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineEndWithEllipsisFilter: 100%|██████████| 1/1 [00:00<00:00, 20867.18it/s]
+[32m2026-10-31 21:40:03.226[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m250[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.226[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1411[0m - [37mRunning LineStartWithBulletpointFilter...[0m
+Implementing LineStartWithBulletpointFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineStartWithBulletpointFilter: 100%|██████████| 1/1 [00:00<00:00, 21399.51it/s]
+[32m2026-10-31 21:40:03.227[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1443[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+[32m2026-10-31 21:40:03.227[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1488[0m - [37mRunning LineWithJavascriptFilter...[0m
+Implementing LineWithJavascriptFilter:   0%|          | 0/1 [00:00<?, ?it/s]Implementing LineWithJavascriptFilter: 100%|██████████| 1/1 [00:00<00:00, 12826.62it/s]
+[32m2026-10-31 21:40:03.228[0m | [37mINFO    [0m | [36mDataFlow[0m:[36mrule_based_filter.py[0m:[36mrun[0m:[36m1517[0m - [37mFiltering completed. Total records passing filter: 1.[0m
+id                   expect                           ellipsis bullet   javascript | after_refiner: ellipsis/bullet/js
+ellipsis_lines       LineEndWithEllipsisFilter        drop     keep     keep       | keep/keep/keep (newlines_flat=True)
+bullet_lines         LineStartWithBulletpointFilter   keep     drop     keep       | keep/drop/keep (newlines_flat=True)
+javascript_lines     LineWithJavascriptFilter         keep     keep     drop       | keep/keep/keep (newlines_flat=True)
+pt_clean_00          (control)                        keep     keep     keep       | keep/keep/keep (newlines_flat=False)
+[written] /home/simin/dataflow-task5/evidence/task5/unit_check_line_filters.json

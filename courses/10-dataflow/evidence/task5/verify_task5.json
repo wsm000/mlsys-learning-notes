@@ -1,0 +1,999 @@
+{
+  "pt": {
+    "status": "ok",
+    "input_rows": 44,
+    "steps": 25,
+    "survivors": 14,
+    "funnel": [
+      {
+        "operator": "input",
+        "rows": 44
+      },
+      {
+        "operator": "RemoveEmojiRefiner",
+        "rows": 44
+      },
+      {
+        "operator": "HtmlUrlRemoverRefiner",
+        "rows": 44
+      },
+      {
+        "operator": "RemoveExtraSpacesRefiner",
+        "rows": 44
+      },
+      {
+        "operator": "BlocklistFilter",
+        "rows": 42
+      },
+      {
+        "operator": "WordNumberFilter",
+        "rows": 40
+      },
+      {
+        "operator": "ColonEndFilter",
+        "rows": 39
+      },
+      {
+        "operator": "SentenceNumberFilter",
+        "rows": 37
+      },
+      {
+        "operator": "LineEndWithEllipsisFilter",
+        "rows": 37
+      },
+      {
+        "operator": "ContentNullFilter",
+        "rows": 37
+      },
+      {
+        "operator": "MeanWordLengthFilter",
+        "rows": 35
+      },
+      {
+        "operator": "SymbolWordRatioFilter",
+        "rows": 34
+      },
+      {
+        "operator": "HtmlEntityFilter",
+        "rows": 33
+      },
+      {
+        "operator": "NoPuncFilter",
+        "rows": 32
+      },
+      {
+        "operator": "SpecialCharacterFilter",
+        "rows": 31
+      },
+      {
+        "operator": "WatermarkFilter",
+        "rows": 30
+      },
+      {
+        "operator": "CurlyBracketFilter",
+        "rows": 29
+      },
+      {
+        "operator": "CapitalWordsFilter",
+        "rows": 28
+      },
+      {
+        "operator": "LoremIpsumFilter",
+        "rows": 27
+      },
+      {
+        "operator": "UniqueWordsFilter",
+        "rows": 26
+      },
+      {
+        "operator": "CharNumberFilter",
+        "rows": 26
+      },
+      {
+        "operator": "LineStartWithBulletpointFilter",
+        "rows": 25
+      },
+      {
+        "operator": "LineWithJavascriptFilter",
+        "rows": 25
+      },
+      {
+        "operator": "PairQualFilter",
+        "rows": 18
+      },
+      {
+        "operator": "LanguageFilter",
+        "rows": 17
+      },
+      {
+        "operator": "MinHashDeduplicateFilter",
+        "rows": 14
+      }
+    ],
+    "killed_by": {
+      "blocklist": "BlocklistFilter",
+      "null_content": "BlocklistFilter",
+      "boundary_words_19": "WordNumberFilter",
+      "too_short": "WordNumberFilter",
+      "colon_end": "ColonEndFilter",
+      "boundary_sentences_2": "SentenceNumberFilter",
+      "one_sentence": "SentenceNumberFilter",
+      "mean_len_short": "MeanWordLengthFilter",
+      "mean_len_long": "MeanWordLengthFilter",
+      "symbol_heavy": "SymbolWordRatioFilter",
+      "html_entity": "HtmlEntityFilter",
+      "no_punc": "NoPuncFilter",
+      "special_char": "SpecialCharacterFilter",
+      "watermark": "WatermarkFilter",
+      "curly_bracket": "CurlyBracketFilter",
+      "capital_words": "CapitalWordsFilter",
+      "lorem_ipsum": "LoremIpsumFilter",
+      "unique_words_low": "UniqueWordsFilter",
+      "bullet_lines": "LineStartWithBulletpointFilter",
+      "boundary_sentences_3": "PairQualFilter",
+      "html_url_doc": "PairQualFilter",
+      "gibberish": "PairQualFilter",
+      "javascript_lines": "PairQualFilter",
+      "boundary_words_20": "PairQualFilter",
+      "seo_spam": "PairQualFilter",
+      "ellipsis_lines": "PairQualFilter",
+      "non_english": "LanguageFilter",
+      "near_dup": "MinHashDeduplicateFilter",
+      "dup_exact_a": "MinHashDeduplicateFilter",
+      "dup_exact_b": "MinHashDeduplicateFilter"
+    },
+    "survivor_ids": [
+      "emoji_doc",
+      "extra_spaces_doc",
+      "pt_clean_00",
+      "pt_clean_01",
+      "pt_clean_02",
+      "pt_clean_03",
+      "pt_clean_04",
+      "pt_clean_05",
+      "pt_clean_06",
+      "pt_clean_07",
+      "pt_clean_08",
+      "pt_clean_09",
+      "pt_clean_10",
+      "pt_clean_11"
+    ],
+    "id_rows": [
+      {
+        "id": "pt_clean_00",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "pt_clean_01",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "pt_clean_02",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "pt_clean_03",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "pt_clean_04",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "pt_clean_05",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "pt_clean_06",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "pt_clean_07",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "pt_clean_08",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "pt_clean_09",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "pt_clean_10",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "pt_clean_11",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "boundary_words_20",
+        "defect": "boundary",
+        "expect": "keep",
+        "actual": "drop",
+        "killed_by": "PairQualFilter",
+        "match": false
+      },
+      {
+        "id": "boundary_words_19",
+        "defect": "boundary",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "WordNumberFilter",
+        "match": true
+      },
+      {
+        "id": "boundary_sentences_3",
+        "defect": "boundary",
+        "expect": "keep",
+        "actual": "drop",
+        "killed_by": "PairQualFilter",
+        "match": false
+      },
+      {
+        "id": "boundary_sentences_2",
+        "defect": "boundary",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "SentenceNumberFilter",
+        "match": true
+      },
+      {
+        "id": "dup_exact_a",
+        "defect": "duplicate_first_copy",
+        "expect": "keep",
+        "actual": "drop",
+        "killed_by": "MinHashDeduplicateFilter",
+        "match": false
+      },
+      {
+        "id": "dup_exact_b",
+        "defect": "dup_exact_b",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "MinHashDeduplicateFilter",
+        "match": true
+      },
+      {
+        "id": "near_dup",
+        "defect": "near_dup",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "MinHashDeduplicateFilter",
+        "match": true
+      },
+      {
+        "id": "too_short",
+        "defect": "too_short",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "WordNumberFilter",
+        "match": true
+      },
+      {
+        "id": "colon_end",
+        "defect": "colon_end",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "ColonEndFilter",
+        "match": true
+      },
+      {
+        "id": "one_sentence",
+        "defect": "one_sentence",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "SentenceNumberFilter",
+        "match": true
+      },
+      {
+        "id": "ellipsis_lines",
+        "defect": "ellipsis_lines",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "PairQualFilter",
+        "match": true
+      },
+      {
+        "id": "null_content",
+        "defect": "null_content",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "BlocklistFilter",
+        "match": true
+      },
+      {
+        "id": "mean_len_long",
+        "defect": "mean_len_long",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "MeanWordLengthFilter",
+        "match": true
+      },
+      {
+        "id": "mean_len_short",
+        "defect": "mean_len_short",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "MeanWordLengthFilter",
+        "match": true
+      },
+      {
+        "id": "symbol_heavy",
+        "defect": "symbol_heavy",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "SymbolWordRatioFilter",
+        "match": true
+      },
+      {
+        "id": "html_entity",
+        "defect": "html_entity",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "HtmlEntityFilter",
+        "match": true
+      },
+      {
+        "id": "no_punc",
+        "defect": "no_punc",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "NoPuncFilter",
+        "match": true
+      },
+      {
+        "id": "special_char",
+        "defect": "special_char",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "SpecialCharacterFilter",
+        "match": true
+      },
+      {
+        "id": "watermark",
+        "defect": "watermark",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "WatermarkFilter",
+        "match": true
+      },
+      {
+        "id": "curly_bracket",
+        "defect": "curly_bracket",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "CurlyBracketFilter",
+        "match": true
+      },
+      {
+        "id": "capital_words",
+        "defect": "capital_words",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "CapitalWordsFilter",
+        "match": true
+      },
+      {
+        "id": "lorem_ipsum",
+        "defect": "lorem_ipsum",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "LoremIpsumFilter",
+        "match": true
+      },
+      {
+        "id": "unique_words_low",
+        "defect": "unique_words_low",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "UniqueWordsFilter",
+        "match": true
+      },
+      {
+        "id": "bullet_lines",
+        "defect": "bullet_lines",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "LineStartWithBulletpointFilter",
+        "match": true
+      },
+      {
+        "id": "javascript_lines",
+        "defect": "javascript_lines",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "PairQualFilter",
+        "match": true
+      },
+      {
+        "id": "blocklist",
+        "defect": "blocklist",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "BlocklistFilter",
+        "match": true
+      },
+      {
+        "id": "non_english",
+        "defect": "non_english",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "LanguageFilter",
+        "match": true
+      },
+      {
+        "id": "seo_spam",
+        "defect": "seo_spam",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "PairQualFilter",
+        "match": true
+      },
+      {
+        "id": "gibberish",
+        "defect": "gibberish",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "PairQualFilter",
+        "match": true
+      },
+      {
+        "id": "emoji_doc",
+        "defect": "refine_demo",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "html_url_doc",
+        "defect": "refine_demo",
+        "expect": "keep",
+        "actual": "drop",
+        "killed_by": "PairQualFilter",
+        "match": false
+      },
+      {
+        "id": "extra_spaces_doc",
+        "defect": "refine_demo",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      }
+    ],
+    "manifest_match": {
+      "total": 44,
+      "matched": 40,
+      "mismatched": [
+        "boundary_words_20",
+        "boundary_sentences_3",
+        "dup_exact_a",
+        "html_url_doc"
+      ]
+    },
+    "pairqual_score_stats": {
+      "n": 18,
+      "min": 2.0217,
+      "max": 5.6872,
+      "mean": 3.9456,
+      "median": 4.0564
+    },
+    "pairqual_scores": [
+      {
+        "id": "pt_clean_00",
+        "PairQualScore": 4.2525291443
+      },
+      {
+        "id": "pt_clean_01",
+        "PairQualScore": 3.641808033
+      },
+      {
+        "id": "pt_clean_02",
+        "PairQualScore": 3.7716341019
+      },
+      {
+        "id": "pt_clean_03",
+        "PairQualScore": 5.6871852875
+      },
+      {
+        "id": "pt_clean_04",
+        "PairQualScore": 3.0969657898
+      },
+      {
+        "id": "pt_clean_05",
+        "PairQualScore": 5.2653355598
+      },
+      {
+        "id": "pt_clean_06",
+        "PairQualScore": 4.3737363815
+      },
+      {
+        "id": "pt_clean_07",
+        "PairQualScore": 4.0731282234
+      },
+      {
+        "id": "pt_clean_08",
+        "PairQualScore": 4.0396380424
+      },
+      {
+        "id": "pt_clean_09",
+        "PairQualScore": 3.9920349121
+      },
+      {
+        "id": "pt_clean_10",
+        "PairQualScore": 4.3607926369
+      },
+      {
+        "id": "pt_clean_11",
+        "PairQualScore": 2.6184830666
+      },
+      {
+        "id": "dup_exact_a",
+        "PairQualScore": 4.2525291443
+      },
+      {
+        "id": "dup_exact_b",
+        "PairQualScore": 4.2525291443
+      },
+      {
+        "id": "near_dup",
+        "PairQualScore": 5.2222394943
+      },
+      {
+        "id": "non_english",
+        "PairQualScore": 2.0216670036
+      },
+      {
+        "id": "emoji_doc",
+        "PairQualScore": 3.0909597874
+      },
+      {
+        "id": "extra_spaces_doc",
+        "PairQualScore": 3.0072789192
+      }
+    ],
+    "refiner_effect": {
+      "emoji_doc": {
+        "before_tail": " show 🎆 that drew thousands of spectators to the riverfront.",
+        "after_tail": "ks show that drew thousands of spectators to the riverfront.",
+        "changed": true
+      },
+      "html_url_doc": {
+        "before_tail": "ummary and http://mirror.example.org/report.html for access.",
+        "after_tail": "he original source when quoting figures. See and for access.",
+        "changed": true
+      },
+      "extra_spaces_doc": {
+        "before_tail": "ts   were   collected   during   the   following   semester.",
+        "after_tail": "l measurements were collected during the following semester.",
+        "changed": true
+      }
+    }
+  },
+  "sft": {
+    "status": "ok",
+    "input_rows": 16,
+    "steps": 3,
+    "survivors": 11,
+    "funnel": [
+      {
+        "operator": "input",
+        "rows": 16
+      },
+      {
+        "operator": "WordNumberFilter",
+        "rows": 12
+      },
+      {
+        "operator": "SuperfilteringFilter",
+        "rows": 11
+      },
+      {
+        "operator": "AlpagasusFilter(fallback)",
+        "rows": 11
+      }
+    ],
+    "killed_by": {
+      "sft_empty_output": "WordNumberFilter",
+      "sft_long_output": "WordNumberFilter",
+      "sft_short_output": "WordNumberFilter",
+      "sft_boundary_19": "WordNumberFilter",
+      "sft_mismatch": "SuperfilteringFilter"
+    },
+    "survivor_ids": [
+      "sft_boundary_20",
+      "sft_clean_01",
+      "sft_clean_02",
+      "sft_clean_03",
+      "sft_clean_04",
+      "sft_clean_05",
+      "sft_clean_06",
+      "sft_clean_07",
+      "sft_clean_08",
+      "sft_low_quality",
+      "sft_repetitive_output"
+    ],
+    "id_rows": [
+      {
+        "id": "sft_clean_01",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "sft_clean_02",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "sft_clean_03",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "sft_clean_04",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "sft_clean_05",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "sft_clean_06",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "sft_clean_07",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "sft_clean_08",
+        "defect": "none",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "sft_short_output",
+        "defect": "sft_short_output",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "WordNumberFilter",
+        "match": true
+      },
+      {
+        "id": "sft_long_output",
+        "defect": "sft_long_output",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "WordNumberFilter",
+        "match": true
+      },
+      {
+        "id": "sft_empty_output",
+        "defect": "sft_empty_output",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "WordNumberFilter",
+        "match": true
+      },
+      {
+        "id": "sft_repetitive_output",
+        "defect": "sft_repetitive_output",
+        "expect": "drop",
+        "actual": "keep",
+        "killed_by": null,
+        "match": false
+      },
+      {
+        "id": "sft_mismatch",
+        "defect": "sft_mismatch",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "SuperfilteringFilter",
+        "match": true
+      },
+      {
+        "id": "sft_low_quality",
+        "defect": "sft_low_quality",
+        "expect": "drop",
+        "actual": "keep",
+        "killed_by": null,
+        "match": false
+      },
+      {
+        "id": "sft_boundary_20",
+        "defect": "sft_boundary_20",
+        "expect": "keep",
+        "actual": "keep",
+        "killed_by": null,
+        "match": true
+      },
+      {
+        "id": "sft_boundary_19",
+        "defect": "sft_boundary_19",
+        "expect": "drop",
+        "actual": "drop",
+        "killed_by": "WordNumberFilter",
+        "match": true
+      }
+    ],
+    "manifest_match": {
+      "total": 16,
+      "matched": 14,
+      "mismatched": [
+        "sft_repetitive_output",
+        "sft_low_quality"
+      ]
+    },
+    "superfiltering_score_stats": {
+      "n": 11,
+      "min": 0.6549,
+      "max": 0.9809,
+      "mean": 0.8606,
+      "median": 0.8921
+    },
+    "superfiltering_scores": [
+      {
+        "id": "sft_clean_01",
+        "SuperfilteringScore": 0.9471814712
+      },
+      {
+        "id": "sft_clean_02",
+        "SuperfilteringScore": 0.8109403334
+      },
+      {
+        "id": "sft_clean_03",
+        "SuperfilteringScore": 0.9397638324
+      },
+      {
+        "id": "sft_clean_04",
+        "SuperfilteringScore": 0.8984690598
+      },
+      {
+        "id": "sft_clean_05",
+        "SuperfilteringScore": 0.8081651492
+      },
+      {
+        "id": "sft_clean_06",
+        "SuperfilteringScore": 0.8920509713
+      },
+      {
+        "id": "sft_clean_07",
+        "SuperfilteringScore": 0.8994978063
+      },
+      {
+        "id": "sft_clean_08",
+        "SuperfilteringScore": 0.8453022583
+      },
+      {
+        "id": "sft_repetitive_output",
+        "SuperfilteringScore": 0.9809069149
+      },
+      {
+        "id": "sft_low_quality",
+        "SuperfilteringScore": 0.6549033586
+      },
+      {
+        "id": "sft_boundary_20",
+        "SuperfilteringScore": 0.7890152924
+      }
+    ],
+    "quality_score_column": "AlpagasusScore",
+    "quality_score_stats": {
+      "n": 11,
+      "min": 3.0,
+      "max": 5.0,
+      "mean": 4.2727,
+      "median": 4.0
+    },
+    "quality_scores": [
+      {
+        "id": "sft_clean_01",
+        "AlpagasusScore": 4.0
+      },
+      {
+        "id": "sft_clean_02",
+        "AlpagasusScore": 5.0
+      },
+      {
+        "id": "sft_clean_03",
+        "AlpagasusScore": 5.0
+      },
+      {
+        "id": "sft_clean_04",
+        "AlpagasusScore": 5.0
+      },
+      {
+        "id": "sft_clean_05",
+        "AlpagasusScore": 4.0
+      },
+      {
+        "id": "sft_clean_06",
+        "AlpagasusScore": 4.0
+      },
+      {
+        "id": "sft_clean_07",
+        "AlpagasusScore": 5.0
+      },
+      {
+        "id": "sft_clean_08",
+        "AlpagasusScore": 4.0
+      },
+      {
+        "id": "sft_repetitive_output",
+        "AlpagasusScore": 3.0
+      },
+      {
+        "id": "sft_low_quality",
+        "AlpagasusScore": 4.0
+      },
+      {
+        "id": "sft_boundary_20",
+        "AlpagasusScore": 4.0
+      }
+    ]
+  },
+  "syn": {
+    "status": "ok",
+    "funnel": [
+      {
+        "operator": "CondorGenerator",
+        "rows": 9
+      },
+      {
+        "operator": "CondorRefiner",
+        "rows": 9
+      },
+      {
+        "operator": "AlpagasusFilter",
+        "rows": 9
+      }
+    ],
+    "final_rows": [
+      {
+        "difficulty": "Easy",
+        "instruction": "I was reading the news and saw that my city is planning to introduce a new rule about not burning leaves in the backyard",
+        "output_len": 2575,
+        "AlpagasusScore": 4.0
+      },
+      {
+        "difficulty": "Medium",
+        "instruction": "My neighbor and I were chatting about how our local river sometimes looks cloudy and has a strange smell after heavy rai",
+        "output_len": 2842,
+        "AlpagasusScore": 4.0
+      },
+      {
+        "difficulty": "Hard",
+        "instruction": "I’m part of a small community group that wants to propose a more effective pollution control plan to our town council. W",
+        "output_len": 11223,
+        "AlpagasusScore": 4.0
+      },
+      {
+        "difficulty": "Easy",
+        "instruction": "During a military debriefing, a young soldier expresses deep frustration and self-doubt after a failed reconnaissance mi",
+        "output_len": 3916,
+        "AlpagasusScore": 4.0
+      },
+      {
+        "difficulty": "Medium",
+        "instruction": "A battalion commander is struggling with guilt after a costly diversionary attack, because the main force’s success depe",
+        "output_len": 6938,
+        "AlpagasusScore": 4.0
+      },
+      {
+        "difficulty": "Hard",
+        "instruction": "A senior intelligence officer is experiencing moral injury after discovering that a carefully crafted deception operatio",
+        "output_len": 4282,
+        "AlpagasusScore": 4.0
+      },
+      {
+        "difficulty": "Easy",
+        "instruction": "Imagine you’re a beginner who just bought a new pair of running shoes and a basic yoga mat. You want to start a simple h",
+        "output_len": 2848,
+        "AlpagasusScore": 4.0
+      },
+      {
+        "difficulty": "Medium",
+        "instruction": "You’re a weekend cyclist who owns a road bike with clipless pedals and a helmet with a MIPS liner. You’re planning a 50-",
+        "output_len": 6015,
+        "AlpagasusScore": 4.0
+      },
+      {
+        "difficulty": "Hard",
+        "instruction": "As a competitive swimmer preparing for a 200m butterfly event, you have access to a high-end training pool with lane lin",
+        "output_len": 8896,
+        "AlpagasusScore": 4.0
+      }
+    ],
+    "difficulty_distribution": {
+      "Easy": 3,
+      "Medium": 3,
+      "Hard": 3
+    },
+    "api_calls": {
+      "total_calls": 44,
+      "ok_calls": 39,
+      "latency_mean_s": 29.7,
+      "latency_max_s": 138.28,
+      "first_call_ts": "2026-10-31T21:48:01+0800",
+      "last_call_ts": "2026-10-31T22:02:34+0800"
+    }
+  }
+}

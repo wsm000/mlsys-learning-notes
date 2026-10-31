@@ -1,0 +1,222 @@
+[
+  {
+    "id": "pt_clean_00",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "pt_clean_01",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "pt_clean_02",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "pt_clean_03",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "pt_clean_04",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "pt_clean_05",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "pt_clean_06",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "pt_clean_07",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "pt_clean_08",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "pt_clean_09",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "pt_clean_10",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "pt_clean_11",
+    "defect": "none",
+    "expect": "keep"
+  },
+  {
+    "id": "boundary_words_20",
+    "defect": "boundary",
+    "expect": "keep"
+  },
+  {
+    "id": "boundary_words_19",
+    "defect": "boundary",
+    "expect": "drop"
+  },
+  {
+    "id": "boundary_sentences_3",
+    "defect": "boundary",
+    "expect": "keep"
+  },
+  {
+    "id": "boundary_sentences_2",
+    "defect": "boundary",
+    "expect": "drop"
+  },
+  {
+    "id": "dup_exact_a",
+    "defect": "duplicate_first_copy",
+    "expect": "keep"
+  },
+  {
+    "id": "dup_exact_b",
+    "defect": "dup_exact_b",
+    "expect": "drop"
+  },
+  {
+    "id": "near_dup",
+    "defect": "near_dup",
+    "expect": "drop"
+  },
+  {
+    "id": "too_short",
+    "defect": "too_short",
+    "expect": "drop"
+  },
+  {
+    "id": "colon_end",
+    "defect": "colon_end",
+    "expect": "drop"
+  },
+  {
+    "id": "one_sentence",
+    "defect": "one_sentence",
+    "expect": "drop"
+  },
+  {
+    "id": "ellipsis_lines",
+    "defect": "ellipsis_lines",
+    "expect": "drop"
+  },
+  {
+    "id": "null_content",
+    "defect": "null_content",
+    "expect": "drop"
+  },
+  {
+    "id": "mean_len_long",
+    "defect": "mean_len_long",
+    "expect": "drop"
+  },
+  {
+    "id": "mean_len_short",
+    "defect": "mean_len_short",
+    "expect": "drop"
+  },
+  {
+    "id": "symbol_heavy",
+    "defect": "symbol_heavy",
+    "expect": "drop"
+  },
+  {
+    "id": "html_entity",
+    "defect": "html_entity",
+    "expect": "drop"
+  },
+  {
+    "id": "no_punc",
+    "defect": "no_punc",
+    "expect": "drop"
+  },
+  {
+    "id": "special_char",
+    "defect": "special_char",
+    "expect": "drop"
+  },
+  {
+    "id": "watermark",
+    "defect": "watermark",
+    "expect": "drop"
+  },
+  {
+    "id": "curly_bracket",
+    "defect": "curly_bracket",
+    "expect": "drop"
+  },
+  {
+    "id": "capital_words",
+    "defect": "capital_words",
+    "expect": "drop"
+  },
+  {
+    "id": "lorem_ipsum",
+    "defect": "lorem_ipsum",
+    "expect": "drop"
+  },
+  {
+    "id": "unique_words_low",
+    "defect": "unique_words_low",
+    "expect": "drop"
+  },
+  {
+    "id": "bullet_lines",
+    "defect": "bullet_lines",
+    "expect": "drop"
+  },
+  {
+    "id": "javascript_lines",
+    "defect": "javascript_lines",
+    "expect": "drop"
+  },
+  {
+    "id": "blocklist",
+    "defect": "blocklist",
+    "expect": "drop"
+  },
+  {
+    "id": "non_english",
+    "defect": "non_english",
+    "expect": "drop"
+  },
+  {
+    "id": "seo_spam",
+    "defect": "seo_spam",
+    "expect": "drop"
+  },
+  {
+    "id": "gibberish",
+    "defect": "gibberish",
+    "expect": "drop"
+  },
+  {
+    "id": "emoji_doc",
+    "defect": "refine_demo",
+    "expect": "keep"
+  },
+  {
+    "id": "html_url_doc",
+    "defect": "refine_demo",
+    "expect": "keep"
+  },
+  {
+    "id": "extra_spaces_doc",
+    "defect": "refine_demo",
+    "expect": "keep"
+  }
+]
