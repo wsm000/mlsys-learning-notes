@@ -1,0 +1,14 @@
+{
+  "id": "caseB_accept_improved",
+  "title": "验收裁判接受「单变量优化候选」并给出配对裁决",
+  "verify": "同一固定输入下，候选 optimized_block1024.py（唯一改动 block_size 256→1024）必须通过正确性门禁，且裁判必须产出与 incumbent=baseline 的配对比较（improvementFraction 有实测值，无论正负）。",
+  "candidate": "optimized_block1024.py",
+  "incumbent": "baseline.py",
+  "expect": {
+    "status": "ok",
+    "correctness_passed": true,
+    "has_benchmark": true,
+    "has_comparison": true,
+    "candidate_differs_from_incumbent": true
+  }
+}

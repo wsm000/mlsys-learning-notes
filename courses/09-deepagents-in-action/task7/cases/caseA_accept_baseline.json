@@ -1,0 +1,12 @@
+{
+  "id": "caseA_accept_baseline",
+  "title": "验收裁判接受「项目自带的正确 baseline」",
+  "verify": "固定输入（fixture task.json 契约）下，项目权威裁判 evaluate.py 必须接受 baseline.py：status=ok 且 correctness.passed=true。",
+  "candidate": "baseline.py",
+  "incumbent": null,
+  "expect": {
+    "status": "ok",
+    "correctness_passed": true,
+    "has_benchmark": true
+  }
+}

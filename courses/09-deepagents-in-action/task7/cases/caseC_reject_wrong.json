@@ -1,0 +1,11 @@
+{
+  "id": "caseC_reject_wrong",
+  "title": "验收裁判拒绝「算错的候选」（门禁不能只发通过）",
+  "verify": "同一固定输入下，候选 wrong_multiply.py 用 x*y 冒充 x+y：能通过源码政策（结构合法），但裁判必须以 wrong_answer 拒绝、correctness.passed=false。证明验收门禁真的会拒绝错误答案。",
+  "candidate": "wrong_multiply.py",
+  "incumbent": null,
+  "expect": {
+    "status": "wrong_answer",
+    "correctness_passed": false
+  }
+}

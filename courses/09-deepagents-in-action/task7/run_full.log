@@ -1,0 +1,12 @@
+frozen inputs recorded in frozen_inputs.json
+[PASS] caseA_accept_baseline: status=ok correctness=True wall=3.591s
+[PASS] caseB_accept_improved: status=ok correctness=True wall=3.596s
+[PASS] caseC_reject_wrong: status=wrong_answer correctness=False wall=3.24s
+[sweep] block_size=  256: status=ok median=0.09530880153179169ms improvement=-0.00509485011775299 wall=3.541s
+[sweep] block_size=  512: status=ok median=0.09479040056467056ms improvement=-0.007664927453226299 wall=3.593s
+[sweep] block_size= 1024: status=ok median=0.09493759870529175ms improvement=-0.0050030088130381765 wall=3.592s
+[sweep] block_size= 2048: status=ok median=0.09592319875955582ms improvement=-0.00033003551397287376 wall=3.642s
+[sweep] block_size= 4096: status=ok median=0.09536640048027038ms improvement=-0.0008133291484626465 wall=3.643s
+
+manifest: evidence/manifest.json
+cases: 3/3 met frozen expectations

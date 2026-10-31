@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "findings": [
+    {
+      "gate": "G1",
+      "name": "fixed-input identity",
+      "passed": true,
+      "detail": "{\"task.json\": true, \"reference.py\": true, \"baseline.py\": true}"
+    },
+    {
+      "gate": "G2",
+      "name": "caseA accepts the correct baseline",
+      "passed": true,
+      "detail": "status=ok correctness=True"
+    },
+    {
+      "gate": "G3",
+      "name": "caseB accepts the single-variable candidate with paired comparison",
+      "passed": true,
+      "detail": "status=ok improvement=0.008125675824514126 differs=True"
+    },
+    {
+      "gate": "G4",
+      "name": "caseC rejects the wrong answer",
+      "passed": true,
+      "detail": "status=wrong_answer correctness=False"
+    },
+    {
+      "gate": "G5",
+      "name": "single-variable sweep is complete and contract-stable",
+      "passed": true,
+      "detail": "points=5 medians=[0.09530880153179169, 0.09479040056467056, 0.09493759870529175, 0.09592319875955582, 0.09536640048027038]"
+    },
+    {
+      "gate": "G6",
+      "name": "evidence files exist, parse, and match the manifest",
+      "passed": true,
+      "detail": "all evidence files consistent"
+    }
+  ],
+  "gates": [
+    [
+      "G1",
+      "fixed-input identity"
+    ],
+    [
+      "G2",
+      "caseA accepts the correct baseline"
+    ],
+    [
+      "G3",
+      "caseB accepts the single-variable candidate with paired comparison"
+    ],
+    [
+      "G4",
+      "caseC rejects the wrong answer"
+    ],
+    [
+      "G5",
+      "single-variable sweep is complete and contract-stable"
+    ],
+    [
+      "G6",
+      "evidence files exist, parse, and match the manifest"
+    ]
+  ],
+  "verdict": "ACCEPTED (gate open)",
+  "checkedAtUtc": "2026-10-30T01:18:06.378112+00:00"
+}

@@ -1,0 +1,588 @@
+{
+  "suite": "task7-acceptance",
+  "purpose": "固定输入 + 明确预期 + 证据：验收 hello-gpu Day5 kernel_optimize 项目的权威裁判",
+  "partRoot": "../part3-agent",
+  "frozenInputs": {
+    "task.json": "4005340b9840718cd00b03437b3aeea9ba6b0ca0631ea010c68e6b13b36be45e",
+    "reference.py": "74fb3e3906790f5e9b46e1b373084458586141e71dd6e1f5efad0f044d8a67c3",
+    "baseline.py": "9a0ec5010c1668cb48c00b295b932aa4fed6d02280378a2c8db07579948937de"
+  },
+  "inputIdentity": {
+    "task.json": {
+      "expected": "4005340b9840718cd00b03437b3aeea9ba6b0ca0631ea010c68e6b13b36be45e",
+      "actual": "4005340b9840718cd00b03437b3aeea9ba6b0ca0631ea010c68e6b13b36be45e",
+      "match": true
+    },
+    "reference.py": {
+      "expected": "74fb3e3906790f5e9b46e1b373084458586141e71dd6e1f5efad0f044d8a67c3",
+      "actual": "74fb3e3906790f5e9b46e1b373084458586141e71dd6e1f5efad0f044d8a67c3",
+      "match": true
+    },
+    "baseline.py": {
+      "expected": "9a0ec5010c1668cb48c00b295b932aa4fed6d02280378a2c8db07579948937de",
+      "actual": "9a0ec5010c1668cb48c00b295b932aa4fed6d02280378a2c8db07579948937de",
+      "match": true
+    }
+  },
+  "environment": {
+    "python": "3.10.12",
+    "executable": "/home/simin/task7-acceptance/venv/bin/python",
+    "platform": "Linux-6.8.0-138-generic-x86_64-with-glibc2.35",
+    "machine": "x86_64",
+    "runnerStartedAtUtc": "2026-10-30T01:15:25.915258+00:00",
+    "torch": "2.9.1+cu128",
+    "cudaAvailable": true,
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "gpuMemoryMiB": 24091,
+    "triton": "3.5.1"
+  },
+  "evaluatorTimeoutSeconds": 600,
+  "cases": [
+    {
+      "case": {
+        "id": "caseA_accept_baseline",
+        "title": "验收裁判接受「项目自带的正确 baseline」",
+        "verify": "固定输入（fixture task.json 契约）下，项目权威裁判 evaluate.py 必须接受 baseline.py：status=ok 且 correctness.passed=true。",
+        "candidate": "baseline.py",
+        "incumbent": null,
+        "expect": {
+          "status": "ok",
+          "correctness_passed": true,
+          "has_benchmark": true
+        }
+      },
+      "candidate": {
+        "file": "baseline.py",
+        "sha256": "9a0ec5010c1668cb48c00b295b932aa4fed6d02280378a2c8db07579948937de"
+      },
+      "incumbent": null,
+      "evaluatorReturncode": 0,
+      "wallSeconds": 3.591,
+      "result": {
+        "schemaVersion": 2,
+        "status": "ok",
+        "latencyMs": 0.09439360201358796,
+        "benchmark": {
+          "latencyMs": 0.09439360201358796,
+          "medianAbsoluteDeviationMs": 0.0006975993514060919,
+          "minMs": 0.0934464007616043,
+          "maxMs": 0.10147840082645417,
+          "samplesMs": [
+            0.09603200107812881,
+            0.09640320241451264,
+            0.09712000042200089,
+            0.09404160231351852,
+            0.09358080178499222,
+            0.09436800181865693,
+            0.09479680210351944,
+            0.09852800071239472,
+            0.09452800154685974,
+            0.09388800263404846,
+            0.09416960179805756,
+            0.09439360201358796,
+            0.09407999962568284,
+            0.09509120136499405,
+            0.0934464007616043,
+            0.09360640197992325,
+            0.09413120150566101,
+            0.10147840082645417,
+            0.09395200163125991,
+            0.09512320011854172,
+            0.09446400105953216,
+            0.09806080013513566,
+            0.09660800099372864,
+            0.09349760115146637,
+            0.09428480118513108
+          ]
+        },
+        "comparison": null,
+        "correctness": {
+          "passed": true,
+          "maxAbsError": 0.0,
+          "maxRelError": 0.0,
+          "failedSeed": null,
+          "reason": ""
+        },
+        "details": "",
+        "capturedOutput": "",
+        "environment": {
+          "device": "NVIDIA GeForce RTX 4090 D",
+          "gpuArch": "NVIDIA GeForce RTX 4090 D",
+          "platform": "Linux",
+          "platformRelease": "6.8.0-138-generic",
+          "distro": "ubuntu",
+          "distroVersion": "22.04",
+          "rocm": "",
+          "torch": "2.9.1+cu128",
+          "triton": "3.5.1"
+        }
+      },
+      "verdict": {
+        "passed": true,
+        "checks": [
+          {
+            "check": "status",
+            "passed": true,
+            "actual": "ok"
+          },
+          {
+            "check": "correctness.passed",
+            "passed": true,
+            "actual": true
+          },
+          {
+            "check": "benchmark present",
+            "passed": true,
+            "actual": true
+          }
+        ]
+      },
+      "evidenceFiles": [
+        "caseA_accept_baseline.result.json",
+        "caseA_accept_baseline.terminal.txt"
+      ]
+    },
+    {
+      "case": {
+        "id": "caseB_accept_improved",
+        "title": "验收裁判接受「单变量优化候选」并给出配对裁决",
+        "verify": "同一固定输入下，候选 optimized_block1024.py（唯一改动 block_size 256→1024）必须通过正确性门禁，且裁判必须产出与 incumbent=baseline 的配对比较（improvementFraction 有实测值，无论正负）。",
+        "candidate": "optimized_block1024.py",
+        "incumbent": "baseline.py",
+        "expect": {
+          "status": "ok",
+          "correctness_passed": true,
+          "has_benchmark": true,
+          "has_comparison": true,
+          "candidate_differs_from_incumbent": true
+        }
+      },
+      "candidate": {
+        "file": "optimized_block1024.py",
+        "sha256": "c0a41f771e123e5bbf05c38186618f4950608ee65fa26853345b9b8bebb79464"
+      },
+      "incumbent": {
+        "file": "baseline.py",
+        "sha256": "9a0ec5010c1668cb48c00b295b932aa4fed6d02280378a2c8db07579948937de"
+      },
+      "evaluatorReturncode": 0,
+      "wallSeconds": 3.596,
+      "result": {
+        "schemaVersion": 2,
+        "status": "ok",
+        "latencyMs": 0.0946816012263298,
+        "benchmark": {
+          "latencyMs": 0.0946816012263298,
+          "medianAbsoluteDeviationMs": 0.0009279996156692505,
+          "minMs": 0.0937472015619278,
+          "maxMs": 0.10949120223522187,
+          "samplesMs": [
+            0.09722880125045777,
+            0.09418240189552307,
+            0.09408000111579895,
+            0.09655040055513382,
+            0.0946816012263298,
+            0.09686400145292282,
+            0.09489920139312744,
+            0.09595520049333572,
+            0.09664640128612519,
+            0.0945344015955925,
+            0.09375360161066056,
+            0.09376000165939331,
+            0.0944320023059845,
+            0.0956735998392105,
+            0.0937472015619278,
+            0.09645440131425857,
+            0.09420160204172134,
+            0.09422720223665237,
+            0.09949440062046051,
+            0.09415040165185928,
+            0.0979072019457817,
+            0.09403520226478576,
+            0.10949120223522187,
+            0.09437440186738968,
+            0.09607039988040925
+          ]
+        },
+        "comparison": {
+          "incumbentLatencyMs": 0.09530240148305893,
+          "candidateLatencyMs": 0.0946816012263298,
+          "improvementFraction": 0.008125675824514126,
+          "pairedImprovements": [
+            -0.020213549054598306,
+            0.03552234420321903,
+            0.003119497933395243,
+            -0.0301126568023741,
+            0.007313956787020194,
+            -0.024781636342061462,
+            0.032304381350543886,
+            -0.01393113550889558,
+            -0.02853834103903592,
+            0.009455465932725528,
+            0.03814839071757587,
+            0.04907178542245938,
+            0.09104907380936521,
+            0.014503266206100375,
+            0.008125675824514126,
+            -0.02838620945476047,
+            0.010819880870199573,
+            0.01748412855576558,
+            -0.05460958071941806,
+            0.023886916268038263,
+            -0.04423208418291344,
+            0.023656035820736866,
+            -0.16826004505059836,
+            -0.005249173069496184,
+            0.016059270598498945
+          ],
+          "incumbentBenchmark": {
+            "latencyMs": 0.09530240148305893,
+            "medianAbsoluteDeviationMs": 0.0013375997543335072,
+            "minMs": 0.09372160136699677,
+            "maxMs": 0.10389119982719422,
+            "samplesMs": [
+              0.09530240148305893,
+              0.09765120148658753,
+              0.09437440186738968,
+              0.09372800141572953,
+              0.0953792005777359,
+              0.09452160149812698,
+              0.09806720167398453,
+              0.09463680237531662,
+              0.09396480172872543,
+              0.09543680101633072,
+              0.09747200161218643,
+              0.09859840124845505,
+              0.10389119982719422,
+              0.09708160012960435,
+              0.09451520144939422,
+              0.0937920019030571,
+              0.0952320009469986,
+              0.09590400010347366,
+              0.0943424016237259,
+              0.09645439982414246,
+              0.09376000165939331,
+              0.0963136002421379,
+              0.09372160136699677,
+              0.09388160109519958,
+              0.09763840138912201
+            ]
+          }
+        },
+        "correctness": {
+          "passed": true,
+          "maxAbsError": 0.0,
+          "maxRelError": 0.0,
+          "failedSeed": null,
+          "reason": ""
+        },
+        "details": "",
+        "capturedOutput": "",
+        "environment": {
+          "device": "NVIDIA GeForce RTX 4090 D",
+          "gpuArch": "NVIDIA GeForce RTX 4090 D",
+          "platform": "Linux",
+          "platformRelease": "6.8.0-138-generic",
+          "distro": "ubuntu",
+          "distroVersion": "22.04",
+          "rocm": "",
+          "torch": "2.9.1+cu128",
+          "triton": "3.5.1"
+        }
+      },
+      "verdict": {
+        "passed": true,
+        "checks": [
+          {
+            "check": "status",
+            "passed": true,
+            "actual": "ok"
+          },
+          {
+            "check": "correctness.passed",
+            "passed": true,
+            "actual": true
+          },
+          {
+            "check": "benchmark present",
+            "passed": true,
+            "actual": true
+          },
+          {
+            "check": "comparison present",
+            "passed": true,
+            "actual": true
+          },
+          {
+            "check": "candidate != incumbent (sha256)",
+            "passed": true,
+            "actual": {
+              "candidate": "c0a41f771e12",
+              "incumbent": "9a0ec5010c16"
+            }
+          }
+        ]
+      },
+      "evidenceFiles": [
+        "caseB_accept_improved.result.json",
+        "caseB_accept_improved.terminal.txt"
+      ]
+    },
+    {
+      "case": {
+        "id": "caseC_reject_wrong",
+        "title": "验收裁判拒绝「算错的候选」（门禁不能只发通过）",
+        "verify": "同一固定输入下，候选 wrong_multiply.py 用 x*y 冒充 x+y：能通过源码政策（结构合法），但裁判必须以 wrong_answer 拒绝、correctness.passed=false。证明验收门禁真的会拒绝错误答案。",
+        "candidate": "wrong_multiply.py",
+        "incumbent": null,
+        "expect": {
+          "status": "wrong_answer",
+          "correctness_passed": false
+        }
+      },
+      "candidate": {
+        "file": "wrong_multiply.py",
+        "sha256": "52c4f4f08d9683bae7fa4dfb30e4702f6807a4d5348109c5c5e2c16c97faf806"
+      },
+      "incumbent": null,
+      "evaluatorReturncode": 0,
+      "wallSeconds": 3.24,
+      "result": {
+        "schemaVersion": 2,
+        "status": "wrong_answer",
+        "latencyMs": null,
+        "benchmark": null,
+        "correctness": {
+          "passed": false,
+          "maxAbsError": 20.609375,
+          "maxRelError": 7843750084608.0,
+          "failedSeed": 17,
+          "reason": "candidate output differs from reference: output"
+        },
+        "details": "candidate output differs from reference: output",
+        "capturedOutput": ""
+      },
+      "verdict": {
+        "passed": true,
+        "checks": [
+          {
+            "check": "status",
+            "passed": true,
+            "actual": "wrong_answer"
+          },
+          {
+            "check": "correctness.passed",
+            "passed": true,
+            "actual": false
+          }
+        ]
+      },
+      "evidenceFiles": [
+        "caseC_reject_wrong.result.json",
+        "caseC_reject_wrong.terminal.txt"
+      ]
+    }
+  ],
+  "sweep": {
+    "taskSha256": "4005340b9840718cd00b03437b3aeea9ba6b0ca0631ea010c68e6b13b36be45e",
+    "incumbent": "baseline.py",
+    "variable": "block_size",
+    "points": [
+      {
+        "blockSize": 256,
+        "candidateSha256": "6ba5ab03dcfb18cc0e05cdb9210246b032c96941a4979fc469d8e8098ba94488",
+        "singleVariableDiff": "block_size: 256 -> 256",
+        "status": "ok",
+        "correctnessPassed": true,
+        "medianMs": 0.09530880153179169,
+        "incumbentMedianMs": 0.09394560158252716,
+        "improvementFraction": -0.00509485011775299,
+        "pairedImprovements": [
+          0.04580002553278083,
+          -0.0580958193477407,
+          -0.012431494345251488,
+          -0.19126533243836202,
+          -0.010995055788874194,
+          -0.03757542330187681,
+          0.0292991872975321,
+          -0.003769443636259566,
+          -0.040669353999483814,
+          0.02535511154436008,
+          -0.020613611905634294,
+          0.012635136751896531,
+          0.026291187765655418,
+          -0.00509485011775299,
+          -0.0026932447682279878,
+          0.031160709870015877,
+          -0.035123961309961746,
+          -0.0603939450994262,
+          -0.00027337550741947175,
+          -0.030390135706797092,
+          -0.011767106167909653,
+          -0.0010279523777094151,
+          -0.04993526454867925,
+          0.02258236090147513,
+          0.003685264267542405
+        ],
+        "wallSeconds": 3.541
+      },
+      {
+        "blockSize": 512,
+        "candidateSha256": "75c46034d0cbd71c7192da7f6d292c0259a965ead26d4a66b5a7f510eeb70644",
+        "singleVariableDiff": "block_size: 256 -> 512",
+        "status": "ok",
+        "correctnessPassed": true,
+        "medianMs": 0.09479040056467056,
+        "incumbentMedianMs": 0.0937472015619278,
+        "improvementFraction": -0.007664927453226299,
+        "pairedImprovements": [
+          0.02434701379650672,
+          -0.005104462722979776,
+          -0.03094539968328939,
+          0.0017749839372609123,
+          -0.019275464781206297,
+          0.0019070957539870173,
+          -0.013757693231941537,
+          -0.022074457952090516,
+          -0.007664927453226299,
+          0.029817546977765286,
+          -0.02272263271754421,
+          0.0303130575842304,
+          0.12936122988902235,
+          -0.03824874209672279,
+          -0.0027352346105420176,
+          -0.007016567588850877,
+          -0.008824524430278495,
+          -0.0014302204370023803,
+          -0.04002465761202124,
+          0.000751715357834088,
+          -0.010101701006066124,
+          -0.011866262905170712,
+          -0.13297363050677374,
+          0.006887151012826667,
+          -0.05516013137626632
+        ],
+        "wallSeconds": 3.593
+      },
+      {
+        "blockSize": 1024,
+        "candidateSha256": "7cef4eda0017cb5968386eb7a9333eec467977c133841e3f577c1c1869c918ce",
+        "singleVariableDiff": "block_size: 256 -> 1024",
+        "status": "ok",
+        "correctnessPassed": true,
+        "medianMs": 0.09493759870529175,
+        "incumbentMedianMs": 0.09441919922828675,
+        "improvementFraction": -0.0050030088130381765,
+        "pairedImprovements": [
+          0.0252920766841723,
+          0.011519023494642915,
+          0.0008110752539160749,
+          -0.0017683442016928675,
+          0.0025813343813375802,
+          -0.020026538678982794,
+          -0.020199293437190083,
+          0.0031584139096695655,
+          -0.021753961935524428,
+          -0.0050030088130381765,
+          0.0032608785054298213,
+          -0.005732219152768515,
+          0.10462226024293687,
+          -0.010462354342551411,
+          0.029941301741784478,
+          -0.010588879240013302,
+          0.04147974568675221,
+          -0.026017262396891234,
+          -0.03705211445250209,
+          0.0023200290257430886,
+          -0.005678315122357254,
+          -0.0032930045001092977,
+          -0.13300258006223475,
+          -0.01815573628442633,
+          -0.006176569443447099
+        ],
+        "wallSeconds": 3.592
+      },
+      {
+        "blockSize": 2048,
+        "candidateSha256": "65804ec6264e5526e3d07a40dcc6364d9771ee658f0b7fdd51ed9f50fa3a16b2",
+        "singleVariableDiff": "block_size: 256 -> 2048",
+        "status": "ok",
+        "correctnessPassed": true,
+        "medianMs": 0.09592319875955582,
+        "incumbentMedianMs": 0.09493760168552398,
+        "improvementFraction": -0.00033003551397287376,
+        "pairedImprovements": [
+          0.0090716017954039,
+          0.0254203957459282,
+          -0.02329044142104056,
+          0.002699408728330168,
+          -0.007696494144956525,
+          0.005527836351671526,
+          -0.018672604506908705,
+          0.012257825980468802,
+          -0.011930744916302163,
+          0.004074256303832737,
+          0.024358131600170155,
+          -0.002362791661516316,
+          0.1501876607688685,
+          -0.002494245025676904,
+          -0.03435656905366689,
+          0.001759488707256988,
+          0.037564175391939465,
+          -0.010012240814754424,
+          0.023187659979126127,
+          -0.00033003551397287376,
+          -0.03098000530752014,
+          0.011245667328982209,
+          -0.141811696531479,
+          -0.03866207305001935,
+          -0.027854987361816835
+        ],
+        "wallSeconds": 3.642
+      },
+      {
+        "blockSize": 4096,
+        "candidateSha256": "1a118f62b568cafaa74608266861f2054bf64fcd6ce7001c6230368742f13b25",
+        "singleVariableDiff": "block_size: 256 -> 4096",
+        "status": "ok",
+        "correctnessPassed": true,
+        "medianMs": 0.09536640048027038,
+        "incumbentMedianMs": 0.09503360092639923,
+        "improvementFraction": -0.0008133291484626465,
+        "pairedImprovements": [
+          -0.02844261785926335,
+          0.05765265528843141,
+          -0.01406821459851592,
+          -0.0008133291484626465,
+          0.02513464009861408,
+          0.014906491080310346,
+          -0.03589742193678224,
+          -0.012984368263432636,
+          -0.005579744494670718,
+          0.02594772684327715,
+          -0.03591177755042427,
+          0.028310622874176714,
+          0.13263442544832474,
+          -0.05746732319055935,
+          -0.004359690354276942,
+          0.027397268083518663,
+          0.005118181659957533,
+          -0.027109646019281,
+          0.017534618209550826,
+          -0.046812006258184664,
+          0.003809006577989418,
+          0.008940580685183446,
+          -0.15345617684524873,
+          -0.005857509519977373,
+          0.01288370873913657
+        ],
+        "wallSeconds": 3.643
+      }
+    ]
+  },
+  "summary": {
+    "casesTotal": 3,
+    "casesFailed": 0,
+    "finishedAtUtc": "2026-10-30T01:15:55.890728+00:00"
+  }
+}

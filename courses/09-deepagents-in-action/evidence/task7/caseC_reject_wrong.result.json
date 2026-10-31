@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 2,
+  "status": "wrong_answer",
+  "latencyMs": null,
+  "benchmark": null,
+  "correctness": {
+    "passed": false,
+    "maxAbsError": 20.609375,
+    "maxRelError": 7843750084608.0,
+    "failedSeed": 17,
+    "reason": "candidate output differs from reference: output"
+  },
+  "details": "candidate output differs from reference: output",
+  "capturedOutput": ""
+}
