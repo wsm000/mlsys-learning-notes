@@ -3,7 +3,7 @@
 **任务**：dataflowTask5 构建高质量训练数据 —— Text pipeline：预训练数据过滤 / SFT 数据过滤 / SFT 数据合成
 **环境**：vm-60（RTX 4090 D 24GB）· open-dataflow 1.0.11 · 2026-10-31 实测
 **代码**：code/task5/（build_corpora / pt_filter / sft_filter / sft_synthesis / verify / unit_check + env.sh + run_all.sh）
-**证据**：evidence/task5/（44 个文件：3 条 run 日志、verify_task5.json、unit_check_line_filters.json、语料清单、三条管线逐步 jsonl）
+**证据**：evidence/task5/（51 个文件：3 条 run 日志、verify_task5.json、unit_check_line_filters.json、语料清单、三条管线逐步 jsonl、6 张 runshot 运行截图 figures/runshot_task5_01~06）
 
 ## 一句话结论
 

@@ -203,7 +203,9 @@ bash run_all.sh pt|sft|syn   # 只跑某一段
 | evidence/task5/unit_check_line_filters.json | 三个行比例过滤器的算子级单元核对（refiner 前后对照） |
 | evidence/task5/corpora/ | 设计语料与缺陷清单 |
 | evidence/task5/steps_pt/ · steps_sft/ · steps_syn/ | 三条 pipeline 的逐步产物（含分数列） |
+| evidence/task5/figures/runshot_task5_0{1..6}_*.png | 运行截图：PT 漏斗 / id 级核对 / SFT 漏斗 / 合成 / 行过滤器单元核对 / 打卡总览 |
 | evidence/task5/dataflow-task5-checkin.md | 打卡文案 |
+| code/task5/render_runshots.py | runshot 渲染器（从真实日志/JSON 生成上图） |
 | code/task5/build_corpora.py | 设计语料构造器（缺陷清单 + 边界对照） |
 | code/task5/pt_filter_task5.py · sft_filter_task5.py · sft_synthesis_task5.py | 三条官方 pipeline 的改造版 |
 | code/task5/verify_task5.py · unit_check_line_filters.py | 核对脚本 |
