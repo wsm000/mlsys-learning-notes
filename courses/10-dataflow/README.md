@@ -12,7 +12,7 @@
 | Task 1 | PDF→模型（1.1–1.2.4） | `~/dataflow-task1`（vm-60），归档见 `evidence/task1` |
 | Task 2 | PDF→结构化文本→QA | `~/dataflow-task2`（vm-60），归档见 `evidence/task2` |
 | Task 3 | 多模态数据：公式/图表/版式 VQA 处理（3天，已完成） | [notes/task03](notes/task03-多模态数据公式图表版式VQA.md) · [code/task3](code/task3) · [evidence/task3](evidence/task3) · [打卡](evidence/task3/dataflow-task3-checkin.md) |
-| Task 4 | 构建 RAG 与 Text2SQL 数据：AgenticRAG 数据合成 + Text2SQL refine/gen（已完成） | [notes/task04](notes/task04-构建RAG与Text2SQL数据.md) · [场景数据需求](notes/task04-不同AI应用场景数据需求.md) · [code/task4](code/task4) · [evidence/task4](evidence/task4) · [打卡](evidence/task4/dataflow-task4-checkin.md) |
+| Task 4 | 构建 RAG 与 Text2SQL 数据：AgenticRAG 数据合成 + Text2SQL refine/gen（已完成） | [notes/task04](notes/task04-构建RAG与Text2SQL数据.md) · [场景数据需求](notes/task04-不同AI应用场景数据需求.md) · [code/task4](code/task4) · [evidence/task4](evidence/task4) · [打卡](evidence/task4/dataflow-task4-checkin.md) · [打卡图/结果图](evidence/task4/figures) |
 | Task 5 | 构建高质量训练数据：预训练数据过滤 + SFT 数据过滤 + SFT 数据合成（已完成） | [notes/task05](notes/task05-构建高质量训练数据.md) · [code/task5](code/task5) · [evidence/task5](evidence/task5) · [打卡](evidence/task5/dataflow-task5-checkin.md) |
 
 ## Task3 结论速览

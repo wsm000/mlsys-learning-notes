@@ -40,6 +40,19 @@
 - **Text2SQL 的 CoT 与 gold SQL 不强制字面一致**：投票按「执行结果一致性」选 CoT，示例中 CoT 给出的 SQL 与 SQL 字段不同但结果集一致（设计意图）；候选全部执行失败时源码会回退第一条 CoT（不淘汰），训练前应再做执行校验。
 - **样本规模小**：refine 4 条输入、gen 3 个库各 1 条、AgenticRAG 4 条文档——本任务验证的是「链路可运行 + 产出结构/质量边界」，不是数据规模或训练效果；官方默认参数（variations=3、候选=3、CoT=3、exec=10）在共享 20 RPM 端点下吞吐约 0.3–0.4 样本/分钟量级，不适合大批量生成。
 
+## 打卡图 / 运行结果图（6 张，1920×1080 PNG）
+
+全部由 [make_figures.py](../../code/task4/make_figures.py) 从真实证据 JSONL/日志生成（非示意数据；日志摘录图为真实日志渲染，图内已标注）：
+
+- 总览打卡图：[runshot_task4_01_打卡总览.png](figures/runshot_task4_01_打卡总览.png)
+- AgenticRAG 结果：[runshot_task4_02_agentic_rag_result.png](figures/runshot_task4_02_agentic_rag_result.png)
+- Text2SQL refine：[runshot_task4_03_text2sql_refine.png](figures/runshot_task4_03_text2sql_refine.png)
+- Text2SQL gen：[runshot_task4_04_text2sql_gen.png](figures/runshot_task4_04_text2sql_gen.png)
+- 429 限流与吞吐：[runshot_task4_05_429_throughput.png](figures/runshot_task4_05_429_throughput.png)
+- 真实日志摘录：[runshot_task4_06_日志摘录.png](figures/runshot_task4_06_日志摘录.png)
+
+![打卡总览](figures/runshot_task4_01_打卡总览.png)
+
 ## 证据（courses/10-dataflow/evidence/task4/）
 
 | 路径 | 内容 |

@@ -7,6 +7,21 @@
 > 模型：AMD Radeon 兼容端点 DeepSeek-V4-Flash（`https://developer.amd.com.cn/radeon/api/v1`）· 本地 embedding：BAAI/bge-small-zh-v1.5
 > 本任务产出：AgenticRAG 数据合成流水线实测 · Text2SQL 数据流水线实测 · [不同 AI 应用场景数据需求分析](task04-不同AI应用场景数据需求.md) · [证据](../evidence/task4) · [打卡](../evidence/task4/dataflow-task4-checkin.md)
 
+## 0.5 打卡图 / 运行结果图
+
+6 张 1920×1080 PNG，全部由 [code/task4/make_figures.py](../code/task4/make_figures.py) 从真实证据 JSONL/日志生成（非示意数据；日志摘录图为真实日志渲染，图内已标注）：
+
+![Task4 打卡总览](../evidence/task4/figures/runshot_task4_01_打卡总览.png)
+
+| 图 | 内容 |
+|---|---|
+| [打卡总览](../evidence/task4/figures/runshot_task4_01_打卡总览.png) | 两条 pipeline 关键指标 + 限流约束（适合直接当打卡图） |
+| [AgenticRAG 结果](../evidence/task4/figures/runshot_task4_02_agentic_rag_result.png) | F1 逐样本、双过滤、字段齐全率、漏斗、成本 |
+| [Text2SQL refine](../evidence/task4/figures/runshot_task4_03_text2sql_refine.png) | 10 步行数漏斗、难度/类型分布、prompt/CoT 长度、最终样例 |
+| [Text2SQL gen](../evidence/task4/figures/runshot_task4_04_text2sql_gen.png) | 9 步漏斗、3 库与复杂度、一致性过滤与假阴性边界 |
+| [429 限流与吞吐](../evidence/task4/figures/runshot_task4_05_429_throughput.png) | 各次运行 status=429 真实计数、限速前后对比、成本含义 |
+| [真实日志摘录](../evidence/task4/figures/runshot_task4_06_日志摘录.png) | 三份原始日志关键行（去 ANSI、截断） |
+
 ## 0. 环境与证据边界（先说能说什么、不能说什么）
 
 | 项 | 实际情况 |
@@ -158,6 +173,7 @@ cd ~/dataflow-task4/text2sql && python text2sql_refine_task4.py \
 | 文件 | 内容 |
 |---|---|
 | [task04-不同AI应用场景数据需求.md](task04-不同AI应用场景数据需求.md) | 场景数据需求分析笔记（文档 + 实测交叉） |
+| [evidence/task4/figures/](../evidence/task4/figures) | 打卡图 / 运行结果图 6 张（脚本从证据生成，含日志摘录渲染） |
 | evidence/task4/agentic_rag/ | AgenticRAG 运行日志/逐步产物/F1 统计/REPORT |
 | evidence/task4/text2sql/ | Text2SQL 运行日志/逐步产物/字段统计/REPORT |
 | evidence/task4/docs/ | 官方两篇文档的本地快照（agenticrag_pipeline / text2sqlpipeline） |

@@ -36,6 +36,17 @@
 | agenticrag_pipeline.txt | 官方 AgenticRAG 数据合成文档（2025-07-14） |
 | text2sqlpipeline.txt | 官方 Text-to-SQL 数据合成文档（2025-06-17） |
 
+## figures/ — 打卡图 / 运行结果图（6 张）
+
+由 `code/task4/make_figures.py` 从本目录真实 JSONL/JSON/日志生成（非示意数据，详见 [figures/README.md](figures/README.md)）：
+
+- [runshot_task4_01_打卡总览.png](figures/runshot_task4_01_打卡总览.png)：打卡总览（两条 pipeline 关键指标 + 限流约束）
+- [runshot_task4_02_agentic_rag_result.png](figures/runshot_task4_02_agentic_rag_result.png)：AgenticRAG F1/双过滤/漏斗
+- [runshot_task4_03_text2sql_refine.png](figures/runshot_task4_03_text2sql_refine.png)：refine 10 步漏斗与样例
+- [runshot_task4_04_text2sql_gen.png](figures/runshot_task4_04_text2sql_gen.png)：gen 9 步漏斗与限制
+- [runshot_task4_05_429_throughput.png](figures/runshot_task4_05_429_throughput.png)：429 计数与吞吐
+- [runshot_task4_06_日志摘录.png](figures/runshot_task4_06_日志摘录.png)：真实日志关键行（渲染）
+
 ## 其他
 
 - dataflow-task4-checkin.md：打卡文案
