@@ -1,0 +1,137 @@
+[VERIFY] t1_local (key1_text_score, local)
+  - aggregate_match          ok=True
+  - ppl_range                ok=True
+  - completeness             ok=True
+[VERIFY] t2_local (key2_qa, local)
+  - aggregate_match          ok=True
+  - metric_recompute         ok=True
+  - completeness             ok=True
+[VERIFY] t3_local (key2_q_ma, local)
+  - aggregate_match          ok=True
+  - metric_recompute         ok=True
+  - completeness             ok=True
+[VERIFY] t4_local (key3_q_choices_a, local)
+  - aggregate_match          ok=True
+  - mc_single_consistency    ok=True
+  - completeness             ok=True
+    spotcheck mc_0001: indep_argmax=0 operator=0 agree=True
+    spotcheck mc_0002: indep_argmax=0 operator=0 agree=True
+    spotcheck mc_0003: indep_argmax=1 operator=1 agree=True
+[VERIFY] t5_local (key3_q_choices_as, local)
+  - aggregate_match          ok=True
+  - micro_f1_recompute       ok=True
+  - completeness             ok=True
+[VERIFY] t6_local (key3_q_a_rejected, local)
+  - aggregate_match          ok=True
+  - pairwise_recompute       ok=True
+  - completeness             ok=True
+[VERIFY] t2_api (key2_qa, api)
+  - aggregate_match          ok=True
+  - metric_recompute         ok=True
+  - completeness             ok=True
+  - api_audit                ok=True
+[VERIFY] t2s_api_semantic (key2_qa, api)
+  - aggregate_match          ok=True
+  - semantic_vs_mathverify_gap ok=True
+  - completeness             ok=True
+  - api_audit                ok=True
+[VERIFY] t3_api (key2_q_ma, api)
+  - aggregate_match          ok=True
+  - metric_recompute         ok=True
+  - completeness             ok=True
+  - api_audit                ok=True
+[VERIFY] t5_api (key3_q_choices_as, api)
+  - aggregate_match          ok=True
+  - micro_f1_recompute       ok=True
+  - completeness             ok=True
+  - api_audit                ok=True
+[VERIFY] t2_ref_local (key2_qa, local)
+  - aggregate_match          ok=True
+  - metric_recompute         ok=True
+  - completeness             ok=True
+
+[SUMMARY] {
+  "key1_text_score": {
+    "local": {
+      "run": "t1_local",
+      "ppl_mean": 88.4708305359,
+      "total_samples": 5,
+      "valid_samples": 5
+    }
+  },
+  "key2_qa": {
+    "local": {
+      "run": "t2_local",
+      "accuracy": 1.0,
+      "total_samples": 15,
+      "valid_samples": 15
+    },
+    "api": {
+      "run": "t2_api",
+      "accuracy": 0.8666666667,
+      "total_samples": 15,
+      "valid_samples": 15
+    }
+  },
+  "key2_q_ma": {
+    "local": {
+      "run": "t3_local",
+      "accuracy": 0.8333333333,
+      "total_samples": 6,
+      "valid_samples": 6
+    },
+    "api": {
+      "run": "t3_api",
+      "accuracy": 0.8333333333,
+      "total_samples": 6,
+      "valid_samples": 6
+    }
+  },
+  "key3_q_choices_a": {
+    "local": {
+      "run": "t4_local",
+      "accuracy": 0.6,
+      "total_samples": 10,
+      "valid_samples": 10
+    }
+  },
+  "key3_q_choices_as": {
+    "local": {
+      "run": "t5_local",
+      "micro_f1_mean": 0.7214285714,
+      "total_samples": 10,
+      "valid_samples": 10
+    },
+    "api": {
+      "run": "t5_api",
+      "micro_f1_mean": 0.9523809524,
+      "total_samples": 10,
+      "valid_samples": 10
+    }
+  },
+  "key3_q_a_rejected": {
+    "local": {
+      "run": "t6_local",
+      "accuracy": 0.8,
+      "total_samples": 10,
+      "valid_samples": 10
+    }
+  },
+  "key2_qa+semantic": {
+    "api": {
+      "run": "t2s_api_semantic",
+      "accuracy": 1.0,
+      "total_samples": 15,
+      "valid_samples": 15
+    }
+  },
+  "key2_qa+ref_answers": {
+    "local": {
+      "run": "t2_ref_local",
+      "accuracy": 0.7333333333,
+      "total_samples": 15,
+      "valid_samples": 15
+    }
+  }
+}
+[VERIFY] all_ok=True -> /home/simin/dataflow-task6/evidence/task6/verify_task6.json

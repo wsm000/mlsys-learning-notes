@@ -1,0 +1,10 @@
+[
+  {
+    "total_samples":10,
+    "valid_samples":10,
+    "accuracy":0.8,
+    "bench_name_or_prefix":"bench_t6_local",
+    "type":"key3_q_a_rejected",
+    "metric":"pairwise_ll_winrate"
+  }
+]

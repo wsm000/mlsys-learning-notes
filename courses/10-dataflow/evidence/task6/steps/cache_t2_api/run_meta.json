@@ -1,0 +1,17 @@
+{
+  "eval_type": "key2_qa",
+  "model_kind": "api",
+  "model": "DeepSeek-V4-Flash",
+  "semantic_judge": false,
+  "force_generate": false,
+  "metric": "math_verify",
+  "prompt_template": "Question: {question}\nAnswer:",
+  "input": "/home/simin/dataflow-task6/task6/data/unified_bench_eval_type2.jsonl",
+  "rows": 15,
+  "cache": "/home/simin/dataflow-task6/task6/cache_t2_api",
+  "prefix": "bench_t2_api",
+  "started_at": "2026-11-02T15:51:41+0800",
+  "finished_at": "2026-11-02T15:53:34+0800",
+  "total_s": 112.7,
+  "requests": 15
+}

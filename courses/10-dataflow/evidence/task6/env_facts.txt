@@ -1,0 +1,38 @@
+# vm-60 environment facts (task6 collected)
+2026-11-02T16:15:54+08:00
+Linux user1-virtual-machine 6.8.0-138-generic #138~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Aug  7 13:43:15 UTC  x86_64 x86_64 x86_64 GNU/Linux
+NVIDIA GeForce RTX 4090 D, 24564 MiB, 570.211.01
+python 3.10.12
+open-dataflow 1.0.11
+torch 2.9.1+cu128
+transformers 4.57.6
+math-verify                   0.9.0
+numpy                         1.26.4
+open-dataflow                 1.0.11
+pandas                        2.3.3
+torch                         2.9.1
+transformers                  4.57.6
+local model: /home/simin/dataflow-task6/model/Qwen2.5-0.5B-Instruct
+total 976220
+drwxrwxr-x 3 simin simin      4096 11月  2 15:25 .
+drwxrwxr-x 3 simin simin      4096 11月  2 15:25 ..
+drwxrwxr-x 3 simin simin      4096 11月  2 15:25 .cache
+-rw-rw-r-- 1 simin simin       659 11月  2 15:25 config.json
+-rw-rw-r-- 1 simin simin       242 11月  2 15:25 generation_config.json
+-rw-rw-r-- 1 simin simin      1519 11月  2 15:25 .gitattributes
+-rw-rw-r-- 1 simin simin     11343 11月  2 15:25 LICENSE
+-rw-rw-r-- 1 simin simin   1671839 11月  2 15:25 merges.txt
+-rw-rw-r-- 1 simin simin 988097824 11月  2 15:25 model.safetensors
+-rw-rw-r-- 1 simin simin      4917 11月  2 15:25 README.md
+-rw-rw-r-- 1 simin simin      7305 11月  2 15:25 tokenizer_config.json
+--- endpoint reachability ---
+developer.amd.com.cn -> 200
+--- dataflow benchmark_eval pipelines on vm-60 ---
+__pycache__
+unified_bench_eval_type1.py
+unified_bench_eval_type2.py
+unified_bench_eval_type3.py
+unified_bench_eval_type4.py
+unified_bench_eval_type5.py
+unified_bench_eval_type6.py
+unified_bench_eval_type_semantic.py

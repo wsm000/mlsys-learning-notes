@@ -1,0 +1,14 @@
+[DATA] key1_text_score      unified_bench_eval_type1.jsonl       rows=  5 fields=['text']
+[DATA] key2_qa              unified_bench_eval_type2.jsonl       rows= 15 fields=['golden_label', 'id', 'model_answer', 'question']
+[DATA] key2_q_ma            unified_bench_eval_type3.jsonl       rows=  6 fields=['context', 'eval_type', 'id', 'question', 'targets']
+[DATA] key3_q_choices_a     unified_bench_eval_type4.jsonl       rows= 10 fields=['choices', 'context', 'eval_type', 'id', 'label', 'question']
+[DATA] key3_q_choices_as    unified_bench_eval_type5.jsonl       rows= 10 fields=['choices', 'context', 'eval_type', 'id', 'labels', 'question']
+[DATA] key3_q_a_rejected    unified_bench_eval_type6.jsonl       rows= 10 fields=['better', 'context', 'eval_type', 'id', 'question', 'rejected']
+[PIPE] unified_bench_eval_type1.py
+[PIPE] unified_bench_eval_type2.py
+[PIPE] unified_bench_eval_type3.py
+[PIPE] unified_bench_eval_type4.py
+[PIPE] unified_bench_eval_type5.py
+[PIPE] unified_bench_eval_type6.py
+[PIPE] unified_bench_eval_type_semantic.py
+[DONE] manifest -> ./data/manifest.json

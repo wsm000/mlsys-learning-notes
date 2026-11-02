@@ -1,0 +1,17 @@
+{
+  "eval_type": "key1_text_score",
+  "model_kind": "local",
+  "model": "/home/simin/dataflow-task6/model/Qwen2.5-0.5B-Instruct",
+  "semantic_judge": false,
+  "force_generate": false,
+  "metric": "ppl",
+  "prompt_template": null,
+  "input": "/home/simin/dataflow-task6/task6/data/unified_bench_eval_type1.jsonl",
+  "rows": 5,
+  "cache": "/home/simin/dataflow-task6/task6/cache_t1_local",
+  "prefix": "bench_t1_local",
+  "started_at": "2026-11-02T15:48:50+0800",
+  "finished_at": "2026-11-02T15:48:53+0800",
+  "total_s": 2.6,
+  "requests": 0
+}

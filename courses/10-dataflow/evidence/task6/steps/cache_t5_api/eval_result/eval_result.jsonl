@@ -1,0 +1,10 @@
+[
+  {
+    "total_samples":10,
+    "valid_samples":10,
+    "micro_f1_mean":0.9523809524,
+    "bench_name_or_prefix":"bench_t5_api",
+    "type":"key3_q_choices_as",
+    "metric":"micro_f1"
+  }
+]

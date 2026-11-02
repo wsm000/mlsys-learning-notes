@@ -1,0 +1,17 @@
+{
+  "eval_type": "key3_q_choices_as",
+  "model_kind": "api",
+  "model": "DeepSeek-V4-Flash",
+  "semantic_judge": false,
+  "force_generate": false,
+  "metric": "micro_f1",
+  "prompt_template": "{context}Question:\n{question}\n\nChoices:\n{choices_text}\n\nAnswer:",
+  "input": "/home/simin/dataflow-task6/task6/data/unified_bench_eval_type5.jsonl",
+  "rows": 10,
+  "cache": "/home/simin/dataflow-task6/task6/cache_t5_api",
+  "prefix": "bench_t5_api",
+  "started_at": "2026-11-02T16:01:02+0800",
+  "finished_at": "2026-11-02T16:02:06+0800",
+  "total_s": 63.4,
+  "requests": 10
+}

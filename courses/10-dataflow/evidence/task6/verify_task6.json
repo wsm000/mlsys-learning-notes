@@ -1,0 +1,665 @@
+{
+  "runs": [
+    {
+      "name": "t1_local",
+      "eval_type": "key1_text_score",
+      "model": "local",
+      "checks": [
+        {
+          "check": "aggregate_match",
+          "ok": true,
+          "metric": "ppl_mean",
+          "operator": 88.4708305359,
+          "recomputed": 88.47083053588,
+          "total": 5,
+          "valid": 5
+        },
+        {
+          "check": "ppl_range",
+          "ok": true,
+          "ppl_min": 16.8441905975,
+          "ppl_max": 249.7652893066
+        },
+        {
+          "check": "completeness",
+          "ok": true,
+          "detail": {
+            "error_distribution": {}
+          }
+        }
+      ],
+      "ok": true,
+      "step_file": "bench_t1_local_step2.jsonl",
+      "rows": 5,
+      "operator_stats": {
+        "bench_name_or_prefix": "bench_t1_local",
+        "type": "key1_text_score",
+        "metric": "ppl",
+        "total_samples": 5,
+        "valid_samples": 5,
+        "ppl_mean": 88.4708305359
+      }
+    },
+    {
+      "name": "t2_local",
+      "eval_type": "key2_qa",
+      "model": "local",
+      "checks": [
+        {
+          "check": "aggregate_match",
+          "ok": true,
+          "metric": "accuracy",
+          "operator": 1.0,
+          "recomputed": 1.0,
+          "total": 15,
+          "valid": 15
+        },
+        {
+          "check": "metric_recompute",
+          "ok": true,
+          "n_compared": 15,
+          "mismatches": [],
+          "match_path_counts": {
+            "math_verify": 12,
+            "text_contains(extracted)": 1,
+            "text_contains(raw)": 2
+          }
+        },
+        {
+          "check": "completeness",
+          "ok": true,
+          "detail": {
+            "id_unique": true,
+            "id_count": 15,
+            "generated_ans_nonempty": 15,
+            "generated_ans_total": 15,
+            "error_distribution": {}
+          }
+        }
+      ],
+      "ok": true,
+      "step_file": "bench_t2_local_step2.jsonl",
+      "rows": 15,
+      "operator_stats": {
+        "total_samples": 15,
+        "valid_samples": 15,
+        "accuracy": 1.0,
+        "bench_name_or_prefix": "bench_t2_local",
+        "type": "key2_qa",
+        "metric": "math_verify"
+      }
+    },
+    {
+      "name": "t3_local",
+      "eval_type": "key2_q_ma",
+      "model": "local",
+      "checks": [
+        {
+          "check": "aggregate_match",
+          "ok": true,
+          "metric": "accuracy",
+          "operator": 0.8333333333,
+          "recomputed": 0.8333333333333334,
+          "total": 6,
+          "valid": 6
+        },
+        {
+          "check": "metric_recompute",
+          "ok": true,
+          "n_compared": 6,
+          "mismatches": [],
+          "match_path_counts": {
+            "text_contains(raw)": 4,
+            "text_contains(extracted)": 1
+          }
+        },
+        {
+          "check": "completeness",
+          "ok": true,
+          "detail": {
+            "id_unique": true,
+            "id_count": 6,
+            "generated_ans_nonempty": 6,
+            "generated_ans_total": 6,
+            "error_distribution": {}
+          }
+        }
+      ],
+      "ok": true,
+      "step_file": "bench_t3_local_step2.jsonl",
+      "rows": 6,
+      "operator_stats": {
+        "total_samples": 6,
+        "valid_samples": 6,
+        "accuracy": 0.8333333333,
+        "bench_name_or_prefix": "bench_t3_local",
+        "type": "key2_q_ma",
+        "metric": "any_math_verify"
+      }
+    },
+    {
+      "name": "t4_local",
+      "eval_type": "key3_q_choices_a",
+      "model": "local",
+      "checks": [
+        {
+          "check": "aggregate_match",
+          "ok": true,
+          "metric": "accuracy",
+          "operator": 0.6,
+          "recomputed": 0.6,
+          "total": 10,
+          "valid": 10
+        },
+        {
+          "check": "mc_single_consistency",
+          "ok": true,
+          "n_compared": 10,
+          "mismatches": []
+        },
+        {
+          "check": "completeness",
+          "ok": true,
+          "detail": {
+            "id_unique": true,
+            "id_count": 10,
+            "error_distribution": {}
+          }
+        },
+        {
+          "check": "ll_spotcheck",
+          "ok": true,
+          "detail": [
+            {
+              "id": "mc_0001",
+              "lls": [
+                -4.12,
+                -9.88,
+                -13.69,
+                -13.5
+              ],
+              "independent_argmax": 0,
+              "operator_pred": 0,
+              "label": 0,
+              "agree": true
+            },
+            {
+              "id": "mc_0002",
+              "lls": [
+                -7.72,
+                -10.5,
+                -12.0,
+                -8.31
+              ],
+              "independent_argmax": 0,
+              "operator_pred": 0,
+              "label": 1,
+              "agree": true
+            },
+            {
+              "id": "mc_0003",
+              "lls": [
+                -12.88,
+                -6.5,
+                -12.5,
+                -17.38
+              ],
+              "independent_argmax": 1,
+              "operator_pred": 1,
+              "label": 1,
+              "agree": true
+            }
+          ]
+        }
+      ],
+      "ok": true,
+      "step_file": "bench_t4_local_step2.jsonl",
+      "rows": 10,
+      "operator_stats": {
+        "total_samples": 10,
+        "valid_samples": 10,
+        "accuracy": 0.6,
+        "bench_name_or_prefix": "bench_t4_local",
+        "type": "key3_q_choices_a",
+        "metric": "ll_choice_acc"
+      }
+    },
+    {
+      "name": "t5_local",
+      "eval_type": "key3_q_choices_as",
+      "model": "local",
+      "checks": [
+        {
+          "check": "aggregate_match",
+          "ok": true,
+          "metric": "micro_f1_mean",
+          "operator": 0.7214285714,
+          "recomputed": 0.72142857144,
+          "total": 10,
+          "valid": 10
+        },
+        {
+          "check": "micro_f1_recompute",
+          "ok": true,
+          "n_compared": 10,
+          "mismatches": []
+        },
+        {
+          "check": "completeness",
+          "ok": true,
+          "detail": {
+            "id_unique": true,
+            "id_count": 10,
+            "generated_ans_nonempty": 10,
+            "generated_ans_total": 10,
+            "error_distribution": {}
+          }
+        }
+      ],
+      "ok": true,
+      "step_file": "bench_t5_local_step2.jsonl",
+      "rows": 10,
+      "operator_stats": {
+        "total_samples": 10,
+        "valid_samples": 10,
+        "micro_f1_mean": 0.7214285714,
+        "bench_name_or_prefix": "bench_t5_local",
+        "type": "key3_q_choices_as",
+        "metric": "micro_f1"
+      }
+    },
+    {
+      "name": "t6_local",
+      "eval_type": "key3_q_a_rejected",
+      "model": "local",
+      "checks": [
+        {
+          "check": "aggregate_match",
+          "ok": true,
+          "metric": "accuracy",
+          "operator": 0.8,
+          "recomputed": 0.8,
+          "total": 10,
+          "valid": 10
+        },
+        {
+          "check": "pairwise_recompute",
+          "ok": true,
+          "n_compared": 10,
+          "mismatches": []
+        },
+        {
+          "check": "completeness",
+          "ok": true,
+          "detail": {
+            "id_unique": true,
+            "id_count": 10,
+            "error_distribution": {}
+          }
+        }
+      ],
+      "ok": true,
+      "step_file": "bench_t6_local_step2.jsonl",
+      "rows": 10,
+      "operator_stats": {
+        "total_samples": 10,
+        "valid_samples": 10,
+        "accuracy": 0.8,
+        "bench_name_or_prefix": "bench_t6_local",
+        "type": "key3_q_a_rejected",
+        "metric": "pairwise_ll_winrate"
+      }
+    },
+    {
+      "name": "t2_api",
+      "eval_type": "key2_qa",
+      "model": "api",
+      "checks": [
+        {
+          "check": "aggregate_match",
+          "ok": true,
+          "metric": "accuracy",
+          "operator": 0.8666666667,
+          "recomputed": 0.8666666666666667,
+          "total": 15,
+          "valid": 15
+        },
+        {
+          "check": "metric_recompute",
+          "ok": true,
+          "n_compared": 15,
+          "mismatches": [],
+          "match_path_counts": {
+            "math_verify": 12,
+            "text_contains(raw)": 1
+          }
+        },
+        {
+          "check": "completeness",
+          "ok": true,
+          "detail": {
+            "id_unique": true,
+            "id_count": 15,
+            "generated_ans_nonempty": 15,
+            "generated_ans_total": 15,
+            "error_distribution": {}
+          }
+        },
+        {
+          "check": "api_audit",
+          "ok": true,
+          "n_calls": 15,
+          "n_failed": 0,
+          "latency_mean_s": 9.05
+        }
+      ],
+      "ok": true,
+      "step_file": "bench_t2_api_step2.jsonl",
+      "rows": 15,
+      "operator_stats": {
+        "total_samples": 15,
+        "valid_samples": 15,
+        "accuracy": 0.8666666667,
+        "bench_name_or_prefix": "bench_t2_api",
+        "type": "key2_qa",
+        "metric": "math_verify"
+      }
+    },
+    {
+      "name": "t2s_api_semantic",
+      "eval_type": "key2_qa",
+      "model": "api",
+      "checks": [
+        {
+          "check": "aggregate_match",
+          "ok": true,
+          "metric": "accuracy",
+          "operator": 1.0,
+          "recomputed": 1.0,
+          "total": 15,
+          "valid": 15
+        },
+        {
+          "check": "semantic_vs_mathverify_gap",
+          "ok": true,
+          "judge_pass_but_strict_fail": [
+            "math_009"
+          ],
+          "judge_fail_but_strict_pass": [],
+          "mathverify_path_counts": {
+            "math_verify": 13,
+            "text_contains(raw)": 1
+          }
+        },
+        {
+          "check": "completeness",
+          "ok": true,
+          "detail": {
+            "id_unique": true,
+            "id_count": 15,
+            "generated_ans_nonempty": 15,
+            "generated_ans_total": 15,
+            "error_distribution": {}
+          }
+        },
+        {
+          "check": "api_audit",
+          "ok": true,
+          "n_calls": 30,
+          "n_failed": 0,
+          "latency_mean_s": 20.79
+        }
+      ],
+      "ok": true,
+      "step_file": "bench_t2s_api_step2.jsonl",
+      "rows": 15,
+      "operator_stats": {
+        "total_samples": 15,
+        "valid_samples": 15,
+        "accuracy": 1.0,
+        "bench_name_or_prefix": "bench_t2s_api",
+        "type": "key2_qa",
+        "metric": "semantic_judge"
+      }
+    },
+    {
+      "name": "t3_api",
+      "eval_type": "key2_q_ma",
+      "model": "api",
+      "checks": [
+        {
+          "check": "aggregate_match",
+          "ok": true,
+          "metric": "accuracy",
+          "operator": 0.8333333333,
+          "recomputed": 0.8333333333333334,
+          "total": 6,
+          "valid": 6
+        },
+        {
+          "check": "metric_recompute",
+          "ok": true,
+          "n_compared": 6,
+          "mismatches": [],
+          "match_path_counts": {
+            "text_contains(raw)": 5
+          }
+        },
+        {
+          "check": "completeness",
+          "ok": true,
+          "detail": {
+            "id_unique": true,
+            "id_count": 6,
+            "generated_ans_nonempty": 6,
+            "generated_ans_total": 6,
+            "error_distribution": {}
+          }
+        },
+        {
+          "check": "api_audit",
+          "ok": true,
+          "n_calls": 6,
+          "n_failed": 0,
+          "latency_mean_s": 4.13
+        }
+      ],
+      "ok": true,
+      "step_file": "bench_t3_api_step2.jsonl",
+      "rows": 6,
+      "operator_stats": {
+        "total_samples": 6,
+        "valid_samples": 6,
+        "accuracy": 0.8333333333,
+        "bench_name_or_prefix": "bench_t3_api",
+        "type": "key2_q_ma",
+        "metric": "any_math_verify"
+      }
+    },
+    {
+      "name": "t5_api",
+      "eval_type": "key3_q_choices_as",
+      "model": "api",
+      "checks": [
+        {
+          "check": "aggregate_match",
+          "ok": true,
+          "metric": "micro_f1_mean",
+          "operator": 0.9523809524,
+          "recomputed": 0.9523809523800001,
+          "total": 10,
+          "valid": 10
+        },
+        {
+          "check": "micro_f1_recompute",
+          "ok": true,
+          "n_compared": 10,
+          "mismatches": []
+        },
+        {
+          "check": "completeness",
+          "ok": true,
+          "detail": {
+            "id_unique": true,
+            "id_count": 10,
+            "generated_ans_nonempty": 10,
+            "generated_ans_total": 10,
+            "error_distribution": {}
+          }
+        },
+        {
+          "check": "api_audit",
+          "ok": true,
+          "n_calls": 10,
+          "n_failed": 0,
+          "latency_mean_s": 4.42
+        }
+      ],
+      "ok": true,
+      "step_file": "bench_t5_api_step2.jsonl",
+      "rows": 10,
+      "operator_stats": {
+        "total_samples": 10,
+        "valid_samples": 10,
+        "micro_f1_mean": 0.9523809524,
+        "bench_name_or_prefix": "bench_t5_api",
+        "type": "key3_q_choices_as",
+        "metric": "micro_f1"
+      }
+    },
+    {
+      "name": "t2_ref_local",
+      "eval_type": "key2_qa",
+      "model": "local",
+      "checks": [
+        {
+          "check": "aggregate_match",
+          "ok": true,
+          "metric": "accuracy",
+          "operator": 0.7333333333,
+          "recomputed": 0.7333333333333333,
+          "total": 15,
+          "valid": 15
+        },
+        {
+          "check": "metric_recompute",
+          "ok": true,
+          "n_compared": 15,
+          "mismatches": [],
+          "match_path_counts": {
+            "math_verify": 9,
+            "text_contains(extracted)": 1,
+            "text_contains(raw)": 1
+          }
+        },
+        {
+          "check": "completeness",
+          "ok": true,
+          "detail": {
+            "id_unique": true,
+            "id_count": 15,
+            "generated_ans_nonempty": 15,
+            "generated_ans_total": 15,
+            "error_distribution": {}
+          }
+        }
+      ],
+      "ok": true,
+      "step_file": "bench_t2_ref_local_step2.jsonl",
+      "rows": 15,
+      "operator_stats": {
+        "total_samples": 15,
+        "valid_samples": 15,
+        "accuracy": 0.7333333333,
+        "bench_name_or_prefix": "bench_t2_ref_local",
+        "type": "key2_qa",
+        "metric": "math_verify"
+      }
+    }
+  ],
+  "comparison": {
+    "key1_text_score": {
+      "local": {
+        "run": "t1_local",
+        "ppl_mean": 88.4708305359,
+        "total_samples": 5,
+        "valid_samples": 5
+      }
+    },
+    "key2_qa": {
+      "local": {
+        "run": "t2_local",
+        "accuracy": 1.0,
+        "total_samples": 15,
+        "valid_samples": 15
+      },
+      "api": {
+        "run": "t2_api",
+        "accuracy": 0.8666666667,
+        "total_samples": 15,
+        "valid_samples": 15
+      }
+    },
+    "key2_q_ma": {
+      "local": {
+        "run": "t3_local",
+        "accuracy": 0.8333333333,
+        "total_samples": 6,
+        "valid_samples": 6
+      },
+      "api": {
+        "run": "t3_api",
+        "accuracy": 0.8333333333,
+        "total_samples": 6,
+        "valid_samples": 6
+      }
+    },
+    "key3_q_choices_a": {
+      "local": {
+        "run": "t4_local",
+        "accuracy": 0.6,
+        "total_samples": 10,
+        "valid_samples": 10
+      }
+    },
+    "key3_q_choices_as": {
+      "local": {
+        "run": "t5_local",
+        "micro_f1_mean": 0.7214285714,
+        "total_samples": 10,
+        "valid_samples": 10
+      },
+      "api": {
+        "run": "t5_api",
+        "micro_f1_mean": 0.9523809524,
+        "total_samples": 10,
+        "valid_samples": 10
+      }
+    },
+    "key3_q_a_rejected": {
+      "local": {
+        "run": "t6_local",
+        "accuracy": 0.8,
+        "total_samples": 10,
+        "valid_samples": 10
+      }
+    },
+    "key2_qa+semantic": {
+      "api": {
+        "run": "t2s_api_semantic",
+        "accuracy": 1.0,
+        "total_samples": 15,
+        "valid_samples": 15
+      }
+    },
+    "key2_qa+ref_answers": {
+      "local": {
+        "run": "t2_ref_local",
+        "accuracy": 0.7333333333,
+        "total_samples": 15,
+        "valid_samples": 15
+      }
+    }
+  },
+  "all_ok": true
+}

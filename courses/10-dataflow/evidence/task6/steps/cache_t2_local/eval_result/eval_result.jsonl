@@ -1,0 +1,10 @@
+[
+  {
+    "total_samples":15,
+    "valid_samples":15,
+    "accuracy":1.0,
+    "bench_name_or_prefix":"bench_t2_local",
+    "type":"key2_qa",
+    "metric":"math_verify"
+  }
+]

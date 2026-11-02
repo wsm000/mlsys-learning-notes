@@ -1,0 +1,112 @@
+{
+  "source_pkg": "/home/simin/.venv-df3/lib/python3.10/site-packages/dataflow",
+  "source_dir": "/home/simin/.venv-df3/lib/python3.10/site-packages/dataflow/example/core_text_data",
+  "datasets": {
+    "key1_text_score": {
+      "file": "unified_bench_eval_type1.jsonl",
+      "rows": 5,
+      "fields": [
+        "text"
+      ],
+      "sha256": "53fe20f19249487d7ac8e21c520c2204dd5afa91858d46b7e7ef455b85f8918f",
+      "bytes": 395
+    },
+    "key2_qa": {
+      "file": "unified_bench_eval_type2.jsonl",
+      "rows": 15,
+      "fields": [
+        "golden_label",
+        "id",
+        "model_answer",
+        "question"
+      ],
+      "sha256": "8b36959d2f2bb6c1e1b66810498d350507b4d73838e83db14cfca43917509a73",
+      "bytes": 3279
+    },
+    "key2_q_ma": {
+      "file": "unified_bench_eval_type3.jsonl",
+      "rows": 6,
+      "fields": [
+        "context",
+        "eval_type",
+        "id",
+        "question",
+        "targets"
+      ],
+      "sha256": "87caa7127c800832298a290019fdf224bd8e71fc92bdce7f226cd376bfb2e40c",
+      "bytes": 1223
+    },
+    "key3_q_choices_a": {
+      "file": "unified_bench_eval_type4.jsonl",
+      "rows": 10,
+      "fields": [
+        "choices",
+        "context",
+        "eval_type",
+        "id",
+        "label",
+        "question"
+      ],
+      "sha256": "c42280b431bc4dba72c4b246bce072b3307b2757022835b3f2fe35505b0b407a",
+      "bytes": 1980
+    },
+    "key3_q_choices_as": {
+      "file": "unified_bench_eval_type5.jsonl",
+      "rows": 10,
+      "fields": [
+        "choices",
+        "context",
+        "eval_type",
+        "id",
+        "labels",
+        "question"
+      ],
+      "sha256": "ae9698833cc48d20432a5be26ca78f5517247ff36b8f20782c95e7e2f4f5538b",
+      "bytes": 2453
+    },
+    "key3_q_a_rejected": {
+      "file": "unified_bench_eval_type6.jsonl",
+      "rows": 10,
+      "fields": [
+        "better",
+        "context",
+        "eval_type",
+        "id",
+        "question",
+        "rejected"
+      ],
+      "sha256": "92df084640948ada279b84910f4aa6ad7ba475d90ac7b3d7e6dd234404f59950",
+      "bytes": 3162
+    }
+  },
+  "pipelines": [
+    {
+      "file": "unified_bench_eval_type1.py",
+      "sha256": "c127a0f1651101bd1d134849f1f4f369f40ff1791da980f85c6809974799cc3f"
+    },
+    {
+      "file": "unified_bench_eval_type2.py",
+      "sha256": "8b1009508d11cfd896bfec8e23eff13c5c1f498ac29920c7aeaa90561b10c58b"
+    },
+    {
+      "file": "unified_bench_eval_type3.py",
+      "sha256": "933d826685248463ea48710d8c82cd8fddf4ecd17d1e87fdeacb6d6291ef6a44"
+    },
+    {
+      "file": "unified_bench_eval_type4.py",
+      "sha256": "2655af20ffecf63a45fe2a449dff931999078a720f5080eff4d6137cb1c3ff72"
+    },
+    {
+      "file": "unified_bench_eval_type5.py",
+      "sha256": "724d1bb5e294874f4075c83310ff6e78c8bf21f9d2d6bf9752adcc77dfec0976"
+    },
+    {
+      "file": "unified_bench_eval_type6.py",
+      "sha256": "39513c5b20aa5048367ac077afc6b442340f7bec2d1320184d00b7455c07b607"
+    },
+    {
+      "file": "unified_bench_eval_type_semantic.py",
+      "sha256": "c78af4e5f2c16c21f9b2f6a0075e90084765f5f92cd4895be3f149d80ca0d3f9"
+    }
+  ]
+}

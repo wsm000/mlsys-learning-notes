@@ -1,0 +1,10 @@
+[
+  {
+    "bench_name_or_prefix":"bench_t1_local",
+    "type":"key1_text_score",
+    "metric":"ppl",
+    "total_samples":5,
+    "valid_samples":5,
+    "ppl_mean":88.4708305359
+  }
+]

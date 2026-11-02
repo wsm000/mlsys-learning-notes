@@ -1,0 +1,10 @@
+[
+  {
+    "total_samples":10,
+    "valid_samples":10,
+    "accuracy":0.6,
+    "bench_name_or_prefix":"bench_t4_local",
+    "type":"key3_q_choices_a",
+    "metric":"ll_choice_acc"
+  }
+]

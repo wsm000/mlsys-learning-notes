@@ -1,0 +1,17 @@
+{
+  "eval_type": "key3_q_a_rejected",
+  "model_kind": "local",
+  "model": "/home/simin/dataflow-task6/model/Qwen2.5-0.5B-Instruct",
+  "semantic_judge": false,
+  "force_generate": false,
+  "metric": "pairwise_ll_winrate",
+  "prompt_template": "{context}Question:\n{question}\n\nAnswer:",
+  "input": "/home/simin/dataflow-task6/task6/data/unified_bench_eval_type6.jsonl",
+  "rows": 10,
+  "cache": "/home/simin/dataflow-task6/task6/cache_t6_local",
+  "prefix": "bench_t6_local",
+  "started_at": "2026-11-02T15:51:29+0800",
+  "finished_at": "2026-11-02T15:51:31+0800",
+  "total_s": 2.0,
+  "requests": 0
+}

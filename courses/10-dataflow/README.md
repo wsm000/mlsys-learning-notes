@@ -14,12 +14,20 @@
 | Task 3 | 多模态数据：公式/图表/版式 VQA 处理（3天，已完成） | [notes/task03](notes/task03-多模态数据公式图表版式VQA.md) · [code/task3](code/task3) · [evidence/task3](evidence/task3) · [打卡](evidence/task3/dataflow-task3-checkin.md) |
 | Task 4 | 构建 RAG 与 Text2SQL 数据：AgenticRAG 数据合成 + Text2SQL refine/gen（已完成） | [notes/task04](notes/task04-构建RAG与Text2SQL数据.md) · [场景数据需求](notes/task04-不同AI应用场景数据需求.md) · [code/task4](code/task4) · [evidence/task4](evidence/task4) · [打卡](evidence/task4/dataflow-task4-checkin.md) · [打卡图/结果图](evidence/task4/figures) |
 | Task 5 | 构建高质量训练数据：预训练数据过滤 + SFT 数据过滤 + SFT 数据合成（已完成） | [notes/task05](notes/task05-构建高质量训练数据.md) · [code/task5](code/task5) · [evidence/task5](evidence/task5) · [打卡](evidence/task5/dataflow-task5-checkin.md) |
+| Task 6 | 从数据到效果——评估模型能力：模型性能评测 Pipeline（6 个 eval_type 全量 + 语义裁判变体 + 度量口径探针）（已完成） | [notes/task06](notes/task06-从数据到效果评估模型能力.md) · [code/task6](code/task6) · [evidence/task6](evidence/task6) · [打卡](evidence/task6/dataflow-task6-checkin.md) |
 
 ## Task3 结论速览
 
 - **解析层（公式/图表/版式）**：MinerU2.5-2509-1.2B 本地 VLM 解析真实可用——LaTeX 公式、HTML 表格、带题注插图、版面框全覆盖（4 页 40 项 / 2 页 64 项）。
 - **抽取层（QA）**：本地 qwen3:1.7b 无法遵守 id 协议，产物结构有效但内容错误；教程原版需 gemini-2.5-pro。链路 22/22 验收通过，抽取质量如实标注为不可用。
 - 网络限制下的完整替代方案：Verge 代理下载模型权重 + tiktoken 缓存 → scp 上台；MinerU 本地 vlm-transformers 后端替代 API/Flash。
+
+## Task6 结论速览
+
+- **官方 unified bench eval 六类型全量跑通**（ppl / math_verify / any_math_verify / ll_choice_acc / micro_f1 / pairwise_ll_winrate + semantic_judge 变体），算子/prompt/metric 与官方逐字一致、只换 serving（vllm 与现有 torch 2.9.1 冲突，用 transformers 适配器；评测算子的 HF 回退路径让 ll/ppl 指标原样工作）。
+- **同一算子评两个真实模型**：本地 Qwen2.5-0.5B-Instruct vs AMD 端点 DeepSeek-V4-Flash（端点 2026-11-02 直连 200，隧道方案已不需要；61 次请求 10rpm 限流全成功）。共享类型上 API 占优（多选 micro-F1 0.952 vs 0.721）；QA 上 0.5B 15/15 vs API 13/15 是度量假阴性主导的反转。
+- **三个度量口径发现（id 级证据）**：① math_verify = 严格等价 OR 双向子串包含，0.5B 的 15/15 里 3 条仅靠子串（官方预填答案探针 11/15、4 条故意答错全判 0，证明指标对明确错误严格）；② LaTeX/Unicode 格式差造假阴性（`25\pi` vs `25π`、`x^2` vs `x²` 判 0，LLM 裁判判 1）；③ 多选 prompt 要 JSON 两个模型都不遵守，靠字母集合 fallback 救分，0.5B 系统性"全选"被 precision 压分。
+- **核对 11/11 all_ok**：聚合对账 + 逐 id 独立重算（0 mismatch）+ ll 抽核 3/3 + API 审计 61/61；semantic run 按"口径差异"单独列 judge_pass_but_strict_fail。
 
 ## Task5 结论速览
 

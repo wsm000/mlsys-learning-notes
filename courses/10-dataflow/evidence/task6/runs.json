@@ -1,0 +1,13 @@
+{
+  "t1_local":       {"cache": "/home/simin/dataflow-task6/task6/cache_t1_local",  "prefix": "bench_t1_local",  "eval_type": "key1_text_score",   "model": "local"},
+  "t2_local":       {"cache": "/home/simin/dataflow-task6/task6/cache_t2_local",  "prefix": "bench_t2_local",  "eval_type": "key2_qa",           "model": "local"},
+  "t3_local":       {"cache": "/home/simin/dataflow-task6/task6/cache_t3_local",  "prefix": "bench_t3_local",  "eval_type": "key2_q_ma",         "model": "local"},
+  "t4_local":       {"cache": "/home/simin/dataflow-task6/task6/cache_t4_local",  "prefix": "bench_t4_local",  "eval_type": "key3_q_choices_a",  "model": "local"},
+  "t5_local":       {"cache": "/home/simin/dataflow-task6/task6/cache_t5_local",  "prefix": "bench_t5_local",  "eval_type": "key3_q_choices_as", "model": "local"},
+  "t6_local":       {"cache": "/home/simin/dataflow-task6/task6/cache_t6_local",  "prefix": "bench_t6_local",  "eval_type": "key3_q_a_rejected", "model": "local"},
+  "t2_api":         {"cache": "/home/simin/dataflow-task6/task6/cache_t2_api",    "prefix": "bench_t2_api",    "eval_type": "key2_qa",           "model": "api"},
+  "t2s_api_semantic": {"cache": "/home/simin/dataflow-task6/task6/cache_t2s_api", "prefix": "bench_t2s_api",   "eval_type": "key2_qa",           "model": "api"},
+  "t3_api":         {"cache": "/home/simin/dataflow-task6/task6/cache_t3_api",    "prefix": "bench_t3_api",    "eval_type": "key2_q_ma",         "model": "api"},
+  "t5_api":         {"cache": "/home/simin/dataflow-task6/task6/cache_t5_api",    "prefix": "bench_t5_api",    "eval_type": "key3_q_choices_as", "model": "api"},
+  "t2_ref_local":   {"cache": "/home/simin/dataflow-task6/task6/cache_t2_ref_local", "prefix": "bench_t2_ref_local", "eval_type": "key2_qa",       "model": "local"}
+}
