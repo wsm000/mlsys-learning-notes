@@ -1,0 +1,43 @@
+{
+  "status": "completed",
+  "scope": "mechanism-equivalent teaching experiment, not official Ollama validation",
+  "dataset": "12 official fictional log samples",
+  "model": "Qwen/Qwen3-0.6B",
+  "backend": "local Hugging Face Transformers CUDA; Ollama replaced as authorized",
+  "regex": "documented compact patterns; not the upstream regex engine",
+  "normalization": "exact substring match; offsets computed deterministically; invalid JSON recorded as failure, never silently repaired",
+  "source_sha256": "0074ee040934c172403c07d5fd8b0c18c91f6ced43526bfc83fd0c1f87dab394",
+  "summary": {
+    "regex": {
+      "tp": 10,
+      "fp": 4,
+      "fn": 8,
+      "benign_chars": 732,
+      "benign_chars_removed": 45,
+      "precision": 0.7142857142857143,
+      "recall": 0.5555555555555556,
+      "benign_retention": 0.9385245901639344
+    },
+    "llm": {
+      "tp": 4,
+      "fp": 0,
+      "fn": 14,
+      "benign_chars": 732,
+      "benign_chars_removed": 0,
+      "precision": 1.0,
+      "recall": 0.2222222222222222,
+      "benign_retention": 1.0
+    },
+    "hybrid": {
+      "tp": 11,
+      "fp": 4,
+      "fn": 7,
+      "benign_chars": 732,
+      "benign_chars_removed": 45,
+      "precision": 0.7333333333333333,
+      "recall": 0.6111111111111112,
+      "benign_retention": 0.9385245901639344
+    }
+  },
+  "parse_errors": 0
+}

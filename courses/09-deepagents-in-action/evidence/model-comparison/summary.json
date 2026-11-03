@@ -1,0 +1,34 @@
+[
+  {
+    "model": "DeepSeek-V4-Flash",
+    "attempts": 3,
+    "completed": 2,
+    "core_passes": 2,
+    "strict_integer_passes": 2,
+    "no_extra_tools_passes": 2,
+    "completed_median_seconds": 40.707499999999996,
+    "errors": [
+      {
+        "repetition": 1,
+        "type": "OpenAITimeoutError",
+        "http_status": null
+      }
+    ]
+  },
+  {
+    "model": "GLM-5.3-Flash",
+    "attempts": 3,
+    "completed": 2,
+    "core_passes": 2,
+    "strict_integer_passes": 2,
+    "no_extra_tools_passes": 2,
+    "completed_median_seconds": 35.954,
+    "errors": [
+      {
+        "repetition": 3,
+        "type": "OpenAITimeoutError",
+        "http_status": null
+      }
+    ]
+  }
+]

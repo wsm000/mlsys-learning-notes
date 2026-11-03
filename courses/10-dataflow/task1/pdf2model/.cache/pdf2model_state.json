@@ -1,0 +1,9 @@
+{
+  "qa": "kbc",
+  "pdf2model_train_backend": "base",
+  "train_config_file_dir": "<REMOTE_HOME>/dataflow-task1/pdf2model/.cache/train_config.yaml",
+  "output_dir": "<REMOTE_HOME>/dataflow-task1/pdf2model/.cache/saves/pdf2model_cache_20261020_211846",
+  "dataset": "pdf_kbc_dataset",
+  "dataset_dir": "<REMOTE_HOME>/dataflow-task1/pdf2model/.cache/data",
+  "timestamp": "20261020_211846"
+}

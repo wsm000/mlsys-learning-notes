@@ -1,0 +1,203 @@
+{
+  "scope": "Mechanism-level snapshot study, not full live Agent 2-10 reproduction",
+  "original_source_commit": "dbc046eb896ac4e39aa19c7774c8bf49583b89a6",
+  "windowed_scope": "One explicit old-history compression plus intact latest observation; no adaptive trigger benchmark.",
+  "token_count": "cl100k diagnostic counts, not MiMo native token counts; API usage retained separately.",
+  "expected": {
+    "kv_modes": [
+      "correct",
+      "dynamic_system",
+      "shuffled_tools",
+      "dynamic_profile",
+      "sliding_window",
+      "text_format"
+    ],
+    "context_budget": 128000,
+    "attack_channels": 3,
+    "defense_conditions": 4,
+    "trials_per_cell": 5
+  },
+  "runs": [
+    {
+      "strategy": "no_compression",
+      "elapsed_s": 75.69590926170349,
+      "original_cl100k_tokens": 14897,
+      "retained_cl100k_tokens": 14897,
+      "answer": "{\"kv_modes\": [\"correct\", \"dynamic_system\", \"shuffled_tools\", \"dynamic_profile\", \"sliding_window\", \"text_format\"], \"context_budget\": 128000, \"attack_channels\": 3, \"defense_conditions\": 4, \"trials_per_cell\": 5}",
+      "parsed": {
+        "kv_modes": [
+          "correct",
+          "dynamic_system",
+          "shuffled_tools",
+          "dynamic_profile",
+          "sliding_window",
+          "text_format"
+        ],
+        "context_budget": 128000,
+        "attack_channels": 3,
+        "defense_conditions": 4,
+        "trials_per_cell": 5
+      },
+      "field_scores": {
+        "kv_modes": true,
+        "context_budget": true,
+        "attack_channels": true,
+        "defense_conditions": true,
+        "trials_per_cell": true
+      },
+      "correct_fields": 5,
+      "total_fields": 5
+    },
+    {
+      "strategy": "non_context_aware_individual_summary",
+      "elapsed_s": 124.09157395362854,
+      "original_cl100k_tokens": 14897,
+      "retained_cl100k_tokens": 1654,
+      "answer": "{\n  \"kv_modes\": [\"correct usage\", \"dynamic system prompts\", \"shuffled tool orders\", \"dynamic user profiles\", \"sliding window context\", \"plain text formatting\"],\n  \"context_budget\": 131072,\n  \"attack_channels\": 3,\n  \"defense_conditions\": 4,\n  \"trials_per_cell\": 5\n}",
+      "parsed": {
+        "kv_modes": [
+          "correct usage",
+          "dynamic system prompts",
+          "shuffled tool orders",
+          "dynamic user profiles",
+          "sliding window context",
+          "plain text formatting"
+        ],
+        "context_budget": 131072,
+        "attack_channels": 3,
+        "defense_conditions": 4,
+        "trials_per_cell": 5
+      },
+      "field_scores": {
+        "kv_modes": false,
+        "context_budget": false,
+        "attack_channels": true,
+        "defense_conditions": true,
+        "trials_per_cell": true
+      },
+      "correct_fields": 3,
+      "total_fields": 5
+    },
+    {
+      "strategy": "non_context_aware_combined_summary",
+      "elapsed_s": 55.707701444625854,
+      "original_cl100k_tokens": 14897,
+      "retained_cl100k_tokens": 481,
+      "answer": "{\"kv_modes\": [\"correct\", \"dynamic system prompt\", \"shuffled tools\", \"dynamic profile\", \"sliding window\", \"text format\"], \"context_budget\": 128000, \"attack_channels\": 3, \"defense_conditions\": 4, \"trials_per_cell\": 5, \"notes\": \"kv_modes are given as the source's descriptive labels, not verbatim enum strings; the source states only a '128K context window' for Config.CONTEXT_WINDOW_SIZE, so the integer is reported as 128000 (exact literal not present in the snapshot).\"}",
+      "parsed": {
+        "kv_modes": [
+          "correct",
+          "dynamic system prompt",
+          "shuffled tools",
+          "dynamic profile",
+          "sliding window",
+          "text format"
+        ],
+        "context_budget": 128000,
+        "attack_channels": 3,
+        "defense_conditions": 4,
+        "trials_per_cell": 5,
+        "notes": "kv_modes are given as the source's descriptive labels, not verbatim enum strings; the source states only a '128K context window' for Config.CONTEXT_WINDOW_SIZE, so the integer is reported as 128000 (exact literal not present in the snapshot)."
+      },
+      "field_scores": {
+        "kv_modes": false,
+        "context_budget": true,
+        "attack_channels": true,
+        "defense_conditions": true,
+        "trials_per_cell": true
+      },
+      "correct_fields": 4,
+      "total_fields": 5
+    },
+    {
+      "strategy": "context_aware_summary",
+      "elapsed_s": 31.68157434463501,
+      "original_cl100k_tokens": 14897,
+      "retained_cl100k_tokens": 314,
+      "answer": "{\"kv_modes\": [\"correct\", \"dynamic_system\", \"shuffled_tools\", \"dynamic_profile\", \"sliding_window\", \"text_format\"], \"context_budget\": 128000, \"attack_channels\": 3, \"defense_conditions\": 4, \"trials_per_cell\": 5}",
+      "parsed": {
+        "kv_modes": [
+          "correct",
+          "dynamic_system",
+          "shuffled_tools",
+          "dynamic_profile",
+          "sliding_window",
+          "text_format"
+        ],
+        "context_budget": 128000,
+        "attack_channels": 3,
+        "defense_conditions": 4,
+        "trials_per_cell": 5
+      },
+      "field_scores": {
+        "kv_modes": true,
+        "context_budget": true,
+        "attack_channels": true,
+        "defense_conditions": true,
+        "trials_per_cell": true
+      },
+      "correct_fields": 5,
+      "total_fields": 5
+    },
+    {
+      "strategy": "context_aware_with_citations",
+      "elapsed_s": 87.87048053741455,
+      "original_cl100k_tokens": 14897,
+      "retained_cl100k_tokens": 633,
+      "answer": "```json\n{\n  \"kv_modes\": [\"correct\", \"dynamic_system\", \"shuffled_tools\", \"dynamic_profile\", \"sliding_window\", \"text_format\"],\n  \"context_budget\": 128000,\n  \"attack_channels\": 3,\n  \"defense_conditions\": 4,\n  \"trials_per_cell\": 5\n}\n```",
+      "parsed": {
+        "kv_modes": [
+          "correct",
+          "dynamic_system",
+          "shuffled_tools",
+          "dynamic_profile",
+          "sliding_window",
+          "text_format"
+        ],
+        "context_budget": 128000,
+        "attack_channels": 3,
+        "defense_conditions": 4,
+        "trials_per_cell": 5
+      },
+      "field_scores": {
+        "kv_modes": true,
+        "context_budget": true,
+        "attack_channels": true,
+        "defense_conditions": true,
+        "trials_per_cell": true
+      },
+      "correct_fields": 5,
+      "total_fields": 5
+    },
+    {
+      "strategy": "windowed_context",
+      "elapsed_s": 26.904634952545166,
+      "original_cl100k_tokens": 14897,
+      "retained_cl100k_tokens": 764,
+      "answer": "{\n  \"kv_modes\": [\"CORRECT\", \"DYNAMIC_SYSTEM\", \"SHUFFLED_TOOLS\", \"DYNAMIC_PROFILE\", \"SLIDING_WINDOW\", \"TEXT_FORMAT\"],\n  \"context_budget\": null,\n  \"attack_channels\": null,\n  \"defense_conditions\": null,\n  \"trials_per_cell\": null\n}",
+      "parsed": {
+        "kv_modes": [
+          "CORRECT",
+          "DYNAMIC_SYSTEM",
+          "SHUFFLED_TOOLS",
+          "DYNAMIC_PROFILE",
+          "SLIDING_WINDOW",
+          "TEXT_FORMAT"
+        ],
+        "context_budget": null,
+        "attack_channels": null,
+        "defense_conditions": null,
+        "trials_per_cell": null
+      },
+      "field_scores": {
+        "kv_modes": false,
+        "context_budget": false,
+        "attack_channels": false,
+        "defense_conditions": false,
+        "trials_per_cell": false
+      },
+      "correct_fields": 0,
+      "total_fields": 5
+    }
+  ]
+}

@@ -1,0 +1,572 @@
+[
+  {
+    "query_id": "Q1",
+    "document_id": "D1",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: 蜂群准备分家时会有哪些表现？\nDocument: 蜂群出现王台、工蜂拥挤，是需要进一步检查的分蜂征兆。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 32.40625,
+    "no_logit": 28.9375,
+    "relative_yes_score": 0.9697853922843933
+  },
+  {
+    "query_id": "Q1",
+    "document_id": "D5",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: 蜂群准备分家时会有哪些表现？\nDocument: 蜂群越冬应准备充足饲料，适当保温，同时保持通风。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 32.1875,
+    "no_logit": 28.75,
+    "relative_yes_score": 0.9688562154769897
+  },
+  {
+    "query_id": "Q1",
+    "document_id": "D2",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: 蜂群准备分家时会有哪些表现？\nDocument: 蜂王正常产卵时，巢房内可以观察到卵和幼虫。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 32.5,
+    "no_logit": 28.234375,
+    "relative_yes_score": 0.986151397228241
+  },
+  {
+    "query_id": "Q1",
+    "document_id": "D11",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: 蜂群准备分家时会有哪些表现？\nDocument: 王台商品目录包含分蜂用品、蜂王笼和检查工具。本条为商品清单。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 32.5625,
+    "no_logit": 29.328125,
+    "relative_yes_score": 0.9621075391769409
+  },
+  {
+    "query_id": "Q1",
+    "document_id": "D3",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: 蜂群准备分家时会有哪些表现？\nDocument: 蜂箱控制器 AC-17 出现 E42，表示温度传感器断开，应检查连接线。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 32.4375,
+    "no_logit": 29.6875,
+    "relative_yes_score": 0.9399133324623108
+  },
+  {
+    "query_id": "Q2",
+    "document_id": "D10",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: AC-17 的 E42 故障该怎样处理？\nDocument: E42 促销活动：AC-17 控制器外壳享折扣。本条为销售广告，不介绍故障排查。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 32.5625,
+    "no_logit": 28.328125,
+    "relative_yes_score": 0.9857181310653687
+  },
+  {
+    "query_id": "Q2",
+    "document_id": "D3",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: AC-17 的 E42 故障该怎样处理？\nDocument: 蜂箱控制器 AC-17 出现 E42，表示温度传感器断开，应检查连接线。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 33.5,
+    "no_logit": 25.984375,
+    "relative_yes_score": 0.9994557499885559
+  },
+  {
+    "query_id": "Q2",
+    "document_id": "D4",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: AC-17 的 E42 故障该怎样处理？\nDocument: 蜂箱控制器 AC-71 出现 E24，表示风扇停转，应检查风扇电源。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 33.5625,
+    "no_logit": 27.53125,
+    "relative_yes_score": 0.9976032376289368
+  },
+  {
+    "query_id": "Q2",
+    "document_id": "D9",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: AC-17 的 E42 故障该怎样处理？\nDocument: 代码接口 feed_hive(hive_id, syrup_ml) 写入饲喂记录，返回操作是否成功。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 32.9375,
+    "no_logit": 28.65625,
+    "relative_yes_score": 0.9863631129264832
+  },
+  {
+    "query_id": "Q2",
+    "document_id": "D8",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: AC-17 的 E42 故障该怎样处理？\nDocument: 代码接口 inspect_hive(hive_id) 返回蜂箱检查记录列表，不修改蜂群状态。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 33.3125,
+    "no_logit": 28.765625,
+    "relative_yes_score": 0.9895108342170715
+  },
+  {
+    "query_id": "Q3",
+    "document_id": "D9",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: Where do bee larvae get protein?\nDocument: 代码接口 feed_hive(hive_id, syrup_ml) 写入饲喂记录，返回操作是否成功。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 33.65625,
+    "no_logit": 29.15625,
+    "relative_yes_score": 0.9890130758285522
+  },
+  {
+    "query_id": "Q3",
+    "document_id": "D7",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: Where do bee larvae get protein?\nDocument: 花粉为蜜蜂幼虫生长提供蛋白质，是育虫的重要营养来源。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 34.25,
+    "no_logit": 26.5625,
+    "relative_yes_score": 0.9995417594909668
+  },
+  {
+    "query_id": "Q3",
+    "document_id": "D8",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: Where do bee larvae get protein?\nDocument: 代码接口 inspect_hive(hive_id) 返回蜂箱检查记录列表，不修改蜂群状态。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 33.75,
+    "no_logit": 29.734375,
+    "relative_yes_score": 0.9822876453399658
+  },
+  {
+    "query_id": "Q3",
+    "document_id": "D6",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: Where do bee larvae get protein?\nDocument: 缺蜜时可以适量补充糖浆；饲喂器需要定期清洗。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 33.34375,
+    "no_logit": 28.5,
+    "relative_yes_score": 0.9921841025352478
+  },
+  {
+    "query_id": "Q3",
+    "document_id": "D5",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: Where do bee larvae get protein?\nDocument: 蜂群越冬应准备充足饲料，适当保温，同时保持通风。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 33.75,
+    "no_logit": 28.875,
+    "relative_yes_score": 0.9924227595329285
+  },
+  {
+    "query_id": "Q4",
+    "document_id": "D8",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: inspect_hive(hive_id) 返回什么？\nDocument: 代码接口 inspect_hive(hive_id) 返回蜂箱检查记录列表，不修改蜂群状态。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 34.0625,
+    "no_logit": 24.921875,
+    "relative_yes_score": 0.9998928308486938
+  },
+  {
+    "query_id": "Q4",
+    "document_id": "D9",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: inspect_hive(hive_id) 返回什么？\nDocument: 代码接口 feed_hive(hive_id, syrup_ml) 写入饲喂记录，返回操作是否成功。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 32.78125,
+    "no_logit": 27.265625,
+    "relative_yes_score": 0.9959927201271057
+  },
+  {
+    "query_id": "Q4",
+    "document_id": "D10",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: inspect_hive(hive_id) 返回什么？\nDocument: E42 促销活动：AC-17 控制器外壳享折扣。本条为销售广告，不介绍故障排查。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 32.21875,
+    "no_logit": 29.671875,
+    "relative_yes_score": 0.9273632764816284
+  },
+  {
+    "query_id": "Q4",
+    "document_id": "D3",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: inspect_hive(hive_id) 返回什么？\nDocument: 蜂箱控制器 AC-17 出现 E42，表示温度传感器断开，应检查连接线。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 31.984375,
+    "no_logit": 29.515625,
+    "relative_yes_score": 0.9219217896461487
+  },
+  {
+    "query_id": "Q4",
+    "document_id": "D4",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: inspect_hive(hive_id) 返回什么？\nDocument: 蜂箱控制器 AC-71 出现 E24，表示风扇停转，应检查风扇电源。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 31.859375,
+    "no_logit": 29.53125,
+    "relative_yes_score": 0.9111796617507935
+  },
+  {
+    "query_id": "Q5",
+    "document_id": "D12",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: 冬天蜂群怎么保温？\nDocument: 仓库冬季保温材料采购清单，与活蜂群的越冬管理无关。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 32.59375,
+    "no_logit": 29.734375,
+    "relative_yes_score": 0.9458011984825134
+  },
+  {
+    "query_id": "Q5",
+    "document_id": "D5",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: 冬天蜂群怎么保温？\nDocument: 蜂群越冬应准备充足饲料，适当保温，同时保持通风。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 33.625,
+    "no_logit": 26.34375,
+    "relative_yes_score": 0.999312162399292
+  },
+  {
+    "query_id": "Q5",
+    "document_id": "D1",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: 冬天蜂群怎么保温？\nDocument: 蜂群出现王台、工蜂拥挤，是需要进一步检查的分蜂征兆。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 32.09375,
+    "no_logit": 29.671875,
+    "relative_yes_score": 0.9184802770614624
+  },
+  {
+    "query_id": "Q5",
+    "document_id": "D7",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: 冬天蜂群怎么保温？\nDocument: 花粉为蜜蜂幼虫生长提供蛋白质，是育虫的重要营养来源。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 32.5625,
+    "no_logit": 28.75,
+    "relative_yes_score": 0.9783847332000732
+  },
+  {
+    "query_id": "Q5",
+    "document_id": "D3",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: 冬天蜂群怎么保温？\nDocument: 蜂箱控制器 AC-17 出现 E42，表示温度传感器断开，应检查连接线。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 33.34375,
+    "no_logit": 28.8125,
+    "relative_yes_score": 0.9893474578857422
+  },
+  {
+    "query_id": "Q6",
+    "document_id": "D2",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: 蜂王产卵时，在巢房里可以看到什么？\nDocument: 蜂王正常产卵时，巢房内可以观察到卵和幼虫。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 33.71875,
+    "no_logit": 25.21875,
+    "relative_yes_score": 0.9997965693473816
+  },
+  {
+    "query_id": "Q6",
+    "document_id": "D11",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: 蜂王产卵时，在巢房里可以看到什么？\nDocument: 王台商品目录包含分蜂用品、蜂王笼和检查工具。本条为商品清单。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 32.28125,
+    "no_logit": 30.328125,
+    "relative_yes_score": 0.8757869601249695
+  },
+  {
+    "query_id": "Q6",
+    "document_id": "D1",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: 蜂王产卵时，在巢房里可以看到什么？\nDocument: 蜂群出现王台、工蜂拥挤，是需要进一步检查的分蜂征兆。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 31.59375,
+    "no_logit": 30.53125,
+    "relative_yes_score": 0.7431679368019104
+  },
+  {
+    "query_id": "Q6",
+    "document_id": "D7",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: 蜂王产卵时，在巢房里可以看到什么？\nDocument: 花粉为蜜蜂幼虫生长提供蛋白质，是育虫的重要营养来源。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 32.1875,
+    "no_logit": 29.109375,
+    "relative_yes_score": 0.9559813141822815
+  },
+  {
+    "query_id": "Q6",
+    "document_id": "D5",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Decide whether the document directly helps answer the question. Judge meaning, not just shared words. Advertisements or unrelated records are not useful. Answer only yes or no."
+      },
+      {
+        "role": "user",
+        "content": "Question: 蜂王产卵时，在巢房里可以看到什么？\nDocument: 蜂群越冬应准备充足饲料，适当保温，同时保持通风。"
+      }
+    ],
+    "yes_token": 9693,
+    "no_token": 2152,
+    "yes_logit": 32.03125,
+    "no_logit": 29.453125,
+    "relative_yes_score": 0.929440438747406
+  }
+]

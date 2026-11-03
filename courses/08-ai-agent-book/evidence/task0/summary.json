@@ -1,0 +1,25 @@
+{
+  "source": "https://github.com/bojieli/ai-agent-book/tree/main/chapter1/context",
+  "adaptation": "Original ContextAwareAgent; runtime AMD provider registration only",
+  "python": "3.10.2",
+  "task": "请调用计算器计算 (125 + 375) * 8，并给出结果。",
+  "expected_result": 4000,
+  "runs": [
+    {
+      "mode": "full",
+      "iterations": 2,
+      "completed": true,
+      "final_answer": "4000",
+      "error": null,
+      "tool_calls": 1
+    },
+    {
+      "mode": "no_tool_results",
+      "iterations": 4,
+      "completed": true,
+      "final_answer": "4000",
+      "error": null,
+      "tool_calls": 5
+    }
+  ]
+}

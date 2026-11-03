@@ -1,0 +1,35 @@
+[project]
+name = "my_deepagent"
+version = "0.1.0"
+description = "My DeepAgent — DeepAgents bound through agentseek-langchain."
+authors = [{ name = "Your Name" }]
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "bub==0.3.9",
+    "agentseek-ag-ui",
+    "agentseek-langchain",
+    "deepagents==0.7.8",
+    "langchain-openai>=0.3.0",
+    "pydantic-settings>=2.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4,<10",
+]
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.uv.sources]
+
+agentseek-ag-ui = { git = "https://github.com/ob-labs/agentseek.git", rev = "900f89518c32f8570d7648897394ed96a86a647a", subdirectory = "contrib/agentseek-ag-ui" }
+agentseek-langchain = { git = "https://github.com/ob-labs/agentseek.git", rev = "900f89518c32f8570d7648897394ed96a86a647a", subdirectory = "contrib/agentseek-langchain" }
+

@@ -1,0 +1,308 @@
+[
+  {
+    "label": "summary-青禾蜂场",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是资料整理员。只根据输入写简短中文摘要，保留蜂场名、蜂群编号、问题、手册编号和管理措施。不要增加常识或建议。"
+      },
+      {
+        "role": "user",
+        "content": "[C1] 青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。\n[C2] 蜂群A发现蜂螨。蜂螨防治参考手册M。\n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。\n[C4] 河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。"
+      }
+    ],
+    "raw_output": "[C1] 青禾蜂场位于河谷镇，蜂群A管理。  \n[C2] 蜂群A发现蜂螨。  \n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。  \n[C4] 河谷镇冬季寒冷，冬季管理包括保温和饲料检查。",
+    "input_tokens": 139,
+    "output_tokens": 73,
+    "latency_ms": 2648.4642140567303,
+    "finish": "eos"
+  },
+  {
+    "label": "summary-白石蜂场",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是资料整理员。只根据输入写简短中文摘要，保留蜂场名、蜂群编号、问题、手册编号和管理措施。不要增加常识或建议。"
+      },
+      {
+        "role": "user",
+        "content": "[C5] 白石蜂场位于山岭镇。白石蜂场管理蜂群B。\n[C6] 蜂群B缺少饲料。缺料处理参考手册N。\n[C7] 手册N要求补充饲料并检查饲喂器卫生。\n[C8] 山岭镇冬季多风。白石蜂场的冬季管理包括防风和饮水检查。"
+      }
+    ],
+    "raw_output": "[C5] 白石蜂场位于山岭镇。蜂群B缺少饲料。缺料处理参考手册N。[C7] 手册N要求补充饲料并检查饲喂器卫生。[C8] 山岭镇冬季多风，白石蜂场的冬季管理包括防风和饮水检查。",
+    "input_tokens": 136,
+    "output_tokens": 71,
+    "latency_ms": 2117.037585005164,
+    "finish": "eos"
+  },
+  {
+    "label": "summary-root",
+    "messages": [
+      {
+        "role": "system",
+        "content": "你是资料整理员。只根据输入写简短中文摘要，保留蜂场名、蜂群编号、问题、手册编号和管理措施。不要增加常识或建议。"
+      },
+      {
+        "role": "user",
+        "content": "[S1] [C1] 青禾蜂场位于河谷镇，蜂群A管理。  \n[C2] 蜂群A发现蜂螨。  \n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。  \n[C4] 河谷镇冬季寒冷，冬季管理包括保温和饲料检查。\n[S2] [C5] 白石蜂场位于山岭镇。蜂群B缺少饲料。缺料处理参考手册N。[C7] 手册N要求补充饲料并检查饲喂器卫生。[C8] 山岭镇冬季多风，白石蜂场的冬季管理包括防风和饮水检查。"
+      }
+    ],
+    "raw_output": "[S1] [C1] 青禾蜂场位于河谷镇，蜂群A管理。  \n[C2] 蜂群A发现蜂螨。  \n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。  \n[C4] 河谷镇冬季寒冷，冬季管理包括保温和饲料检查。  \n[S2] [C5] 白石蜂场位于山岭镇。蜂群B缺少饲料。缺料处理参考手册N。[C7] 手册N要求补充饲料并检查饲喂器卫生。[C8] 山岭镇冬季多风，白石蜂场的冬季管理包括防风和饮水检查。",
+    "input_tokens": 204,
+    "output_tokens": 152,
+    "latency_ms": 4513.382896780968,
+    "finish": "eos"
+  },
+  {
+    "label": "graph-C1",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只从资料提取明确的有向关系，输出JSON对象，字段edges为数组。每条包含subject、relation、object。subject和object必须原样出现在资料里，不要发明实体。拆成简短实体，例如蜂场管理蜂群、蜂群存在问题、问题参考手册、手册要求措施；每条只连接两个节点。不要把完整句子当主体。没有关系就返回空数组。不要解释。"
+      },
+      {
+        "role": "user",
+        "content": "青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。"
+      }
+    ],
+    "raw_output": "[\n  {\n    \"subject\": \"青禾蜂场\",\n    \"relation\": \"管理\",\n    \"object\": \"蜂群A\"\n  }\n]",
+    "input_tokens": 126,
+    "output_tokens": 33,
+    "latency_ms": 1016.7996119707823,
+    "finish": "eos"
+  },
+  {
+    "label": "graph-C2",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只从资料提取明确的有向关系，输出JSON对象，字段edges为数组。每条包含subject、relation、object。subject和object必须原样出现在资料里，不要发明实体。拆成简短实体，例如蜂场管理蜂群、蜂群存在问题、问题参考手册、手册要求措施；每条只连接两个节点。不要把完整句子当主体。没有关系就返回空数组。不要解释。"
+      },
+      {
+        "role": "user",
+        "content": "蜂群A发现蜂螨。蜂螨防治参考手册M。"
+      }
+    ],
+    "raw_output": "[\n  {\n    \"subject\": \"蜂群A\",\n    \"relation\": \"发现\",\n    \"object\": \"蜂螨\"\n  },\n  {\n    \"subject\": \"蜂螨防治参考手册\",\n    \"relation\": \"参考\",\n    \"object\": \"M\"\n  }\n]",
+    "input_tokens": 122,
+    "output_tokens": 60,
+    "latency_ms": 1787.6870026811957,
+    "finish": "eos"
+  },
+  {
+    "label": "graph-C3",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只从资料提取明确的有向关系，输出JSON对象，字段edges为数组。每条包含subject、relation、object。subject和object必须原样出现在资料里，不要发明实体。拆成简短实体，例如蜂场管理蜂群、蜂群存在问题、问题参考手册、手册要求措施；每条只连接两个节点。不要把完整句子当主体。没有关系就返回空数组。不要解释。"
+      },
+      {
+        "role": "user",
+        "content": "手册M要求先监测蜂螨数量，再决定防治措施。"
+      }
+    ],
+    "raw_output": "[\n  {\n    \"subject\": \"手册M\",\n    \"relation\": \"要求\",\n    \"object\": \"监测蜂螨数量\"\n  },\n  {\n    \"subject\": \"监测蜂螨数量\",\n    \"relation\": \"先\",\n    \"object\": \"决定防治措施\"\n  }\n]",
+    "input_tokens": 122,
+    "output_tokens": 62,
+    "latency_ms": 1844.8616154491901,
+    "finish": "eos"
+  },
+  {
+    "label": "graph-C4",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只从资料提取明确的有向关系，输出JSON对象，字段edges为数组。每条包含subject、relation、object。subject和object必须原样出现在资料里，不要发明实体。拆成简短实体，例如蜂场管理蜂群、蜂群存在问题、问题参考手册、手册要求措施；每条只连接两个节点。不要把完整句子当主体。没有关系就返回空数组。不要解释。"
+      },
+      {
+        "role": "user",
+        "content": "河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。"
+      }
+    ],
+    "raw_output": "[\n  {\n    \"subject\": \"河谷镇\",\n    \"relation\": \"冬季寒冷\",\n    \"object\": \"青禾蜂场\"\n  },\n  {\n    \"subject\": \"青禾蜂场\",\n    \"relation\": \"冬季管理\",\n    \"object\": \"保温和饲料检查\"\n  }\n]",
+    "input_tokens": 127,
+    "output_tokens": 66,
+    "latency_ms": 1962.5702500343323,
+    "finish": "eos"
+  },
+  {
+    "label": "graph-C5",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只从资料提取明确的有向关系，输出JSON对象，字段edges为数组。每条包含subject、relation、object。subject和object必须原样出现在资料里，不要发明实体。拆成简短实体，例如蜂场管理蜂群、蜂群存在问题、问题参考手册、手册要求措施；每条只连接两个节点。不要把完整句子当主体。没有关系就返回空数组。不要解释。"
+      },
+      {
+        "role": "user",
+        "content": "白石蜂场位于山岭镇。白石蜂场管理蜂群B。"
+      }
+    ],
+    "raw_output": "[\n  {\n    \"subject\": \"白石蜂场\",\n    \"relation\": \"管理\",\n    \"object\": \"蜂群B\"\n  }\n]",
+    "input_tokens": 126,
+    "output_tokens": 33,
+    "latency_ms": 985.8445953577757,
+    "finish": "eos"
+  },
+  {
+    "label": "graph-C6",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只从资料提取明确的有向关系，输出JSON对象，字段edges为数组。每条包含subject、relation、object。subject和object必须原样出现在资料里，不要发明实体。拆成简短实体，例如蜂场管理蜂群、蜂群存在问题、问题参考手册、手册要求措施；每条只连接两个节点。不要把完整句子当主体。没有关系就返回空数组。不要解释。"
+      },
+      {
+        "role": "user",
+        "content": "蜂群B缺少饲料。缺料处理参考手册N。"
+      }
+    ],
+    "raw_output": "[\n  {\n    \"subject\": \"蜂群B\",\n    \"relation\": \"缺少饲料\",\n    \"object\": \"饲料\"\n  },\n  {\n    \"subject\": \"饲料\",\n    \"relation\": \"缺少\",\n    \"object\": \"饲料\"\n  },\n  {\n    \"subject\": \"参考手册N\",\n    \"relation\": \"缺料处理\",\n    \"object\": \"处理\"\n  }\n]",
+    "input_tokens": 121,
+    "output_tokens": 85,
+    "latency_ms": 2528.2224602997303,
+    "finish": "eos"
+  },
+  {
+    "label": "graph-C7",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只从资料提取明确的有向关系，输出JSON对象，字段edges为数组。每条包含subject、relation、object。subject和object必须原样出现在资料里，不要发明实体。拆成简短实体，例如蜂场管理蜂群、蜂群存在问题、问题参考手册、手册要求措施；每条只连接两个节点。不要把完整句子当主体。没有关系就返回空数组。不要解释。"
+      },
+      {
+        "role": "user",
+        "content": "手册N要求补充饲料并检查饲喂器卫生。"
+      }
+    ],
+    "raw_output": "[\n  {\n    \"subject\": \"手册N\",\n    \"relation\": \"要求\",\n    \"object\": \"补充饲料\"\n  },\n  {\n    \"subject\": \"饲料\",\n    \"relation\": \"补充\",\n    \"object\": \"饲料\"\n  },\n  {\n    \"subject\": \"饲喂器\",\n    \"relation\": \"检查\",\n    \"object\": \"卫生\"\n  }\n]",
+    "input_tokens": 120,
+    "output_tokens": 82,
+    "latency_ms": 2442.9421108216047,
+    "finish": "eos"
+  },
+  {
+    "label": "graph-C8",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只从资料提取明确的有向关系，输出JSON对象，字段edges为数组。每条包含subject、relation、object。subject和object必须原样出现在资料里，不要发明实体。拆成简短实体，例如蜂场管理蜂群、蜂群存在问题、问题参考手册、手册要求措施；每条只连接两个节点。不要把完整句子当主体。没有关系就返回空数组。不要解释。"
+      },
+      {
+        "role": "user",
+        "content": "山岭镇冬季多风。白石蜂场的冬季管理包括防风和饮水检查。"
+      }
+    ],
+    "raw_output": "[\n  {\n    \"subject\": \"山岭镇\",\n    \"relation\": \"冬季多风\",\n    \"object\": \"白石蜂场\"\n  },\n  {\n    \"subject\": \"白石蜂场\",\n    \"relation\": \"冬季管理\",\n    \"object\": \"防风和饮水检查\"\n  }\n]",
+    "input_tokens": 129,
+    "output_tokens": 68,
+    "latency_ms": 2025.7442770525813,
+    "finish": "eos"
+  },
+  {
+    "label": "overview-tree_summary",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只依据提供的证据回答，引用[C编号]或[S编号]。证据不足就明确说不知道，不得使用养蜂常识补全。回答不超过150字。"
+      },
+      {
+        "role": "user",
+        "content": "问题：青禾蜂场主要需要关注哪些管理事项？\n证据：\n[S1] [C1] 青禾蜂场位于河谷镇，蜂群A管理。  \n[C2] 蜂群A发现蜂螨。  \n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。  \n[C4] 河谷镇冬季寒冷，冬季管理包括保温和饲料检查。"
+      }
+    ],
+    "raw_output": "青禾蜂场主要需要关注蜂螨监测、蜂群管理及冬季保温与饲料检查。[C3]、[C4]。",
+    "input_tokens": 145,
+    "output_tokens": 32,
+    "latency_ms": 957.256237976253,
+    "finish": "eos"
+  },
+  {
+    "label": "overview-tree_leaf_expansion",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只依据提供的证据回答，引用[C编号]或[S编号]。证据不足就明确说不知道，不得使用养蜂常识补全。回答不超过150字。"
+      },
+      {
+        "role": "user",
+        "content": "问题：青禾蜂场主要需要关注哪些管理事项？\n证据：\n[C1] 青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。\n[C2] 蜂群A发现蜂螨。蜂螨防治参考手册M。\n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。\n[C4] 河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。"
+      }
+    ],
+    "raw_output": "青禾蜂场主要需要关注蜂螨防治、蜂群监测和冬季保温与饲料检查。引用[C2]、[3]和[C4]。",
+    "input_tokens": 154,
+    "output_tokens": 35,
+    "latency_ms": 1045.7474691793323,
+    "finish": "eos"
+  },
+  {
+    "label": "overview-graph_walk",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只依据提供的证据回答，引用[C编号]或[S编号]。证据不足就明确说不知道，不得使用养蜂常识补全。回答不超过150字。"
+      },
+      {
+        "role": "user",
+        "content": "问题：青禾蜂场主要需要关注哪些管理事项？\n证据：\n"
+      }
+    ],
+    "raw_output": "青禾蜂场主要需要关注的管理事项包括：定期检查蜂箱状态、保持蜂箱通风和湿度、及时清理粪便和残渣、定期消毒蜂箱和蜂群、监测蜂群健康状况以及记录蜂群活动。[C编号]",
+    "input_tokens": 69,
+    "output_tokens": 57,
+    "latency_ms": 1698.070672340691,
+    "finish": "eos"
+  },
+  {
+    "label": "multihop-tree_summary",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只依据提供的证据回答，引用[C编号]或[S编号]。证据不足就明确说不知道，不得使用养蜂常识补全。回答不超过150字。"
+      },
+      {
+        "role": "user",
+        "content": "问题：青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，手册要求先做什么？\n证据：\n[S1] [C1] 青禾蜂场位于河谷镇，蜂群A管理。  \n[C2] 蜂群A发现蜂螨。  \n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。  \n[C4] 河谷镇冬季寒冷，冬季管理包括保温和饲料检查。"
+      }
+    ],
+    "raw_output": "青禾蜂场蜂群A遇到蜂螨问题，应参考手册M。手册要求先监测蜂螨数量，再决定防治措施。",
+    "input_tokens": 157,
+    "output_tokens": 31,
+    "latency_ms": 933.8186178356409,
+    "finish": "eos"
+  },
+  {
+    "label": "multihop-tree_leaf_expansion",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只依据提供的证据回答，引用[C编号]或[S编号]。证据不足就明确说不知道，不得使用养蜂常识补全。回答不超过150字。"
+      },
+      {
+        "role": "user",
+        "content": "问题：青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，手册要求先做什么？\n证据：\n[C1] 青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。\n[C2] 蜂群A发现蜂螨。蜂螨防治参考手册M。\n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。\n[C4] 河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。"
+      }
+    ],
+    "raw_output": "蜂群A遇到蜂螨问题，应参考手册M。手册要求先监测蜂螨数量，再决定防治措施。",
+    "input_tokens": 166,
+    "output_tokens": 27,
+    "latency_ms": 811.4867359399796,
+    "finish": "eos"
+  },
+  {
+    "label": "multihop-graph_walk",
+    "messages": [
+      {
+        "role": "system",
+        "content": "只依据提供的证据回答，引用[C编号]或[S编号]。证据不足就明确说不知道，不得使用养蜂常识补全。回答不超过150字。"
+      },
+      {
+        "role": "user",
+        "content": "问题：青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，手册要求先做什么？\n证据：\n"
+      }
+    ],
+    "raw_output": "问题：青禾蜂场管理的蜂群遇到了什么问题？应参考《蜂群管理手册》。手册要求先了解蜂群的健康状况。",
+    "input_tokens": 81,
+    "output_tokens": 34,
+    "latency_ms": 1010.7509642839432,
+    "finish": "eos"
+  }
+]

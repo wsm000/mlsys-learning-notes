@@ -1,0 +1,568 @@
+{
+  "status": "completed",
+  "scope": "mechanism-equivalent authored bee corpus, not official legal QA benchmark",
+  "models": {
+    "controller": "Qwen/Qwen3-0.6B",
+    "answerer": "Qwen/Qwen3-0.6B"
+  },
+  "controlled_factors": "Same corpus, deterministic BM25, top-2 per search, identical first search, same answer model/prompt/budget. Agent accumulates up to 4 searches; extra evidence and compute are part of the treatment.",
+  "agent_mechanism": "Live model emits bounded search/finish actions after seeing evidence; no scripted next query or reference answer is supplied. Only short action JSON is requested, no private reasoning trace.",
+  "limitations": "Explicit vocabulary tokenizer; no external judge; evidence coverage does not prove answer correctness; only 3 teaching questions.",
+  "chunks": [
+    {
+      "id": "C1",
+      "group": "青禾蜂场",
+      "text": "青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。",
+      "tokens": [
+        "青禾蜂场",
+        "青禾蜂场",
+        "河谷镇",
+        "蜂群A",
+        "管理",
+        "位于"
+      ]
+    },
+    {
+      "id": "C2",
+      "group": "青禾蜂场",
+      "text": "蜂群A发现蜂螨。蜂螨防治参考手册M。",
+      "tokens": [
+        "蜂群A",
+        "蜂螨",
+        "蜂螨",
+        "手册M",
+        "防治",
+        "参考"
+      ]
+    },
+    {
+      "id": "C3",
+      "group": "青禾蜂场",
+      "text": "手册M要求先监测蜂螨数量，再决定防治措施。",
+      "tokens": [
+        "蜂螨",
+        "手册M",
+        "监测",
+        "数量",
+        "防治",
+        "要求",
+        "先"
+      ]
+    },
+    {
+      "id": "C4",
+      "group": "青禾蜂场",
+      "text": "河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。",
+      "tokens": [
+        "青禾蜂场",
+        "河谷镇",
+        "饲料",
+        "保温",
+        "检查",
+        "冬季",
+        "冬季",
+        "管理"
+      ]
+    },
+    {
+      "id": "C5",
+      "group": "白石蜂场",
+      "text": "白石蜂场位于山岭镇。白石蜂场管理蜂群B。",
+      "tokens": [
+        "白石蜂场",
+        "白石蜂场",
+        "山岭镇",
+        "蜂群B",
+        "管理",
+        "位于"
+      ]
+    },
+    {
+      "id": "C6",
+      "group": "白石蜂场",
+      "text": "蜂群B缺少饲料。缺料处理参考手册N。",
+      "tokens": [
+        "蜂群B",
+        "手册N",
+        "饲料",
+        "参考",
+        "缺少",
+        "处理"
+      ]
+    },
+    {
+      "id": "C7",
+      "group": "白石蜂场",
+      "text": "手册N要求补充饲料并检查饲喂器卫生。",
+      "tokens": [
+        "手册N",
+        "饲料",
+        "检查",
+        "要求",
+        "补充",
+        "卫生"
+      ]
+    },
+    {
+      "id": "C8",
+      "group": "白石蜂场",
+      "text": "山岭镇冬季多风。白石蜂场的冬季管理包括防风和饮水检查。",
+      "tokens": [
+        "白石蜂场",
+        "山岭镇",
+        "检查",
+        "冬季",
+        "冬季",
+        "管理",
+        "饮水",
+        "防风"
+      ]
+    }
+  ],
+  "lexical_vocabulary": [
+    "青禾蜂场",
+    "白石蜂场",
+    "河谷镇",
+    "山岭镇",
+    "蜂群A",
+    "蜂群B",
+    "蜂螨",
+    "手册M",
+    "手册N",
+    "监测",
+    "数量",
+    "防治",
+    "饲料",
+    "保温",
+    "检查",
+    "要求",
+    "冬季",
+    "参考",
+    "管理",
+    "位于",
+    "先",
+    "补充",
+    "缺少",
+    "处理",
+    "卫生",
+    "饮水",
+    "防风"
+  ],
+  "results": [
+    {
+      "id": "simple",
+      "question": "手册M要求先做什么？",
+      "gold_sources": [
+        "C3"
+      ],
+      "kind": "single-hop",
+      "one_shot": {
+        "searches": [
+          {
+            "query": "手册M要求先做什么？",
+            "tokens": [
+              "手册M",
+              "要求",
+              "先"
+            ],
+            "hits": [
+              {
+                "id": "C3",
+                "score": 4.245487387084926,
+                "text": "手册M要求先监测蜂螨数量，再决定防治措施。"
+              },
+              {
+                "id": "C2",
+                "score": 1.33772401595053,
+                "text": "蜂群A发现蜂螨。蜂螨防治参考手册M。"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "id": "C3",
+            "score": 4.245487387084926,
+            "text": "手册M要求先监测蜂螨数量，再决定防治措施。"
+          },
+          {
+            "id": "C2",
+            "score": 1.33772401595053,
+            "text": "蜂群A发现蜂螨。蜂螨防治参考手册M。"
+          }
+        ],
+        "answer": "问题：手册M要求先做什么？  \n证据：[C3] 手册M要求先监测蜂螨数量，再决定防治措施。",
+        "evidence_coverage": 1.0,
+        "latency_ms": 1472.4708516150713
+      },
+      "agentic": {
+        "searches": [
+          {
+            "query": "手册M要求先做什么？",
+            "tokens": [
+              "手册M",
+              "要求",
+              "先"
+            ],
+            "hits": [
+              {
+                "id": "C3",
+                "score": 4.245487387084926,
+                "text": "手册M要求先监测蜂螨数量，再决定防治措施。"
+              },
+              {
+                "id": "C2",
+                "score": 1.33772401595053,
+                "text": "蜂群A发现蜂螨。蜂螨防治参考手册M。"
+              }
+            ]
+          },
+          {
+            "query": "蜂螨防治",
+            "tokens": [
+              "蜂螨",
+              "防治"
+            ],
+            "hits": [
+              {
+                "id": "C2",
+                "score": 3.224853795227511,
+                "text": "蜂群A发现蜂螨。蜂螨防治参考手册M。"
+              },
+              {
+                "id": "C3",
+                "score": 2.498233442851496,
+                "text": "手册M要求先监测蜂螨数量，再决定防治措施。"
+              }
+            ]
+          }
+        ],
+        "actions": [
+          {
+            "raw": "{\n  \"action\": \"search\",\n  \"query\": \"蜂螨防治\"\n}",
+            "decision": {
+              "action": "search",
+              "query": "蜂螨防治"
+            },
+            "evidence_before": [
+              "C3",
+              "C2"
+            ]
+          },
+          {
+            "raw": "{\n  \"action\": \"search\",\n  \"query\": \"蜂螨防治\"\n}",
+            "decision": {
+              "action": "search",
+              "query": "蜂螨防治"
+            },
+            "evidence_before": [
+              "C3",
+              "C2"
+            ]
+          }
+        ],
+        "stop_reason": "repeated query rejected",
+        "evidence": [
+          {
+            "id": "C3",
+            "score": 2.498233442851496,
+            "text": "手册M要求先监测蜂螨数量，再决定防治措施。"
+          },
+          {
+            "id": "C2",
+            "score": 3.224853795227511,
+            "text": "蜂群A发现蜂螨。蜂螨防治参考手册M。"
+          }
+        ],
+        "answer": "问题：手册M要求先做什么？  \n证据：[C3] 手册M要求先监测蜂螨数量，再决定防治措施。",
+        "evidence_coverage": 1.0,
+        "latency_ms": 2109.122645109892
+      },
+      "citation_syntax": {
+        "one_shot": [
+          "C3"
+        ],
+        "agentic": [
+          "C3"
+        ]
+      }
+    },
+    {
+      "id": "multihop",
+      "question": "青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，第一步要做什么？",
+      "gold_sources": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "kind": "multi-hop",
+      "one_shot": {
+        "searches": [
+          {
+            "query": "青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，第一步要做什么？",
+            "tokens": [
+              "青禾蜂场",
+              "参考",
+              "管理"
+            ],
+            "hits": [
+              {
+                "id": "C1",
+                "score": 2.611007623014461,
+                "text": "青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。"
+              },
+              {
+                "id": "C4",
+                "score": 1.8054580565861347,
+                "text": "河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "id": "C1",
+            "score": 2.611007623014461,
+            "text": "青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。"
+          },
+          {
+            "id": "C4",
+            "score": 1.8054580565861347,
+            "text": "河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。"
+          }
+        ],
+        "answer": "问题：青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，第一步要做什么？  \n证据：  \n[C1] 青禾蜂场位于河谷镇。  \n[C4] 河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。  \n\n结论：未说明蜂群遇到的具体问题，证据未说明。  \n证据未说明。",
+        "evidence_coverage": 0.3333333333333333,
+        "latency_ms": 2644.764647819102
+      },
+      "agentic": {
+        "searches": [
+          {
+            "query": "青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，第一步要做什么？",
+            "tokens": [
+              "青禾蜂场",
+              "参考",
+              "管理"
+            ],
+            "hits": [
+              {
+                "id": "C1",
+                "score": 2.611007623014461,
+                "text": "青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。"
+              },
+              {
+                "id": "C4",
+                "score": 1.8054580565861347,
+                "text": "河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。"
+              }
+            ]
+          },
+          {
+            "query": "青禾蜂场冬季管理",
+            "tokens": [
+              "青禾蜂场",
+              "冬季",
+              "管理"
+            ],
+            "hits": [
+              {
+                "id": "C4",
+                "score": 3.520922208436783,
+                "text": "河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。"
+              },
+              {
+                "id": "C1",
+                "score": 2.611007623014461,
+                "text": "青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。"
+              }
+            ]
+          }
+        ],
+        "actions": [
+          {
+            "raw": "{\n  \"action\": \"search\",\n  \"query\": \"青禾蜂场冬季管理\"\n}",
+            "decision": {
+              "action": "search",
+              "query": "青禾蜂场冬季管理"
+            },
+            "evidence_before": [
+              "C1",
+              "C4"
+            ]
+          },
+          {
+            "raw": "{\n  \"action\": \"search\",\n  \"query\": \"青禾蜂场冬季管理\"\n}",
+            "decision": {
+              "action": "search",
+              "query": "青禾蜂场冬季管理"
+            },
+            "evidence_before": [
+              "C1",
+              "C4"
+            ]
+          }
+        ],
+        "stop_reason": "repeated query rejected",
+        "evidence": [
+          {
+            "id": "C1",
+            "score": 2.611007623014461,
+            "text": "青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。"
+          },
+          {
+            "id": "C4",
+            "score": 3.520922208436783,
+            "text": "河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。"
+          }
+        ],
+        "answer": "问题：青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，第一步要做什么？  \n证据：  \n[C1] 青禾蜂场位于河谷镇。  \n[C4] 河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。  \n\n结论：未说明蜂群遇到的具体问题，证据未说明。  \n证据未说明。",
+        "evidence_coverage": 0.3333333333333333,
+        "latency_ms": 3964.648143388331
+      },
+      "citation_syntax": {
+        "one_shot": [
+          "C1",
+          "C4"
+        ],
+        "agentic": [
+          "C1",
+          "C4"
+        ]
+      }
+    },
+    {
+      "id": "missing",
+      "question": "手册M规定蜂螨数量达到多少必须处理？",
+      "gold_sources": [],
+      "kind": "unanswerable numeric threshold",
+      "one_shot": {
+        "searches": [
+          {
+            "query": "手册M规定蜂螨数量达到多少必须处理？",
+            "tokens": [
+              "蜂螨",
+              "手册M",
+              "数量",
+              "处理"
+            ],
+            "hits": [
+              {
+                "id": "C3",
+                "score": 4.245487387084926,
+                "text": "手册M要求先监测蜂螨数量，再决定防治措施。"
+              },
+              {
+                "id": "C2",
+                "score": 3.224853795227511,
+                "text": "蜂群A发现蜂螨。蜂螨防治参考手册M。"
+              }
+            ]
+          }
+        ],
+        "evidence": [
+          {
+            "id": "C3",
+            "score": 4.245487387084926,
+            "text": "手册M要求先监测蜂螨数量，再决定防治措施。"
+          },
+          {
+            "id": "C2",
+            "score": 3.224853795227511,
+            "text": "蜂群A发现蜂螨。蜂螨防治参考手册M。"
+          }
+        ],
+        "answer": "证据未说明蜂螨数量达到多少必须处理。",
+        "evidence_coverage": null,
+        "latency_ms": 362.7154780551791
+      },
+      "agentic": {
+        "searches": [
+          {
+            "query": "手册M规定蜂螨数量达到多少必须处理？",
+            "tokens": [
+              "蜂螨",
+              "手册M",
+              "数量",
+              "处理"
+            ],
+            "hits": [
+              {
+                "id": "C3",
+                "score": 4.245487387084926,
+                "text": "手册M要求先监测蜂螨数量，再决定防治措施。"
+              },
+              {
+                "id": "C2",
+                "score": 3.224853795227511,
+                "text": "蜂群A发现蜂螨。蜂螨防治参考手册M。"
+              }
+            ]
+          },
+          {
+            "query": "蜂螨数量达到多少",
+            "tokens": [
+              "蜂螨",
+              "数量"
+            ],
+            "hits": [
+              {
+                "id": "C3",
+                "score": 2.9963706656591778,
+                "text": "手册M要求先监测蜂螨数量，再决定防治措施。"
+              },
+              {
+                "id": "C2",
+                "score": 1.8871297792769812,
+                "text": "蜂群A发现蜂螨。蜂螨防治参考手册M。"
+              }
+            ]
+          }
+        ],
+        "actions": [
+          {
+            "raw": "{\n  \"action\": \"search\",\n  \"query\": \"蜂螨数量达到多少\"\n}",
+            "decision": {
+              "action": "search",
+              "query": "蜂螨数量达到多少"
+            },
+            "evidence_before": [
+              "C3",
+              "C2"
+            ]
+          },
+          {
+            "raw": "{\n  \"action\": \"search\",\n  \"query\": \"蜂螨数量达到多少\"\n}",
+            "decision": {
+              "action": "search",
+              "query": "蜂螨数量达到多少"
+            },
+            "evidence_before": [
+              "C3",
+              "C2"
+            ]
+          }
+        ],
+        "stop_reason": "repeated query rejected",
+        "evidence": [
+          {
+            "id": "C3",
+            "score": 2.9963706656591778,
+            "text": "手册M要求先监测蜂螨数量，再决定防治措施。"
+          },
+          {
+            "id": "C2",
+            "score": 1.8871297792769812,
+            "text": "蜂群A发现蜂螨。蜂螨防治参考手册M。"
+          }
+        ],
+        "answer": "证据未说明蜂螨数量达到多少必须处理。",
+        "evidence_coverage": null,
+        "latency_ms": 1627.759100869298
+      },
+      "citation_syntax": {
+        "one_shot": [],
+        "agentic": []
+      }
+    }
+  ]
+}

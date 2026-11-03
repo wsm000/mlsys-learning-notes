@@ -1,0 +1,237 @@
+{
+  "checkpoint_sha256": "4d26cce47bcdd96d53b097709a97a60219d4b45a42f0c5285f466de2076e65ad",
+  "source_case_sha256": "6d4ec28d1a5e9ec16d1f8c6367de90827d762b0449fc457c8731b79e29222831",
+  "writer_call_count": 4,
+  "state_card_keys": [
+    [
+      "passport_renewal_jessica_martinez_2024"
+    ],
+    [
+      "passport_renewal_jessica_martinez_2024",
+      "flight_booking_jessica_martinez_delta_2024"
+    ],
+    [
+      "chase_sapphire_reserve_jessica_martinez_2024"
+    ]
+  ],
+  "retention_policy": "Controlled accumulation of earlier live states by card_key, keeping greatest card timestamp; not the original final snapshot. No deletion/tombstone semantics implemented.",
+  "retained_card_origins": {
+    "passport_renewal_jessica_martinez_2024": {
+      "session_index": 2,
+      "conversation_id": "flight_booking_002"
+    },
+    "flight_booking_jessica_martinez_delta_2024": {
+      "session_index": 2,
+      "conversation_id": "flight_booking_002"
+    },
+    "chase_sapphire_reserve_jessica_martinez_2024": {
+      "session_index": 3,
+      "conversation_id": "credit_card_003"
+    }
+  },
+  "retained_cards_full": [
+    {
+      "category": "passport_renewal",
+      "card_key": "passport_renewal_jessica_martinez_2024",
+      "backstory": "Jessica Martinez called USPS Passport Services on 2024-06-15 to inquire about renewing her passport. She was considering renewal due to a possible work trip to Tokyo, Japan in December 2024 or January 2025. She had not yet decided to renew and would wait until the trip was confirmed, but noted the October 2024 submission deadline for expedited processing. On 2024-11-22, during a Delta Airlines booking call, she decided to renew her passport before the trip due to the close expiration date relative to her return.",
+      "person": "Jessica Martinez",
+      "relationship": "customer",
+      "timestamp": "2024-11-22T10:00:00Z",
+      "status": "open",
+      "facts": {
+        "passport_number": "487223901",
+        "passport_expiration_date": "2025-02-18",
+        "passport_issued_year": 2015,
+        "passport_type": "ePassport with chip",
+        "renewal_eligibility": "eligible for mail renewal (DS-82)",
+        "renewal_decision": "decided to renew before January 2025 trip",
+        "renewal_deadline_for_december_travel": "early October 2024",
+        "standard_processing_time": "6-8 weeks",
+        "expedited_processing_time": "2-3 weeks",
+        "expedited_fee": 60,
+        "regular_renewal_fee": 130,
+        "in_person_application_fee": 35,
+        "mail_renewal_payment_method": "check or money order payable to US Department of State",
+        "mailing_address_for_expedited": "National Passport Processing Center, Post Office Box 90955, Philadelphia, PA 19190-0955",
+        "photo_requirements": "2x2 inches, white background, taken within last 6 months, neutral expression, no glasses unless medically necessary, no hats/head coverings unless religious",
+        "photo_planned_location": "CVS",
+        "tracking_method": "travel.state.gov, updates within 2 weeks of receipt",
+        "urgent_travel_appointment": "available if travel within 14 days, nearest agency at 11000 Wilshire Blvd, Suite 1000, Los Angeles, appointments mandatory",
+        "passport_book_size": "standard 28-page book, 52-page available at same price",
+        "name_change_requirement": "proof of name change (marriage certificate or court order) if applicable",
+        "japan_visa_requirement": "no visa for US citizens for stays up to 90 days (tourism/business)",
+        "japan_entry_requirements": "proof of onward travel and sufficient funds (return ticket and credit card usually sufficient), no required vaccinations, COVID restrictions mostly lifted but verify closer to travel"
+      }
+    },
+    {
+      "category": "flight_booking",
+      "card_key": "flight_booking_jessica_martinez_delta_2024",
+      "backstory": "Jessica Martinez called Delta Airlines Reservations on 2024-11-22 to book a business class flight to Tokyo for a business conference. She chose Haneda Airport for proximity to downtown Tokyo. She booked non-stop flights DL 7 and DL 8, paying with her corporate American Express. She was advised to renew her passport before travel due to the close expiration date.",
+      "person": "Jessica Martinez",
+      "relationship": "customer",
+      "timestamp": "2024-11-22T10:00:00Z",
+      "status": "confirmed",
+      "facts": {
+        "airline": "Delta Airlines",
+        "confirmation_number": "DELTA-JMK892",
+        "departure_flight": "DL 7",
+        "departure_date": "2025-01-15",
+        "departure_airport": "LAX",
+        "departure_time": "11:30 AM",
+        "arrival_airport": "Tokyo Haneda (HND)",
+        "arrival_date": "2025-01-16",
+        "arrival_time": "4:45 PM",
+        "return_flight": "DL 8",
+        "return_date": "2025-01-22",
+        "return_departure_airport": "Tokyo Haneda (HND)",
+        "return_departure_time": "6:00 PM",
+        "return_arrival_airport": "LAX",
+        "return_arrival_time": "10:15 AM",
+        "flight_duration_westbound": "11 hours 15 minutes",
+        "flight_duration_eastbound": "10 hours 15 minutes",
+        "fare_class": "Business Class",
+        "fare_price": 4890,
+        "payment_method": "Corporate American Express",
+        "payment_card_number": "3782-445589-23001",
+        "payment_card_expiration": "12/26",
+        "payment_billing_zip": "90210",
+        "sky_miles_number": "2847569923",
+        "estimated_miles_earned": 22000,
+        "known_traveler_number": "9988432",
+        "seat_preference": "Window seat",
+        "seat_assignment": "4A (both flights)",
+        "email_on_file": "jmartinez@techcorp.com",
+        "cancellation_policy": "fully refundable if cancelled 24 hours before departure",
+        "change_policy": "no change fees, fare difference applies",
+        "baggage_allowance": "2 free checked bags up to 70 pounds each, plus carry-on and personal item",
+        "boarding_pass": "mobile boarding passes available 24 hours before departure",
+        "lax_terminal": "Terminal 2 for international flights",
+        "recommended_arrival_time": "3 hours (2.5 hours with TSA PreCheck)",
+        "sky_priority": "included with business class",
+        "meal_service": "full meal service, pre-selection available 30 days before departure",
+        "dietary_options": "vegetarian, vegan, gluten-free, and other options",
+        "wifi": "complimentary for business class",
+        "passport_update_deadline": "72 hours before departure",
+        "hotel_booking": "to be handled separately by customer"
+      }
+    },
+    {
+      "category": "credit_card",
+      "card_key": "chase_sapphire_reserve_jessica_martinez_2024",
+      "backstory": "Jessica Martinez called Chase Bank Credit Card Services on 2024-10-05 to confirm her Chase Sapphire Reserve card would work internationally for upcoming work trips. She learned about international usage, travel insurance, lounge access, and updated her autopay to full balance.",
+      "person": "Jessica Martinez",
+      "relationship": "customer",
+      "timestamp": "2024-10-05T15:30:00Z",
+      "status": "confirmed",
+      "facts": {
+        "bank": "Chase Bank",
+        "card_type": "Chase Sapphire Reserve",
+        "card_last_four": "8823",
+        "credit_limit": 25000,
+        "current_balance_used": 3200,
+        "foreign_transaction_fees": "none",
+        "international_usage": "works worldwide, chip and PIN capable",
+        "travel_notification_required": "no",
+        "fraud_verification_method": "Chase mobile app for flagged transactions",
+        "travel_insurance": "trip cancellation up to $10,000, trip delay reimbursement, lost luggage coverage, emergency medical",
+        "business_trip_coverage": "covered only if trip paid with Sapphire Reserve; airline ticket paid with corporate AmEx not covered",
+        "rental_car_insurance": "primary coverage when paid with card, decline rental company insurance",
+        "priority_pass_membership": "included, over 1,300 lounges worldwide",
+        "priority_pass_card_status": "physical card location unknown, digital card available in Priority Pass app",
+        "priority_pass_guest_policy": "up to 2 guests free per visit",
+        "chase_sapphire_lounges": "Boston, Hong Kong, New York LaGuardia; more coming; not at LAX",
+        "lax_priority_pass_options": "KAL Lounge and others",
+        "cash_advance_recommendation": "avoid, high fees and immediate interest; use Chase debit card at ATMs instead",
+        "debit_card_international_usage": "works at ATMs with Visa or Plus logos",
+        "japan_atm_recommendations": "7-Eleven ATMs and Japan Post Bank ATMs",
+        "dynamic_currency_conversion_advice": "always choose local currency, decline USD conversion",
+        "statement_close_date": "28th of each month",
+        "payment_due_date": "25 days after statement close, around 22nd of following month",
+        "autopay_status": "changed from minimum payment to full balance, starting next statement, from Chase checking",
+        "points_earning": "3x on travel and dining worldwide, 1x on everything else",
+        "travel_category_includes": "hotels, airlines, car rentals, trains, taxis, Uber abroad",
+        "points_value": "1.5 cents each via Chase Ultimate Rewards for travel, more if transferred to partners",
+        "transfer_partners": "United, Southwest, JetBlue, Hyatt, Marriott, IHG, and several international airlines",
+        "delta_transfer_route": "not direct; transfer to Air France/KLM Flying Blue and book Delta flights through them"
+      }
+    }
+  ],
+  "compact_retained": [
+    {
+      "id": "K1",
+      "category": "passport_renewal",
+      "card_key": "passport_renewal_jessica_martinez_2024",
+      "person": "Jessica Martinez",
+      "timestamp": "2024-11-22T10:00:00Z",
+      "status": "open",
+      "backstory": "Jessica Martinez called USPS Passport Services on 2024-06-15 to inquire about renewing her passport. She was considering renewal due to a possible work trip to Tokyo, Japan in December 2024 or January 2025. She had not yet decided to renew and would wait until the trip was confirmed, but noted the October 2024 submission deadline for expedited processing. On 2024-11-22, during a Delta Airlines booking call, she decided to renew her passport before the trip due to the close expiration date relative to her return.",
+      "facts": {
+        "passport_expiration_date": "2025-02-18",
+        "renewal_decision": "decided to renew before January 2025 trip",
+        "mail_renewal_payment_method": "check or money order payable to US Department of State"
+      }
+    },
+    {
+      "id": "K2",
+      "category": "flight_booking",
+      "card_key": "flight_booking_jessica_martinez_delta_2024",
+      "person": "Jessica Martinez",
+      "timestamp": "2024-11-22T10:00:00Z",
+      "status": "confirmed",
+      "backstory": "Jessica Martinez called Delta Airlines Reservations on 2024-11-22 to book a business class flight to Tokyo for a business conference. She chose Haneda Airport for proximity to downtown Tokyo. She booked non-stop flights DL 7 and DL 8, paying with her corporate American Express. She was advised to renew her passport before travel due to the close expiration date.",
+      "facts": {
+        "confirmation_number": "DELTA-JMK892",
+        "departure_date": "2025-01-15",
+        "arrival_date": "2025-01-16",
+        "return_date": "2025-01-22",
+        "payment_method": "Corporate American Express",
+        "payment_card_number": "3782-445589-23001",
+        "payment_card_expiration": "12/26",
+        "payment_billing_zip": "90210",
+        "passport_update_deadline": "72 hours before departure"
+      }
+    },
+    {
+      "id": "K3",
+      "category": "credit_card",
+      "card_key": "chase_sapphire_reserve_jessica_martinez_2024",
+      "person": "Jessica Martinez",
+      "timestamp": "2024-10-05T15:30:00Z",
+      "status": "confirmed",
+      "backstory": "Jessica Martinez called Chase Bank Credit Card Services on 2024-10-05 to confirm her Chase Sapphire Reserve card would work internationally for upcoming work trips. She learned about international usage, travel insurance, lounge access, and updated her autopay to full balance.",
+      "facts": {
+        "travel_insurance": "trip cancellation up to $10,000, trip delay reimbursement, lost luggage coverage, emergency medical",
+        "business_trip_coverage": "covered only if trip paid with Sapphire Reserve; airline ticket paid with corporate AmEx not covered",
+        "rental_car_insurance": "primary coverage when paid with card, decline rental company insurance",
+        "priority_pass_membership": "included, over 1,300 lounges worldwide",
+        "priority_pass_card_status": "physical card location unknown, digital card available in Priority Pass app",
+        "priority_pass_guest_policy": "up to 2 guests free per visit",
+        "lax_priority_pass_options": "KAL Lounge and others",
+        "statement_close_date": "28th of each month",
+        "payment_due_date": "25 days after statement close, around 22nd of following month"
+      }
+    }
+  ],
+  "compact_original_final": [
+    {
+      "id": "K1",
+      "category": "credit_card",
+      "card_key": "chase_sapphire_reserve_jessica_martinez_2024",
+      "person": "Jessica Martinez",
+      "timestamp": "2024-10-05T15:30:00Z",
+      "status": "confirmed",
+      "backstory": "Jessica Martinez called Chase Bank Credit Card Services on 2024-10-05 to confirm her Chase Sapphire Reserve card would work internationally for upcoming work trips. She learned about international usage, travel insurance, lounge access, and updated her autopay to full balance.",
+      "facts": {
+        "travel_insurance": "trip cancellation up to $10,000, trip delay reimbursement, lost luggage coverage, emergency medical",
+        "business_trip_coverage": "covered only if trip paid with Sapphire Reserve; airline ticket paid with corporate AmEx not covered",
+        "rental_car_insurance": "primary coverage when paid with card, decline rental company insurance",
+        "priority_pass_membership": "included, over 1,300 lounges worldwide",
+        "priority_pass_card_status": "physical card location unknown, digital card available in Priority Pass app",
+        "priority_pass_guest_policy": "up to 2 guests free per visit",
+        "lax_priority_pass_options": "KAL Lounge and others",
+        "statement_close_date": "28th of each month",
+        "payment_due_date": "25 days after statement close, around 22nd of following month"
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+2026-10-13 14:56:21,660 - benchmark - INFO - 连接服务端: http://localhost:11434/v1（模型: qwen3:0.6b）
+2026-10-13 14:56:21,660 - benchmark - INFO - 开始场景: throughput
+2026-10-13 14:56:22,181 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-13 14:56:22,405 - benchmark - INFO - throughput 第 1/3 次: TTFT=0.527s, 解码=586.2 tok/s, 输出=128 tok
+2026-10-13 14:56:22,433 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-13 14:56:22,755 - benchmark - INFO - throughput 第 2/3 次: TTFT=0.028s, 解码=397.9 tok/s, 输出=128 tok
+2026-10-13 14:56:22,796 - httpx - INFO - HTTP Request: POST http://localhost:11434/v1/chat/completions "HTTP/1.1 200 OK"
+2026-10-13 14:56:23,041 - benchmark - INFO - throughput 第 3/3 次: TTFT=0.041s, 解码=522.2 tok/s, 输出=128 tok
+2026-10-13 14:56:23,042 - benchmark - INFO - 结果已写入: /home/simin/codex-task1-20261013/results/exp2-1-throughput.json
+====================================================================
+🚀 本地 LLM 服务性能基准（实验 2-1）
+====================================================================
+
+====================================================================
+本地 LLM 服务基准结果
+====================================================================
+
+[throughput] 单流吞吐 / 首 token 延迟
+  次数           : 3
+  平均 TTFT      : 0.198 s
+  平均解码吞吐   : 502.1 tok/s
+  平均输出长度   : 128 tok
+
+====================================================================

@@ -1,0 +1,14 @@
+[
+  {
+    "split": "train",
+    "question": "How did the research progress in computer Go compare to computer chess?",
+    "before": "The research progress in computer Go and computer chess represents two distinct trajectories in artificial intelligence, shaped by different problem spaces, data availability, and the nature of the games themselves. While both fields have seen massive leaps in performance, they have reached different \"plateaus\" at different times due to these fundamental differences.\n\n### 1. The Nature of the Games and Data\nThe most significant factor driving the",
+    "after": "The research progress in computer Go compared to computer chess was much slower.\n"
+  },
+  {
+    "split": "heldout",
+    "question": "How should the search be conducted?",
+    "before": "Since your question is very general, the best way to answer is to break it down into the most common scenarios where \"search\" is used. Here are the standard approaches for different contexts:\n\n### 1. **Digital Search (Browsing the Web)**\nIf you are looking for information on the internet:\n*   **Use a Search Engine**: Start with a major engine like **Google",
+    "after": "Searches should be conducted systematically, ensuring that all relevant criteria are met and that the results are accurate and reliable.\n"
+  }
+]

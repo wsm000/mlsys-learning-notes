@@ -5,16 +5,22 @@
 > 视频教程（B站）：https://space.bilibili.com/3546929239689711
 > 官方文档：https://opendcai.github.io/DataFlow-Doc/zh/
 
-按任务组织笔记、代码与证据。所有实验均在 vm-60（RTX 4090 D 24GB）真实执行；本地资源不可达的部分（外网 API、HF/modelscope 下载）如实标注替代方案。
+按任务组织笔记、代码与证据。Task 1/2 在 vm-60（RTX 4090 D 24GB）执行，Task 3-6 在本仓库有完整归档；本地资源不可达的部分（外网 API、HF/modelscope 下载）如实标注替代方案。
 
 | Task | 主题 | 目录 |
 |---|---|---|
-| Task 1 | PDF→模型（1.1–1.2.4） | `~/dataflow-task1`（vm-60），归档见 `evidence/task1` |
+| Task 1 | PDF→QA→LoRA 微调（1.1–1.2.4） | [task1/](task1/)（实验报告 + 验收记录；vm-60 原始运行目录 `~/dataflow-task1`） |
 | Task 2 | PDF→结构化文本→QA | `~/dataflow-task2`（vm-60），归档见 `evidence/task2` |
 | Task 3 | 多模态数据：公式/图表/版式 VQA 处理（3天，已完成） | [notes/task03](notes/task03-多模态数据公式图表版式VQA.md) · [code/task3](code/task3) · [evidence/task3](evidence/task3) · [打卡](evidence/task3/dataflow-task3-checkin.md) |
 | Task 4 | 构建 RAG 与 Text2SQL 数据：AgenticRAG 数据合成 + Text2SQL refine/gen（已完成） | [notes/task04](notes/task04-构建RAG与Text2SQL数据.md) · [场景数据需求](notes/task04-不同AI应用场景数据需求.md) · [code/task4](code/task4) · [evidence/task4](evidence/task4) · [打卡](evidence/task4/dataflow-task4-checkin.md) · [打卡图/结果图](evidence/task4/figures) |
 | Task 5 | 构建高质量训练数据：预训练数据过滤 + SFT 数据过滤 + SFT 数据合成（已完成） | [notes/task05](notes/task05-构建高质量训练数据.md) · [code/task5](code/task5) · [evidence/task5](evidence/task5) · [打卡](evidence/task5/dataflow-task5-checkin.md) |
 | Task 6 | 从数据到效果——评估模型能力：模型性能评测 Pipeline（6 个 eval_type 全量 + 语义裁判变体 + 度量口径探针）（已完成） | [notes/task06](notes/task06-从数据到效果评估模型能力.md) · [code/task6](code/task6) · [evidence/task6](evidence/task6) · [打卡](evidence/task6/dataflow-task6-checkin.md) |
+
+## Task1 结论速览
+
+- **链路**：PyMuPDF 提取自带文本的 PDF → Ollama 合成问答 → Transformers＋PEFT 微调 Qwen3.5-2B（本地资源适配，非 MinerU/多卡 vLLM/LlamaFactory 一键复现）。
+- **验收**：CPU 三步输出 44→42→42；GPU LoRA 48 步；独立重载的 24 个权重张量逐项一致。仅 4 条训练数据、1 条留出数据，只验证链路，不声称泛化提升。
+- 材料：[实验报告](task1/Task1_实验报告.md) · [1.2.4 实验结果截图](task1/Task1_1.2.4_实验结果.png) · [验收记录](task1/verification.json) · [运行与材料说明](task1/README.md)。
 
 ## Task3 结论速览
 

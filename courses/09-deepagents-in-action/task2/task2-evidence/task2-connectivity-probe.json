@@ -1,0 +1,25 @@
+{
+  "models": {
+    "success": true,
+    "result": [
+      "DeepSeek-V4.1-Flash",
+      "DeepSeek-V4-Flash",
+      "DeepSeek-V4-Flash-Vision-Exp",
+      "Gemma-4-31B-IT",
+      "GLM-5.3-Flash",
+      "MiMo-V2.6-Flash",
+      "MinerU2.5-Pro",
+      "MiniCPM5-2B",
+      "MiniCPM-V-4.7-1B",
+      "MiniCPM-V-4.7-35B-A3B",
+      "Qwen3.8-27B",
+      "Qwen3.8-Flash-Next"
+    ],
+    "seconds": 0.38
+  },
+  "minimal_chat": {
+    "success": true,
+    "result": "OK",
+    "seconds": 1.04
+  }
+}

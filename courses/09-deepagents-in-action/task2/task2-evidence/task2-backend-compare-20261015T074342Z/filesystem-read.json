@@ -1,0 +1,66 @@
+{
+  "phase": "filesystem-read",
+  "pid": 1620361,
+  "backend": "FilesystemBackend",
+  "input_keys": [
+    "messages"
+  ],
+  "old_chat_messages": false,
+  "target": "/reports/raw.md",
+  "messages": [
+    {
+      "content": "read_file /reports/raw.md",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "human",
+      "name": null,
+      "id": "2cd0d6c7-5348-4a65-bc4c-2b811be253c2"
+    },
+    {
+      "content": "",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "ai",
+      "name": null,
+      "id": "lc_run--01a13e84-8373-7ca1-a04b-998b66cddd0d-0",
+      "tool_calls": [
+        {
+          "name": "read_file",
+          "args": {
+            "file_path": "/reports/raw.md"
+          },
+          "id": "filesystem-read",
+          "type": "tool_call"
+        }
+      ],
+      "invalid_tool_calls": [],
+      "usage_metadata": null
+    },
+    {
+      "content": "1  Agent 任务已核验完成\n2  结果已保存至报告文件",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "tool",
+      "name": "read_file",
+      "id": "70f4f99d-107f-4126-b9d9-16f2b0f6f8f9",
+      "tool_call_id": "filesystem-read",
+      "artifact": null,
+      "status": "success"
+    },
+    {
+      "content": "Finished",
+      "additional_kwargs": {},
+      "response_metadata": {},
+      "type": "ai",
+      "name": null,
+      "id": "lc_run--01a13e84-8379-7550-9ecb-549b223b5bcf-0",
+      "tool_calls": [],
+      "invalid_tool_calls": [],
+      "usage_metadata": null
+    }
+  ],
+  "python": "3.13.13 (main, May 10 2026, 19:26:54) [Clang 22.1.3 ]",
+  "deepagents": "0.7.8",
+  "sha256": "49db3ae3d981591964db8236ffda8f1b282ca5677929ea5c28983c5227bd9416",
+  "passed": true
+}

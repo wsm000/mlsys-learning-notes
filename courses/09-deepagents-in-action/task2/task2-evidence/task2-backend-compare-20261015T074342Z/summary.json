@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "mode": "scripted model; real tools; fresh process per phase",
+  "checkpointer": null,
+  "root_dir": "/home/simin/course09-quanty/outputs/task2-backend-compare-20261015T074342Z/disk",
+  "results": [
+    {
+      "phase": "state-write",
+      "pid": 1620347,
+      "passed": true
+    },
+    {
+      "phase": "filesystem-write",
+      "pid": 1620350,
+      "passed": true
+    },
+    {
+      "phase": "state-empty-read",
+      "pid": 1620353,
+      "passed": true
+    },
+    {
+      "phase": "state-restored-read",
+      "pid": 1620355,
+      "passed": true
+    },
+    {
+      "phase": "filesystem-read",
+      "pid": 1620361,
+      "passed": true
+    }
+  ],
+  "matching_sha256": "49db3ae3d981591964db8236ffda8f1b282ca5677929ea5c28983c5227bd9416"
+}

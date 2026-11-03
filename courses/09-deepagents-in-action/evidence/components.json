@@ -1,0 +1,147 @@
+{
+  "create_deep_agent": {
+    "file": "/home/simin/course09-quanty/.venv/lib/python3.11/site-packages/deepagents/graph.py",
+    "start_line": 277,
+    "selected_lines": [
+      {
+        "line": 470,
+        "source": "            `StateBackend` (default), provide skill files via"
+      },
+      {
+        "line": 507,
+        "source": "            Pass a `Backend` instance (e.g. `StateBackend()`)."
+      },
+      {
+        "line": 653,
+        "source": "    backend = backend if backend is not None else StateBackend()"
+      },
+      {
+        "line": 719,
+        "source": "                FilesystemMiddleware("
+      },
+      {
+        "line": 725,
+        "source": "                PatchToolCallsMiddleware(),"
+      },
+      {
+        "line": 732,
+        "source": "            subagent_middleware.extend(_subagent_profile.materialize_extra_middleware())"
+      },
+      {
+        "line": 734,
+        "source": "                subagent_middleware.append(SkillsMiddleware(backend=backend, sources=subagent_skills))"
+      },
+      {
+        "line": 738,
+        "source": "                subagent_middleware.append(MemoryMiddleware(backend=backend, sources=memory, add_cache_control=True))"
+      },
+      {
+        "line": 777,
+        "source": "                subagent_middleware.append(_ToolExclusionMiddleware(excluded=_subagent_profile.excluded_tools))"
+      },
+      {
+        "line": 825,
+        "source": "            FilesystemMiddleware("
+      },
+      {
+        "line": 831,
+        "source": "            PatchToolCallsMiddleware(),"
+      },
+      {
+        "line": 835,
+        "source": "        gp_middleware.extend(_profile.materialize_extra_middleware())"
+      },
+      {
+        "line": 837,
+        "source": "            gp_middleware.append(SkillsMiddleware(backend=backend, sources=skills))"
+      },
+      {
+        "line": 860,
+        "source": "            gp_middleware.append(_ToolExclusionMiddleware(excluded=_profile.excluded_tools))"
+      },
+      {
+        "line": 890,
+        "source": "        FilesystemMiddleware("
+      },
+      {
+        "line": 898,
+        "source": "        sub_agent_middleware = SubAgentMiddleware("
+      },
+      {
+        "line": 909,
+        "source": "        deepagent_middleware.append(sub_agent_middleware)"
+      },
+      {
+        "line": 910,
+        "source": "    deepagent_middleware.extend("
+      },
+      {
+        "line": 913,
+        "source": "            PatchToolCallsMiddleware(),"
+      },
+      {
+        "line": 920,
+        "source": "        deepagent_middleware.append(AsyncSubAgentMiddleware(async_subagents=async_subagents))"
+      },
+      {
+        "line": 928,
+        "source": "    deepagent_middleware.extend(_profile.materialize_extra_middleware())"
+      },
+      {
+        "line": 934,
+        "source": "        deepagent_middleware.append(SkillsMiddleware(backend=backend, sources=skills))"
+      },
+      {
+        "line": 939,
+        "source": "        deepagent_middleware.append("
+      },
+      {
+        "line": 940,
+        "source": "            MemoryMiddleware("
+      },
+      {
+        "line": 951,
+        "source": "        deepagent_middleware.append(HumanInTheLoopMiddleware(interrupt_on=main_interrupt_on))"
+      },
+      {
+        "line": 952,
+        "source": "    deepagent_middleware.append(UnsupportedContentMiddleware())"
+      },
+      {
+        "line": 969,
+        "source": "        deepagent_middleware.append(_ToolExclusionMiddleware(excluded=_profile.excluded_tools))"
+      }
+    ]
+  },
+  "FilesystemMiddleware.__init__": {
+    "file": "/home/simin/course09-quanty/.venv/lib/python3.11/site-packages/deepagents/middleware/filesystem.py",
+    "start_line": 1766,
+    "selected_lines": [
+      {
+        "line": 1784,
+        "source": "                StateBackend if not provided."
+      },
+      {
+        "line": 1821,
+        "source": "                routes to a `StateBackend`."
+      },
+      {
+        "line": 1838,
+        "source": "        # Use provided backend or default to StateBackend instance"
+      },
+      {
+        "line": 1839,
+        "source": "        self.backend = backend if backend is not None else StateBackend()"
+      },
+      {
+        "line": 1843,
+        "source": "                \"were removed in deepagents 0.7; pass StateBackend(), \""
+      },
+      {
+        "line": 1866,
+        "source": "            msg = f\"`offload_binary_content` has no effect: `{self._blobs_prefix}/` routes to a `StateBackend`, which keeps files in checkpointed state.\""
+      }
+    ]
+  },
+  "version": "0.7.24"
+}

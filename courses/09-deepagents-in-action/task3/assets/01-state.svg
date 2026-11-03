@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="400" viewBox="0 0 1000 400"><defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#a5b4c6"/></marker></defs><rect width="1000" height="400" rx="14" fill="#10141d"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" fill="#edf2f7"><text x="45" y="48" font-size="25">把长任务画成一条有记号的路线</text>
+<path d="M95 180 H880" stroke="#a5b4c6" stroke-width="3" marker-end="url(#arrow)"/>
+<circle cx="140" cy="180" r="18" fill="#64d8a2"/><circle cx="360" cy="180" r="18" fill="#64d8a2"/><circle cx="580" cy="180" r="18" fill="#ffd166"/><circle cx="800" cy="180" r="18" fill="#10141d" stroke="#b49bff" stroke-width="4"/>
+<text x="95" y="127" font-size="21">读取资料</text><text x="315" y="127" font-size="21">计算结果</text><text x="535" y="127" font-size="21">撰写报告</text><text x="755" y="127" font-size="21">独立验收</text>
+<text x="83" y="236" fill="#64d8a2" font-size="18">completed</text><text x="303" y="236" fill="#64d8a2" font-size="18">completed</text><text x="518" y="236" fill="#ffd166" font-size="18">in_progress</text><text x="762" y="236" fill="#b49bff" font-size="18">pending</text>
+<text x="85" y="320" font-size="23">进度由 Agent 声明；正确性由证据核对。</text><text x="85" y="357" fill="#9daabb" font-size="17">示意图：清单记录“走到哪里”，验收检查“是否做对”。</text></g></svg>

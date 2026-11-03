@@ -1,0 +1,16 @@
+Starting PDF2Model initialization...
+Cache directory: .
+Model: <REMOTE_HOME>/models/Qwen/Qwen3.5-2B
+Train backend: base
+Output directory: pdf2model_cache_<timestamp>
+------------------------------------------------------------
+Checking environment...
+✅ LlamaFactory installed
+✅ PyYAML installed
+Step 0: Copying customizable pipeline script...
+Copied: kbcleaning_pipeline_vllm.py
+Successfully copied 1 customizable script(s)
+Step 1: Creating training configuration...
+train_config.yaml created: <REMOTE_HOME>/dataflow-task1/pdf2model/.cache/train_config.yaml
+Model will be saved to: pdf2model_cache_20261020_211846
+PDF2Model initialization completed!

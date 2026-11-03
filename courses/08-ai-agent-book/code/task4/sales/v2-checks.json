@@ -1,0 +1,33 @@
+{
+  "status": "passed_with_simulated_confirmation",
+  "final_ready_in_simulation": true,
+  "source_hashes": {
+    "01.csv": "d03cb6369e94c29448cdda472c3753b8072f0a1b9ca8269d2e92c70abeff67a3",
+    "02.csv": "2a3e3c34db7cc90016912bdba0e0c7973537c3494e892c9962b4c5967d8091b8",
+    "03.csv": "a41aa3bbc39a8cef6aa37b0fa5e2de171c7b33618c74e5807d5251f4f34f3a4d"
+  },
+  "sources_unchanged": true,
+  "overlay_sha256": "86f1f29ca36b155ec78f9f57fa7bbb0550c95d294939672d1089d98926df5e73",
+  "applied_confirmations": [
+    {
+      "order_id": "C002",
+      "source_file": "03.csv",
+      "source_sha256": "a41aa3bbc39a8cef6aa37b0fa5e2de171c7b33618c74e5807d5251f4f34f3a4d",
+      "field": "region",
+      "original_value": "",
+      "confirmed_value": "华南",
+      "evidence": "教学场景给定：假设已获得可靠确认，C002 属于华南",
+      "status": "confirmed_in_simulation"
+    }
+  ],
+  "rows": 7,
+  "regions": {
+    "华东": "120",
+    "华南": "300",
+    "华北": "80"
+  },
+  "total": "500",
+  "pending_total": "0",
+  "reconciliation_passed": true,
+  "report_sha256": "d52e744c5b7a2c3650b1b7a54d36bf861b650f8ca0d583335e263a2ce8328528"
+}

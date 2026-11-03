@@ -1,0 +1,232 @@
+{
+  "training": [
+    {
+      "id": "T001",
+      "observation": "巡检时气温7摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。",
+      "recorded_action": "记录补给与保温处理",
+      "recorded_outcome": "后续仍需观察"
+    },
+    {
+      "id": "T002",
+      "observation": "巡检时气温8摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。",
+      "recorded_action": "记录补给与保温处理",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T003",
+      "observation": "巡检时气温9摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。",
+      "recorded_action": "记录补给与保温处理",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T004",
+      "observation": "巡检时气温7摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。",
+      "recorded_action": "记录补给与保温处理",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T005",
+      "observation": "巡检时气温8摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。",
+      "recorded_action": "记录补给与保温处理",
+      "recorded_outcome": "后续仍需观察"
+    },
+    {
+      "id": "T006",
+      "observation": "巡检时气温9摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。",
+      "recorded_action": "记录补给与保温处理",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T007",
+      "observation": "巡检时气温7摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。",
+      "recorded_action": "记录补给与保温处理",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T008",
+      "observation": "巡检时气温8摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。",
+      "recorded_action": "记录补给与保温处理",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T009",
+      "observation": "巡检时气温9摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。",
+      "recorded_action": "记录补给与保温处理",
+      "recorded_outcome": "后续仍需观察"
+    },
+    {
+      "id": "T010",
+      "observation": "巡检时气温7摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。",
+      "recorded_action": "记录补给与保温处理",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T011",
+      "observation": "巡检时气温34摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。",
+      "recorded_action": "记录改善环境与供水处理",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T012",
+      "observation": "巡检时气温35摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。",
+      "recorded_action": "记录改善环境与供水处理",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T013",
+      "observation": "巡检时气温36摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。",
+      "recorded_action": "记录改善环境与供水处理",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T014",
+      "observation": "巡检时气温34摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。",
+      "recorded_action": "记录改善环境与供水处理",
+      "recorded_outcome": "后续仍需观察"
+    },
+    {
+      "id": "T015",
+      "observation": "巡检时气温35摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。",
+      "recorded_action": "记录改善环境与供水处理",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T016",
+      "observation": "巡检时气温36摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。",
+      "recorded_action": "记录改善环境与供水处理",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T017",
+      "observation": "巡检时气温34摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。",
+      "recorded_action": "记录改善环境与供水处理",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T018",
+      "observation": "巡检时气温35摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。",
+      "recorded_action": "记录改善环境与供水处理",
+      "recorded_outcome": "后续仍需观察"
+    },
+    {
+      "id": "T019",
+      "observation": "巡检时气温36摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。",
+      "recorded_action": "记录改善环境与供水处理",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T020",
+      "observation": "巡检时气温34摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。",
+      "recorded_action": "记录改善环境与供水处理",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T021",
+      "observation": "巡检时气温20摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。",
+      "recorded_action": "记录转交专业人员复查",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T022",
+      "observation": "巡检时气温21摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。",
+      "recorded_action": "记录转交专业人员复查",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T023",
+      "observation": "巡检时气温22摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。",
+      "recorded_action": "记录转交专业人员复查",
+      "recorded_outcome": "后续仍需观察"
+    },
+    {
+      "id": "T024",
+      "observation": "巡检时气温20摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。",
+      "recorded_action": "记录转交专业人员复查",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T025",
+      "observation": "巡检时气温21摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。",
+      "recorded_action": "记录转交专业人员复查",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T026",
+      "observation": "巡检时气温22摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。",
+      "recorded_action": "记录转交专业人员复查",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T027",
+      "observation": "巡检时气温20摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。",
+      "recorded_action": "记录转交专业人员复查",
+      "recorded_outcome": "后续仍需观察"
+    },
+    {
+      "id": "T028",
+      "observation": "巡检时气温21摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。",
+      "recorded_action": "记录转交专业人员复查",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T029",
+      "observation": "巡检时气温22摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。",
+      "recorded_action": "记录转交专业人员复查",
+      "recorded_outcome": "后续活动恢复"
+    },
+    {
+      "id": "T030",
+      "observation": "巡检时气温20摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。",
+      "recorded_action": "记录转交专业人员复查",
+      "recorded_outcome": "后续活动恢复"
+    }
+  ],
+  "heldout": [
+    {
+      "id": "V001",
+      "observation": "另一次独立编号的巡检：巡检时气温8摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。",
+      "recorded_action_for_evaluation_only": "记录补给与保温处理"
+    },
+    {
+      "id": "V002",
+      "observation": "另一次独立编号的巡检：巡检时气温9摄氏度，蜂群活动偏少。记录明确写明饲料储备不足，通风正常，未发现蜂螨迹象。",
+      "recorded_action_for_evaluation_only": "记录补给与保温处理"
+    },
+    {
+      "id": "V003",
+      "observation": "另一次独立编号的巡检：巡检时气温35摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。",
+      "recorded_action_for_evaluation_only": "记录改善环境与供水处理"
+    },
+    {
+      "id": "V004",
+      "observation": "另一次独立编号的巡检：巡检时气温36摄氏度，蜂群聚集在箱口。记录明确写明饲料充足，通风不足，饮水点缺水，未发现蜂螨迹象。",
+      "recorded_action_for_evaluation_only": "记录改善环境与供水处理"
+    },
+    {
+      "id": "V005",
+      "observation": "另一次独立编号的巡检：巡检时气温21摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。",
+      "recorded_action_for_evaluation_only": "记录转交专业人员复查"
+    },
+    {
+      "id": "V006",
+      "observation": "另一次独立编号的巡检：巡检时气温22摄氏度，蜂群活动异常。记录明确写明饲料充足，通风正常，复查发现蜂螨迹象。",
+      "recorded_action_for_evaluation_only": "记录转交专业人员复查"
+    },
+    {
+      "id": "V007",
+      "observation": "气温8摄氏度，饲料充足，通风正常，复查发现蜂螨迹象。",
+      "recorded_action_for_evaluation_only": null
+    },
+    {
+      "id": "V008",
+      "observation": "气温35摄氏度，饲料不足，通风不足，饮水点缺水，复查发现蜂螨迹象。",
+      "recorded_action_for_evaluation_only": null
+    },
+    {
+      "id": "V009",
+      "observation": "仅记录蜂群活动偏少，气温、饲料、通风及蜂螨检查结果均未记录。",
+      "recorded_action_for_evaluation_only": null
+    }
+  ],
+  "provenance": "Authored fictional teaching records. Outcomes and actions designed with patterned associations; no real management effectiveness or causal claim."
+}

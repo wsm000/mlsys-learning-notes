@@ -1,0 +1,605 @@
+{
+  "status": "completed",
+  "scope": "mechanism-equivalent one official layer3 case, not full 60-case dual-layer campaign",
+  "source_commit": "dbc046eb896ac4e39aa19c7774c8bf49583b89a6",
+  "case_id": "layer3_01_travel_coordination",
+  "question": "I'm finalizing my trip to Tokyo in January. Is there anything I need to take care of before I go?",
+  "sessions": 3,
+  "chunks": 42,
+  "cards_provenance": "Previously live-generated Advanced JSON Cards from 3-1 checkpoints; original final snapshot compared with controlled retention of latest card_key versions from earlier states. No hand-authored facts added.",
+  "models": {
+    "prefix_and_answer": "Qwen/Qwen3-0.6B",
+    "embedding": "BAAI/bge-small-zh-v1.5",
+    "card_writer": "Prior 3-1 DeepSeek-V4-Flash, requests retained in source checkpoint"
+  },
+  "controls": "Same question, answer model/prompt/token budget. Contextual prefixes from full source session plus target. Dual arms add cards and fixed schema-triggered searches, hence increase evidence/context budget; not an isolated architecture effect.",
+  "known_limits": "No automatic deletion/tombstone handling; controlled retained cards are an illustrative maintenance policy. Raw-history source is required to verify card facts. No external judge; presence checks do not prove correctness. Rubric and source history contain inconsistent passport-policy/processing statements, so no real entry-rule conclusion is adopted.",
+  "reference_isolation": "Evaluation criteria and expected_behavior never provided to prefix, search or answer models.",
+  "arms": {
+    "plain_rag": {
+      "cards": [],
+      "searches": [
+        {
+          "index": "plain",
+          "query": "I'm finalizing my trip to Tokyo in January. Is there anything I need to take care of before I go?",
+          "hits": [
+            {
+              "id": "H2",
+              "text": "USER: February 18th, 2025.\nASSISTANT: And you want to renew now?\nUSER: I'm thinking about it. I might have some international travel coming up for work.\nASSISTANT: Many countries require 6 months validity beyond your travel date. When might you travel?\nUSER: Possibly in December or January for a conference in Tokyo.\nASSISTANT: For Japan in January, your passport would need to be valid for at least the duration of your stay. With a February expiration, you'd be cutting it very close.\nUSER: Oh, I didn't realize that. So I should renew soon?\nASSISTANT: I'd strongly recommend it if the trip gets confirmed. Standard processing is 6-8 weeks currently.",
+              "prefix": null,
+              "conversation_id": "passport_renewal_001",
+              "timestamp": "2024-06-15 14:00:00",
+              "score": 0.03252247488101534
+            },
+            {
+              "id": "H14",
+              "text": "USER: Hi, I need to book a flight to Tokyo for a business conference.\nASSISTANT: Good morning! Thank you for choosing Delta. I'm Sarah, and I'll help you with your booking. When are you planning to travel?\nUSER: I need to leave January 15th and return January 22nd.\nASSISTANT: Let me search for flights. Which airport are you departing from?\nUSER: Los Angeles, LAX.\nASSISTANT: LAX to Tokyo. Do you prefer Narita or Haneda airport?\nUSER: Which is closer to downtown Tokyo?\nASSISTANT: Haneda is much closer, about 30 minutes to downtown versus 60-90 minutes from Narita.",
+              "prefix": null,
+              "conversation_id": "flight_booking_002",
+              "timestamp": "2024-11-22 10:00:00",
+              "score": 0.031746031746031744
+            },
+            {
+              "id": "H6",
+              "text": "USER: It's 487223901.\nASSISTANT: Great. That's the ePassport with the chip, which is good for international travel.\nUSER: Good to know. I think I'll wait until my Japan trip is confirmed before renewing.\nASSISTANT: Just don't wait too long. If you need it by December, submit by early October at the latest.\nUSER: October deadline, got it. What about visas for Japan?\nASSISTANT: US citizens don't need a visa for tourism or business stays up to 90 days in Japan.\nUSER: Oh good, one less thing to worry about.\nASSISTANT: Yes, but you do need to show proof of onward travel and possibly sufficient funds.",
+              "prefix": null,
+              "conversation_id": "passport_renewal_001",
+              "timestamp": "2024-06-15 14:00:00",
+              "score": 0.031544957774465976
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "H2",
+          "text": "USER: February 18th, 2025.\nASSISTANT: And you want to renew now?\nUSER: I'm thinking about it. I might have some international travel coming up for work.\nASSISTANT: Many countries require 6 months validity beyond your travel date. When might you travel?\nUSER: Possibly in December or January for a conference in Tokyo.\nASSISTANT: For Japan in January, your passport would need to be valid for at least the duration of your stay. With a February expiration, you'd be cutting it very close.\nUSER: Oh, I didn't realize that. So I should renew soon?\nASSISTANT: I'd strongly recommend it if the trip gets confirmed. Standard processing is 6-8 weeks currently.",
+          "prefix": null,
+          "conversation_id": "passport_renewal_001",
+          "timestamp": "2024-06-15 14:00:00",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "H14",
+          "text": "USER: Hi, I need to book a flight to Tokyo for a business conference.\nASSISTANT: Good morning! Thank you for choosing Delta. I'm Sarah, and I'll help you with your booking. When are you planning to travel?\nUSER: I need to leave January 15th and return January 22nd.\nASSISTANT: Let me search for flights. Which airport are you departing from?\nUSER: Los Angeles, LAX.\nASSISTANT: LAX to Tokyo. Do you prefer Narita or Haneda airport?\nUSER: Which is closer to downtown Tokyo?\nASSISTANT: Haneda is much closer, about 30 minutes to downtown versus 60-90 minutes from Narita.",
+          "prefix": null,
+          "conversation_id": "flight_booking_002",
+          "timestamp": "2024-11-22 10:00:00",
+          "score": 0.031746031746031744
+        },
+        {
+          "id": "H6",
+          "text": "USER: It's 487223901.\nASSISTANT: Great. That's the ePassport with the chip, which is good for international travel.\nUSER: Good to know. I think I'll wait until my Japan trip is confirmed before renewing.\nASSISTANT: Just don't wait too long. If you need it by December, submit by early October at the latest.\nUSER: October deadline, got it. What about visas for Japan?\nASSISTANT: US citizens don't need a visa for tourism or business stays up to 90 days in Japan.\nUSER: Oh good, one less thing to worry about.\nASSISTANT: Yes, but you do need to show proof of onward travel and possibly sufficient funds.",
+          "prefix": null,
+          "conversation_id": "passport_renewal_001",
+          "timestamp": "2024-06-15 14:00:00",
+          "score": 0.031544957774465976
+        }
+      ],
+      "answer": "To prepare for your trip to Tokyo in January, you should:\n\n- Renew your passport as soon as possible, as it needs to be valid for at least the duration of your stay. Your passport expires on February 15, 2025, so you need to renew it by early October 2025.\n\n- Book a flight to Tokyo from Los Angeles, LAX, departing on January 15 and returning on January 22. Haneda is closer to downtown Tokyo, so you should choose that.\n\n- Ensure you have sufficient funds and proof of onward travel.",
+      "sessions_retrieved": [
+        "flight_booking_002",
+        "passport_renewal_001"
+      ],
+      "source_ids": [
+        "H2",
+        "H14",
+        "H6"
+      ],
+      "citation_ids": [],
+      "unknown_citation_ids": [],
+      "presence_checks_only": {
+        "passport": true,
+        "february_18": false,
+        "priority_pass": false,
+        "payment_coverage": false
+      }
+    },
+    "contextual_rag": {
+      "cards": [],
+      "searches": [
+        {
+          "index": "contextual",
+          "query": "I'm finalizing my trip to Tokyo in January. Is there anything I need to take care of before I go?",
+          "hits": [
+            {
+              "id": "H8",
+              "text": "USER: I think I'm current on everything.\nASSISTANT: Good. Also check Japan's current entry requirements closer to travel. They can change.\nUSER: Do they still have COVID restrictions?\nASSISTANT: As of now, they've lifted most restrictions, but always verify before traveling.\nUSER: Will do. Is there anything special about the passport photo?\nASSISTANT: Neutral expression, eyes open, no glasses unless medically necessary, no hats or head coverings unless religious.\nUSER: Can I smile?\nASSISTANT: A natural smile is okay, but no exaggerated expressions. Think DMV photo style.",
+              "prefix": "USER: I think I'm current on everything.  \nASSISTANT: Good. Also check Japan's current entry requirements closer to travel. They can change.",
+              "conversation_id": "passport_renewal_001",
+              "timestamp": "2024-06-15 14:00:00",
+              "score": 0.03177805800756621
+            },
+            {
+              "id": "H14",
+              "text": "USER: Hi, I need to book a flight to Tokyo for a business conference.\nASSISTANT: Good morning! Thank you for choosing Delta. I'm Sarah, and I'll help you with your booking. When are you planning to travel?\nUSER: I need to leave January 15th and return January 22nd.\nASSISTANT: Let me search for flights. Which airport are you departing from?\nUSER: Los Angeles, LAX.\nASSISTANT: LAX to Tokyo. Do you prefer Narita or Haneda airport?\nUSER: Which is closer to downtown Tokyo?\nASSISTANT: Haneda is much closer, about 30 minutes to downtown versus 60-90 minutes from Narita.",
+              "prefix": "USER: Hi, I need to book a flight to Tokyo for a business conference.  \nASSISTANT: Good morning! Thank you for choosing Delta. I'm Sarah, and I'll help you with your booking. When are you planning to travel?",
+              "conversation_id": "flight_booking_002",
+              "timestamp": "2024-11-22 10:00:00",
+              "score": 0.031746031746031744
+            },
+            {
+              "id": "H28",
+              "text": "USER: Perfect for getting some work done.\nASSISTANT: Absolutely. Is there anything else I can help you with today?\nUSER: No, I think that covers everything. Thanks Sarah!\nASSISTANT: You're welcome Ms. Martinez! Have a wonderful trip to Tokyo, and don't forget about that passport renewal!",
+              "prefix": "USER: Perfect for getting some work done.  \nASSISTANT: Absolutely. Is there anything else I can help you with today?",
+              "conversation_id": "flight_booking_002",
+              "timestamp": "2024-11-22 10:00:00",
+              "score": 0.03131881575727918
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "H8",
+          "text": "USER: I think I'm current on everything.\nASSISTANT: Good. Also check Japan's current entry requirements closer to travel. They can change.\nUSER: Do they still have COVID restrictions?\nASSISTANT: As of now, they've lifted most restrictions, but always verify before traveling.\nUSER: Will do. Is there anything special about the passport photo?\nASSISTANT: Neutral expression, eyes open, no glasses unless medically necessary, no hats or head coverings unless religious.\nUSER: Can I smile?\nASSISTANT: A natural smile is okay, but no exaggerated expressions. Think DMV photo style.",
+          "prefix": "USER: I think I'm current on everything.  \nASSISTANT: Good. Also check Japan's current entry requirements closer to travel. They can change.",
+          "conversation_id": "passport_renewal_001",
+          "timestamp": "2024-06-15 14:00:00",
+          "score": 0.03177805800756621
+        },
+        {
+          "id": "H14",
+          "text": "USER: Hi, I need to book a flight to Tokyo for a business conference.\nASSISTANT: Good morning! Thank you for choosing Delta. I'm Sarah, and I'll help you with your booking. When are you planning to travel?\nUSER: I need to leave January 15th and return January 22nd.\nASSISTANT: Let me search for flights. Which airport are you departing from?\nUSER: Los Angeles, LAX.\nASSISTANT: LAX to Tokyo. Do you prefer Narita or Haneda airport?\nUSER: Which is closer to downtown Tokyo?\nASSISTANT: Haneda is much closer, about 30 minutes to downtown versus 60-90 minutes from Narita.",
+          "prefix": "USER: Hi, I need to book a flight to Tokyo for a business conference.  \nASSISTANT: Good morning! Thank you for choosing Delta. I'm Sarah, and I'll help you with your booking. When are you planning to travel?",
+          "conversation_id": "flight_booking_002",
+          "timestamp": "2024-11-22 10:00:00",
+          "score": 0.031746031746031744
+        },
+        {
+          "id": "H28",
+          "text": "USER: Perfect for getting some work done.\nASSISTANT: Absolutely. Is there anything else I can help you with today?\nUSER: No, I think that covers everything. Thanks Sarah!\nASSISTANT: You're welcome Ms. Martinez! Have a wonderful trip to Tokyo, and don't forget about that passport renewal!",
+          "prefix": "USER: Perfect for getting some work done.  \nASSISTANT: Absolutely. Is there anything else I can help you with today?",
+          "conversation_id": "flight_booking_002",
+          "timestamp": "2024-11-22 10:00:00",
+          "score": 0.03131881575727918
+        }
+      ],
+      "answer": "- **Passport**: Ensure your passport is valid for the trip and check for any changes before traveling.  \n- **Photo**: Take a neutral expression, eyes open, no glasses, and no hats or head coverings.  \n- **Smiling**: A natural smile is acceptable, but avoid exaggerated expressions.  \n- **Flight**: Book a flight from LAX to Tokyo on January 15th to 22nd, and confirm the destination and departure airport.  \n- **Entry Requirements**: Verify Japan’s current entry requirements closer to travel.  \n- **Passport Renewal**: Confirm your passport renewal is ongoing.",
+      "sessions_retrieved": [
+        "flight_booking_002",
+        "passport_renewal_001"
+      ],
+      "source_ids": [
+        "H8",
+        "H14",
+        "H28"
+      ],
+      "citation_ids": [],
+      "unknown_citation_ids": [],
+      "presence_checks_only": {
+        "passport": true,
+        "february_18": false,
+        "priority_pass": false,
+        "payment_coverage": false
+      }
+    },
+    "dual_original_final_cards": {
+      "cards": [
+        {
+          "id": "K1",
+          "category": "credit_card",
+          "card_key": "chase_sapphire_reserve_jessica_martinez_2024",
+          "person": "Jessica Martinez",
+          "timestamp": "2024-10-05T15:30:00Z",
+          "status": "confirmed",
+          "backstory": "Jessica Martinez called Chase Bank Credit Card Services on 2024-10-05 to confirm her Chase Sapphire Reserve card would work internationally for upcoming work trips. She learned about international usage, travel insurance, lounge access, and updated her autopay to full balance.",
+          "facts": {
+            "travel_insurance": "trip cancellation up to $10,000, trip delay reimbursement, lost luggage coverage, emergency medical",
+            "business_trip_coverage": "covered only if trip paid with Sapphire Reserve; airline ticket paid with corporate AmEx not covered",
+            "rental_car_insurance": "primary coverage when paid with card, decline rental company insurance",
+            "priority_pass_membership": "included, over 1,300 lounges worldwide",
+            "priority_pass_card_status": "physical card location unknown, digital card available in Priority Pass app",
+            "priority_pass_guest_policy": "up to 2 guests free per visit",
+            "lax_priority_pass_options": "KAL Lounge and others",
+            "statement_close_date": "28th of each month",
+            "payment_due_date": "25 days after statement close, around 22nd of following month"
+          }
+        }
+      ],
+      "seed_queries": [
+        {
+          "card_id": "K1",
+          "card_key": "chase_sapphire_reserve_jessica_martinez_2024",
+          "query": "credit card Jessica Martinez travel insurance business trip coverage rental car insurance priority pass membership"
+        }
+      ],
+      "searches": [
+        {
+          "index": "contextual",
+          "query": "I'm finalizing my trip to Tokyo in January. Is there anything I need to take care of before I go?",
+          "hits": [
+            {
+              "id": "H8",
+              "text": "USER: I think I'm current on everything.\nASSISTANT: Good. Also check Japan's current entry requirements closer to travel. They can change.\nUSER: Do they still have COVID restrictions?\nASSISTANT: As of now, they've lifted most restrictions, but always verify before traveling.\nUSER: Will do. Is there anything special about the passport photo?\nASSISTANT: Neutral expression, eyes open, no glasses unless medically necessary, no hats or head coverings unless religious.\nUSER: Can I smile?\nASSISTANT: A natural smile is okay, but no exaggerated expressions. Think DMV photo style.",
+              "prefix": "USER: I think I'm current on everything.  \nASSISTANT: Good. Also check Japan's current entry requirements closer to travel. They can change.",
+              "conversation_id": "passport_renewal_001",
+              "timestamp": "2024-06-15 14:00:00",
+              "score": 0.03177805800756621
+            },
+            {
+              "id": "H14",
+              "text": "USER: Hi, I need to book a flight to Tokyo for a business conference.\nASSISTANT: Good morning! Thank you for choosing Delta. I'm Sarah, and I'll help you with your booking. When are you planning to travel?\nUSER: I need to leave January 15th and return January 22nd.\nASSISTANT: Let me search for flights. Which airport are you departing from?\nUSER: Los Angeles, LAX.\nASSISTANT: LAX to Tokyo. Do you prefer Narita or Haneda airport?\nUSER: Which is closer to downtown Tokyo?\nASSISTANT: Haneda is much closer, about 30 minutes to downtown versus 60-90 minutes from Narita.",
+              "prefix": "USER: Hi, I need to book a flight to Tokyo for a business conference.  \nASSISTANT: Good morning! Thank you for choosing Delta. I'm Sarah, and I'll help you with your booking. When are you planning to travel?",
+              "conversation_id": "flight_booking_002",
+              "timestamp": "2024-11-22 10:00:00",
+              "score": 0.031746031746031744
+            },
+            {
+              "id": "H28",
+              "text": "USER: Perfect for getting some work done.\nASSISTANT: Absolutely. Is there anything else I can help you with today?\nUSER: No, I think that covers everything. Thanks Sarah!\nASSISTANT: You're welcome Ms. Martinez! Have a wonderful trip to Tokyo, and don't forget about that passport renewal!",
+              "prefix": "USER: Perfect for getting some work done.  \nASSISTANT: Absolutely. Is there anything else I can help you with today?",
+              "conversation_id": "flight_booking_002",
+              "timestamp": "2024-11-22 10:00:00",
+              "score": 0.03131881575727918
+            }
+          ]
+        },
+        {
+          "index": "contextual",
+          "query": "credit card Jessica Martinez travel insurance business trip coverage rental car insurance priority pass membership",
+          "hits": [
+            {
+              "id": "H33",
+              "text": "USER: I see. What about rental car insurance?\nASSISTANT: Primary rental car coverage included when you pay with the card. Decline the rental company's insurance.\nUSER: That'll save money. What about airport lounges?\nASSISTANT: You have Priority Pass membership included. Over 1,300 lounges worldwide.\nUSER: How do I use that?\nASSISTANT: Did you receive your Priority Pass card?\nUSER: I think so, but I'm not sure where it is.\nASSISTANT: You can use the digital card in the Priority Pass app. Just download and link to your account.",
+              "prefix": "USER: I see. What about rental car insurance?  \nASSISTANT: Primary rental car coverage included when you pay with the card. Decline the rental company's insurance.",
+              "conversation_id": "credit_card_003",
+              "timestamp": "2024-10-05 15:30:00",
+              "score": 0.03278688524590164
+            },
+            {
+              "id": "H32",
+              "text": "USER: Like what?\nASSISTANT: Trip cancellation up to $10,000, trip delay reimbursement, lost luggage coverage, and emergency medical.\nUSER: Does that cover business trips?\nASSISTANT: Yes, as long as you pay for the trip with your Sapphire Reserve.\nUSER: I'm using my corporate AmEx for the flights though.\nASSISTANT: Then the airline ticket wouldn't be covered, but if you pay for hotels or other travel expenses with the Sapphire, those portions would be.\nUSER: I see. What about rental car insurance?\nASSISTANT: Primary rental car coverage included when you pay with the card. Decline the rental company's insurance.",
+              "prefix": "USER: Like what?  \nASSISTANT: Trip cancellation up to $10,000, trip delay reimbursement, lost luggage coverage, and emergency medical.  \nUSER: Does that cover business trips?  \nASSISTANT: Yes, as long as you pay for the trip with your Sapphire Reserve.",
+              "conversation_id": "credit_card_003",
+              "timestamp": "2024-10-05 15:30:00",
+              "score": 0.03225806451612903
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "H8",
+          "text": "USER: I think I'm current on everything.\nASSISTANT: Good. Also check Japan's current entry requirements closer to travel. They can change.\nUSER: Do they still have COVID restrictions?\nASSISTANT: As of now, they've lifted most restrictions, but always verify before traveling.\nUSER: Will do. Is there anything special about the passport photo?\nASSISTANT: Neutral expression, eyes open, no glasses unless medically necessary, no hats or head coverings unless religious.\nUSER: Can I smile?\nASSISTANT: A natural smile is okay, but no exaggerated expressions. Think DMV photo style.",
+          "prefix": "USER: I think I'm current on everything.  \nASSISTANT: Good. Also check Japan's current entry requirements closer to travel. They can change.",
+          "conversation_id": "passport_renewal_001",
+          "timestamp": "2024-06-15 14:00:00",
+          "score": 0.03177805800756621
+        },
+        {
+          "id": "H14",
+          "text": "USER: Hi, I need to book a flight to Tokyo for a business conference.\nASSISTANT: Good morning! Thank you for choosing Delta. I'm Sarah, and I'll help you with your booking. When are you planning to travel?\nUSER: I need to leave January 15th and return January 22nd.\nASSISTANT: Let me search for flights. Which airport are you departing from?\nUSER: Los Angeles, LAX.\nASSISTANT: LAX to Tokyo. Do you prefer Narita or Haneda airport?\nUSER: Which is closer to downtown Tokyo?\nASSISTANT: Haneda is much closer, about 30 minutes to downtown versus 60-90 minutes from Narita.",
+          "prefix": "USER: Hi, I need to book a flight to Tokyo for a business conference.  \nASSISTANT: Good morning! Thank you for choosing Delta. I'm Sarah, and I'll help you with your booking. When are you planning to travel?",
+          "conversation_id": "flight_booking_002",
+          "timestamp": "2024-11-22 10:00:00",
+          "score": 0.031746031746031744
+        },
+        {
+          "id": "H28",
+          "text": "USER: Perfect for getting some work done.\nASSISTANT: Absolutely. Is there anything else I can help you with today?\nUSER: No, I think that covers everything. Thanks Sarah!\nASSISTANT: You're welcome Ms. Martinez! Have a wonderful trip to Tokyo, and don't forget about that passport renewal!",
+          "prefix": "USER: Perfect for getting some work done.  \nASSISTANT: Absolutely. Is there anything else I can help you with today?",
+          "conversation_id": "flight_booking_002",
+          "timestamp": "2024-11-22 10:00:00",
+          "score": 0.03131881575727918
+        },
+        {
+          "id": "H33",
+          "text": "USER: I see. What about rental car insurance?\nASSISTANT: Primary rental car coverage included when you pay with the card. Decline the rental company's insurance.\nUSER: That'll save money. What about airport lounges?\nASSISTANT: You have Priority Pass membership included. Over 1,300 lounges worldwide.\nUSER: How do I use that?\nASSISTANT: Did you receive your Priority Pass card?\nUSER: I think so, but I'm not sure where it is.\nASSISTANT: You can use the digital card in the Priority Pass app. Just download and link to your account.",
+          "prefix": "USER: I see. What about rental car insurance?  \nASSISTANT: Primary rental car coverage included when you pay with the card. Decline the rental company's insurance.",
+          "conversation_id": "credit_card_003",
+          "timestamp": "2024-10-05 15:30:00",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "H32",
+          "text": "USER: Like what?\nASSISTANT: Trip cancellation up to $10,000, trip delay reimbursement, lost luggage coverage, and emergency medical.\nUSER: Does that cover business trips?\nASSISTANT: Yes, as long as you pay for the trip with your Sapphire Reserve.\nUSER: I'm using my corporate AmEx for the flights though.\nASSISTANT: Then the airline ticket wouldn't be covered, but if you pay for hotels or other travel expenses with the Sapphire, those portions would be.\nUSER: I see. What about rental car insurance?\nASSISTANT: Primary rental car coverage included when you pay with the card. Decline the rental company's insurance.",
+          "prefix": "USER: Like what?  \nASSISTANT: Trip cancellation up to $10,000, trip delay reimbursement, lost luggage coverage, and emergency medical.  \nUSER: Does that cover business trips?  \nASSISTANT: Yes, as long as you pay for the trip with your Sapphire Reserve.",
+          "conversation_id": "credit_card_003",
+          "timestamp": "2024-10-05 15:30:00",
+          "score": 0.03225806451612903
+        }
+      ],
+      "answer": "- **Credit card**: You need to confirm your Chase Sapphire Reserve card is active and fully paid.  \n- **Travel insurance**: Trip cancellation up to $10,000, trip delay reimbursement, lost luggage coverage, and emergency medical coverage.  \n- **Rental car insurance**: Primary coverage included when you pay with the card. Decline the rental company's insurance.  \n- **Priority Pass membership**: Over 1,300 lounges worldwide. You can use the digital card in the Priority Pass app.  \n- **Airport lounge access**: Included with your Priority Pass membership.  \n- **Passport renewal**: Check Japan's current entry requirements closer to travel. They can change.  \n- **Flight booking**: LAX to Tokyo, departing from Los Angeles. You can use the Priority Pass app to access lounges.",
+      "sessions_retrieved": [
+        "credit_card_003",
+        "flight_booking_002",
+        "passport_renewal_001"
+      ],
+      "source_ids": [
+        "H8",
+        "H14",
+        "H28",
+        "H33",
+        "H32"
+      ],
+      "citation_ids": [],
+      "unknown_citation_ids": [],
+      "presence_checks_only": {
+        "passport": true,
+        "february_18": false,
+        "priority_pass": true,
+        "payment_coverage": true
+      }
+    },
+    "dual_retained_cards": {
+      "cards": [
+        {
+          "id": "K1",
+          "category": "passport_renewal",
+          "card_key": "passport_renewal_jessica_martinez_2024",
+          "person": "Jessica Martinez",
+          "timestamp": "2024-11-22T10:00:00Z",
+          "status": "open",
+          "backstory": "Jessica Martinez called USPS Passport Services on 2024-06-15 to inquire about renewing her passport. She was considering renewal due to a possible work trip to Tokyo, Japan in December 2024 or January 2025. She had not yet decided to renew and would wait until the trip was confirmed, but noted the October 2024 submission deadline for expedited processing. On 2024-11-22, during a Delta Airlines booking call, she decided to renew her passport before the trip due to the close expiration date relative to her return.",
+          "facts": {
+            "passport_expiration_date": "2025-02-18",
+            "renewal_decision": "decided to renew before January 2025 trip",
+            "mail_renewal_payment_method": "check or money order payable to US Department of State"
+          }
+        },
+        {
+          "id": "K2",
+          "category": "flight_booking",
+          "card_key": "flight_booking_jessica_martinez_delta_2024",
+          "person": "Jessica Martinez",
+          "timestamp": "2024-11-22T10:00:00Z",
+          "status": "confirmed",
+          "backstory": "Jessica Martinez called Delta Airlines Reservations on 2024-11-22 to book a business class flight to Tokyo for a business conference. She chose Haneda Airport for proximity to downtown Tokyo. She booked non-stop flights DL 7 and DL 8, paying with her corporate American Express. She was advised to renew her passport before travel due to the close expiration date.",
+          "facts": {
+            "confirmation_number": "DELTA-JMK892",
+            "departure_date": "2025-01-15",
+            "arrival_date": "2025-01-16",
+            "return_date": "2025-01-22",
+            "payment_method": "Corporate American Express",
+            "payment_card_number": "3782-445589-23001",
+            "payment_card_expiration": "12/26",
+            "payment_billing_zip": "90210",
+            "passport_update_deadline": "72 hours before departure"
+          }
+        },
+        {
+          "id": "K3",
+          "category": "credit_card",
+          "card_key": "chase_sapphire_reserve_jessica_martinez_2024",
+          "person": "Jessica Martinez",
+          "timestamp": "2024-10-05T15:30:00Z",
+          "status": "confirmed",
+          "backstory": "Jessica Martinez called Chase Bank Credit Card Services on 2024-10-05 to confirm her Chase Sapphire Reserve card would work internationally for upcoming work trips. She learned about international usage, travel insurance, lounge access, and updated her autopay to full balance.",
+          "facts": {
+            "travel_insurance": "trip cancellation up to $10,000, trip delay reimbursement, lost luggage coverage, emergency medical",
+            "business_trip_coverage": "covered only if trip paid with Sapphire Reserve; airline ticket paid with corporate AmEx not covered",
+            "rental_car_insurance": "primary coverage when paid with card, decline rental company insurance",
+            "priority_pass_membership": "included, over 1,300 lounges worldwide",
+            "priority_pass_card_status": "physical card location unknown, digital card available in Priority Pass app",
+            "priority_pass_guest_policy": "up to 2 guests free per visit",
+            "lax_priority_pass_options": "KAL Lounge and others",
+            "statement_close_date": "28th of each month",
+            "payment_due_date": "25 days after statement close, around 22nd of following month"
+          }
+        }
+      ],
+      "seed_queries": [
+        {
+          "card_id": "K1",
+          "card_key": "passport_renewal_jessica_martinez_2024",
+          "query": "passport renewal Jessica Martinez passport expiration date"
+        },
+        {
+          "card_id": "K2",
+          "card_key": "flight_booking_jessica_martinez_delta_2024",
+          "query": "flight booking Jessica Martinez confirmation number return date payment card expiration"
+        },
+        {
+          "card_id": "K3",
+          "card_key": "chase_sapphire_reserve_jessica_martinez_2024",
+          "query": "credit card Jessica Martinez travel insurance business trip coverage rental car insurance priority pass membership"
+        }
+      ],
+      "searches": [
+        {
+          "index": "contextual",
+          "query": "I'm finalizing my trip to Tokyo in January. Is there anything I need to take care of before I go?",
+          "hits": [
+            {
+              "id": "H8",
+              "text": "USER: I think I'm current on everything.\nASSISTANT: Good. Also check Japan's current entry requirements closer to travel. They can change.\nUSER: Do they still have COVID restrictions?\nASSISTANT: As of now, they've lifted most restrictions, but always verify before traveling.\nUSER: Will do. Is there anything special about the passport photo?\nASSISTANT: Neutral expression, eyes open, no glasses unless medically necessary, no hats or head coverings unless religious.\nUSER: Can I smile?\nASSISTANT: A natural smile is okay, but no exaggerated expressions. Think DMV photo style.",
+              "prefix": "USER: I think I'm current on everything.  \nASSISTANT: Good. Also check Japan's current entry requirements closer to travel. They can change.",
+              "conversation_id": "passport_renewal_001",
+              "timestamp": "2024-06-15 14:00:00",
+              "score": 0.03177805800756621
+            },
+            {
+              "id": "H14",
+              "text": "USER: Hi, I need to book a flight to Tokyo for a business conference.\nASSISTANT: Good morning! Thank you for choosing Delta. I'm Sarah, and I'll help you with your booking. When are you planning to travel?\nUSER: I need to leave January 15th and return January 22nd.\nASSISTANT: Let me search for flights. Which airport are you departing from?\nUSER: Los Angeles, LAX.\nASSISTANT: LAX to Tokyo. Do you prefer Narita or Haneda airport?\nUSER: Which is closer to downtown Tokyo?\nASSISTANT: Haneda is much closer, about 30 minutes to downtown versus 60-90 minutes from Narita.",
+              "prefix": "USER: Hi, I need to book a flight to Tokyo for a business conference.  \nASSISTANT: Good morning! Thank you for choosing Delta. I'm Sarah, and I'll help you with your booking. When are you planning to travel?",
+              "conversation_id": "flight_booking_002",
+              "timestamp": "2024-11-22 10:00:00",
+              "score": 0.031746031746031744
+            },
+            {
+              "id": "H28",
+              "text": "USER: Perfect for getting some work done.\nASSISTANT: Absolutely. Is there anything else I can help you with today?\nUSER: No, I think that covers everything. Thanks Sarah!\nASSISTANT: You're welcome Ms. Martinez! Have a wonderful trip to Tokyo, and don't forget about that passport renewal!",
+              "prefix": "USER: Perfect for getting some work done.  \nASSISTANT: Absolutely. Is there anything else I can help you with today?",
+              "conversation_id": "flight_booking_002",
+              "timestamp": "2024-11-22 10:00:00",
+              "score": 0.03131881575727918
+            }
+          ]
+        },
+        {
+          "index": "contextual",
+          "query": "passport renewal Jessica Martinez passport expiration date",
+          "hits": [
+            {
+              "id": "H1",
+              "text": "USER: Hi, I need to check about renewing my passport.\nASSISTANT: Good afternoon! I'm David from USPS Passport Services. I'll help you with your renewal. Is your passport expired or about to expire?\nUSER: It expires in February 2025, so about 8 months from now.\nASSISTANT: Good timing to consider renewal. You can renew up to 15 months before expiration. May I have your name?\nUSER: It's Jessica Martinez.\nASSISTANT: Thank you, Ms. Martinez. When exactly does it expire?\nUSER: February 18th, 2025.\nASSISTANT: And you want to renew now?",
+              "prefix": "David from USPS Passport Services. Jessica Martinez. February 2025. Passport renewal.",
+              "conversation_id": "passport_renewal_001",
+              "timestamp": "2024-06-15 14:00:00",
+              "score": 0.03225806451612903
+            },
+            {
+              "id": "H2",
+              "text": "USER: February 18th, 2025.\nASSISTANT: And you want to renew now?\nUSER: I'm thinking about it. I might have some international travel coming up for work.\nASSISTANT: Many countries require 6 months validity beyond your travel date. When might you travel?\nUSER: Possibly in December or January for a conference in Tokyo.\nASSISTANT: For Japan in January, your passport would need to be valid for at least the duration of your stay. With a February expiration, you'd be cutting it very close.\nUSER: Oh, I didn't realize that. So I should renew soon?\nASSISTANT: I'd strongly recommend it if the trip gets confirmed. Standard processing is 6-8 weeks currently.",
+              "prefix": "Session ID: passport_renewal_001  \nDate: February 18th, 2025  \nPerson: David  \nService: Passport Renewal  \nTopic: International Travel and Passport Validity",
+              "conversation_id": "passport_renewal_001",
+              "timestamp": "2024-06-15 14:00:00",
+              "score": 0.03177805800756621
+            }
+          ]
+        },
+        {
+          "index": "contextual",
+          "query": "flight booking Jessica Martinez confirmation number return date payment card expiration",
+          "hits": [
+            {
+              "id": "H16",
+              "text": "USER: Perfect timing. What's the fare?\nASSISTANT: Economy is $1,450, Premium Economy is $2,280, and Business Class is $4,890.\nUSER: My company allows business class for flights over 10 hours. How long is this flight?\nASSISTANT: It's 11 hours 15 minutes westbound, 10 hours 15 minutes eastbound.\nUSER: So I qualify for business class. Let's book that.\nASSISTANT: Excellent choice. May I have your full name as it appears on your passport?\nUSER: Jessica Marie Martinez.\nASSISTANT: Date of birth?",
+              "prefix": "Session ID: flight_booking_002  \nUser: Jessica Marie Martinez.  \nService: Delta.  \nDate: January 15th.  \nTopic: Flight booking.",
+              "conversation_id": "flight_booking_002",
+              "timestamp": "2024-11-22 10:00:00",
+              "score": 0.03252247488101534
+            },
+            {
+              "id": "H11",
+              "text": "USER: I don't travel that much to need 52 pages.\nASSISTANT: The standard 28-page book should be fine then. Same price either way.\nUSER: Perfect. What if my name changes?\nASSISTANT: You'd need to submit proof of name change like a marriage certificate or court order.\nUSER: No changes for me.\nASSISTANT: Then it's straightforward. Just the DS-82, photo, old passport, and payment.\nUSER: Can I pay by credit card?\nASSISTANT: Not for mail renewals. Check or money order only. In-person accepts credit cards.",
+              "prefix": "Session ID: passport_renewal_001  \nDate: 2024-06-15  \nPerson: David  \nService: Passport Renewal  \nTopic: Passport Renewal Process",
+              "conversation_id": "passport_renewal_001",
+              "timestamp": "2024-06-15 14:00:00",
+              "score": 0.030158730158730156
+            }
+          ]
+        },
+        {
+          "index": "contextual",
+          "query": "credit card Jessica Martinez travel insurance business trip coverage rental car insurance priority pass membership",
+          "hits": [
+            {
+              "id": "H33",
+              "text": "USER: I see. What about rental car insurance?\nASSISTANT: Primary rental car coverage included when you pay with the card. Decline the rental company's insurance.\nUSER: That'll save money. What about airport lounges?\nASSISTANT: You have Priority Pass membership included. Over 1,300 lounges worldwide.\nUSER: How do I use that?\nASSISTANT: Did you receive your Priority Pass card?\nUSER: I think so, but I'm not sure where it is.\nASSISTANT: You can use the digital card in the Priority Pass app. Just download and link to your account.",
+              "prefix": "USER: I see. What about rental car insurance?  \nASSISTANT: Primary rental car coverage included when you pay with the card. Decline the rental company's insurance.",
+              "conversation_id": "credit_card_003",
+              "timestamp": "2024-10-05 15:30:00",
+              "score": 0.03278688524590164
+            },
+            {
+              "id": "H32",
+              "text": "USER: Like what?\nASSISTANT: Trip cancellation up to $10,000, trip delay reimbursement, lost luggage coverage, and emergency medical.\nUSER: Does that cover business trips?\nASSISTANT: Yes, as long as you pay for the trip with your Sapphire Reserve.\nUSER: I'm using my corporate AmEx for the flights though.\nASSISTANT: Then the airline ticket wouldn't be covered, but if you pay for hotels or other travel expenses with the Sapphire, those portions would be.\nUSER: I see. What about rental car insurance?\nASSISTANT: Primary rental car coverage included when you pay with the card. Decline the rental company's insurance.",
+              "prefix": "USER: Like what?  \nASSISTANT: Trip cancellation up to $10,000, trip delay reimbursement, lost luggage coverage, and emergency medical.  \nUSER: Does that cover business trips?  \nASSISTANT: Yes, as long as you pay for the trip with your Sapphire Reserve.",
+              "conversation_id": "credit_card_003",
+              "timestamp": "2024-10-05 15:30:00",
+              "score": 0.03225806451612903
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "id": "H8",
+          "text": "USER: I think I'm current on everything.\nASSISTANT: Good. Also check Japan's current entry requirements closer to travel. They can change.\nUSER: Do they still have COVID restrictions?\nASSISTANT: As of now, they've lifted most restrictions, but always verify before traveling.\nUSER: Will do. Is there anything special about the passport photo?\nASSISTANT: Neutral expression, eyes open, no glasses unless medically necessary, no hats or head coverings unless religious.\nUSER: Can I smile?\nASSISTANT: A natural smile is okay, but no exaggerated expressions. Think DMV photo style.",
+          "prefix": "USER: I think I'm current on everything.  \nASSISTANT: Good. Also check Japan's current entry requirements closer to travel. They can change.",
+          "conversation_id": "passport_renewal_001",
+          "timestamp": "2024-06-15 14:00:00",
+          "score": 0.03177805800756621
+        },
+        {
+          "id": "H14",
+          "text": "USER: Hi, I need to book a flight to Tokyo for a business conference.\nASSISTANT: Good morning! Thank you for choosing Delta. I'm Sarah, and I'll help you with your booking. When are you planning to travel?\nUSER: I need to leave January 15th and return January 22nd.\nASSISTANT: Let me search for flights. Which airport are you departing from?\nUSER: Los Angeles, LAX.\nASSISTANT: LAX to Tokyo. Do you prefer Narita or Haneda airport?\nUSER: Which is closer to downtown Tokyo?\nASSISTANT: Haneda is much closer, about 30 minutes to downtown versus 60-90 minutes from Narita.",
+          "prefix": "USER: Hi, I need to book a flight to Tokyo for a business conference.  \nASSISTANT: Good morning! Thank you for choosing Delta. I'm Sarah, and I'll help you with your booking. When are you planning to travel?",
+          "conversation_id": "flight_booking_002",
+          "timestamp": "2024-11-22 10:00:00",
+          "score": 0.031746031746031744
+        },
+        {
+          "id": "H28",
+          "text": "USER: Perfect for getting some work done.\nASSISTANT: Absolutely. Is there anything else I can help you with today?\nUSER: No, I think that covers everything. Thanks Sarah!\nASSISTANT: You're welcome Ms. Martinez! Have a wonderful trip to Tokyo, and don't forget about that passport renewal!",
+          "prefix": "USER: Perfect for getting some work done.  \nASSISTANT: Absolutely. Is there anything else I can help you with today?",
+          "conversation_id": "flight_booking_002",
+          "timestamp": "2024-11-22 10:00:00",
+          "score": 0.03131881575727918
+        },
+        {
+          "id": "H1",
+          "text": "USER: Hi, I need to check about renewing my passport.\nASSISTANT: Good afternoon! I'm David from USPS Passport Services. I'll help you with your renewal. Is your passport expired or about to expire?\nUSER: It expires in February 2025, so about 8 months from now.\nASSISTANT: Good timing to consider renewal. You can renew up to 15 months before expiration. May I have your name?\nUSER: It's Jessica Martinez.\nASSISTANT: Thank you, Ms. Martinez. When exactly does it expire?\nUSER: February 18th, 2025.\nASSISTANT: And you want to renew now?",
+          "prefix": "David from USPS Passport Services. Jessica Martinez. February 2025. Passport renewal.",
+          "conversation_id": "passport_renewal_001",
+          "timestamp": "2024-06-15 14:00:00",
+          "score": 0.03225806451612903
+        },
+        {
+          "id": "H2",
+          "text": "USER: February 18th, 2025.\nASSISTANT: And you want to renew now?\nUSER: I'm thinking about it. I might have some international travel coming up for work.\nASSISTANT: Many countries require 6 months validity beyond your travel date. When might you travel?\nUSER: Possibly in December or January for a conference in Tokyo.\nASSISTANT: For Japan in January, your passport would need to be valid for at least the duration of your stay. With a February expiration, you'd be cutting it very close.\nUSER: Oh, I didn't realize that. So I should renew soon?\nASSISTANT: I'd strongly recommend it if the trip gets confirmed. Standard processing is 6-8 weeks currently.",
+          "prefix": "Session ID: passport_renewal_001  \nDate: February 18th, 2025  \nPerson: David  \nService: Passport Renewal  \nTopic: International Travel and Passport Validity",
+          "conversation_id": "passport_renewal_001",
+          "timestamp": "2024-06-15 14:00:00",
+          "score": 0.03177805800756621
+        },
+        {
+          "id": "H16",
+          "text": "USER: Perfect timing. What's the fare?\nASSISTANT: Economy is $1,450, Premium Economy is $2,280, and Business Class is $4,890.\nUSER: My company allows business class for flights over 10 hours. How long is this flight?\nASSISTANT: It's 11 hours 15 minutes westbound, 10 hours 15 minutes eastbound.\nUSER: So I qualify for business class. Let's book that.\nASSISTANT: Excellent choice. May I have your full name as it appears on your passport?\nUSER: Jessica Marie Martinez.\nASSISTANT: Date of birth?",
+          "prefix": "Session ID: flight_booking_002  \nUser: Jessica Marie Martinez.  \nService: Delta.  \nDate: January 15th.  \nTopic: Flight booking.",
+          "conversation_id": "flight_booking_002",
+          "timestamp": "2024-11-22 10:00:00",
+          "score": 0.03252247488101534
+        },
+        {
+          "id": "H11",
+          "text": "USER: I don't travel that much to need 52 pages.\nASSISTANT: The standard 28-page book should be fine then. Same price either way.\nUSER: Perfect. What if my name changes?\nASSISTANT: You'd need to submit proof of name change like a marriage certificate or court order.\nUSER: No changes for me.\nASSISTANT: Then it's straightforward. Just the DS-82, photo, old passport, and payment.\nUSER: Can I pay by credit card?\nASSISTANT: Not for mail renewals. Check or money order only. In-person accepts credit cards.",
+          "prefix": "Session ID: passport_renewal_001  \nDate: 2024-06-15  \nPerson: David  \nService: Passport Renewal  \nTopic: Passport Renewal Process",
+          "conversation_id": "passport_renewal_001",
+          "timestamp": "2024-06-15 14:00:00",
+          "score": 0.030158730158730156
+        },
+        {
+          "id": "H33",
+          "text": "USER: I see. What about rental car insurance?\nASSISTANT: Primary rental car coverage included when you pay with the card. Decline the rental company's insurance.\nUSER: That'll save money. What about airport lounges?\nASSISTANT: You have Priority Pass membership included. Over 1,300 lounges worldwide.\nUSER: How do I use that?\nASSISTANT: Did you receive your Priority Pass card?\nUSER: I think so, but I'm not sure where it is.\nASSISTANT: You can use the digital card in the Priority Pass app. Just download and link to your account.",
+          "prefix": "USER: I see. What about rental car insurance?  \nASSISTANT: Primary rental car coverage included when you pay with the card. Decline the rental company's insurance.",
+          "conversation_id": "credit_card_003",
+          "timestamp": "2024-10-05 15:30:00",
+          "score": 0.03278688524590164
+        },
+        {
+          "id": "H32",
+          "text": "USER: Like what?\nASSISTANT: Trip cancellation up to $10,000, trip delay reimbursement, lost luggage coverage, and emergency medical.\nUSER: Does that cover business trips?\nASSISTANT: Yes, as long as you pay for the trip with your Sapphire Reserve.\nUSER: I'm using my corporate AmEx for the flights though.\nASSISTANT: Then the airline ticket wouldn't be covered, but if you pay for hotels or other travel expenses with the Sapphire, those portions would be.\nUSER: I see. What about rental car insurance?\nASSISTANT: Primary rental car coverage included when you pay with the card. Decline the rental company's insurance.",
+          "prefix": "USER: Like what?  \nASSISTANT: Trip cancellation up to $10,000, trip delay reimbursement, lost luggage coverage, and emergency medical.  \nUSER: Does that cover business trips?  \nASSISTANT: Yes, as long as you pay for the trip with your Sapphire Reserve.",
+          "conversation_id": "credit_card_003",
+          "timestamp": "2024-10-05 15:30:00",
+          "score": 0.03225806451612903
+        }
+      ],
+      "answer": "- **Passport Renewal**: Jessica Martinez should renew her passport before the trip to Tokyo, which is set for January 15th to 22nd, 2025. The passport expires in February 2025, so it's crucial to renew soon. The passport renewal deadline is 72 hours before departure, and she plans to renew before the trip. [H1]  \n- **Flight Booking**: Jessica Martinez is booking a flight to Tokyo from LAX, and the trip is set for 11 hours 15 minutes westbound and 10 hours 15 minutes eastbound. She will be using her corporate American Express for the flight. [H2]  \n- **Credit Card**: The Chase Sapphire Reserve card includes travel insurance, business trip coverage, and rental car insurance. She will use the card for her business trip. [H3]  \n- **Destination and Coverage**: She should confirm Japan’s current entry requirements and travel insurance policies before traveling. [H8]",
+      "sessions_retrieved": [
+        "credit_card_003",
+        "flight_booking_002",
+        "passport_renewal_001"
+      ],
+      "source_ids": [
+        "H8",
+        "H14",
+        "H28",
+        "H1",
+        "H2",
+        "H16",
+        "H11",
+        "H33",
+        "H32"
+      ],
+      "citation_ids": [
+        "H1",
+        "H2",
+        "H3",
+        "H8"
+      ],
+      "unknown_citation_ids": [
+        "H3"
+      ],
+      "presence_checks_only": {
+        "passport": true,
+        "february_18": false,
+        "priority_pass": false,
+        "payment_coverage": true
+      }
+    }
+  }
+}

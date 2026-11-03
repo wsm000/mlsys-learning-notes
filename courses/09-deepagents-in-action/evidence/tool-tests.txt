@@ -1,0 +1,8 @@
+test_invalid_inputs (test_tools.ToolTests) ... ok
+test_known_result (test_tools.ToolTests) ... ok
+test_single_session (test_tools.ToolTests) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK

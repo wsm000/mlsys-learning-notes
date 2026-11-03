@@ -1,0 +1,26 @@
+{
+  "model": "DeepSeek-V4-Flash",
+  "temperature": 0,
+  "max_tokens": 4096,
+  "versions": {
+    "deepagents": "0.7.8",
+    "langchain": "1.4.3",
+    "langchain-openai": "1.6.7"
+  },
+  "trigger": [
+    "messages",
+    10
+  ],
+  "keep": [
+    "messages",
+    4
+  ],
+  "trim_tokens_to_summarize": 16000,
+  "prompt": "完成带长资料的多步骤任务，输出 /reports/comparison.json。\n先用 write_todos 建立五项清单（全部 pending），后续及时更新完整清单：1 读取 research packet 1；2 读取 research packet 2；3 计算 window=3 和 window=5；4 写报告；5 读回核验。\n先单独完成计划调用，再依次调用 read_research_packet(1)、read_research_packet(2)，两个 packet 必须分两次模型回合读取。资料中的重复审计说明只用于长上下文观察，不增加数据。\n随后调用 analyze_price_volume 计算两个窗口，用工具证据写合法 JSON：{\"marker\":\"SUMTODO-42\",\"source\":\"synthetic\",\"windows\":[{\"window\":3,\"price_return_pct\":数值,\"volume_ratio\":数值},{\"window\":5,\"price_return_pct\":数值,\"volume_ratio\":数值}],\"limitations\":\"模拟资料，仅描述性比较，不支持因果或预测\"}。\n没有完成的工作不能标记 completed。最后用 read_file 读回报告核对后再结束并完成清单。不要 execute 或委派。若上下文被摘要，继续剩余工作，不重复已经完成的读取。",
+  "fixture_sha256": "1352edc00ce42839f6c097af4d1f1cf9c6708791da7375f7c88748c78a574665",
+  "instrumentation": "Subclass name matches default middleware for replacement; wrap_model_call and _create_summary delegate to super unchanged. No synthetic history, manually injected todos, or manual summaries.",
+  "packet_chars": {
+    "1": 11276,
+    "2": 11076
+  }
+}

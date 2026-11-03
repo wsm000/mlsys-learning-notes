@@ -1,0 +1,78 @@
+{
+  "symbol": "DEMO",
+  "source": "synthetic teaching fixture; NOT market data",
+  "window": 5,
+  "baseline_end": "2026-10-02",
+  "recent_start": "2026-10-05",
+  "recent_end": "2026-10-09",
+  "price_return_pct": 6.0,
+  "baseline_mean_volume": 1000.0,
+  "recent_mean_volume": 1600.0,
+  "volume_ratio": 1.6,
+  "volume_expanded": true,
+  "rise_with_volume_expansion": true,
+  "definition": "return=last recent close/last baseline close-1; expansion=mean-volume ratio>1",
+  "limitations": "Descriptive window comparison only; no causality or predictive claim. No adjusted prices or market calendar checks.",
+  "evidence": [
+    {
+      "date": "2026-09-28",
+      "symbol": "DEMO",
+      "close": 100.0,
+      "volume": 1000.0
+    },
+    {
+      "date": "2026-09-29",
+      "symbol": "DEMO",
+      "close": 101.0,
+      "volume": 1100.0
+    },
+    {
+      "date": "2026-09-30",
+      "symbol": "DEMO",
+      "close": 99.0,
+      "volume": 900.0
+    },
+    {
+      "date": "2026-10-01",
+      "symbol": "DEMO",
+      "close": 100.0,
+      "volume": 1000.0
+    },
+    {
+      "date": "2026-10-02",
+      "symbol": "DEMO",
+      "close": 100.0,
+      "volume": 1000.0
+    },
+    {
+      "date": "2026-10-05",
+      "symbol": "DEMO",
+      "close": 102.0,
+      "volume": 1400.0
+    },
+    {
+      "date": "2026-10-06",
+      "symbol": "DEMO",
+      "close": 103.0,
+      "volume": 1500.0
+    },
+    {
+      "date": "2026-10-07",
+      "symbol": "DEMO",
+      "close": 104.0,
+      "volume": 1600.0
+    },
+    {
+      "date": "2026-10-08",
+      "symbol": "DEMO",
+      "close": 105.0,
+      "volume": 1700.0
+    },
+    {
+      "date": "2026-10-09",
+      "symbol": "DEMO",
+      "close": 106.0,
+      "volume": 1800.0
+    }
+  ]
+}

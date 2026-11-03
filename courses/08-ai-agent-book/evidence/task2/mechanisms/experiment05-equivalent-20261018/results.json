@@ -1,0 +1,468 @@
+{
+  "status": "completed",
+  "scope": "mechanism-equivalent teaching experiment; hand-authored bee corpus, explicit segmentation, no third-party retrieval engine",
+  "parameters": {
+    "N": 6,
+    "average_length": 4.833333333333333,
+    "k1": 1.5,
+    "b": 0.75
+  },
+  "formula": "sum ln(1+(N-df+0.5)/(df+0.5)) * tf*(k1+1)/(tf+k1*(1-b+b*dl/avgdl))",
+  "idf_variant_note": "Uses positive log1p IDF; upstream hand-check uses raw RSJ IDF. Values are not numerically interchangeable.",
+  "documents": [
+    {
+      "id": "D1",
+      "text": "蜂群出现王台，需要检查分蜂征兆。",
+      "segmented": "蜂群 王台 分蜂 检查",
+      "tokens": [
+        "蜂群",
+        "王台",
+        "分蜂",
+        "检查"
+      ]
+    },
+    {
+      "id": "D2",
+      "text": "分蜂管理记录：蜂群有分蜂征兆，检查王台。",
+      "segmented": "分蜂 蜂群 分蜂 检查 王台",
+      "tokens": [
+        "分蜂",
+        "蜂群",
+        "分蜂",
+        "检查",
+        "王台"
+      ]
+    },
+    {
+      "id": "D3",
+      "text": "缺蜜期检查蜂群，使用糖浆饲喂。",
+      "segmented": "缺蜜 检查 蜂群 糖浆 饲喂",
+      "tokens": [
+        "缺蜜",
+        "检查",
+        "蜂群",
+        "糖浆",
+        "饲喂"
+      ]
+    },
+    {
+      "id": "D4",
+      "text": "检查蜂群越冬饲料，做好保温。",
+      "segmented": "检查 蜂群 越冬 饲料 保温",
+      "tokens": [
+        "检查",
+        "蜂群",
+        "越冬",
+        "饲料",
+        "保温"
+      ]
+    },
+    {
+      "id": "D5",
+      "text": "检查蜂群中的王台与蜂王产卵。",
+      "segmented": "检查 蜂群 王台 蜂王 产卵",
+      "tokens": [
+        "检查",
+        "蜂群",
+        "王台",
+        "蜂王",
+        "产卵"
+      ]
+    },
+    {
+      "id": "D6",
+      "text": "检查蜂群，监测和防治蜂螨。",
+      "segmented": "检查 蜂群 监测 防治 蜂螨",
+      "tokens": [
+        "检查",
+        "蜂群",
+        "监测",
+        "防治",
+        "蜂螨"
+      ]
+    }
+  ],
+  "inverted_index": {
+    "蜂群": {
+      "D1": 1,
+      "D2": 1,
+      "D3": 1,
+      "D4": 1,
+      "D5": 1,
+      "D6": 1
+    },
+    "王台": {
+      "D1": 1,
+      "D2": 1,
+      "D5": 1
+    },
+    "分蜂": {
+      "D1": 1,
+      "D2": 2
+    },
+    "检查": {
+      "D1": 1,
+      "D2": 1,
+      "D3": 1,
+      "D4": 1,
+      "D5": 1,
+      "D6": 1
+    },
+    "缺蜜": {
+      "D3": 1
+    },
+    "糖浆": {
+      "D3": 1
+    },
+    "饲喂": {
+      "D3": 1
+    },
+    "越冬": {
+      "D4": 1
+    },
+    "饲料": {
+      "D4": 1
+    },
+    "保温": {
+      "D4": 1
+    },
+    "蜂王": {
+      "D5": 1
+    },
+    "产卵": {
+      "D5": 1
+    },
+    "监测": {
+      "D6": 1
+    },
+    "防治": {
+      "D6": 1
+    },
+    "蜂螨": {
+      "D6": 1
+    }
+  },
+  "queries": [
+    {
+      "text": "分蜂 王台",
+      "relevant": [
+        "D1",
+        "D2"
+      ],
+      "purpose": "exact keywords",
+      "tokens": [
+        "分蜂",
+        "王台"
+      ],
+      "candidate_ids": [
+        "D1",
+        "D2",
+        "D5"
+      ],
+      "ranking": [
+        {
+          "document_id": "D2",
+          "score": 2.137316484377388,
+          "terms": [
+            {
+              "term": "分蜂",
+              "tf": 2,
+              "df": 2,
+              "idf": 1.0296194171811581,
+              "document_length": 5,
+              "length_normalizer": 1.538793103448276,
+              "tf_factor": 1.412911084043849,
+              "contribution": 1.4547606868820262
+            },
+            {
+              "term": "王台",
+              "tf": 1,
+              "df": 3,
+              "idf": 0.6931471805599453,
+              "document_length": 5,
+              "length_normalizer": 1.538793103448276,
+              "tf_factor": 0.9847198641765705,
+              "contribution": 0.6825557974953621
+            }
+          ]
+        },
+        {
+          "document_id": "D1",
+          "score": 1.8676721994202614,
+          "terms": [
+            {
+              "term": "分蜂",
+              "tf": 1,
+              "df": 2,
+              "idf": 1.0296194171811581,
+              "document_length": 4,
+              "length_normalizer": 1.3060344827586208,
+              "tf_factor": 1.0841121495327102,
+              "contribution": 1.1162229195608817
+            },
+            {
+              "term": "王台",
+              "tf": 1,
+              "df": 3,
+              "idf": 0.6931471805599453,
+              "document_length": 4,
+              "length_normalizer": 1.3060344827586208,
+              "tf_factor": 1.0841121495327102,
+              "contribution": 0.7514492798593798
+            }
+          ]
+        },
+        {
+          "document_id": "D5",
+          "score": 0.6825557974953621,
+          "terms": [
+            {
+              "term": "分蜂",
+              "tf": 0,
+              "df": 2,
+              "idf": 1.0296194171811581,
+              "document_length": 5,
+              "length_normalizer": 1.538793103448276,
+              "tf_factor": 0.0,
+              "contribution": 0.0
+            },
+            {
+              "term": "王台",
+              "tf": 1,
+              "df": 3,
+              "idf": 0.6931471805599453,
+              "document_length": 5,
+              "length_normalizer": 1.538793103448276,
+              "tf_factor": 0.9847198641765705,
+              "contribution": 0.6825557974953621
+            }
+          ]
+        }
+      ],
+      "recall_at_3": 1.0
+    },
+    {
+      "text": "分家",
+      "relevant": [
+        "D1",
+        "D2"
+      ],
+      "purpose": "synonym without shared tokens",
+      "tokens": [
+        "分家"
+      ],
+      "candidate_ids": [],
+      "ranking": [],
+      "recall_at_3": 0.0
+    },
+    {
+      "text": "分蜂",
+      "relevant": [
+        "D1",
+        "D2"
+      ],
+      "purpose": "query expansion controlled by hand, not automatic",
+      "tokens": [
+        "分蜂"
+      ],
+      "candidate_ids": [
+        "D1",
+        "D2"
+      ],
+      "ranking": [
+        {
+          "document_id": "D2",
+          "score": 1.4547606868820262,
+          "terms": [
+            {
+              "term": "分蜂",
+              "tf": 2,
+              "df": 2,
+              "idf": 1.0296194171811581,
+              "document_length": 5,
+              "length_normalizer": 1.538793103448276,
+              "tf_factor": 1.412911084043849,
+              "contribution": 1.4547606868820262
+            }
+          ]
+        },
+        {
+          "document_id": "D1",
+          "score": 1.1162229195608817,
+          "terms": [
+            {
+              "term": "分蜂",
+              "tf": 1,
+              "df": 2,
+              "idf": 1.0296194171811581,
+              "document_length": 4,
+              "length_normalizer": 1.3060344827586208,
+              "tf_factor": 1.0841121495327102,
+              "contribution": 1.1162229195608817
+            }
+          ]
+        }
+      ],
+      "recall_at_3": 1.0
+    },
+    {
+      "text": "检查",
+      "relevant": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6"
+      ],
+      "purpose": "ubiquitous low-information term",
+      "tokens": [
+        "检查"
+      ],
+      "candidate_ids": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6"
+      ],
+      "ranking": [
+        {
+          "document_id": "D1",
+          "score": 0.08034135298908161,
+          "terms": [
+            {
+              "term": "检查",
+              "tf": 1,
+              "df": 6,
+              "idf": 0.07410797215372183,
+              "document_length": 4,
+              "length_normalizer": 1.3060344827586208,
+              "tf_factor": 1.0841121495327102,
+              "contribution": 0.08034135298908161
+            }
+          ]
+        },
+        {
+          "document_id": "D2",
+          "score": 0.07297559227361404,
+          "terms": [
+            {
+              "term": "检查",
+              "tf": 1,
+              "df": 6,
+              "idf": 0.07410797215372183,
+              "document_length": 5,
+              "length_normalizer": 1.538793103448276,
+              "tf_factor": 0.9847198641765705,
+              "contribution": 0.07297559227361404
+            }
+          ]
+        },
+        {
+          "document_id": "D3",
+          "score": 0.07297559227361404,
+          "terms": [
+            {
+              "term": "检查",
+              "tf": 1,
+              "df": 6,
+              "idf": 0.07410797215372183,
+              "document_length": 5,
+              "length_normalizer": 1.538793103448276,
+              "tf_factor": 0.9847198641765705,
+              "contribution": 0.07297559227361404
+            }
+          ]
+        },
+        {
+          "document_id": "D4",
+          "score": 0.07297559227361404,
+          "terms": [
+            {
+              "term": "检查",
+              "tf": 1,
+              "df": 6,
+              "idf": 0.07410797215372183,
+              "document_length": 5,
+              "length_normalizer": 1.538793103448276,
+              "tf_factor": 0.9847198641765705,
+              "contribution": 0.07297559227361404
+            }
+          ]
+        },
+        {
+          "document_id": "D5",
+          "score": 0.07297559227361404,
+          "terms": [
+            {
+              "term": "检查",
+              "tf": 1,
+              "df": 6,
+              "idf": 0.07410797215372183,
+              "document_length": 5,
+              "length_normalizer": 1.538793103448276,
+              "tf_factor": 0.9847198641765705,
+              "contribution": 0.07297559227361404
+            }
+          ]
+        },
+        {
+          "document_id": "D6",
+          "score": 0.07297559227361404,
+          "terms": [
+            {
+              "term": "检查",
+              "tf": 1,
+              "df": 6,
+              "idf": 0.07410797215372183,
+              "document_length": 5,
+              "length_normalizer": 1.538793103448276,
+              "tf_factor": 0.9847198641765705,
+              "contribution": 0.07297559227361404
+            }
+          ]
+        }
+      ],
+      "recall_at_3": 0.5
+    }
+  ],
+  "hand_check": {
+    "expected": 1.1162229195608817,
+    "observed": 1.1162229195608817,
+    "absolute_error": 0.0
+  },
+  "tf_saturation": [
+    {
+      "tf": 1,
+      "factor_at_average_length": 1.0
+    },
+    {
+      "tf": 2,
+      "factor_at_average_length": 1.4285714285714286
+    },
+    {
+      "tf": 4,
+      "factor_at_average_length": 1.8181818181818181
+    },
+    {
+      "tf": 8,
+      "factor_at_average_length": 2.1052631578947367
+    }
+  ],
+  "length_effect": [
+    {
+      "length": 4,
+      "factor_with_tf_1": 1.0841121495327102
+    },
+    {
+      "length": 8,
+      "factor_with_tf_1": 0.7723035952063915
+    },
+    {
+      "length": 16,
+      "factor_with_tf_1": 0.4902789518174133
+    }
+  ]
+}

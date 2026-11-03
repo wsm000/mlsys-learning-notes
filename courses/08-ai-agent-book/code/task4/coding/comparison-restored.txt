@@ -1,0 +1,12 @@
+test_discount_above_one (test_cart.CartTests) ... ok
+test_empty_cart (test_cart.CartTests) ... ok
+test_full_discount (test_cart.CartTests) ... ok
+test_nan_discount (test_cart.CartTests) ... ok
+test_negative_discount (test_cart.CartTests) ... ok
+test_no_discount (test_cart.CartTests) ... ok
+test_twenty_percent_off (test_cart.CartTests) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.000s
+
+OK

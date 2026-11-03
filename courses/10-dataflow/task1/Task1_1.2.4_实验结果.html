@@ -1,0 +1,18 @@
+<!doctype html><meta charset="utf-8"><title>DataFlow 1.2.4 实验结果</title>
+<style>body{margin:0;background:#0e1525;color:#e8eef8;font-family:Segoe UI,Microsoft YaHei,sans-serif}main{max-width:1660px;margin:28px auto;padding:0 36px}h1{font-size:34px;margin:0 0 8px}.sub{color:#a6b8d5;font-size:18px}.pass{float:right;background:#123e32;color:#7aefba;padding:10px 20px;border-radius:8px;font-weight:bold}.tags{display:flex;gap:18px;margin:22px 0}.tags span{padding:12px 20px;background:#1b2a43;border-radius:8px}table{width:100%;border-collapse:collapse;background:#142037;font-size:18px}td,th{padding:13px 18px;border-bottom:1px solid #30405a;text-align:left}th{color:#9fbcf0}h2{font-size:21px;margin:22px 0 10px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#090f1b;border:1px solid #2b3d57;border-radius:8px;padding:15px 20px;font:14px/1.6 Consolas,monospace;margin:0}.note{color:#a6b8d5;font-size:15px;margin-top:16px}</style>
+<main><div class="pass">PASS · 三步均写出结果</div><h1>DataFlow · 1.2.4 实验结果</h1><div class="sub">vm-60 实际运行记录 · 官方 CPU reasoning pipeline</div>
+<div class="tags"><span>open-dataflow 1.0.11</span><span>Python 3.10.12</span><span>最终输出 42 条</span></div>
+<pre>cd ~/dataflow-task1/workspace/cpu_pipelines
+../../pipeline-env/bin/python reasoning_pipeline.py</pre>
+<h2>逐步输出文件与数据条数</h2><table><tr><th>阶段</th><th>处理内容</th><th>条数</th><th>实际结果文件</th></tr><tr><td>Step 1</td><td>答案格式过滤</td><td>44</td><td>dataflow_cache_step_step1.jsonl</td></tr><tr><td>Step 2</td><td>标准答案验证</td><td>42</td><td>dataflow_cache_step_step2.jsonl</td></tr><tr><td>Step 3</td><td>N-gram 重复过滤</td><td>42</td><td>dataflow_cache_step_step3.jsonl</td></tr></table>
+<h2>真实运行日志摘录</h2><pre>2026-10-20 21:12:02.386 | SUCCESS  | DataFlow:storage.py:write:698 - Writing data to ./cache_local/dataflow_cache_step_step1.jsonl with type jsonl
+2026-10-20 21:12:02.548 | SUCCESS  | DataFlow:storage.py:write:698 - Writing data to ./cache_local/dataflow_cache_step_step2.jsonl with type jsonl
+2026-10-20 21:12:02.553 | INFO     | DataFlow:reasoning_answer_ngram_filter.py:run:210 - [ReasoningAnswerNgramFilter] Found 42 rows, columns: [&#x27;instruction&#x27;, &#x27;output&#x27;, &#x27;golden_answer&#x27;, &#x27;source&#x27;]
+2026-10-20 21:12:02.564 | INFO     | DataFlow:reasoning_answer_ngram_filter.py:run:240 - [ReasoningAnswerNgramFilter] Filtered down to 42 rows with repetition_score in [0.1, 1.0]
+2026-10-20 21:12:02.565 | SUCCESS  | DataFlow:storage.py:write:698 - Writing data to ./cache_local/dataflow_cache_step_step3.jsonl with type jsonl</pre>
+<h2>最终输出样本（节选）</h2><pre>{
+  &quot;instruction&quot;: &quot;A certain number is processed differently depending on whether it is even or odd:\n• If the number is even, it is first divided by 2, then multiplied by 5, and finally 4 is added, giving a result of 34.\n• If the number is odd, it is first divided by 3, then multiplied by 7, and finally 2 is subtracted, yielding 33.\nDetermine all possible original numbers.&quot;,
+  &quot;output&quot;: &quot;Let x be the original number.\n\nCase 1: x is even.\n  (x÷2)·5 + 4 = 34  \n  ⇒ 5x/2 + 4 = 34  \n  ⇒ 5x/2 = 30  \n  ⇒ x = 12.  \n  (12 is even, so this is valid.)\n\nCase 2: x is odd.\n  (x÷3)·7 – 2 = 33  \n  ⇒ 7x/3 – 2 = 33  \n  ⇒ 7x/3 = 35  \n  ⇒ x = 15.  \n  (15 is odd, so this is valid.)\n\nAnswer: The only possible originals are 12 (in the even‐case) or 15 (in the odd‐case).&quot;,
+  &quot;golden_answer&quot;: &quot;15.0&quot;
+}</pre>
+<div class="note">这是实际日志与结果文件的浏览器展示页截图；原始日志：cpu-run.log。样本文本按字段节选，完整数据保存在 cache_local。</div></main>

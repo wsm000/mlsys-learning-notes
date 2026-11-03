@@ -1,0 +1,6 @@
+.env
+.env.*
+*.dpapi
+.venv/
+__pycache__/
+evidence/local-context-run/

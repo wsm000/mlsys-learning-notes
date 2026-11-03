@@ -1,0 +1,310 @@
+{
+  "status": "completed",
+  "scope": "mechanism-equivalent authored bee corpus, not official Intel RAPTOR/GraphRAG benchmark",
+  "model": "Qwen/Qwen3-0.6B",
+  "tree_mechanism": "live bottom-up summaries, explicit metadata grouping, original leaves retained and expanded; no learned clustering or semantic navigation",
+  "graph_mechanism": "live relation extraction with endpoint grounding, directed four-hop traversal from manually specified start entity; no community summaries or alias normalization",
+  "summary_tree": {
+    "root": {
+      "id": "ROOT",
+      "level": 2,
+      "children": [
+        "S1",
+        "S2"
+      ],
+      "source_ids": [
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8"
+      ],
+      "text": "[S1] [C1] 青禾蜂场位于河谷镇，蜂群A管理。  \n[C2] 蜂群A发现蜂螨。  \n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。  \n[C4] 河谷镇冬季寒冷，冬季管理包括保温和饲料检查。  \n[S2] [C5] 白石蜂场位于山岭镇。蜂群B缺少饲料。缺料处理参考手册N。[C7] 手册N要求补充饲料并检查饲喂器卫生。[C8] 山岭镇冬季多风，白石蜂场的冬季管理包括防风和饮水检查。"
+    },
+    "summaries": [
+      {
+        "id": "S1",
+        "level": 1,
+        "group": "青禾蜂场",
+        "children": [
+          "C1",
+          "C2",
+          "C3",
+          "C4"
+        ],
+        "source_ids": [
+          "C1",
+          "C2",
+          "C3",
+          "C4"
+        ],
+        "text": "[C1] 青禾蜂场位于河谷镇，蜂群A管理。  \n[C2] 蜂群A发现蜂螨。  \n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。  \n[C4] 河谷镇冬季寒冷，冬季管理包括保温和饲料检查。"
+      },
+      {
+        "id": "S2",
+        "level": 1,
+        "group": "白石蜂场",
+        "children": [
+          "C5",
+          "C6",
+          "C7",
+          "C8"
+        ],
+        "source_ids": [
+          "C5",
+          "C6",
+          "C7",
+          "C8"
+        ],
+        "text": "[C5] 白石蜂场位于山岭镇。蜂群B缺少饲料。缺料处理参考手册N。[C7] 手册N要求补充饲料并检查饲喂器卫生。[C8] 山岭镇冬季多风，白石蜂场的冬季管理包括防风和饮水检查。"
+      }
+    ],
+    "leaves": [
+      {
+        "id": "C1",
+        "group": "青禾蜂场",
+        "text": "青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。"
+      },
+      {
+        "id": "C2",
+        "group": "青禾蜂场",
+        "text": "蜂群A发现蜂螨。蜂螨防治参考手册M。"
+      },
+      {
+        "id": "C3",
+        "group": "青禾蜂场",
+        "text": "手册M要求先监测蜂螨数量，再决定防治措施。"
+      },
+      {
+        "id": "C4",
+        "group": "青禾蜂场",
+        "text": "河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。"
+      },
+      {
+        "id": "C5",
+        "group": "白石蜂场",
+        "text": "白石蜂场位于山岭镇。白石蜂场管理蜂群B。"
+      },
+      {
+        "id": "C6",
+        "group": "白石蜂场",
+        "text": "蜂群B缺少饲料。缺料处理参考手册N。"
+      },
+      {
+        "id": "C7",
+        "group": "白石蜂场",
+        "text": "手册N要求补充饲料并检查饲喂器卫生。"
+      },
+      {
+        "id": "C8",
+        "group": "白石蜂场",
+        "text": "山岭镇冬季多风。白石蜂场的冬季管理包括防风和饮水检查。"
+      }
+    ],
+    "grouping": "explicit farm metadata, not automatic RAPTOR clustering"
+  },
+  "graph": {
+    "edges": [],
+    "rejected_edges": [],
+    "parse_errors": [
+      {
+        "chunk_id": "C1",
+        "error": "'list' object has no attribute 'get'"
+      },
+      {
+        "chunk_id": "C2",
+        "error": "'list' object has no attribute 'get'"
+      },
+      {
+        "chunk_id": "C3",
+        "error": "'list' object has no attribute 'get'"
+      },
+      {
+        "chunk_id": "C4",
+        "error": "'list' object has no attribute 'get'"
+      },
+      {
+        "chunk_id": "C5",
+        "error": "'list' object has no attribute 'get'"
+      },
+      {
+        "chunk_id": "C6",
+        "error": "'list' object has no attribute 'get'"
+      },
+      {
+        "chunk_id": "C7",
+        "error": "'list' object has no attribute 'get'"
+      },
+      {
+        "chunk_id": "C8",
+        "error": "'list' object has no attribute 'get'"
+      }
+    ],
+    "traversal": {
+      "start": "青禾蜂场",
+      "max_hops": 4,
+      "visited_entities": [
+        "青禾蜂场"
+      ],
+      "edge_indices": [],
+      "paths": [],
+      "source_ids": []
+    },
+    "validation_limit": "Endpoint substring checks only; relation meaning/direction still require source review. No alias normalization or automatic query planning."
+  },
+  "answers": [
+    {
+      "question": {
+        "id": "overview",
+        "question": "青禾蜂场主要需要关注哪些管理事项？",
+        "gold_source_ids": [
+          "C2",
+          "C4"
+        ]
+      },
+      "method": "tree_summary",
+      "navigation": {
+        "selected_summary": "S1",
+        "children": [
+          "C1",
+          "C2",
+          "C3",
+          "C4"
+        ]
+      },
+      "context": "[S1] [C1] 青禾蜂场位于河谷镇，蜂群A管理。  \n[C2] 蜂群A发现蜂螨。  \n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。  \n[C4] 河谷镇冬季寒冷，冬季管理包括保温和饲料检查。",
+      "answer": "青禾蜂场主要需要关注蜂螨监测、蜂群管理及冬季保温与饲料检查。[C3]、[C4]。",
+      "source_coverage": 1.0,
+      "coverage_note": "For summary-only arm this counts provenance, not whether summary retained each required fact."
+    },
+    {
+      "question": {
+        "id": "overview",
+        "question": "青禾蜂场主要需要关注哪些管理事项？",
+        "gold_source_ids": [
+          "C2",
+          "C4"
+        ]
+      },
+      "method": "tree_leaf_expansion",
+      "navigation": {
+        "selected_summary": "S1",
+        "children": [
+          "C1",
+          "C2",
+          "C3",
+          "C4"
+        ]
+      },
+      "context": "[C1] 青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。\n[C2] 蜂群A发现蜂螨。蜂螨防治参考手册M。\n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。\n[C4] 河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。",
+      "answer": "青禾蜂场主要需要关注蜂螨防治、蜂群监测和冬季保温与饲料检查。引用[C2]、[3]和[C4]。",
+      "source_coverage": 1.0,
+      "coverage_note": "For summary-only arm this counts provenance, not whether summary retained each required fact."
+    },
+    {
+      "question": {
+        "id": "overview",
+        "question": "青禾蜂场主要需要关注哪些管理事项？",
+        "gold_source_ids": [
+          "C2",
+          "C4"
+        ]
+      },
+      "method": "graph_walk",
+      "navigation": {
+        "start": "青禾蜂场",
+        "max_hops": 4,
+        "visited_entities": [
+          "青禾蜂场"
+        ],
+        "edge_indices": [],
+        "paths": [],
+        "source_ids": []
+      },
+      "context": "",
+      "answer": "青禾蜂场主要需要关注的管理事项包括：定期检查蜂箱状态、保持蜂箱通风和湿度、及时清理粪便和残渣、定期消毒蜂箱和蜂群、监测蜂群健康状况以及记录蜂群活动。[C编号]",
+      "source_coverage": 0.0,
+      "coverage_note": "For summary-only arm this counts provenance, not whether summary retained each required fact."
+    },
+    {
+      "question": {
+        "id": "multihop",
+        "question": "青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，手册要求先做什么？",
+        "gold_source_ids": [
+          "C1",
+          "C2",
+          "C3"
+        ]
+      },
+      "method": "tree_summary",
+      "navigation": {
+        "selected_summary": "S1",
+        "children": [
+          "C1",
+          "C2",
+          "C3",
+          "C4"
+        ]
+      },
+      "context": "[S1] [C1] 青禾蜂场位于河谷镇，蜂群A管理。  \n[C2] 蜂群A发现蜂螨。  \n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。  \n[C4] 河谷镇冬季寒冷，冬季管理包括保温和饲料检查。",
+      "answer": "青禾蜂场蜂群A遇到蜂螨问题，应参考手册M。手册要求先监测蜂螨数量，再决定防治措施。",
+      "source_coverage": 1.0,
+      "coverage_note": "For summary-only arm this counts provenance, not whether summary retained each required fact."
+    },
+    {
+      "question": {
+        "id": "multihop",
+        "question": "青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，手册要求先做什么？",
+        "gold_source_ids": [
+          "C1",
+          "C2",
+          "C3"
+        ]
+      },
+      "method": "tree_leaf_expansion",
+      "navigation": {
+        "selected_summary": "S1",
+        "children": [
+          "C1",
+          "C2",
+          "C3",
+          "C4"
+        ]
+      },
+      "context": "[C1] 青禾蜂场位于河谷镇。青禾蜂场管理蜂群A。\n[C2] 蜂群A发现蜂螨。蜂螨防治参考手册M。\n[C3] 手册M要求先监测蜂螨数量，再决定防治措施。\n[C4] 河谷镇冬季寒冷。青禾蜂场的冬季管理包括保温和饲料检查。",
+      "answer": "蜂群A遇到蜂螨问题，应参考手册M。手册要求先监测蜂螨数量，再决定防治措施。",
+      "source_coverage": 1.0,
+      "coverage_note": "For summary-only arm this counts provenance, not whether summary retained each required fact."
+    },
+    {
+      "question": {
+        "id": "multihop",
+        "question": "青禾蜂场管理的蜂群遇到了什么问题，应参考哪本手册，手册要求先做什么？",
+        "gold_source_ids": [
+          "C1",
+          "C2",
+          "C3"
+        ]
+      },
+      "method": "graph_walk",
+      "navigation": {
+        "start": "青禾蜂场",
+        "max_hops": 4,
+        "visited_entities": [
+          "青禾蜂场"
+        ],
+        "edge_indices": [],
+        "paths": [],
+        "source_ids": []
+      },
+      "context": "",
+      "answer": "问题：青禾蜂场管理的蜂群遇到了什么问题？应参考《蜂群管理手册》。手册要求先了解蜂群的健康状况。",
+      "source_coverage": 0.0,
+      "coverage_note": "For summary-only arm this counts provenance, not whether summary retained each required fact."
+    }
+  ],
+  "quality_note": "Completed execution is not proof all summaries, triples or answers are correct. Original sources and raw calls retained for inspection."
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "case": "normal3",
+    "passed": true,
+    "span_counts": {
+      "chain": 7,
+      "model": 2,
+      "tool": 1
+    },
+    "criterion": "normal tool correctness",
+    "zero_unnecessary_tools": null,
+    "duration_ms": 28400.462,
+    "model_durations_ms": [
+      6898.623,
+      21471.722
+    ],
+    "tool_durations_ms": [
+      {
+        "analyze_price_volume": 0.77
+      }
+    ]
+  },
+  {
+    "case": "unsupported100",
+    "passed": true,
+    "span_counts": {
+      "chain": 7,
+      "model": 2,
+      "tool": 1
+    },
+    "criterion": "no substitute analysis or mutation; clarification manually reviewed",
+    "zero_unnecessary_tools": false,
+    "duration_ms": 28646.509,
+    "model_durations_ms": [
+      11521.606,
+      17096.775
+    ],
+    "tool_durations_ms": [
+      {
+        "ls": 0.759
+      }
+    ]
+  }
+]

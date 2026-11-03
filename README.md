@@ -13,11 +13,16 @@
 | llm-algo-leetcode 显存优化 | `courses/06-llm-algo-leetcode-memory/` | llm-algo-leetcode 显存优化方向：显存对象、生命周期与预算取舍。 |
 | 从Tensor到Transformer（TinyTorch） | `courses/07-tinytorch/` | 14 天 8 Task：Tensor 到 Transformer 构建 GPT 模型（模块 01-08 + 10-13）。 |
 | AI Agent 工程实践 | `courses/08-ai-agent-book/` | Agent 基础、上下文、记忆与 RAG、Tools/MCP、Coding Agent 与多 Agent 协作。 |
-| DataFlow · AI-Ready Data 实战 | `courses/10-dataflow/` | 18 天七段任务：PDF→模型、文本 QA、多模态 VQA 等数据准备流水线。 |
+| Deep Agents 实战（Quanty） | `courses/09-deepagents-in-action/` | 量价研究助理：Todo/上下文压缩、记忆与审批、执行 Trace。 |
+| DataFlow · AI-Ready Data 实战 | `courses/10-dataflow/` | 18 天七段任务：PDF→模型、文本 QA、多模态 VQA、RAG/Text2SQL、数据过滤合成、模型评测等数据准备流水线。 |
 
 注：06 有两个并行方向目录（推理优化 / 显存优化），属同一课程的两个专题线。
 
 ## 快速入口
+
+- [AI Agent 第五章：从一行折扣公式，到一个能完成任务的 Agent](courses/08-ai-agent-book/notes/task04-coding-agent-and-general-agent.md)
+
+- [Deep Agents Task3：规划、Todo 与上下文压缩图解](courses/09-deepagents-in-action/task3/README.md)
 
 - [hello-gpu](courses/01-hello-gpu/README.md)
 - [MLSys](courses/02-mlsys/README.md)
@@ -28,6 +33,7 @@
 - [llm-algo-leetcode 显存优化](courses/06-llm-algo-leetcode-memory/README.md)
 - [从Tensor到Transformer（TinyTorch）](courses/07-tinytorch/README.md)
 - [AI Agent 工程实践](courses/08-ai-agent-book/README.md)
+- [Deep Agents 实战（Quanty）](courses/09-deepagents-in-action/README.md)
 - [DataFlow · AI-Ready Data 实战](courses/10-dataflow/README.md)
 
 ## 说明

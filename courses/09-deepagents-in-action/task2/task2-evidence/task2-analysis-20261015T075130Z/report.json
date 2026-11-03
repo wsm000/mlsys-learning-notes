@@ -1,0 +1,10 @@
+{
+  "source_path": "/source.md",
+  "start_day": 1,
+  "end_day": 3,
+  "start_value": 100,
+  "end_value": 105,
+  "return_pct": 5,
+  "formula": "(end_value - start_value) / start_value * 100 = (105 - 100) / 100 * 100",
+  "explanation": "整体区间为第1天至第3天，第1天值为100，第3天值为105，涨幅为5%。最后一天（第3天，105）相较前一天（第2天，110）是下跌的，但这与整体上涨区间并不矛盾，因为整体涨幅衡量的是区间首尾（第1天与第3天）的变化，而非相邻日的日度变化。"
+}

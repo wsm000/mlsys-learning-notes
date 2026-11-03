@@ -1,0 +1,11 @@
+.venv*/
+pipeline-env/
+__pycache__/
+*.pyc
+*.safetensors
+*.bin
+*.zip
+adapter/
+tokenizer.json
+bitter_lesson.pdf
+pdf_page_*.png

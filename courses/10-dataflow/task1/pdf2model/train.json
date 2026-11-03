@@ -1,0 +1,30 @@
+[
+  {
+    "instruction": "How did the research progress in computer Go compare to computer chess?",
+    "input": "",
+    "output": "A similar pattern of research progress was seen in computer Go, only delayed by a further 20 years.",
+    "source_page": 1,
+    "chunk_id": 2
+  },
+  {
+    "instruction": "How did the statistical methods perform compared to human-knowledge-based methods?",
+    "input": "",
+    "output": "statistical methods won out over the human-knowledge-based methods.",
+    "source_page": 1,
+    "chunk_id": 4
+  },
+  {
+    "instruction": "What is the main reason for the recent rise of deep learning in speech recognition?",
+    "input": "",
+    "output": "Deep learning methods rely even less on human knowledge, and use even more computation, together with learning on huge training sets, to produce dramatically better speech recognition systems.",
+    "source_page": 1,
+    "chunk_id": 5
+  },
+  {
+    "instruction": "What is the main lesson from the bitter lesson?",
+    "input": "",
+    "output": "The great power of general purpose methods.",
+    "source_page": 2,
+    "chunk_id": 8
+  }
+]

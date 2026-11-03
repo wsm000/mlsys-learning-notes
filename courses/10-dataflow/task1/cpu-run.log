@@ -1,0 +1,15 @@
+2026-10-20 21:12:00.144 | INFO     | DataFlow:registry.py:__getattr__:358 - Lazyloader ['dataflow/operators/reasoning/'] trying to import ReasoningAnswerFormatterFilter
+2026-10-20 21:12:00.456 | INFO     | DataFlow:registry.py:__getattr__:358 - Lazyloader ['dataflow/operators/reasoning/'] trying to import ReasoningAnswerGroundTruthFilter
+2026-10-20 21:12:02.372 | INFO     | DataFlow:registry.py:__getattr__:358 - Lazyloader ['dataflow/operators/reasoning/'] trying to import ReasoningAnswerNgramFilter
+2026-10-20 21:12:02.375 | INFO     | DataFlow:storage.py:read:606 - Reading data from ../example_data/ReasoningPipeline/pipeline_math_short.json with type dataframe
+2026-10-20 21:12:02.375 | INFO     | DataFlow:storage.py:read:610 - Reading remote dataset from ../example_data/ReasoningPipeline/pipeline_math_short.json with type dataframe
+2026-10-20 21:12:02.386 | SUCCESS  | DataFlow:storage.py:write:698 - Writing data to ./cache_local/dataflow_cache_step_step1.jsonl with type jsonl
+2026-10-20 21:12:02.387 | INFO     | DataFlow:reasoning_answer_formatter_filter.py:run:80 - Results saved to ./cache_local/dataflow_cache_step_step1.jsonl
+2026-10-20 21:12:02.387 | INFO     | DataFlow:storage.py:read:606 - Reading data from ./cache_local/dataflow_cache_step_step1.jsonl with type dataframe
+2026-10-20 21:12:02.548 | SUCCESS  | DataFlow:storage.py:write:698 - Writing data to ./cache_local/dataflow_cache_step_step2.jsonl with type jsonl
+2026-10-20 21:12:02.550 | INFO     | DataFlow:reasoning_answer_groundtruth_filter.py:run:84 - Filtered data saved to ./cache_local/dataflow_cache_step_step2.jsonl
+2026-10-20 21:12:02.550 | INFO     | DataFlow:storage.py:read:606 - Reading data from ./cache_local/dataflow_cache_step_step2.jsonl with type dataframe
+2026-10-20 21:12:02.553 | INFO     | DataFlow:reasoning_answer_ngram_filter.py:run:210 - [ReasoningAnswerNgramFilter] Found 42 rows, columns: ['instruction', 'output', 'golden_answer', 'source']
+2026-10-20 21:12:02.564 | INFO     | DataFlow:reasoning_answer_ngram_filter.py:run:240 - [ReasoningAnswerNgramFilter] Filtered down to 42 rows with repetition_score in [0.1, 1.0]
+2026-10-20 21:12:02.565 | SUCCESS  | DataFlow:storage.py:write:698 - Writing data to ./cache_local/dataflow_cache_step_step3.jsonl with type jsonl
+2026-10-20 21:12:02.567 | INFO     | DataFlow:reasoning_answer_ngram_filter.py:run:246 - [ReasoningAnswerNgramFilter] Results saved to ./cache_local/dataflow_cache_step_step3.jsonl

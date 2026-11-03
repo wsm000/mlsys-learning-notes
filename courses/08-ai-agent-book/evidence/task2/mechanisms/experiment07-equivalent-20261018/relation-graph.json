@@ -1,0 +1,49 @@
+{
+  "edges": [],
+  "rejected_edges": [],
+  "parse_errors": [
+    {
+      "chunk_id": "C1",
+      "error": "'list' object has no attribute 'get'"
+    },
+    {
+      "chunk_id": "C2",
+      "error": "'list' object has no attribute 'get'"
+    },
+    {
+      "chunk_id": "C3",
+      "error": "'list' object has no attribute 'get'"
+    },
+    {
+      "chunk_id": "C4",
+      "error": "'list' object has no attribute 'get'"
+    },
+    {
+      "chunk_id": "C5",
+      "error": "'list' object has no attribute 'get'"
+    },
+    {
+      "chunk_id": "C6",
+      "error": "'list' object has no attribute 'get'"
+    },
+    {
+      "chunk_id": "C7",
+      "error": "'list' object has no attribute 'get'"
+    },
+    {
+      "chunk_id": "C8",
+      "error": "'list' object has no attribute 'get'"
+    }
+  ],
+  "traversal": {
+    "start": "青禾蜂场",
+    "max_hops": 4,
+    "visited_entities": [
+      "青禾蜂场"
+    ],
+    "edge_indices": [],
+    "paths": [],
+    "source_ids": []
+  },
+  "validation_limit": "Endpoint substring checks only; relation meaning/direction still require source review. No alias normalization or automatic query planning."
+}

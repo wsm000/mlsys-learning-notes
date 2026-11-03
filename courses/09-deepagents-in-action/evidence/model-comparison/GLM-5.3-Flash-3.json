@@ -1,0 +1,84 @@
+{
+  "model": "GLM-5.3-Flash",
+  "repetition": 3,
+  "input": "Analyze DEMO latest 3 records versus preceding 3 records. Report price return, baseline and recent mean volumes, volume ratio, and explain synthetic-data limitations.",
+  "status": "error",
+  "core_pass": false,
+  "error_type": "OpenAITimeoutError",
+  "http_status": null,
+  "duration_seconds": 60.046,
+  "spans": [
+    {
+      "id": "6549886b-9335-49f5-8d85-c6116dd461bd",
+      "parent_id": null,
+      "kind": "chain",
+      "name": "LangGraph",
+      "started_at": "2026-10-13T10:11:51.765465+00:00",
+      "status": "error",
+      "ended_at": "2026-10-13T10:12:51.781451+00:00",
+      "duration_ms": 60015.981,
+      "error_type": "OpenAITimeoutError"
+    },
+    {
+      "id": "01a134bf-4156-79c0-8bf3-6e6c92ccf8e6",
+      "parent_id": "6549886b-9335-49f5-8d85-c6116dd461bd",
+      "kind": "chain",
+      "name": "PatchToolCallsMiddleware.before_agent",
+      "started_at": "2026-10-13T10:11:51.766315+00:00",
+      "status": "success",
+      "ended_at": "2026-10-13T10:11:51.766399+00:00",
+      "duration_ms": 0.084
+    },
+    {
+      "id": "01a134bf-4156-79c0-8bf3-6e7a003d05d2",
+      "parent_id": "6549886b-9335-49f5-8d85-c6116dd461bd",
+      "kind": "chain",
+      "name": "model",
+      "started_at": "2026-10-13T10:11:51.766705+00:00",
+      "status": "error",
+      "ended_at": "2026-10-13T10:12:51.781321+00:00",
+      "duration_ms": 60014.616,
+      "error_type": "OpenAITimeoutError"
+    },
+    {
+      "id": "01a134bf-4161-7ac3-960c-8d2ff35d9496",
+      "parent_id": "01a134bf-4156-79c0-8bf3-6e7a003d05d2",
+      "kind": "model",
+      "name": "ChatOpenAI",
+      "started_at": "2026-10-13T10:11:51.777418+00:00",
+      "status": "error",
+      "input_messages": [
+        [
+          {
+            "content": [
+              {
+                "type": "text",
+                "text": "You are Quanty. For supported price-volume questions call analyze_price_volume. Only 10 DEMO synthetic records exist. Tools support window 1-5. If user requests a larger window N, explain that 2N records are needed and ask whether they accept window=5; do not call a substitute or modify code before explicit agreement. Explain numerical evidence and limitations. Simple queries need no planning. Never invent data."
+              },
+              {
+                "type": "text",
+                "text": "\n\n## `write_todos`\n\nYou have access to the `write_todos` tool to help you manage and plan complex objectives.\nUse this tool for complex objectives to ensure that you are tracking each necessary step.\nThis tool is very helpful for planning complex objectives, and for breaking down these larger complex objectives into smaller steps.\n\nIt is critical that you mark todos as completed as soon as you are done with a step. Do not batch up multiple steps before marking them as completed.\nFor simple objectives that only require a few steps, it is better to just complete the objective directly and NOT use this tool.\nWriting todos takes time and tokens, use it when it is helpful for managing complex many-step problems! But not for simple few-step requests.\n\n## Important To-Do List Usage Notes to Remember\n\n- The `write_todos` tool should never be called multiple times in parallel.\n- Don't be afraid to revise the To-Do list as you go. New information may reveal new tasks that need to be done, or old tasks that are irrelevant.\n\n## Finishing a task\n\nWhen you finish all work, write your final answer in the message AFTER your last `write_todos` call — not in the same turn as that call. Start the final message with the substantive content the user asked for — the data, computation, summary, or analysis. The user wants the result, not confirmation that the work is done."
+              }
+            ],
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "system",
+            "name": null,
+            "id": null
+          },
+          {
+            "content": "Analyze DEMO latest 3 records versus preceding 3 records. Report price return, baseline and recent mean volumes, volume ratio, and explain synthetic-data limitations.",
+            "additional_kwargs": {},
+            "response_metadata": {},
+            "type": "human",
+            "name": null,
+            "id": "faf2e25a-fafa-4375-998b-9cad94e8bc90"
+          }
+        ]
+      ],
+      "ended_at": "2026-10-13T10:12:51.781229+00:00",
+      "duration_ms": 60003.817,
+      "error_type": "OpenAITimeoutError"
+    }
+  ]
+}

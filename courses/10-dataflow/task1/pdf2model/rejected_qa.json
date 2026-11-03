@@ -1,0 +1,93 @@
+[
+  {
+    "instruction": "What is the main reason for the effectiveness of AI research?",
+    "input": "",
+    "output": "Moore's law, or its generalization of continued exponentially falling cost per unit of computation.",
+    "source_page": 1,
+    "chunk_id": 0
+  },
+  {
+    "instruction": "How does AI research differ from human knowledge?",
+    "input": "",
+    "output": "Researchers seek to leverage human knowledge of the domain, but the only thing that matters in the long run is leveraging computation.",
+    "source_page": 1,
+    "chunk_id": 0
+  },
+  {
+    "instruction": "What is the main point of the passage?",
+    "input": "",
+    "output": "The passage discusses how time spent on one approach affects the other, emphasizing the complexity of human-knowledge methods in AI research.",
+    "source_page": 1,
+    "chunk_id": 1
+  },
+  {
+    "instruction": "What is an example of AI researchers learning from this lesson?",
+    "input": "",
+    "output": "AI researchers' belated learning of the bitter lesson, such as in computer chess where deep search methods defeated Kasparov.",
+    "source_page": 1,
+    "chunk_id": 1
+  },
+  {
+    "instruction": "What was the main reason for the researchers' disappointment?",
+    "input": "",
+    "output": "They said that 'brute force' search may have won this time, but it was not a general strategy, and anyway it was not how people played chess.",
+    "source_page": 1,
+    "chunk_id": 2
+  },
+  {
+    "instruction": "How did computer Go researchers approach the problem?",
+    "input": "",
+    "output": "Researchers initially focused on utilizing human understanding (so that less search was needed) and only much later embraced search and learning.",
+    "source_page": 1,
+    "chunk_id": 3
+  },
+  {
+    "instruction": "What was the main focus of the speech recognition competition in the 1970s?",
+    "input": "",
+    "output": "special methods that took advantage of human knowledge, such as knowledge of words, phonemes, and the human vocal tract.",
+    "source_page": 1,
+    "chunk_id": 4
+  },
+  {
+    "instruction": "What is the main difference between early and modern computer vision methods?",
+    "input": "",
+    "output": "Modern deep-learning neural networks use only convolution and invariances, while early methods focused on edges, SIFT features, or generalized cylinders.",
+    "source_page": 2,
+    "chunk_id": 6
+  },
+  {
+    "instruction": "How has the use of deep learning changed computer vision?",
+    "input": "",
+    "output": "Modern deep-learning neural networks perform much better than early methods, which relied on edge detection or SIFT features.",
+    "source_page": 2,
+    "chunk_id": 6
+  },
+  {
+    "instruction": "What is the main lesson from the passage?",
+    "input": "",
+    "output": "The bitter lesson is based on historical observations that AI researchers have often tried to build knowledge into their agents, 1) this helps in the short term, 2) personally satisfying, 3) plateaus, and 4) inhibits progress.",
+    "source_page": 2,
+    "chunk_id": 7
+  },
+  {
+    "instruction": "How does the passage describe the impact of AI research on progress?",
+    "input": "",
+    "output": "In the long run, it plateaus and even inhibits further progress, and breakthrough progress eventually arrives by an opposing approach based on scaling computation by search and learning.",
+    "source_page": 2,
+    "chunk_id": 7
+  },
+  {
+    "instruction": "What is the second general point?",
+    "input": "",
+    "output": "The actual contents of minds are complex and irredeemably so.",
+    "source_page": 2,
+    "chunk_id": 8
+  },
+  {
+    "instruction": "What is the main focus of the passage?",
+    "input": "",
+    "output": "The main focus is on building AI agents that can discover meta-methods rather than the methods themselves.",
+    "source_page": 2,
+    "chunk_id": 9
+  }
+]

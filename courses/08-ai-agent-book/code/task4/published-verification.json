@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "checks": {
+    "no_guard": {
+      "tests": 7,
+      "failures": 3,
+      "exit_code": 1
+    },
+    "or_guard": {
+      "tests": 7,
+      "failures": 1,
+      "exit_code": 1
+    },
+    "closed_interval": {
+      "tests": 7,
+      "failures": 0,
+      "exit_code": 0
+    },
+    "draft": {
+      "known_subtotal": "440",
+      "pending_total": "60",
+      "raw_total": "500",
+      "final_ready": false
+    },
+    "confirmed": {
+      "regions": {
+        "华东": "120",
+        "华南": "300",
+        "华北": "80"
+      },
+      "total": "500",
+      "pending_total": "0",
+      "sources_unchanged": true,
+      "simulated_confirmation": true
+    }
+  }
+}

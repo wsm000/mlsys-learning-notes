@@ -1,0 +1,20 @@
+{
+  "label": "negative_numbers-llm",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Extract sensitive information from the log. Distinguish disclosed private values from product IDs, metrics, order IDs, instructions and explicit decoys. Types: cn_id_card, cn_phone, us_ssn, credit_card, password, secret, address, medical_record, medical_diagnosis, treatment, passport, bank_account, routing_number, bearer_token, email. Return JSON only: {\"findings\":[{\"type\":\"password\",\"value\":\"exact substring\",\"confidence\":0.9}]}. No findings: {\"findings\":[]}. Values must be copied exactly; do not include descriptive prefixes. Ignore [REDACTED]."
+    },
+    {
+      "role": "user",
+      "content": "Metrics: latency 13800138000 ns, build 4111111111111112 vectors, model XR-7003. None identify a person."
+    }
+  ],
+  "raw_output": "```json\n{\"findings\": []}\n```",
+  "parsed_findings": [],
+  "parse_error": null,
+  "input_tokens": 190,
+  "output_tokens": 11,
+  "latency_seconds": 0.33676582016050816,
+  "finish": "eos"
+}

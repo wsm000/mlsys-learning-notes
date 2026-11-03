@@ -1,0 +1,385 @@
+{
+  "status": "completed",
+  "method": "Controlled exact-field BM25 queries derived from retained card field names and values; original chunk bodies only. Saved artifacts replayed locally, not autonomous planner output.",
+  "date_calculation": {
+    "expiration_date_from_card": "2025-02-18",
+    "return_date_from_card": "2025-01-22",
+    "days_between": 27,
+    "meaning": "Calendar interval conditional on card dates. Does not establish any entry/boarding requirement or that renewal is completed."
+  },
+  "field_queries": [
+    {
+      "field": "passport_expiration_date",
+      "card_value": "2025-02-18",
+      "query": "passport expiration date February 18 2025",
+      "hits": [
+        {
+          "id": "H17",
+          "case_id": "layer3_01_travel_coordination",
+          "conversation_id": "flight_booking_002",
+          "timestamp": "2024-11-22 10:00:00",
+          "round_start": 10,
+          "round_end": 13,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Jessica Marie Martinez."
+            },
+            {
+              "role": "assistant",
+              "content": "Date of birth?"
+            },
+            {
+              "role": "user",
+              "content": "March 8th, 1985."
+            },
+            {
+              "role": "assistant",
+              "content": "Passport number?"
+            },
+            {
+              "role": "user",
+              "content": "487223901."
+            },
+            {
+              "role": "assistant",
+              "content": "Passport expiration date?"
+            },
+            {
+              "role": "user",
+              "content": "February 18th, 2025."
+            },
+            {
+              "role": "assistant",
+              "content": "I need to mention - Japan requires your passport to be valid for the duration of your stay. Yours expires less than a month after your return."
+            }
+          ],
+          "text": "USER: Jessica Marie Martinez.\nASSISTANT: Date of birth?\nUSER: March 8th, 1985.\nASSISTANT: Passport number?\nUSER: 487223901.\nASSISTANT: Passport expiration date?\nUSER: February 18th, 2025.\nASSISTANT: I need to mention - Japan requires your passport to be valid for the duration of your stay. Yours expires less than a month after your return."
+        },
+        {
+          "id": "H1",
+          "case_id": "layer3_01_travel_coordination",
+          "conversation_id": "passport_renewal_001",
+          "timestamp": "2024-06-15 14:00:00",
+          "round_start": 1,
+          "round_end": 4,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Hi, I need to check about renewing my passport."
+            },
+            {
+              "role": "assistant",
+              "content": "Good afternoon! I'm David from USPS Passport Services. I'll help you with your renewal. Is your passport expired or about to expire?"
+            },
+            {
+              "role": "user",
+              "content": "It expires in February 2025, so about 8 months from now."
+            },
+            {
+              "role": "assistant",
+              "content": "Good timing to consider renewal. You can renew up to 15 months before expiration. May I have your name?"
+            },
+            {
+              "role": "user",
+              "content": "It's Jessica Martinez."
+            },
+            {
+              "role": "assistant",
+              "content": "Thank you, Ms. Martinez. When exactly does it expire?"
+            },
+            {
+              "role": "user",
+              "content": "February 18th, 2025."
+            },
+            {
+              "role": "assistant",
+              "content": "And you want to renew now?"
+            }
+          ],
+          "text": "USER: Hi, I need to check about renewing my passport.\nASSISTANT: Good afternoon! I'm David from USPS Passport Services. I'll help you with your renewal. Is your passport expired or about to expire?\nUSER: It expires in February 2025, so about 8 months from now.\nASSISTANT: Good timing to consider renewal. You can renew up to 15 months before expiration. May I have your name?\nUSER: It's Jessica Martinez.\nASSISTANT: Thank you, Ms. Martinez. When exactly does it expire?\nUSER: February 18th, 2025.\nASSISTANT: And you want to renew now?"
+        }
+      ]
+    },
+    {
+      "field": "return_date",
+      "card_value": "2025-01-22",
+      "query": "return date January 22 2025",
+      "hits": [
+        {
+          "id": "H17",
+          "case_id": "layer3_01_travel_coordination",
+          "conversation_id": "flight_booking_002",
+          "timestamp": "2024-11-22 10:00:00",
+          "round_start": 10,
+          "round_end": 13,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Jessica Marie Martinez."
+            },
+            {
+              "role": "assistant",
+              "content": "Date of birth?"
+            },
+            {
+              "role": "user",
+              "content": "March 8th, 1985."
+            },
+            {
+              "role": "assistant",
+              "content": "Passport number?"
+            },
+            {
+              "role": "user",
+              "content": "487223901."
+            },
+            {
+              "role": "assistant",
+              "content": "Passport expiration date?"
+            },
+            {
+              "role": "user",
+              "content": "February 18th, 2025."
+            },
+            {
+              "role": "assistant",
+              "content": "I need to mention - Japan requires your passport to be valid for the duration of your stay. Yours expires less than a month after your return."
+            }
+          ],
+          "text": "USER: Jessica Marie Martinez.\nASSISTANT: Date of birth?\nUSER: March 8th, 1985.\nASSISTANT: Passport number?\nUSER: 487223901.\nASSISTANT: Passport expiration date?\nUSER: February 18th, 2025.\nASSISTANT: I need to mention - Japan requires your passport to be valid for the duration of your stay. Yours expires less than a month after your return."
+        },
+        {
+          "id": "H15",
+          "case_id": "layer3_01_travel_coordination",
+          "conversation_id": "flight_booking_002",
+          "timestamp": "2024-11-22 10:00:00",
+          "round_start": 4,
+          "round_end": 7,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Which is closer to downtown Tokyo?"
+            },
+            {
+              "role": "assistant",
+              "content": "Haneda is much closer, about 30 minutes to downtown versus 60-90 minutes from Narita."
+            },
+            {
+              "role": "user",
+              "content": "Haneda then, please."
+            },
+            {
+              "role": "assistant",
+              "content": "I have a non-stop flight, DL 7 departing LAX at 11:30 AM on January 15th, arriving Haneda at 4:45 PM on January 16th."
+            },
+            {
+              "role": "user",
+              "content": "That works. What about the return?"
+            },
+            {
+              "role": "assistant",
+              "content": "DL 8 departs Haneda at 6:00 PM on January 22nd, arriving LAX at 10:15 AM the same day."
+            },
+            {
+              "role": "user",
+              "content": "Perfect timing. What's the fare?"
+            },
+            {
+              "role": "assistant",
+              "content": "Economy is $1,450, Premium Economy is $2,280, and Business Class is $4,890."
+            }
+          ],
+          "text": "USER: Which is closer to downtown Tokyo?\nASSISTANT: Haneda is much closer, about 30 minutes to downtown versus 60-90 minutes from Narita.\nUSER: Haneda then, please.\nASSISTANT: I have a non-stop flight, DL 7 departing LAX at 11:30 AM on January 15th, arriving Haneda at 4:45 PM on January 16th.\nUSER: That works. What about the return?\nASSISTANT: DL 8 departs Haneda at 6:00 PM on January 22nd, arriving LAX at 10:15 AM the same day.\nUSER: Perfect timing. What's the fare?\nASSISTANT: Economy is $1,450, Premium Economy is $2,280, and Business Class is $4,890."
+        }
+      ]
+    },
+    {
+      "field": "passport_update_deadline",
+      "card_value": "72 hours before departure",
+      "query": "passport update deadline 72 hours before departure",
+      "hits": [
+        {
+          "id": "H19",
+          "case_id": "layer3_01_travel_coordination",
+          "conversation_id": "flight_booking_002",
+          "timestamp": "2024-11-22 10:00:00",
+          "round_start": 16,
+          "round_end": 19,
+          "messages": [
+            {
+              "role": "user",
+              "content": "I was thinking about renewing anyway. Can I update the passport number later?"
+            },
+            {
+              "role": "assistant",
+              "content": "Yes, you can update it up to 72 hours before departure. Just call us or do it online."
+            },
+            {
+              "role": "user",
+              "content": "Okay, let's proceed with the booking then."
+            },
+            {
+              "role": "assistant",
+              "content": "Are you a SkyMiles member?"
+            },
+            {
+              "role": "user",
+              "content": "Yes, number 2847569923."
+            },
+            {
+              "role": "assistant",
+              "content": "Great! This trip will earn you approximately 22,000 miles. Do you have a Known Traveler Number for TSA PreCheck?"
+            },
+            {
+              "role": "user",
+              "content": "Yes, it's 9988432."
+            },
+            {
+              "role": "assistant",
+              "content": "Added. Seat preference?"
+            }
+          ],
+          "text": "USER: I was thinking about renewing anyway. Can I update the passport number later?\nASSISTANT: Yes, you can update it up to 72 hours before departure. Just call us or do it online.\nUSER: Okay, let's proceed with the booking then.\nASSISTANT: Are you a SkyMiles member?\nUSER: Yes, number 2847569923.\nASSISTANT: Great! This trip will earn you approximately 22,000 miles. Do you have a Known Traveler Number for TSA PreCheck?\nUSER: Yes, it's 9988432.\nASSISTANT: Added. Seat preference?"
+        },
+        {
+          "id": "H18",
+          "case_id": "layer3_01_travel_coordination",
+          "conversation_id": "flight_booking_002",
+          "timestamp": "2024-11-22 10:00:00",
+          "round_start": 13,
+          "round_end": 16,
+          "messages": [
+            {
+              "role": "user",
+              "content": "February 18th, 2025."
+            },
+            {
+              "role": "assistant",
+              "content": "I need to mention - Japan requires your passport to be valid for the duration of your stay. Yours expires less than a month after your return."
+            },
+            {
+              "role": "user",
+              "content": "Is that a problem?"
+            },
+            {
+              "role": "assistant",
+              "content": "Technically Japan doesn't require 6 months like many countries, but airlines sometimes check more strictly. You're cutting it very close."
+            },
+            {
+              "role": "user",
+              "content": "Should I renew it first?"
+            },
+            {
+              "role": "assistant",
+              "content": "I'd strongly recommend it. With only a month buffer, any travel delays could cause issues."
+            },
+            {
+              "role": "user",
+              "content": "I was thinking about renewing anyway. Can I update the passport number later?"
+            },
+            {
+              "role": "assistant",
+              "content": "Yes, you can update it up to 72 hours before departure. Just call us or do it online."
+            }
+          ],
+          "text": "USER: February 18th, 2025.\nASSISTANT: I need to mention - Japan requires your passport to be valid for the duration of your stay. Yours expires less than a month after your return.\nUSER: Is that a problem?\nASSISTANT: Technically Japan doesn't require 6 months like many countries, but airlines sometimes check more strictly. You're cutting it very close.\nUSER: Should I renew it first?\nASSISTANT: I'd strongly recommend it. With only a month buffer, any travel delays could cause issues.\nUSER: I was thinking about renewing anyway. Can I update the passport number later?\nASSISTANT: Yes, you can update it up to 72 hours before departure. Just call us or do it online."
+        }
+      ]
+    },
+    {
+      "field": "business_trip_coverage",
+      "card_value": "covered only if trip paid with Sapphire Reserve; airline ticket paid with corporate AmEx not covered",
+      "query": "business trip coverage covered only if trip paid with Sapphire Reserve; airline ticket paid with corporate AmEx not covered",
+      "hits": [
+        {
+          "id": "H32",
+          "case_id": "layer3_01_travel_coordination",
+          "conversation_id": "credit_card_003",
+          "timestamp": "2024-10-05 15:30:00",
+          "round_start": 10,
+          "round_end": 13,
+          "messages": [
+            {
+              "role": "user",
+              "content": "Like what?"
+            },
+            {
+              "role": "assistant",
+              "content": "Trip cancellation up to $10,000, trip delay reimbursement, lost luggage coverage, and emergency medical."
+            },
+            {
+              "role": "user",
+              "content": "Does that cover business trips?"
+            },
+            {
+              "role": "assistant",
+              "content": "Yes, as long as you pay for the trip with your Sapphire Reserve."
+            },
+            {
+              "role": "user",
+              "content": "I'm using my corporate AmEx for the flights though."
+            },
+            {
+              "role": "assistant",
+              "content": "Then the airline ticket wouldn't be covered, but if you pay for hotels or other travel expenses with the Sapphire, those portions would be."
+            },
+            {
+              "role": "user",
+              "content": "I see. What about rental car insurance?"
+            },
+            {
+              "role": "assistant",
+              "content": "Primary rental car coverage included when you pay with the card. Decline the rental company's insurance."
+            }
+          ],
+          "text": "USER: Like what?\nASSISTANT: Trip cancellation up to $10,000, trip delay reimbursement, lost luggage coverage, and emergency medical.\nUSER: Does that cover business trips?\nASSISTANT: Yes, as long as you pay for the trip with your Sapphire Reserve.\nUSER: I'm using my corporate AmEx for the flights though.\nASSISTANT: Then the airline ticket wouldn't be covered, but if you pay for hotels or other travel expenses with the Sapphire, those portions would be.\nUSER: I see. What about rental car insurance?\nASSISTANT: Primary rental car coverage included when you pay with the card. Decline the rental company's insurance."
+        },
+        {
+          "id": "H34",
+          "case_id": "layer3_01_travel_coordination",
+          "conversation_id": "credit_card_003",
+          "timestamp": "2024-10-05 15:30:00",
+          "round_start": 16,
+          "round_end": 19,
+          "messages": [
+            {
+              "role": "user",
+              "content": "I think so, but I'm not sure where it is."
+            },
+            {
+              "role": "assistant",
+              "content": "You can use the digital card in the Priority Pass app. Just download and link to your account."
+            },
+            {
+              "role": "user",
+              "content": "I'll do that. Can I bring guests?"
+            },
+            {
+              "role": "assistant",
+              "content": "You can bring up to 2 guests for free each visit."
+            },
+            {
+              "role": "user",
+              "content": "Great for traveling with colleagues."
+            },
+            {
+              "role": "assistant",
+              "content": "Exactly. Also, your Sapphire Reserve gets you into Chase Sapphire Lounges without Priority Pass."
+            },
+            {
+              "role": "user",
+              "content": "Where are those?"
+            },
+            {
+              "role": "assistant",
+              "content": "Currently at Boston, Hong Kong, and New York LaGuardia, with more locations coming."
+            }
+          ],
+          "text": "USER: I think so, but I'm not sure where it is.\nASSISTANT: You can use the digital card in the Priority Pass app. Just download and link to your account.\nUSER: I'll do that. Can I bring guests?\nASSISTANT: You can bring up to 2 guests for free each visit.\nUSER: Great for traveling with colleagues.\nASSISTANT: Exactly. Also, your Sapphire Reserve gets you into Chase Sapphire Lounges without Priority Pass.\nUSER: Where are those?\nASSISTANT: Currently at Boston, Hong Kong, and New York LaGuardia, with more locations coming."
+        }
+      ]
+    }
+  ],
+  "limits": "Retrieved quotes support human verification; no automatic semantic entailment or policy validation is claimed."
+}

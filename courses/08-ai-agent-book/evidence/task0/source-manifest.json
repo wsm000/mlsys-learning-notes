@@ -1,0 +1,9 @@
+{
+  "upstream_commit": null,
+  "note": "SHA-256 of locally downloaded source files used in the experiment; commit was not recorded.",
+  "files": {
+    "chapter1/context/agent.py": "f3aa91a7f7ac3ae0f13ca4200486658408629a9f76fef10714a167f4ad09f1f4",
+    "chapter1/context/config.py": "a93c0573941a07d4cf9679fe0a3f0c9a55f609eeb6cd04051ea7ff31e5423c1f",
+    "chapter1/context/calc_sandbox.py": "f22b23be639e2af604ae3a3032421612f1640dfc73fc22b3f58f0777412de310"
+  }
+}

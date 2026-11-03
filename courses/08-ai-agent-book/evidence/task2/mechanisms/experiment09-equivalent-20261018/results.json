@@ -1,0 +1,1865 @@
+{
+  "status": "completed",
+  "scope": "mechanism-equivalent subset: 2 official layer-2 cases, not 60-case official campaign",
+  "source_commit": "dbc046eb896ac4e39aa19c7774c8bf49583b89a6",
+  "mechanism": "Original conversation rounds -> four-round windows with one-round overlap -> real dense + BM25 indexes scoped by case -> search_user_memory -> bounded live controller -> evidence-grounded answer",
+  "models": {
+    "embedding": "BAAI/bge-small-zh-v1.5",
+    "controller_answerer": "Qwen/Qwen3-0.6B"
+  },
+  "reference_isolation": "Only conversation_histories and user_question used in retrieval and generation. evaluation_criteria and expected_behavior never sent to models or indexes. Presence checks applied only after generation; they are not semantic grading.",
+  "privacy_scope": "Separate per-case indexes simulate user isolation. Not a production authentication test. Corpus consists of fictional benchmark histories.",
+  "results": [
+    {
+      "case_id": "layer2_01_multiple_vehicles",
+      "question": "I need to schedule service for my car. Can you tell me what services I have scheduled?",
+      "source_sha256": "d00b83e6db7660a2686606218e6b592af883aea201b066a3f6e769d7710e4b48",
+      "session_count": 2,
+      "chunk_count": 33,
+      "arms": {
+        "one_shot": {
+          "answer": "I have scheduled an oil change and the 30,000-mile service for your 2019 Honda Accord. The service will be scheduled on Friday, November 24th at 8 AM, or Saturday, November 25th at 10 AM. You will be provided with WiFi and coffee in the waiting room, and a phone number for confirmation.",
+          "evidence": [
+            {
+              "id": "H18",
+              "case_id": "layer2_01_multiple_vehicles",
+              "conversation_id": "auto_service_001",
+              "timestamp": "2024-11-20 09:30:00",
+              "round_start": 1,
+              "round_end": 4,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Hi, I need to schedule service for my car."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Good morning! This is Mike at Firestone Auto Care. I'll help you schedule service. What kind of service do you need?"
+                },
+                {
+                  "role": "user",
+                  "content": "I need an oil change and the 30,000 mile service."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Sure thing. What's the year, make and model of your vehicle?"
+                },
+                {
+                  "role": "user",
+                  "content": "It's a 2019 Honda Accord."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Great. And what's your name?"
+                },
+                {
+                  "role": "user",
+                  "content": "William Chen."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Thank you, Mr. Chen. Current mileage on the Honda?"
+                }
+              ],
+              "text": "USER: Hi, I need to schedule service for my car.\nASSISTANT: Good morning! This is Mike at Firestone Auto Care. I'll help you schedule service. What kind of service do you need?\nUSER: I need an oil change and the 30,000 mile service.\nASSISTANT: Sure thing. What's the year, make and model of your vehicle?\nUSER: It's a 2019 Honda Accord.\nASSISTANT: Great. And what's your name?\nUSER: William Chen.\nASSISTANT: Thank you, Mr. Chen. Current mileage on the Honda?",
+              "rrf_score": 0.03278688524590164
+            },
+            {
+              "id": "H20",
+              "case_id": "layer2_01_multiple_vehicles",
+              "conversation_id": "auto_service_001",
+              "timestamp": "2024-11-20 09:30:00",
+              "round_start": 7,
+              "round_end": 10,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Let's do the full package. When can you fit me in?"
+                },
+                {
+                  "role": "assistant",
+                  "content": "I have openings this Friday November 24th at 8 AM, or Saturday the 25th at 10 AM."
+                },
+                {
+                  "role": "user",
+                  "content": "Friday at 8 works."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Perfect. That service takes about 2-3 hours. Will you wait or need a ride?"
+                },
+                {
+                  "role": "user",
+                  "content": "I'll wait. You have WiFi in the waiting room?"
+                },
+                {
+                  "role": "assistant",
+                  "content": "Yes, free WiFi and coffee. Phone number for confirmation?"
+                },
+                {
+                  "role": "user",
+                  "content": "512-555-8823."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Email for service records?"
+                }
+              ],
+              "text": "USER: Let's do the full package. When can you fit me in?\nASSISTANT: I have openings this Friday November 24th at 8 AM, or Saturday the 25th at 10 AM.\nUSER: Friday at 8 works.\nASSISTANT: Perfect. That service takes about 2-3 hours. Will you wait or need a ride?\nUSER: I'll wait. You have WiFi in the waiting room?\nASSISTANT: Yes, free WiFi and coffee. Phone number for confirmation?\nUSER: 512-555-8823.\nASSISTANT: Email for service records?",
+              "rrf_score": 0.0315136476426799
+            },
+            {
+              "id": "H1",
+              "case_id": "layer2_01_multiple_vehicles",
+              "conversation_id": "auto_insurance_001",
+              "timestamp": "2024-10-15 11:00:00",
+              "round_start": 1,
+              "round_end": 4,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Hi, I need to add my new car to my insurance policy."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Good morning! I'm Jennifer from State Farm. I'll help you add your new vehicle. First, may I have your policy number?"
+                },
+                {
+                  "role": "user",
+                  "content": "It's SF-789234501."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Thank you, Mr... let me pull this up... Mr. William Chen?"
+                },
+                {
+                  "role": "user",
+                  "content": "Yes, that's me."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Perfect. I see you currently have a 2019 Honda Accord on your policy. Tell me about your new vehicle."
+                },
+                {
+                  "role": "user",
+                  "content": "I just bought a 2023 Tesla Model 3."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Congratulations on the Tesla! Is this replacing the Honda or an addition?"
+                }
+              ],
+              "text": "USER: Hi, I need to add my new car to my insurance policy.\nASSISTANT: Good morning! I'm Jennifer from State Farm. I'll help you add your new vehicle. First, may I have your policy number?\nUSER: It's SF-789234501.\nASSISTANT: Thank you, Mr... let me pull this up... Mr. William Chen?\nUSER: Yes, that's me.\nASSISTANT: Perfect. I see you currently have a 2019 Honda Accord on your policy. Tell me about your new vehicle.\nUSER: I just bought a 2023 Tesla Model 3.\nASSISTANT: Congratulations on the Tesla! Is this replacing the Honda or an addition?",
+              "rrf_score": 0.03128054740957967
+            }
+          ],
+          "searches": [
+            {
+              "query": "I need to schedule service for my car. Can you tell me what services I have scheduled?",
+              "case_scope": "layer2_01_multiple_vehicles",
+              "top_k": 3,
+              "sparse_ranking": [
+                "H18",
+                "H1",
+                "H29",
+                "H30",
+                "H20",
+                "H13",
+                "H12",
+                "H19",
+                "H27",
+                "H14"
+              ],
+              "dense_ranking": [
+                "H18",
+                "H20",
+                "H19",
+                "H21",
+                "H29",
+                "H1",
+                "H22",
+                "H27",
+                "H17",
+                "H13"
+              ],
+              "fused_ranking": [
+                "H18",
+                "H20",
+                "H1",
+                "H29",
+                "H19",
+                "H13",
+                "H27",
+                "H21",
+                "H30",
+                "H12",
+                "H22",
+                "H17",
+                "H14"
+              ],
+              "hits": [
+                {
+                  "id": "H18",
+                  "case_id": "layer2_01_multiple_vehicles",
+                  "conversation_id": "auto_service_001",
+                  "timestamp": "2024-11-20 09:30:00",
+                  "round_start": 1,
+                  "round_end": 4,
+                  "messages": [
+                    {
+                      "role": "user",
+                      "content": "Hi, I need to schedule service for my car."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Good morning! This is Mike at Firestone Auto Care. I'll help you schedule service. What kind of service do you need?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "I need an oil change and the 30,000 mile service."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Sure thing. What's the year, make and model of your vehicle?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "It's a 2019 Honda Accord."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Great. And what's your name?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "William Chen."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Thank you, Mr. Chen. Current mileage on the Honda?"
+                    }
+                  ],
+                  "text": "USER: Hi, I need to schedule service for my car.\nASSISTANT: Good morning! This is Mike at Firestone Auto Care. I'll help you schedule service. What kind of service do you need?\nUSER: I need an oil change and the 30,000 mile service.\nASSISTANT: Sure thing. What's the year, make and model of your vehicle?\nUSER: It's a 2019 Honda Accord.\nASSISTANT: Great. And what's your name?\nUSER: William Chen.\nASSISTANT: Thank you, Mr. Chen. Current mileage on the Honda?",
+                  "rrf_score": 0.03278688524590164
+                },
+                {
+                  "id": "H20",
+                  "case_id": "layer2_01_multiple_vehicles",
+                  "conversation_id": "auto_service_001",
+                  "timestamp": "2024-11-20 09:30:00",
+                  "round_start": 7,
+                  "round_end": 10,
+                  "messages": [
+                    {
+                      "role": "user",
+                      "content": "Let's do the full package. When can you fit me in?"
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "I have openings this Friday November 24th at 8 AM, or Saturday the 25th at 10 AM."
+                    },
+                    {
+                      "role": "user",
+                      "content": "Friday at 8 works."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Perfect. That service takes about 2-3 hours. Will you wait or need a ride?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "I'll wait. You have WiFi in the waiting room?"
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Yes, free WiFi and coffee. Phone number for confirmation?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "512-555-8823."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Email for service records?"
+                    }
+                  ],
+                  "text": "USER: Let's do the full package. When can you fit me in?\nASSISTANT: I have openings this Friday November 24th at 8 AM, or Saturday the 25th at 10 AM.\nUSER: Friday at 8 works.\nASSISTANT: Perfect. That service takes about 2-3 hours. Will you wait or need a ride?\nUSER: I'll wait. You have WiFi in the waiting room?\nASSISTANT: Yes, free WiFi and coffee. Phone number for confirmation?\nUSER: 512-555-8823.\nASSISTANT: Email for service records?",
+                  "rrf_score": 0.0315136476426799
+                },
+                {
+                  "id": "H1",
+                  "case_id": "layer2_01_multiple_vehicles",
+                  "conversation_id": "auto_insurance_001",
+                  "timestamp": "2024-10-15 11:00:00",
+                  "round_start": 1,
+                  "round_end": 4,
+                  "messages": [
+                    {
+                      "role": "user",
+                      "content": "Hi, I need to add my new car to my insurance policy."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Good morning! I'm Jennifer from State Farm. I'll help you add your new vehicle. First, may I have your policy number?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "It's SF-789234501."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Thank you, Mr... let me pull this up... Mr. William Chen?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "Yes, that's me."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Perfect. I see you currently have a 2019 Honda Accord on your policy. Tell me about your new vehicle."
+                    },
+                    {
+                      "role": "user",
+                      "content": "I just bought a 2023 Tesla Model 3."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Congratulations on the Tesla! Is this replacing the Honda or an addition?"
+                    }
+                  ],
+                  "text": "USER: Hi, I need to add my new car to my insurance policy.\nASSISTANT: Good morning! I'm Jennifer from State Farm. I'll help you add your new vehicle. First, may I have your policy number?\nUSER: It's SF-789234501.\nASSISTANT: Thank you, Mr... let me pull this up... Mr. William Chen?\nUSER: Yes, that's me.\nASSISTANT: Perfect. I see you currently have a 2019 Honda Accord on your policy. Tell me about your new vehicle.\nUSER: I just bought a 2023 Tesla Model 3.\nASSISTANT: Congratulations on the Tesla! Is this replacing the Honda or an addition?",
+                  "rrf_score": 0.03128054740957967
+                }
+              ]
+            }
+          ],
+          "conversations_retrieved": [
+            "auto_insurance_001",
+            "auto_service_001"
+          ],
+          "timestamps_retrieved": [
+            "2024-10-15 11:00:00",
+            "2024-11-20 09:30:00"
+          ],
+          "cited_ids": [],
+          "unknown_citation_ids": [],
+          "presence_checks_only": {
+            "mentions_honda": true,
+            "mentions_tesla": false,
+            "mentions_confirmation": false,
+            "clarification_word": false
+          }
+        },
+        "agentic": {
+          "answer": "I have scheduled an oil change and the 30,000-mile service for your 2019 Honda Accord. The service will be scheduled on Friday, November 24th at 8 AM, or Saturday, November 25th at 10 AM. You will be provided with WiFi and coffee in the waiting room, and a phone number for confirmation.",
+          "evidence": [
+            {
+              "id": "H18",
+              "case_id": "layer2_01_multiple_vehicles",
+              "conversation_id": "auto_service_001",
+              "timestamp": "2024-11-20 09:30:00",
+              "round_start": 1,
+              "round_end": 4,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Hi, I need to schedule service for my car."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Good morning! This is Mike at Firestone Auto Care. I'll help you schedule service. What kind of service do you need?"
+                },
+                {
+                  "role": "user",
+                  "content": "I need an oil change and the 30,000 mile service."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Sure thing. What's the year, make and model of your vehicle?"
+                },
+                {
+                  "role": "user",
+                  "content": "It's a 2019 Honda Accord."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Great. And what's your name?"
+                },
+                {
+                  "role": "user",
+                  "content": "William Chen."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Thank you, Mr. Chen. Current mileage on the Honda?"
+                }
+              ],
+              "text": "USER: Hi, I need to schedule service for my car.\nASSISTANT: Good morning! This is Mike at Firestone Auto Care. I'll help you schedule service. What kind of service do you need?\nUSER: I need an oil change and the 30,000 mile service.\nASSISTANT: Sure thing. What's the year, make and model of your vehicle?\nUSER: It's a 2019 Honda Accord.\nASSISTANT: Great. And what's your name?\nUSER: William Chen.\nASSISTANT: Thank you, Mr. Chen. Current mileage on the Honda?",
+              "rrf_score": 0.03278688524590164
+            },
+            {
+              "id": "H20",
+              "case_id": "layer2_01_multiple_vehicles",
+              "conversation_id": "auto_service_001",
+              "timestamp": "2024-11-20 09:30:00",
+              "round_start": 7,
+              "round_end": 10,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Let's do the full package. When can you fit me in?"
+                },
+                {
+                  "role": "assistant",
+                  "content": "I have openings this Friday November 24th at 8 AM, or Saturday the 25th at 10 AM."
+                },
+                {
+                  "role": "user",
+                  "content": "Friday at 8 works."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Perfect. That service takes about 2-3 hours. Will you wait or need a ride?"
+                },
+                {
+                  "role": "user",
+                  "content": "I'll wait. You have WiFi in the waiting room?"
+                },
+                {
+                  "role": "assistant",
+                  "content": "Yes, free WiFi and coffee. Phone number for confirmation?"
+                },
+                {
+                  "role": "user",
+                  "content": "512-555-8823."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Email for service records?"
+                }
+              ],
+              "text": "USER: Let's do the full package. When can you fit me in?\nASSISTANT: I have openings this Friday November 24th at 8 AM, or Saturday the 25th at 10 AM.\nUSER: Friday at 8 works.\nASSISTANT: Perfect. That service takes about 2-3 hours. Will you wait or need a ride?\nUSER: I'll wait. You have WiFi in the waiting room?\nASSISTANT: Yes, free WiFi and coffee. Phone number for confirmation?\nUSER: 512-555-8823.\nASSISTANT: Email for service records?",
+              "rrf_score": 0.0315136476426799
+            },
+            {
+              "id": "H1",
+              "case_id": "layer2_01_multiple_vehicles",
+              "conversation_id": "auto_insurance_001",
+              "timestamp": "2024-10-15 11:00:00",
+              "round_start": 1,
+              "round_end": 4,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Hi, I need to add my new car to my insurance policy."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Good morning! I'm Jennifer from State Farm. I'll help you add your new vehicle. First, may I have your policy number?"
+                },
+                {
+                  "role": "user",
+                  "content": "It's SF-789234501."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Thank you, Mr... let me pull this up... Mr. William Chen?"
+                },
+                {
+                  "role": "user",
+                  "content": "Yes, that's me."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Perfect. I see you currently have a 2019 Honda Accord on your policy. Tell me about your new vehicle."
+                },
+                {
+                  "role": "user",
+                  "content": "I just bought a 2023 Tesla Model 3."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Congratulations on the Tesla! Is this replacing the Honda or an addition?"
+                }
+              ],
+              "text": "USER: Hi, I need to add my new car to my insurance policy.\nASSISTANT: Good morning! I'm Jennifer from State Farm. I'll help you add your new vehicle. First, may I have your policy number?\nUSER: It's SF-789234501.\nASSISTANT: Thank you, Mr... let me pull this up... Mr. William Chen?\nUSER: Yes, that's me.\nASSISTANT: Perfect. I see you currently have a 2019 Honda Accord on your policy. Tell me about your new vehicle.\nUSER: I just bought a 2023 Tesla Model 3.\nASSISTANT: Congratulations on the Tesla! Is this replacing the Honda or an addition?",
+              "rrf_score": 0.03128054740957967
+            }
+          ],
+          "searches": [
+            {
+              "query": "I need to schedule service for my car. Can you tell me what services I have scheduled?",
+              "case_scope": "layer2_01_multiple_vehicles",
+              "top_k": 3,
+              "sparse_ranking": [
+                "H18",
+                "H1",
+                "H29",
+                "H30",
+                "H20",
+                "H13",
+                "H12",
+                "H19",
+                "H27",
+                "H14"
+              ],
+              "dense_ranking": [
+                "H18",
+                "H20",
+                "H19",
+                "H21",
+                "H29",
+                "H1",
+                "H22",
+                "H27",
+                "H17",
+                "H13"
+              ],
+              "fused_ranking": [
+                "H18",
+                "H20",
+                "H1",
+                "H29",
+                "H19",
+                "H13",
+                "H27",
+                "H21",
+                "H30",
+                "H12",
+                "H22",
+                "H17",
+                "H14"
+              ],
+              "hits": [
+                {
+                  "id": "H18",
+                  "case_id": "layer2_01_multiple_vehicles",
+                  "conversation_id": "auto_service_001",
+                  "timestamp": "2024-11-20 09:30:00",
+                  "round_start": 1,
+                  "round_end": 4,
+                  "messages": [
+                    {
+                      "role": "user",
+                      "content": "Hi, I need to schedule service for my car."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Good morning! This is Mike at Firestone Auto Care. I'll help you schedule service. What kind of service do you need?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "I need an oil change and the 30,000 mile service."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Sure thing. What's the year, make and model of your vehicle?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "It's a 2019 Honda Accord."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Great. And what's your name?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "William Chen."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Thank you, Mr. Chen. Current mileage on the Honda?"
+                    }
+                  ],
+                  "text": "USER: Hi, I need to schedule service for my car.\nASSISTANT: Good morning! This is Mike at Firestone Auto Care. I'll help you schedule service. What kind of service do you need?\nUSER: I need an oil change and the 30,000 mile service.\nASSISTANT: Sure thing. What's the year, make and model of your vehicle?\nUSER: It's a 2019 Honda Accord.\nASSISTANT: Great. And what's your name?\nUSER: William Chen.\nASSISTANT: Thank you, Mr. Chen. Current mileage on the Honda?",
+                  "rrf_score": 0.03278688524590164
+                },
+                {
+                  "id": "H20",
+                  "case_id": "layer2_01_multiple_vehicles",
+                  "conversation_id": "auto_service_001",
+                  "timestamp": "2024-11-20 09:30:00",
+                  "round_start": 7,
+                  "round_end": 10,
+                  "messages": [
+                    {
+                      "role": "user",
+                      "content": "Let's do the full package. When can you fit me in?"
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "I have openings this Friday November 24th at 8 AM, or Saturday the 25th at 10 AM."
+                    },
+                    {
+                      "role": "user",
+                      "content": "Friday at 8 works."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Perfect. That service takes about 2-3 hours. Will you wait or need a ride?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "I'll wait. You have WiFi in the waiting room?"
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Yes, free WiFi and coffee. Phone number for confirmation?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "512-555-8823."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Email for service records?"
+                    }
+                  ],
+                  "text": "USER: Let's do the full package. When can you fit me in?\nASSISTANT: I have openings this Friday November 24th at 8 AM, or Saturday the 25th at 10 AM.\nUSER: Friday at 8 works.\nASSISTANT: Perfect. That service takes about 2-3 hours. Will you wait or need a ride?\nUSER: I'll wait. You have WiFi in the waiting room?\nASSISTANT: Yes, free WiFi and coffee. Phone number for confirmation?\nUSER: 512-555-8823.\nASSISTANT: Email for service records?",
+                  "rrf_score": 0.0315136476426799
+                },
+                {
+                  "id": "H1",
+                  "case_id": "layer2_01_multiple_vehicles",
+                  "conversation_id": "auto_insurance_001",
+                  "timestamp": "2024-10-15 11:00:00",
+                  "round_start": 1,
+                  "round_end": 4,
+                  "messages": [
+                    {
+                      "role": "user",
+                      "content": "Hi, I need to add my new car to my insurance policy."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Good morning! I'm Jennifer from State Farm. I'll help you add your new vehicle. First, may I have your policy number?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "It's SF-789234501."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Thank you, Mr... let me pull this up... Mr. William Chen?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "Yes, that's me."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Perfect. I see you currently have a 2019 Honda Accord on your policy. Tell me about your new vehicle."
+                    },
+                    {
+                      "role": "user",
+                      "content": "I just bought a 2023 Tesla Model 3."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Congratulations on the Tesla! Is this replacing the Honda or an addition?"
+                    }
+                  ],
+                  "text": "USER: Hi, I need to add my new car to my insurance policy.\nASSISTANT: Good morning! I'm Jennifer from State Farm. I'll help you add your new vehicle. First, may I have your policy number?\nUSER: It's SF-789234501.\nASSISTANT: Thank you, Mr... let me pull this up... Mr. William Chen?\nUSER: Yes, that's me.\nASSISTANT: Perfect. I see you currently have a 2019 Honda Accord on your policy. Tell me about your new vehicle.\nUSER: I just bought a 2023 Tesla Model 3.\nASSISTANT: Congratulations on the Tesla! Is this replacing the Honda or an addition?",
+                  "rrf_score": 0.03128054740957967
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "raw": "{\"action\": \"finish\"}",
+              "decision": {
+                "action": "finish"
+              }
+            }
+          ],
+          "stop_reason": "model finish",
+          "conversations_retrieved": [
+            "auto_insurance_001",
+            "auto_service_001"
+          ],
+          "timestamps_retrieved": [
+            "2024-10-15 11:00:00",
+            "2024-11-20 09:30:00"
+          ],
+          "cited_ids": [],
+          "unknown_citation_ids": [],
+          "presence_checks_only": {
+            "mentions_honda": true,
+            "mentions_tesla": false,
+            "mentions_confirmation": false,
+            "clarification_word": false
+          }
+        },
+        "session_coverage": {
+          "answer": "- The service you have scheduled includes an oil change and the 30,000-mile service.  \n- Your vehicle is a 2019 Honda Accord.  \n- Your name is William Chen.  \n- The service takes about 2-3 hours.  \n- You will be waiting for the service.  \n- You have WiFi and coffee available.  \n- The phone number is 512-555-8823.  \n- You can confirm the service via email.  \n- Your new car is a 2023 Tesla Model 3.  \n- You have rental reimbursement at $40 per day, up to $1,200 per claim.  \n- Towing is available for emergency roadside assistance.  \n- Tesla has its own roadside service through the app, but ours covers any vehicle you drive.",
+          "evidence": [
+            {
+              "id": "H18",
+              "case_id": "layer2_01_multiple_vehicles",
+              "conversation_id": "auto_service_001",
+              "timestamp": "2024-11-20 09:30:00",
+              "round_start": 1,
+              "round_end": 4,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Hi, I need to schedule service for my car."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Good morning! This is Mike at Firestone Auto Care. I'll help you schedule service. What kind of service do you need?"
+                },
+                {
+                  "role": "user",
+                  "content": "I need an oil change and the 30,000 mile service."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Sure thing. What's the year, make and model of your vehicle?"
+                },
+                {
+                  "role": "user",
+                  "content": "It's a 2019 Honda Accord."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Great. And what's your name?"
+                },
+                {
+                  "role": "user",
+                  "content": "William Chen."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Thank you, Mr. Chen. Current mileage on the Honda?"
+                }
+              ],
+              "text": "USER: Hi, I need to schedule service for my car.\nASSISTANT: Good morning! This is Mike at Firestone Auto Care. I'll help you schedule service. What kind of service do you need?\nUSER: I need an oil change and the 30,000 mile service.\nASSISTANT: Sure thing. What's the year, make and model of your vehicle?\nUSER: It's a 2019 Honda Accord.\nASSISTANT: Great. And what's your name?\nUSER: William Chen.\nASSISTANT: Thank you, Mr. Chen. Current mileage on the Honda?",
+              "rrf_score": 0.03278688524590164
+            },
+            {
+              "id": "H20",
+              "case_id": "layer2_01_multiple_vehicles",
+              "conversation_id": "auto_service_001",
+              "timestamp": "2024-11-20 09:30:00",
+              "round_start": 7,
+              "round_end": 10,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Let's do the full package. When can you fit me in?"
+                },
+                {
+                  "role": "assistant",
+                  "content": "I have openings this Friday November 24th at 8 AM, or Saturday the 25th at 10 AM."
+                },
+                {
+                  "role": "user",
+                  "content": "Friday at 8 works."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Perfect. That service takes about 2-3 hours. Will you wait or need a ride?"
+                },
+                {
+                  "role": "user",
+                  "content": "I'll wait. You have WiFi in the waiting room?"
+                },
+                {
+                  "role": "assistant",
+                  "content": "Yes, free WiFi and coffee. Phone number for confirmation?"
+                },
+                {
+                  "role": "user",
+                  "content": "512-555-8823."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Email for service records?"
+                }
+              ],
+              "text": "USER: Let's do the full package. When can you fit me in?\nASSISTANT: I have openings this Friday November 24th at 8 AM, or Saturday the 25th at 10 AM.\nUSER: Friday at 8 works.\nASSISTANT: Perfect. That service takes about 2-3 hours. Will you wait or need a ride?\nUSER: I'll wait. You have WiFi in the waiting room?\nASSISTANT: Yes, free WiFi and coffee. Phone number for confirmation?\nUSER: 512-555-8823.\nASSISTANT: Email for service records?",
+              "rrf_score": 0.0315136476426799
+            },
+            {
+              "id": "H1",
+              "case_id": "layer2_01_multiple_vehicles",
+              "conversation_id": "auto_insurance_001",
+              "timestamp": "2024-10-15 11:00:00",
+              "round_start": 1,
+              "round_end": 4,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Hi, I need to add my new car to my insurance policy."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Good morning! I'm Jennifer from State Farm. I'll help you add your new vehicle. First, may I have your policy number?"
+                },
+                {
+                  "role": "user",
+                  "content": "It's SF-789234501."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Thank you, Mr... let me pull this up... Mr. William Chen?"
+                },
+                {
+                  "role": "user",
+                  "content": "Yes, that's me."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Perfect. I see you currently have a 2019 Honda Accord on your policy. Tell me about your new vehicle."
+                },
+                {
+                  "role": "user",
+                  "content": "I just bought a 2023 Tesla Model 3."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Congratulations on the Tesla! Is this replacing the Honda or an addition?"
+                }
+              ],
+              "text": "USER: Hi, I need to add my new car to my insurance policy.\nASSISTANT: Good morning! I'm Jennifer from State Farm. I'll help you add your new vehicle. First, may I have your policy number?\nUSER: It's SF-789234501.\nASSISTANT: Thank you, Mr... let me pull this up... Mr. William Chen?\nUSER: Yes, that's me.\nASSISTANT: Perfect. I see you currently have a 2019 Honda Accord on your policy. Tell me about your new vehicle.\nUSER: I just bought a 2023 Tesla Model 3.\nASSISTANT: Congratulations on the Tesla! Is this replacing the Honda or an addition?",
+              "rrf_score": 0.03128054740957967
+            },
+            {
+              "id": "H13",
+              "case_id": "layer2_01_multiple_vehicles",
+              "conversation_id": "auto_insurance_001",
+              "timestamp": "2024-10-15 11:00:00",
+              "round_start": 37,
+              "round_end": 40,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Understood. What about rental car coverage?"
+                },
+                {
+                  "role": "assistant",
+                  "content": "You have rental reimbursement at $40 per day, maximum $1,200 per claim on both vehicles."
+                },
+                {
+                  "role": "user",
+                  "content": "Good. And towing?"
+                },
+                {
+                  "role": "assistant",
+                  "content": "Emergency roadside assistance includes towing up to 100 miles, plus jump starts, flat tires, and lockouts."
+                },
+                {
+                  "role": "user",
+                  "content": "Tesla has their own roadside service through the app."
+                },
+                {
+                  "role": "assistant",
+                  "content": "True, but ours covers any vehicle you're driving, not just the Tesla."
+                },
+                {
+                  "role": "user",
+                  "content": "Good point. What about if I drive someone else's car?"
+                },
+                {
+                  "role": "assistant",
+                  "content": "Your liability coverage extends to any vehicle you drive with permission. Physical damage follows the vehicle owner's policy."
+                }
+              ],
+              "text": "USER: Understood. What about rental car coverage?\nASSISTANT: You have rental reimbursement at $40 per day, maximum $1,200 per claim on both vehicles.\nUSER: Good. And towing?\nASSISTANT: Emergency roadside assistance includes towing up to 100 miles, plus jump starts, flat tires, and lockouts.\nUSER: Tesla has their own roadside service through the app.\nASSISTANT: True, but ours covers any vehicle you're driving, not just the Tesla.\nUSER: Good point. What about if I drive someone else's car?\nASSISTANT: Your liability coverage extends to any vehicle you drive with permission. Physical damage follows the vehicle owner's policy.",
+              "rrf_score": 0.029437229437229435
+            }
+          ],
+          "policy": "Author-specified: up to 2 ranked chunks per conversation, newest conversations first. Larger evidence budget; not an autonomous action or isolated recency ablation.",
+          "conversations_retrieved": [
+            "auto_insurance_001",
+            "auto_service_001"
+          ],
+          "timestamps_retrieved": [
+            "2024-10-15 11:00:00",
+            "2024-11-20 09:30:00"
+          ],
+          "cited_ids": [],
+          "unknown_citation_ids": [],
+          "presence_checks_only": {
+            "mentions_honda": true,
+            "mentions_tesla": true,
+            "mentions_confirmation": false,
+            "clarification_word": false
+          }
+        }
+      }
+    },
+    {
+      "case_id": "layer2_12_contradictory_financial_instructions",
+      "question": "What's the current status of the wire transfer for my daughter's house?",
+      "source_sha256": "e2842813485c1684d35371c77c9a439fb8b064febcd15f7210a06856da73b596",
+      "session_count": 3,
+      "chunk_count": 36,
+      "arms": {
+        "one_shot": {
+          "answer": "The wire transfer for your daughter's house is currently set up as a single transfer of $85,000, scheduled for October 1st. You have added James Thompson as a secondary recipient and noted the account is in both parents' names. The account must be in your daughter's name for the wire to process.",
+          "evidence": [
+            {
+              "id": "H1",
+              "case_id": "layer2_12_contradictory_financial_instructions",
+              "conversation_id": "initial_transfer_001",
+              "timestamp": "2024-09-15 10:00:00",
+              "round_start": 1,
+              "round_end": 4,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Hi, I need to set up a large wire transfer to my daughter for her house down payment."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Good morning! I'm Robert from First National Bank Wire Services. I can help with that. May I have your account number?"
+                },
+                {
+                  "role": "user",
+                  "content": "It's 445789-2234."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Thank you, Mrs. Patricia Thompson. I see your checking account. How much are you transferring?"
+                },
+                {
+                  "role": "user",
+                  "content": "$85,000 for her down payment."
+                },
+                {
+                  "role": "assistant",
+                  "content": "That's a significant amount. Current balance shows $143,000, so funds are available."
+                },
+                {
+                  "role": "user",
+                  "content": "Yes, we've been saving for this. She found the perfect house."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Wonderful! What's your daughter's name and bank information?"
+                }
+              ],
+              "text": "USER: Hi, I need to set up a large wire transfer to my daughter for her house down payment.\nASSISTANT: Good morning! I'm Robert from First National Bank Wire Services. I can help with that. May I have your account number?\nUSER: It's 445789-2234.\nASSISTANT: Thank you, Mrs. Patricia Thompson. I see your checking account. How much are you transferring?\nUSER: $85,000 for her down payment.\nASSISTANT: That's a significant amount. Current balance shows $143,000, so funds are available.\nUSER: Yes, we've been saving for this. She found the perfect house.\nASSISTANT: Wonderful! What's your daughter's name and bank information?",
+              "rrf_score": 0.03278688524590164
+            },
+            {
+              "id": "H13",
+              "case_id": "layer2_12_contradictory_financial_instructions",
+              "conversation_id": "husband_changes_001",
+              "timestamp": "2024-09-25 14:30:00",
+              "round_start": 1,
+              "round_end": 4,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "This is James Thompson. My wife set up a wire transfer that I need to modify."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Hello Mr. Thompson. I'm Lisa from First National Bank. What's the wire reference number?"
+                },
+                {
+                  "role": "user",
+                  "content": "WT-89045, scheduled for October 1st."
+                },
+                {
+                  "role": "assistant",
+                  "content": "I see it - $85,000 to Sarah Thompson-Miller at Chase. What needs to change?"
+                },
+                {
+                  "role": "user",
+                  "content": "We've decided to increase it to $100,000."
+                },
+                {
+                  "role": "assistant",
+                  "content": "That's a significant increase. May I ask the reason?"
+                },
+                {
+                  "role": "user",
+                  "content": "The house needed some repairs discovered during inspection. We want to help cover those too."
+                },
+                {
+                  "role": "assistant",
+                  "content": "I understand. Are you listed on this account?"
+                }
+              ],
+              "text": "USER: This is James Thompson. My wife set up a wire transfer that I need to modify.\nASSISTANT: Hello Mr. Thompson. I'm Lisa from First National Bank. What's the wire reference number?\nUSER: WT-89045, scheduled for October 1st.\nASSISTANT: I see it - $85,000 to Sarah Thompson-Miller at Chase. What needs to change?\nUSER: We've decided to increase it to $100,000.\nASSISTANT: That's a significant increase. May I ask the reason?\nUSER: The house needed some repairs discovered during inspection. We want to help cover those too.\nASSISTANT: I understand. Are you listed on this account?",
+              "rrf_score": 0.031746031746031744
+            },
+            {
+              "id": "H5",
+              "case_id": "layer2_12_contradictory_financial_instructions",
+              "conversation_id": "initial_transfer_001",
+              "timestamp": "2024-09-15 10:00:00",
+              "round_start": 13,
+              "round_end": 16,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "You're right. Let's go back to one transfer of $85,000."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Changed back to single transfer. Still October 1st?"
+                },
+                {
+                  "role": "user",
+                  "content": "Yes. But I want to add my husband as a secondary recipient name."
+                },
+                {
+                  "role": "assistant",
+                  "content": "The account must be in your daughter's name for the wire to process."
+                },
+                {
+                  "role": "user",
+                  "content": "It's her account, but can we note it's from both parents?"
+                },
+                {
+                  "role": "assistant",
+                  "content": "I can add a memo: 'Down payment gift from Patricia and James Thompson'."
+                },
+                {
+                  "role": "user",
+                  "content": "Perfect. James will be so happy we're finally doing this."
+                },
+                {
+                  "role": "assistant",
+                  "content": "It's a wonderful gift. Now, for security, I need to verify some information."
+                }
+              ],
+              "text": "USER: You're right. Let's go back to one transfer of $85,000.\nASSISTANT: Changed back to single transfer. Still October 1st?\nUSER: Yes. But I want to add my husband as a secondary recipient name.\nASSISTANT: The account must be in your daughter's name for the wire to process.\nUSER: It's her account, but can we note it's from both parents?\nASSISTANT: I can add a memo: 'Down payment gift from Patricia and James Thompson'.\nUSER: Perfect. James will be so happy we're finally doing this.\nASSISTANT: It's a wonderful gift. Now, for security, I need to verify some information.",
+              "rrf_score": 0.0315136476426799
+            }
+          ],
+          "searches": [
+            {
+              "query": "What's the current status of the wire transfer for my daughter's house?",
+              "case_scope": "layer2_12_contradictory_financial_instructions",
+              "top_k": 3,
+              "sparse_ranking": [
+                "H1",
+                "H5",
+                "H13",
+                "H10",
+                "H4",
+                "H14",
+                "H6",
+                "H9",
+                "H2",
+                "H11"
+              ],
+              "dense_ranking": [
+                "H1",
+                "H12",
+                "H13",
+                "H14",
+                "H5",
+                "H2",
+                "H27",
+                "H32",
+                "H9",
+                "H4"
+              ],
+              "fused_ranking": [
+                "H1",
+                "H13",
+                "H5",
+                "H14",
+                "H4",
+                "H2",
+                "H9",
+                "H12",
+                "H10",
+                "H27",
+                "H6",
+                "H32",
+                "H11"
+              ],
+              "hits": [
+                {
+                  "id": "H1",
+                  "case_id": "layer2_12_contradictory_financial_instructions",
+                  "conversation_id": "initial_transfer_001",
+                  "timestamp": "2024-09-15 10:00:00",
+                  "round_start": 1,
+                  "round_end": 4,
+                  "messages": [
+                    {
+                      "role": "user",
+                      "content": "Hi, I need to set up a large wire transfer to my daughter for her house down payment."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Good morning! I'm Robert from First National Bank Wire Services. I can help with that. May I have your account number?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "It's 445789-2234."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Thank you, Mrs. Patricia Thompson. I see your checking account. How much are you transferring?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "$85,000 for her down payment."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "That's a significant amount. Current balance shows $143,000, so funds are available."
+                    },
+                    {
+                      "role": "user",
+                      "content": "Yes, we've been saving for this. She found the perfect house."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Wonderful! What's your daughter's name and bank information?"
+                    }
+                  ],
+                  "text": "USER: Hi, I need to set up a large wire transfer to my daughter for her house down payment.\nASSISTANT: Good morning! I'm Robert from First National Bank Wire Services. I can help with that. May I have your account number?\nUSER: It's 445789-2234.\nASSISTANT: Thank you, Mrs. Patricia Thompson. I see your checking account. How much are you transferring?\nUSER: $85,000 for her down payment.\nASSISTANT: That's a significant amount. Current balance shows $143,000, so funds are available.\nUSER: Yes, we've been saving for this. She found the perfect house.\nASSISTANT: Wonderful! What's your daughter's name and bank information?",
+                  "rrf_score": 0.03278688524590164
+                },
+                {
+                  "id": "H13",
+                  "case_id": "layer2_12_contradictory_financial_instructions",
+                  "conversation_id": "husband_changes_001",
+                  "timestamp": "2024-09-25 14:30:00",
+                  "round_start": 1,
+                  "round_end": 4,
+                  "messages": [
+                    {
+                      "role": "user",
+                      "content": "This is James Thompson. My wife set up a wire transfer that I need to modify."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Hello Mr. Thompson. I'm Lisa from First National Bank. What's the wire reference number?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "WT-89045, scheduled for October 1st."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "I see it - $85,000 to Sarah Thompson-Miller at Chase. What needs to change?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "We've decided to increase it to $100,000."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "That's a significant increase. May I ask the reason?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "The house needed some repairs discovered during inspection. We want to help cover those too."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "I understand. Are you listed on this account?"
+                    }
+                  ],
+                  "text": "USER: This is James Thompson. My wife set up a wire transfer that I need to modify.\nASSISTANT: Hello Mr. Thompson. I'm Lisa from First National Bank. What's the wire reference number?\nUSER: WT-89045, scheduled for October 1st.\nASSISTANT: I see it - $85,000 to Sarah Thompson-Miller at Chase. What needs to change?\nUSER: We've decided to increase it to $100,000.\nASSISTANT: That's a significant increase. May I ask the reason?\nUSER: The house needed some repairs discovered during inspection. We want to help cover those too.\nASSISTANT: I understand. Are you listed on this account?",
+                  "rrf_score": 0.031746031746031744
+                },
+                {
+                  "id": "H5",
+                  "case_id": "layer2_12_contradictory_financial_instructions",
+                  "conversation_id": "initial_transfer_001",
+                  "timestamp": "2024-09-15 10:00:00",
+                  "round_start": 13,
+                  "round_end": 16,
+                  "messages": [
+                    {
+                      "role": "user",
+                      "content": "You're right. Let's go back to one transfer of $85,000."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Changed back to single transfer. Still October 1st?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "Yes. But I want to add my husband as a secondary recipient name."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "The account must be in your daughter's name for the wire to process."
+                    },
+                    {
+                      "role": "user",
+                      "content": "It's her account, but can we note it's from both parents?"
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "I can add a memo: 'Down payment gift from Patricia and James Thompson'."
+                    },
+                    {
+                      "role": "user",
+                      "content": "Perfect. James will be so happy we're finally doing this."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "It's a wonderful gift. Now, for security, I need to verify some information."
+                    }
+                  ],
+                  "text": "USER: You're right. Let's go back to one transfer of $85,000.\nASSISTANT: Changed back to single transfer. Still October 1st?\nUSER: Yes. But I want to add my husband as a secondary recipient name.\nASSISTANT: The account must be in your daughter's name for the wire to process.\nUSER: It's her account, but can we note it's from both parents?\nASSISTANT: I can add a memo: 'Down payment gift from Patricia and James Thompson'.\nUSER: Perfect. James will be so happy we're finally doing this.\nASSISTANT: It's a wonderful gift. Now, for security, I need to verify some information.",
+                  "rrf_score": 0.0315136476426799
+                }
+              ]
+            }
+          ],
+          "conversations_retrieved": [
+            "husband_changes_001",
+            "initial_transfer_001"
+          ],
+          "timestamps_retrieved": [
+            "2024-09-15 10:00:00",
+            "2024-09-25 14:30:00"
+          ],
+          "cited_ids": [],
+          "unknown_citation_ids": [],
+          "presence_checks_only": {
+            "mentions_latest_amount": false,
+            "mentions_latest_reference": false,
+            "mentions_october_1": true
+          }
+        },
+        "agentic": {
+          "answer": "The wire transfer for your daughter's house is currently set up as a single transfer of $85,000, scheduled for October 1st. You have added James Thompson as a secondary recipient and noted the account is in both parents' names. The account must be in your daughter's name for the wire to process.",
+          "evidence": [
+            {
+              "id": "H1",
+              "case_id": "layer2_12_contradictory_financial_instructions",
+              "conversation_id": "initial_transfer_001",
+              "timestamp": "2024-09-15 10:00:00",
+              "round_start": 1,
+              "round_end": 4,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Hi, I need to set up a large wire transfer to my daughter for her house down payment."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Good morning! I'm Robert from First National Bank Wire Services. I can help with that. May I have your account number?"
+                },
+                {
+                  "role": "user",
+                  "content": "It's 445789-2234."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Thank you, Mrs. Patricia Thompson. I see your checking account. How much are you transferring?"
+                },
+                {
+                  "role": "user",
+                  "content": "$85,000 for her down payment."
+                },
+                {
+                  "role": "assistant",
+                  "content": "That's a significant amount. Current balance shows $143,000, so funds are available."
+                },
+                {
+                  "role": "user",
+                  "content": "Yes, we've been saving for this. She found the perfect house."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Wonderful! What's your daughter's name and bank information?"
+                }
+              ],
+              "text": "USER: Hi, I need to set up a large wire transfer to my daughter for her house down payment.\nASSISTANT: Good morning! I'm Robert from First National Bank Wire Services. I can help with that. May I have your account number?\nUSER: It's 445789-2234.\nASSISTANT: Thank you, Mrs. Patricia Thompson. I see your checking account. How much are you transferring?\nUSER: $85,000 for her down payment.\nASSISTANT: That's a significant amount. Current balance shows $143,000, so funds are available.\nUSER: Yes, we've been saving for this. She found the perfect house.\nASSISTANT: Wonderful! What's your daughter's name and bank information?",
+              "rrf_score": 0.03278688524590164
+            },
+            {
+              "id": "H13",
+              "case_id": "layer2_12_contradictory_financial_instructions",
+              "conversation_id": "husband_changes_001",
+              "timestamp": "2024-09-25 14:30:00",
+              "round_start": 1,
+              "round_end": 4,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "This is James Thompson. My wife set up a wire transfer that I need to modify."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Hello Mr. Thompson. I'm Lisa from First National Bank. What's the wire reference number?"
+                },
+                {
+                  "role": "user",
+                  "content": "WT-89045, scheduled for October 1st."
+                },
+                {
+                  "role": "assistant",
+                  "content": "I see it - $85,000 to Sarah Thompson-Miller at Chase. What needs to change?"
+                },
+                {
+                  "role": "user",
+                  "content": "We've decided to increase it to $100,000."
+                },
+                {
+                  "role": "assistant",
+                  "content": "That's a significant increase. May I ask the reason?"
+                },
+                {
+                  "role": "user",
+                  "content": "The house needed some repairs discovered during inspection. We want to help cover those too."
+                },
+                {
+                  "role": "assistant",
+                  "content": "I understand. Are you listed on this account?"
+                }
+              ],
+              "text": "USER: This is James Thompson. My wife set up a wire transfer that I need to modify.\nASSISTANT: Hello Mr. Thompson. I'm Lisa from First National Bank. What's the wire reference number?\nUSER: WT-89045, scheduled for October 1st.\nASSISTANT: I see it - $85,000 to Sarah Thompson-Miller at Chase. What needs to change?\nUSER: We've decided to increase it to $100,000.\nASSISTANT: That's a significant increase. May I ask the reason?\nUSER: The house needed some repairs discovered during inspection. We want to help cover those too.\nASSISTANT: I understand. Are you listed on this account?",
+              "rrf_score": 0.031746031746031744
+            },
+            {
+              "id": "H5",
+              "case_id": "layer2_12_contradictory_financial_instructions",
+              "conversation_id": "initial_transfer_001",
+              "timestamp": "2024-09-15 10:00:00",
+              "round_start": 13,
+              "round_end": 16,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "You're right. Let's go back to one transfer of $85,000."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Changed back to single transfer. Still October 1st?"
+                },
+                {
+                  "role": "user",
+                  "content": "Yes. But I want to add my husband as a secondary recipient name."
+                },
+                {
+                  "role": "assistant",
+                  "content": "The account must be in your daughter's name for the wire to process."
+                },
+                {
+                  "role": "user",
+                  "content": "It's her account, but can we note it's from both parents?"
+                },
+                {
+                  "role": "assistant",
+                  "content": "I can add a memo: 'Down payment gift from Patricia and James Thompson'."
+                },
+                {
+                  "role": "user",
+                  "content": "Perfect. James will be so happy we're finally doing this."
+                },
+                {
+                  "role": "assistant",
+                  "content": "It's a wonderful gift. Now, for security, I need to verify some information."
+                }
+              ],
+              "text": "USER: You're right. Let's go back to one transfer of $85,000.\nASSISTANT: Changed back to single transfer. Still October 1st?\nUSER: Yes. But I want to add my husband as a secondary recipient name.\nASSISTANT: The account must be in your daughter's name for the wire to process.\nUSER: It's her account, but can we note it's from both parents?\nASSISTANT: I can add a memo: 'Down payment gift from Patricia and James Thompson'.\nUSER: Perfect. James will be so happy we're finally doing this.\nASSISTANT: It's a wonderful gift. Now, for security, I need to verify some information.",
+              "rrf_score": 0.0315136476426799
+            }
+          ],
+          "searches": [
+            {
+              "query": "What's the current status of the wire transfer for my daughter's house?",
+              "case_scope": "layer2_12_contradictory_financial_instructions",
+              "top_k": 3,
+              "sparse_ranking": [
+                "H1",
+                "H5",
+                "H13",
+                "H10",
+                "H4",
+                "H14",
+                "H6",
+                "H9",
+                "H2",
+                "H11"
+              ],
+              "dense_ranking": [
+                "H1",
+                "H12",
+                "H13",
+                "H14",
+                "H5",
+                "H2",
+                "H27",
+                "H32",
+                "H9",
+                "H4"
+              ],
+              "fused_ranking": [
+                "H1",
+                "H13",
+                "H5",
+                "H14",
+                "H4",
+                "H2",
+                "H9",
+                "H12",
+                "H10",
+                "H27",
+                "H6",
+                "H32",
+                "H11"
+              ],
+              "hits": [
+                {
+                  "id": "H1",
+                  "case_id": "layer2_12_contradictory_financial_instructions",
+                  "conversation_id": "initial_transfer_001",
+                  "timestamp": "2024-09-15 10:00:00",
+                  "round_start": 1,
+                  "round_end": 4,
+                  "messages": [
+                    {
+                      "role": "user",
+                      "content": "Hi, I need to set up a large wire transfer to my daughter for her house down payment."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Good morning! I'm Robert from First National Bank Wire Services. I can help with that. May I have your account number?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "It's 445789-2234."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Thank you, Mrs. Patricia Thompson. I see your checking account. How much are you transferring?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "$85,000 for her down payment."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "That's a significant amount. Current balance shows $143,000, so funds are available."
+                    },
+                    {
+                      "role": "user",
+                      "content": "Yes, we've been saving for this. She found the perfect house."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Wonderful! What's your daughter's name and bank information?"
+                    }
+                  ],
+                  "text": "USER: Hi, I need to set up a large wire transfer to my daughter for her house down payment.\nASSISTANT: Good morning! I'm Robert from First National Bank Wire Services. I can help with that. May I have your account number?\nUSER: It's 445789-2234.\nASSISTANT: Thank you, Mrs. Patricia Thompson. I see your checking account. How much are you transferring?\nUSER: $85,000 for her down payment.\nASSISTANT: That's a significant amount. Current balance shows $143,000, so funds are available.\nUSER: Yes, we've been saving for this. She found the perfect house.\nASSISTANT: Wonderful! What's your daughter's name and bank information?",
+                  "rrf_score": 0.03278688524590164
+                },
+                {
+                  "id": "H13",
+                  "case_id": "layer2_12_contradictory_financial_instructions",
+                  "conversation_id": "husband_changes_001",
+                  "timestamp": "2024-09-25 14:30:00",
+                  "round_start": 1,
+                  "round_end": 4,
+                  "messages": [
+                    {
+                      "role": "user",
+                      "content": "This is James Thompson. My wife set up a wire transfer that I need to modify."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Hello Mr. Thompson. I'm Lisa from First National Bank. What's the wire reference number?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "WT-89045, scheduled for October 1st."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "I see it - $85,000 to Sarah Thompson-Miller at Chase. What needs to change?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "We've decided to increase it to $100,000."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "That's a significant increase. May I ask the reason?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "The house needed some repairs discovered during inspection. We want to help cover those too."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "I understand. Are you listed on this account?"
+                    }
+                  ],
+                  "text": "USER: This is James Thompson. My wife set up a wire transfer that I need to modify.\nASSISTANT: Hello Mr. Thompson. I'm Lisa from First National Bank. What's the wire reference number?\nUSER: WT-89045, scheduled for October 1st.\nASSISTANT: I see it - $85,000 to Sarah Thompson-Miller at Chase. What needs to change?\nUSER: We've decided to increase it to $100,000.\nASSISTANT: That's a significant increase. May I ask the reason?\nUSER: The house needed some repairs discovered during inspection. We want to help cover those too.\nASSISTANT: I understand. Are you listed on this account?",
+                  "rrf_score": 0.031746031746031744
+                },
+                {
+                  "id": "H5",
+                  "case_id": "layer2_12_contradictory_financial_instructions",
+                  "conversation_id": "initial_transfer_001",
+                  "timestamp": "2024-09-15 10:00:00",
+                  "round_start": 13,
+                  "round_end": 16,
+                  "messages": [
+                    {
+                      "role": "user",
+                      "content": "You're right. Let's go back to one transfer of $85,000."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "Changed back to single transfer. Still October 1st?"
+                    },
+                    {
+                      "role": "user",
+                      "content": "Yes. But I want to add my husband as a secondary recipient name."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "The account must be in your daughter's name for the wire to process."
+                    },
+                    {
+                      "role": "user",
+                      "content": "It's her account, but can we note it's from both parents?"
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "I can add a memo: 'Down payment gift from Patricia and James Thompson'."
+                    },
+                    {
+                      "role": "user",
+                      "content": "Perfect. James will be so happy we're finally doing this."
+                    },
+                    {
+                      "role": "assistant",
+                      "content": "It's a wonderful gift. Now, for security, I need to verify some information."
+                    }
+                  ],
+                  "text": "USER: You're right. Let's go back to one transfer of $85,000.\nASSISTANT: Changed back to single transfer. Still October 1st?\nUSER: Yes. But I want to add my husband as a secondary recipient name.\nASSISTANT: The account must be in your daughter's name for the wire to process.\nUSER: It's her account, but can we note it's from both parents?\nASSISTANT: I can add a memo: 'Down payment gift from Patricia and James Thompson'.\nUSER: Perfect. James will be so happy we're finally doing this.\nASSISTANT: It's a wonderful gift. Now, for security, I need to verify some information.",
+                  "rrf_score": 0.0315136476426799
+                }
+              ]
+            }
+          ],
+          "actions": [
+            {
+              "raw": "{\"action\": \"finish\"}",
+              "decision": {
+                "action": "finish"
+              }
+            }
+          ],
+          "stop_reason": "model finish",
+          "conversations_retrieved": [
+            "husband_changes_001",
+            "initial_transfer_001"
+          ],
+          "timestamps_retrieved": [
+            "2024-09-15 10:00:00",
+            "2024-09-25 14:30:00"
+          ],
+          "cited_ids": [],
+          "unknown_citation_ids": [],
+          "presence_checks_only": {
+            "mentions_latest_amount": false,
+            "mentions_latest_reference": false,
+            "mentions_october_1": true
+          }
+        },
+        "session_coverage": {
+          "answer": "The wire transfer for your daughter's house is currently scheduled for October 1st and will be $100,000. If you would like to change the amount or add a secondary recipient, please let me know. The account must be in your daughter's name for the wire to process.",
+          "evidence": [
+            {
+              "id": "H27",
+              "case_id": "layer2_12_contradictory_financial_instructions",
+              "conversation_id": "wife_reversal_001",
+              "timestamp": "2024-09-26 16:00:00",
+              "round_start": 10,
+              "round_end": 13,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Exactly! That's why I scheduled it for October 1st originally."
+                },
+                {
+                  "role": "assistant",
+                  "content": "I can move it back to October 1st."
+                },
+                {
+                  "role": "user",
+                  "content": "But keep it at $100,000 or change back to $85,000?"
+                },
+                {
+                  "role": "assistant",
+                  "content": "What would you prefer?"
+                },
+                {
+                  "role": "user",
+                  "content": "Did James say why he increased it?"
+                },
+                {
+                  "role": "assistant",
+                  "content": "He mentioned house repairs discovered during inspection."
+                },
+                {
+                  "role": "user",
+                  "content": "Oh, Sarah told me about those. The foundation needs work."
+                },
+                {
+                  "role": "assistant",
+                  "content": "That can be expensive."
+                }
+              ],
+              "text": "USER: Exactly! That's why I scheduled it for October 1st originally.\nASSISTANT: I can move it back to October 1st.\nUSER: But keep it at $100,000 or change back to $85,000?\nASSISTANT: What would you prefer?\nUSER: Did James say why he increased it?\nASSISTANT: He mentioned house repairs discovered during inspection.\nUSER: Oh, Sarah told me about those. The foundation needs work.\nASSISTANT: That can be expensive.",
+              "rrf_score": 0.014925373134328358
+            },
+            {
+              "id": "H32",
+              "case_id": "layer2_12_contradictory_financial_instructions",
+              "conversation_id": "wife_reversal_001",
+              "timestamp": "2024-09-26 16:00:00",
+              "round_start": 25,
+              "round_end": 28,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Can you cancel the old ones so they don't accidentally process?"
+                },
+                {
+                  "role": "assistant",
+                  "content": "Previous references are automatically superseded. Only WT-89089 is active."
+                },
+                {
+                  "role": "user",
+                  "content": "Good. James is going to be upset I changed his change."
+                },
+                {
+                  "role": "assistant",
+                  "content": "It's important both account holders agree on large transfers."
+                },
+                {
+                  "role": "user",
+                  "content": "We usually do. This house purchase has been stressful."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Understandable. It's a big financial decision."
+                },
+                {
+                  "role": "user",
+                  "content": "Can you put a note that this is the final amount?"
+                },
+                {
+                  "role": "assistant",
+                  "content": "I can add an internal note, but either account holder can still modify."
+                }
+              ],
+              "text": "USER: Can you cancel the old ones so they don't accidentally process?\nASSISTANT: Previous references are automatically superseded. Only WT-89089 is active.\nUSER: Good. James is going to be upset I changed his change.\nASSISTANT: It's important both account holders agree on large transfers.\nUSER: We usually do. This house purchase has been stressful.\nASSISTANT: Understandable. It's a big financial decision.\nUSER: Can you put a note that this is the final amount?\nASSISTANT: I can add an internal note, but either account holder can still modify.",
+              "rrf_score": 0.014705882352941176
+            },
+            {
+              "id": "H13",
+              "case_id": "layer2_12_contradictory_financial_instructions",
+              "conversation_id": "husband_changes_001",
+              "timestamp": "2024-09-25 14:30:00",
+              "round_start": 1,
+              "round_end": 4,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "This is James Thompson. My wife set up a wire transfer that I need to modify."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Hello Mr. Thompson. I'm Lisa from First National Bank. What's the wire reference number?"
+                },
+                {
+                  "role": "user",
+                  "content": "WT-89045, scheduled for October 1st."
+                },
+                {
+                  "role": "assistant",
+                  "content": "I see it - $85,000 to Sarah Thompson-Miller at Chase. What needs to change?"
+                },
+                {
+                  "role": "user",
+                  "content": "We've decided to increase it to $100,000."
+                },
+                {
+                  "role": "assistant",
+                  "content": "That's a significant increase. May I ask the reason?"
+                },
+                {
+                  "role": "user",
+                  "content": "The house needed some repairs discovered during inspection. We want to help cover those too."
+                },
+                {
+                  "role": "assistant",
+                  "content": "I understand. Are you listed on this account?"
+                }
+              ],
+              "text": "USER: This is James Thompson. My wife set up a wire transfer that I need to modify.\nASSISTANT: Hello Mr. Thompson. I'm Lisa from First National Bank. What's the wire reference number?\nUSER: WT-89045, scheduled for October 1st.\nASSISTANT: I see it - $85,000 to Sarah Thompson-Miller at Chase. What needs to change?\nUSER: We've decided to increase it to $100,000.\nASSISTANT: That's a significant increase. May I ask the reason?\nUSER: The house needed some repairs discovered during inspection. We want to help cover those too.\nASSISTANT: I understand. Are you listed on this account?",
+              "rrf_score": 0.031746031746031744
+            },
+            {
+              "id": "H14",
+              "case_id": "layer2_12_contradictory_financial_instructions",
+              "conversation_id": "husband_changes_001",
+              "timestamp": "2024-09-25 14:30:00",
+              "round_start": 4,
+              "round_end": 7,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "The house needed some repairs discovered during inspection. We want to help cover those too."
+                },
+                {
+                  "role": "assistant",
+                  "content": "I understand. Are you listed on this account?"
+                },
+                {
+                  "role": "user",
+                  "content": "Yes, it's our joint account. Patricia and James Thompson."
+                },
+                {
+                  "role": "assistant",
+                  "content": "I see you're co-owner. I can process this change. Confirming $100,000 total?"
+                },
+                {
+                  "role": "user",
+                  "content": "Yes, $100,000 instead of $85,000."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Let me update that... Current balance is $143,000, so funds are available."
+                },
+                {
+                  "role": "user",
+                  "content": "Good. Also, can we move it earlier? Sarah's nervous about timing."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Currently scheduled for October 1st. When would you prefer?"
+                }
+              ],
+              "text": "USER: The house needed some repairs discovered during inspection. We want to help cover those too.\nASSISTANT: I understand. Are you listed on this account?\nUSER: Yes, it's our joint account. Patricia and James Thompson.\nASSISTANT: I see you're co-owner. I can process this change. Confirming $100,000 total?\nUSER: Yes, $100,000 instead of $85,000.\nASSISTANT: Let me update that... Current balance is $143,000, so funds are available.\nUSER: Good. Also, can we move it earlier? Sarah's nervous about timing.\nASSISTANT: Currently scheduled for October 1st. When would you prefer?",
+              "rrf_score": 0.030776515151515152
+            },
+            {
+              "id": "H1",
+              "case_id": "layer2_12_contradictory_financial_instructions",
+              "conversation_id": "initial_transfer_001",
+              "timestamp": "2024-09-15 10:00:00",
+              "round_start": 1,
+              "round_end": 4,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "Hi, I need to set up a large wire transfer to my daughter for her house down payment."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Good morning! I'm Robert from First National Bank Wire Services. I can help with that. May I have your account number?"
+                },
+                {
+                  "role": "user",
+                  "content": "It's 445789-2234."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Thank you, Mrs. Patricia Thompson. I see your checking account. How much are you transferring?"
+                },
+                {
+                  "role": "user",
+                  "content": "$85,000 for her down payment."
+                },
+                {
+                  "role": "assistant",
+                  "content": "That's a significant amount. Current balance shows $143,000, so funds are available."
+                },
+                {
+                  "role": "user",
+                  "content": "Yes, we've been saving for this. She found the perfect house."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Wonderful! What's your daughter's name and bank information?"
+                }
+              ],
+              "text": "USER: Hi, I need to set up a large wire transfer to my daughter for her house down payment.\nASSISTANT: Good morning! I'm Robert from First National Bank Wire Services. I can help with that. May I have your account number?\nUSER: It's 445789-2234.\nASSISTANT: Thank you, Mrs. Patricia Thompson. I see your checking account. How much are you transferring?\nUSER: $85,000 for her down payment.\nASSISTANT: That's a significant amount. Current balance shows $143,000, so funds are available.\nUSER: Yes, we've been saving for this. She found the perfect house.\nASSISTANT: Wonderful! What's your daughter's name and bank information?",
+              "rrf_score": 0.03278688524590164
+            },
+            {
+              "id": "H5",
+              "case_id": "layer2_12_contradictory_financial_instructions",
+              "conversation_id": "initial_transfer_001",
+              "timestamp": "2024-09-15 10:00:00",
+              "round_start": 13,
+              "round_end": 16,
+              "messages": [
+                {
+                  "role": "user",
+                  "content": "You're right. Let's go back to one transfer of $85,000."
+                },
+                {
+                  "role": "assistant",
+                  "content": "Changed back to single transfer. Still October 1st?"
+                },
+                {
+                  "role": "user",
+                  "content": "Yes. But I want to add my husband as a secondary recipient name."
+                },
+                {
+                  "role": "assistant",
+                  "content": "The account must be in your daughter's name for the wire to process."
+                },
+                {
+                  "role": "user",
+                  "content": "It's her account, but can we note it's from both parents?"
+                },
+                {
+                  "role": "assistant",
+                  "content": "I can add a memo: 'Down payment gift from Patricia and James Thompson'."
+                },
+                {
+                  "role": "user",
+                  "content": "Perfect. James will be so happy we're finally doing this."
+                },
+                {
+                  "role": "assistant",
+                  "content": "It's a wonderful gift. Now, for security, I need to verify some information."
+                }
+              ],
+              "text": "USER: You're right. Let's go back to one transfer of $85,000.\nASSISTANT: Changed back to single transfer. Still October 1st?\nUSER: Yes. But I want to add my husband as a secondary recipient name.\nASSISTANT: The account must be in your daughter's name for the wire to process.\nUSER: It's her account, but can we note it's from both parents?\nASSISTANT: I can add a memo: 'Down payment gift from Patricia and James Thompson'.\nUSER: Perfect. James will be so happy we're finally doing this.\nASSISTANT: It's a wonderful gift. Now, for security, I need to verify some information.",
+              "rrf_score": 0.0315136476426799
+            }
+          ],
+          "policy": "Author-specified: up to 2 ranked chunks per conversation, newest conversations first. Larger evidence budget; not an autonomous action or isolated recency ablation.",
+          "conversations_retrieved": [
+            "husband_changes_001",
+            "initial_transfer_001",
+            "wife_reversal_001"
+          ],
+          "timestamps_retrieved": [
+            "2024-09-15 10:00:00",
+            "2024-09-25 14:30:00",
+            "2024-09-26 16:00:00"
+          ],
+          "cited_ids": [],
+          "unknown_citation_ids": [],
+          "presence_checks_only": {
+            "mentions_latest_amount": false,
+            "mentions_latest_reference": false,
+            "mentions_october_1": true
+          }
+        }
+      }
+    }
+  ]
+}

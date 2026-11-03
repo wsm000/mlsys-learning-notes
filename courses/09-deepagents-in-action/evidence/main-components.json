@@ -1,0 +1,135 @@
+{
+  "create_deep_agent": {
+    "file": "/home/simin/course09-quanty/main-app/my_deepagent/.venv/lib/python3.13/site-packages/deepagents/graph.py",
+    "start_line": 268,
+    "selected_lines": [
+      {
+        "line": 444,
+        "source": "            `StateBackend` (default), provide skill files via"
+      },
+      {
+        "line": 481,
+        "source": "            Pass a `Backend` instance (e.g. `StateBackend()`)."
+      },
+      {
+        "line": 627,
+        "source": "    backend = backend if backend is not None else StateBackend()"
+      },
+      {
+        "line": 668,
+        "source": "                FilesystemMiddleware("
+      },
+      {
+        "line": 674,
+        "source": "                PatchToolCallsMiddleware(),"
+      },
+      {
+        "line": 678,
+        "source": "                subagent_middleware.append(SkillsMiddleware(backend=backend, sources=subagent_skills))"
+      },
+      {
+        "line": 682,
+        "source": "            subagent_middleware.extend(_subagent_profile.materialize_extra_middleware())"
+      },
+      {
+        "line": 718,
+        "source": "                subagent_middleware.append(_ToolExclusionMiddleware(excluded=_subagent_profile.excluded_tools))"
+      },
+      {
+        "line": 753,
+        "source": "            FilesystemMiddleware("
+      },
+      {
+        "line": 759,
+        "source": "            PatchToolCallsMiddleware(),"
+      },
+      {
+        "line": 762,
+        "source": "            gp_middleware.append(SkillsMiddleware(backend=backend, sources=skills))"
+      },
+      {
+        "line": 765,
+        "source": "        gp_middleware.extend(_profile.materialize_extra_middleware())"
+      },
+      {
+        "line": 788,
+        "source": "            gp_middleware.append(_ToolExclusionMiddleware(excluded=_profile.excluded_tools))"
+      },
+      {
+        "line": 819,
+        "source": "        deepagent_middleware.append(SkillsMiddleware(backend=backend, sources=skills))"
+      },
+      {
+        "line": 820,
+        "source": "    deepagent_middleware.append("
+      },
+      {
+        "line": 821,
+        "source": "        FilesystemMiddleware("
+      },
+      {
+        "line": 829,
+        "source": "        sub_agent_middleware = SubAgentMiddleware("
+      },
+      {
+        "line": 840,
+        "source": "        deepagent_middleware.append(sub_agent_middleware)"
+      },
+      {
+        "line": 841,
+        "source": "    deepagent_middleware.extend("
+      },
+      {
+        "line": 844,
+        "source": "            PatchToolCallsMiddleware(),"
+      },
+      {
+        "line": 851,
+        "source": "        deepagent_middleware.append(AsyncSubAgentMiddleware(async_subagents=async_subagents))"
+      },
+      {
+        "line": 859,
+        "source": "    deepagent_middleware.extend(_profile.materialize_extra_middleware())"
+      },
+      {
+        "line": 864,
+        "source": "        deepagent_middleware.append("
+      },
+      {
+        "line": 865,
+        "source": "            MemoryMiddleware("
+      },
+      {
+        "line": 876,
+        "source": "        deepagent_middleware.append(HumanInTheLoopMiddleware(interrupt_on=main_interrupt_on))"
+      },
+      {
+        "line": 893,
+        "source": "        deepagent_middleware.append(_ToolExclusionMiddleware(excluded=_profile.excluded_tools))"
+      }
+    ]
+  },
+  "FilesystemMiddleware.__init__": {
+    "file": "/home/simin/course09-quanty/main-app/my_deepagent/.venv/lib/python3.13/site-packages/deepagents/middleware/filesystem.py",
+    "start_line": 1620,
+    "selected_lines": [
+      {
+        "line": 1637,
+        "source": "                StateBackend if not provided."
+      },
+      {
+        "line": 1680,
+        "source": "        # Use provided backend or default to StateBackend instance"
+      },
+      {
+        "line": 1681,
+        "source": "        self.backend = backend if backend is not None else StateBackend()"
+      },
+      {
+        "line": 1685,
+        "source": "                \"were removed in deepagents 0.7; pass StateBackend(), \""
+      }
+    ]
+  },
+  "version": "0.7.8"
+}
