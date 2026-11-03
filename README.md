@@ -13,6 +13,7 @@
 | llm-algo-leetcode 显存优化 | `courses/06-llm-algo-leetcode-memory/` | llm-algo-leetcode 显存优化方向：显存对象、生命周期与预算取舍。 |
 | 从Tensor到Transformer（TinyTorch） | `courses/07-tinytorch/` | 14 天 8 Task：Tensor 到 Transformer 构建 GPT 模型（模块 01-08 + 10-13）。 |
 | AI Agent 工程实践 | `courses/08-ai-agent-book/` | Agent 基础、上下文、记忆与 RAG、Tools/MCP、Coding Agent 与多 Agent 协作。 |
+| Deep Agents 实战 | `courses/09-deepagents-in-action/` | Quanty 量价研究助理：确定性工具、Skills、记忆/审批/风险分层；Task8 可复现 Demo（固定输入＋明确预期，22 项检查）。 |
 | DataFlow · AI-Ready Data 实战 | `courses/10-dataflow/` | 18 天七段任务：PDF→模型、文本 QA、多模态 VQA 等数据准备流水线。 |
 
 注：06 有两个并行方向目录（推理优化 / 显存优化），属同一课程的两个专题线。
@@ -28,6 +29,7 @@
 - [llm-algo-leetcode 显存优化](courses/06-llm-algo-leetcode-memory/README.md)
 - [从Tensor到Transformer（TinyTorch）](courses/07-tinytorch/README.md)
 - [AI Agent 工程实践](courses/08-ai-agent-book/README.md)
+- [Deep Agents 实战](courses/09-deepagents-in-action/README.md)
 - [DataFlow · AI-Ready Data 实战](courses/10-dataflow/README.md)
 
 ## 说明

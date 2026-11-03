@@ -1,5 +1,8 @@
-# Quanty · Task1/Task5/Task6 实验
+# Quanty · Task1/Task5/Task6/Task8 实验
 
 **2026-10-27 Task6 入口：[Task6 打卡稿](<courses/09-deepagents-in-action/Task6_打卡笔记.md>)。** 记忆与审批（第 8–9 章）：离线机械链 24/24 检查在本地 0.7.24 与远端 0.7.8 主锁双环境通过；真实模型 DeepSeek-V4-Flash 5/5 检查通过（写记忆→新进程读记忆→拒绝删除→批准删除）。开篇问题"为什么新对话就忘"由 H3（StateBackend thread 作用域）与 H1/H1b（文件跨 thread/跨进程注入）对照回答。四个机制边界留证：直接 backend 调用不受 permissions 保护、edit 改道 deny 仍被拒、FilesystemBackend 不建 root_dir、记忆每 thread 只注入一次。**学余力项已完成**：按风险等级分层的审批方案（L0–L4 五层＋fail-closed 默认＋三层执行编译＋三类事件审计，26 项检查 × 2 环境通过，设计见 task6/risk-tier-approval.md）。Task1–Task5 冻结文件未动；表单未提交。
 
+**2026-11-02 Task8 入口：[Task8 打卡稿](<courses/09-deepagents-in-action/Task8_打卡笔记.md>)。** 可复现 Demo 与结营交流：`task8/run_demo.py` 一条命令离线验收 **22/22 项检查**（固定输入＋事先声明的明确预期，零真实模型调用、无需 API Key、约 6–8 秒），综合工具调用与确定性边界、长期记忆、人工审批与风险分层四项课程能力；陌生人视角复现（新进程＋默认参数＋陌生 cwd）22/22 一致。留证：[demo-run-01](<courses/09-deepagents-in-action/evidence/task8/demo-run-01/>)｜[demo-run-02-stranger](<courses/09-deepagents-in-action/evidence/task8/demo-run-02-stranger/>)｜[注册文件](<courses/09-deepagents-in-action/evidence/task8/registration.json>)。
+
 - [Task6 代码](<courses/09-deepagents-in-action/task6/>)｜[实验讲解](<courses/09-deepagents-in-action/task6/实验讲解.md>)｜[注册文件](<courses/09-deepagents-in-action/evidence/task6/registration.json>)｜[离线本地](<courses/09-deepagents-in-action/evidence/task6/offline-local-01/>)｜[离线远端0.7.8](<courses/09-deepagents-in-action/evidence/task6/offline-remote-078-01/>)｜[真实模型](<courses/09-deepagents-in-action/evidence/task6/live-ds-01/>)｜[机制探针](<courses/09-deepagents-in-action/evidence/task6/probes/>)。
+- [Task8 Demo 代码](<courses/09-deepagents-in-action/task8/>)｜[3 分钟跑通 README](<courses/09-deepagents-in-action/task8/README.md>)｜[同伴复现与互评](<courses/09-deepagents-in-action/task8/reproduce.md>)。

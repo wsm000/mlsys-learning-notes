@@ -1,0 +1,649 @@
+{
+  "experiment": "task8-reproducible-demo",
+  "at": "2026-11-02T07:31:15.340560+00:00",
+  "env": {
+    "python": "3.12.14",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "deepagents": "0.7.24",
+    "langchain": "1.4.5",
+    "langchain-core": "1.6.10",
+    "langgraph": "1.2.15"
+  },
+  "fixed_input_fingerprints": {
+    "run_demo.py": "8fe79e7d9852967cfd9dbaf22f107a5782b65654886a51a91488623c2a26df48",
+    "tools.py": "34c359d25ab73dc4f91e40578f75399acf2147b42eff36d949bf458c26b85c5f",
+    "data/demo.csv": "1352edc00ce42839f6c097af4d1f1cf9c6708791da7375f7c88748c78a574665",
+    "task6/lab_common.py": "d7cc4cdbf0ea42176275397947c17e725cdabcd7a8aa18d5dd5cc28357ff3608"
+  },
+  "expected": {
+    "A1_tool_values_match_hand_computed": {
+      "price_return_pct": 6.0,
+      "baseline_mean_volume": 1000.0,
+      "recent_mean_volume": 1600.0,
+      "volume_ratio": 1.6,
+      "rise_with_volume_expansion": true
+    },
+    "A1b_final_answer_grounded_in_tool_return": true,
+    "A1c_window3_values_match_hand_computed": {
+      "price_return_pct": 2.912621,
+      "baseline_mean_volume": 1300.0,
+      "recent_mean_volume": 1700.0,
+      "volume_ratio": 1.3076923076923077
+    },
+    "A2a_tool_boundary_raises_with_exact_message": true,
+    "A2b_agent_propagates_boundary_error": true,
+    "A2c_refusal_without_tool_call_or_fabrication": true,
+    "A3_insufficient_data_no_invented_rsi": true,
+    "B1_memory_file_on_disk": true,
+    "B2_fresh_thread_system_prompt_has_memory": true,
+    "B3_fresh_process_system_prompt_has_memory": true,
+    "B4_control_without_memory_file": true,
+    "B5_state_same_thread_sees_file": true,
+    "B6_state_fresh_thread_blind": true,
+    "C1_approve_interrupts_then_executes_proposed": true,
+    "C2_reject_does_not_execute": true,
+    "C3_edit_executes_only_edited_args": true,
+    "C4_public_write_auto_executes": true,
+    "C5_drafts_write_asks_human_then_executes": true,
+    "C6_secrets_write_denied_without_asking": true,
+    "C7_deny_declared_first_wins": true,
+    "C8_edit_into_deny_still_denied": true,
+    "C9_direct_backend_call_not_gated": true
+  },
+  "checks": [
+    {
+      "check": "A1_tool_values_match_hand_computed",
+      "expected": {
+        "price_return_pct": 6.0,
+        "baseline_mean_volume": 1000.0,
+        "recent_mean_volume": 1600.0,
+        "volume_ratio": 1.6,
+        "rise_with_volume_expansion": true
+      },
+      "actual": {
+        "price_return_pct": 6.0,
+        "baseline_mean_volume": 1000.0,
+        "recent_mean_volume": 1600.0,
+        "volume_ratio": 1.6,
+        "rise_with_volume_expansion": true
+      },
+      "passed": true
+    },
+    {
+      "check": "A1b_final_answer_grounded_in_tool_return",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "A1c_window3_values_match_hand_computed",
+      "expected": {
+        "price_return_pct": 2.912621,
+        "baseline_mean_volume": 1300.0,
+        "recent_mean_volume": 1700.0,
+        "volume_ratio": 1.3076923076923077
+      },
+      "actual": {
+        "price_return_pct": 2.912621,
+        "baseline_mean_volume": 1300.0,
+        "recent_mean_volume": 1700.0,
+        "volume_ratio": 1.3076923076923077
+      },
+      "passed": true
+    },
+    {
+      "check": "A2a_tool_boundary_raises_with_exact_message",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "A2b_agent_propagates_boundary_error",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "A2c_refusal_without_tool_call_or_fabrication",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "A3_insufficient_data_no_invented_rsi",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "B1_memory_file_on_disk",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "B2_fresh_thread_system_prompt_has_memory",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "B3_fresh_process_system_prompt_has_memory",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "B4_control_without_memory_file",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "B5_state_same_thread_sees_file",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "B6_state_fresh_thread_blind",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "C1_approve_interrupts_then_executes_proposed",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "C2_reject_does_not_execute",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "C3_edit_executes_only_edited_args",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "C4_public_write_auto_executes",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "C5_drafts_write_asks_human_then_executes",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "C6_secrets_write_denied_without_asking",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "C7_deny_declared_first_wins",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "C8_edit_into_deny_still_denied",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "check": "C9_direct_backend_call_not_gated",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    }
+  ],
+  "passed": 22,
+  "total": 22,
+  "all_passed": true,
+  "segment_errors": [],
+  "detail": {
+    "段落 A": {
+      "A1_tool_return": {
+        "symbol": "DEMO",
+        "source": "synthetic teaching fixture; NOT market data",
+        "window": 5,
+        "baseline_end": "2026-10-02",
+        "recent_start": "2026-10-05",
+        "recent_end": "2026-10-09",
+        "price_return_pct": 6.0,
+        "baseline_mean_volume": 1000.0,
+        "recent_mean_volume": 1600.0,
+        "volume_ratio": 1.6,
+        "volume_expanded": true,
+        "rise_with_volume_expansion": true,
+        "definition": "return=last recent close/last baseline close-1; expansion=mean-volume ratio>1",
+        "limitations": "Descriptive window comparison only; no causality or predictive claim. No adjusted prices or market calendar checks.",
+        "evidence": [
+          {
+            "date": "2026-09-28",
+            "symbol": "DEMO",
+            "close": 100.0,
+            "volume": 1000.0
+          },
+          {
+            "date": "2026-09-29",
+            "symbol": "DEMO",
+            "close": 101.0,
+            "volume": 1100.0
+          },
+          {
+            "date": "2026-09-30",
+            "symbol": "DEMO",
+            "close": 99.0,
+            "volume": 900.0
+          },
+          {
+            "date": "2026-10-01",
+            "symbol": "DEMO",
+            "close": 100.0,
+            "volume": 1000.0
+          },
+          {
+            "date": "2026-10-02",
+            "symbol": "DEMO",
+            "close": 100.0,
+            "volume": 1000.0
+          },
+          {
+            "date": "2026-10-05",
+            "symbol": "DEMO",
+            "close": 102.0,
+            "volume": 1400.0
+          },
+          {
+            "date": "2026-10-06",
+            "symbol": "DEMO",
+            "close": 103.0,
+            "volume": 1500.0
+          },
+          {
+            "date": "2026-10-07",
+            "symbol": "DEMO",
+            "close": 104.0,
+            "volume": 1600.0
+          },
+          {
+            "date": "2026-10-08",
+            "symbol": "DEMO",
+            "close": 105.0,
+            "volume": 1700.0
+          },
+          {
+            "date": "2026-10-09",
+            "symbol": "DEMO",
+            "close": 106.0,
+            "volume": 1800.0
+          }
+        ]
+      },
+      "A1_final_message": "依据：DEMO 最近5个交易日收益 6.0%，前期日均成交量 1000.0，近期日均成交量 1600.0，量比 1.6，上涨伴随成交量放大。局限：这是合成教学数据，不是真实行情；描述性窗口比较，不证明因果，也不能预测。",
+      "A1c_tool_return": {
+        "symbol": "DEMO",
+        "source": "synthetic teaching fixture; NOT market data",
+        "window": 3,
+        "baseline_end": "2026-10-06",
+        "recent_start": "2026-10-07",
+        "recent_end": "2026-10-09",
+        "price_return_pct": 2.912621,
+        "baseline_mean_volume": 1300.0,
+        "recent_mean_volume": 1700.0,
+        "volume_ratio": 1.3076923076923077,
+        "volume_expanded": true,
+        "rise_with_volume_expansion": true,
+        "definition": "return=last recent close/last baseline close-1; expansion=mean-volume ratio>1",
+        "limitations": "Descriptive window comparison only; no causality or predictive claim. No adjusted prices or market calendar checks.",
+        "evidence": [
+          {
+            "date": "2026-10-02",
+            "symbol": "DEMO",
+            "close": 100.0,
+            "volume": 1000.0
+          },
+          {
+            "date": "2026-10-05",
+            "symbol": "DEMO",
+            "close": 102.0,
+            "volume": 1400.0
+          },
+          {
+            "date": "2026-10-06",
+            "symbol": "DEMO",
+            "close": 103.0,
+            "volume": 1500.0
+          },
+          {
+            "date": "2026-10-07",
+            "symbol": "DEMO",
+            "close": 104.0,
+            "volume": 1600.0
+          },
+          {
+            "date": "2026-10-08",
+            "symbol": "DEMO",
+            "close": 105.0,
+            "volume": 1700.0
+          },
+          {
+            "date": "2026-10-09",
+            "symbol": "DEMO",
+            "close": 106.0,
+            "volume": 1800.0
+          }
+        ]
+      },
+      "A2a_boundary_errors": [
+        "window=10: window must be an integer between 1 and 5",
+        "window=0: window must be an integer between 1 and 5",
+        "window=-1: window must be an integer between 1 and 5",
+        "window='5': window must be an integer between 1 and 5",
+        "window=5.0: window must be an integer between 1 and 5"
+      ],
+      "A2b_propagated_error": "window must be an integer between 1 and 5",
+      "A2c_final_message": "当前只有10条合成数据，比较最近10条与此前10条需要20条，而工具仅支持1–5。我不会用较小窗口代替，也不宣称完成。你是否接受用5条做演示？获得明确同意前我不调用工具。",
+      "A3_rsi_return": {
+        "symbol": "DEMO",
+        "period": 14,
+        "source": "synthetic teaching fixture; NOT market data",
+        "available_prices": 10,
+        "required_prices": 15,
+        "method": "Wilder: SMA seed, then (previous average*(period-1)+current)/period",
+        "flat_convention": "zero gains and zero losses => RSI 50",
+        "limitations": "Short synthetic history; seed-sensitive; descriptive indicator, not a trading recommendation.",
+        "status": "insufficient_data",
+        "rsi": null
+      },
+      "A3_final_message": "DEMO 只有10条收盘价，RSI(14) 需要15条，数据不足；我不编造数值。可指定 period=3 或 5 计算教学示例。"
+    },
+    "段落 B": {
+      "B1_disk_text": "用户偏好：我喜欢中文回答，回答要简洁。",
+      "B2_final_message": "根据我的记忆，你喜欢中文回答。",
+      "B3_final_message": "根据我的记忆，你喜欢中文回答。"
+    },
+    "段落 C": {
+      "approve": {
+        "case": "approve",
+        "decision": {
+          "type": "approve"
+        },
+        "interrupted": true,
+        "interrupt_payload": [
+          {
+            "action_requests": [
+              {
+                "name": "write_file",
+                "args": {
+                  "file_path": "/reports/report.md",
+                  "content": "PROPOSED-CONTENT-原始提议"
+                },
+                "description": "Tool execution requires approval\n\nTool: write_file\nArgs: {'file_path': '/reports/report.md', 'content': 'PROPOSED-CONTENT-原始提议'}"
+              }
+            ],
+            "review_configs": [
+              {
+                "action_name": "write_file",
+                "allowed_decisions": [
+                  "approve",
+                  "edit",
+                  "reject",
+                  "respond"
+                ]
+              }
+            ]
+          }
+        ],
+        "pre_resume_disk": {},
+        "post_resume_disk": {
+          "reports/report.md": "PROPOSED-CONTENT-原始提议"
+        },
+        "final_message": "案例 approve 结束。",
+        "events": [
+          {
+            "event": "tool_start",
+            "at": "2026-11-02T07:31:14.991869+00:00",
+            "run_id": "01a19b2b-65b0-7a93-a399-a59c255eddda",
+            "name": "write_file",
+            "input": "{'file_path': '/reports/report.md', 'content': 'PROPOSED-CONTENT-原始提议'}"
+          },
+          {
+            "event": "tool_end",
+            "at": "2026-11-02T07:31:14.994878+00:00",
+            "run_id": "01a19b2b-65b0-7a93-a399-a59c255eddda",
+            "output": {
+              "type": "tool",
+              "content": "Updated file /reports/report.md",
+              "name": "write_file",
+              "tool_call_id": "call-0001",
+              "status": "success"
+            }
+          }
+        ]
+      },
+      "reject": {
+        "case": "reject",
+        "decision": {
+          "type": "reject",
+          "message": "这份报告先不写"
+        },
+        "interrupted": true,
+        "interrupt_payload": [
+          {
+            "action_requests": [
+              {
+                "name": "write_file",
+                "args": {
+                  "file_path": "/reports/report.md",
+                  "content": "PROPOSED-CONTENT-原始提议"
+                },
+                "description": "Tool execution requires approval\n\nTool: write_file\nArgs: {'file_path': '/reports/report.md', 'content': 'PROPOSED-CONTENT-原始提议'}"
+              }
+            ],
+            "review_configs": [
+              {
+                "action_name": "write_file",
+                "allowed_decisions": [
+                  "approve",
+                  "edit",
+                  "reject",
+                  "respond"
+                ]
+              }
+            ]
+          }
+        ],
+        "pre_resume_disk": {},
+        "post_resume_disk": {},
+        "final_message": "案例 reject 结束。",
+        "events": []
+      },
+      "edit": {
+        "case": "edit",
+        "decision": {
+          "type": "edit",
+          "edited_action": {
+            "name": "write_file",
+            "args": {
+              "file_path": "/reports/report.md",
+              "content": "EDITED-CONTENT-修改后参数"
+            }
+          }
+        },
+        "interrupted": true,
+        "interrupt_payload": [
+          {
+            "action_requests": [
+              {
+                "name": "write_file",
+                "args": {
+                  "file_path": "/reports/report.md",
+                  "content": "PROPOSED-CONTENT-原始提议"
+                },
+                "description": "Tool execution requires approval\n\nTool: write_file\nArgs: {'file_path': '/reports/report.md', 'content': 'PROPOSED-CONTENT-原始提议'}"
+              }
+            ],
+            "review_configs": [
+              {
+                "action_name": "write_file",
+                "allowed_decisions": [
+                  "approve",
+                  "edit",
+                  "reject",
+                  "respond"
+                ]
+              }
+            ]
+          }
+        ],
+        "pre_resume_disk": {},
+        "post_resume_disk": {
+          "reports/report.md": "EDITED-CONTENT-修改后参数"
+        },
+        "final_message": "案例 edit 结束。",
+        "events": [
+          {
+            "event": "tool_start",
+            "at": "2026-11-02T07:31:15.082598+00:00",
+            "run_id": "01a19b2b-660b-70a3-a518-6a96ee3b5791",
+            "name": "write_file",
+            "input": "{'file_path': '/reports/report.md', 'content': 'EDITED-CONTENT-修改后参数'}"
+          },
+          {
+            "event": "tool_end",
+            "at": "2026-11-02T07:31:15.085706+00:00",
+            "run_id": "01a19b2b-660b-70a3-a518-6a96ee3b5791",
+            "output": {
+              "type": "tool",
+              "content": "Updated file /reports/report.md",
+              "name": "write_file",
+              "tool_call_id": "call-0001",
+              "status": "success"
+            }
+          }
+        ]
+      },
+      "L1_public_allow": {
+        "case": "L1_public_allow",
+        "path": "/public/note.md",
+        "interrupted": false,
+        "tool_messages": [
+          {
+            "type": "tool",
+            "content": "Updated file /public/note.md",
+            "name": "write_file",
+            "tool_call_id": "call-0001",
+            "status": "success"
+          }
+        ],
+        "disk_files": {
+          "public/note.md": "PUBLIC"
+        },
+        "final_message": "案例 L1_public_allow 结束。"
+      },
+      "L2_drafts_interrupt_approve": {
+        "case": "L2_drafts_interrupt_approve",
+        "path": "/drafts/d.md",
+        "decision": {
+          "type": "approve"
+        },
+        "interrupted": true,
+        "pre_resume_disk": {},
+        "tool_messages": [
+          {
+            "type": "tool",
+            "content": "Updated file /drafts/d.md",
+            "name": "write_file",
+            "tool_call_id": "call-0001",
+            "status": "success"
+          }
+        ],
+        "disk_files": {
+          "drafts/d.md": "DRAFT"
+        },
+        "final_message": "案例 L2_drafts_interrupt_approve 结束。"
+      },
+      "L3_secrets_deny": {
+        "case": "L3_secrets_deny",
+        "path": "/secrets/s.md",
+        "interrupted": false,
+        "tool_messages": [
+          {
+            "type": "tool",
+            "content": "Error: permission denied for write on /secrets/s.md",
+            "name": "write_file",
+            "tool_call_id": "call-0001",
+            "status": "error"
+          }
+        ],
+        "disk_files": {},
+        "final_message": "案例 L3_secrets_deny 结束。"
+      },
+      "L3b_deny_before_interrupt": {
+        "case": "L3b_deny_before_interrupt",
+        "path": "/drafts/blocked/x.md",
+        "interrupted": false,
+        "tool_messages": [
+          {
+            "type": "tool",
+            "content": "Error: permission denied for write on /drafts/blocked/x.md",
+            "name": "write_file",
+            "tool_call_id": "call-0001",
+            "status": "error"
+          }
+        ],
+        "disk_files": {},
+        "final_message": "案例 L3b_deny_before_interrupt 结束。"
+      },
+      "H11_edit_into_deny": {
+        "case": "H11_edit_into_deny",
+        "path": "/drafts/ok.md",
+        "decision": {
+          "type": "edit",
+          "edited_action": {
+            "name": "write_file",
+            "args": {
+              "file_path": "/secrets/evil.md",
+              "content": "EVIL"
+            }
+          }
+        },
+        "interrupted": true,
+        "pre_resume_disk": {},
+        "tool_messages": [
+          {
+            "type": "tool",
+            "content": "Error: permission denied for write on /secrets/evil.md",
+            "name": "write_file",
+            "tool_call_id": "call-0001",
+            "status": "error"
+          }
+        ],
+        "disk_files": {},
+        "final_message": "案例 H11_edit_into_deny 结束。"
+      },
+      "H12_direct_backend": {
+        "case": "direct_backend",
+        "write_result": {
+          "result_type": "WriteResult",
+          "error": null,
+          "path": "/secrets/direct.md"
+        },
+        "disk_files": {
+          "secrets/direct.md": "DIRECT-BACKEND-WRITE"
+        }
+      }
+    }
+  }
+}

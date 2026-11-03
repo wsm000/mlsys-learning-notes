@@ -1,0 +1,113 @@
+==========================================================================
+Quanty 可复现 Demo —— 固定输入 + 明确预期（离线；零真实模型调用；无需 API Key）
+==========================================================================
+[环境] python 3.12.14 / deepagents 0.7.24 / langchain 1.4.5 / langgraph 1.2.15
+[环境] 平台 Windows-10-10.0.19045-SP0
+[固定输入] 文件指纹（sha256，改动即可被发现）：
+    run_demo.py            8fe79e7d9852967cfd9dbaf22f107a5782b65654886a51a91488623c2a26df48
+    tools.py               34c359d25ab73dc4f91e40578f75399acf2147b42eff36d949bf458c26b85c5f
+    data/demo.csv          1352edc00ce42839f6c097af4d1f1cf9c6708791da7375f7c88748c78a574665
+    task6/lab_common.py    d7cc4cdbf0ea42176275397947c17e725cdabcd7a8aa18d5dd5cc28357ff3608
+[固定输入] 用户话语：分析 DEMO 最近5个交易日上涨是否伴随成交量放大，列出依据和局限。
+[固定输入] 用户话语：分析 DEMO 最近10个交易日上涨是否伴随成交量放大。
+[固定输入] 用户话语：给我 DEMO 的 RSI(14)。
+[固定输入] 记忆偏好：用户偏好：我喜欢中文回答，回答要简洁。  ->  /memory/AGENTS.md
+[固定输入] 审批目标：/reports/report.md（提议=PROPOSED-CONTENT-原始提议 / 修改后=EDITED-CONTENT-修改后参数）
+[固定输入] 风险规则（声明序，首个匹配生效）：
+    ['read'] ['/**'] -> allow
+    ['write'] ['/public/**'] -> allow
+    ['write'] ['/drafts/**'] -> interrupt
+    ['write'] ['/secrets/**'] -> deny
+[固定输入] 模型：ScriptedModel（确定性脚本，与 temperature/seed 无关）
+[明确预期] 22 项检查的预期值在本脚本 EXPECTED 表事先声明，逐项比对
+[输出] out=C:\Users\86150\AppData\Local\Temp\dsh-3KK9HP\qdemo-stranger\demo-output
+[输出] root=C:\Users\86150\AppData\Local\Temp\dsh-3KK9HP\qdemo-stranger\demo-output\sandbox
+
+--------------------------------------------------------------------------
+段落 A：工具调用与确定性边界（能力 1：tools + 拒绝替代/拒绝编造）
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+段落 B：长期记忆（能力 2：ch08 文件记忆 + StateBackend 对照）
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+段落 C：人工审批与风险分层（能力 3：ch09 审批 + L0-L3 权限分层）
+--------------------------------------------------------------------------
+
+==========================================================================
+验收结果（预期值事先声明；任何一项不符即失败）
+==========================================================================
+[PASS] A1_tool_values_match_hand_computed
+       预期: {"price_return_pct": 6.0, "baseline_mean_volume": 1000.0, "recent_mean_volume": 1600.0, "volume_ratio": 1.6, "rise_with_volume_expansion": true}
+       实际: {"price_return_pct": 6.0, "baseline_mean_volume": 1000.0, "recent_mean_volume": 1600.0, "volume_ratio": 1.6, "rise_with_volume_expansion": true}
+[PASS] A1b_final_answer_grounded_in_tool_return
+       预期: true
+       实际: true
+[PASS] A1c_window3_values_match_hand_computed
+       预期: {"price_return_pct": 2.912621, "baseline_mean_volume": 1300.0, "recent_mean_volume": 1700.0, "volume_ratio": 1.3076923076923077}
+       实际: {"price_return_pct": 2.912621, "baseline_mean_volume": 1300.0, "recent_mean_volume": 1700.0, "volume_ratio": 1.3076923076923077}
+[PASS] A2a_tool_boundary_raises_with_exact_message
+       预期: true
+       实际: true
+[PASS] A2b_agent_propagates_boundary_error
+       预期: true
+       实际: true
+[PASS] A2c_refusal_without_tool_call_or_fabrication
+       预期: true
+       实际: true
+[PASS] A3_insufficient_data_no_invented_rsi
+       预期: true
+       实际: true
+[PASS] B1_memory_file_on_disk
+       预期: true
+       实际: true
+[PASS] B2_fresh_thread_system_prompt_has_memory
+       预期: true
+       实际: true
+[PASS] B3_fresh_process_system_prompt_has_memory
+       预期: true
+       实际: true
+[PASS] B4_control_without_memory_file
+       预期: true
+       实际: true
+[PASS] B5_state_same_thread_sees_file
+       预期: true
+       实际: true
+[PASS] B6_state_fresh_thread_blind
+       预期: true
+       实际: true
+[PASS] C1_approve_interrupts_then_executes_proposed
+       预期: true
+       实际: true
+[PASS] C2_reject_does_not_execute
+       预期: true
+       实际: true
+[PASS] C3_edit_executes_only_edited_args
+       预期: true
+       实际: true
+[PASS] C4_public_write_auto_executes
+       预期: true
+       实际: true
+[PASS] C5_drafts_write_asks_human_then_executes
+       预期: true
+       实际: true
+[PASS] C6_secrets_write_denied_without_asking
+       预期: true
+       实际: true
+[PASS] C7_deny_declared_first_wins
+       预期: true
+       实际: true
+[PASS] C8_edit_into_deny_still_denied
+       预期: true
+       实际: true
+[PASS] C9_direct_backend_call_not_gated
+       预期: true
+       实际: true
+
+==========================================================================
+总结：22/22 项检查通过
+结论：全部通过 —— 机制链按固定输入与明确预期工作
+证据：C:\Users\86150\AppData\Local\Temp\dsh-3KK9HP\qdemo-stranger\demo-output\summary.json
+提醒：scripted 只证机械链，不证真实模型语义（见 README「它不证明什么」）
+==========================================================================

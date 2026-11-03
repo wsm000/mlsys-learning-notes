@@ -1,0 +1,80 @@
+{
+  "registration": "task8-reproducible-demo",
+  "registered_at": "2026-11-02T07:35:00+00:00",
+  "course_id": "deepagents-in-action",
+  "task_id": "Task8",
+  "protocol": {
+    "run_method": "两个独立运行：(1) demo-run-01 作者本机显式 --out/--root；(2) demo-run-02-stranger 新进程、默认参数、仓库外 cwd（模拟只凭 README 命令的陌生人）。均为 .venv（deepagents 0.7.24 锁定依赖）。",
+    "transfer": "本机 DSH 沙箱下子进程只能写 TEMP、不能写 workspace；证据由宿住文件 API 原样转运进仓库。原文件为 Windows CRLF，仓库副本为 LF；已逐文件验证 LF 规范化后字节一致（见 verified_lf_normalized）。",
+    "venv_limitation": "本机沙箱无法完成 venv 创建与 pip install：python -m venv 的 ensurepip 在 tempfile 清理 chmod 临时目录时被拒（WinError 5，与 Task6 记录同一环境限制，重试 3 次均失败）。因此'安装步骤'未在本机复验；替代核对：既有 .venv 与 requirements.lock.txt 逐包一致（59/59，见 locked_env_check）。陌生 cwd/新进程/默认参数/退出码均已复验。",
+    "locked_env_check": "pip freeze 与 requirements.lock.txt 比对：锁定 59 包全部在 venv 中；deepagents==0.7.24。"
+  },
+  "runs": [
+    {
+      "id": "demo-run-01",
+      "command": ".venv\\Scripts\\python.exe task8\\run_demo.py --out <TEMP>\\qdemo-task8\\demo-run-01 --root <TEMP>\\qdemo-task8\\demo-run-01\\sandbox",
+      "cwd": "仓库根（courses/09-deepagents-in-action 之上）",
+      "exit_code": 0,
+      "elapsed_seconds": 7.6,
+      "result": "22/22 PASS",
+      "original": {
+        "summary_json": "<TEMP>\\qdemo-task8\\demo-run-01\\summary.json",
+        "summary_sha256_crlf": "d5292031bbf9a472a1aa2f1d0db8202551006fe1143602270f1990c6008adf00",
+        "stdout": "<TEMP>\\qdemo-task8\\demo-run-01-stdout.txt",
+        "stdout_sha256": "4ba738c323d72a52bd2488ae6df5d88d50eba0c6ecd3661a2bdbd8766662bf5a"
+      },
+      "repo_copy": {
+        "summary_json": "evidence/task8/demo-run-01/summary.json",
+        "summary_sha256_lf": "db8f627569a103434b1fccea98015cf768068d9b602e2c636e4a7b3ec58c796d",
+        "stdout": "evidence/task8/demo-run-01/demo-stdout.txt",
+        "stdout_sha256_lf": "4a81601135d473b33eb790e997a58fc5923c517c01880797f4d9e100eb782fb4"
+      },
+      "verified_lf_normalized": true
+    },
+    {
+      "id": "demo-run-02-stranger",
+      "command": ".venv\\Scripts\\python.exe <repo>\\courses\\09-deepagents-in-action\\task8\\run_demo.py   （无参数：默认 --out demo-output，相对 cwd）",
+      "cwd": "<TEMP>\\qdemo-stranger（仓库之外的陌生目录，模拟陌生人）",
+      "exit_code": 0,
+      "elapsed_seconds": 6.1,
+      "result": "22/22 PASS",
+      "original": {
+        "summary_json": "<TEMP>\\qdemo-stranger\\demo-output\\summary.json",
+        "summary_sha256_crlf": "0a0546ebd8461dc6f19e1866409eff35cf0120af1e6604bf7cbf522aa7ce48fd",
+        "stdout": "<TEMP>\\qdemo-task8\\demo-run-02-stranger-stdout.txt",
+        "stdout_sha256": "7663f96e002ecd3172be67912c454b6a427c84e3ce02920a05e7abef69937a96"
+      },
+      "repo_copy": {
+        "summary_json": "evidence/task8/demo-run-02-stranger/summary.json",
+        "summary_sha256_lf": "03a6eb01144f04e89928b62699f4848b200c90877c454c5909002227c86fbc7a",
+        "stdout": "evidence/task8/demo-run-02-stranger/demo-stdout.txt",
+        "stdout_sha256_lf": "d603e14d25f2b4f5be5149c16522e76a4eb9250bee735eb703f08a304f90f5f1"
+      },
+      "verified_lf_normalized": true
+    }
+  ],
+  "determinism": {
+    "checks_arrays_identical": true,
+    "expected_identical": true,
+    "env_identical": true,
+    "fixed_input_fingerprints_identical": true,
+    "detail_differs_only_in": "运行特有字段：事件 at 时间戳与 langgraph run_id（UUID）",
+    "verified_by": "python 逐项比较两份 summary.json 的 checks/expected/env/fixed_input_fingerprints"
+  },
+  "source_fingerprints_sha256": {
+    "task8/run_demo.py": "8fe79e7d9852967cfd9dbaf22f107a5782b65654886a51a91488623c2a26df48",
+    "task8/README.md": "8ed0782a58174e148596d3a39a261e5b9921e5008341cc34efea4afa5378b915",
+    "task8/reproduce.md": "4eb0295ea1e1ad7e79c5440c1d0b7a571e96cd30d971730c5231ecef19aaf382",
+    "tools.py": "34c359d25ab73dc4f91e40578f75399acf2147b42eff36d949bf458c26b85c5f",
+    "data/demo.csv": "1352edc00ce42839f6c097af4d1f1cf9c6708791da7375f7c88748c78a574665",
+    "task6/lab_common.py": "d7cc4cdbf0ea42176275397947c17e725cdabcd7a8aa18d5dd5cc28357ff3608",
+    "agent.py": "4b16c258abf135178ac83732d80dde41ba7e256ff8f993395a866798cf5720db"
+  },
+  "not_claimed": [
+    "不证真实模型语义（ScriptedModel 的回答文本是脚本，不是模型行为证据）",
+    "不证统计显著（两次同机重复，非同分布抽样）",
+    "不证安全性（C9 恰证明权限是工具级闸门，绕过工具即绕过）",
+    "未在本机复验 pip install / venv 创建（沙箱限制，见 protocol.venv_limitation）",
+    "未提交课程表单、未公开发布（另需用户确认）"
+  ]
+}
