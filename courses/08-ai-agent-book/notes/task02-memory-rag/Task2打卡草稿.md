@@ -1,4 +1,4 @@
-# Task 2｜用户记忆和知识库
+﻿# Task 2｜用户记忆和知识库
 
 教程：深入理解AI Agent，Chapter 3：https://github.com/bojieli/ai-agent-book/tree/main/chapter3
 
