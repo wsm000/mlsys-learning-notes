@@ -14,6 +14,7 @@ Task0 的目标是理解 AI Agent，配置实验环境，并提交运行截图�
 | MiMo API 连通验证 | `/models` 与 `/chat/completions` 均返回 HTTP 200，回复 `API_OK` | 指定模型接口可以真实调用 |
 | `context` 两组对照 | full 与 no_tool_results 均结束，最终答案均为 4000 | 可以比较工具反馈对本次执行过程的影响 |
 
+没有运行 Kimi 的真实联网搜索，也没有完成上下文实验全部五个消融组。离线演示中的搜索内容是预先编写的，不能当作真实搜索服务已经连通的证据。
 
 ## 2. Agent = LLM + Context + Tools
 
@@ -37,7 +38,7 @@ Task0 的目标是理解 AI Agent，配置实验环境，并提交运行截图�
   → 模型读取更新后的上下文并回答，或继续调用工具
 ```
 
-## 3. 官方离线演示:
+## 3. 官方离线演示：先看清流程
 
 在课程仓库的 `chapter1/web-search-agent` 目录运行：
 
@@ -47,9 +48,7 @@ python main.py --provider offline-demo --output demo.json
 
 示例问题是“Moonshot AI 的 Context Caching 是什么技术？”。轨迹先搜索定义，再搜索用途，最后整合回答。这条轨迹适合观察行动与反馈的关系，但其中标为“思考”的文字也是示例内容，不是本次真实模型推理。
 
-
-<img width="966" height="386" alt="676331438b312699f67e7a8f7f312447" src="https://github.com/user-attachments/assets/21548a8d-866b-4bf2-844f-201a96d74185" />
-
+这一步在 vm-60 成功执行。后续取回文件曾发生 SCP 路径错误，运行成功与文件传输成功需要分别判断。本目录保留的是成功终端日志的节选，不把它伪装成已经取回的远端 JSON。
 
 ## 4. Context 对照：答案相同，过程不同
 
@@ -102,7 +101,10 @@ API 连通、Python 依赖安装、工具执行和结果文件传输是不同环
 
 ## 8. 复现与范围
 
-本目录的 [MiMo 适配脚本](../code/task0/run_context_mimo.py) 使用环境变量 `AMD_API_KEY`，通过 `AI_AGENT_BOOK_DIR` 指向单独克隆的课程仓库。步骤见 [代码说明](../code/task0/README.md)。脚本使用课程原始 Agent 类
+本目录的 [MiMo 适配脚本](../code/task0/run_context_mimo.py) 使用环境变量 `AMD_API_KEY`，通过 `AI_AGENT_BOOK_DIR` 指向单独克隆的课程仓库。步骤见 [代码说明](../code/task0/README.md)。脚本使用课程原始 Agent 类，未复制课程实现，也没有修改 full/no_tool_results 逻辑。
+
+本次下载的源码未记录上游 commit，文件 SHA-256 见 [source-manifest.json](../evidence/task0/source-manifest.json)。课程持续更新，后续复现应额外记录所用 commit；不同模型、任务与运行次数可能得到不同结果。
+
 ## 资料来源
 
 - [ai-agent-book 课程仓库](https://github.com/bojieli/ai-agent-book)

@@ -1,4 +1,4 @@
-# 从一行折扣公式，到一个能完成任务的 Agent
+﻿# 从一行折扣公式，到一个能完成任务的 Agent
 
 > Chapter 5：Coding Agent 与通用 Agent。先预测，再观察，用两个实际实验逐步搭出 Agent 的工作方式。
 

@@ -4,3 +4,6 @@
 .venv/
 __pycache__/
 evidence/local-context-run/
+
+# pytest 缓存
+.pytest_cache/
